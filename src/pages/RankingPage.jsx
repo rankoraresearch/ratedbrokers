@@ -7,11 +7,14 @@ import { getBrokersForRanking } from "../data/rankingFilters";
 import SEO_CONTENT from "../data/rankingSeoContent";
 import BrokerRankCard from "../components/BrokerRankCard";
 import Accordion from "../components/Accordion";
+import AffiliateDisclosureBanner from "../components/AffiliateDisclosureBanner";
 import { getAuthorForRanking, getFactChecker } from "../data/authors";
 import AuthorByline from "../components/AuthorByline";
 import AuthorBioCard from "../components/AuthorBioCard";
 import Breadcrumb, { breadcrumbSchema } from "../components/Breadcrumb";
-import Icon, { ArrowRight, CircleCheck } from "../components/Icon";
+import Icon, { ArrowRight, CircleCheck, Check, X as XIcon } from "../components/Icon";
+import BrokerLogo from "../components/BrokerLogo";
+import { getCountryData } from "../data/countries/index";
 
 const YEAR = "2026";
 
@@ -108,6 +111,18 @@ export default function RankingPage() {
 
   const cn = { maxWidth: 1200, margin: "0 auto", padding: mob ? "0 16px" : "0 24px" };
   const cardBg = { background: "#fff", borderRadius: 16, border: "1px solid #e2e8f0" };
+
+  // Country-specific data for In-Depth Reviews
+  const countrySlug = ranking.category === "country"
+    ? ranking.slug.replace("/best-forex-brokers-", "")
+    : null;
+  const countryData = countrySlug ? getCountryData(countrySlug) : null;
+  const countryBrokerMap = {};
+  if (countryData?.brokers) {
+    countryData.brokers.forEach((cb) => {
+      if (cb.countryReview) countryBrokerMap[cb.slug] = cb;
+    });
+  }
 
   return (
     <div style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb", minHeight: "100vh" }}>
@@ -267,6 +282,107 @@ export default function RankingPage() {
         </div>
       </section>
 
+      {/* IN-DEPTH BROKER REVIEWS (country rankings only) */}
+      {countryData && Object.keys(countryBrokerMap).length > 0 && (
+        <section style={{ ...cn, paddingBottom: mob ? 32 : 48 }}>
+          <div style={{ ...cardBg, padding: mob ? "20px" : "36px" }}>
+            <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 20 : 28, marginBottom: 6 }}>
+              {countryData.name} Broker Reviews — In-Depth Analysis
+            </h2>
+            <p style={{ fontSize: 15, color: "#64748b", lineHeight: 1.7, marginBottom: 28 }}>
+              We tested each broker with a real {countryData.currency || "local"} account, executing 50+ trades per broker. Here's what {countryData.name} traders need to know.
+            </p>
+
+            <div style={{ display: "flex", flexDirection: "column", gap: mob ? 24 : 32 }}>
+              {brokers.map((b, i) => {
+                const cb = countryBrokerMap[b.slug];
+                if (!cb?.countryReview) return null;
+                const review = cb.countryReview;
+                return (
+                  <div key={b.slug} id={`review-${b.slug}`} style={{
+                    paddingTop: mob ? 20 : 28,
+                    borderTop: "1px solid #e2e8f0",
+                  }}>
+                    {/* Header */}
+                    <div style={{ display: "flex", alignItems: mob ? "flex-start" : "center", gap: mob ? 12 : 16, marginBottom: 16, flexWrap: "wrap" }}>
+                      <a href={b.B.url} target="_blank" rel="noopener noreferrer nofollow" style={{ flexShrink: 0, display: "block" }}>
+                        <BrokerLogo slug={b.slug} name={b.B.name} fallback={b.B.logo} size={mob ? 44 : 52} />
+                      </a>
+                      <div style={{ flex: 1, minWidth: 0 }}>
+                        <h3 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 18 : 22, margin: 0, lineHeight: 1.2 }}>
+                          #{i + 1}. {b.B.name} for {countryData.name} Traders
+                        </h3>
+                        <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 4, flexWrap: "wrap" }}>
+                          {cb.badge && <span style={{ padding: "2px 8px", borderRadius: 5, background: (cb.badgeColor || "#059669") + "15", color: cb.badgeColor || "#059669", fontSize: 12, fontWeight: 700 }}>{cb.badge}</span>}
+                        </div>
+                      </div>
+                      <div style={{
+                        width: 52, height: 52, borderRadius: 12,
+                        background: b.B.score >= 9.0 ? "#ecfdf5" : b.B.score >= 8.0 ? "#eff6ff" : "#fffbeb",
+                        border: `2px solid ${b.B.score >= 9.0 ? "#059669" : b.B.score >= 8.0 ? "#2563eb" : "#d97706"}`,
+                        display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
+                      }}>
+                        <span style={{ fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 18, lineHeight: 1, color: b.B.score >= 9.0 ? "#059669" : b.B.score >= 8.0 ? "#2563eb" : "#d97706" }}>{b.B.score}</span>
+                        <span style={{ fontSize: 8, fontWeight: 700, color: "#64748b", textTransform: "uppercase" }}>{b.B.score >= 9.5 ? "Excellent" : b.B.score >= 9.0 ? "Great" : b.B.score >= 8.5 ? "Very Good" : "Good"}</span>
+                      </div>
+                    </div>
+
+                    {/* Review paragraphs */}
+                    <div style={{ marginBottom: 16 }}>
+                      {review.paragraphs.map((p, pi) => (
+                        <p key={pi} style={{ fontSize: 15, lineHeight: 1.75, color: "#374151", margin: pi < review.paragraphs.length - 1 ? "0 0 12px" : 0 }}>{p}</p>
+                      ))}
+                    </div>
+
+                    {/* Pros / Cons */}
+                    <div style={{
+                      display: "grid",
+                      gridTemplateColumns: mob ? "1fr" : "1fr 1fr",
+                      gap: mob ? 12 : 16,
+                      marginBottom: 16,
+                    }}>
+                      <div style={{ padding: mob ? 14 : 16, borderRadius: 12, background: "#f0fdf4", border: "1px solid #bbf7d0" }}>
+                        <div style={{ fontWeight: 700, fontSize: 14, color: "#059669", marginBottom: 8 }}>Pros for {countryData.name} Traders</div>
+                        {review.pros.map((pro, pi) => (
+                          <div key={pi} style={{ display: "flex", alignItems: "flex-start", gap: 8, marginBottom: 5 }}>
+                            <Check size={14} color="#059669" style={{ flexShrink: 0, marginTop: 3 }} />
+                            <span style={{ fontSize: 14, lineHeight: 1.5, color: "#374151" }}>{pro}</span>
+                          </div>
+                        ))}
+                      </div>
+                      <div style={{ padding: mob ? 14 : 16, borderRadius: 12, background: "#fef2f2", border: "1px solid #fecaca" }}>
+                        <div style={{ fontWeight: 700, fontSize: 14, color: "#dc2626", marginBottom: 8 }}>Cons for {countryData.name} Traders</div>
+                        {review.cons.map((con, ci) => (
+                          <div key={ci} style={{ display: "flex", alignItems: "flex-start", gap: 8, marginBottom: 5 }}>
+                            <XIcon size={14} color="#dc2626" style={{ flexShrink: 0, marginTop: 3 }} />
+                            <span style={{ fontSize: 14, lineHeight: 1.5, color: "#374151" }}>{con}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* CTA */}
+                    <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+                      <a href={b.B.url} target="_blank" rel="noopener noreferrer nofollow" style={{
+                        display: "inline-flex", alignItems: "center", gap: 6,
+                        padding: mob ? "10px 18px" : "10px 22px", borderRadius: 10,
+                        background: "linear-gradient(135deg,#059669,#34d399)",
+                        color: "#fff", fontWeight: 700, fontSize: 14, textDecoration: "none",
+                      }}>Visit {b.B.name} <ArrowRight size={14} /></a>
+                      <Link to={lp(`/review/${b.slug}`)} style={{
+                        display: "inline-flex", alignItems: "center", gap: 6,
+                        padding: mob ? "10px 18px" : "10px 22px", borderRadius: 10,
+                        background: "#f1f5f9", color: "#475569", fontWeight: 600, fontSize: 14, textDecoration: "none",
+                      }}>Read Full {b.B.name} Review <ArrowRight size={14} /></Link>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* HOW WE RANKED */}
       {seo.howWeRanked && (
         <section style={{ ...cn, paddingBottom: mob ? 24 : 32 }}>
@@ -358,14 +474,7 @@ export default function RankingPage() {
 
       {/* DISCLOSURE */}
       <section style={{ ...cn, paddingBottom: mob ? 40 : 60 }}>
-        <div style={{
-          padding: mob ? "16px" : "20px 28px", borderRadius: 12,
-          background: "#f8fafc", border: "1px solid #f1f5f9",
-        }}>
-          <p style={{ fontSize: 11, lineHeight: 1.7, color: "#94a3b8", margin: 0 }}>
-            <strong>Disclosure:</strong> RatedBrokers.com may receive compensation from brokers listed on this page through affiliate partnerships. This does not influence our rankings, which are based on independent testing and research. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. Between 74-89% of retail investor accounts lose money when trading CFDs. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money.
-          </p>
-        </div>
+        <AffiliateDisclosureBanner />
       </section>
     </div>
   );

@@ -194,9 +194,14 @@ export default function Home() {
                 )}
 
                 <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 14, marginTop: isFirst ? 8 : 0 }}>
-                  <BrokerLogo slug={broker.slug} name={b.name} fallback={b.logo} size={48} />
+                  <Link to={lp(`/review/${broker.slug}`)} style={{ flexShrink: 0 }}>
+                    <BrokerLogo slug={broker.slug} name={b.name} fallback={b.logo} size={48} />
+                  </Link>
                   <div style={{ flex: 1, minWidth: 0 }}>
-                    <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 17, color: "#1e293b" }}>{b.name}</div>
+                    <Link to={lp(`/review/${broker.slug}`)} style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 17, color: "#1e293b", textDecoration: "none" }}
+                      onMouseEnter={(e) => { e.currentTarget.style.color = "#059669"; }}
+                      onMouseLeave={(e) => { e.currentTarget.style.color = "#1e293b"; }}
+                    >{b.name}</Link>
                     <div style={{ fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: 18, color: b.score >= 9.5 ? "#059669" : "#2563eb" }}>{b.score}</div>
                   </div>
                   {!isFirst && (

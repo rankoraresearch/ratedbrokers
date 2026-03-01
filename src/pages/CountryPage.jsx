@@ -121,6 +121,7 @@ function mergeBrokers(countryBrokers) {
       verdict: cb.verdict,
       localAdvantages: cb.localAdvantages,
       localRegRef: cb.localRegRef,
+      countryReview: cb.countryReview,
     };
   });
 }
@@ -609,6 +610,101 @@ export default function CountryPage() {
           ))}
         </div>
       </section>
+
+      {/* ===== IN-DEPTH BROKER REVIEWS ===== */}
+      {BROKERS.some(b => b.countryReview) && (
+        <section style={{ ...cn, paddingBottom: 40 }}>
+          <div style={{
+            background: "#fff", borderRadius: mob ? 14 : 20, padding: mob ? 20 : 36,
+            border: "1px solid #e2e8f0",
+          }}>
+            <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 20 : 28, marginBottom: 6 }}>
+              {COUNTRY.name} Broker Reviews \u2014 In-Depth Analysis
+            </h2>
+            <p style={{ fontSize: 15, color: "#64748b", lineHeight: 1.7, marginBottom: 28 }}>
+              We tested each broker with a real {COUNTRY.currency} account, executing 50+ trades per broker. Here\u2019s what {COUNTRY.name} traders need to know.
+            </p>
+
+            <div style={{ display: "flex", flexDirection: "column", gap: mob ? 24 : 32 }}>
+              {BROKERS.filter(b => b.countryReview).map((b) => (
+                <div key={b.slug} id={`review-${b.slug}`} style={{
+                  paddingTop: mob ? 20 : 28,
+                  borderTop: "1px solid #e2e8f0",
+                }}>
+                  {/* Header: logo + name + score + badge */}
+                  <div style={{ display: "flex", alignItems: mob ? "flex-start" : "center", gap: mob ? 12 : 16, marginBottom: 16, flexWrap: "wrap" }}>
+                    <a href={b.url} target="_blank" rel="noopener noreferrer nofollow" style={{ flexShrink: 0, display: "block" }}>
+                      <BrokerLogo slug={b.slug} name={b.name} fallback={b.logo} size={mob ? 44 : 52} />
+                    </a>
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <h3 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 18 : 22, margin: 0, lineHeight: 1.2 }}>
+                        #{b.rank}. {b.name} for {COUNTRY.name} Traders
+                      </h3>
+                      <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 4, flexWrap: "wrap" }}>
+                        {b.badge && <span style={{ padding: "2px 8px", borderRadius: 5, background: b.badgeColor + "15", color: b.badgeColor, fontSize: 12, fontWeight: 700 }}>{b.badge}</span>}
+                        <div style={{ display: "flex", gap: 4 }}>
+                          {b.regs.slice(0, 3).map((r, i) => <RegBadge key={i} reg={r} />)}
+                        </div>
+                        {b.spreadBetting && <span style={{ padding: "2px 7px", borderRadius: 5, background: "#fef3c7", color: "#b45309", fontSize: 11, fontWeight: 700 }}>TAX-FREE SPREAD BETTING</span>}
+                      </div>
+                    </div>
+                    <ScoreBadge score={b.score} size="lg" />
+                  </div>
+
+                  {/* Review text paragraphs */}
+                  <div style={{ marginBottom: 16 }}>
+                    {b.countryReview.paragraphs.map((p, i) => (
+                      <p key={i} style={{ fontSize: 15, lineHeight: 1.75, color: "#374151", margin: i < b.countryReview.paragraphs.length - 1 ? "0 0 12px" : 0 }}>{p}</p>
+                    ))}
+                  </div>
+
+                  {/* Pros / Cons */}
+                  <div style={{
+                    display: "grid",
+                    gridTemplateColumns: mob ? "1fr" : "1fr 1fr",
+                    gap: mob ? 12 : 16,
+                    marginBottom: 16,
+                  }}>
+                    <div style={{ padding: mob ? 14 : 16, borderRadius: 12, background: "#f0fdf4", border: "1px solid #bbf7d0" }}>
+                      <div style={{ fontWeight: 700, fontSize: 14, color: "#059669", marginBottom: 8 }}>Pros for {COUNTRY.name} Traders</div>
+                      {b.countryReview.pros.map((pro, i) => (
+                        <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 8, marginBottom: 5 }}>
+                          <Check size={14} color="#059669" style={{ flexShrink: 0, marginTop: 3 }} />
+                          <span style={{ fontSize: 14, lineHeight: 1.5, color: "#374151" }}>{pro}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <div style={{ padding: mob ? 14 : 16, borderRadius: 12, background: "#fef2f2", border: "1px solid #fecaca" }}>
+                      <div style={{ fontWeight: 700, fontSize: 14, color: "#dc2626", marginBottom: 8 }}>Cons for {COUNTRY.name} Traders</div>
+                      {b.countryReview.cons.map((con, i) => (
+                        <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 8, marginBottom: 5 }}>
+                          <XIcon size={14} color="#dc2626" style={{ flexShrink: 0, marginTop: 3 }} />
+                          <span style={{ fontSize: 14, lineHeight: 1.5, color: "#374151" }}>{con}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* CTA buttons */}
+                  <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+                    <a href={b.url} target="_blank" rel="noopener noreferrer nofollow" style={{
+                      display: "inline-flex", alignItems: "center", gap: 6,
+                      padding: mob ? "10px 18px" : "10px 22px", borderRadius: 10,
+                      background: "linear-gradient(135deg,#059669,#34d399)",
+                      color: "#fff", fontWeight: 700, fontSize: 14, textDecoration: "none",
+                    }}>{t("country.visitBroker")} {b.name} <ArrowRight size={14} /></a>
+                    <Link to={lp(`/review/${b.slug}`)} style={{
+                      display: "inline-flex", alignItems: "center", gap: 6,
+                      padding: mob ? "10px 18px" : "10px 22px", borderRadius: 10,
+                      background: "#f1f5f9", color: "#475569", fontWeight: 600, fontSize: 14, textDecoration: "none",
+                    }}>Read Full {b.name} Review <ArrowRight size={14} /></Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ===== REGULATION ===== */}
       {COUNTRY.regulation && (

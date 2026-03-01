@@ -283,9 +283,12 @@ export default function AboutPage() {
           <h3 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 20, color: "#92400e", margin: "0 0 10px" }}>
             {t("about.affTitle")}
           </h3>
-          <p style={{ fontSize: 14, lineHeight: 1.8, color: "#78350f", margin: 0 }}>
+          <p style={{ fontSize: 14, lineHeight: 1.8, color: "#78350f", margin: "0 0 12px" }}>
             {t("about.affDesc")}
           </p>
+          <Link to={lp("/how-we-make-money")} style={{
+            color: "#92400e", fontWeight: 700, textDecoration: "none", fontSize: 14,
+          }}>{t("meth.affLink")} →</Link>
         </div>
       </section>
 

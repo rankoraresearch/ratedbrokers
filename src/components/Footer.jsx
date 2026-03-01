@@ -78,6 +78,7 @@ const FOOTER_COUNTRIES = [
 
 const FOOTER_COMPANY = [
   { label: "methodology", path: "/methodology", isLink: true },
+  { label: "howWeMakeMoney", path: "/how-we-make-money", isLink: true },
   { label: "allRankings", path: "/rankings", isLink: true },
   { label: "aboutUs", path: "/about", isLink: true },
   { label: "contact", path: "#", isLink: false },
@@ -246,7 +247,7 @@ export default function Footer() {
             {FOOTER_COMPANY.map(({ label, path, isLink }) =>
               isLink ? (
                 <HoverLink key={label} to={lp(path)}>
-                  {label === "methodology" ? t("footer.methodology") : t("footer.allRankings")}
+                  {t(`footer.${label}`)}
                 </HoverLink>
               ) : (
                 <HoverLink key={label} href={path}>

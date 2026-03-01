@@ -8,6 +8,7 @@ import { getAuthorForRanking, getFactChecker } from "../data/authors";
 import CONTENT from "../data/forexPillarContent";
 import BrokerRankCard from "../components/BrokerRankCard";
 import Accordion from "../components/Accordion";
+import AffiliateDisclosureBanner from "../components/AffiliateDisclosureBanner";
 import AuthorByline from "../components/AuthorByline";
 import AuthorBioCard from "../components/AuthorBioCard";
 import Breadcrumb from "../components/Breadcrumb";
@@ -570,14 +571,7 @@ export default function ForexBrokersPage() {
 
       {/* Disclosure */}
       <section style={{ ...cn, paddingBottom: mob ? 40 : 60 }}>
-        <div style={{
-          padding: mob ? "16px" : "20px 28px", borderRadius: 12,
-          background: "#f8fafc", border: "1px solid #f1f5f9",
-        }}>
-          <p style={{ fontSize: 11, lineHeight: 1.7, color: "#94a3b8", margin: 0 }}>
-            <strong>Disclosure:</strong> RatedBrokers.com may receive compensation from brokers listed on this page through affiliate partnerships. This does not influence our rankings, which are based on independent testing and research. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. Between 74-89% of retail investor accounts lose money when trading CFDs. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money.
-          </p>
-        </div>
+        <AffiliateDisclosureBanner />
       </section>
     </div>
   );

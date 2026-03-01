@@ -360,6 +360,12 @@ export default function Header() {
                 onMouseEnter={(e) => { e.currentTarget.style.color = "#34d399"; }}
                 onMouseLeave={(e) => { e.currentTarget.style.color = "#64748b"; }}
               >Methodology</Link>
+              <Link to={lp("/how-we-make-money")} style={{
+                color: "#64748b", textDecoration: "none", transition: "color 0.2s",
+              }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = "#34d399"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = "#64748b"; }}
+              >How We Make Money</Link>
               <Link to={lp("/about")} style={{
                 color: "#64748b", textDecoration: "none", transition: "color 0.2s",
               }}

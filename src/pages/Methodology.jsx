@@ -4,111 +4,15 @@ import { useTranslation } from "../i18n/LanguageContext";
 import { useLocalePath } from "../i18n/useLocalePath";
 import { AUTHORS } from "../data/authors";
 import { getRegulatorByName } from "../data/regulators";
+import { getBrokerData } from "../data/brokers/index";
+import { TRUST_SCORE_TIERS, CRITERIA_V2, CHANGELOG, FAQ_METHODOLOGY } from "../data/methodologyData";
 import Icon from "../components/Icon";
 import { ChevronDown } from "lucide-react";
 import Breadcrumb from "../components/Breadcrumb";
 
 // ============================
-// METHODOLOGY DATA
+// STATIC DATA
 // ============================
-const CRITERIA = [
-  {
-    id: "regulation",
-    name: "Regulation & Safety",
-    weight: 25,
-    icon: "shield",
-    color: "#059669",
-    summary: "We verify every license number directly with the regulator's public database. No exceptions.",
-    details: "A broker's regulatory status is the single most important factor in our evaluation. We don't just check if a broker claims to be regulated — we verify every license number directly on the regulator's website. We classify regulators into three tiers based on the strictness of their oversight, capital requirements, and investor protection schemes.",
-    scoring: [
-      { range: "9.0 – 10.0", desc: "Multiple Tier-1 licenses (FCA, ASIC, NFA, FINMA, MAS). Segregated funds, investor compensation, negative balance protection." },
-      { range: "7.0 – 8.9", desc: "At least one Tier-1 + Tier-2 licenses (CySEC, DFSA, FMA). Segregated funds confirmed." },
-      { range: "5.0 – 6.9", desc: "Tier-2 regulation only, or single Tier-1 license with offshore entities." },
-      { range: "Below 5.0", desc: "Offshore-only regulation (VFSC, SVG, FSA Seychelles). We flag these brokers with warnings." },
-    ],
-    tiers: [
-      { tier: "Tier 1", regs: ["FCA (UK)", "ASIC (Australia)", "NFA/CFTC (USA)", "FINMA (Switzerland)", "MAS (Singapore)", "BaFin (Germany)"], color: "#059669" },
-      { tier: "Tier 2", regs: ["CySEC (Cyprus/EU)", "DFSA (Dubai)", "FMA (New Zealand)", "FSCA (South Africa)", "CMA (Kenya)"], color: "#d97706" },
-      { tier: "Tier 3", regs: ["FSA (Seychelles)", "VFSC (Vanuatu)", "IFSC (Belize)", "FSC (Mauritius)"], color: "#dc2626" },
-    ],
-  },
-  {
-    id: "costs",
-    name: "Trading Costs",
-    weight: 20,
-    icon: "dollar-sign",
-    color: "#2563eb",
-    summary: "We measure real spreads over 30 days with live accounts — not the minimums brokers advertise.",
-    details: "Advertised spreads are meaningless. A broker may claim '0.0 pip spreads' but their average spread could be 0.5 pips with frequent widening. We open real accounts, deposit real money, and measure actual spreads across 500+ trades over a 30-day period. We calculate total cost per lot including spread + commission + any hidden fees.",
-    scoring: [
-      { range: "9.0 – 10.0", desc: "Total cost under $3/lot on EUR/USD. Commission under $7/lot RT. No hidden fees. No markup on raw spreads." },
-      { range: "7.0 – 8.9", desc: "Total cost $3-6/lot. Competitive commission structure. Minimal hidden fees." },
-      { range: "5.0 – 6.9", desc: "Total cost $6-10/lot. Spread markup present. Some hidden fees (inactivity, withdrawal)." },
-      { range: "Below 5.0", desc: "Total cost above $10/lot. Heavy spread markup. Multiple hidden fees. Deceptive pricing." },
-    ],
-  },
-  {
-    id: "trustpilot",
-    name: "User Reviews (Trustpilot)",
-    weight: 15,
-    icon: "star",
-    color: "#00B67A",
-    summary: "We aggregate real user sentiment and use NLP analysis to filter fake reviews.",
-    details: "Trustpilot scores provide real-world feedback from actual traders. However, we don't just use the raw score — we analyze review patterns. We filter for fake positive reviews (same language patterns, burst reviews around the same date) and examine the substance of negative reviews (are complaints about execution, withdrawals, or just user error?). We weight recent reviews more heavily than older ones.",
-    scoring: [
-      { range: "9.0 – 10.0", desc: "Trustpilot 4.5+/5 with 10,000+ reviews. Minimal fake review patterns. Broker actively responds to complaints." },
-      { range: "7.0 – 8.9", desc: "Trustpilot 4.0-4.4/5 with 5,000+ reviews. Some fake patterns but genuine core." },
-      { range: "5.0 – 6.9", desc: "Trustpilot 3.5-3.9/5 or fewer than 2,000 reviews. Mixed sentiment." },
-      { range: "Below 5.0", desc: "Trustpilot below 3.5/5 or significant fake review patterns detected." },
-    ],
-  },
-  {
-    id: "expert",
-    name: "Expert Hands-On Test",
-    weight: 20,
-    icon: "microscope",
-    color: "#7c3aed",
-    summary: "Our verified traders open real accounts and test execution, slippage, and withdrawals personally.",
-    details: "Every broker we rank is tested by at least two members of our team using real money. We open accounts, verify KYC, deposit funds, execute trades, test customer support, and withdraw money. This hands-on testing catches issues that no spreadsheet analysis can find: slow KYC, unresponsive support, hidden withdrawal conditions, platform bugs, and more. Each tester is a verified trader with a public LinkedIn profile.",
-    scoring: [
-      { range: "9.0 – 10.0", desc: "Flawless onboarding, fast KYC, responsive support, smooth withdrawals, no issues during 30-day test." },
-      { range: "7.0 – 8.9", desc: "Minor issues (slow KYC, occasional support delays) but overall positive experience." },
-      { range: "5.0 – 6.9", desc: "Notable friction (withdrawal delays, support gaps, platform issues)." },
-      { range: "Below 5.0", desc: "Serious problems (KYC rejection, withdrawal blocking, unresponsive support, suspicious behavior)." },
-    ],
-  },
-  {
-    id: "platform",
-    name: "Platforms & Tools",
-    weight: 10,
-    icon: "monitor",
-    color: "#0ea5e9",
-    summary: "We evaluate platform quality, mobile apps, charting tools, and API access.",
-    details: "We test every platform a broker offers: MT4, MT5, cTrader, TradingView, proprietary platforms, and mobile apps. We evaluate charting capabilities, order types, indicator availability, algo trading support (EA/cBot), API access, and overall user experience. A broker offering only one platform scores lower than one offering multiple choices.",
-    scoring: [
-      { range: "9.0 – 10.0", desc: "3+ platforms (MT4/MT5/cTrader/TradingView). Excellent mobile apps. API access. Algo trading supported." },
-      { range: "7.0 – 8.9", desc: "2+ platforms with good mobile apps. Some API or algo support." },
-      { range: "5.0 – 6.9", desc: "Single platform or outdated software. Basic mobile experience." },
-      { range: "Below 5.0", desc: "Proprietary-only platform with limited features. Poor mobile app or no mobile." },
-    ],
-  },
-  {
-    id: "execution",
-    name: "Execution Quality",
-    weight: 10,
-    icon: "zap",
-    color: "#f59e0b",
-    summary: "We measure fill speed, slippage symmetry, requotes, and server uptime.",
-    details: "Execution quality separates good brokers from great ones. We measure average execution speed (in milliseconds), slippage frequency and direction (symmetric vs asymmetric), requote rates, and order rejection rates. A broker with fast execution but asymmetric slippage (always against the trader) scores lower than a slightly slower broker with fair, symmetric slippage.",
-    scoring: [
-      { range: "9.0 – 10.0", desc: "Under 50ms average execution. Symmetric slippage. Zero requotes. 99.9%+ server uptime." },
-      { range: "7.0 – 8.9", desc: "50-100ms execution. Mostly symmetric slippage. Rare requotes." },
-      { range: "5.0 – 6.9", desc: "100-200ms execution. Slightly asymmetric slippage. Occasional requotes." },
-      { range: "Below 5.0", desc: "Over 200ms execution. Clear asymmetric slippage. Frequent requotes or rejections." },
-    ],
-  },
-];
-
 const PROCESS_STEPS = [
   { step: "01", title: "Research & Shortlist", desc: "We identify brokers through market research, user requests, and industry monitoring. Each candidate must have at least one verifiable regulatory license.", duration: "1 week", icon: "search" },
   { step: "02", title: "License Verification", desc: "We manually verify every regulatory license on the regulator's public database. We check authorization scope, disciplinary history, and any sanctions.", duration: "1-2 days", icon: "shield" },
@@ -126,13 +30,17 @@ const TEAM = [
   { ...AUTHORS["elena-petrova"], specialty: "Algo Trading" },
 ];
 
-const FAQ = [
-  { q: "How often are broker scores updated?", a: "Every quarter. We re-test all published brokers with live accounts, update spread data, re-check regulatory status, and incorporate new Trustpilot reviews. If a broker undergoes a significant change (new regulation, ownership change, security breach), we update immediately." },
-  { q: "Do brokers pay to be listed?", a: "No. Our rankings are based entirely on our independent testing methodology. Some brokers on our site are affiliate partners, meaning we may earn a commission if you open an account through our links. This never affects our scores or rankings. Many of our top-ranked brokers have no affiliate relationship with us." },
-  { q: "What happens if a broker's score drops?", a: "If a broker's score drops below 7.0, we add a warning notice to their review. Below 6.0, we move them to a 'Not Recommended' list. Below 5.0, we remove them entirely. We always notify the broker and give them 30 days to address issues before making changes." },
-  { q: "Can I suggest a broker for review?", a: "Yes. Email us at reviews@ratedbrokers.com with the broker name and your experience. We prioritize brokers that multiple users request. However, the broker must have at least one verifiable regulatory license to be considered." },
-  { q: "Why don't you include [specific broker]?", a: "We only review brokers we can test personally with real money. Some brokers restrict accounts based on geography, making testing impossible. Others are too new (under 2 years) or lack verifiable regulation. We're constantly expanding our coverage." },
-  { q: "How do you handle conflicts of interest?", a: "Full transparency: some brokers listed on our site are affiliate partners. However, our scoring is done by analysts who have no visibility into affiliate relationships. The editorial team and business team are completely separate. Our methodology is public — anyone can verify our scores." },
+const TOC_ITEMS = [
+  { id: "score-explained", label: "RatedBrokers Score Explained" },
+  { id: "scoring-formula", label: "Scoring Formula" },
+  { id: "detailed-criteria", label: "Detailed Criteria & Sub-Criteria" },
+  { id: "scoring-example", label: "Scoring Example: IC Markets" },
+  { id: "testing-process", label: "Our Testing Process" },
+  { id: "editorial-independence", label: "Editorial Independence" },
+  { id: "anti-kitchen", label: "Anti-Kitchen Broker Pledge" },
+  { id: "changelog", label: "Update Schedule & Changelog" },
+  { id: "team", label: "Our Expert Team" },
+  { id: "faq", label: "FAQ" },
 ];
 
 // ============================
@@ -162,24 +70,74 @@ export default function MethodologyPage() {
   const { t } = useTranslation();
   const lp = useLocalePath();
   const { mob, tab } = useMedia();
-  const [scrolled, setScrolled] = useState(false);
   const [expandedCriteria, setExpandedCriteria] = useState(null);
   const [expandedFAQ, setExpandedFAQ] = useState(null);
+
+  // Get IC Markets data for scoring example
+  const icData = getBrokerData("ic-markets");
 
   useEffect(() => {
     document.title = "How We Test Forex Brokers: Our Methodology | RatedBrokers";
     const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", "Our 8-category scoring system explained. We open live accounts, deposit real money, and execute 500+ trades to rank brokers. Transparent, data-driven methodology.");
-    const fn = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", fn);
-    return () => window.removeEventListener("scroll", fn);
+    if (meta) meta.setAttribute("content", "Our 6-category, 130+ data point scoring system explained. We open live accounts, deposit real money, and execute 500+ trades to rank brokers. Transparent, data-driven methodology with sub-criteria breakdown.");
+
+    const schema = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          headline: "How We Test & Rate Forex Brokers: Our Methodology",
+          description: "RatedBrokers methodology: 130+ data points, 6 weighted criteria, real-money testing.",
+          author: [
+            { "@type": "Person", name: "Marcus Chen", jobTitle: "Senior Forex Analyst" },
+            { "@type": "Person", name: "David Kowalski", jobTitle: "Compliance Analyst" },
+          ],
+          publisher: { "@type": "Organization", name: "RatedBrokers", url: "https://ratedbrokers.com" },
+          datePublished: "2024-06-01",
+          dateModified: "2026-03-01",
+        },
+        {
+          "@type": "FAQPage",
+          mainEntity: FAQ_METHODOLOGY.map(item => ({
+            "@type": "Question",
+            name: item.q,
+            acceptedAnswer: { "@type": "Answer", text: item.a },
+          })),
+        },
+        {
+          "@type": "HowTo",
+          name: "How RatedBrokers Tests Forex Brokers",
+          step: PROCESS_STEPS.map((s, i) => ({
+            "@type": "HowToStep",
+            position: i + 1,
+            name: s.title,
+            text: s.desc,
+          })),
+        },
+        {
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Home", item: "https://ratedbrokers.com/" },
+            { "@type": "ListItem", position: 2, name: "Methodology", item: "https://ratedbrokers.com/methodology" },
+          ],
+        },
+      ],
+    };
+    let el = document.getElementById("methodology-schema");
+    if (!el) {
+      el = document.createElement("script");
+      el.id = "methodology-schema";
+      el.type = "application/ld+json";
+      document.head.appendChild(el);
+    }
+    el.textContent = JSON.stringify(schema);
+    return () => { if (el.parentNode) el.parentNode.removeChild(el); };
   }, []);
 
   const cn = { maxWidth: 1200, margin: "0 auto", padding: mob ? "0 16px" : "0 24px" };
 
   return (
     <div style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb", color: "#1e293b", minHeight: "100vh" }}>
-      {/* Fonts and header rendered by App.jsx */}
 
       {/* BREADCRUMBS */}
       <div style={{ paddingTop: 0 }}>
@@ -192,7 +150,7 @@ export default function MethodologyPage() {
       </div>
 
       {/* =================== HERO =================== */}
-      <section style={{ ...cn, marginBottom: 40 }}>
+      <section style={{ ...cn, marginBottom: 24 }}>
         <div style={{ maxWidth: 780 }}>
           <h1 style={{ fontFamily: "Outfit", fontWeight: 900, fontSize: mob ? 26 : 42, lineHeight: 1.15, color: "#0f172a", margin: "0 0 14px" }}>
             {t("meth.title")}
@@ -205,7 +163,7 @@ export default function MethodologyPage() {
           <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
             {[
               { val: "54", label: t("meth.brokersTested") },
-              { val: "30", label: t("meth.daysPerTest") },
+              { val: "130+", label: t("meth.dataPoints") },
               { val: "500+", label: t("meth.tradesPerBroker") },
               { val: "4", label: t("meth.expertReviewers") },
               { val: t("meth.quarterly"), label: t("meth.reEvaluation") },
@@ -217,6 +175,50 @@ export default function MethodologyPage() {
                 <div style={{ fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 22, color: "#059669" }}>{s.val}</div>
                 <div style={{ fontSize: 11, color: "#64748b", fontWeight: 500 }}>{s.label}</div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* =================== AUTHOR BYLINE =================== */}
+      <section style={{ ...cn, marginBottom: 24 }}>
+        <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 12, fontSize: 13, color: "#64748b" }}>
+          <span>{t("meth.writtenBy")} <strong style={{ color: "#1e293b" }}>Marcus Chen, CMT</strong></span>
+          <span style={{ color: "#e2e8f0" }}>|</span>
+          <span>{t("meth.factChecked")} <strong style={{ color: "#1e293b" }}>David Kowalski, CAMS</strong></span>
+          <span style={{ color: "#e2e8f0" }}>|</span>
+          <span style={{
+            padding: "2px 8px", borderRadius: 4,
+            background: "#ecfdf5", color: "#059669", fontSize: 11, fontWeight: 600,
+          }}>{t("meth.lastUpdated")}: March 2026</span>
+          <span style={{
+            padding: "2px 8px", borderRadius: 4,
+            background: "#eff6ff", color: "#2563eb", fontSize: 11, fontWeight: 600,
+          }}>{t("meth.nextReview")}: June 2026</span>
+        </div>
+      </section>
+
+      {/* =================== TABLE OF CONTENTS =================== */}
+      <section style={{ ...cn, marginBottom: 40 }}>
+        <div style={{
+          padding: "20px 24px", borderRadius: 14,
+          background: "#fff", border: "1px solid #e2e8f0",
+        }}>
+          <div style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 16, marginBottom: 12, color: "#0f172a" }}>
+            {t("meth.tocTitle")}
+          </div>
+          <div style={{
+            display: "grid", gridTemplateColumns: mob ? "1fr" : "1fr 1fr", gap: "4px 24px",
+          }}>
+            {TOC_ITEMS.map((item, i) => (
+              <a key={i} href={`#${item.id}`} style={{
+                display: "flex", alignItems: "center", gap: 8,
+                padding: "6px 0", fontSize: 14, color: "#2563eb",
+                textDecoration: "none", fontWeight: 500,
+              }}>
+                <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 12, color: "#94a3b8", minWidth: 20 }}>{i + 1}.</span>
+                {item.label}
+              </a>
             ))}
           </div>
         </div>
@@ -241,8 +243,38 @@ export default function MethodologyPage() {
         </div>
       </section>
 
+      {/* =================== RATEDBROKERS SCORE EXPLAINED =================== */}
+      <section id="score-explained" style={{ ...cn, marginBottom: 48 }}>
+        <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 28, marginBottom: 6 }}>
+          {t("meth.scoreExplainedTitle")}
+        </h2>
+        <p style={{ fontSize: 16, color: "#64748b", marginBottom: 20, maxWidth: 700 }}>
+          {t("meth.scoreExplainedDesc")}
+        </p>
+
+        {/* Score tiers */}
+        <div style={{
+          display: "grid", gridTemplateColumns: mob ? "1fr" : tab ? "1fr 1fr" : "repeat(5, 1fr)", gap: 12,
+        }}>
+          {TRUST_SCORE_TIERS.map((tier, i) => (
+            <div key={i} style={{
+              padding: "18px 16px", borderRadius: 12,
+              background: "#fff", border: `2px solid ${tier.color}30`,
+              borderTop: `4px solid ${tier.color}`,
+            }}>
+              <div style={{
+                fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 20,
+                color: tier.color, marginBottom: 4,
+              }}>{tier.min}–{tier.max}</div>
+              <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 16, marginBottom: 6 }}>{tier.label}</div>
+              <div style={{ fontSize: 12, color: "#64748b", lineHeight: 1.6 }}>{tier.desc}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* =================== SCORING FORMULA =================== */}
-      <section style={{ ...cn, marginBottom: 48 }}>
+      <section id="scoring-formula" style={{ ...cn, marginBottom: 48 }}>
         <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 28, marginBottom: 6 }}>
           {t("meth.formulaTitle")}
         </h2>
@@ -274,14 +306,14 @@ export default function MethodologyPage() {
         <div style={{
           display: "grid", gridTemplateColumns: mob ? "1fr" : "1fr 1fr", gap: 12, marginBottom: 32,
         }}>
-          {CRITERIA.map((c, i) => (
+          {CRITERIA_V2.map((c, i) => (
             <div key={i} style={{
               padding: "16px 20px", borderRadius: 12,
               background: "#fff", border: "1px solid #e2e8f0",
             }}>
               <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
                 <Icon name={c.icon} size={20} color={c.color} />
-                <span style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 15 }}>{t("criteria." + c.id)}</span>
+                <span style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 15 }}>{t("criteria." + c.key)}</span>
               </div>
               <WeightBar weight={c.weight} color={c.color} />
             </div>
@@ -289,14 +321,14 @@ export default function MethodologyPage() {
         </div>
       </section>
 
-      {/* =================== DETAILED CRITERIA =================== */}
-      <section style={{ ...cn, marginBottom: 48 }}>
+      {/* =================== DETAILED CRITERIA WITH SUB-CRITERIA =================== */}
+      <section id="detailed-criteria" style={{ ...cn, marginBottom: 48 }}>
         <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 28, marginBottom: 20 }}>
           {t("meth.detailedTitle")}
         </h2>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-          {CRITERIA.map((c, i) => (
+          {CRITERIA_V2.map((c, i) => (
             <div key={i} style={{
               background: "#fff", borderRadius: 14, border: "1px solid #e2e8f0",
               overflow: "hidden", borderLeft: `4px solid ${c.color}`,
@@ -311,13 +343,18 @@ export default function MethodologyPage() {
               >
                 <Icon name={c.icon} size={28} color={c.color} />
                 <div style={{ flex: 1 }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                    <span style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 19 }}>{t("criteria." + c.id)}</span>
+                  <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
+                    <span style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 19 }}>{t("criteria." + c.key)}</span>
                     <span style={{
                       padding: "3px 10px", borderRadius: 6,
                       background: c.color + "14", color: c.color,
                       fontFamily: "'JetBrains Mono',monospace", fontSize: 13, fontWeight: 800,
                     }}>{c.weight}% {t("meth.weight")}</span>
+                    <span style={{
+                      padding: "3px 10px", borderRadius: 6,
+                      background: "#f1f5f9", color: "#64748b",
+                      fontSize: 11, fontWeight: 600,
+                    }}>{c.subCriteria.length} sub-criteria</span>
                   </div>
                   <div style={{ fontSize: 14, color: "#64748b", marginTop: 4 }}>{c.summary}</div>
                 </div>
@@ -334,6 +371,35 @@ export default function MethodologyPage() {
                   <p style={{ fontSize: 15, lineHeight: 1.8, color: "#334155", margin: "16px 0 20px" }}>
                     {c.details}
                   </p>
+
+                  {/* Sub-criteria table */}
+                  <div style={{ marginBottom: 20 }}>
+                    <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 16, marginBottom: 10 }}>{t("meth.subCriteriaTitle")}</div>
+                    <div style={{ borderRadius: 10, border: "1px solid #e2e8f0", overflow: "hidden" }}>
+                      <div style={{
+                        display: "grid", gridTemplateColumns: "1fr 60px",
+                        padding: "10px 16px", background: c.color + "08",
+                        fontWeight: 700, fontSize: 12, color: "#64748b", textTransform: "uppercase",
+                      }}>
+                        <div>{t("meth.subCriteriaName")}</div>
+                        <div style={{ textAlign: "center" }}>{t("meth.weight")}</div>
+                      </div>
+                      {c.subCriteria.map((sc, si) => (
+                        <div key={si} style={{
+                          display: "grid", gridTemplateColumns: "1fr 60px",
+                          padding: "10px 16px",
+                          background: si % 2 === 0 ? "#fff" : "#f8f9fb",
+                          borderTop: "1px solid #f1f5f9",
+                        }}>
+                          <span style={{ fontSize: 13, color: "#334155" }}>{sc.name}</span>
+                          <span style={{
+                            textAlign: "center", fontFamily: "'JetBrains Mono',monospace",
+                            fontWeight: 700, fontSize: 13, color: c.color,
+                          }}>{sc.weight}%</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
 
                   {/* Scoring table */}
                   <div style={{ marginBottom: 16 }}>
@@ -388,8 +454,100 @@ export default function MethodologyPage() {
         </div>
       </section>
 
+      {/* =================== SCORING EXAMPLE =================== */}
+      <section id="scoring-example" style={{ ...cn, marginBottom: 48 }}>
+        <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 28, marginBottom: 6 }}>
+          {t("meth.scoringExampleTitle")}
+        </h2>
+        <p style={{ fontSize: 16, color: "#64748b", marginBottom: 20, maxWidth: 700 }}>
+          {t("meth.scoringExampleDesc")}
+        </p>
+
+        {icData && (
+          <div style={{
+            borderRadius: 14, border: "1px solid #e2e8f0", overflow: "hidden", background: "#fff",
+          }}>
+            {/* Header */}
+            <div style={{
+              padding: "16px 24px", background: "linear-gradient(135deg,#0f172a,#1e3a5f)",
+              display: "flex", alignItems: "center", justifyContent: "space-between",
+            }}>
+              <div>
+                <div style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 20, color: "#fff" }}>
+                  {icData.B.name}
+                </div>
+                <div style={{ fontSize: 13, color: "#94a3b8" }}>{t("meth.scoringExampleSubtitle")}</div>
+              </div>
+              <div style={{
+                fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 28,
+                color: "#34d399",
+              }}>{icData.B.score}</div>
+            </div>
+
+            {/* Table header */}
+            <div style={{
+              display: "grid", gridTemplateColumns: mob ? "1fr 60px 60px 70px" : "2fr 80px 80px 100px",
+              padding: "10px 24px", background: "#f8f9fb",
+              fontWeight: 700, fontSize: 12, color: "#64748b", textTransform: "uppercase",
+            }}>
+              <div>{t("meth.criterion")}</div>
+              <div style={{ textAlign: "center" }}>{t("meth.weight")}</div>
+              <div style={{ textAlign: "center" }}>{t("meth.score")}</div>
+              <div style={{ textAlign: "center" }}>{t("meth.weighted")}</div>
+            </div>
+
+            {/* Score rows */}
+            {icData.SCORES.map((s, i) => {
+              const weighted = (s.score * s.weight / 100).toFixed(2);
+              return (
+                <div key={i} style={{
+                  display: "grid", gridTemplateColumns: mob ? "1fr 60px 60px 70px" : "2fr 80px 80px 100px",
+                  padding: "12px 24px", borderTop: "1px solid #f1f5f9",
+                  background: i % 2 === 0 ? "#fff" : "#fafbfc",
+                }}>
+                  <div style={{ fontSize: 14, fontWeight: 500 }}>{s.name}</div>
+                  <div style={{
+                    textAlign: "center", fontFamily: "'JetBrains Mono',monospace",
+                    fontSize: 13, color: "#64748b",
+                  }}>{s.weight}%</div>
+                  <div style={{
+                    textAlign: "center", fontFamily: "'JetBrains Mono',monospace",
+                    fontWeight: 700, fontSize: 14, color: "#059669",
+                  }}>{s.score}</div>
+                  <div style={{
+                    textAlign: "center", fontFamily: "'JetBrains Mono',monospace",
+                    fontWeight: 700, fontSize: 14, color: "#1e293b",
+                  }}>{weighted}</div>
+                </div>
+              );
+            })}
+
+            {/* Total */}
+            <div style={{
+              display: "grid", gridTemplateColumns: mob ? "1fr 60px 60px 70px" : "2fr 80px 80px 100px",
+              padding: "14px 24px", borderTop: "2px solid #e2e8f0",
+              background: "#ecfdf5",
+            }}>
+              <div style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 15 }}>{t("meth.total")}</div>
+              <div></div>
+              <div></div>
+              <div style={{
+                textAlign: "center", fontFamily: "'JetBrains Mono',monospace",
+                fontWeight: 800, fontSize: 18, color: "#059669",
+              }}>{icData.B.score}</div>
+            </div>
+          </div>
+        )}
+
+        <div style={{ marginTop: 12 }}>
+          <Link to={lp("/review/ic-markets")} style={{
+            color: "#2563eb", fontWeight: 600, textDecoration: "none", fontSize: 14,
+          }}>{t("meth.readFullReview")} →</Link>
+        </div>
+      </section>
+
       {/* =================== TESTING PROCESS =================== */}
-      <section style={{ ...cn, marginBottom: 48 }}>
+      <section id="testing-process" style={{ ...cn, marginBottom: 48 }}>
         <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 28, marginBottom: 6 }}>
           {t("meth.processTitle")}
         </h2>
@@ -433,8 +591,54 @@ export default function MethodologyPage() {
         </div>
       </section>
 
+      {/* =================== EDITORIAL INDEPENDENCE =================== */}
+      <section id="editorial-independence" style={{ ...cn, marginBottom: 48 }}>
+        <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 28, marginBottom: 20 }}>
+          {t("meth.editorialTitle")}
+        </h2>
+        <div style={{
+          padding: "28px", borderRadius: 14,
+          background: "#fff", border: "1px solid #e2e8f0",
+        }}>
+          <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "1fr 1fr", gap: 20 }}>
+            <div>
+              <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
+                <Icon name="shield" size={20} color="#059669" />
+                <span style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 17 }}>{t("meth.editorialWall")}</span>
+              </div>
+              <p style={{ fontSize: 14, lineHeight: 1.8, color: "#475569", margin: "0 0 16px" }}>
+                {t("meth.editorialWallDesc")}
+              </p>
+            </div>
+            <div>
+              <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
+                <Icon name="eye-off" size={20} color="#7c3aed" />
+                <span style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 17 }}>{t("meth.editorialBlind")}</span>
+              </div>
+              <p style={{ fontSize: 14, lineHeight: 1.8, color: "#475569", margin: "0 0 16px" }}>
+                {t("meth.editorialBlindDesc")}
+              </p>
+            </div>
+          </div>
+          <div style={{
+            padding: "14px 20px", borderRadius: 10,
+            background: "#f8f9fb", marginTop: 8,
+          }}>
+            <p style={{ fontSize: 13, lineHeight: 1.7, color: "#475569", margin: 0 }}>
+              <strong>{t("meth.editorialProof")}</strong>{" "}
+              {t("meth.editorialProofDesc")}
+            </p>
+          </div>
+          <div style={{ marginTop: 16 }}>
+            <Link to={lp("/how-we-make-money")} style={{
+              color: "#059669", fontWeight: 600, textDecoration: "none", fontSize: 14,
+            }}>{t("meth.editorialLink")} →</Link>
+          </div>
+        </div>
+      </section>
+
       {/* =================== ANTI-KITCHEN PLEDGE =================== */}
-      <section style={{ ...cn, marginBottom: 48 }}>
+      <section id="anti-kitchen" style={{ ...cn, marginBottom: 48 }}>
         <div style={{
           padding: "32px", borderRadius: 16,
           background: "#fef2f2", border: "2px solid #fecaca",
@@ -451,7 +655,7 @@ export default function MethodologyPage() {
               <p style={{ fontSize: 15, lineHeight: 1.8, color: "#b91c1c", margin: "0 0 16px" }}>
                 {t("meth.pledgeDesc2")}
               </p>
-              <div style={{ display: "flex", gap: 12 }}>
+              <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
                 <Link to={lp("/guide/ecn-vs-market-maker")} style={{
                   padding: "10px 20px", borderRadius: 8,
                   background: "#dc2626", color: "#fff", fontWeight: 700, fontSize: 13,
@@ -468,8 +672,61 @@ export default function MethodologyPage() {
         </div>
       </section>
 
+      {/* =================== UPDATE SCHEDULE & CHANGELOG =================== */}
+      <section id="changelog" style={{ ...cn, marginBottom: 48 }}>
+        <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 28, marginBottom: 6 }}>
+          {t("meth.changelogTitle")}
+        </h2>
+        <p style={{ fontSize: 16, color: "#64748b", marginBottom: 20, maxWidth: 700 }}>
+          {t("meth.changelogDesc")}
+        </p>
+
+        {/* Update triggers */}
+        <div style={{
+          padding: "16px 20px", borderRadius: 10,
+          background: "#eff6ff", border: "1px solid #bfdbfe", marginBottom: 20,
+        }}>
+          <div style={{ fontWeight: 700, fontSize: 14, color: "#1e40af", marginBottom: 8 }}>{t("meth.triggerTitle")}</div>
+          <div style={{ fontSize: 13, color: "#1e3a8a", lineHeight: 1.7 }}>
+            {t("meth.triggerList")}
+          </div>
+        </div>
+
+        {/* Changelog table */}
+        <div style={{ borderRadius: 14, border: "1px solid #e2e8f0", overflow: "hidden", background: "#fff" }}>
+          <div style={{
+            display: "grid", gridTemplateColumns: mob ? "80px 80px 80px 1fr" : "100px 120px 100px 1fr",
+            padding: "10px 20px", background: "#f8f9fb",
+            fontWeight: 700, fontSize: 12, color: "#64748b", textTransform: "uppercase",
+          }}>
+            <div>{t("meth.clDate")}</div>
+            <div>{t("meth.clBroker")}</div>
+            <div>{t("meth.clChange")}</div>
+            <div>{t("meth.clReason")}</div>
+          </div>
+          {CHANGELOG.map((entry, i) => (
+            <div key={i} style={{
+              display: "grid", gridTemplateColumns: mob ? "80px 80px 80px 1fr" : "100px 120px 100px 1fr",
+              padding: "12px 20px", borderTop: "1px solid #f1f5f9",
+              background: i % 2 === 0 ? "#fff" : "#fafbfc",
+              fontSize: 13,
+            }}>
+              <div style={{ color: "#64748b" }}>{entry.date}</div>
+              <div style={{ fontWeight: 600 }}>{entry.broker}</div>
+              <div style={{
+                fontFamily: "'JetBrains Mono',monospace", fontSize: 12,
+                color: entry.change.includes("→") && entry.change.split("→")[0].trim() !== entry.change.split("→")[1].trim()
+                  ? (parseFloat(entry.change.split("→")[1]) > parseFloat(entry.change.split("→")[0]) ? "#059669" : "#dc2626")
+                  : "#64748b",
+              }}>{entry.change}</div>
+              <div style={{ color: "#475569" }}>{entry.reason}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* =================== OUR TEAM =================== */}
-      <section style={{ ...cn, marginBottom: 48 }}>
+      <section id="team" style={{ ...cn, marginBottom: 48 }}>
         <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 28, marginBottom: 6 }}>
           {t("meth.teamTitle")}
         </h2>
@@ -534,19 +791,22 @@ export default function MethodologyPage() {
           <p style={{ fontSize: 14, lineHeight: 1.8, color: "#78350f", margin: "0 0 12px" }}>
             <strong>{t("meth.affDesc2")}</strong>
           </p>
-          <p style={{ fontSize: 14, lineHeight: 1.8, color: "#78350f", margin: 0 }}>
+          <p style={{ fontSize: 14, lineHeight: 1.8, color: "#78350f", margin: "0 0 12px" }}>
             {t("meth.affDesc3")}
           </p>
+          <Link to={lp("/how-we-make-money")} style={{
+            color: "#92400e", fontWeight: 700, textDecoration: "none", fontSize: 14,
+          }}>{t("meth.affLink")} →</Link>
         </div>
       </section>
 
       {/* =================== FAQ =================== */}
-      <section style={{ ...cn, marginBottom: 48 }}>
+      <section id="faq" style={{ ...cn, marginBottom: 48 }}>
         <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 28, marginBottom: 20 }}>
           {t("meth.faqTitle")}
         </h2>
         <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-          {FAQ.map((item, i) => (
+          {FAQ_METHODOLOGY.map((item, i) => (
             <div key={i} style={{ background: "#fff", borderRadius: 12, border: "1px solid #e2e8f0", overflow: "hidden" }}>
               <div onClick={() => setExpandedFAQ(expandedFAQ === i ? null : i)} style={{
                 padding: "16px 20px", cursor: "pointer",
@@ -578,7 +838,7 @@ export default function MethodologyPage() {
           <div style={{ fontSize: 16, color: "#94a3b8", marginBottom: 24, maxWidth: 500, margin: "0 auto 24px" }}>
             {t("meth.ctaDesc")}
           </div>
-          <div style={{ display: "flex", gap: 12, justifyContent: "center" }}>
+          <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
             <Link to={lp("/")} style={{
               padding: "14px 32px", borderRadius: 10,
               background: "linear-gradient(135deg,#059669,#34d399)",
@@ -592,8 +852,6 @@ export default function MethodologyPage() {
           </div>
         </div>
       </section>
-
-      {/* Footer rendered by App.jsx */}
     </div>
   );
 }

@@ -18,6 +18,7 @@ import RegulatorPage from "./pages/RegulatorPage";
 import GuidePage from "./pages/GuidePage";
 import PlatformPage from "./pages/PlatformPage";
 import AboutPage from "./pages/AboutPage";
+import HowWeMakeMoneyPage from "./pages/HowWeMakeMoneyPage";
 import { LanguageProvider } from "./i18n/LanguageContext";
 import { LANGUAGES, isValidLang, getLangConfig, DEFAULT_LANG } from "./i18n/config";
 
@@ -54,6 +55,7 @@ const PAGE_ROUTES = (
     <Route path="compare/:pair" element={<BrokerComparison />} />
     <Route path="methodology" element={<Methodology />} />
     <Route path="about" element={<AboutPage />} />
+    <Route path="how-we-make-money" element={<HowWeMakeMoneyPage />} />
     <Route path="rankings" element={<AllRankingsPage />} />
     <Route path="reviews" element={<AllReviewsPage />} />
     <Route path="regulator/:slug" element={<RegulatorPage />} />
