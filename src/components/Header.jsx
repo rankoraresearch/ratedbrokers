@@ -1,0 +1,791 @@
+import { useState, useEffect, useRef, useCallback } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { useMedia } from "../hooks/useMedia";
+import { useTranslation } from "../i18n/LanguageContext";
+import { useLocalePath } from "../i18n/useLocalePath";
+import LanguageSwitcher from "../i18n/LanguageSwitcher";
+import Icon, { IconBox } from "./Icon";
+import { ChevronDown, X as XIcon, Menu as MenuIcon, ArrowRight, Search as SearchIcon, Shield, CalendarCheck } from "lucide-react";
+import SearchOverlay from "./SearchOverlay";
+
+/* ── Data ───────────────────────────────────────────── */
+
+const FOREX_CATEGORIES = [
+  { icon: "circle", key: "beginners", path: "/best-forex-brokers-for-beginners", color: "#10b981" },
+  { icon: "trending-down", key: "lowSpreads", path: "/lowest-spread-forex-brokers", color: "#6366f1" },
+  { icon: "zap", key: "ecn", path: "/best-ecn-forex-brokers", color: "#f59e0b" },
+  { icon: "crosshair", key: "scalping", path: "/best-forex-brokers-for-scalping", color: "#ef4444" },
+  { icon: "smartphone", key: "apps", path: "/best-forex-trading-apps", color: "#8b5cf6" },
+  { icon: "handshake", key: "social", path: "/best-social-trading-platforms", color: "#ec4899" },
+  { icon: "piggy-bank", key: "lowDeposit", path: "/no-minimum-deposit-forex-brokers", color: "#14b8a6" },
+  { icon: "briefcase", key: "professional", path: "/best-forex-brokers-for-professionals", color: "#1e3a5f" },
+];
+
+const FOREX_PLATFORMS = [
+  { name: "MetaTrader 4", path: "/best-metatrader-4-brokers" },
+  { name: "MetaTrader 5", path: "/best-metatrader-5-brokers" },
+  { name: "cTrader", path: "/best-ctrader-brokers" },
+  { name: "TradingView", path: "/best-tradingview-brokers" },
+];
+
+const FOREX_COSTS = [
+  { icon: "trending-down", key: "costLowSpread", path: "/lowest-spread-forex-brokers", color: "#6366f1" },
+  { icon: "ban", key: "costZeroSpread", path: "/best-zero-spread-forex-brokers", color: "#ef4444" },
+  { icon: "dollar-sign", key: "costLowComm", path: "/best-low-commission-forex-brokers", color: "#f59e0b" },
+  { icon: "circle-check", key: "costNoFees", path: "/best-no-hidden-fees-forex-brokers", color: "#10b981" },
+];
+
+const FOREX_ACCOUNTS = [
+  { icon: "gamepad-2", key: "acctDemo", path: "/best-forex-demo-accounts", color: "#8b5cf6" },
+  { icon: "microscope", key: "acctMicro", path: "/best-micro-account-forex-brokers", color: "#ec4899" },
+  { icon: "landmark", key: "acctIslamic", path: "/best-islamic-forex-brokers", color: "#059669" },
+  { icon: "piggy-bank", key: "acctLowDep", path: "/no-minimum-deposit-forex-brokers", color: "#14b8a6" },
+];
+
+const GUIDE_GETTING_STARTED = [
+  { icon: "compass", key: "guideChoose", path: "/guide/how-to-choose-a-forex-broker", color: "#059669" },
+  { icon: "book-open", key: "guideBeginners", path: "/guide/how-to-start-forex-trading", color: "#2563eb" },
+  { icon: "globe", key: "guideWhatIsForex", path: "/guide/what-is-forex-trading", color: "#0ea5e9" },
+  { icon: "gamepad-2", key: "guideDemo", path: "/guide/forex-demo-account-guide", color: "#8b5cf6" },
+  { icon: "bar-chart-3", key: "guideWhatIsPip", path: "/guide/what-is-a-pip", color: "#14b8a6" },
+];
+
+const GUIDE_STRATEGIES = [
+  { icon: "crosshair", key: "guideStrategies", path: "/guide/forex-trading-strategies", color: "#ef4444" },
+  { icon: "zap", key: "guideScalping", path: "/guide/scalping-strategy-guide", color: "#f59e0b" },
+  { icon: "sun", key: "guideDayTrading", path: "/guide/day-trading-guide", color: "#d97706" },
+  { icon: "waves", key: "guideSwing", path: "/guide/swing-trading-guide", color: "#06b6d4" },
+  { icon: "handshake", key: "guideCopy", path: "/guide/copy-trading-guide", color: "#ec4899" },
+];
+
+const GUIDE_CONCEPTS = [
+  { icon: "dollar-sign", key: "guideSpreads", path: "/guide/understanding-spreads-and-fees", color: "#d97706" },
+  { icon: "scale", key: "guideEcnMm", path: "/guide/ecn-vs-market-maker", color: "#7c3aed" },
+  { icon: "shield", key: "guideRegulation", path: "/guide/forex-regulation-guide", color: "#dc2626" },
+  { icon: "scale", key: "guideLeverage", path: "/guide/what-is-leverage", color: "#059669" },
+  { icon: "trending-down", key: "guideTechnical", path: "/guide/technical-analysis-guide", color: "#6366f1" },
+];
+
+/* backward-compat: flat list for mobile */
+const GUIDE_ITEMS = [...GUIDE_GETTING_STARTED, ...GUIDE_STRATEGIES, ...GUIDE_CONCEPTS];
+
+const COUNTRIES = [
+  { flag: "\ud83c\uddec\ud83c\udde7", name: "United Kingdom", path: "/best-forex-brokers-uk", featured: true },
+  { flag: "\ud83c\udde6\ud83c\uddfa", name: "Australia", path: "/best-forex-brokers-australia" },
+  { flag: "\ud83c\udde6\ud83c\uddea", name: "UAE", path: "/best-forex-brokers-uae" },
+  { flag: "\ud83c\udde9\ud83c\uddea", name: "Germany", path: "/best-forex-brokers-germany" },
+  { flag: "\ud83c\uddf8\ud83c\uddec", name: "Singapore", path: "/best-forex-brokers-singapore" },
+  { flag: "\ud83c\uddfa\ud83c\uddf8", name: "United States", path: "/best-forex-brokers-usa" },
+  { flag: "\ud83c\udde8\ud83c\udde6", name: "Canada", path: "/best-forex-brokers-canada" },
+  { flag: "\ud83c\uddff\ud83c\udde6", name: "South Africa", path: "/best-forex-brokers-south-africa" },
+];
+
+const TOP_REVIEWS = [
+  { name: "IC Markets", score: 9.7, slug: "ic-markets" },
+  { name: "Pepperstone", score: 9.5, slug: "pepperstone" },
+  { name: "IG", score: 9.5, slug: "ig" },
+  { name: "FP Markets", score: 9.4, slug: "fp-markets" },
+  { name: "CMC Markets", score: 9.3, slug: "cmc-markets" },
+];
+
+const POPULAR_REVIEWS = [
+  { name: "Exness", slug: "exness" },
+  { name: "XTB", slug: "xtb" },
+  { name: "eToro", slug: "etoro" },
+  { name: "Saxo Bank", slug: "saxo-bank" },
+  { name: "OANDA", slug: "oanda" },
+];
+
+/* ── Component ──────────────────────────────────────── */
+
+export default function Header() {
+  const { mob, tab } = useMedia();
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null);
+  const [mobileExpanded, setMobileExpanded] = useState(null);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const location = useLocation();
+  const { t } = useTranslation();
+  const lp = useLocalePath();
+  const timeoutRef = useRef(null);
+
+  useEffect(() => {
+    const fn = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", fn);
+    return () => window.removeEventListener("scroll", fn);
+  }, []);
+
+  useEffect(() => {
+    setMenuOpen(false);
+    setActiveDropdown(null);
+    setMobileExpanded(null);
+    setSearchOpen(false);
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const handleCmdK = (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+        e.preventDefault();
+        setSearchOpen((v) => !v);
+      }
+    };
+    window.addEventListener("keydown", handleCmdK);
+    return () => window.removeEventListener("keydown", handleCmdK);
+  }, []);
+
+  const enter = useCallback((id) => {
+    clearTimeout(timeoutRef.current);
+    setActiveDropdown(id);
+  }, []);
+
+  const leave = useCallback(() => {
+    timeoutRef.current = setTimeout(() => setActiveDropdown(null), 200);
+  }, []);
+
+  /* ── shared styles ── */
+
+  const secHead = {
+    fontSize: 11, fontWeight: 700, color: "#94a3b8",
+    textTransform: "uppercase", letterSpacing: 1.2,
+    marginBottom: 12, paddingBottom: 8,
+    borderBottom: "1px solid #f1f5f9",
+  };
+
+  const ddLink = {
+    display: "flex", alignItems: "center", gap: 10,
+    padding: "8px 10px", borderRadius: 8,
+    textDecoration: "none", color: "#1e293b",
+    fontSize: 14, fontWeight: 500, transition: "all 0.15s",
+  };
+
+  const ddBase = {
+    position: "absolute", top: "calc(100% + 8px)",
+    background: "#fff", borderRadius: 16,
+    border: "1px solid #e2e8f0",
+    boxShadow: "0 20px 60px rgba(0,0,0,0.12), 0 4px 16px rgba(0,0,0,0.05)",
+    padding: 24, zIndex: 1001,
+  };
+
+  const hov = (e) => { e.currentTarget.style.background = "#f0fdf4"; };
+  const unhov = (e) => { e.currentTarget.style.background = "transparent"; };
+
+  /* compact link style (no icons, no descriptions) */
+  const compactLink = {
+    display: "block", padding: "5px 8px", borderRadius: 6,
+    textDecoration: "none", color: "#334155",
+    fontSize: 13, fontWeight: 500, transition: "all 0.15s",
+    lineHeight: 1.4,
+  };
+  const hovCompact = (e) => { e.currentTarget.style.background = "#f0fdf4"; e.currentTarget.style.color = "#059669"; };
+  const unhovCompact = (e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#334155"; };
+
+  /* ── helper: nav button (desktop) ── */
+  const NavBtn = ({ id, label }) => (
+    <button
+      style={{
+        fontSize: 14, fontWeight: 500,
+        color: activeDropdown === id ? "#34d399" : "rgba(255,255,255,0.85)",
+        background: activeDropdown === id ? "rgba(255,255,255,0.08)" : "transparent",
+        border: "none", padding: "8px 10px", borderRadius: 8,
+        cursor: "pointer", display: "flex", alignItems: "center", gap: 3,
+        transition: "all 0.2s", fontFamily: "inherit", whiteSpace: "nowrap",
+      }}
+    >
+      {label}
+      <span style={{
+        color: "rgba(255,255,255,0.5)",
+        transition: "transform 0.2s",
+        transform: activeDropdown === id ? "rotate(180deg)" : "none",
+        display: "inline-flex",
+      }}><ChevronDown size={12} /></span>
+    </button>
+  );
+
+  /* ── helper: simple link (desktop) ── */
+  const NavLink = ({ to, label, match }) => (
+    <Link
+      to={to}
+      style={{
+        fontSize: 14, fontWeight: match ? 700 : 500,
+        color: match ? "#34d399" : "rgba(255,255,255,0.85)",
+        textDecoration: "none", padding: "8px 10px", borderRadius: 8,
+        transition: "all 0.2s", whiteSpace: "nowrap",
+      }}
+    >
+      {label}
+    </Link>
+  );
+
+  /* ── helper: icon square (uses shared IconBox) ── */
+
+  /* ── helper: mobile section toggle ── */
+  const MobToggle = ({ id, label }) => (
+    <button
+      onClick={() => setMobileExpanded(mobileExpanded === id ? null : id)}
+      style={{
+        display: "flex", alignItems: "center", justifyContent: "space-between",
+        width: "100%", fontSize: 15, fontWeight: 500, color: "#1e293b",
+        background: "none", border: "none", padding: "12px 0",
+        borderBottom: "1px solid #f1f5f9", cursor: "pointer", fontFamily: "inherit",
+      }}
+    >
+      {label}
+      <span style={{
+        color: "#94a3b8",
+        transition: "transform 0.2s",
+        transform: mobileExpanded === id ? "rotate(180deg)" : "none",
+        display: "inline-flex",
+      }}><ChevronDown size={14} /></span>
+    </button>
+  );
+
+  const MobLink = ({ to, label, match }) => (
+    <Link
+      to={to}
+      style={{
+        display: "block", fontSize: 15,
+        fontWeight: match ? 700 : 500,
+        color: match ? "#059669" : "#1e293b",
+        textDecoration: "none", padding: "12px 0",
+        borderBottom: "1px solid #f1f5f9",
+      }}
+    >
+      {label}
+    </Link>
+  );
+
+  /* ── Render category list (used in dropdowns) ── */
+  const renderCatItems = (items) => (
+    <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+      {items.map((item) => (
+        <Link
+          key={item.key}
+          to={lp(item.path)}
+          style={ddLink}
+          onMouseEnter={hov} onMouseLeave={unhov}
+        >
+          <IconBox name={item.icon} color={item.color} />
+          <div>
+            <div style={{ fontWeight: 600, fontSize: 14, lineHeight: 1.2 }}>{t(`mega.${item.key}`)}</div>
+            <div style={{ fontSize: 12, color: "#94a3b8", marginTop: 1 }}>{t(`mega.${item.key}Desc`)}</div>
+          </div>
+        </Link>
+      ))}
+    </div>
+  );
+
+  /* ── Render mobile category list ── */
+  const renderMobCatItems = (items) => (
+    items.map((item) => (
+      <Link
+        key={item.key}
+        to={lp(item.path)}
+        style={{
+          display: "flex", alignItems: "center", gap: 8,
+          padding: "8px 0", fontSize: 13, fontWeight: 500,
+          color: "#475569", textDecoration: "none",
+        }}
+      >
+        <Icon name={item.icon} size={14} color={item.color} />
+        {t(`mega.${item.key}`)}
+      </Link>
+    ))
+  );
+
+  /* ══════════════════════════════════════════════════ */
+  return (
+    <header
+      style={{
+        position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000,
+        transform: scrolled ? "translateY(-32px)" : "translateY(0)",
+        transition: "transform 0.3s, background 0.3s",
+      }}
+    >
+      {/* ═══ TOP BAR ═══ */}
+      {!(mob || tab) && (
+        <div style={{
+          height: 32, background: "#080e1f",
+          borderBottom: "1px solid rgba(255,255,255,0.06)",
+          display: "flex", alignItems: "center",
+        }}>
+          <div style={{
+            maxWidth: 1200, margin: "0 auto", padding: "0 20px", width: "100%",
+            display: "flex", alignItems: "center", justifyContent: "space-between",
+          }}>
+            {/* Left: trust stats */}
+            <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 12, color: "#94a3b8" }}>
+              <Shield size={14} color="#34d399" />
+              <span>{t("nav.brokersTested")}</span>
+              <span style={{ margin: "0 4px", color: "#475569" }}>·</span>
+              <CalendarCheck size={14} color="#34d399" />
+              <span>{t("nav.updatedQ")}</span>
+            </div>
+            {/* Right: utility links */}
+            <div style={{ display: "flex", alignItems: "center", gap: 12, fontSize: 12 }}>
+              <Link to={lp("/methodology")} style={{
+                color: "#64748b", textDecoration: "none", transition: "color 0.2s",
+              }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = "#34d399"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = "#64748b"; }}
+              >Methodology</Link>
+              <Link to={lp("/about")} style={{
+                color: "#64748b", textDecoration: "none", transition: "color 0.2s",
+              }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = "#34d399"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = "#64748b"; }}
+              >About Us</Link>
+              <span style={{ color: "#334155" }}>|</span>
+              <button
+                onClick={() => setSearchOpen(true)}
+                style={{
+                  background: "none", border: "1px solid rgba(255,255,255,0.1)",
+                  color: "#64748b", padding: "2px 8px", borderRadius: 4,
+                  cursor: "pointer", fontSize: 11, fontFamily: "inherit",
+                  display: "inline-flex", alignItems: "center", gap: 4,
+                  transition: "color 0.2s",
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = "#34d399"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = "#64748b"; }}
+              >
+                <span style={{ fontSize: 11, fontFamily: "'SF Mono', 'JetBrains Mono', monospace" }}>⌘K</span>
+                <span>Search</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ═══ MAIN NAV ═══ */}
+      <div style={{
+        height: 52,
+        background: scrolled ? "rgba(15,23,42,0.98)" : "linear-gradient(135deg,#0f172a,#1e3a5f)",
+        backdropFilter: "blur(12px)",
+        borderBottom: scrolled ? "1px solid rgba(255,255,255,0.1)" : "1px solid transparent",
+        transition: "background 0.3s",
+        display: "flex", alignItems: "center",
+      }}>
+        <div style={{
+          maxWidth: 1200, margin: "0 auto", padding: "0 20px", width: "100%",
+          display: "flex", alignItems: "center", justifyContent: "space-between",
+        }}>
+          {/* LOGO */}
+          <Link to={lp("/")} style={{ display: "flex", alignItems: "baseline", textDecoration: "none" }}>
+            <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, fontSize: mob ? 18 : 22, color: "#fff", letterSpacing: "-1px" }}>rated</span>
+            <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, fontSize: mob ? 18 : 22, color: "#34d399", letterSpacing: "-1px" }}>brokers</span>
+            <span style={{ display: "inline-block", width: mob ? 5 : 7, height: mob ? 5 : 7, borderRadius: "50%", background: "#fbbf24", marginLeft: 2, marginBottom: 1 }} />
+          </Link>
+
+          {/* ══ DESKTOP NAV ══ */}
+          {(mob || tab) ? (
+            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+              <LanguageSwitcher />
+              <button
+                onClick={() => setSearchOpen(true)}
+                aria-label="Search"
+                style={{ background: "none", border: "none", color: "#fff", padding: "4px 8px", cursor: "pointer", display: "inline-flex", alignItems: "center" }}
+              ><SearchIcon size={20} /></button>
+              <button
+                onClick={() => setMenuOpen(!menuOpen)}
+                style={{ background: "none", border: "none", color: "#fff", padding: "4px 8px", cursor: "pointer", display: "inline-flex", alignItems: "center" }}
+              >{menuOpen ? <XIcon size={24} /> : <MenuIcon size={24} />}</button>
+            </div>
+          ) : (
+            <nav style={{ display: "flex", gap: 2, alignItems: "center" }}>
+
+              {/* ─── 1. Forex Brokers ▾ ─── */}
+              <div style={{ position: "relative" }} onMouseEnter={() => enter("forex")} onMouseLeave={leave}>
+                <Link to={lp("/best-forex-brokers")} style={{
+                  fontSize: 14, fontWeight: 500,
+                  color: activeDropdown === "forex" ? "#34d399" : "rgba(255,255,255,0.85)",
+                  background: activeDropdown === "forex" ? "rgba(255,255,255,0.08)" : "transparent",
+                  border: "none", padding: "8px 10px", borderRadius: 8,
+                  display: "flex", alignItems: "center", gap: 3,
+                  transition: "all 0.2s", whiteSpace: "nowrap", textDecoration: "none",
+                }}>
+                  {t("nav.forexBrokers")}
+                  <span style={{
+                    color: "rgba(255,255,255,0.5)",
+                    transition: "transform 0.2s",
+                    transform: activeDropdown === "forex" ? "rotate(180deg)" : "none",
+                    display: "inline-flex",
+                  }}><ChevronDown size={12} /></span>
+                </Link>
+                {activeDropdown === "forex" && (
+                  <div style={{ ...ddBase, left: "50%", transform: "translateX(-50%)", width: 620, padding: "20px 24px" }}
+                    onMouseEnter={() => enter("forex")} onMouseLeave={leave}
+                  >
+                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 20 }}>
+                      {/* Col 1: By Strategy */}
+                      <div>
+                        <div style={secHead}>By Trading Style</div>
+                        {FOREX_CATEGORIES.map((item) => (
+                          <Link key={item.key} to={lp(item.path)} style={compactLink} onMouseEnter={hovCompact} onMouseLeave={unhovCompact}>
+                            {t(`mega.${item.key}`)}
+                          </Link>
+                        ))}
+                      </div>
+                      {/* Col 2: By Cost & Platform */}
+                      <div>
+                        <div style={secHead}>By Cost</div>
+                        {FOREX_COSTS.map((item) => (
+                          <Link key={item.key} to={lp(item.path)} style={compactLink} onMouseEnter={hovCompact} onMouseLeave={unhovCompact}>
+                            {t(`mega.${item.key}`)}
+                          </Link>
+                        ))}
+                        <div style={{ ...secHead, marginTop: 14 }}>By Platform</div>
+                        {FOREX_PLATFORMS.map((p) => (
+                          <Link key={p.name} to={lp(p.path)} style={compactLink} onMouseEnter={hovCompact} onMouseLeave={unhovCompact}>
+                            Best {p.name} Brokers
+                          </Link>
+                        ))}
+                        <div style={{ ...secHead, marginTop: 14 }}>Platform Guides</div>
+                        {FOREX_PLATFORMS.map((p) => (
+                          <Link key={`guide-${p.name}`} to={lp(`/platform/${p.name.toLowerCase().replace(/\s+/g, "-")}`)} style={compactLink} onMouseEnter={hovCompact} onMouseLeave={unhovCompact}>
+                            {p.name} Guide
+                          </Link>
+                        ))}
+                      </div>
+                      {/* Col 3: By Account */}
+                      <div>
+                        <div style={secHead}>By Account Type</div>
+                        {FOREX_ACCOUNTS.map((item) => (
+                          <Link key={item.key} to={lp(item.path)} style={compactLink} onMouseEnter={hovCompact} onMouseLeave={unhovCompact}>
+                            {t(`mega.${item.key}`)}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                    <Link to={lp("/best-forex-brokers")} style={{
+                      display: "block", marginTop: 16, padding: "10px 14px", borderRadius: 8,
+                      background: "#f0fdf4", color: "#059669", fontSize: 13, fontWeight: 700,
+                      textDecoration: "none", textAlign: "center", border: "1px solid #a7f3d0",
+                    }}>Best Forex Brokers 2026 — Full Rankings &amp; Comparison <ArrowRight size={14} style={{ verticalAlign: "middle" }} /></Link>
+                  </div>
+                )}
+              </div>
+
+              {/* ─── 2. Reviews ▾ ─── */}
+              <div style={{ position: "relative" }} onMouseEnter={() => enter("reviews")} onMouseLeave={leave}>
+                <NavBtn id="reviews" label={t("nav.reviews")} />
+                {activeDropdown === "reviews" && (
+                  <div style={{ ...ddBase, left: "50%", transform: "translateX(-50%)", width: 460 }}
+                    onMouseEnter={() => enter("reviews")} onMouseLeave={leave}
+                  >
+                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
+                      <div>
+                        <div style={secHead}>{t("mega.topRated")}</div>
+                        <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+                          {TOP_REVIEWS.map((b) => (
+                            <Link key={b.slug} to={lp(`/review/${b.slug}`)}
+                              style={{ ...ddLink, justifyContent: "space-between" }}
+                              onMouseEnter={hov} onMouseLeave={unhov}
+                            >
+                              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                                <div style={{
+                                  width: 28, height: 28, borderRadius: 6,
+                                  background: "linear-gradient(135deg,#1e3a5f,#2d5a8e)",
+                                  display: "flex", alignItems: "center", justifyContent: "center",
+                                  fontFamily: "Outfit", fontWeight: 800, fontSize: 9, color: "#fff", flexShrink: 0,
+                                }}>{b.name.slice(0, 2)}</div>
+                                <span style={{ fontWeight: 600 }}>{b.name}</span>
+                              </div>
+                              <span style={{
+                                fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: 12,
+                                color: b.score >= 9.5 ? "#059669" : "#2563eb",
+                                background: b.score >= 9.5 ? "#ecfdf5" : "#eff6ff",
+                                padding: "2px 6px", borderRadius: 4,
+                              }}>{b.score}</span>
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                      <div>
+                        <div style={secHead}>{t("mega.popular")}</div>
+                        <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+                          {POPULAR_REVIEWS.map((b) => (
+                            <Link key={b.slug} to={lp(`/review/${b.slug}`)} style={ddLink}
+                              onMouseEnter={hov} onMouseLeave={unhov}
+                            >
+                              <div style={{
+                                width: 28, height: 28, borderRadius: 6,
+                                background: "linear-gradient(135deg,#1e3a5f,#2d5a8e)",
+                                display: "flex", alignItems: "center", justifyContent: "center",
+                                fontFamily: "Outfit", fontWeight: 800, fontSize: 9, color: "#fff", flexShrink: 0,
+                              }}>{b.name.slice(0, 2)}</div>
+                              <span style={{ fontWeight: 600 }}>{b.name}</span>
+                            </Link>
+                          ))}
+                        </div>
+                        <Link to={lp("/rankings")} style={{
+                          display: "block", marginTop: 12, padding: "10px 14px", borderRadius: 8,
+                          background: "#f0fdf4", color: "#059669", fontSize: 13, fontWeight: 700,
+                          textDecoration: "none", textAlign: "center",
+                        }}>{t("mega.viewAll", { count: 31 })}</Link>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* ─── 4. Guides ▾ ─── */}
+              <div style={{ position: "relative" }} onMouseEnter={() => enter("guides")} onMouseLeave={leave}>
+                <NavBtn id="guides" label={t("nav.guides")} />
+                {activeDropdown === "guides" && (
+                  <div style={{ ...ddBase, left: "50%", transform: "translateX(-50%)", width: 680 }}
+                    onMouseEnter={() => enter("guides")} onMouseLeave={leave}
+                  >
+                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 24 }}>
+                      <div>
+                        <div style={secHead}>{t("mega.guideGettingStarted")}</div>
+                        {renderCatItems(GUIDE_GETTING_STARTED)}
+                      </div>
+                      <div>
+                        <div style={secHead}>{t("mega.guideStrategiesHead")}</div>
+                        {renderCatItems(GUIDE_STRATEGIES)}
+                      </div>
+                      <div>
+                        <div style={secHead}>{t("mega.guideConceptsHead")}</div>
+                        {renderCatItems(GUIDE_CONCEPTS)}
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* ─── 5. Countries ▾ ─── */}
+              <div style={{ position: "relative" }} onMouseEnter={() => enter("countries")} onMouseLeave={leave}>
+                <NavBtn id="countries" label={t("nav.countries")} />
+                {activeDropdown === "countries" && (
+                  <div style={{ ...ddBase, right: 0, width: 260 }}
+                    onMouseEnter={() => enter("countries")} onMouseLeave={leave}
+                  >
+                    <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+                      {COUNTRIES.map((c) => (
+                        <Link key={c.name} to={lp(c.path)} style={ddLink}
+                          onMouseEnter={hov} onMouseLeave={unhov}
+                        >
+                          <span style={{ fontSize: 18 }}>{c.flag}</span>
+                          <span style={{ fontWeight: 600, flex: 1 }}>Best Brokers in {c.name}</span>
+                          {c.featured && (
+                            <span style={{
+                              padding: "1px 6px", borderRadius: 4,
+                              background: "#059669", color: "#fff", fontSize: 10, fontWeight: 700,
+                            }}>{t("mega.featured")}</span>
+                          )}
+                        </Link>
+                      ))}
+                    </div>
+                    <Link to={lp("/best-forex-brokers-by-country")} style={{
+                      display: "block", marginTop: 12, padding: "10px 14px", borderRadius: 8,
+                      background: "#f0fdf4", color: "#059669", fontSize: 13, fontWeight: 700,
+                      textDecoration: "none", textAlign: "center",
+                    }}>Best Forex Brokers by Country <ArrowRight size={14} style={{ verticalAlign: "middle" }} /></Link>
+                  </div>
+                )}
+              </div>
+
+              {/* ─── Search ─── */}
+              <button
+                onClick={() => setSearchOpen(true)}
+                aria-label="Search"
+                style={{
+                  background: "rgba(255,255,255,0.08)", border: "none",
+                  color: "rgba(255,255,255,0.7)", padding: "6px 8px", borderRadius: 8,
+                  cursor: "pointer", display: "inline-flex", alignItems: "center",
+                  transition: "all 0.2s",
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = "#34d399"; e.currentTarget.style.background = "rgba(255,255,255,0.12)"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(255,255,255,0.7)"; e.currentTarget.style.background = "rgba(255,255,255,0.08)"; }}
+              ><SearchIcon size={16} /></button>
+
+              {/* ─── CTA: Compare Brokers ─── */}
+              <Link
+                to={lp("/compare")}
+                style={{
+                  background: "#059669", color: "#fff",
+                  padding: "8px 16px", borderRadius: 8,
+                  fontWeight: 700, fontSize: 13,
+                  textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 6,
+                  transition: "background 0.2s", whiteSpace: "nowrap",
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.background = "#047857"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.background = "#059669"; }}
+              >
+                {t("nav.compare")} Brokers
+                <ArrowRight size={14} />
+              </Link>
+
+              <LanguageSwitcher />
+            </nav>
+          )}
+        </div>
+      </div>
+
+      {/* ══ MOBILE NAV ══ */}
+      {(mob || tab) && menuOpen && (
+        <nav style={{
+          padding: "8px 16px 16px", background: "#fff",
+          borderTop: "1px solid #e2e8f0", maxHeight: "80vh", overflowY: "auto",
+        }}>
+          {/* 1. Forex Brokers */}
+          <div>
+            <div style={{
+              display: "flex", alignItems: "center",
+              borderBottom: "1px solid #f1f5f9",
+            }}>
+              <Link to={lp("/best-forex-brokers")} style={{
+                flex: 1, fontSize: 15, fontWeight: 500, color: "#1e293b",
+                textDecoration: "none", padding: "12px 0",
+              }}>{t("nav.forexBrokers")}</Link>
+              <button
+                onClick={() => setMobileExpanded(mobileExpanded === "forex" ? null : "forex")}
+                style={{
+                  background: "none", border: "none", cursor: "pointer", padding: "12px 4px",
+                  color: "#94a3b8", fontFamily: "inherit", display: "inline-flex",
+                  transition: "transform 0.2s",
+                  transform: mobileExpanded === "forex" ? "rotate(180deg)" : "none",
+                }}
+              ><ChevronDown size={14} /></button>
+            </div>
+            {mobileExpanded === "forex" && (
+              <div style={{ padding: "8px 0 8px 12px" }}>
+                <div style={{ fontSize: 10, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginBottom: 6 }}>
+                  By Trading Style
+                </div>
+                {FOREX_CATEGORIES.map((item) => (
+                  <Link key={item.key} to={lp(item.path)} style={{
+                    display: "block", padding: "6px 0", fontSize: 13, fontWeight: 500, color: "#475569", textDecoration: "none",
+                  }}>{t(`mega.${item.key}`)}</Link>
+                ))}
+                <div style={{ fontSize: 10, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginTop: 10, marginBottom: 6 }}>
+                  By Cost
+                </div>
+                {FOREX_COSTS.map((item) => (
+                  <Link key={item.key} to={lp(item.path)} style={{
+                    display: "block", padding: "6px 0", fontSize: 13, fontWeight: 500, color: "#475569", textDecoration: "none",
+                  }}>{t(`mega.${item.key}`)}</Link>
+                ))}
+                <div style={{ fontSize: 10, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginTop: 10, marginBottom: 6 }}>
+                  By Platform
+                </div>
+                {FOREX_PLATFORMS.map((p) => (
+                  <Link key={p.name} to={lp(p.path)} style={{
+                    display: "block", padding: "6px 0", fontSize: 13, fontWeight: 500, color: "#475569", textDecoration: "none",
+                  }}>Best {p.name} Brokers</Link>
+                ))}
+                <div style={{ fontSize: 10, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginTop: 10, marginBottom: 6 }}>
+                  Platform Guides
+                </div>
+                {FOREX_PLATFORMS.map((p) => (
+                  <Link key={`guide-${p.name}`} to={lp(`/platform/${p.name.toLowerCase().replace(/\s+/g, "-")}`)} style={{
+                    display: "block", padding: "6px 0", fontSize: 13, fontWeight: 500, color: "#475569", textDecoration: "none",
+                  }}>{p.name} Guide</Link>
+                ))}
+                <div style={{ fontSize: 10, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginTop: 10, marginBottom: 6 }}>
+                  By Account Type
+                </div>
+                {FOREX_ACCOUNTS.map((item) => (
+                  <Link key={item.key} to={lp(item.path)} style={{
+                    display: "block", padding: "6px 0", fontSize: 13, fontWeight: 500, color: "#475569", textDecoration: "none",
+                  }}>{t(`mega.${item.key}`)}</Link>
+                ))}
+                <Link to={lp("/best-forex-brokers")} style={{
+                  display: "block", marginTop: 10, padding: "8px 0", fontSize: 13,
+                  fontWeight: 700, color: "#059669", textDecoration: "none",
+                }}>Best Forex Brokers 2026 — Full Rankings <ArrowRight size={14} style={{ verticalAlign: "middle" }} /></Link>
+              </div>
+            )}
+          </div>
+
+          {/* 2. Reviews */}
+          <div>
+            <MobToggle id="reviews" label={t("nav.reviews")} />
+            {mobileExpanded === "reviews" && (
+              <div style={{ padding: "8px 0 8px 12px" }}>
+                <div style={{ fontSize: 10, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginBottom: 8 }}>
+                  {t("mega.topRated")}
+                </div>
+                {TOP_REVIEWS.map((b) => (
+                  <Link key={b.slug} to={lp(`/review/${b.slug}`)} style={{
+                    display: "flex", alignItems: "center", justifyContent: "space-between",
+                    padding: "8px 0", fontSize: 13, fontWeight: 500, color: "#475569", textDecoration: "none",
+                  }}>
+                    <span>{b.name}</span>
+                    <span style={{ fontFamily: "'JetBrains Mono'", fontSize: 11, fontWeight: 700, color: b.score >= 9.5 ? "#059669" : "#2563eb" }}>{b.score}</span>
+                  </Link>
+                ))}
+                <div style={{ fontSize: 10, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginTop: 12, marginBottom: 8 }}>
+                  {t("mega.popular")}
+                </div>
+                {POPULAR_REVIEWS.map((b) => (
+                  <Link key={b.slug} to={lp(`/review/${b.slug}`)} style={{
+                    display: "block", padding: "8px 0", fontSize: 13, fontWeight: 500, color: "#475569", textDecoration: "none",
+                  }}>{b.name}</Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* 4. Guides */}
+          <div>
+            <MobToggle id="guides" label={t("nav.guides")} />
+            {mobileExpanded === "guides" && (
+              <div style={{ padding: "8px 0 8px 12px" }}>
+                <div style={{ fontSize: 10, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginBottom: 8 }}>
+                  {t("mega.guideGettingStarted")}
+                </div>
+                {renderMobCatItems(GUIDE_GETTING_STARTED)}
+                <div style={{ fontSize: 10, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginTop: 12, marginBottom: 8 }}>
+                  {t("mega.guideStrategiesHead")}
+                </div>
+                {renderMobCatItems(GUIDE_STRATEGIES)}
+                <div style={{ fontSize: 10, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginTop: 12, marginBottom: 8 }}>
+                  {t("mega.guideConceptsHead")}
+                </div>
+                {renderMobCatItems(GUIDE_CONCEPTS)}
+              </div>
+            )}
+          </div>
+
+          {/* 5. Compare */}
+          <MobLink to={lp("/compare")} label={t("nav.compare")} match={location.pathname.includes("/compare")} />
+
+          {/* 6. Countries */}
+          <div>
+            <MobToggle id="countries" label={t("nav.countries")} />
+            {mobileExpanded === "countries" && (
+              <div style={{ padding: "8px 0 8px 12px" }}>
+                {COUNTRIES.map((c) => (
+                  <Link key={c.name} to={lp(c.path)} style={{
+                    display: "flex", alignItems: "center", gap: 8,
+                    padding: "8px 0", fontSize: 13, fontWeight: 500, color: "#475569", textDecoration: "none",
+                  }}>
+                    <span style={{ fontSize: 16 }}>{c.flag}</span>
+                    Best Brokers in {c.name}
+                  </Link>
+                ))}
+                <Link to={lp("/best-forex-brokers-by-country")} style={{
+                  display: "block", marginTop: 8, padding: "8px 0", fontSize: 13,
+                  fontWeight: 700, color: "#059669", textDecoration: "none",
+                }}>Best Forex Brokers by Country <ArrowRight size={14} style={{ verticalAlign: "middle" }} /></Link>
+              </div>
+            )}
+          </div>
+
+          {/* 7. Method */}
+          <MobLink to={lp("/methodology")} label={t("nav.method")} match={location.pathname.includes("/methodology")} />
+
+          {/* 8. About Us */}
+          <MobLink to={lp("/about")} label={t("nav.about")} match={location.pathname.includes("/about")} />
+
+          <div style={{ padding: "12px 0" }}>
+            <LanguageSwitcher mobile />
+          </div>
+        </nav>
+      )}
+      {searchOpen && <SearchOverlay onClose={() => setSearchOpen(false)} />}
+    </header>
+  );
+}
