@@ -11,6 +11,7 @@ import { getBrokerData } from "../data/brokers/index";
 import Breadcrumb from "../components/Breadcrumb";
 import Icon from "../components/Icon";
 import { Check, X as XIcon, ArrowRight, ChevronRight, ChevronUp, ChevronDown, HelpCircle, ExternalLink } from "lucide-react";
+import CountryFlag from "../components/CountryFlag";
 
 // ============================
 // RESPONSIVE HOOK
@@ -198,7 +199,7 @@ export default function CountryPage() {
           <Breadcrumb items={[
             { label: t("nav.home"), path: "/" },
             { label: "Best Forex Brokers by Country", path: "/best-forex-brokers-by-country" },
-            { label: `${COUNTRY.flag} ${COUNTRY.name}` },
+            { label: COUNTRY.name },
           ]} />
         </div>
       </div>
@@ -214,7 +215,7 @@ export default function CountryPage() {
           {/* Left side */}
           <div>
             <div style={{ display: "flex", alignItems: mob ? "flex-start" : "center", gap: mob ? 10 : 14, marginBottom: 14 }}>
-              <span style={{ fontSize: mob ? 38 : 52 }}>{COUNTRY.flag}</span>
+              <CountryFlag code={COUNTRY.code} size={mob ? 38 : 52} />
               <div>
                 <h1 style={{
                   fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 24 : tab ? 28 : 34,
@@ -234,12 +235,18 @@ export default function CountryPage() {
             {/* Author */}
             <div style={{ display: "flex", alignItems: "center", gap: mob ? 8 : 16, flexWrap: "wrap" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                <div style={{
-                  width: 32, height: 32, borderRadius: "50%",
-                  background: "linear-gradient(135deg,#1e3a5f,#2d5a8e)",
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                  fontWeight: 700, fontSize: 13, color: "#fff",
-                }}>{COUNTRY.author.initials}</div>
+                {COUNTRY.author.image ? (
+                  <img src={COUNTRY.author.image} alt={COUNTRY.author.name} style={{
+                    width: 32, height: 32, borderRadius: "50%", objectFit: "cover",
+                  }} />
+                ) : (
+                  <div style={{
+                    width: 32, height: 32, borderRadius: "50%",
+                    background: "linear-gradient(135deg,#1e3a5f,#2d5a8e)",
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    fontWeight: 700, fontSize: 13, color: "#fff",
+                  }}>{COUNTRY.author.initials}</div>
+                )}
                 <div>
                   <div style={{ fontSize: 14, fontWeight: 700 }}>{COUNTRY.author.name}</div>
                   <div style={{ fontSize: 12, color: "#64748b" }}>{COUNTRY.author.role}</div>
@@ -258,7 +265,7 @@ export default function CountryPage() {
             border: "1px solid #e2e8f0", boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
           }}>
             <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 16, marginBottom: 12, display: "flex", alignItems: "center", gap: 8 }}>
-              {COUNTRY.flag} {COUNTRY.name} Trading Quick Facts
+              <CountryFlag code={COUNTRY.code} size={16} /> {COUNTRY.name} Trading Quick Facts
             </div>
             {quickFacts.map(([label, val], i) => (
               <div key={i} style={{
@@ -313,7 +320,7 @@ export default function CountryPage() {
       <section style={{ ...cn, paddingBottom: 12 }}>
         <div style={{ display: "flex", gap: 6, overflowX: "auto", WebkitOverflowScrolling: "touch", paddingBottom: 4 }}>
           {[
-            { key: "all", label: mob ? "All" : `All ${COUNTRY.name} (${BROKERS.length})`, icon: COUNTRY.flag },
+            { key: "all", label: mob ? "All" : `All ${COUNTRY.name} (${BROKERS.length})`, icon: null, countryCode: COUNTRY.code },
             { key: "spread-bet", label: mob ? "Spread Bet" : `Spread Betting (${BROKERS.filter(b => b.spreadBetting).length})`, icon: "\uD83C\uDFAF" },
             { key: "ecn", label: mob ? "ECN" : `ECN (${BROKERS.filter(b => b.type.includes("ECN")).length})`, icon: "\u26A1" },
           ].map(tb => (
@@ -324,7 +331,7 @@ export default function CountryPage() {
               border: `1px solid ${activeTab === tb.key ? "#1e3a5f" : "#e2e8f0"}`,
               fontWeight: 600, fontSize: 14, cursor: "pointer",
             }}>
-              {tb.icon} {tb.label}
+              {tb.countryCode ? <CountryFlag code={tb.countryCode} size={14} /> : tb.icon} {tb.label}
             </button>
           ))}
         </div>
@@ -559,7 +566,7 @@ export default function CountryPage() {
                       gap: mob ? 16 : 20,
                     }}>
                       <div>
-                        <div style={{ fontWeight: 700, fontSize: 15, marginBottom: 8 }}>{COUNTRY.flag} Why {b.name} for {COUNTRY.name} Traders</div>
+                        <div style={{ fontWeight: 700, fontSize: 15, marginBottom: 8, display: "flex", alignItems: "center", gap: 6 }}><CountryFlag code={COUNTRY.code} size={15} /> Why {b.name} for {COUNTRY.name} Traders</div>
                         {b.localAdvantages.map((adv, i) => (
                           <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 8, marginBottom: 6 }}>
                             <Check size={14} color="#059669" style={{ flexShrink: 0, marginTop: 2 }} />
@@ -816,7 +823,7 @@ export default function CountryPage() {
           background: "linear-gradient(135deg,#1e3a5f 0%,#2d5a8e 100%)",
           overflow: "hidden", position: "relative",
         }}>
-          <span style={{ fontSize: mob ? 36 : 48, display: "block", marginBottom: 10 }}>{COUNTRY.flag}</span>
+          <div style={{ marginBottom: 10 }}><CountryFlag code={COUNTRY.code} size={mob ? 36 : 48} /></div>
           <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 20 : 28, color: "#fff", margin: "0 0 8px" }}>
             Start Trading with a {COUNTRY.regulator} Broker
           </h2>

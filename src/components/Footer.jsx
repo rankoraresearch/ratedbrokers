@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import CountryFlag from "./CountryFlag";
 import { useMedia } from "../hooks/useMedia";
 import { useTranslation } from "../i18n/LanguageContext";
 import { useLocalePath } from "../i18n/useLocalePath";
@@ -63,16 +64,16 @@ const FOOTER_PLATFORMS = [
 ];
 
 const FOOTER_COUNTRIES = [
-  { flag: "\u{1F1EC}\u{1F1E7}", label: "UK", path: "/best-forex-brokers-uk" },
-  { flag: "\u{1F1E6}\u{1F1FA}", label: "Australia", path: "/best-forex-brokers-australia" },
-  { flag: "\u{1F1FA}\u{1F1F8}", label: "USA", path: "/best-forex-brokers-usa" },
-  { flag: "\u{1F1E6}\u{1F1EA}", label: "UAE", path: "/best-forex-brokers-uae" },
-  { flag: "\u{1F1E9}\u{1F1EA}", label: "Germany", path: "/best-forex-brokers-germany" },
-  { flag: "\u{1F1F8}\u{1F1EC}", label: "Singapore", path: "/best-forex-brokers-singapore" },
-  { flag: "\u{1F1E8}\u{1F1E6}", label: "Canada", path: "/best-forex-brokers-canada" },
-  { flag: "\u{1F1FF}\u{1F1E6}", label: "South Africa", path: "/best-forex-brokers-south-africa" },
-  { flag: "\u{1F1EE}\u{1F1F3}", label: "India", path: "/best-forex-brokers-india" },
-  { flag: "\u{1F1EF}\u{1F1F5}", label: "Japan", path: "/best-forex-brokers-japan" },
+  { code: "GB", label: "UK", path: "/best-forex-brokers-uk" },
+  { code: "AU", label: "Australia", path: "/best-forex-brokers-australia" },
+  { code: "US", label: "USA", path: "/best-forex-brokers-usa" },
+  { code: "AE", label: "UAE", path: "/best-forex-brokers-uae" },
+  { code: "DE", label: "Germany", path: "/best-forex-brokers-germany" },
+  { code: "SG", label: "Singapore", path: "/best-forex-brokers-singapore" },
+  { code: "CA", label: "Canada", path: "/best-forex-brokers-canada" },
+  { code: "ZA", label: "South Africa", path: "/best-forex-brokers-south-africa" },
+  { code: "IN", label: "India", path: "/best-forex-brokers-india" },
+  { code: "JP", label: "Japan", path: "/best-forex-brokers-japan" },
 ];
 
 const FOOTER_COMPANY = [
@@ -229,9 +230,9 @@ export default function Footer() {
           {/* E. Countries */}
           <div>
             <div style={sectionHeadingStyle}>{t("footer.countries")}</div>
-            {FOOTER_COUNTRIES.map(({ flag, label, path }) => (
+            {FOOTER_COUNTRIES.map(({ code, label, path }) => (
               <HoverLink key={path} to={lp(path)}>
-                <span style={{ marginRight: 6 }}>{flag}</span>{label}
+                <CountryFlag code={code} size={14} /><span style={{ marginLeft: 6 }}>{label}</span>
               </HoverLink>
             ))}
             <HoverLink to={lp("/best-forex-brokers-by-country")} style={{ color: "#34d399", fontWeight: 600, marginTop: 4 }}>

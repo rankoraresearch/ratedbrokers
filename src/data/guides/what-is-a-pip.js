@@ -143,6 +143,6 @@ export default {
   relatedGuides: ["what-is-leverage", "understanding-spreads-and-fees", "what-is-forex-trading"],
   relatedRankings: [
     { label: "Lowest Spread Brokers", path: "/lowest-spread-forex-brokers" },
-    { label: "Best Micro Account Brokers", path: "/best-micro-account-forex-brokers" }
+    { label: "Best Micro Account Brokers", path: "/forex-brokers-micro-accounts" }
   ]
 };

@@ -8,6 +8,7 @@ import BrokerLogo from "../components/BrokerLogo";
 import Breadcrumb, { breadcrumbSchema } from "../components/Breadcrumb";
 import Icon, { ArrowRight, Check, ExternalLink } from "../components/Icon";
 import { Shield, AlertTriangle, CircleX } from "lucide-react";
+import CountryFlag from "../components/CountryFlag";
 
 function useMedia() {
   const [w, setW] = useState(typeof window !== "undefined" ? window.innerWidth : 1200);
@@ -104,7 +105,7 @@ export default function RegulatorPage() {
         <div style={{ ...cn, display: "flex", flexDirection: mob ? "column" : "row", justifyContent: "space-between", gap: mob ? 20 : 32 }}>
           <div style={{ flex: 1 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 12 }}>
-              <span style={{ fontSize: mob ? 36 : 48 }}>{reg.flag}</span>
+              <CountryFlag code={reg.code} size={mob ? 36 : 48} />
               <div>
                 <h1 style={{ fontFamily: "Outfit", fontSize: mob ? 24 : 34, fontWeight: 800, color: "#0f172a", letterSpacing: "-0.02em", margin: 0 }}>
                   {reg.fullName} ({reg.name})
@@ -278,7 +279,7 @@ export default function RegulatorPage() {
                 {REGULATORS.filter(r => r.slug !== reg.slug).slice(0, 6).map((r, i) => (
                   <div key={i} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "6px 0", borderBottom: i < 5 ? "1px solid #f0f4f8" : "none" }}>
                     <div>
-                      <span style={{ fontSize: 12, marginRight: 4 }}>{r.flag}</span>
+                      <CountryFlag code={r.code} size={12} />
                       <span style={{ fontWeight: 600, fontSize: 12 }}>{r.name}</span>
                     </div>
                     <Link to={lp(`/regulator/${r.slug}`)} style={{ fontSize: 11, color: "#1e3a5f", fontWeight: 600, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 3 }}>View <ArrowRight size={11} /></Link>

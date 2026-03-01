@@ -10,8 +10,10 @@ import BrokerComparison from "./pages/BrokerComparison";
 import ComparePage from "./pages/ComparePage";
 import Methodology from "./pages/Methodology";
 import AllRankingsPage from "./pages/AllRankingsPage";
+import AllReviewsPage from "./pages/AllReviewsPage";
 import RankingPage from "./pages/RankingPage";
 import ForexBrokersPage from "./pages/ForexBrokersPage";
+import CryptoBrokersPage from "./pages/CryptoBrokersPage";
 import RegulatorPage from "./pages/RegulatorPage";
 import GuidePage from "./pages/GuidePage";
 import PlatformPage from "./pages/PlatformPage";
@@ -53,8 +55,10 @@ const PAGE_ROUTES = (
     <Route path="methodology" element={<Methodology />} />
     <Route path="about" element={<AboutPage />} />
     <Route path="rankings" element={<AllRankingsPage />} />
+    <Route path="reviews" element={<AllReviewsPage />} />
     <Route path="regulator/:slug" element={<RegulatorPage />} />
     <Route path="best-forex-brokers" element={<ForexBrokersPage />} />
+    <Route path="best-crypto-brokers" element={<CryptoBrokersPage />} />
     <Route path="guide/:slug" element={<GuidePage />} />
     <Route path="platform/:slug" element={<PlatformPage />} />
     <Route path=":slug" element={<RankingPage />} />

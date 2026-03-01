@@ -5,6 +5,7 @@ const zh = {
   "nav.reviews": "\u8bc4\u6d4b",
   "nav.compare": "\u5bf9\u6bd4",
   "nav.methodology": "\u8bc4\u6d4b\u65b9\u6cd5",
+  "nav.cryptoBrokers": "\u52a0\u5bc6\u8d27\u5e01\u7ecf\u7eaa\u5546",
 
   // ===== SCORE LABELS =====
   "score.excellent": "\u5353\u8d8a",
@@ -81,12 +82,6 @@ const zh = {
   "home.trust3Desc": "\u5b8c\u6574\u65b9\u6cd5\u8bba\u5168\u90e8\u516c\u5f00\u53d1\u5e03",
   "home.trust4Title": "\u5b9a\u671f\u66f4\u65b0",
   "home.trust4Desc": "\u6bcf\u5b63\u5ea6\u91cd\u65b0\u8bc4\u4f30\u6240\u6709\u7ecf\u7eaa\u5546",
-
-  // ===== HOME: NEWSLETTER =====
-  "home.nlTitle": "\u83b7\u53d6\u7ecf\u7eaa\u5546\u6392\u884c\u699c\u66f4\u65b0",
-  "home.nlDesc": "\u5f53\u6211\u4eec\u53d1\u5e03\u65b0\u8bc4\u6d4b\u3001\u5bf9\u6bd4\u548c\u6392\u884c\u699c\u66f4\u65b0\u65f6\u6536\u5230\u901a\u77e5\u3002",
-  "home.nlPlaceholder": "your@email.com",
-  "home.nlButton": "\u8ba2\u9605",
 
   // ===== FOOTER =====
   "footer.desc": "\u72ec\u7acb\u7684\u7ecf\u7eaa\u5546\u8bc4\u6d4b\u4e0e\u6392\u884c\u699c\uff0c\u7528\u771f\u5b9e\u8d44\u91d1\u6d4b\u8bd5\u3002\u6bcf\u5b63\u5ea6\u66f4\u65b0\u3002",

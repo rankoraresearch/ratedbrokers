@@ -16,15 +16,15 @@ export const AUTHORS = {
   "sarah-williams": {
     id: "sarah-williams",
     name: "Sarah Williams",
-    role: "CFD & Multi-Asset Specialist",
+    role: "Crypto & CFD Specialist",
     initials: "SW",
     exp: "9 years",
-    linkedin: "https://linkedin.com/in/sarah-williams-cfd",
+    linkedin: "https://linkedin.com/in/sarah-williams-crypto",
     image: "/authors/sarah-williams.webp",
     credentials: ["CAIA"],
     verified: true,
-    bio: "Sarah specializes in CFD and multi-asset markets. With 9 years of hands-on trading experience, she evaluates multi-asset brokers for execution quality, fee transparency, and regulatory compliance.",
-    specialty: "CFD Trading, Multi-Asset Analysis",
+    bio: "Sarah specializes in cryptocurrency derivatives and CFD markets. With 9 years of hands-on trading experience, she evaluates crypto exchanges and multi-asset brokers for execution quality, fee transparency, and regulatory compliance.",
+    specialty: "Crypto Derivatives, Multi-Asset CFDs",
     reviews: 62,
   },
   "elena-petrova": {
@@ -60,6 +60,7 @@ export const AUTHORS = {
 // Маппинг категории рейтинга → автор
 export const RANKING_CATEGORY_AUTHORS = {
   forex: "marcus-chen",
+  crypto: "sarah-williams",
   assets: "elena-petrova",
   stocks: "elena-petrova",
   country: "david-kowalski",

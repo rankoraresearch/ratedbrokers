@@ -129,6 +129,7 @@ const RANKINGS = [
   { id: "trading-apps",     slug: "/best-forex-trading-apps",               title: "Best Forex Trading Apps",                   category: "forex", sub: "mobile",   priority: 1, icon: "\ud83d\udcf1" },
   { id: "apps-iphone",      slug: "/best-forex-apps-iphone",                title: "Best Forex Apps for iPhone",                category: "forex", sub: "mobile",   priority: 3, icon: "\ud83c\udf4f" },
   { id: "apps-android",     slug: "/best-forex-apps-android",               title: "Best Forex Apps for Android",               category: "forex", sub: "mobile",   priority: 3, icon: "\ud83e\udd16" },
+  { id: "crypto-apps",      slug: "/best-crypto-trading-apps",              title: "Best Crypto Trading Apps",                  category: "crypto", sub: "mobile",  priority: 2, icon: "\ud83d\udcf2" },
   { id: "stock-apps",       slug: "/best-stock-trading-apps",               title: "Best Stock Trading Apps",                   category: "stocks", sub: "mobile",  priority: 3, icon: "\ud83d\udcf1" },
 
   // ═══════════════════════════════════════════════════════════════
@@ -151,6 +152,21 @@ const RANKINGS = [
   { id: "charting",           slug: "/best-forex-brokers-charting-tools",        title: "Best Forex Brokers with Charting Tools",     category: "forex", sub: "tools",  priority: 3, icon: "\ud83d\udcc9" },
   { id: "24-7-support",       slug: "/forex-brokers-24-7-support",              title: "Forex Brokers with 24/7 Support",            category: "forex", sub: "tools",  priority: 3, icon: "\ud83d\udcde" },
 
+  // ═══════════════════════════════════════════════════════════════
+  // L. CRYPTO BROKERS (12)
+  // ═══════════════════════════════════════════════════════════════
+  { id: "crypto-overall",     slug: "/best-crypto-brokers",                    title: "Best Crypto Brokers",                        category: "crypto", sub: "top",     priority: 1, icon: "\u20bf" },
+  { id: "crypto-bitcoin",     slug: "/best-bitcoin-brokers",                   title: "Best Bitcoin Trading Platforms",              category: "crypto", sub: "coins",   priority: 1, icon: "\u20bf" },
+  { id: "crypto-ethereum",    slug: "/best-ethereum-brokers",                  title: "Best Ethereum Trading Platforms",             category: "crypto", sub: "coins",   priority: 2, icon: "\u25c7" },
+  { id: "crypto-xrp",         slug: "/best-xrp-brokers",                      title: "Best Ripple (XRP) Brokers",                  category: "crypto", sub: "coins",   priority: 3, icon: "\ud83d\udca7" },
+  { id: "crypto-solana",      slug: "/best-solana-brokers",                    title: "Best Solana Trading Platforms",               category: "crypto", sub: "coins",   priority: 3, icon: "\u2600\ufe0f" },
+  { id: "crypto-doge",        slug: "/best-dogecoin-brokers",                  title: "Best Dogecoin Brokers",                      category: "crypto", sub: "coins",   priority: 3, icon: "\ud83d\udc36" },
+  { id: "crypto-altcoins",    slug: "/best-altcoin-brokers",                   title: "Best Altcoin Trading Platforms",              category: "crypto", sub: "coins",   priority: 2, icon: "\ud83e\ude99" },
+  { id: "crypto-staking",     slug: "/best-crypto-staking-platforms",          title: "Best Crypto Staking Platforms",               category: "crypto", sub: "feature", priority: 2, icon: "\ud83d\udcb8" },
+  { id: "crypto-copy",        slug: "/best-crypto-copy-trading",              title: "Best Crypto Copy Trading Platforms",           category: "crypto", sub: "feature", priority: 3, icon: "\ud83d\udccb" },
+  { id: "crypto-high-lev",    slug: "/best-high-leverage-crypto-brokers",     title: "Best High Leverage Crypto Brokers",            category: "crypto", sub: "feature", priority: 2, icon: "\ud83d\udcc8" },
+  { id: "crypto-low-spread",  slug: "/best-low-spread-crypto-brokers",        title: "Best Low Spread Crypto Brokers",               category: "crypto", sub: "feature", priority: 3, icon: "\ud83d\udcc9" },
+  { id: "crypto-vs-cfd",      slug: "/crypto-exchanges-vs-cfd-brokers",       title: "Crypto Exchanges vs CFD Brokers",              category: "crypto", sub: "guide",   priority: 3, icon: "\u2696\ufe0f" },
 
   // ═══════════════════════════════════════════════════════════════
   // M. OTHER ASSET CLASSES (12)

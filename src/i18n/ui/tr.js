@@ -5,6 +5,7 @@ const tr = {
   "nav.reviews": "İncelemeler",
   "nav.compare": "Karşılaştır",
   "nav.methodology": "Metodoloji",
+  "nav.cryptoBrokers": "Kripto Brokerleri",
 
   // ===== SCORE LABELS =====
   "score.excellent": "Mükemmel",
@@ -81,12 +82,6 @@ const tr = {
   "home.trust3Desc": "Tam metodoloji açıkça yayınlanmıştır",
   "home.trust4Title": "Güncel",
   "home.trust4Desc": "Tüm aracı kurumların üç aylık yeniden değerlendirilmesi",
-
-  // ===== HOME: NEWSLETTER =====
-  "home.nlTitle": "Aracı Kurum Sıralamaları Hakkında Güncel Kalın",
-  "home.nlDesc": "Yeni incelemeler, karşılaştırmalar ve sıralama güncellemeleri yayınlandığında haberdar olun.",
-  "home.nlPlaceholder": "email@adresiniz.com",
-  "home.nlButton": "Abone Ol",
 
   // ===== FOOTER =====
   "footer.desc": "Gerçek parayla test edilmiş bağımsız aracı kurum incelemeleri ve sıralamaları. Üç ayda bir güncellenir.",

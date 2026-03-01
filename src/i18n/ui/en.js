@@ -2,6 +2,7 @@ const en = {
   // ===== NAV =====
   "nav.home": "Home",
   "nav.forexBrokers": "Forex Brokers",
+  "nav.cryptoBrokers": "Crypto Brokers",
   "nav.reviews": "Reviews",
   "nav.guides": "Guides",
   "nav.compare": "Compare",
@@ -174,12 +175,6 @@ const en = {
   "home.founderRole": "Founder & CEO",
   "home.founderBio": "Yegor founded RatedBrokers after years of frustration with opaque broker rankings that prioritized affiliate commissions over trader welfare. With a background in fintech and digital marketing, he built RatedBrokers to be the most transparent broker comparison platform in the industry — where every score is backed by real data and every reviewer has a name and a face.",
   "home.founderLinkedin": "Connect on LinkedIn",
-
-  // ===== HOME: NEWSLETTER =====
-  "home.nlTitle": "Stay Updated on Broker Rankings",
-  "home.nlDesc": "Get notified when we publish new reviews, comparisons, and ranking updates.",
-  "home.nlPlaceholder": "your@email.com",
-  "home.nlButton": "Subscribe",
 
   // ===== FOOTER =====
   "footer.desc": "Independent broker reviews and rankings tested with real money. Updated quarterly.",
@@ -450,6 +445,8 @@ const en = {
   "pillar.coinGuide": "Trading Major Cryptocurrencies",
   "mega.viewAllForex": "Best Forex Brokers 2026 \u2014 Full Rankings \u2192",
   "mega.viewAllCrypto": "Best Crypto Brokers 2026 \u2014 Full Rankings \u2192",
+  "mega.viewAllReviews": "View All {count} Reviews \u2192",
+  "mega.browseAllRankings": "Browse All 207 Rankings \u2192",
 
   // ===== ABOUT US =====
   "about.badge": "ABOUT US",
@@ -492,6 +489,15 @@ const en = {
   "about.ctaDesc": "Browse our broker rankings — every score backed by real-money testing and transparent methodology.",
   "about.ctaButton": "View All Rankings →",
   "about.ctaMethod": "Read Our Methodology",
+
+  // ===== ALL REVIEWS PAGE =====
+  "reviews.pageTitle": "All Broker Reviews 2026",
+  "reviews.pageDesc": "In-depth reviews of {count} forex, crypto, and CFD brokers — each tested with real money and scored across 6 categories. Updated quarterly.",
+  "reviews.filterAll": "All",
+  "reviews.filterTop": "Top Rated (9+)",
+  "reviews.filterGreat": "Great (8.5+)",
+  "reviews.filterEcn": "ECN / STP",
+  "reviews.filterMm": "Market Maker",
 
   // ===== SEARCH =====
   "search.placeholder": "Search brokers, guides, rankings...",

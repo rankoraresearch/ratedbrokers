@@ -5,6 +5,7 @@ const es = {
   "nav.reviews": "Reseñas",
   "nav.compare": "Comparar",
   "nav.methodology": "Metodología",
+  "nav.cryptoBrokers": "Brokers de Criptomonedas",
 
   // ===== SCORE LABELS =====
   "score.excellent": "Excelente",
@@ -81,12 +82,6 @@ const es = {
   "home.trust3Desc": "Metodología completa publicada abiertamente",
   "home.trust4Title": "Actualizados",
   "home.trust4Desc": "Reevaluación trimestral de todos los brókers",
-
-  // ===== HOME: NEWSLETTER =====
-  "home.nlTitle": "Mantente al día con los rankings de brókers",
-  "home.nlDesc": "Recibe notificaciones cuando publiquemos nuevas reseñas, comparaciones y actualizaciones de rankings.",
-  "home.nlPlaceholder": "tu@email.com",
-  "home.nlButton": "Suscribirse",
 
   // ===== FOOTER =====
   "footer.desc": "Reseñas y rankings independientes de brókers probados con dinero real. Actualizados trimestralmente.",

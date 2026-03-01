@@ -8,15 +8,16 @@ import RegBadge from "../components/RegBadge";
 import BrokerLogo from "../components/BrokerLogo";
 import Icon from "../components/Icon";
 import { ArrowRight, Award } from "lucide-react";
+import CountryFlag from "../components/CountryFlag";
 
 
 const COUNTRIES = [
-  { flag: "\ud83c\uddec\ud83c\udde7", name: "United Kingdom", reg: "FCA", count: 38, path: "/best-forex-brokers-uk", featured: true },
-  { flag: "\ud83c\udde6\ud83c\uddfa", name: "Australia", reg: "ASIC", count: 24, path: "/best-forex-brokers-australia" },
-  { flag: "\ud83c\udde6\ud83c\uddea", name: "UAE", reg: "DFSA / VARA", count: 18, path: "/best-forex-brokers-uae" },
-  { flag: "\ud83c\udde9\ud83c\uddea", name: "Germany", reg: "BaFin", count: 22, path: "/best-forex-brokers-germany" },
-  { flag: "\ud83c\uddf8\ud83c\uddec", name: "Singapore", reg: "MAS", count: 15, path: "/best-forex-brokers-singapore" },
-  { flag: "\ud83c\uddfa\ud83c\uddf8", name: "United States", reg: "NFA / CFTC", count: 12, path: "/best-forex-brokers-usa" },
+  { code: "GB", name: "United Kingdom", reg: "FCA", count: 38, path: "/best-forex-brokers-uk", featured: true },
+  { code: "AU", name: "Australia", reg: "ASIC", count: 24, path: "/best-forex-brokers-australia" },
+  { code: "AE", name: "UAE", reg: "DFSA / VARA", count: 18, path: "/best-forex-brokers-uae" },
+  { code: "DE", name: "Germany", reg: "BaFin", count: 22, path: "/best-forex-brokers-germany" },
+  { code: "SG", name: "Singapore", reg: "MAS", count: 15, path: "/best-forex-brokers-singapore" },
+  { code: "US", name: "United States", reg: "NFA / CFTC", count: 12, path: "/best-forex-brokers-usa" },
 ];
 
 const COMPARISONS = [
@@ -38,7 +39,7 @@ const QUICK_RANKINGS = [
   { icon: "handshake", title: "Copy Trading", path: "/best-copy-trading-platforms" },
   { icon: "smartphone", title: "Trading Apps", path: "/best-forex-trading-apps" },
   { icon: "dollar-sign", title: "Zero Spread", path: "/zero-spread-forex-brokers" },
-  { icon: "briefcase", title: "Pro Traders", path: "/best-forex-brokers-for-professionals" },
+  { icon: "bitcoin", title: "Crypto Brokers", path: "/best-crypto-brokers" },
 ];
 
 export default function Home() {
@@ -385,7 +386,7 @@ export default function Home() {
                   fontSize: 10, fontWeight: 700,
                 }}>{t("home.mostPopular")}</span>
               )}
-              <span style={{ fontSize: mob ? 32 : 38 }}>{c.flag}</span>
+              <CountryFlag code={c.code} size={mob ? 32 : 38} />
               <div style={{ flex: 1 }}>
                 <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: mob ? 15 : 17 }}>{c.name}</div>
                 <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 4 }}>
@@ -490,12 +491,12 @@ export default function Home() {
           display: "flex", flexDirection: mob ? "column" : "row",
           alignItems: mob ? "center" : "flex-start", gap: mob ? 20 : 32,
         }}>
-          {/* Avatar placeholder */}
+          {/* Founder avatar */}
           <div style={{
             width: mob ? 80 : 100, height: mob ? 80 : 100, borderRadius: "50%",
             background: "linear-gradient(135deg,#1e3a5f,#2d5a8e)",
             display: "flex", alignItems: "center", justifyContent: "center",
-            flexShrink: 0,
+            flexShrink: 0, overflow: "hidden",
           }}>
             <span style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 28 : 34, color: "#fff" }}>YB</span>
           </div>
@@ -531,45 +532,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== 9. NEWSLETTER ===== */}
-      <section style={{ ...cn, padding: mob ? "40px 16px 60px" : "60px 24px 80px" }}>
-        <div style={{
-          borderRadius: 20, padding: mob ? "32px 20px" : "48px",
-          background: "linear-gradient(135deg,#1e3a5f,#2d5a8e)",
-          textAlign: "center",
-        }}>
-          <span style={{ display: "flex", justifyContent: "center", marginBottom: 12 }}><Icon name="mail" size={36} color="#34d399" /></span>
-          <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 28, color: "#fff", marginBottom: 8 }}>
-            {t("home.nlTitle")}
-          </h2>
-          <p style={{ fontSize: 15, color: "rgba(255,255,255,0.7)", marginBottom: 24, maxWidth: 400, margin: "0 auto 24px" }}>
-            {t("home.nlDesc")}
-          </p>
-          <div style={{
-            display: "flex", gap: 8, maxWidth: 400, margin: "0 auto",
-            flexDirection: mob ? "column" : "row",
-          }}>
-            <input
-              type="email"
-              placeholder={t("home.nlPlaceholder")}
-              style={{
-                flex: 1, padding: "12px 16px", borderRadius: 10,
-                border: "1px solid rgba(255,255,255,0.2)",
-                background: "rgba(255,255,255,0.1)", color: "#fff",
-                fontSize: 14, outline: "none",
-              }}
-            />
-            <button style={{
-              padding: "12px 24px", borderRadius: 10,
-              background: "linear-gradient(135deg,#059669,#34d399)",
-              color: "#fff", fontWeight: 700, fontSize: 14,
-              border: "none", cursor: "pointer", whiteSpace: "nowrap",
-            }}>
-              {t("home.nlButton")}
-            </button>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

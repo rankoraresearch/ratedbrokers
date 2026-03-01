@@ -452,12 +452,12 @@ export default function MethodologyPage() {
                 {t("meth.pledgeDesc2")}
               </p>
               <div style={{ display: "flex", gap: 12 }}>
-                <Link to={lp("/guides/b-book-brokers")} style={{
+                <Link to={lp("/guide/ecn-vs-market-maker")} style={{
                   padding: "10px 20px", borderRadius: 8,
                   background: "#dc2626", color: "#fff", fontWeight: 700, fontSize: 13,
                   textDecoration: "none",
                 }}>{t("meth.pledgeLink1")}</Link>
-                <Link to={lp("/best-a-book-brokers")} style={{
+                <Link to={lp("/best-a-book-forex-brokers")} style={{
                   padding: "10px 20px", borderRadius: 8,
                   background: "#fff", color: "#dc2626", fontWeight: 700, fontSize: 13,
                   textDecoration: "none", border: "1px solid #fecaca",
@@ -483,12 +483,19 @@ export default function MethodologyPage() {
               background: "#fff", border: "1px solid #e2e8f0",
               textAlign: "center",
             }}>
-              <div style={{
-                width: 64, height: 64, borderRadius: "50%", background: "#1e3a5f",
-                display: "flex", alignItems: "center", justifyContent: "center",
-                color: "#fff", fontWeight: 800, fontSize: 22, fontFamily: "Outfit",
-                margin: "0 auto 12px",
-              }}>{member.initials}</div>
+              {member.image ? (
+                <img src={member.image} alt={member.name} style={{
+                  width: 64, height: 64, borderRadius: "50%",
+                  objectFit: "cover", margin: "0 auto 12px",
+                }} />
+              ) : (
+                <div style={{
+                  width: 64, height: 64, borderRadius: "50%", background: "#1e3a5f",
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  color: "#fff", fontWeight: 800, fontSize: 22, fontFamily: "Outfit",
+                  margin: "0 auto 12px",
+                }}>{member.initials}</div>
+              )}
               <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 17 }}>{member.name}</div>
               <div style={{ fontSize: 12, color: "#64748b", marginBottom: 10 }}>{member.role}</div>
               <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "1fr 1fr", gap: 6, marginBottom: 12 }}>
@@ -577,7 +584,7 @@ export default function MethodologyPage() {
               background: "linear-gradient(135deg,#059669,#34d399)",
               color: "#fff", fontWeight: 800, fontSize: 16, textDecoration: "none",
             }}>{t("meth.viewRankings")}</Link>
-            <Link to={lp("/best-ecn-brokers")} style={{
+            <Link to={lp("/best-ecn-forex-brokers")} style={{
               padding: "14px 32px", borderRadius: 10,
               background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.2)",
               color: "#fff", fontWeight: 600, fontSize: 16, textDecoration: "none",

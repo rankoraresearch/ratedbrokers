@@ -5,6 +5,7 @@ const de = {
   "nav.reviews": "Bewertungen",
   "nav.compare": "Vergleichen",
   "nav.methodology": "Methodik",
+  "nav.cryptoBrokers": "Krypto-Broker",
 
   // ===== SCORE LABELS =====
   "score.excellent": "Hervorragend",
@@ -81,12 +82,6 @@ const de = {
   "home.trust3Desc": "Vollständige Methodik öffentlich zugänglich",
   "home.trust4Title": "Aktuell",
   "home.trust4Desc": "Vierteljährliche Neubewertung aller Broker",
-
-  // ===== HOME: NEWSLETTER =====
-  "home.nlTitle": "Bleiben Sie über Broker-Rankings informiert",
-  "home.nlDesc": "Erhalten Sie Benachrichtigungen, wenn wir neue Bewertungen, Vergleiche und Ranking-Updates veröffentlichen.",
-  "home.nlPlaceholder": "ihre@email.de",
-  "home.nlButton": "Abonnieren",
 
   // ===== FOOTER =====
   "footer.desc": "Unabhängige Broker-Bewertungen und Rankings, getestet mit echtem Geld. Vierteljährlich aktualisiert.",

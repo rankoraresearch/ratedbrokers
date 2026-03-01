@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RatedBrokers — 5 вариантов нового дизайна</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: #0a0a0a;
+    color: #e0e0e0;
+    line-height: 1.6;
+  }
+
+  /* ===== INTRO ===== */
+  .intro {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 32px 40px;
+    text-align: center;
+  }
+  .intro h1 {
+    font-size: 42px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #ff6b35, #f7c948, #10b981);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 16px;
+    letter-spacing: -1px;
+  }
+  .intro p {
+    font-size: 16px;
+    color: #888;
+    max-width: 700px;
+    margin: 0 auto 32px;
+  }
+  .intro .meta {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .intro .meta span {
+    font-size: 13px;
+    color: #666;
+    padding: 6px 14px;
+    border: 1px solid #333;
+    border-radius: 100px;
+  }
+
+  /* ===== OPTION CARD ===== */
+  .option {
+    max-width: 1200px;
+    margin: 0 auto 80px;
+    padding: 0 32px;
+  }
+  .option-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #222;
+  }
+  .option-number {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 900;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .option-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.5px;
+  }
+  .option-subtitle {
+    font-size: 14px;
+    color: #888;
+    margin-top: 4px;
+  }
+  .option-tags {
+    display: flex;
+    gap: 8px;
+    margin-left: auto;
+    flex-wrap: wrap;
+  }
+  .option-tag {
+    padding: 4px 12px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* Grid for mockup + details */
+  .option-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  @media (max-width: 900px) {
+    .option-body { grid-template-columns: 1fr; }
+    .option-tags { margin-left: 0; margin-top: 12px; }
+    .option-header { flex-wrap: wrap; }
+  }
+
+  /* Mockup container */
+  .mockup {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #222;
+    position: relative;
+  }
+  .mockup-browser-bar {
+    height: 36px;
+    background: #1a1a1a;
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    gap: 8px;
+  }
+  .mockup-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #333;
+  }
+  .mockup-dot:first-child { background: #ff5f57; }
+  .mockup-dot:nth-child(2) { background: #febc2e; }
+  .mockup-dot:nth-child(3) { background: #28c840; }
+  .mockup-url {
+    margin-left: 12px;
+    font-size: 11px;
+    color: #666;
+    background: #111;
+    padding: 4px 14px;
+    border-radius: 6px;
+    flex: 1;
+    max-width: 300px;
+  }
+
+  /* Details panel */
+  .details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .detail-section h3 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+  .detail-section p, .detail-section li {
+    font-size: 14px;
+    color: #aaa;
+    line-height: 1.7;
+  }
+  .detail-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  .detail-section ul li::before {
+    content: "→ ";
+    color: #666;
+  }
+
+  /* Color palette */
+  .palette {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+  .palette-swatch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+  .palette-color {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    border: 2px solid rgba(255,255,255,0.1);
+  }
+  .palette-label {
+    font-size: 9px;
+    color: #666;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* Typography preview */
+  .typo-preview {
+    padding: 16px;
+    background: #111;
+    border-radius: 12px;
+    margin-top: 8px;
+  }
+
+  /* Score badges */
+  .score-row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  /* Pros/cons pills */
+  .pros-cons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 8px;
+  }
+  .pro, .con {
+    font-size: 12px;
+    padding: 8px 12px;
+    border-radius: 8px;
+  }
+  .pro { background: rgba(16,185,129,0.1); color: #34d399; }
+  .con { background: rgba(239,68,68,0.1); color: #f87171; }
+
+  /* Comparison matrix */
+  .comparison {
+    max-width: 1200px;
+    margin: 0 auto 80px;
+    padding: 0 32px;
+  }
+  .comparison h2 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .comparison-table th {
+    text-align: left;
+    padding: 12px 16px;
+    background: #151515;
+    color: #888;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 11px;
+    border-bottom: 1px solid #222;
+  }
+  .comparison-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #1a1a1a;
+    color: #ccc;
+  }
+  .comparison-table tr:hover td {
+    background: #111;
+  }
+  .check { color: #34d399; }
+  .cross { color: #666; }
+
+  /* Recommendation */
+  .recommendation {
+    max-width: 1200px;
+    margin: 0 auto 80px;
+    padding: 40px 32px;
+    background: linear-gradient(135deg, rgba(16,185,129,0.08), rgba(247,201,72,0.05));
+    border: 1px solid rgba(16,185,129,0.2);
+    border-radius: 20px;
+    text-align: center;
+  }
+  .recommendation h2 {
+    font-size: 26px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+  .recommendation p {
+    font-size: 15px;
+    color: #aaa;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+  .recommendation .rec-badge {
+    display: inline-block;
+    padding: 6px 20px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  /* Divider */
+  .divider {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+    height: 1px;
+    margin-bottom: 80px;
+  }
+  .divider-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #333, transparent);
+  }
+
+  /* CTA button samples */
+  .cta-samples {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+  .cta-sample {
+    padding: 10px 22px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: default;
+  }
+  .cta-secondary {
+    padding: 10px 22px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: default;
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== INTRO ===== -->
+<div class="intro">
+  <h1>RatedBrokers — Варианты дизайна</h1>
+  <p>5 альтернатив нового дизайна сайта на основе анализа конкурентов (ForexBrokers.com, BrokerChooser, FXEmpire, CompareForexBrokers) и лучших практик финансовых affiliate-сайтов</p>
+  <div class="meta">
+    <span>Дата: 1 марта 2026</span>
+    <span>Стек: React 18 + Vite</span>
+    <span>Текущий: зелёно-navy тема</span>
+    <span>31 брокер</span>
+  </div>
+</div>
+
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- ========================================= -->
+<!-- ВАРИАНТ 1: CLEAN AUTHORITY -->
+<!-- ========================================= -->
+<div class="option">
+  <div class="option-header">
+    <div class="option-number" style="background: linear-gradient(135deg, #10b981, #059669);">1</div>
+    <div>
+      <div class="option-title">Clean Authority</div>
+      <div class="option-subtitle">Минимализм + экспертность. Как Investopedia + BrokerChooser</div>
+    </div>
+    <div class="option-tags">
+      <span class="option-tag" style="background: rgba(16,185,129,0.15); color: #34d399;">Рекомендован</span>
+      <span class="option-tag" style="background: rgba(247,201,72,0.15); color: #f7c948;">Высокая конверсия</span>
+    </div>
+  </div>
+
+  <div class="option-body">
+    <!-- MOCKUP -->
+    <div class="mockup">
+      <div class="mockup-browser-bar">
+        <div class="mockup-dot"></div>
+        <div class="mockup-dot"></div>
+        <div class="mockup-dot"></div>
+        <div class="mockup-url">ratedbrokers.com</div>
+      </div>
+      <div style="background: #ffffff; padding: 0;">
+        <!-- Header -->
+        <div style="padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #f0f0f0; background: #fff;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <div style="width: 28px; height: 28px; border-radius: 8px; background: linear-gradient(135deg, #059669, #34d399);"></div>
+            <span style="font-weight: 800; font-size: 14px; color: #111; font-family: 'Inter';">RatedBrokers</span>
+          </div>
+          <div style="display: flex; gap: 20px; font-size: 11px; color: #666; font-weight: 500;">
+            <span>Rankings</span>
+            <span>Reviews</span>
+            <span>Compare</span>
+            <span>Guides</span>
+            <span style="color: #059669; font-weight: 700;">Find Broker</span>
+          </div>
+        </div>
+        <!-- Hero -->
+        <div style="padding: 40px 24px 32px; background: #fafafa; text-align: center;">
+          <div style="display: inline-block; padding: 4px 12px; background: #ecfdf5; color: #059669; border-radius: 100px; font-size: 10px; font-weight: 700; margin-bottom: 12px;">Q1 2026 UPDATE</div>
+          <div style="font-size: 22px; font-weight: 900; color: #111; line-height: 1.2; margin-bottom: 8px; letter-spacing: -0.5px;">Best Forex Brokers 2026</div>
+          <div style="font-size: 11px; color: #888; max-width: 340px; margin: 0 auto 16px;">Tested by experts. Ranked by data. 54 brokers, 3000+ data points.</div>
+          <!-- Stats row -->
+          <div style="display: flex; justify-content: center; gap: 24px; margin-bottom: 16px;">
+            <div style="text-align: center;">
+              <div style="font-size: 16px; font-weight: 800; color: #059669; font-family: 'JetBrains Mono';">54</div>
+              <div style="font-size: 9px; color: #999;">Brokers</div>
+            </div>
+            <div style="text-align: center;">
+              <div style="font-size: 16px; font-weight: 800; color: #059669; font-family: 'JetBrains Mono';">3K+</div>
+              <div style="font-size: 9px; color: #999;">Data Points</div>
+            </div>
+            <div style="text-align: center;">
+              <div style="font-size: 16px; font-weight: 800; color: #059669; font-family: 'JetBrains Mono';">96h</div>
+              <div style="font-size: 9px; color: #999;">Testing</div>
+            </div>
+          </div>
+          <div style="display: inline-block; padding: 10px 28px; background: linear-gradient(135deg, #059669, #34d399); color: #fff; border-radius: 10px; font-size: 12px; font-weight: 700;">View Rankings →</div>
+        </div>
+        <!-- Broker Cards -->
+        <div style="padding: 20px 24px;">
+          <div style="font-size: 13px; font-weight: 700; color: #111; margin-bottom: 14px;">Top Rated Brokers</div>
+          <!-- Card 1 -->
+          <div style="display: flex; align-items: center; padding: 14px 16px; background: #fff; border: 1.5px solid #10b981; border-radius: 12px; margin-bottom: 10px; gap: 12px;">
+            <div style="width: 10px; font-size: 10px; font-weight: 800; color: #059669;">#1</div>
+            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #1e3a5f, #3b82f6); border-radius: 8px;"></div>
+            <div style="flex: 1;">
+              <div style="font-size: 12px; font-weight: 700; color: #111;">IC Markets</div>
+              <div style="font-size: 9px; color: #888;">0.0 pips · $200 min · ASIC, FCA</div>
+            </div>
+            <div style="text-align: center;">
+              <div style="width: 40px; height: 40px; background: #ecfdf5; border: 2px solid #059669; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                <span style="font-family: 'JetBrains Mono'; font-weight: 800; font-size: 14px; color: #059669;">9.7</span>
+              </div>
+            </div>
+            <div style="padding: 6px 14px; background: linear-gradient(135deg, #059669, #34d399); color: #fff; border-radius: 8px; font-size: 10px; font-weight: 700;">Visit</div>
+          </div>
+          <!-- Card 2 -->
+          <div style="display: flex; align-items: center; padding: 14px 16px; background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; margin-bottom: 10px; gap: 12px;">
+            <div style="width: 10px; font-size: 10px; font-weight: 800; color: #666;">#2</div>
+            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #dc2626, #f97316); border-radius: 8px;"></div>
+            <div style="flex: 1;">
+              <div style="font-size: 12px; font-weight: 700; color: #111;">Pepperstone</div>
+              <div style="font-size: 9px; color: #888;">0.0 pips · $0 min · FCA, ASIC</div>
+            </div>
+            <div style="text-align: center;">
+              <div style="width: 40px; height: 40px; background: #ecfdf5; border: 2px solid #059669; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                <span style="font-family: 'JetBrains Mono'; font-weight: 800; font-size: 14px; color: #059669;">9.5</span>
+              </div>
+            </div>
+            <div style="padding: 6px 14px; background: linear-gradient(135deg, #059669, #34d399); color: #fff; border-radius: 8px; font-size: 10px; font-weight: 700;">Visit</div>
+          </div>
+          <!-- Card 3 -->
+          <div style="display: flex; align-items: center; padding: 14px 16px; background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; margin-bottom: 10px; gap: 12px;">
+            <div style="width: 10px; font-size: 10px; font-weight: 800; color: #666;">#3</div>
+            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #7c3aed, #a78bfa); border-radius: 8px;"></div>
+            <div style="flex: 1;">
+              <div style="font-size: 12px; font-weight: 700; color: #111;">XM Group</div>
+              <div style="font-size: 9px; color: #888;">0.1 pips · $5 min · CySEC, ASIC</div>
+            </div>
+            <div style="text-align: center;">
+              <div style="width: 40px; height: 40px; background: #ecfdf5; border: 2px solid #059669; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                <span style="font-family: 'JetBrains Mono'; font-weight: 800; font-size: 14px; color: #059669;">9.4</span>
+              </div>
+            </div>
+            <div style="padding: 6px 14px; background: linear-gradient(135deg, #059669, #34d399); color: #fff; border-radius: 8px; font-size: 10px; font-weight: 700;">Visit</div>
+          </div>
+        </div>
+        <!-- Trust strip -->
+        <div style="padding: 12px 24px; background: #f8fafc; text-align: center; border-top: 1px solid #f0f0f0;">
+          <div style="font-size: 9px; color: #999; margin-bottom: 6px;">TRUSTED BY TRADERS WORLDWIDE</div>
+          <div style="display: flex; justify-content: center; gap: 20px; font-size: 10px; color: #bbb;">
+            <span>📊 3000+ Data Points</span>
+            <span>🔒 ASIC · FCA · CySEC</span>
+            <span>⏱ Updated Q1 2026</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DETAILS -->
+    <div class="details">
+      <div class="detail-section">
+        <h3 style="color: #34d399;">Концепция</h3>
+        <p>Чистый белый фон, минимум визуального шума. Фокус на данных и экспертности. Дизайн «невидим» — пользователь видит контент, а не украшения. Подход Investopedia: content-first, конверсия через доверие.</p>
+      </div>
+
+      <div class="detail-section">
+        <h3 style="color: #34d399;">Палитра</h3>
+        <div class="palette">
+          <div class="palette-swatch">
+            <div class="palette-color" style="background: #ffffff; border-color: #ddd;"></div>
+            <span class="palette-label">#FFFFFF</span>
+          </div>
+          <div class="palette-swatch">
+            <div class="palette-color" style="background: #fafafa;"></div>
+            <span class="palette-label">#FAFAFA</span>
+          </div>
+          <div class="palette-swatch">
+            <div class="palette-color" style="background: #111111;"></div>
+            <span class="palette-label">#111111</span>
+          </div>
+          <div class="palette-swatch">
+            <div class="palette-color" style="background: #059669;"></div>
+            <span class="palette-label">#059669</span>
+          </div>
+          <div class="palette-swatch">
+            <div class="palette-color" style="background: #34d399;"></div>
+            <span class="palette-label">#34D399</span>
+          </div>
+          <div class="palette-swatch">
+            <div class="palette-color" style="background: #ecfdf5;"></div>
+            <span class="palette-label">#ECFDF5</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <h3 style="color: #34d399;">Типографика</h3>
+        <div class="typo-preview" style="background: #fff;">
+          <div style="font-family: 'Inter'; font-weight: 900; font-size: 22px; color: #111; margin-bottom: 4px;">Inter 900 — Заголовки</div>
+          <div style="font-family: 'Inter'; font-weight: 400; font-size: 14px; color: #666; margin-bottom: 4px;">Inter 400 — Основной текст</div>
+          <div style="font-family: 'JetBrains Mono'; font-weight: 800; font-size: 18px; color: #059669;">JetBrains Mono 800 — 9.7</div>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <h3 style="color: #34d399;">CTA-кнопки</h3>
+        <div class="cta-samples">
+          <span class="cta-sample" style="background: linear-gradient(135deg, #059669, #34d399);">Visit Broker →</span>
+          <span class="cta-secondary" style="background: #f1f5f9; color: #475569;">Read Review</span>
+          <span class="cta-secondary" style="background: #ecfdf5; color: #059669; border: 1px solid #a7f3d0;">Compare</span>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <h3 style="color: #34d399;">Ключевые отличия от текущего</h3>
+        <ul>
+          <li>Белый хедер вместо тёмного (больше воздуха)</li>
+          <li>Hero без тёмного градиента — light & airy</li>
+          <li>Больше пустого пространства между блоками</li>
+          <li>Фокус на trust-сигналах и методологии</li>
+          <li>Карточки упрощены: меньше границ, чище</li>
+        </ul>
+      </div>
+
+      <div class="detail-section">
+        <h3 style="color: #34d399;">Плюсы / Минусы</h3>
+        <div class="pros-cons">
+          <div class="pro">✓ Максимальная читаемость</div>
+          <div class="con">✗ Может выглядеть «скучно»</div>
+          <div class="pro">✓ Высокое доверие</div>
+          <div class="con">✗ Мало визуального «вау»</div>
+          <div class="pro">✓ Быстрая загрузка</div>
+          <div class="con">✗ Похож на Investopedia</div>
+          <div class="pro">✓ Минимум переделок</div>
+          <div class="con">✗ Нужен сильный контент</div>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <h3 style="color: #34d399;">Эталоны</h3>
+        <p>ForexBrokers.com, Investopedia, NerdWallet — все лидеры ниши используют белый минимализм как основу.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- ========================================= -->
+<!-- ВАРИАНТ 2: DARK PREMIUM -->
+<!-- ========================================= -->
+<div class="option">
+  <div class="option-header">
+    <div class="option-number" style="background: linear-gradient(135deg, #06b6d4, #0891b2);">2</div>
+    <div>
+      <div class="option-title">Dark Premium</div>
+      <div class="option-subtitle">Тёмная тема + бирюзовый неон. Как FXEmpire + Bloomberg Terminal</div>
+    </div>
+    <div class="option-tags">
+      <span class="option-tag" style="background: rgba(6,182,212,0.15); color: #22d3ee;">Премиум</span>
+      <span class="option-tag" style="background: rgba(168,85,247,0.15); color: #c084fc;">Уникальный</span>
+    </div>
+  </div>
+
+  <div class="option-body">
+    <!-- MOCKUP -->
+    <div class="mockup">
+      <div class="mockup-browser-bar">
+        <div class="mockup-dot"></div>
+        <div class="mockup-dot"></div>
+        <div class="mockup-dot"></div>
+        <div class="mockup-url">ratedbrokers.com</div>
+      </div>
+      <div style="background: #0c1222; padding: 0;">
+        <!-- Header -->
+        <div style="padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.06); background: rgba(12,18,34,0.95);">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <div style="width: 28px; height: 28px; border-radius: 8px; background: linear-gradient(135deg, #06b6d4, #22d3ee); box-shadow: 0 0 12px rgba(6,182,212,0.4);"></div>
+            <span style="font-weight: 800; font-size: 14px; color: #fff; font-family: 'Inter';">RatedBrokers</span>
+          </div>
+          <div style="display: flex; gap: 20px; font-size: 11px; color: #64748b; font-weight: 500;">
+            <span>Rankings</span>
+            <span>Reviews</span>
+            <span>Compare</span>
+            <span style="color: #22d3ee; font-weight: 700;">🔍 Find Broker</span>
+          </div>
+        </div>
+        <!-- Hero -->
+        <div style="padding: 36px 24px 28px; background: linear-gradient(180deg, #0c1222 0%, #111d35 100%); text-align: center; position: relative; overflow: hidden;">
+          <!-- Glow effect -->
+          <div style="position: absolute; top: -40px; left: 50%; transform: translateX(-50%); width: 200px; height: 100px; background: radial-gradient(ellipse, rgba(6,182,212,0.15), transparent 70%); pointer-events: none;"></div>
+          <div style="display: inline-block; padding: 4px 12px; background: rgba(6,182,212,0.1); color: #22d3ee; border: 1px solid rgba(6,182,212,0.2); border-radius: 100px; font-size: 10px; font-weight: 700; margin-bottom: 12px;">LIVE DATA · Q1 2026</div>
+          <div style="font-size: 22px; font-weight: 900; color: #fff; line-height: 1.2; margin-bottom: 8px; letter-spacing: -0.5px;">Best Forex Brokers<br><span style="background: linear-gradient(135deg, #06b6d4, #22d3ee, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Ranked by Experts</span></div>
+          <div style="font-size: 11px; color: #64748b; max-width: 300px; margin: 0 auto 16px;">54 brokers tested with real money. 3,000+ data points analyzed.</div>
+          <div style="display: inline-block; padding: 10px 28px; background: linear-gradient(135deg, #06b6d4, #0891b2); color: #fff; border-radius: 10px; font-size: 12px; font-weight: 700; box-shadow: 0 0 20px rgba(6,182,212,0.3);">Explore Rankings →</div>
+        </div>
+        <!-- Broker Cards (Dark) -->
+        <div style="padding: 20px 24px;">
+          <div style="font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 14px;">Top Rated</div>
+          <!-- Card 1 -->
+          <div style="display: flex; align-items: center; padding: 14px 16px; background: rgba(6,182,212,0.04); border: 1px solid rgba(6,182,212,0.15); border-radius: 12px; margin-bottom: 10px; gap: 12px;">
+            <div style="width: 10px; font-size: 10px; font-weight: 800; color: #22d3ee;">#1</div>
+            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #1e3a5f, #3b82f6); border-radius: 8px;"></div>
+            <div style="flex: 1;">
+              <div style="font-size: 12px; font-weight: 700; color: #fff;">IC Markets</div>
+              <div style="font-size: 9px; color: #64748b;">0.0 pips · $200 min · ASIC, FCA</div>
+            </div>
+            <div style="width: 42px; height: 42px; background: rgba(6,182,212,0.1); border: 2px solid #06b6d4; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+              <span style="font-family: 'JetBrains Mono'; font-weight: 800; font-size: 14px; color: #22d3ee;">9.7</span>
+            </div>
+            <div style="padding: 6px 14px; background: linear-gradient(135deg, #06b6d4, #0891b2); color: #fff; border-radius: 8px; font-size: 10px; font-weight: 700; box-shadow: 0 0 10px rgba(6,182,212,0.2);">Visit</div>
+          </div>
+          <!-- Card 2 -->
+          <div style="display: flex; align-items: center; padding: 14px 16px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; margin-bottom: 10px; gap: 12px;">
+            <div style="width: 10px; font-size: 10px; font-weight: 800; color: #64748b;">#2</div>
+            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #dc2626, #f97316); border-radius: 8px;"></div>
+            <div style="flex: 1;">
+              <div style="font-size: 12px; font-weight: 700; color: #e2e8f0;">Pepperstone</div>
+              <div style="font-size: 9px; color: #64748b;">0.0 pips · $0 min · FCA, ASIC</div>
+            </div>
+            <div style="width: 42px; height: 42px; background: rgba(6,182,212,0.1); border: 2px solid #06b6d4; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+              <span style="font-family: 'JetBrains Mono'; font-weight: 800; font-size: 14px; color: #22d3ee;">9.5</span>
+            </div>
+            <div style="padding: 6px 14px; background: linear-gradient(135deg, #06b6d4, #0891b2); color: #fff; border-radius: 8px; font-size: 10px; font-weight: 700;">Visit</div>
+          </div>
+          <!-- Card 3 -->
+          <div style="display: flex; align-items: center; padding: 14px 16px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; gap: 12px;">
+            <div style="width: 10px; font-size: 10px; font-weight: 800; color: #64748b;">#3</div>
+            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #7c3aed, #a78bfa); border-radius: 8px;"></div>
+            <div style="flex: 1;">
+              <div style="font-size: 12px; font-weight: 700; color: #e2e8f0;">XM Group</div>
+              <div style="font-size: 9px; color: #64748b;">0.1 pips · $5 min · CySEC, ASIC</div>
+            </div>
+            <div style="width: 42px; height: 42px; background: rgba(6,182,212,0.1); border: 2px solid #06b6d4; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+              <span style="font-family: 'JetBrains Mono'; font-weight: 800; font-size: 14px; color: #22d3ee;">9.4</span>
+            </div>
+            <div style="padding: 6px 14px; background: linear-gradient(135deg, #06b6d4, #0891b2); color: #fff; border-radius: 8px; font-size: 10px; font-weight: 700;">Visit</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DETAILS -->
+    <div class="details">
+      <div class="detail-section">
+        <h3 style="color: #22d3ee;">Концепция</h3>
+        <p>Тёмный интерфейс с неоновыми акцентами. Ощущение «торговой платформы» и профессионального инструмента. Целевая аудитория — опытные трейдеры, которые привыкли к тёмным терминалам и дашбордам. Премиум-позиционирование.</p>
+      </div>
+
+      <div class="detail-section">
+        <h3 style="color: #22d3ee;">Палитра</h3>
+        <div class="palette">
+          <div class="palette-swatch">
+            <div class="palette-color" style="background: #0c1222;"></div>
+            <span class="palette-label">#0C1222</span>
+          </div>
+          <div class="palette-swatch">
+            <div class="palette-color" style="background: #111d35;"></div>
+            <span class="palette-label">#111D35</span>
+          </div>
+          <div class="palette-swatch">
+            <div class="palette-color" style="background: #1e293b;"></div>
+            <span class="palette-label">#1E293B</span>
+          </div>
+          <div class="palette-swatch">
+            <div class="palette-color" style="background: #06b6d4;"></div>
+            <span class="palette-label">#06B6D4</span>
+          </div>
+          <div class="palette-swatch">
+            <div class="palette-color" style="background: #22d3ee;"></div>
+            <span class="palette-label">#22D3EE</span>
+          </div>
+          <div class="palette-swatch">
+            <div class="palette-color" style="background: #a78bfa;"></div>
+            <span class="palette-label">#A78BFA</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <h3 style="color: #22d3ee;">Типографика</h3>
+        <div class="typo-preview">
+          <div style="font-family: 'Inter'; font-weight: 900; font-size: 22px; color: #fff; margin-bottom: 4px;">Inter 900 — Заголовки</div>
+          <div style="font-family: 'Inter'; font-weight: 400; font-size: 14px; color: #94a3b8; margin-bottom: 4px;">Inter 400 — Текст</div>
+          <div style="font-family: 'JetBrains Mono'; font-weight: 800; font-size: 18px; color: #22d3ee;">JetBrains Mono — 9.7</div>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <h3 style="color: #22d3ee;">CTA-кнопки</h3>
+        <div class="cta-samples">
+          <span class="cta-sample" style="background: linear-gradient(135deg, #06b6d4, #0891b2); box-shadow: 0 0 16px rgba(6,182,212,0.3);">Visit Broker →</span>
+          <span class="cta-secondary" style="background: rgba(6,182,212,0.1); color: #22d3ee; border: 1px solid rgba(6,182,212,0.2);">Read Review</span>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <h3 style="color: #22d3ee;">Ключевые отличия от текущего</h3>
+        <ul>
+          <li>Полностью тёмный интерфейс (вместо white+navy)</li>
+          <li>Бирюзовый вместо зелёного — свежий акцент</li>
+          <li>Glow-эффекты и неоновые тени на CTA</li>
+          <li>Bloomberg-inspired data-first подход</li>
+          <li>Градиентный текст в заголовках</li>
+        </ul>
+      </div>
+
+      <div class="detail-section">
+        <h3 style="color: #22d3ee;">Плюсы / Минусы</h3>
+        <div class="pros-cons">
+          <div class="pro">✓ Уникальный в нише</div>
+          <div class="con">✗ Сложнее читать длинные тексты</div>
+          <div class="pro">✓ Премиум-ощущение</div>
+          <div class="con">✗ Может отпугнуть новичков</div>
+          <div class="pro">✓ CTA-кнопки сияют</div>
+          <div class="con">✗ Больше работы по переделке</div>
+          <div class="pro">✓ Выделяется среди конкурентов</div>
+          <div class="con">✗ Возможны проблемы WCAG</div>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <h3 style="color: #22d3ee;">Эталоны</h3>
+        <p>FXEmpire (тёмная тема), TradingView, Bloomberg Terminal, Binance — все используют тёмный дизайн для финансовых данных.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- ========================================= -->
+<!-- ВАРИАНТ 3: WARM TRUST -->
+<!-- ========================================= -->
+<div class="option">
+  <div class="option-header">
+    <div class="option-number" style="background: linear-gradient(135deg, #f97316, #f59e0b);">3</div>
+    <div>
+      <div class="option-title">Warm Trust</div>
+      <div class="option-subtitle">Тёплая палитра + доверие. Как NerdWallet + CompareForexBrokers</div>
+    </div>
+    <div class="option-tags">
+      <span class="option-tag" style="background: rgba(249,115,22,0.15); color: #fb923c;">Доверие</span>
+      <span class="option-tag" style="background: rgba(245,158,11,0.15); color: #fbbf24;">Для новичков</span>
+    </div>
+  </div>
+
+  <div class="option-body">
+    <!-- MOCKUP -->
+    <div class="mockup">
+      <div class="mockup-browser-bar">
+        <div class="mockup-dot"></div>
+        <div class="mockup-dot"></div>
+        <div class="mockup-dot"></div>
+        <div class="mockup-url">ratedbrokers.com</div>
+      </div>
+      <div style="background: #fffbf5; padding: 0;">
+        <!-- Header -->
+        <div style="padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #f0e6d6; background: #fff;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <div style="width: 28px; height: 28px; border-radius: 8px; background: linear-gradient(135deg, #f97316, #f59e0b);"></div>
+            <span style="font-weight: 800; font-size: 14px; color: #1c1917; font-family: 'Inter';">RatedBrokers</span>
+          </div>
+          <div style="display: flex; gap: 20px; font-size: 11px; color: #78716c; font-weight: 500;">
+            <span>Rankings</span>
+            <span>Reviews</span>
+            <span>Compare</span>
+            <span style="color: #ea580c; font-weight: 700;">Find My Broker</span>
+          </div>
+        </div>
+        <!-- Hero -->
+        <div style="padding: 36px 24px 28px; background: linear-gradient(180deg, #fffbf5, #fff7ed); text-align: center;">
+          <div style="display: inline-block; padding: 4px 12px; background: #fff7ed; color: #ea580c; border: 1px solid #fed7aa; border-radius: 100px; font-size: 10px; font-weight: 700; margin-bottom: 12px;">TRUSTED SINCE 2024</div>
+          <div style="font-size: 22px; font-weight: 900; color: #1c1917; line-height: 1.2; margin-bottom: 8px;">Find the <span style="color: #ea580c;">Right Broker</span><br>for Your Trading Style</div>
+          <div style="font-size: 11px; color: #78716c; max-width: 340px; margin: 0 auto 16px;">We test brokers with real money so you don't have to. Honest reviews, no shortcuts.</div>
+          <!-- Quiz CTA -->
+          <div style="display: inline-flex; gap: 10px; align-items: center;">
+            <div style="padding: 10px 24px; background: linear-gradient(135deg, #ea580c, #f97316); color: #fff; border-radius: 10px; font-size: 12px; font-weight: 700;">Take the Quiz →</div>
+            <div style="padding: 10px 24px; background: #fff; color: #78716c; border: 1px solid #e7e5e4; border-radius: 10px; font-size: 12px; font-weight: 600;">View Rankings</div>
+          </div>
+        </div>
+        <!-- "As Seen On" strip -->
+        <div style="padding: 10px 24px; background: #fff; text-align: center; border-top: 1px solid #f5f5f4; border-bottom: 1px solid #f5f5f4;">
+          <div style="font-size: 9px; color: #a8a29e; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 1px;">As featured in</div>
+          <div style="display: flex; justify-content: center; gap: 24px; font-size: 11px; color: #d6d3d1; font-weight: 700;">
+            <span>Forbes</span>
+            <span>Bloomberg</span>
+            <span>Yahoo Finance</span>
+            <span>CNBC</span>
+          </div>
+        </div>
+        <!-- Broker Cards -->
+        <div style="padding: 20px 24px;">
+          <div style="font-size: 13px; font-weight: 700; color: #1c1917; margin-bottom: 14px;">Our Top Picks</div>
+          <!-- Card 1 -->
+          <div style="display: flex; align-items: center; padding: 16px; background: #fff; border: 2px solid #ea580c; border-radius: 14px; margin-bottom: 10px; gap: 12px; box-shadow: 0 4px 12px rgba(234,88,12,0.08);">
+            <div style="text-align: center;">
+              <div style="font-size: 9px; color: #ea580c; font-weight: 700;">BEST</div>
+              <div style="font-size: 9px; color: #ea580c; font-weight: 700;">OVERALL</div>
+            </div>
+            <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #1e3a5f, #3b82f6); border-radius: 10px;"></div>
+            <div style="flex: 1;">
+              <div style="font-size: 13px; font-weight: 700; color: #1c1917;">IC Markets</div>
+              <div style="display: flex; gap: 6px; margin-top: 3px;">
+                <span style="padding: 2px 6px; background: #fff7ed; color: #ea580c; border-radius: 4px; font-size: 9px; font-weight: 600;">ASIC</span>
+                <span style="padding: 2px 6px; background: #fff7ed; color: #ea580c; border-radius: 4px; font-size: 9px; font-weight: 600;">FCA</span>
+              </div>
+            </div>
+            <div style="text-align: center;">
+              <div style="font-family: 'JetBrains Mono'; font-weight: 800; font-size: 20px; color: #ea580c;">9.7</div>
+              <div style="font-size: 8px; color: #a8a29e;">Excellent</div>
+            </div>
+            <div style="padding: 8px 16px; background: linear-gradient(135deg, #ea580c, #f97316); color: #fff; border-radius: 10px; font-size: 11px; font-weight: 700;">Visit →</div>
+          </div>
+          <!-- Card 2 -->
+          <div style="display: flex; align-items: center; padding: 14px 16px; background: #fff; border: 1px solid #e7e5e4; border-radius: 14px; margin-bottom: 10px; gap: 12px;">
+            <div style="width: 10px; font-size: 10px; font-weight: 800; color: #a8a29e;">#2</div>
+            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #dc2626, #f97316); border-radius: 8px;"></div>
+            <div style="flex: 1;">
+              <div style="font-size: 12px; font-weight: 700; color: #1c1917;">Pepperstone</div>
+              <div style="font-size: 9px; color: #a8a29e;">0.0 pips · $0 min</div>
+            </div>
+            <div style="font-family: 'JetBrains Mono'; font-weight: 800; font-size: 16px; color: #ea580c;">9.5</div>
+            <div style="padding: 6px 14px; background: linear-gradient(135deg, #ea580c, #f97316); color: #fff; border-radius: 8px; font-size: 10px; font-weight: 700;">Visit</div>
+          </div>
+          <!-- Card 3 -->
+          <div style="display: flex; align-items: center; padding: 14px 16px; background: #fff; border: 1px solid #e7e5e4; border-radius: 14px; gap: 12px;">
+            <div style="width: 10px; font-size: 10px; font-weight: 800; color: #a8a29e;">#3</div>
+            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #7c3aed, #a78bfa); border-radius: 8px;"></div>
+            <div style="flex: 1;">
+              <div style="font-size: 12px; font-weight: 700; color: #1c1917;">XM Group</div>
+              <div style="font-size: 9px; color: #a8a29e;">0.1 pips · $5 min</div>
+            </div>
+            <div style="font-family: 'JetBrains Mono'; font-weight: 800; font-size: 16px; color: #ea580c;">9.4</div>
+            <div style="padding: 6px 14px; background: linear-gradient(135deg, #ea580c, #f97316); color: #fff; border-radius: 8px; font-size: 10px; font-weight: 700;">Visit</div>
+          </div>
+        </div>
+        <!-- Trust section -->
+        <div style="padding: 16px 24px; background: #fff7ed;">
+          <div style="display: flex; gap: 16px; justify-content: center;">
+            <div style="text-align: center;">
+              <div style="font-size: 8px; color: #a8a29e;">TESTED</div>
+              <div style="font-size: 14px; font-weight: 800; color: #ea580c; font-family: 'JetBrains Mono';">54</div>
+              <div style="font-size: 8px; color: #78716c;">Brokers</div>
+            </div>
+            <div style="width: 1px; background: #e7e5e4;"></div>
+            <div style="text-align: center;">
+              <div style="font-size: 8px; color: #a8a29e;">ANALYZED</div>
+              <div style="font-size: 14px; font-weight: 800; color: #ea580c; font-family: 'JetBrains Mono';">3K+</div>
+              <div style="font-size: 8px; color: #78716c;">Data Points</div>
+            </div>
+            <div style="width: 1px; background: #e7e5e4;"></div>
+            <div style="text-align: center;">
+              <div style="font-size: 8px; color: #a8a29e;">VERIFIED BY</div>
+              <div style="font-size: 14px; font-weight: 800; color: #ea580c; font-family: 'JetBrains Mono';">5</div>
+              <div style="font-size: 8px; color: #78716c;">Regulators</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DETAILS -->
+    <div class="details">
+      <div class="detail-section">
+        <h3 style="color: #fb923c;">Концепция</h3>
+        <p>Тёплая, «домашняя» палитра, которая вызывает доверие и располагает. Оранжевый — цвет энергии и оптимизма. Кремовый фон — мягче белого, меньше усталости глаз. Идеален для новичков в трейдинге, которые ищут надёжного гида.</p>
+      </div>
+
+      <div class="detail-section">
+        <h3 style="color: #fb923c;">Палитра</h3>
+        <div class="palette">
+          <div class="palette-swatch">
+            <div class="palette-color" style="background: #fffbf5; border-color: #e7e5e4;"></div>
+            <span class="palette-label">#FFFBF5</span>
+          </div>
+          <div class="palette-swatch">
+            <div class="palette-color" style="background: #fff7ed; border-color: #e7e5e4;"></div>
+            <span class="palette-label">#FFF7ED</span>
+          </div>
+          <div class="palette-swatch">
+            <div class="palette-color" style="background: #1c1917;"></div>
+            <span class="palette-label">#1C1917</span>
+          </div>
+          <div class="palette-swatch">
+            <div class="palette-color" style="background: #ea580c;"></div>
+            <span class="palette-label">#EA580C</span>
+          </div>
+          <div class="palette-swatch">
+            <div class="palette-color" style="background: #f97316;"></div>
+            <span class="palette-label">#F97316</span>
+          </div>
+          <div class="palette-swatch">
+            <div class="palette-color" style="background: #f59e0b;"></div>
+            <span class="palette-label">#F59E0B</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <h3 style="color: #fb923c;">Типографика</h3>
+        <div class="typo-preview" style="background: #fffbf5;">
+          <div style="font-family: 'Inter'; font-weight: 900; font-size: 22px; color: #1c1917; margin-bottom: 4px;">Inter 900 — Заголовки</div>
+          <div style="font-family: 'DM Sans'; font-weight: 400; font-size: 14px; color: #78716c; margin-bottom: 4px;">DM Sans 400 — Основной текст</div>
+          <div style="font-family: 'JetBrains Mono'; font-weight: 800; font-size: 18px; color: #ea580c;">JetBrains Mono — 9.7</div>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <h3 style="color: #fb923c;">CTA-кнопки</h3>
+        <div class="cta-samples">
+          <span class="cta-sample" style="background: linear-gradient(135deg, #ea580c, #f97316);">Visit Broker →</span>
+          <span class="cta-sample" style="background: linear-gradient(135deg, #f59e0b, #fbbf24);">Take the Quiz</span>
+          <span class="cta-secondary" style="background: #fff7ed; color: #ea580c; border: 1px solid #fed7aa;">Read Review</span>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <h3 style="color: #fb923c;">Ключевые отличия от текущего</h3>
+        <ul>
+          <li>Тёплый кремовый фон вместо белого</li>
+          <li>Оранжевый CTA вместо зелёного — уникальный в нише</li>
+          <li>Quiz-воронка «Find My Broker» как главный CTA</li>
+          <li>«As Featured In» блок — мощный trust-сигнал</li>
+          <li>Category-based подход: Best Overall, Best for Beginners</li>
+          <li>Мягкие тени и скруглённые углы</li>
+        </ul>
+      </div>
+
+      <div class="detail-section">
+        <h3 style="color: #fb923c;">Плюсы / Минусы</h3>
+        <div class="pros-cons">
+          <div class="pro">✓ Уникален в нише (нет тёплых)</div>
+          <div class="con">✗ Оранжевый ≈ warning в UI</div>
+          <div class="pro">✓ Quiz повышает конверсию</div>
+          <div class="con">✗ Менее «финансовый» вид</div>
+          <div class="pro">✓ Располагает новичков</div>
+          <div class="con">✗ Опытные трейдеры могут не оценить</div>
+          <div class="pro">✓ Выделяется визуально</div>
+          <div class="con">✗ Тёплый фон может казаться «старым»</div>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <h3 style="color: #fb923c;">Эталоны</h3>
+        <p>NerdWallet (тёплый подход), CompareForexBrokers (trust-focused), Stripe (кремовый фон), Linear (мягкие тона).</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- ========================================= -->
+<!-- ВАРИАНТ 4: GRADIENT BOLD -->
+<!-- ========================================= -->
+<div class="option">
+  <div class="option-header">
+    <div class="option-number" style="background: linear-gradient(135deg, #8b5cf6, #ec4899);">4</div>
+    <div>
+      <div class="option-title">Gradient Bold</div>
+      <div class="option-subtitle">Яркие градиенты + интерактив. Как BrokerChooser + Revolut</div>
+    </div>
+    <div class="option-tags">
+      <span class="option-tag" style="background: rgba(139,92,246,0.15); color: #a78bfa;">Современный</span>
+      <span class="option-tag" style="background: rgba(236,72,153,0.15); color: #f472b6;">Запоминающийся</span>
+    </div>
+  </div>
+
+  <div class="option-body">
+    <!-- MOCKUP -->
+    <div class="mockup">
+      <div class="mockup-browser-bar">
+        <div class="mockup-dot"></div>
+        <div class="mockup-dot"></div>
+        <div class="mockup-dot"></div>
+        <div class="mockup-url">ratedbrokers.com</div>
+      </div>
+      <div style="background: #fafafa; padding: 0;">
+        <!-- Header -->
+        <div style="padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; background: #fff; border-bottom: 1px solid #f0f0f0;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <div style="width: 28px; height: 28px; border-radius: 8px; background: linear-gradient(135deg, #8b5cf6, #ec4899);"></div>
+            <span style="font-weight: 800; font-size: 14px; color: #111; font-family: 'Inter';">RatedBrokers</span>
+          </div>
+          <div style="display: flex; gap: 20px; font-size: 11px; color: #666; font-weight: 500;">
+            <span>Rankings</span>
+            <span>Reviews</span>
+            <span>Compare</span>
+            <span style="padding: 4px 12px; background: linear-gradient(135deg, #8b5cf6, #ec4899); color: #fff; border-radius: 100px; font-weight: 700;">Find Broker</span>
+          </div>
+        </div>
+        <!-- Hero with gradient background -->
+        <div style="padding: 36px 24px 32px; background: linear-gradient(135deg, #faf5ff, #fdf2f8, #fff1f2); text-align: center; position: relative;">
+          <div style="display: inline-block; padding: 4px 14px; background: #fff; color: #8b5cf6; border-radius: 100px; font-size: 10px; font-weight: 700; margin-bottom: 12px; box-shadow: 0 2px 8px rgba(139,92,246,0.1);">NEW: AI-Powered Matching</div>
+          <div style="font-size: 24px; font-weight: 900; color: #111; line-height: 1.2; margin-bottom: 8px; letter-spacing: -0.5px;">
+            Your Perfect Broker,<br>
+            <span style="background: linear-gradient(135deg, #8b5cf6, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Found in 60 Seconds</span>
+          </div>
+          <div style="font-size: 11px; color: #888; max-width: 300px; margin: 0 auto 16px;">Answer 3 questions. Get personalized recommendations based on your trading style.</div>
+          <!-- Quiz Start -->
+          <div style="background: #fff; border-radius: 16px; padding: 20px; max-width: 320px; margin: 0 auto; box-shadow: 0 8px 32px rgba(139,92,246,0.1); border: 1px solid rgba(139,92,246,0.1);">
+            <div style="font-size: 12px; font-weight: 700; color: #111; margin-bottom: 12px;">What do you want to trade?</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px;">
+              <span style="padding: 6px 12px; background: #faf5ff; color: #8b5cf6; border: 1px solid #e9d5ff; border-radius: 8px; font-size: 10px; font-weight: 600;">Forex</span>
+              <span style="padding: 6px 12px; background: #fdf2f8; color: #ec4899; border: 1px solid #fbcfe8; border-radius: 8px; font-size: 10px; font-weight: 600;">Crypto</span>
+              <span style="padding: 6px 12px; background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; border-radius: 8px; font-size: 10px; font-weight: 600;">Stocks</span>
+              <span style="padding: 6px 12px; background: #fff7ed; color: #ea580c; border: 1px solid #fed7aa; border-radius: 8px; font-size: 10px; font-weight: 600;">CFDs</span>
+            </div>
+            <div style="padding: 10px 20px; background: linear-gradient(135deg, #8b5cf6, #ec4899); color: #fff; border-radius: 10px; font-size: 12px; font-weight: 700; text-align: center;">Start Quiz →</div>
+          </div>
+        </div>
+        <!-- Quick rankings -->
+        <div style="padding: 20px 24px; background: #fff;">
+          <div style="font-size: 13px; font-weight: 700; color: #111; margin-bottom: 14px;">Or browse rankings</div>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px;">
+            <span style="padding: 8px 14px; background: linear-gradient(135deg, rgba(139,92,246,0.05), rgba(236,72,153,0.05)); border: 1px solid #ede9fe; border-radius: 10px; font-size: 10px; font-weight: 600; color: #6d28d9;">🏆 Best Overall</span>
+            <span style="padding: 8px 14px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; font-size: 10px; font-weight: 600; color: #475569;">💰 Lowest Fees</span>
+            <span style="padding: 8px 14px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; font-size: 10px; font-weight: 600; color: #475569;">🔰 Beginners</span>
+          </div>
+          <!-- Compact broker row -->
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="display: flex; align-items: center; padding: 12px 14px; background: #faf5ff; border: 1px solid #ede9fe; border-radius: 10px; gap: 10px;">
+              <span style="font-size: 10px; font-weight: 800; color: #8b5cf6;">#1</span>
+              <div style="width: 30px; height: 30px; background: linear-gradient(135deg, #1e3a5f, #3b82f6); border-radius: 7px;"></div>
+              <div style="flex: 1; font-size: 11px; font-weight: 700; color: #111;">IC Markets</div>
+              <span style="font-family: 'JetBrains Mono'; font-weight: 800; font-size: 13px; color: #8b5cf6;">9.7</span>
+              <div style="padding: 5px 12px; background: linear-gradient(135deg, #8b5cf6, #ec4899); color: #fff; border-radius: 7px; font-size: 9px; font-weight: 700;">Visit →</div>
+            </div>
+            <div style="display: flex; align-items: center; padding: 12px 14px; background: #fff; border: 1px solid #f0f0f0; border-radius: 10px; gap: 10px;">
+              <span style="font-size: 10px; font-weight: 800; color: #aaa;">#2</span>
+              <div style="width: 30px; height: 30px; background: linear-gradient(135deg, #dc2626, #f97316); border-radius: 7px;"></div>
+              <div style="flex: 1; font-size: 11px; font-weight: 700; color: #111;">Pepperstone</div>
+              <span style="font-family: 'JetBrains Mono'; font-weight: 800; font-size: 13px; color: #8b5cf6;">9.5</span>
+              <div style="padding: 5px 12px; background: linear-gradient(135deg, #8b5cf6, #ec4899); color: #fff; border-radius: 7px; font-size: 9px; font-weight: 700;">Visit →</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DETAILS -->
+    <div class="details">
+      <div class="detail-section">
+        <h3 style="color: #a78bfa;">Концепция</h3>
+        <p>Яркий, запоминающийся дизайн с градиентами как основным визуальным языком. Главный конверсионный элемент — Quiz-воронка «Find My Broker», встроенная прямо в Hero. Подход tool-first: сайт как инструмент, а не энциклопедия.</p>
+      </div>
+
+      <div class="detail-section">
+        <h3 style="color: #a78bfa;">Палитра</h3>
+        <div class="palette">
+          <div class="palette-swatch">
+            <div class="palette-color" style="background: #fafafa; border-color: #ddd;"></div>
+            <span class="palette-label">#FAFAFA</span>
+          </div>
+          <div class="palette-swatch">
+            <div class="palette-color" style="background: #faf5ff;"></div>
+            <span class="palette-label">#FAF5FF</span>
+          </div>
+          <div class="palette-swatch">
+            <div class="palette-color" style="background: #8b5cf6;"></div>
+            <span class="palette-label">#8B5CF6</span>
+          </div>
+          <div class="palette-swatch">
+            <div class="palette-color" style="background: #ec4899;"></div>
+            <span class="palette-label">#EC4899</span>
+          </div>
+          <div class="palette-swatch">
+            <div class="palette-color" style="background: linear-gradient(135deg, #8b5cf6, #ec4899);"></div>
+            <span class="palette-label">Gradient</span>
+          </div>
+          <div class="palette-swatch">
+            <div class="palette-color" style="background: #111;"></div>
+            <span class="palette-label">#111111</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <h3 style="color: #a78bfa;">CTA-кнопки</h3>
+        <div class="cta-samples">
+          <span class="cta-sample" style="background: linear-gradient(135deg, #8b5cf6, #ec4899);">Start Quiz →</span>
+          <span class="cta-sample" style="background: linear-gradient(135deg, #8b5cf6, #ec4899);">Visit Broker</span>
+          <span class="cta-secondary" style="background: #faf5ff; color: #8b5cf6; border: 1px solid #e9d5ff;">View Rankings</span>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <h3 style="color: #a78bfa;">Ключевые отличия от текущего</h3>
+        <ul>
+          <li>Фиолетово-розовый градиент — никто в нише не использует</li>
+          <li>Quiz как центральный элемент Hero (не рейтинг)</li>
+          <li>Карточки категорий с цветовым кодированием</li>
+          <li>Pill-shaped кнопки навигации</li>
+          <li>Лёгкий пастельный фон с градиентами</li>
+          <li>Compact broker rows вместо больших карточек</li>
+        </ul>
+      </div>
+
+      <div class="detail-section">
+        <h3 style="color: #a78bfa;">Плюсы / Минусы</h3>
+        <div class="pros-cons">
+          <div class="pro">✓ Запоминающийся, выделяется</div>
+          <div class="con">✗ Может казаться «несерьёзным»</div>
+          <div class="pro">✓ Quiz увеличивает time-on-site</div>
+          <div class="con">✗ Фиолетовый ≠ финансы</div>
+          <div class="pro">✓ Молодая аудитория оценит</div>
+          <div class="con">✗ Нужна разработка Quiz</div>
+          <div class="pro">✓ Высокий engagement</div>
+          <div class="con">✗ Градиенты = больше CSS</div>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <h3 style="color: #a78bfa;">Эталоны</h3>
+        <p>BrokerChooser (Quiz-подход), Revolut (градиенты), Wise (яркие цвета в финтехе), Linear (пастельные фоны).</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- ========================================= -->
+<!-- ВАРИАНТ 5: DATA DASHBOARD -->
+<!-- ========================================= -->
+<div class="option">
+  <div class="option-header">
+    <div class="option-number" style="background: linear-gradient(135deg, #10b981, #06b6d4);">5</div>
+    <div>
+      <div class="option-title">Data Dashboard</div>
+      <div class="option-subtitle">Данные на первом месте. Как TopBrokers + TradingView</div>
+    </div>
+    <div class="option-tags">
+      <span class="option-tag" style="background: rgba(16,185,129,0.15); color: #34d399;">Данные</span>
+      <span class="option-tag" style="background: rgba(6,182,212,0.15); color: #22d3ee;">Утилитарный</span>
+    </div>
+  </div>
+
+  <div class="option-body">
+    <!-- MOCKUP -->
+    <div class="mockup">
+      <div class="mockup-browser-bar">
+        <div class="mockup-dot"></div>
+        <div class="mockup-dot"></div>
+        <div class="mockup-dot"></div>
+        <div class="mockup-url">ratedbrokers.com</div>
+      </div>
+      <div style="background: #f8fafc; padding: 0;">
+        <!-- Header with utility bar -->
+        <div style="padding: 6px 24px; background: #0f172a; display: flex; justify-content: space-between; font-size: 10px; color: #64748b;">
+          <span>EUR/USD: <span style="color: #34d399; font-family: 'JetBrains Mono'; font-weight: 600;">1.0847</span></span>
+          <span>GBP/USD: <span style="color: #f87171; font-family: 'JetBrains Mono'; font-weight: 600;">1.2634</span></span>
+          <span>Updated: 3 min ago</span>
+        </div>
+        <div style="padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; background: #fff; border-bottom: 1px solid #e2e8f0;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <div style="width: 28px; height: 28px; border-radius: 8px; background: linear-gradient(135deg, #10b981, #06b6d4);"></div>
+            <span style="font-weight: 800; font-size: 14px; color: #0f172a; font-family: 'Inter';">RatedBrokers</span>
+          </div>
+          <div style="display: flex; gap: 16px; font-size: 11px; color: #64748b; font-weight: 500;">
+            <span>Rankings</span>
+            <span>Reviews</span>
+            <span>Compare</span>
+            <span>Spreads</span>
+            <span>Screener</span>
+          </div>
+        </div>
+        <!-- Filter bar -->
+        <div style="padding: 12px 24px; background: #fff; border-bottom: 1px solid #e2e8f0; display: flex; gap: 8px; align-items: center;">
+          <div style="padding: 6px 12px; background: #f1f5f9; border-radius: 8px; font-size: 10px; color: #475569; font-weight: 600; display: flex; align-items: center; gap: 4px;">
+            🌍 All Countries <span style="color: #94a3b8;">▾</span>
+          </div>
+          <div style="padding: 6px 12px; background: #f1f5f9; border-radius: 8px; font-size: 10px; color: #475569; font-weight: 600;">
+            Regulation <span style="color: #94a3b8;">▾</span>
+          </div>
+          <div style="padding: 6px 12px; background: #f1f5f9; border-radius: 8px; font-size: 10px; color: #475569; font-weight: 600;">
+            Platform <span style="color: #94a3b8;">▾</span>
+          </div>
+          <div style="padding: 6px 12px; background: #f1f5f9; border-radius: 8px; font-size: 10px; color: #475569; font-weight: 600;">
+            Min Deposit <span style="color: #94a3b8;">▾</span>
+          </div>
+          <div style="padding: 6px 12px; background: #ecfdf5; color: #059669; border-radius: 8px; font-size: 10px; font-weight: 700;">
+            Apply Filters
+          </div>
+        </div>
+        <!-- Data table -->
+        <div style="padding: 0 24px;">
+          <!-- Table header -->
+          <div style="display: flex; padding: 10px 0; border-bottom: 2px solid #e2e8f0; font-size: 9px; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px;">
+            <div style="width: 24px;">#</div>
+            <div style="flex: 1.5;">Broker</div>
+            <div style="flex: 0.6; text-align: center;">Score</div>
+            <div style="flex: 0.7; text-align: center;">Spread</div>
+            <div style="flex: 0.7; text-align: center;">Min Dep</div>
+            <div style="flex: 0.7; text-align: center;">Reg</div>
+            <div style="flex: 0.5; text-align: center;"></div>
+          </div>
+          <!-- Row 1 -->
+          <div style="display: flex; align-items: center; padding: 12px 0; border-bottom: 1px solid #f1f5f9;">
+            <div style="width: 24px; font-size: 10px; font-weight: 800; color: #10b981;">1</div>
+            <div style="flex: 1.5; display: flex; align-items: center; gap: 8px;">
+              <div style="width: 28px; height: 28px; background: linear-gradient(135deg, #1e3a5f, #3b82f6); border-radius: 6px;"></div>
+              <div>
+                <div style="font-size: 11px; font-weight: 700; color: #0f172a;">IC Markets</div>
+                <div style="font-size: 8px; color: #94a3b8;">Raw Spread · MT5</div>
+              </div>
+            </div>
+            <div style="flex: 0.6; text-align: center;">
+              <span style="padding: 3px 8px; background: #ecfdf5; color: #059669; border-radius: 6px; font-family: 'JetBrains Mono'; font-weight: 800; font-size: 12px;">9.7</span>
+            </div>
+            <div style="flex: 0.7; text-align: center; font-family: 'JetBrains Mono'; font-size: 11px; font-weight: 600; color: #0f172a;">0.0</div>
+            <div style="flex: 0.7; text-align: center; font-family: 'JetBrains Mono'; font-size: 11px; font-weight: 600; color: #0f172a;">$200</div>
+            <div style="flex: 0.7; text-align: center; display: flex; gap: 3px; justify-content: center;">
+              <span style="padding: 1px 5px; background: #dbeafe; color: #1d4ed8; border-radius: 3px; font-size: 8px; font-weight: 700;">ASIC</span>
+              <span style="padding: 1px 5px; background: #dbeafe; color: #1d4ed8; border-radius: 3px; font-size: 8px; font-weight: 700;">FCA</span>
+            </div>
+            <div style="flex: 0.5; text-align: center;">
+              <span style="padding: 5px 10px; background: linear-gradient(135deg, #10b981, #06b6d4); color: #fff; border-radius: 6px; font-size: 9px; font-weight: 700;">Visit</span>
+            </div>
+          </div>
+          <!-- Row 2 -->
+          <div style="display: flex; align-items: center; padding: 12px 0; border-bottom: 1px solid #f1f5f9;">
+            <div style="width: 24px; font-size: 10px; font-weight: 800; color: #64748b;">2</div>
+            <div style="flex: 1.5; display: flex; align-items: center; gap: 8px;">
+              <div style="width: 28px; height: 28px; background: linear-gradient(135deg, #dc2626, #f97316); border-radius: 6px;"></div>
+              <div>
+                <div style="font-size: 11px; font-weight: 700; color: #0f172a;">Pepperstone</div>
+                <div style="font-size: 8px; color: #94a3b8;">Razor · cTrader</div>
+              </div>
+            </div>
+            <div style="flex: 0.6; text-align: center;">
+              <span style="padding: 3px 8px; background: #ecfdf5; color: #059669; border-radius: 6px; font-family: 'JetBrains Mono'; font-weight: 800; font-size: 12px;">9.5</span>
+            </div>
+            <div style="flex: 0.7; text-align: center; font-family: 'JetBrains Mono'; font-size: 11px; font-weight: 600; color: #0f172a;">0.0</div>
+            <div style="flex: 0.7; text-align: center; font-family: 'JetBrains Mono'; font-size: 11px; font-weight: 600; color: #0f172a;">$0</div>
+            <div style="flex: 0.7; text-align: center; display: flex; gap: 3px; justify-content: center;">
+              <span style="padding: 1px 5px; background: #dbeafe; color: #1d4ed8; border-radius: 3px; font-size: 8px; font-weight: 700;">FCA</span>
+              <span style="padding: 1px 5px; background: #dbeafe; color: #1d4ed8; border-radius: 3px; font-size: 8px; font-weight: 700;">ASIC</span>
+            </div>
+            <div style="flex: 0.5; text-align: center;">
+              <span style="padding: 5px 10px; background: linear-gradient(135deg, #10b981, #06b6d4); color: #fff; border-radius: 6px; font-size: 9px; font-weight: 700;">Visit</span>
+            </div>
+          </div>
+          <!-- Row 3 -->
+          <div style="display: flex; align-items: center; padding: 12px 0; border-bottom: 1px solid #f1f5f9;">
+            <div style="width: 24px; font-size: 10px; font-weight: 800; color: #64748b;">3</div>
+            <div style="flex: 1.5; display: flex; align-items: center; gap: 8px;">
+              <div style="width: 28px; height: 28px; background: linear-gradient(135deg, #7c3aed, #a78bfa); border-radius: 6px;"></div>
+              <div>
+                <div style="font-size: 11px; font-weight: 700; color: #0f172a;">XM Group</div>
+                <div style="font-size: 8px; color: #94a3b8;">Ultra Low · MT4</div>
+              </div>
+            </div>
+            <div style="flex: 0.6; text-align: center;">
+              <span style="padding: 3px 8px; background: #ecfdf5; color: #059669; border-radius: 6px; font-family: 'JetBrains Mono'; font-weight: 800; font-size: 12px;">9.4</span>
+            </div>
+            <div style="flex: 0.7; text-align: center; font-family: 'JetBrains Mono'; font-size: 11px; font-weight: 600; color: #0f172a;">0.1</div>
+            <div style="flex: 0.7; text-align: center; font-family: 'JetBrains Mono'; font-size: 11px; font-weight: 600; color: #0f172a;">$5</div>
+            <div style="flex: 0.7; text-align: center; display: flex; gap: 3px; justify-content: center;">
+              <span style="padding: 1px 5px; background: #f1f5f9; color: #64748b; border-radius: 3px; font-size: 8px; font-weight: 700;">CySEC</span>
+              <span style="padding: 1px 5px; background: #dbeafe; color: #1d4ed8; border-radius: 3px; font-size: 8px; font-weight: 700;">ASIC</span>
+            </div>
+            <div style="flex: 0.5; text-align: center;">
+              <span style="padding: 5px 10px; background: linear-gradient(135deg, #10b981, #06b6d4); color: #fff; border-radius: 6px; font-size: 9px; font-weight: 700;">Visit</span>
+            </div>
+          </div>
+          <!-- Row 4 -->
+          <div style="display: flex; align-items: center; padding: 12px 0;">
+            <div style="width: 24px; font-size: 10px; font-weight: 800; color: #64748b;">4</div>
+            <div style="flex: 1.5; display: flex; align-items: center; gap: 8px;">
+              <div style="width: 28px; height: 28px; background: linear-gradient(135deg, #059669, #10b981); border-radius: 6px;"></div>
+              <div>
+                <div style="font-size: 11px; font-weight: 700; color: #0f172a;">FP Markets</div>
+                <div style="font-size: 8px; color: #94a3b8;">Raw · IRESS</div>
+              </div>
+            </div>
+            <div style="flex: 0.6; text-align: center;">
+              <span style="padding: 3px 8px; background: #ecfdf5; color: #059669; border-radius: 6px; font-family: 'JetBrains Mono'; font-weight: 800; font-size: 12px;">9.3</span>
+            </div>
+            <div style="flex: 0.7; text-align: center; font-family: 'JetBrains Mono'; font-size: 11px; font-weight: 600; color: #0f172a;">0.0</div>
+            <div style="flex: 0.7; text-align: center; font-family: 'JetBrains Mono'; font-size: 11px; font-weight: 600; color: #0f172a;">$100</div>
+            <div style="flex: 0.7; text-align: center; display: flex; gap: 3px; justify-content: center;">
+              <span style="padding: 1px 5px; background: #dbeafe; color: #1d4ed8; border-radius: 3px; font-size: 8px; font-weight: 700;">ASIC</span>
+            </div>
+            <div style="flex: 0.5; text-align: center;">
+              <span style="padding: 5px 10px; background: linear-gradient(135deg, #10b981, #06b6d4); color: #fff; border-radius: 6px; font-size: 9px; font-weight: 700;">Visit</span>
+            </div>
+          </div>
+        </div>
+        <!-- Pagination -->
+        <div style="padding: 12px 24px; text-align: center; font-size: 10px; color: #94a3b8;">
+          Showing 1-10 of 54 brokers · <span style="color: #10b981; font-weight: 600;">Load More</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- DETAILS -->
+    <div class="details">
+      <div class="detail-section">
+        <h3 style="color: #34d399;">Концепция</h3>
+        <p>Утилитарный, data-first подход. Сайт — это инструмент фильтрации и сравнения. Живой тикер валют в хедере. Табличный формат вместо карточек — больше брокеров на экране, быстрое сканирование. Как финансовый скринер.</p>
+      </div>
+
+      <div class="detail-section">
+        <h3 style="color: #34d399;">Палитра</h3>
+        <div class="palette">
+          <div class="palette-swatch">
+            <div class="palette-color" style="background: #f8fafc; border-color: #ddd;"></div>
+            <span class="palette-label">#F8FAFC</span>
+          </div>
+          <div class="palette-swatch">
+            <div class="palette-color" style="background: #ffffff; border-color: #ddd;"></div>
+            <span class="palette-label">#FFFFFF</span>
+          </div>
+          <div class="palette-swatch">
+            <div class="palette-color" style="background: #0f172a;"></div>
+            <span class="palette-label">#0F172A</span>
+          </div>
+          <div class="palette-swatch">
+            <div class="palette-color" style="background: #10b981;"></div>
+            <span class="palette-label">#10B981</span>
+          </div>
+          <div class="palette-swatch">
+            <div class="palette-color" style="background: #06b6d4;"></div>
+            <span class="palette-label">#06B6D4</span>
+          </div>
+          <div class="palette-swatch">
+            <div class="palette-color" style="background: #1d4ed8;"></div>
+            <span class="palette-label">#1D4ED8</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <h3 style="color: #34d399;">Ключевые отличия от текущего</h3>
+        <ul>
+          <li>Живой валютный тикер в top-bar</li>
+          <li>Система фильтрации вместо Hero-секции</li>
+          <li>Табличный формат — больше данных на экране</li>
+          <li>«Screener» как отдельная страница</li>
+          <li>Нет Hero-блока — сразу к данным</li>
+          <li>Зелёно-бирюзовый двухцветный CTA</li>
+        </ul>
+      </div>
+
+      <div class="detail-section">
+        <h3 style="color: #34d399;">CTA-кнопки</h3>
+        <div class="cta-samples">
+          <span class="cta-sample" style="background: linear-gradient(135deg, #10b981, #06b6d4);">Visit Broker →</span>
+          <span class="cta-secondary" style="background: #ecfdf5; color: #059669; border: 1px solid #a7f3d0;">Apply Filters</span>
+          <span class="cta-secondary" style="background: #f1f5f9; color: #475569;">Compare Selected</span>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <h3 style="color: #34d399;">Плюсы / Минусы</h3>
+        <div class="pros-cons">
+          <div class="pro">✓ Максимум данных</div>
+          <div class="con">✗ Скучный для новичков</div>
+          <div class="pro">✓ Быстрое сканирование</div>
+          <div class="con">✗ Меньше «storytelling»</div>
+          <div class="pro">✓ Фильтры = персонализация</div>
+          <div class="con">✗ Таблицы плохи на мобильном</div>
+          <div class="pro">✓ Опытные трейдеры оценят</div>
+          <div class="con">✗ Нужен API для live-данных</div>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <h3 style="color: #34d399;">Эталоны</h3>
+        <p>TopBrokers.com (фильтрация), TradingView (screener), Myfxbook (данные), Finviz (финансовый скринер).</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- ========================================= -->
+<!-- СРАВНИТЕЛЬНАЯ ТАБЛИЦА -->
+<!-- ========================================= -->
+<div class="comparison">
+  <h2>Сравнительная матрица</h2>
+  <table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Критерий</th>
+        <th>1. Clean Authority</th>
+        <th>2. Dark Premium</th>
+        <th>3. Warm Trust</th>
+        <th>4. Gradient Bold</th>
+        <th>5. Data Dashboard</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="font-weight: 600; color: #fff;">Целевая аудитория</td>
+        <td>Все трейдеры</td>
+        <td>Опытные</td>
+        <td>Новички</td>
+        <td>Молодые (25-35)</td>
+        <td>Опытные / аналитики</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 600; color: #fff;">Потенциал конверсии</td>
+        <td style="color: #34d399;">Высокий</td>
+        <td>Средний</td>
+        <td style="color: #34d399;">Высокий</td>
+        <td style="color: #34d399;">Высокий (quiz)</td>
+        <td>Средний</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 600; color: #fff;">SEO-дружелюбность</td>
+        <td style="color: #34d399;">Отличная</td>
+        <td>Хорошая</td>
+        <td style="color: #34d399;">Отличная</td>
+        <td>Хорошая</td>
+        <td style="color: #34d399;">Отличная (данные)</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 600; color: #fff;">Уникальность в нише</td>
+        <td>Низкая</td>
+        <td style="color: #34d399;">Высокая</td>
+        <td style="color: #34d399;">Высокая</td>
+        <td style="color: #34d399;">Очень высокая</td>
+        <td>Средняя</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 600; color: #fff;">Объём переработки</td>
+        <td style="color: #34d399;">Малый</td>
+        <td style="color: #f87171;">Большой</td>
+        <td>Средний</td>
+        <td style="color: #f87171;">Большой</td>
+        <td>Средний</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 600; color: #fff;">Доверие (Trust)</td>
+        <td style="color: #34d399;">Высокое</td>
+        <td>Среднее</td>
+        <td style="color: #34d399;">Очень высокое</td>
+        <td>Среднее</td>
+        <td style="color: #34d399;">Высокое (данные)</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 600; color: #fff;">Мобильная адаптация</td>
+        <td style="color: #34d399;">Простая</td>
+        <td>Средняя</td>
+        <td style="color: #34d399;">Простая</td>
+        <td>Средняя</td>
+        <td style="color: #f87171;">Сложная (таблицы)</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 600; color: #fff;">WCAG доступность</td>
+        <td class="check" style="color: #34d399;">✓ AA</td>
+        <td class="cross">⚠ Проверить</td>
+        <td class="check" style="color: #34d399;">✓ AA</td>
+        <td class="check" style="color: #34d399;">✓ AA</td>
+        <td class="check" style="color: #34d399;">✓ AA</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 600; color: #fff;">Quiz-воронка</td>
+        <td class="cross">—</td>
+        <td class="cross">—</td>
+        <td class="check" style="color: #34d399;">✓ Есть</td>
+        <td class="check" style="color: #34d399;">✓ Центральный</td>
+        <td class="cross">—</td>
+      </tr>
+      <tr>
+        <td style="font-weight: 600; color: #fff;">Фильтрация</td>
+        <td class="cross">Базовая</td>
+        <td class="cross">Базовая</td>
+        <td class="cross">Базовая</td>
+        <td class="cross">Базовая</td>
+        <td class="check" style="color: #34d399;">✓ Продвинутая</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ========================================= -->
+<!-- РЕКОМЕНДАЦИЯ -->
+<!-- ========================================= -->
+<div class="recommendation">
+  <div class="rec-badge" style="background: rgba(16,185,129,0.15); color: #34d399;">Моя рекомендация</div>
+  <h2>Вариант 1 (Clean Authority) + элементы из варианта 3 (Warm Trust)</h2>
+  <p style="margin-bottom: 24px;">
+    <strong style="color: #fff;">Почему:</strong> Белый минимализм — доказанный лидер в финансовой нише. Все топ-5 конкурентов используют его как основу. Это не «скучно» — это работает. Добавляем к нему Quiz-воронку из вариантов 3/4 и блок «As Seen On» из варианта 3 — получаем максимальную конверсию при минимальных переделках.
+  </p>
+  <p style="margin-bottom: 24px;">
+    <strong style="color: #fff;">Что берём:</strong><br>
+    Из #1: белый фон, чистый хедер, структура карточек, зелёный CTA<br>
+    Из #3: Quiz «Find My Broker» как secondary CTA, «As Featured In» блок, category-based организация<br>
+    Из #5: фильтры на странице рейтингов (не на главной)
+  </p>
+  <p>
+    <strong style="color: #fff;">Минимальные переделки:</strong> текущий дизайн уже на 70% — это вариант 1. Нужно: сменить тёмный Hero на светлый, добавить «As Featured In» блок, добавить Quiz-воронку, и упростить визуальную плотность карточек. Это 1-2 спринта, а не полный редизайн.
+  </p>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<div style="max-width: 1200px; margin: 0 auto; padding: 40px 32px 60px; text-align: center; color: #444; font-size: 12px;">
+  <p>Подготовлено для Егора · RatedBrokers Design Alternatives · Март 2026</p>
+  <p style="margin-top: 8px; color: #333;">Основано на анализе: ForexBrokers.com, Investopedia, BrokerChooser, FXEmpire, CompareForexBrokers, TopBrokers.com</p>
+</div>
+
+</body>
+</html>

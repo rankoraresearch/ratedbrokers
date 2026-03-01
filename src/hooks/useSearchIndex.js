@@ -49,7 +49,7 @@ export default function useSearchIndex() {
         title: `Best Forex Brokers in ${c.name}`,
         keywords: [c.name, c.regulator, c.code, c.slug].filter(Boolean).join(" "),
         path: `/best-forex-brokers-${c.slug}`,
-        meta: { flag: c.flag, regulator: c.regulator },
+        meta: { code: c.code, regulator: c.regulator },
       });
     });
 

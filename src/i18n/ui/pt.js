@@ -5,6 +5,7 @@ const pt = {
   "nav.reviews": "Avaliações",
   "nav.compare": "Comparar",
   "nav.methodology": "Metodologia",
+  "nav.cryptoBrokers": "Corretoras de Criptomoedas",
 
   // ===== SCORE LABELS =====
   "score.excellent": "Excelente",
@@ -81,12 +82,6 @@ const pt = {
   "home.trust3Desc": "Metodologia completa publicada abertamente",
   "home.trust4Title": "Atualizado",
   "home.trust4Desc": "Reavaliação trimestral de todas as corretoras",
-
-  // ===== HOME: NEWSLETTER =====
-  "home.nlTitle": "Fique Por Dentro dos Rankings de Corretoras",
-  "home.nlDesc": "Receba notificações quando publicarmos novas avaliações, comparações e atualizações de rankings.",
-  "home.nlPlaceholder": "seu@email.com",
-  "home.nlButton": "Assinar",
 
   // ===== FOOTER =====
   "footer.desc": "Avaliações e rankings independentes de corretoras, testadas com dinheiro real. Atualizado trimestralmente.",

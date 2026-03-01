@@ -5,6 +5,7 @@ const fr = {
   "nav.reviews": "Avis",
   "nav.compare": "Comparer",
   "nav.methodology": "Méthodologie",
+  "nav.cryptoBrokers": "Courtiers Crypto",
 
   // ===== SCORE LABELS =====
   "score.excellent": "Excellent",
@@ -81,12 +82,6 @@ const fr = {
   "home.trust3Desc": "Méthodologie complète publiée ouvertement",
   "home.trust4Title": "Actualisé",
   "home.trust4Desc": "Réévaluation trimestrielle de tous les brokers",
-
-  // ===== HOME: NEWSLETTER =====
-  "home.nlTitle": "Restez Informé des Classements de Brokers",
-  "home.nlDesc": "Soyez averti lors de la publication de nouveaux avis, comparaisons et mises à jour des classements.",
-  "home.nlPlaceholder": "votre@email.com",
-  "home.nlButton": "S'abonner",
 
   // ===== FOOTER =====
   "footer.desc": "Avis et classements de brokers indépendants, testés avec de l'argent réel. Mis à jour chaque trimestre.",

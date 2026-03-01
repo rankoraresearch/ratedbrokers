@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { LANGUAGES, DEFAULT_LANG } from "./config";
 import { useTranslation } from "./LanguageContext";
+import CountryFlag from "../components/CountryFlag";
 
 export default function LanguageSwitcher({ mobile }) {
   const { lang } = useTranslation();
@@ -63,7 +64,7 @@ export default function LanguageSwitcher({ mobile }) {
                 gap: 4,
               }}
             >
-              <span style={{ fontSize: 14 }}>{l.flag}</span>
+              <CountryFlag code={l.countryCode} size={14} />
               {l.code.toUpperCase()}
             </button>
           ))}
@@ -91,7 +92,7 @@ export default function LanguageSwitcher({ mobile }) {
           transition: "all 0.15s",
         }}
       >
-        <span style={{ fontSize: 14 }}>{current.flag}</span>
+        <CountryFlag code={current.countryCode} size={14} />
         {current.code.toUpperCase()}
         <span style={{ fontSize: 10, color: "rgba(255,255,255,0.5)", transform: open ? "rotate(180deg)" : "none", transition: "transform 0.2s" }}>\u25be</span>
       </button>
@@ -132,7 +133,7 @@ export default function LanguageSwitcher({ mobile }) {
                 transition: "background 0.15s",
               }}
             >
-              <span style={{ fontSize: 16 }}>{l.flag}</span>
+              <CountryFlag code={l.countryCode} size={16} />
               <span style={{ flex: 1 }}>{l.name}</span>
               {l.code === lang && <span style={{ color: "#059669", fontSize: 14 }}>\u2713</span>}
             </button>

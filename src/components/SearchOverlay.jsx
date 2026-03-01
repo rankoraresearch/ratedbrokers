@@ -6,6 +6,7 @@ import { useTranslation } from "../i18n/LanguageContext";
 import { useMedia } from "../hooks/useMedia";
 import useSearchIndex from "../hooks/useSearchIndex";
 import { Search, X } from "lucide-react";
+import CountryFlag from "./CountryFlag";
 
 const POPULAR = [
   { label: "Best Forex Brokers", path: "/best-forex-brokers" },
@@ -157,8 +158,8 @@ export default function SearchOverlay({ onClose }) {
         </div>
       );
     }
-    if (item.type === "country" && item.meta.flag) {
-      return <span style={{ fontSize: 18, flexShrink: 0 }}>{item.meta.flag}</span>;
+    if (item.type === "country" && item.meta.code) {
+      return <CountryFlag code={item.meta.code} size={18} />;
     }
     if (item.type === "ranking" && item.meta.icon) {
       return <span style={{ fontSize: 16, flexShrink: 0 }}>{item.meta.icon}</span>;

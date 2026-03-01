@@ -176,6 +176,6 @@ export default {
   relatedGuides: ["ecn-vs-market-maker", "what-is-a-pip", "how-to-choose-a-forex-broker"],
   relatedRankings: [
     { label: "Lowest Spread Brokers", path: "/lowest-spread-forex-brokers" },
-    { label: "Zero Spread Brokers", path: "/best-zero-spread-forex-brokers" }
+    { label: "Zero Spread Brokers", path: "/zero-spread-forex-brokers" }
   ]
 };

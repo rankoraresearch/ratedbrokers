@@ -5,6 +5,7 @@ import { useTranslation } from "../i18n/LanguageContext";
 import { useLocalePath } from "../i18n/useLocalePath";
 import LanguageSwitcher from "../i18n/LanguageSwitcher";
 import Icon, { IconBox } from "./Icon";
+import CountryFlag from "./CountryFlag";
 import { ChevronDown, X as XIcon, Menu as MenuIcon, ArrowRight, Search as SearchIcon, Shield, CalendarCheck } from "lucide-react";
 import SearchOverlay from "./SearchOverlay";
 
@@ -30,16 +31,30 @@ const FOREX_PLATFORMS = [
 
 const FOREX_COSTS = [
   { icon: "trending-down", key: "costLowSpread", path: "/lowest-spread-forex-brokers", color: "#6366f1" },
-  { icon: "ban", key: "costZeroSpread", path: "/best-zero-spread-forex-brokers", color: "#ef4444" },
-  { icon: "dollar-sign", key: "costLowComm", path: "/best-low-commission-forex-brokers", color: "#f59e0b" },
+  { icon: "ban", key: "costZeroSpread", path: "/zero-spread-forex-brokers", color: "#ef4444" },
+  { icon: "dollar-sign", key: "costLowComm", path: "/lowest-commission-forex-brokers", color: "#f59e0b" },
   { icon: "circle-check", key: "costNoFees", path: "/best-no-hidden-fees-forex-brokers", color: "#10b981" },
 ];
 
 const FOREX_ACCOUNTS = [
   { icon: "gamepad-2", key: "acctDemo", path: "/best-forex-demo-accounts", color: "#8b5cf6" },
-  { icon: "microscope", key: "acctMicro", path: "/best-micro-account-forex-brokers", color: "#ec4899" },
+  { icon: "microscope", key: "acctMicro", path: "/forex-brokers-micro-accounts", color: "#ec4899" },
   { icon: "landmark", key: "acctIslamic", path: "/best-islamic-forex-brokers", color: "#059669" },
   { icon: "piggy-bank", key: "acctLowDep", path: "/no-minimum-deposit-forex-brokers", color: "#14b8a6" },
+];
+
+const CRYPTO_BY_COIN = [
+  { key: "cryptoBitcoin", path: "/best-bitcoin-brokers" },
+  { key: "cryptoEthereum", path: "/best-ethereum-brokers" },
+  { key: "cryptoXrp", path: "/best-xrp-brokers" },
+  { key: "cryptoSolana", path: "/best-solana-brokers" },
+  { key: "cryptoAltcoins", path: "/best-altcoin-brokers" },
+];
+
+const CRYPTO_BY_FEATURE = [
+  { key: "cryptoHighLev", path: "/best-high-leverage-crypto-brokers" },
+  { key: "cryptoLowSpread", path: "/best-low-spread-crypto-brokers" },
+  { key: "cryptoApps", path: "/best-crypto-trading-apps" },
 ];
 
 const GUIDE_GETTING_STARTED = [
@@ -69,16 +84,31 @@ const GUIDE_CONCEPTS = [
 /* backward-compat: flat list for mobile */
 const GUIDE_ITEMS = [...GUIDE_GETTING_STARTED, ...GUIDE_STRATEGIES, ...GUIDE_CONCEPTS];
 
-const COUNTRIES = [
-  { flag: "\ud83c\uddec\ud83c\udde7", name: "United Kingdom", path: "/best-forex-brokers-uk", featured: true },
-  { flag: "\ud83c\udde6\ud83c\uddfa", name: "Australia", path: "/best-forex-brokers-australia" },
-  { flag: "\ud83c\udde6\ud83c\uddea", name: "UAE", path: "/best-forex-brokers-uae" },
-  { flag: "\ud83c\udde9\ud83c\uddea", name: "Germany", path: "/best-forex-brokers-germany" },
-  { flag: "\ud83c\uddf8\ud83c\uddec", name: "Singapore", path: "/best-forex-brokers-singapore" },
-  { flag: "\ud83c\uddfa\ud83c\uddf8", name: "United States", path: "/best-forex-brokers-usa" },
-  { flag: "\ud83c\udde8\ud83c\udde6", name: "Canada", path: "/best-forex-brokers-canada" },
-  { flag: "\ud83c\uddff\ud83c\udde6", name: "South Africa", path: "/best-forex-brokers-south-africa" },
+const COUNTRIES_EUROPE = [
+  { code: "GB", name: "United Kingdom", path: "/best-forex-brokers-uk" },
+  { code: "DE", name: "Germany", path: "/best-forex-brokers-germany" },
+  { code: "FR", name: "France", path: "/best-forex-brokers-france" },
+  { code: "CH", name: "Switzerland", path: "/best-forex-brokers-switzerland" },
+  { code: "CY", name: "Cyprus", path: "/best-forex-brokers-cyprus" },
 ];
+
+const COUNTRIES_ASIA_PACIFIC = [
+  { code: "AU", name: "Australia", path: "/best-forex-brokers-australia" },
+  { code: "JP", name: "Japan", path: "/best-forex-brokers-japan" },
+  { code: "SG", name: "Singapore", path: "/best-forex-brokers-singapore" },
+  { code: "HK", name: "Hong Kong", path: "/best-forex-brokers-hong-kong" },
+  { code: "IN", name: "India", path: "/best-forex-brokers-india" },
+];
+
+const COUNTRIES_AMERICAS_MENA = [
+  { code: "US", name: "United States", path: "/best-forex-brokers-usa" },
+  { code: "CA", name: "Canada", path: "/best-forex-brokers-canada" },
+  { code: "AE", name: "UAE", path: "/best-forex-brokers-uae" },
+  { code: "ZA", name: "South Africa", path: "/best-forex-brokers-south-africa" },
+  { code: "TR", name: "Turkey", path: "/best-forex-brokers-turkey" },
+];
+
+const COUNTRIES = [...COUNTRIES_EUROPE, ...COUNTRIES_ASIA_PACIFIC, ...COUNTRIES_AMERICAS_MENA];
 
 const TOP_REVIEWS = [
   { name: "IC Markets", score: 9.7, slug: "ic-markets" },
@@ -462,11 +492,68 @@ export default function Header() {
                       background: "#f0fdf4", color: "#059669", fontSize: 13, fontWeight: 700,
                       textDecoration: "none", textAlign: "center", border: "1px solid #a7f3d0",
                     }}>Best Forex Brokers 2026 — Full Rankings &amp; Comparison <ArrowRight size={14} style={{ verticalAlign: "middle" }} /></Link>
+                    <Link to={lp("/rankings")} style={{
+                      display: "block", marginTop: 6, padding: "8px 14px", borderRadius: 8,
+                      background: "transparent", color: "#64748b", fontSize: 12, fontWeight: 600,
+                      textDecoration: "none", textAlign: "center", transition: "color 0.15s",
+                    }}
+                      onMouseEnter={(e) => { e.currentTarget.style.color = "#059669"; }}
+                      onMouseLeave={(e) => { e.currentTarget.style.color = "#64748b"; }}
+                    >{t("mega.browseAllRankings")} <ArrowRight size={12} style={{ verticalAlign: "middle" }} /></Link>
                   </div>
                 )}
               </div>
 
-              {/* ─── 2. Reviews ▾ ─── */}
+              {/* ─── 2. Crypto Brokers ▾ ─── */}
+              <div style={{ position: "relative" }} onMouseEnter={() => enter("crypto")} onMouseLeave={leave}>
+                <Link to={lp("/best-crypto-brokers")} style={{
+                  fontSize: 14, fontWeight: 500,
+                  color: activeDropdown === "crypto" ? "#34d399" : "rgba(255,255,255,0.85)",
+                  background: activeDropdown === "crypto" ? "rgba(255,255,255,0.08)" : "transparent",
+                  border: "none", padding: "8px 10px", borderRadius: 8,
+                  display: "flex", alignItems: "center", gap: 3,
+                  transition: "all 0.2s", whiteSpace: "nowrap", textDecoration: "none",
+                }}>
+                  {t("nav.cryptoBrokers")}
+                  <span style={{
+                    color: "rgba(255,255,255,0.5)",
+                    transition: "transform 0.2s",
+                    transform: activeDropdown === "crypto" ? "rotate(180deg)" : "none",
+                    display: "inline-flex",
+                  }}><ChevronDown size={12} /></span>
+                </Link>
+                {activeDropdown === "crypto" && (
+                  <div style={{ ...ddBase, left: "50%", transform: "translateX(-50%)", width: 380, padding: "20px 24px" }}
+                    onMouseEnter={() => enter("crypto")} onMouseLeave={leave}
+                  >
+                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+                      <div>
+                        <div style={secHead}>By Cryptocurrency</div>
+                        {CRYPTO_BY_COIN.map((item) => (
+                          <Link key={item.key} to={lp(item.path)} style={compactLink} onMouseEnter={hovCompact} onMouseLeave={unhovCompact}>
+                            {t(`mega.${item.key}`)}
+                          </Link>
+                        ))}
+                      </div>
+                      <div>
+                        <div style={secHead}>By Feature</div>
+                        {CRYPTO_BY_FEATURE.map((item) => (
+                          <Link key={item.key} to={lp(item.path)} style={compactLink} onMouseEnter={hovCompact} onMouseLeave={unhovCompact}>
+                            {t(`mega.${item.key}`)}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                    <Link to={lp("/best-crypto-brokers")} style={{
+                      display: "block", marginTop: 16, padding: "10px 14px", borderRadius: 8,
+                      background: "#f0fdf4", color: "#059669", fontSize: 13, fontWeight: 700,
+                      textDecoration: "none", textAlign: "center", border: "1px solid #a7f3d0",
+                    }}>Best Crypto Brokers 2026 — Full Rankings &amp; Comparison <ArrowRight size={14} style={{ verticalAlign: "middle" }} /></Link>
+                  </div>
+                )}
+              </div>
+
+              {/* ─── 3. Reviews ▾ ─── */}
               <div style={{ position: "relative" }} onMouseEnter={() => enter("reviews")} onMouseLeave={leave}>
                 <NavBtn id="reviews" label={t("nav.reviews")} />
                 {activeDropdown === "reviews" && (
@@ -518,11 +605,11 @@ export default function Header() {
                             </Link>
                           ))}
                         </div>
-                        <Link to={lp("/rankings")} style={{
+                        <Link to={lp("/reviews")} style={{
                           display: "block", marginTop: 12, padding: "10px 14px", borderRadius: 8,
                           background: "#f0fdf4", color: "#059669", fontSize: 13, fontWeight: 700,
                           textDecoration: "none", textAlign: "center",
-                        }}>{t("mega.viewAll", { count: 31 })}</Link>
+                        }}>{t("mega.viewAllReviews", { count: 36 })}</Link>
                       </div>
                     </div>
                   </div>
@@ -539,15 +626,27 @@ export default function Header() {
                     <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 24 }}>
                       <div>
                         <div style={secHead}>{t("mega.guideGettingStarted")}</div>
-                        {renderCatItems(GUIDE_GETTING_STARTED)}
+                        {GUIDE_GETTING_STARTED.map((item) => (
+                          <Link key={item.key} to={lp(item.path)} style={compactLink} onMouseEnter={hovCompact} onMouseLeave={unhovCompact}>
+                            {t(`mega.${item.key}`)}
+                          </Link>
+                        ))}
                       </div>
                       <div>
                         <div style={secHead}>{t("mega.guideStrategiesHead")}</div>
-                        {renderCatItems(GUIDE_STRATEGIES)}
+                        {GUIDE_STRATEGIES.map((item) => (
+                          <Link key={item.key} to={lp(item.path)} style={compactLink} onMouseEnter={hovCompact} onMouseLeave={unhovCompact}>
+                            {t(`mega.${item.key}`)}
+                          </Link>
+                        ))}
                       </div>
                       <div>
                         <div style={secHead}>{t("mega.guideConceptsHead")}</div>
-                        {renderCatItems(GUIDE_CONCEPTS)}
+                        {GUIDE_CONCEPTS.map((item) => (
+                          <Link key={item.key} to={lp(item.path)} style={compactLink} onMouseEnter={hovCompact} onMouseLeave={unhovCompact}>
+                            {t(`mega.${item.key}`)}
+                          </Link>
+                        ))}
                       </div>
                     </div>
                   </div>
@@ -558,30 +657,52 @@ export default function Header() {
               <div style={{ position: "relative" }} onMouseEnter={() => enter("countries")} onMouseLeave={leave}>
                 <NavBtn id="countries" label={t("nav.countries")} />
                 {activeDropdown === "countries" && (
-                  <div style={{ ...ddBase, right: 0, width: 260 }}
+                  <div style={{ ...ddBase, right: 0, width: 520 }}
                     onMouseEnter={() => enter("countries")} onMouseLeave={leave}
                   >
-                    <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
-                      {COUNTRIES.map((c) => (
-                        <Link key={c.name} to={lp(c.path)} style={ddLink}
-                          onMouseEnter={hov} onMouseLeave={unhov}
-                        >
-                          <span style={{ fontSize: 18 }}>{c.flag}</span>
-                          <span style={{ fontWeight: 600, flex: 1 }}>Best Brokers in {c.name}</span>
-                          {c.featured && (
-                            <span style={{
-                              padding: "1px 6px", borderRadius: 4,
-                              background: "#059669", color: "#fff", fontSize: 10, fontWeight: 700,
-                            }}>{t("mega.featured")}</span>
-                          )}
-                        </Link>
-                      ))}
+                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 24 }}>
+                      <div>
+                        <div style={secHead}>{t("mega.countryEurope")}</div>
+                        {COUNTRIES_EUROPE.map((c) => (
+                          <Link key={c.code} to={lp(c.path)} style={{ ...compactLink, display: "flex", alignItems: "center", gap: 8 }}
+                            onMouseEnter={hovCompact} onMouseLeave={unhovCompact}
+                          >
+                            <CountryFlag code={c.code} size={14} />
+                            {c.name}
+                          </Link>
+                        ))}
+                      </div>
+                      <div>
+                        <div style={secHead}>{t("mega.countryAsiaPacific")}</div>
+                        {COUNTRIES_ASIA_PACIFIC.map((c) => (
+                          <Link key={c.code} to={lp(c.path)} style={{ ...compactLink, display: "flex", alignItems: "center", gap: 8 }}
+                            onMouseEnter={hovCompact} onMouseLeave={unhovCompact}
+                          >
+                            <CountryFlag code={c.code} size={14} />
+                            {c.name}
+                          </Link>
+                        ))}
+                      </div>
+                      <div>
+                        <div style={secHead}>{t("mega.countryAmericasMena")}</div>
+                        {COUNTRIES_AMERICAS_MENA.map((c) => (
+                          <Link key={c.code} to={lp(c.path)} style={{ ...compactLink, display: "flex", alignItems: "center", gap: 8 }}
+                            onMouseEnter={hovCompact} onMouseLeave={unhovCompact}
+                          >
+                            <CountryFlag code={c.code} size={14} />
+                            {c.name}
+                          </Link>
+                        ))}
+                      </div>
                     </div>
                     <Link to={lp("/best-forex-brokers-by-country")} style={{
-                      display: "block", marginTop: 12, padding: "10px 14px", borderRadius: 8,
+                      display: "block", marginTop: 16, padding: "10px 14px", borderRadius: 8,
                       background: "#f0fdf4", color: "#059669", fontSize: 13, fontWeight: 700,
                       textDecoration: "none", textAlign: "center",
-                    }}>Best Forex Brokers by Country <ArrowRight size={14} style={{ verticalAlign: "middle" }} /></Link>
+                    }}
+                      onMouseEnter={(e) => { e.currentTarget.style.background = "#dcfce7"; }}
+                      onMouseLeave={(e) => { e.currentTarget.style.background = "#f0fdf4"; }}
+                    >{t("mega.viewAllCountries")} <ArrowRight size={14} style={{ verticalAlign: "middle" }} /></Link>
                   </div>
                 )}
               </div>
@@ -699,7 +820,53 @@ export default function Header() {
             )}
           </div>
 
-          {/* 2. Reviews */}
+          {/* 2. Crypto Brokers */}
+          <div>
+            <div style={{
+              display: "flex", alignItems: "center",
+              borderBottom: "1px solid #f1f5f9",
+            }}>
+              <Link to={lp("/best-crypto-brokers")} style={{
+                flex: 1, fontSize: 15, fontWeight: 500, color: "#1e293b",
+                textDecoration: "none", padding: "12px 0",
+              }}>{t("nav.cryptoBrokers")}</Link>
+              <button
+                onClick={() => setMobileExpanded(mobileExpanded === "crypto" ? null : "crypto")}
+                style={{
+                  background: "none", border: "none", cursor: "pointer", padding: "12px 4px",
+                  color: "#94a3b8", fontFamily: "inherit", display: "inline-flex",
+                  transition: "transform 0.2s",
+                  transform: mobileExpanded === "crypto" ? "rotate(180deg)" : "none",
+                }}
+              ><ChevronDown size={14} /></button>
+            </div>
+            {mobileExpanded === "crypto" && (
+              <div style={{ padding: "8px 0 8px 12px" }}>
+                <div style={{ fontSize: 10, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginBottom: 6 }}>
+                  By Cryptocurrency
+                </div>
+                {CRYPTO_BY_COIN.map((item) => (
+                  <Link key={item.key} to={lp(item.path)} style={{
+                    display: "block", padding: "6px 0", fontSize: 13, fontWeight: 500, color: "#475569", textDecoration: "none",
+                  }}>{t(`mega.${item.key}`)}</Link>
+                ))}
+                <div style={{ fontSize: 10, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginTop: 10, marginBottom: 6 }}>
+                  By Feature
+                </div>
+                {CRYPTO_BY_FEATURE.map((item) => (
+                  <Link key={item.key} to={lp(item.path)} style={{
+                    display: "block", padding: "6px 0", fontSize: 13, fontWeight: 500, color: "#475569", textDecoration: "none",
+                  }}>{t(`mega.${item.key}`)}</Link>
+                ))}
+                <Link to={lp("/best-crypto-brokers")} style={{
+                  display: "block", marginTop: 10, padding: "8px 0", fontSize: 13,
+                  fontWeight: 700, color: "#059669", textDecoration: "none",
+                }}>Best Crypto Brokers 2026 — Full Rankings <ArrowRight size={14} style={{ verticalAlign: "middle" }} /></Link>
+              </div>
+            )}
+          </div>
+
+          {/* 3. Reviews */}
           <div>
             <MobToggle id="reviews" label={t("nav.reviews")} />
             {mobileExpanded === "reviews" && (
@@ -724,6 +891,10 @@ export default function Header() {
                     display: "block", padding: "8px 0", fontSize: 13, fontWeight: 500, color: "#475569", textDecoration: "none",
                   }}>{b.name}</Link>
                 ))}
+                <Link to={lp("/reviews")} style={{
+                  display: "block", marginTop: 8, padding: "8px 0", fontSize: 13,
+                  fontWeight: 700, color: "#059669", textDecoration: "none",
+                }}>{t("mega.viewAllReviews", { count: 36 })} <ArrowRight size={14} style={{ verticalAlign: "middle" }} /></Link>
               </div>
             )}
           </div>
@@ -736,15 +907,27 @@ export default function Header() {
                 <div style={{ fontSize: 10, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginBottom: 8 }}>
                   {t("mega.guideGettingStarted")}
                 </div>
-                {renderMobCatItems(GUIDE_GETTING_STARTED)}
+                {GUIDE_GETTING_STARTED.map((item) => (
+                  <Link key={item.key} to={lp(item.path)} style={{
+                    display: "block", padding: "6px 0", fontSize: 13, fontWeight: 500, color: "#475569", textDecoration: "none",
+                  }}>{t(`mega.${item.key}`)}</Link>
+                ))}
                 <div style={{ fontSize: 10, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginTop: 12, marginBottom: 8 }}>
                   {t("mega.guideStrategiesHead")}
                 </div>
-                {renderMobCatItems(GUIDE_STRATEGIES)}
+                {GUIDE_STRATEGIES.map((item) => (
+                  <Link key={item.key} to={lp(item.path)} style={{
+                    display: "block", padding: "6px 0", fontSize: 13, fontWeight: 500, color: "#475569", textDecoration: "none",
+                  }}>{t(`mega.${item.key}`)}</Link>
+                ))}
                 <div style={{ fontSize: 10, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginTop: 12, marginBottom: 8 }}>
                   {t("mega.guideConceptsHead")}
                 </div>
-                {renderMobCatItems(GUIDE_CONCEPTS)}
+                {GUIDE_CONCEPTS.map((item) => (
+                  <Link key={item.key} to={lp(item.path)} style={{
+                    display: "block", padding: "6px 0", fontSize: 13, fontWeight: 500, color: "#475569", textDecoration: "none",
+                  }}>{t(`mega.${item.key}`)}</Link>
+                ))}
               </div>
             )}
           </div>
@@ -757,19 +940,46 @@ export default function Header() {
             <MobToggle id="countries" label={t("nav.countries")} />
             {mobileExpanded === "countries" && (
               <div style={{ padding: "8px 0 8px 12px" }}>
-                {COUNTRIES.map((c) => (
-                  <Link key={c.name} to={lp(c.path)} style={{
+                <div style={{ fontSize: 10, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginBottom: 8 }}>
+                  {t("mega.countryEurope")}
+                </div>
+                {COUNTRIES_EUROPE.map((c) => (
+                  <Link key={c.code} to={lp(c.path)} style={{
                     display: "flex", alignItems: "center", gap: 8,
-                    padding: "8px 0", fontSize: 13, fontWeight: 500, color: "#475569", textDecoration: "none",
+                    padding: "6px 0", fontSize: 13, fontWeight: 500, color: "#475569", textDecoration: "none",
                   }}>
-                    <span style={{ fontSize: 16 }}>{c.flag}</span>
-                    Best Brokers in {c.name}
+                    <CountryFlag code={c.code} size={16} />
+                    {c.name}
+                  </Link>
+                ))}
+                <div style={{ fontSize: 10, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginTop: 12, marginBottom: 8 }}>
+                  {t("mega.countryAsiaPacific")}
+                </div>
+                {COUNTRIES_ASIA_PACIFIC.map((c) => (
+                  <Link key={c.code} to={lp(c.path)} style={{
+                    display: "flex", alignItems: "center", gap: 8,
+                    padding: "6px 0", fontSize: 13, fontWeight: 500, color: "#475569", textDecoration: "none",
+                  }}>
+                    <CountryFlag code={c.code} size={16} />
+                    {c.name}
+                  </Link>
+                ))}
+                <div style={{ fontSize: 10, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginTop: 12, marginBottom: 8 }}>
+                  {t("mega.countryAmericasMena")}
+                </div>
+                {COUNTRIES_AMERICAS_MENA.map((c) => (
+                  <Link key={c.code} to={lp(c.path)} style={{
+                    display: "flex", alignItems: "center", gap: 8,
+                    padding: "6px 0", fontSize: 13, fontWeight: 500, color: "#475569", textDecoration: "none",
+                  }}>
+                    <CountryFlag code={c.code} size={16} />
+                    {c.name}
                   </Link>
                 ))}
                 <Link to={lp("/best-forex-brokers-by-country")} style={{
                   display: "block", marginTop: 8, padding: "8px 0", fontSize: 13,
                   fontWeight: 700, color: "#059669", textDecoration: "none",
-                }}>Best Forex Brokers by Country <ArrowRight size={14} style={{ verticalAlign: "middle" }} /></Link>
+                }}>{t("mega.viewAllCountries")} <ArrowRight size={14} style={{ verticalAlign: "middle" }} /></Link>
               </div>
             )}
           </div>

@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import Breadcrumb from "../components/Breadcrumb";
 import Icon, { ArrowRight } from "../components/Icon";
 import { Globe, Star } from "lucide-react";
+import CountryFlag from "../components/CountryFlag";
 
 function useMedia() {
   const [w, setW] = useState(typeof window !== "undefined" ? window.innerWidth : 1200);
@@ -105,7 +106,7 @@ export default function CountryHubPage() {
               boxShadow: "0 2px 8px rgba(0,0,0,0.03)",
               transition: "box-shadow 0.2s, transform 0.2s",
             }}>
-              <span style={{ fontSize: mob ? 28 : 36, display: "block", marginBottom: 8 }}>{c.flag}</span>
+              <div style={{ marginBottom: 8 }}><CountryFlag code={c.code} size={mob ? 28 : 36} /></div>
               <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: mob ? 14 : 16, marginBottom: 4, lineHeight: 1.3 }}>
                 Best Forex Brokers in {c.name}
               </div>
@@ -136,7 +137,7 @@ export default function CountryHubPage() {
                     padding: mob ? "10px 12px" : "12px 14px", borderRadius: 10,
                     background: "#fff", border: "1px solid #e2e8f0", textDecoration: "none", color: "#1e293b",
                   }}>
-                    <span style={{ fontSize: mob ? 20 : 24, flexShrink: 0 }}>{c.flag}</span>
+                    <CountryFlag code={c.code} size={mob ? 20 : 24} />
                     <div style={{ minWidth: 0 }}>
                       <div style={{ fontWeight: 600, fontSize: mob ? 13 : 14 }}>Best Forex Brokers in {c.name}</div>
                       <div style={{ fontSize: 12, color: "#94a3b8" }}>{c.regulator}-regulated {"\u2022"} {c.brokersCount} brokers</div>
