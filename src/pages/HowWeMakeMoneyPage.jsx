@@ -45,7 +45,7 @@ export default function HowWeMakeMoneyPage() {
         {
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: "https://ratedbrokers.com/" },
+            { "@type": "ListItem", position: 1, name: "RatedBrokers", item: "https://ratedbrokers.com/" },
             { "@type": "ListItem", position: 2, name: "How We Make Money", item: "https://ratedbrokers.com/how-we-make-money" },
           ],
         },
@@ -85,7 +85,7 @@ export default function HowWeMakeMoneyPage() {
       {/* BREADCRUMBS */}
       <div style={{ ...cn, padding: "16px 24px" }}>
         <Breadcrumb items={[
-          { label: t("meth.breadHome"), path: "/" },
+          { label: "RatedBrokers", path: "/" },
           { label: t("hwmm.breadcrumb") },
         ]} />
       </div>
@@ -262,10 +262,13 @@ export default function HowWeMakeMoneyPage() {
             </div>
           ))}
         </div>
-        <div style={{ marginTop: 16 }}>
+        <div style={{ marginTop: 16, display: "flex", gap: 20, flexWrap: "wrap" }}>
           <Link to={lp("/methodology")} style={{
             color: "#059669", fontWeight: 600, textDecoration: "none", fontSize: 14,
           }}>{t("hwmm.readMethodology")}</Link>
+          <Link to={lp("/trust-score")} style={{
+            color: "#059669", fontWeight: 600, textDecoration: "none", fontSize: 14,
+          }}>Understand our Trust Score →</Link>
         </div>
       </section>
 

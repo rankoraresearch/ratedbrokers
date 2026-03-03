@@ -73,7 +73,7 @@ export default function AboutPage() {
       <div style={{ paddingTop: 0 }}>
         <div style={{ ...cn, padding: "16px 24px" }}>
           <Breadcrumb items={[
-            { label: t("about.breadHome"), path: "/" },
+            { label: "RatedBrokers", path: "/" },
             { label: t("about.breadAbout") },
           ]} />
         </div>

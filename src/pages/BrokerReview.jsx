@@ -85,8 +85,8 @@ export default function BrokerReview() {
           dateModified: "2026-02-28",
         },
         breadcrumbSchema([
-          { label: "Home", path: "/" },
-          { label: "Reviews", path: "/best-forex-brokers" },
+          { label: "RatedBrokers", path: "/" },
+          { label: "Reviews", path: "/reviews" },
           { label: `${data.B.name} Review`, path: `/review/${slug}` },
         ]),
       ];
@@ -138,8 +138,8 @@ export default function BrokerReview() {
       <div style={{background:"#fff",borderBottom:"1px solid #e8ecf1",padding:"10px 0"}}>
         <div style={cn}>
           <Breadcrumb items={[
-            { label: t("nav.home"), path: "/" },
-            { label: t("nav.reviews") },
+            { label: "RatedBrokers", path: "/" },
+            { label: t("nav.reviews"), path: "/reviews" },
             { label: t("review.review2026", { name: B.name }) },
           ]} />
         </div>
@@ -181,6 +181,7 @@ export default function BrokerReview() {
             {promo&&<div style={{fontSize:11,color:"#065f46",background:"#dcfce7",borderRadius:6,padding:"5px 8px",marginBottom:12,display:"flex",alignItems:"center",gap:4}}><Icon name="lightbulb" size={13} color="#f59e0b" /> {promo}</div>}
             <a href={B.url} target="_blank" rel="nofollow sponsored" style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,background:"linear-gradient(135deg,#059669,#047857)",color:"#fff",fontSize:15,fontWeight:700,textDecoration:"none",padding:"13px 24px",borderRadius:10,width:"100%",boxShadow:"0 4px 12px rgba(5,150,105,0.3)"}}>{t("review.visit", { name: B.name })} <svg width="14" height="14" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></a>
             <div style={{fontSize:10,color:"#94a3b8",marginTop:8}}>{t("review.retailLose")}</div>
+            <Link to={lp("/trust-score")} style={{fontSize:11,color:"#059669",textDecoration:"none",fontWeight:600,marginTop:6,display:"inline-block"}}>What does this score mean? →</Link>
           </div>}
         </div>
       </section>

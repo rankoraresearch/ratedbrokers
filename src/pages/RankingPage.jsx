@@ -5,6 +5,7 @@ import { useLocalePath } from "../i18n/useLocalePath";
 import RANKINGS, { getRankingBySlug, getRankingsByCategory, getRankingsBySub } from "../data/rankings";
 import { getBrokersForRanking } from "../data/rankingFilters";
 import SEO_CONTENT from "../data/rankingSeoContent";
+import { getThematicData, getBrokerBlurb, getQuickVerdict, getComparisonCols, getEducation } from "../data/rankingThematic";
 import BrokerRankCard from "../components/BrokerRankCard";
 import Accordion from "../components/Accordion";
 import AffiliateDisclosureBanner from "../components/AffiliateDisclosureBanner";
@@ -15,6 +16,7 @@ import Breadcrumb, { breadcrumbSchema } from "../components/Breadcrumb";
 import Icon, { ArrowRight, CircleCheck, Check, X as XIcon } from "../components/Icon";
 import BrokerLogo from "../components/BrokerLogo";
 import { getCountryData } from "../data/countries/index";
+import { canonicalPair } from "../data/comparisons";
 
 const YEAR = "2026";
 
@@ -23,6 +25,7 @@ export default function RankingPage() {
   const { mob, tab } = useMedia();
   const lp = useLocalePath();
   const [openFaq, setOpenFaq] = useState(null);
+  const [openThematicFaq, setOpenThematicFaq] = useState(null);
 
   const fullSlug = "/" + slug;
   const ranking = getRankingBySlug(fullSlug);
@@ -34,8 +37,11 @@ export default function RankingPage() {
       const metaDesc = document.querySelector('meta[name="description"]');
       if (metaDesc && seo?.metaDesc) metaDesc.setAttribute("content", seo.metaDesc);
 
-      // JSON-LD Article + BreadcrumbList schema
+      // JSON-LD Article + BreadcrumbList + FAQPage schema
       const a = getAuthorForRanking(ranking.category);
+      const brokersForSchema = getBrokersForRanking(ranking.id);
+      const topName = brokersForSchema[0]?.B?.name || "IC Markets";
+      const fv = (t) => t.replace(/\{year\}/g, YEAR).replace(/\{topBroker\}/g, topName).replace(/\{count\}/g, String(brokersForSchema.length));
       const jsonLd = [
         {
           "@context": "https://schema.org",
@@ -67,10 +73,19 @@ export default function RankingPage() {
           },
         },
         breadcrumbSchema([
-          { label: "Home", path: "/" },
+          { label: "RatedBrokers", path: "/" },
           { label: "Rankings", path: "/rankings" },
           { label: `${ranking.title} ${YEAR}`, path: fullSlug },
         ]),
+        ...(seo.faq?.length ? [{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: seo.faq.map((f) => ({
+            "@type": "Question",
+            name: fv(f.q),
+            acceptedAnswer: { "@type": "Answer", text: fv(f.a) },
+          })),
+        }] : []),
       ];
       let scriptEl = document.querySelector('script[data-jsonld="ranking"]');
       if (!scriptEl) {
@@ -124,13 +139,22 @@ export default function RankingPage() {
     });
   }
 
+  // Thematic data (F1 template)
+  const thematicData = getThematicData(ranking.id);
+  const quickVerdict = getQuickVerdict(ranking.id, brokers);
+  const educationData = getEducation(ranking.id);
+
+  // Comparison table columns: thematic custom or fallback defaults
+  const compCols = getComparisonCols(ranking.id);
+  const compData = thematicData?.comparisonData || null;
+
   return (
     <div style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb", minHeight: "100vh" }}>
 
       {/* BREADCRUMBS */}
       <div style={{ ...cn, padding: mob ? "16px 16px 0" : "20px 24px 0" }}>
         <Breadcrumb items={[
-          { label: "Home", path: "/" },
+          { label: "RatedBrokers", path: "/" },
           { label: "Rankings", path: "/rankings" },
           { label: ranking.title },
         ]} />
@@ -220,52 +244,104 @@ export default function RankingPage() {
         </div>
       </section>
 
-      {/* QUICK SUMMARY — TOP 3 */}
-      <section style={{ ...cn, paddingBottom: mob ? 24 : 32 }}>
-        <div style={{ ...cardBg, padding: mob ? "20px" : "28px 36px" }}>
-          <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 18 : 22, marginBottom: 16 }}>
-            Quick Summary: Top 3
-          </h2>
-          <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "1fr 1fr 1fr", gap: 12 }}>
-            {brokers.slice(0, 3).map((b, i) => (
-              <div key={b.slug} style={{
-                padding: "16px", borderRadius: 12,
-                background: i === 0 ? "#f0fdf4" : "#f8fafc",
-                border: i === 0 ? "1px solid #a7f3d0" : "1px solid #f1f5f9",
-              }}>
-                <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
-                  <div style={{
-                    width: 28, height: 28, borderRadius: 6,
-                    background: i === 0 ? "#059669" : "#1e3a5f",
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                    fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: 11, color: "#fff",
-                  }}>#{i + 1}</div>
-                  <Link to={lp(`/review/${b.slug}`)} style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 15, color: "inherit", textDecoration: "none" }}
-                    onMouseEnter={e => e.currentTarget.style.textDecoration = "underline"}
-                    onMouseLeave={e => e.currentTarget.style.textDecoration = "none"}
-                  >{b.B.name}</Link>
-                </div>
-                <div style={{ display: "flex", gap: 12, fontSize: 12, color: "#475569" }}>
-                  <span>Score: <strong style={{ color: "#059669" }}>{b.B.score}</strong></span>
-                  <span>Spread: <strong>{b.B.spread} pips</strong></span>
-                </div>
-                <div style={{ fontSize: 11, color: "#64748b", marginTop: 4 }}>{b.B.type}</div>
-                <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 10 }}>
-                  <a href={b.B.url} target="_blank" rel="noopener noreferrer nofollow" style={{
-                    display: "inline-flex", alignItems: "center", gap: 4,
-                    padding: "6px 14px", borderRadius: 7,
-                    background: "linear-gradient(135deg,#059669,#34d399)",
-                    color: "#fff", fontWeight: 700, fontSize: 12, textDecoration: "none",
-                  }}><span style={{ display: "inline-flex", alignItems: "center", gap: 4 }}>Visit {b.B.name} <ArrowRight size={12} /></span></a>
-                  <Link to={lp(`/review/${b.slug}`)} style={{
-                    fontSize: 12, color: "#64748b", fontWeight: 600, textDecoration: "none",
-                  }}>Read Review</Link>
-                </div>
-              </div>
-            ))}
+      {/* QUICK VERDICT (thematic) or QUICK SUMMARY (fallback) */}
+      {quickVerdict ? (
+        <section style={{ ...cn, paddingBottom: mob ? 24 : 32 }}>
+          <div style={{ ...cardBg, padding: mob ? "20px" : "28px 36px" }}>
+            <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 18 : 22, marginBottom: 16 }}>
+              Quick Verdict
+            </h2>
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              {quickVerdict.map((v, i) => {
+                const vBroker = brokers.find(b => b.slug === v.slug);
+                if (!vBroker) return null;
+                return (
+                  <div key={v.slug} style={{
+                    display: "flex", alignItems: "center", gap: mob ? 10 : 16,
+                    padding: mob ? "14px 0" : "16px 0",
+                    borderTop: i > 0 ? "1px solid #f1f5f9" : "none",
+                  }}>
+                    <span style={{ fontSize: mob ? 18 : 22, flexShrink: 0 }}>{v.icon}</span>
+                    <div style={{ width: mob ? 80 : 150, flexShrink: 0 }}>
+                      <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: mob ? 11 : 13, color: "#64748b", textTransform: "uppercase", letterSpacing: 0.3, lineHeight: 1.3 }}>
+                        {v.label}
+                      </div>
+                    </div>
+                    <div style={{ flex: 1, display: "flex", alignItems: "center", gap: 8, minWidth: 0 }}>
+                      {!mob && <BrokerLogo slug={vBroker.slug} name={vBroker.B.name} fallback={vBroker.B.logo} size={24} />}
+                      <Link to={lp(`/review/${vBroker.slug}`)} style={{
+                        fontFamily: "Outfit", fontWeight: 700, fontSize: mob ? 14 : 15, color: "#0f172a", textDecoration: "none",
+                      }}
+                        onMouseEnter={e => e.currentTarget.style.textDecoration = "underline"}
+                        onMouseLeave={e => e.currentTarget.style.textDecoration = "none"}
+                      >{vBroker.B.name}</Link>
+                    </div>
+                    {!mob && (
+                      <div style={{
+                        fontFamily: "'JetBrains Mono',monospace", fontSize: 12,
+                        fontWeight: 600, color: "#475569", whiteSpace: "nowrap",
+                      }}>
+                        {v.metric}
+                      </div>
+                    )}
+                    <a href={vBroker.B.url} target="_blank" rel="noopener noreferrer nofollow" style={{
+                      display: "inline-flex", alignItems: "center", gap: 4,
+                      padding: mob ? "7px 14px" : "8px 16px", borderRadius: 8, flexShrink: 0,
+                      background: "#059669", color: "#fff", fontWeight: 700, fontSize: 12, textDecoration: "none",
+                    }}>Visit <ArrowRight size={12} /></a>
+                  </div>
+                );
+              })}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      ) : (
+        <section style={{ ...cn, paddingBottom: mob ? 24 : 32 }}>
+          <div style={{ ...cardBg, padding: mob ? "20px" : "28px 36px" }}>
+            <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 18 : 22, marginBottom: 16 }}>
+              Quick Summary: Top 3
+            </h2>
+            <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "1fr 1fr 1fr", gap: 12 }}>
+              {brokers.slice(0, 3).map((b, i) => (
+                <div key={b.slug} style={{
+                  padding: "16px", borderRadius: 12,
+                  background: i === 0 ? "#f0fdf4" : "#f8fafc",
+                  border: i === 0 ? "1px solid #a7f3d0" : "1px solid #f1f5f9",
+                }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
+                    <div style={{
+                      width: 28, height: 28, borderRadius: 6,
+                      background: i === 0 ? "#059669" : "#1e3a5f",
+                      display: "flex", alignItems: "center", justifyContent: "center",
+                      fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: 11, color: "#fff",
+                    }}>#{i + 1}</div>
+                    <Link to={lp(`/review/${b.slug}`)} style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 15, color: "inherit", textDecoration: "none" }}
+                      onMouseEnter={e => e.currentTarget.style.textDecoration = "underline"}
+                      onMouseLeave={e => e.currentTarget.style.textDecoration = "none"}
+                    >{b.B.name}</Link>
+                  </div>
+                  <div style={{ display: "flex", gap: 12, fontSize: 12, color: "#475569" }}>
+                    <span>Score: <strong style={{ color: "#059669" }}>{b.B.score}</strong></span>
+                    <span>Spread: <strong>{b.B.spread} pips</strong></span>
+                  </div>
+                  <div style={{ fontSize: 11, color: "#64748b", marginTop: 4 }}>{b.B.type}</div>
+                  <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 10 }}>
+                    <a href={b.B.url} target="_blank" rel="noopener noreferrer nofollow" style={{
+                      display: "inline-flex", alignItems: "center", gap: 4,
+                      padding: "6px 14px", borderRadius: 7,
+                      background: "linear-gradient(135deg,#059669,#34d399)",
+                      color: "#fff", fontWeight: 700, fontSize: 12, textDecoration: "none",
+                    }}><span style={{ display: "inline-flex", alignItems: "center", gap: 4 }}>Visit {b.B.name} <ArrowRight size={12} /></span></a>
+                    <Link to={lp(`/review/${b.slug}`)} style={{
+                      fontSize: 12, color: "#64748b", fontWeight: 600, textDecoration: "none",
+                    }}>Read Review</Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* BROKER CARDS */}
       <section style={{ ...cn, paddingBottom: mob ? 32 : 48 }}>
@@ -277,8 +353,166 @@ export default function RankingPage() {
         </h2>
         <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
           {brokers.map((b, i) => (
-            <BrokerRankCard key={b.slug} broker={b} rank={i + 1} />
+            <BrokerRankCard
+              key={b.slug}
+              broker={b}
+              rank={i + 1}
+              thematic={getBrokerBlurb(ranking.id, b.slug, b)}
+              rankingSlug={ranking.slug}
+            />
           ))}
+        </div>
+      </section>
+
+      {/* EDUCATIONAL SECTION (thematic or auto-generated) */}
+      {educationData && (
+        <section style={{ ...cn, paddingBottom: mob ? 32 : 48 }}>
+          <div style={{ ...cardBg, padding: mob ? "24px 20px" : "36px 40px" }}>
+            <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 28, marginBottom: 8 }}>
+              {educationData.title}
+            </h2>
+            <p style={{ fontSize: 15, lineHeight: 1.75, color: "#475569", marginBottom: 20 }}>
+              {educationData.intro}
+            </p>
+
+            {/* Main bullet points */}
+            {educationData.points && (
+              <div style={{ marginBottom: 24 }}>
+                {educationData.points.map((pt, i) => (
+                  <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 10, marginBottom: 10 }}>
+                    <CircleCheck size={16} color="#059669" style={{ flexShrink: 0, marginTop: 4 }} />
+                    <p style={{ fontSize: 14, lineHeight: 1.7, color: "#374151", margin: 0 }}>
+                      <strong>{pt.bold}</strong> {pt.text}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Additional sections */}
+            {educationData.sections?.map((sec, si) => (
+              <div key={si} style={{ marginBottom: 28, paddingTop: 20, borderTop: "1px solid #f1f5f9" }}>
+                <h3 style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: mob ? 18 : 22, color: "#0f172a", marginBottom: 12 }}>
+                  {sec.heading}
+                </h3>
+                {sec.paragraphs?.map((p, pi) => (
+                  <p key={pi} style={{ fontSize: 14, lineHeight: 1.75, color: "#475569", marginBottom: 12 }}>{p}</p>
+                ))}
+                {sec.points && (
+                  <div style={{ marginTop: 8 }}>
+                    {sec.points.map((pt, i) => (
+                      <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 10, marginBottom: 8 }}>
+                        <CircleCheck size={14} color="#059669" style={{ flexShrink: 0, marginTop: 4 }} />
+                        <p style={{ fontSize: 14, lineHeight: 1.7, color: "#374151", margin: 0 }}>
+                          <strong>{pt.bold}</strong> {pt.text}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+                {sec.tip && (
+                  <div style={{
+                    marginTop: 16, padding: mob ? "16px" : "20px 24px", borderRadius: 12,
+                    background: "linear-gradient(135deg, #eff6ff, #dbeafe)", border: "1px solid #93c5fd",
+                  }}>
+                    <div style={{ fontWeight: 700, fontSize: 13, color: "#1e40af", marginBottom: 6 }}>Pro Tip</div>
+                    <p style={{ fontSize: 13, lineHeight: 1.7, color: "#1e3a5f", margin: 0 }}>{sec.tip}</p>
+                  </div>
+                )}
+              </div>
+            ))}
+
+            {/* Thematic FAQ (inline accordion) */}
+            {educationData.faq && educationData.faq.length > 0 && (
+              <div style={{ paddingTop: 20, borderTop: "1px solid #f1f5f9" }}>
+                <h3 style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: mob ? 18 : 22, color: "#0f172a", marginBottom: 16 }}>
+                  Frequently Asked Questions
+                </h3>
+                <Accordion
+                  items={educationData.faq}
+                  expanded={openThematicFaq}
+                  setExpanded={setOpenThematicFaq}
+                />
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
+      {/* COMPARISON TABLE (all rankings) */}
+      <section style={{ ...cn, paddingBottom: mob ? 32 : 48 }}>
+        <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 20 : 26, marginBottom: 20 }}>
+          {countryData ? `${countryData.name} Broker` : ranking.title} Comparison {YEAR}
+        </h2>
+        <div style={{ ...cardBg, overflow: "hidden" }}>
+          <div style={{ overflowX: "auto", WebkitOverflowScrolling: "touch" }}>
+            <table style={{
+              width: "100%", minWidth: 700, borderCollapse: "collapse", fontSize: 14,
+            }}>
+              <thead>
+                <tr style={{ background: "#f8fafc" }}>
+                  {["Broker", "Score", ...compCols].map((h) => (
+                    <th key={h} style={{
+                      padding: "14px 16px", textAlign: "left", fontFamily: "Outfit", fontWeight: 700,
+                      fontSize: 12, color: "#64748b", textTransform: "uppercase", letterSpacing: "0.05em",
+                      borderBottom: "2px solid #e2e8f0", whiteSpace: "nowrap",
+                      ...(h === "Broker" ? { position: "sticky", left: 0, background: "#f8fafc", zIndex: 1 } : {}),
+                    }}>{h}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {brokers.map((b, i) => {
+                  const scoreColor = b.B.score >= 9.0 ? "#059669" : b.B.score >= 8.5 ? "#2563eb" : "#d97706";
+                  const customRow = compData?.[b.slug];
+                  return (
+                    <tr key={b.slug}
+                      style={{ borderBottom: "1px solid #f1f5f9", transition: "background 0.15s" }}
+                      onMouseEnter={(e) => e.currentTarget.style.background = "#f8fafc"}
+                      onMouseLeave={(e) => e.currentTarget.style.background = "transparent"}
+                    >
+                      <td style={{
+                        padding: "14px 16px", fontWeight: 600, color: "#0f172a", whiteSpace: "nowrap",
+                        position: "sticky", left: 0, background: "#fff", zIndex: 1,
+                      }}>
+                        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                          <span style={{
+                            width: 22, height: 22, borderRadius: 5, display: "inline-flex",
+                            alignItems: "center", justifyContent: "center",
+                            background: i === 0 ? "#059669" : "#1e3a5f", color: "#fff",
+                            fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: 10,
+                          }}>#{i + 1}</span>
+                          {b.B.name}
+                        </div>
+                      </td>
+                      <td style={{ padding: "14px 16px" }}>
+                        <span style={{
+                          fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 15,
+                          color: scoreColor,
+                        }}>{b.B.score}</span>
+                      </td>
+                      {compCols.map((col) => {
+                        const lc = col.toLowerCase();
+                        const fallback =
+                          lc.includes("spread") ? (b.B.avgSpread ? `${b.B.avgSpread} pips` : `${b.B.spread} pips`)
+                          : lc.includes("commission") ? (b.B.commission || "—")
+                          : lc.includes("execution") ? "—"
+                          : lc.includes("min dep") || lc.includes("deposit") ? (b.B.minDep === 0 ? "$0" : `$${b.B.minDep}`)
+                          : lc.includes("leverage") ? b.B.leverage
+                          : lc.includes("platform") ? (b.B.platforms?.length + " platforms" || "—")
+                          : "—";
+                        return (
+                          <td key={col} style={{ padding: "14px 16px", color: "#475569" }}>
+                            {customRow ? (customRow[col] || fallback) : fallback}
+                          </td>
+                        );
+                      })}
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
 
@@ -374,6 +608,13 @@ export default function RankingPage() {
                         padding: mob ? "10px 18px" : "10px 22px", borderRadius: 10,
                         background: "#f1f5f9", color: "#475569", fontWeight: 600, fontSize: 14, textDecoration: "none",
                       }}>Read Full {b.B.name} Review <ArrowRight size={14} /></Link>
+                      {i > 0 && (
+                        <Link to={lp(`/compare/${canonicalPair(b.slug, brokers[0].slug)}`)} style={{
+                          display: "inline-flex", alignItems: "center", gap: 6,
+                          padding: mob ? "10px 18px" : "10px 22px", borderRadius: 10,
+                          background: "#f1f5f9", color: "#475569", fontWeight: 600, fontSize: 14, textDecoration: "none",
+                        }}>Compare vs {brokers[0].B.name} <ArrowRight size={14} /></Link>
+                      )}
                     </div>
                   </div>
                 );
@@ -431,8 +672,8 @@ export default function RankingPage() {
         </section>
       )}
 
-      {/* FAQ */}
-      {seo.faq && seo.faq.length > 0 && (
+      {/* FAQ (skip if thematic FAQ exists — avoids duplicate section) */}
+      {seo.faq && seo.faq.length > 0 && !educationData?.faq?.length && (
         <section style={{ ...cn, paddingBottom: mob ? 24 : 32 }}>
           <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 18 : 22, marginBottom: 16 }}>
             Frequently Asked Questions

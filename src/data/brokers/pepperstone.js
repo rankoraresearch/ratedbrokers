@@ -14,7 +14,8 @@ const data = {
     platforms:["MetaTrader 4","MetaTrader 5","cTrader","TradingView"],
     promo:"$0 minimum deposit — start trading instantly",
     badge:"Best Overall 2026",
-  },
+      riskWarning: "75.5% of retail investor accounts lose money when trading CFDs with this provider.",
+},
   SCORES: [
     { name:"Regulation & Safety", score:9.9, weight:25, detail:"Triple Tier-1 regulation: FCA + ASIC + CySEC. Client funds held in segregated accounts at Barclays and NAB. Negative balance protection across all entities." },
     { name:"Trading Costs", score:9.6, weight:20, detail:"EUR/USD average spread 0.10 pips on Razor account. $7 round-turn commission. No deposit fees. No inactivity fee after 2021 policy change." },

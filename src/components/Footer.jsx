@@ -78,10 +78,11 @@ const FOOTER_COUNTRIES = [
 
 const FOOTER_COMPANY = [
   { label: "methodology", path: "/methodology", isLink: true },
+  { label: "trustScore", path: "/trust-score", isLink: true },
   { label: "howWeMakeMoney", path: "/how-we-make-money", isLink: true },
   { label: "allRankings", path: "/rankings", isLink: true },
   { label: "aboutUs", path: "/about", isLink: true },
-  { label: "contact", path: "#", isLink: false },
+  { label: "contact", path: "/contact", isLink: true },
   { label: "privacy", path: "#", isLink: false },
   { label: "terms", path: "#", isLink: false },
 ];
@@ -226,6 +227,9 @@ export default function Footer() {
             {FOOTER_GUIDES.map(({ label, path }) => (
               <HoverLink key={path} to={lp(path)}>{label}</HoverLink>
             ))}
+            <HoverLink to={lp("/guides")} style={{ color: "#34d399", fontWeight: 600, marginTop: 4 }}>
+              {t("footer.allGuides")} {arrowIcon}
+            </HoverLink>
           </div>
 
           {/* E. Countries */}

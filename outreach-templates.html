@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RatedBrokers — Outreach: шаблоны писем экспертам</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', system-ui, sans-serif; background: #0a0a0a; color: #d4d4d4; line-height: 1.7; }
+
+  .container { max-width: 900px; margin: 0 auto; padding: 48px 32px; }
+
+  h1 { font-size: 36px; font-weight: 900; color: #fff; margin-bottom: 8px; letter-spacing: -1px; }
+  h2 { font-size: 24px; font-weight: 800; color: #fff; margin: 48px 0 20px; padding-bottom: 12px; border-bottom: 1px solid #222; }
+  h3 { font-size: 17px; font-weight: 700; color: #e0e0e0; margin: 32px 0 12px; }
+  h4 { font-size: 14px; font-weight: 700; color: #10b981; margin: 20px 0 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  p { font-size: 14px; margin-bottom: 12px; }
+  .subtitle { font-size: 15px; color: #888; margin-bottom: 32px; }
+  .note { font-size: 13px; color: #f59e0b; background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.15); border-radius: 10px; padding: 14px 18px; margin: 16px 0; }
+  .note strong { color: #fbbf24; }
+  .tip { font-size: 13px; color: #22d3ee; background: rgba(6,182,212,0.06); border: 1px solid rgba(6,182,212,0.12); border-radius: 10px; padding: 14px 18px; margin: 16px 0; }
+
+  /* Message boxes */
+  .msg-box {
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 14px;
+    margin: 16px 0 24px;
+    overflow: hidden;
+  }
+  .msg-header {
+    padding: 10px 18px;
+    background: #181818;
+    border-bottom: 1px solid #222;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .msg-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #888;
+  }
+  .msg-badge {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 100px;
+  }
+  .msg-body {
+    padding: 20px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #ccc;
+    white-space: pre-wrap;
+    font-family: 'Inter', sans-serif;
+  }
+  .msg-body .placeholder {
+    color: #f97316;
+    font-weight: 600;
+    background: rgba(249,115,22,0.1);
+    padding: 1px 6px;
+    border-radius: 4px;
+  }
+  .msg-body .subject-line {
+    color: #10b981;
+    font-weight: 700;
+  }
+
+  /* Copy button */
+  .copy-btn {
+    font-size: 11px;
+    font-weight: 600;
+    color: #10b981;
+    background: rgba(16,185,129,0.1);
+    border: 1px solid rgba(16,185,129,0.2);
+    padding: 4px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .copy-btn:hover { background: rgba(16,185,129,0.2); }
+  .copy-btn.copied { color: #fff; background: #059669; border-color: #059669; }
+
+  /* Strategy table */
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13px; }
+  th { text-align: left; padding: 10px 14px; background: #151515; color: #888; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; font-size: 10px; border-bottom: 1px solid #222; }
+  td { padding: 10px 14px; border-bottom: 1px solid #1a1a1a; color: #bbb; }
+  tr:hover td { background: #111; }
+
+  /* Funnel steps */
+  .funnel { display: flex; flex-direction: column; gap: 2px; margin: 20px 0; }
+  .funnel-step {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px;
+    background: #111;
+    border: 1px solid #1a1a1a;
+    border-radius: 10px;
+  }
+  .funnel-num {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #10b981, #059669);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 800;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .funnel-text { font-size: 13px; }
+  .funnel-text strong { color: #fff; }
+
+  .divider { height: 1px; background: linear-gradient(90deg, transparent, #333, transparent); margin: 48px 0; }
+
+  /* Personalized section */
+  .person-card {
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 14px;
+    padding: 20px;
+    margin: 20px 0;
+  }
+  .person-name {
+    font-size: 16px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .person-meta {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 12px;
+  }
+  .person-linkedin {
+    display: inline-block;
+    padding: 4px 12px;
+    background: rgba(6,182,212,0.1);
+    color: #22d3ee;
+    border: 1px solid rgba(6,182,212,0.15);
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    text-decoration: none;
+    margin-bottom: 12px;
+  }
+
+  ul { padding-left: 0; list-style: none; }
+  ul li { font-size: 13px; color: #aaa; padding: 3px 0; }
+  ul li::before { content: "→ "; color: #555; }
+
+  .warn { color: #f87171; background: rgba(239,68,68,0.06); border: 1px solid rgba(239,68,68,0.12); border-radius: 10px; padding: 14px 18px; margin: 16px 0; font-size: 13px; }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<h1>Outreach-стратегия для RatedBrokers</h1>
+<p class="subtitle">Шаблоны LinkedIn-сообщений и email для привлечения финансовых экспертов. Готово к отправке — нужно только подставить персональные данные.</p>
+
+<div class="note">
+  <strong>Важно:</strong> Все сообщения написаны на английском — 95% целевых экспертов англоязычные. Подход: профессиональный, лаконичный, с конкретным value proposition. Не продаём — предлагаем партнёрство.
+</div>
+
+<!-- ========================================= -->
+<h2>1. Воронка контакта: 4 шага</h2>
+<!-- ========================================= -->
+
+<div class="funnel">
+  <div class="funnel-step">
+    <div class="funnel-num">1</div>
+    <div class="funnel-text"><strong>LinkedIn Connection Request</strong> — короткий hook, 300 символов макс. Цель: чтобы приняли заявку.</div>
+  </div>
+  <div class="funnel-step">
+    <div class="funnel-num">2</div>
+    <div class="funnel-text"><strong>LinkedIn Follow-Up Message</strong> — через 1-2 дня после принятия. Конкретное предложение + оплата. Цель: получить ответ.</div>
+  </div>
+  <div class="funnel-step">
+    <div class="funnel-num">3</div>
+    <div class="funnel-text"><strong>Email (если есть)</strong> — более развёрнутое предложение с деталями. Цель: закрыть на созвон/пробную статью.</div>
+  </div>
+  <div class="funnel-step">
+    <div class="funnel-num">4</div>
+    <div class="funnel-text"><strong>Soft Follow-Up</strong> — через 5-7 дней, если нет ответа. Одно касание, не спамим.</div>
+  </div>
+</div>
+
+<div class="tip">
+  <strong>Тайминг:</strong> Отправляй LinkedIn-запросы вторник-четверг, 9:00-11:00 по их часовому поясу. Финансовые авторы — рано встающие профессионалы. Не отправляй в выходные и понедельник.
+</div>
+
+<div class="divider"></div>
+
+<!-- ========================================= -->
+<h2>2. Шаблоны LinkedIn</h2>
+<!-- ========================================= -->
+
+<!-- ===== CONNECTION REQUEST ===== -->
+<h3>2.1 Connection Request (300 символов макс)</h3>
+<p>Это первое касание. Цель — чтобы человек принял заявку. Никаких продаж, только hook.</p>
+
+<h4>Вариант A — Для фрилансеров (Cory, Kate, Dan, Haris)</h4>
+<div class="msg-box">
+  <div class="msg-header">
+    <span class="msg-label">LinkedIn Connection Request</span>
+    <span class="msg-badge" style="background: rgba(16,185,129,0.15); color: #34d399;">290 chars</span>
+  </div>
+  <div class="msg-body">Hi <span class="placeholder">[First Name]</span>, I've been following your work on <span class="placeholder">[Investopedia/FXEmpire/etc]</span> — really thorough broker analysis.
+
+I'm building a forex broker comparison platform and looking for expert contributors. Paid opportunity, flexible commitment. Would love to connect and share details.</div>
+</div>
+
+<h4>Вариант B — Для senior-экспертов (Steven, James Chen, Adam Nasli)</h4>
+<div class="msg-box">
+  <div class="msg-header">
+    <span class="msg-label">LinkedIn Connection Request</span>
+    <span class="msg-badge" style="background: rgba(139,92,246,0.15); color: #a78bfa;">280 chars</span>
+  </div>
+  <div class="msg-body">Hi <span class="placeholder">[First Name]</span>, your expertise in broker evaluation is well-recognized in the industry — I particularly enjoyed your <span class="placeholder">[specific piece/talk]</span>.
+
+I run RatedBrokers.com and would value your perspective on a potential collaboration. Happy to connect.</div>
+</div>
+
+<h4>Вариант C — Для CFA/PhD (Brandon Bovey, Muhammad Umair)</h4>
+<div class="msg-box">
+  <div class="msg-header">
+    <span class="msg-label">LinkedIn Connection Request</span>
+    <span class="msg-badge" style="background: rgba(6,182,212,0.15); color: #22d3ee;">275 chars</span>
+  </div>
+  <div class="msg-body">Hi <span class="placeholder">[First Name]</span>, your <span class="placeholder">[CFA/PhD]</span> credential and broker analysis work caught my attention.
+
+I'm looking for qualified financial experts to review and validate content on a new broker comparison platform. Paid role, minimal time. Let's connect?</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== FOLLOW-UP MESSAGE ===== -->
+<h3>2.2 Follow-Up Message (после принятия заявки)</h3>
+<p>Отправляем через 1-2 дня после того как приняли Connection Request. Это основной pitch.</p>
+
+<h4>Вариант A — Paid Contributor (для фрилансеров)</h4>
+<div class="msg-box">
+  <div class="msg-header">
+    <span class="msg-label">LinkedIn Message — Contributor Pitch</span>
+    <span class="msg-badge" style="background: rgba(16,185,129,0.15); color: #34d399;">Основной</span>
+  </div>
+  <div class="msg-body">Thanks for connecting, <span class="placeholder">[First Name]</span>!
+
+Quick context: I'm the founder of RatedBrokers.com — a new forex broker comparison platform with 30+ in-depth broker reviews. We're data-driven: 3,000+ data points, real-account testing, regulatory verification.
+
+<strong>What I'm looking for:</strong>
+An experienced financial writer to contribute expert broker reviews and market analysis under their own byline. Your name, your expertise, your author profile with full bio and credentials.
+
+<strong>What's in it for you:</strong>
+• <strong>Paid per article</strong> — happy to discuss rates that match your experience
+• <strong>Full author profile page</strong> with your photo, bio, credentials, and LinkedIn link
+• <strong>Your byline on every piece</strong> — builds your portfolio across another platform
+• <strong>Flexible commitment</strong> — 2-4 articles/month, or whatever works for your schedule
+• <strong>Editorial freedom</strong> — we value honest, data-backed analysis
+
+<strong>Why this works for both of us:</strong>
+You already write excellent broker analysis. This is simply another platform where your expertise gets published and compensated. We get quality content from a credentialed expert. Win-win.
+
+I'd love to hop on a quick 15-min call to discuss specifics — rates, topics, and workflow. What does your week look like?
+
+Best,
+<span class="placeholder">[Your Name]</span>
+Founder, RatedBrokers.com</div>
+</div>
+
+<h4>Вариант B — Expert Reviewer (для CFA/CMT — "Reviewed by" badge)</h4>
+<div class="msg-box">
+  <div class="msg-header">
+    <span class="msg-label">LinkedIn Message — Reviewer Pitch</span>
+    <span class="msg-badge" style="background: rgba(6,182,212,0.15); color: #22d3ee;">Лёгкий вход</span>
+  </div>
+  <div class="msg-body">Thanks for connecting, <span class="placeholder">[First Name]</span>!
+
+I'll keep this brief — I know your time is valuable.
+
+I run RatedBrokers.com, a forex broker comparison platform with 30+ detailed broker reviews. We take accuracy seriously: real-account testing, regulatory data verification, 3,000+ data points.
+
+<strong>I have a specific ask:</strong>
+We'd like a qualified financial professional (<span class="placeholder">[CFA/CMT/PhD]</span> holder like yourself) to review our existing broker content for accuracy and completeness. Think of it as an editorial review — not writing from scratch.
+
+<strong>The commitment:</strong>
+• Review 4-8 articles per month (each ~15-20 min of your time)
+• Flag any inaccuracies, add expert notes where appropriate
+• Your name appears as: "Reviewed by <span class="placeholder">[Full Name, CFA/CMT]</span>"
+• Full expert profile page on our site with your credentials and LinkedIn
+
+<strong>Compensation:</strong>
+Paid per review — happy to discuss a rate that reflects your expertise. This is a lightweight, ongoing engagement.
+
+Interested? Happy to jump on a quick call this week.
+
+Best,
+<span class="placeholder">[Your Name]</span>
+Founder, RatedBrokers.com</div>
+</div>
+
+<h4>Вариант C — Expert Advisor / Quote Provider (для тяжеловесов: James Chen, Caleb Silver)</h4>
+<div class="msg-box">
+  <div class="msg-header">
+    <span class="msg-label">LinkedIn Message — Advisory Pitch</span>
+    <span class="msg-badge" style="background: rgba(245,158,11,0.15); color: #fbbf24;">VIP</span>
+  </div>
+  <div class="msg-body">Hi <span class="placeholder">[First Name]</span>, thanks for connecting.
+
+I'll be direct — I greatly respect your body of work, from <span class="placeholder">[Investopedia/BrokerChooser/etc]</span> to <span class="placeholder">[your books/Bloomberg appearances/etc]</span>. You've set the standard for how broker analysis should be done.
+
+I'm building RatedBrokers.com — a new entrant in the forex broker comparison space. We currently have 30+ broker reviews based on rigorous testing methodology.
+
+<strong>I'm not asking you to write articles.</strong> What I'd value is:
+
+• Occasional <strong>expert quotes</strong> we can feature in our content (attributed to you)
+• Your name on our <strong>Advisory Board</strong> — lending credibility to our methodology
+• A brief <strong>interview</strong> for our editorial section (published as Q&A)
+
+This is a low-effort, high-visibility arrangement. Your profile and credentials would be prominently featured, linking back to your LinkedIn and any publications you'd like highlighted.
+
+Compensation is flexible — happy to structure it however makes sense for you.
+
+Worth a conversation?
+
+Best,
+<span class="placeholder">[Your Name]</span>
+Founder, RatedBrokers.com</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== SOFT FOLLOW-UP ===== -->
+<h3>2.3 Soft Follow-Up (через 5-7 дней без ответа)</h3>
+<div class="msg-box">
+  <div class="msg-header">
+    <span class="msg-label">LinkedIn Follow-Up — No Response</span>
+    <span class="msg-badge" style="background: rgba(148,163,184,0.15); color: #94a3b8;">1 раз</span>
+  </div>
+  <div class="msg-body">Hi <span class="placeholder">[First Name]</span>, just bumping this up in case it got buried. No pressure at all — if the timing isn't right, I completely understand.
+
+If you're open to it, even a quick 10-min chat would be great. And if not, happy to stay connected regardless. Your work is excellent.
+
+<span class="placeholder">[Your Name]</span></div>
+</div>
+
+<div class="warn">
+  <strong>Правило:</strong> Максимум 1 follow-up. Если после второго сообщения нет ответа — всё, двигаемся дальше. Никогда не пишем третье. Это портит репутацию и может привести к блокировке на LinkedIn.
+</div>
+
+<div class="divider"></div>
+
+<!-- ========================================= -->
+<h2>3. Email-шаблон (если нашли email)</h2>
+<!-- ========================================= -->
+
+<p>Email даёт больше пространства для деталей. Используй если нашёл email через Muck Rack, личный сайт автора, или через Hunter.io.</p>
+
+<div class="msg-box">
+  <div class="msg-header">
+    <span class="msg-label">Email — Full Pitch</span>
+    <span class="msg-badge" style="background: rgba(16,185,129,0.15); color: #34d399;">Полный</span>
+  </div>
+  <div class="msg-body"><span class="subject-line">Subject: Paid Expert Contributor — Forex Broker Reviews (RatedBrokers.com)</span>
+
+Hi <span class="placeholder">[First Name]</span>,
+
+My name is <span class="placeholder">[Your Name]</span>, and I'm the founder of RatedBrokers.com — a new forex broker comparison platform.
+
+I came across your work on <span class="placeholder">[Investopedia/FXEmpire/BrokerChooser]</span>, specifically your <span class="placeholder">[mention a specific article or review they wrote]</span>. The depth of analysis and data rigor stood out, which is exactly the standard we're building to.
+
+<strong>About RatedBrokers:</strong>
+• 30+ in-depth broker reviews (IC Markets, Pepperstone, XM, etc.)
+• Data-driven methodology: 3,000+ data points per broker
+• Real-account testing with actual deposits
+• Multi-language (11 languages)
+• Launching Q1 2026
+
+<strong>What I'm proposing:</strong>
+A paid contributor role where you publish expert broker reviews and analysis under your own byline on our platform. Specifically:
+
+• <strong>Your scope:</strong> Write or review 2-4 broker analyses per month
+• <strong>Your byline:</strong> Full author credit on every piece
+• <strong>Your profile:</strong> Dedicated expert page with photo, bio, credentials, LinkedIn link, and links to your other publications
+• <strong>Your compensation:</strong> Competitive per-article rate (happy to discuss — we respect your expertise and time)
+• <strong>Your schedule:</strong> Completely flexible — deadlines are negotiable
+
+<strong>Why this benefits you:</strong>
+1. Additional income stream from work you already excel at
+2. Another platform showcasing your expertise and credentials
+3. Your author profile links back to your LinkedIn and personal brand
+4. Full editorial independence — we never alter expert opinions
+
+<strong>Why we need you:</strong>
+Readers and search engines alike trust content backed by real credentials. Your <span class="placeholder">[CMT/CFA/PhD/experience]</span> brings exactly the kind of authority that makes a broker comparison platform credible.
+
+I'd love to discuss this over a quick 15-minute call at your convenience. I can also send over sample content so you can see our current quality and format.
+
+Are you open to exploring this?
+
+Best regards,
+<span class="placeholder">[Your Name]</span>
+Founder, RatedBrokers.com
+<span class="placeholder">[your-email@domain.com]</span>
+<span class="placeholder">[your LinkedIn URL]</span></div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ========================================= -->
+<h2>4. Персонализированные сообщения для ТОП-5</h2>
+<!-- ========================================= -->
+
+<p>Ниже — готовые к отправке LinkedIn-сообщения для 5 приоритетных кандидатов. Подставь своё имя и отправляй.</p>
+
+<!-- CORY MITCHELL -->
+<div class="person-card">
+  <div class="person-name">1. Cory Mitchell, CMT</div>
+  <div class="person-meta">Independent trader · Investopedia, Forbes, Yahoo Finance · CMT credential</div>
+  <a class="person-linkedin" href="https://ca.linkedin.com/in/corymitchellcmt" target="_blank">LinkedIn: /in/corymitchellcmt</a>
+
+  <h4>Connection Request</h4>
+  <div class="msg-box">
+    <div class="msg-header">
+      <span class="msg-label">LinkedIn — Connection</span>
+    </div>
+    <div class="msg-body">Hi Cory, I've been reading your broker analysis on Investopedia for years — your CMT perspective adds real depth that most reviews lack.
+
+I'm building a forex broker comparison platform and looking for experienced contributors. Paid work, your byline. Would love to connect and share details.</div>
+  </div>
+
+  <h4>Follow-Up (после принятия)</h4>
+  <div class="msg-box">
+    <div class="msg-header">
+      <span class="msg-label">LinkedIn — Pitch</span>
+    </div>
+    <div class="msg-body">Thanks for connecting, Cory!
+
+Quick pitch: I'm the founder of RatedBrokers.com — a new forex broker comparison platform with 30+ broker reviews, data-driven methodology (3K+ data points), and real-account testing.
+
+I'm looking for an experienced CMT-credentialed writer like yourself to contribute expert broker reviews under your own byline. Here's what I'm thinking:
+
+• 2-4 articles/month — broker reviews, market analysis, comparison pieces
+• Competitive per-article rate (happy to match or beat what you're earning elsewhere)
+• Full author profile page with your bio, CMT credentials, photo, and LinkedIn link
+• Editorial freedom — your honest analysis, no interference
+• Flexible schedule — you set the pace
+
+You already write this content for other platforms. This is simply adding another quality publication to your portfolio, with compensation.
+
+Would you be open to a quick 15-min call this week to discuss rates and topics?
+
+Best,
+<span class="placeholder">[Your Name]</span>
+RatedBrokers.com</div>
+  </div>
+</div>
+
+<!-- KATE LEAMAN -->
+<div class="person-card">
+  <div class="person-name">2. Kate Leaman</div>
+  <div class="person-meta">Chief Market Analyst (AvaTrade) · FXEmpire, Forbes, Yahoo Finance, Motley Fool · ex-Sky News</div>
+
+  <h4>Connection Request</h4>
+  <div class="msg-box">
+    <div class="msg-header">
+      <span class="msg-label">LinkedIn — Connection</span>
+    </div>
+    <div class="msg-body">Hi Kate, your broker analysis work across FXEmpire, Forbes, and Yahoo Finance is impressively consistent in quality. The Sky News journalism background really shows.
+
+I'm launching a broker comparison platform and would love to discuss a paid contributor opportunity. Happy to connect!</div>
+  </div>
+
+  <h4>Follow-Up (после принятия)</h4>
+  <div class="msg-box">
+    <div class="msg-header">
+      <span class="msg-label">LinkedIn — Pitch</span>
+    </div>
+    <div class="msg-body">Thanks for connecting, Kate!
+
+I run RatedBrokers.com — a new forex broker comparison platform with 30+ detailed reviews. Real-account testing, 3,000+ data points, multi-language.
+
+I see you contribute to FXEmpire, Forbes, Yahoo Finance, eToro, and others — and your content is excellent across all of them. That's exactly the caliber I'm looking for.
+
+The offer:
+• Paid contributor role: 2-4 broker reviews/month under your byline
+• Dedicated author profile page (photo, bio, credentials, LinkedIn link)
+• Competitive rates — happy to discuss what makes sense for you
+• Full editorial independence
+• Flexible deadlines
+
+You're already writing this content — this adds another publication to your portfolio with fair compensation. Your multi-platform presence is exactly what makes your expertise valuable here.
+
+Open to a quick call this week?
+
+Best,
+<span class="placeholder">[Your Name]</span>
+RatedBrokers.com</div>
+  </div>
+</div>
+
+<!-- DAN BLYSTONE -->
+<div class="person-card">
+  <div class="person-name">3. Dan Blystone</div>
+  <div class="person-meta">FXEmpire, Investopedia · Series 3 · CME floor since 1998 · Founder TradersLog.com</div>
+  <a class="person-linkedin" href="https://uk.linkedin.com/in/danblystone" target="_blank">LinkedIn: /in/danblystone</a>
+
+  <h4>Connection Request</h4>
+  <div class="msg-box">
+    <div class="msg-header">
+      <span class="msg-label">LinkedIn — Connection</span>
+    </div>
+    <div class="msg-body">Hi Dan, your background is incredible — from the CME trading floor to founding TradersLog to writing for FXEmpire and Investopedia. Real trading experience like yours is rare in this space.
+
+I'm building a broker comparison site and looking for experienced contributors. Paid, flexible. Love to connect!</div>
+  </div>
+
+  <h4>Follow-Up (после принятия)</h4>
+  <div class="msg-box">
+    <div class="msg-header">
+      <span class="msg-label">LinkedIn — Pitch</span>
+    </div>
+    <div class="msg-body">Thanks for connecting, Dan!
+
+I'm the founder of RatedBrokers.com — a new broker comparison platform with 30+ in-depth reviews. Data-driven approach, real-account testing, 3K+ data points.
+
+Your CME floor experience + Series 3 + writing for both FXEmpire and Investopedia is exactly the combination I'm looking for. Readers and search engines trust content from people who've actually traded — not just written about it.
+
+Here's what I have in mind:
+• Paid contributor: 2-4 articles/month (broker reviews, platform analysis)
+• Your full author profile with credentials, bio, and LinkedIn link
+• Your byline on every piece — complete editorial independence
+• Rates that respect your experience — happy to discuss
+
+You built TradersLog, so you understand the publisher side too. This is a straightforward contributor arrangement: you write, we pay, your name shines.
+
+Worth a quick call?
+
+Best,
+<span class="placeholder">[Your Name]</span>
+RatedBrokers.com</div>
+  </div>
+</div>
+
+<!-- HARIS ANWAR -->
+<div class="person-card">
+  <div class="person-name">4. Haris Anwar</div>
+  <div class="person-meta">Freelance financial writer · ex-Bloomberg, Reuters, Dow Jones · Toronto</div>
+  <a class="person-linkedin" href="https://www.linkedin.com/in/haris-anwar-6374587/" target="_blank">LinkedIn: /in/haris-anwar-6374587</a>
+
+  <h4>Connection Request</h4>
+  <div class="msg-box">
+    <div class="msg-header">
+      <span class="msg-label">LinkedIn — Connection</span>
+    </div>
+    <div class="msg-body">Hi Haris, your financial journalism pedigree is outstanding — Bloomberg, Reuters, Dow Jones, Globe and Mail. That level of editorial rigor is hard to find.
+
+I run a forex broker comparison platform and have a paid contributor opportunity that might interest you. Would love to connect!</div>
+  </div>
+
+  <h4>Follow-Up (после принятия)</h4>
+  <div class="msg-box">
+    <div class="msg-header">
+      <span class="msg-label">LinkedIn — Pitch</span>
+    </div>
+    <div class="msg-body">Thanks for connecting, Haris!
+
+I run RatedBrokers.com — a new forex broker comparison platform with 30+ reviews, real-account testing, and 3,000+ data points per broker.
+
+With Bloomberg, Reuters, and Dow Jones on your resume, you bring a level of editorial credibility that most financial sites can only dream of. That's exactly what I need.
+
+The opportunity:
+• Paid contributor: broker reviews and market analysis under your byline
+• 2-4 articles/month (flexible — you set the pace)
+• Full author profile page highlighting your Bloomberg/Reuters/Dow Jones background
+• Links to your LinkedIn and any personal publications
+• Competitive per-article compensation
+
+This is a lightweight addition to your freelance portfolio — another quality platform for your work with fair pay.
+
+Interested in a quick 15-min chat to discuss?
+
+Best,
+<span class="placeholder">[Your Name]</span>
+RatedBrokers.com</div>
+  </div>
+</div>
+
+<!-- BRANDON BOVEY -->
+<div class="person-card">
+  <div class="person-name">5. Brandon Bovey, CFA</div>
+  <div class="person-meta">Senior Broker Analyst, BrokerChooser · CFA · ex-Ellington Management · UVA</div>
+  <a class="person-linkedin" href="https://www.linkedin.com/in/brandon-bovey/" target="_blank">LinkedIn: /in/brandon-bovey</a>
+
+  <h4>Connection Request</h4>
+  <div class="msg-box">
+    <div class="msg-header">
+      <span class="msg-label">LinkedIn — Connection</span>
+    </div>
+    <div class="msg-body">Hi Brandon, your CFA credential combined with hands-on broker analysis at BrokerChooser is a powerful combination. Few people in this space have both the academic rigor and practical testing experience.
+
+I'd love to discuss a paid expert review opportunity on a new broker platform. Happy to connect!</div>
+  </div>
+
+  <h4>Follow-Up (после принятия)</h4>
+  <div class="msg-box">
+    <div class="msg-header">
+      <span class="msg-label">LinkedIn — Pitch</span>
+    </div>
+    <div class="msg-body">Thanks for connecting, Brandon!
+
+I'm the founder of RatedBrokers.com — a new broker comparison platform with 30+ reviews based on real-account testing and 3,000+ data points.
+
+I have a specific ask that I think respects your time: I'm looking for a CFA charterholder to serve as an expert reviewer for our broker analysis content.
+
+What this looks like:
+• Review 4-8 existing broker reviews per month (~15-20 min each)
+• Flag inaccuracies, suggest improvements, add expert notes where needed
+• Your name appears as: "Reviewed by Brandon Bovey, CFA"
+• Dedicated expert profile page with your CFA credentials, bio, and LinkedIn link
+• Paid per review — rate that reflects CFA-level expertise
+
+This isn't ghostwriting — it's quality assurance from a qualified professional. Your CFA and Ellington Management background brings exactly the kind of authority readers need to trust broker recommendations.
+
+Minimal time commitment, meaningful compensation. Worth a conversation?
+
+Best,
+<span class="placeholder">[Your Name]</span>
+RatedBrokers.com</div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ========================================= -->
+<h2>5. Где искать email'ы</h2>
+<!-- ========================================= -->
+
+<table>
+  <thead>
+    <tr>
+      <th>Инструмент</th>
+      <th>Что делает</th>
+      <th>Цена</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="color: #fff; font-weight: 600;">Hunter.io</td>
+      <td>Находит email по имени + домену компании</td>
+      <td>25 бесплатных запросов/мес</td>
+    </tr>
+    <tr>
+      <td style="color: #fff; font-weight: 600;">Snov.io</td>
+      <td>Email finder + LinkedIn extension</td>
+      <td>50 бесплатных кредитов/мес</td>
+    </tr>
+    <tr>
+      <td style="color: #fff; font-weight: 600;">Apollo.io</td>
+      <td>Email + LinkedIn data enrichment</td>
+      <td>Бесплатный план: 250 emails/мес</td>
+    </tr>
+    <tr>
+      <td style="color: #fff; font-weight: 600;">Muck Rack</td>
+      <td>База журналистов с контактами</td>
+      <td>Платная, но есть триал</td>
+    </tr>
+    <tr>
+      <td style="color: #fff; font-weight: 600;">Личные сайты</td>
+      <td>stevenhatzakis.com, tradethatswing.com и т.д.</td>
+      <td>Бесплатно</td>
+    </tr>
+    <tr>
+      <td style="color: #fff; font-weight: 600;">Author bio на сайтах</td>
+      <td>Часто указывают Twitter/email в bio</td>
+      <td>Бесплатно</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="divider"></div>
+
+<!-- ========================================= -->
+<h2>6. Бюджет и ставки (ориентир рынка)</h2>
+<!-- ========================================= -->
+
+<table>
+  <thead>
+    <tr>
+      <th>Тип работы</th>
+      <th>Ставка (USD)</th>
+      <th>Частота</th>
+      <th>Месячный бюджет</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="color: #fff; font-weight: 600;">Полный обзор брокера (2000-3000 слов)</td>
+      <td>$200 — $500</td>
+      <td>2-4/мес</td>
+      <td>$400 — $2,000</td>
+    </tr>
+    <tr>
+      <td style="color: #fff; font-weight: 600;">Expert Review (рецензия готового)</td>
+      <td>$50 — $150</td>
+      <td>4-8/мес</td>
+      <td>$200 — $1,200</td>
+    </tr>
+    <tr>
+      <td style="color: #fff; font-weight: 600;">Expert Quote (цитата для статьи)</td>
+      <td>$0 — $50</td>
+      <td>По запросу</td>
+      <td>$0 — $200</td>
+    </tr>
+    <tr>
+      <td style="color: #fff; font-weight: 600;">Advisory Board (имя + профиль)</td>
+      <td>$200 — $500/мес</td>
+      <td>Ongoing</td>
+      <td>$200 — $500</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="note">
+  <strong>Стратегия минимального бюджета:</strong> Начинай с «Expert Review» модели ($50-150 за рецензию). Это самый дешёвый способ получить CFA/CMT byline на своих статьях. Полноценный contributor — следующий шаг, когда ROI подтверждён.
+</div>
+
+<div class="divider"></div>
+
+<!-- ========================================= -->
+<h2>7. Чеклист перед отправкой</h2>
+<!-- ========================================= -->
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Действие</th>
+      <th>Статус</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td style="color: #fff;">Прокачай свой LinkedIn-профиль: фото, headline «Founder at RatedBrokers.com», описание проекта</td>
+      <td style="color: #f59e0b;">До outreach</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td style="color: #fff;">Добавь на ratedbrokers.com страницу /about — кто ты, что за проект, методология</td>
+      <td style="color: #f59e0b;">До outreach</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td style="color: #fff;">Задеплой сайт (хотя бы на Vercel/Netlify) — нужна живая ссылка для питча</td>
+      <td style="color: #f87171;">Критично</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td style="color: #fff;">Подготовь 2-3 примера обзоров брокеров как sample контент</td>
+      <td style="color: #f59e0b;">До outreach</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td style="color: #fff;">Создай шаблон страницы автора (/author/name) — покажи как будет выглядеть их профиль</td>
+      <td style="color: #f59e0b;">До outreach</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td style="color: #fff;">Зарегистрируйся на Hunter.io и Apollo.io (бесплатные планы) для поиска email'ов</td>
+      <td style="color: #22d3ee;">Опционально</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td style="color: #fff;">Начинай outreach с Cory Mitchell — максимальная вероятность ответа</td>
+      <td style="color: #34d399;">Первый шаг</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="warn">
+  <strong>Критично:</strong> Без живого сайта (хотя бы на staging URL) outreach будет неэффективен. Эксперты захотят увидеть продукт до того как согласятся. Задеплой на Vercel за 5 минут — этого достаточно.
+</div>
+
+<!-- FOOTER -->
+<div style="margin-top: 60px; padding-top: 24px; border-top: 1px solid #222; text-align: center; font-size: 12px; color: #444;">
+  <p>RatedBrokers Outreach Templates · Подготовлено март 2026</p>
+</div>
+
+</div>
+
+</body>
+</html>

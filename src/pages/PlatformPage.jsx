@@ -84,8 +84,7 @@ export default function PlatformPage() {
         })),
       },
       breadcrumbSchema([
-        { label: "Home", path: "/" },
-        { label: "Trading Platforms", path: "/platform" },
+        { label: "RatedBrokers", path: "/" },
         { label: platform.platformName, path: `/platform/${slug}` },
       ]),
     ];
@@ -138,8 +137,7 @@ export default function PlatformPage() {
       <div style={{ background: "#fff", borderBottom: "1px solid #e8ecf1", padding: "10px 0" }}>
         <div style={cn}>
           <Breadcrumb items={[
-            { label: "Home", path: "/" },
-            { label: "Trading Platforms" },
+            { label: "RatedBrokers", path: "/" },
             { label: platform.platformName },
           ]} />
         </div>

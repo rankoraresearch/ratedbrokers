@@ -13,7 +13,8 @@ const data = {
     platforms:["MetaTrader 4","MetaTrader 5","cTrader","TradingView"],
     promo:"0.0 pip raw spreads — no markup",
     badge:"Editor's Choice 2026",
-  },
+      riskWarning: "70.64% of retail investor accounts lose money when trading CFDs with this provider.",
+},
   SCORES: [
     { name:"Regulation & Safety", score:9.8, weight:25, detail:"ASIC + CySEC dual Tier-1 regulation. Client funds segregated at Westpac and NAB. Negative balance protection for all retail clients." },
     { name:"Trading Costs", score:9.9, weight:20, detail:"EUR/USD average spread 0.02 pips on Raw account. $7 round-turn commission per lot. No deposit or withdrawal fees. No inactivity fee." },

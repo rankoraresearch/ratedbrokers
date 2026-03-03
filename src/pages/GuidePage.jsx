@@ -73,8 +73,8 @@ export default function GuidePage() {
         })),
       },
       breadcrumbSchema([
-        { label: "Home", path: "/" },
-        { label: "Guides", path: "/guide" },
+        { label: "RatedBrokers", path: "/" },
+        { label: "Guides", path: "/guides" },
         { label: guide.hero.h1, path: `/guide/${slug}` },
       ]),
     ];
@@ -119,8 +119,8 @@ export default function GuidePage() {
       {/* ══════ BREADCRUMBS ══════ */}
       <div style={{ ...cn, paddingTop: mob ? 12 : 16, paddingBottom: 0 }}>
         <Breadcrumb items={[
-          { label: "Home", path: "/" },
-          { label: "Guides" },
+          { label: "RatedBrokers", path: "/" },
+          { label: "Guides", path: "/guides" },
           { label: guide.hero.h1 },
         ]} />
       </div>

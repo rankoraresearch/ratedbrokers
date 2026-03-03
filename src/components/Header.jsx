@@ -360,6 +360,12 @@ export default function Header() {
                 onMouseEnter={(e) => { e.currentTarget.style.color = "#34d399"; }}
                 onMouseLeave={(e) => { e.currentTarget.style.color = "#64748b"; }}
               >Methodology</Link>
+              <Link to={lp("/trust-score")} style={{
+                color: "#64748b", textDecoration: "none", transition: "color 0.2s",
+              }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = "#34d399"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = "#64748b"; }}
+              >Trust Score</Link>
               <Link to={lp("/how-we-make-money")} style={{
                 color: "#64748b", textDecoration: "none", transition: "color 0.2s",
               }}
@@ -655,6 +661,14 @@ export default function Header() {
                         ))}
                       </div>
                     </div>
+                    <Link to={lp("/guides")} style={{
+                      display: "block", marginTop: 16, padding: "10px 14px", borderRadius: 8,
+                      background: "#f0fdf4", color: "#059669", fontSize: 13, fontWeight: 700,
+                      textDecoration: "none", textAlign: "center",
+                    }}
+                      onMouseEnter={(e) => { e.currentTarget.style.background = "#dcfce7"; }}
+                      onMouseLeave={(e) => { e.currentTarget.style.background = "#f0fdf4"; }}
+                    >{t("mega.viewAllGuides")} <ArrowRight size={14} style={{ verticalAlign: "middle" }} /></Link>
                   </div>
                 )}
               </div>
@@ -934,6 +948,10 @@ export default function Header() {
                     display: "block", padding: "6px 0", fontSize: 13, fontWeight: 500, color: "#475569", textDecoration: "none",
                   }}>{t(`mega.${item.key}`)}</Link>
                 ))}
+                <Link to={lp("/guides")} style={{
+                  display: "block", marginTop: 8, padding: "8px 0", fontSize: 13,
+                  fontWeight: 700, color: "#059669", textDecoration: "none",
+                }}>{t("mega.viewAllGuides")} <ArrowRight size={14} style={{ verticalAlign: "middle" }} /></Link>
               </div>
             )}
           </div>

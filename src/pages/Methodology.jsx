@@ -117,7 +117,7 @@ export default function MethodologyPage() {
         {
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Home", item: "https://ratedbrokers.com/" },
+            { "@type": "ListItem", position: 1, name: "RatedBrokers", item: "https://ratedbrokers.com/" },
             { "@type": "ListItem", position: 2, name: "Methodology", item: "https://ratedbrokers.com/methodology" },
           ],
         },
@@ -143,7 +143,7 @@ export default function MethodologyPage() {
       <div style={{ paddingTop: 0 }}>
         <div style={{ ...cn, padding: "16px 24px" }}>
           <Breadcrumb items={[
-            { label: t("meth.breadHome"), path: "/" },
+            { label: "RatedBrokers", path: "/" },
             { label: t("meth.breadMeth") },
           ]} />
         </div>
@@ -270,6 +270,13 @@ export default function MethodologyPage() {
               <div style={{ fontSize: 12, color: "#64748b", lineHeight: 1.6 }}>{tier.desc}</div>
             </div>
           ))}
+        </div>
+
+        <div style={{ marginTop: 16 }}>
+          <Link to={lp("/trust-score")} style={{
+            color: "#059669", fontWeight: 600, fontSize: 14, textDecoration: "none",
+            display: "inline-flex", alignItems: "center", gap: 4,
+          }}>Learn how to interpret scores & search any broker →</Link>
         </div>
       </section>
 

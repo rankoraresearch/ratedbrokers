@@ -1,0 +1,1894 @@
+- generic [ref=e2]:
+  - banner [ref=e1639]:
+    - generic [ref=e1641]:
+      - generic [ref=e1642]:
+        - img [ref=e1643]
+        - generic [ref=e1645]: 36 Brokers Tested
+        - generic [ref=e1646]: ·
+        - img [ref=e1647]
+        - generic [ref=e1650]: Updated Q1 2026
+      - generic [ref=e1651]:
+        - link "Methodology" [ref=e1652] [cursor=pointer]:
+          - /url: /methodology
+        - link "How We Make Money" [ref=e1653] [cursor=pointer]:
+          - /url: /how-we-make-money
+        - link "About Us" [ref=e1654] [cursor=pointer]:
+          - /url: /about
+        - generic [ref=e1655]: "|"
+        - button "⌘K Search" [ref=e1656] [cursor=pointer]:
+          - generic [ref=e1657]: ⌘K
+          - generic [ref=e1658]: Search
+    - generic [ref=e1660]:
+      - link "rated brokers" [ref=e1661] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e1662]: rated
+        - generic [ref=e1663]: brokers
+      - navigation [ref=e1665]:
+        - link "Forex Brokers" [ref=e1667] [cursor=pointer]:
+          - /url: /best-forex-brokers
+          - text: Forex Brokers
+          - img [ref=e1669]
+        - link "Crypto Brokers" [ref=e1672] [cursor=pointer]:
+          - /url: /best-crypto-brokers
+          - text: Crypto Brokers
+          - img [ref=e1674]
+        - button "Reviews" [ref=e1677] [cursor=pointer]:
+          - text: Reviews
+          - img [ref=e1679]
+        - button "Guides" [ref=e1682] [cursor=pointer]:
+          - text: Guides
+          - img [ref=e1684]
+        - button "Countries" [ref=e1687] [cursor=pointer]:
+          - text: Countries
+          - img [ref=e1689]
+        - button "Search" [ref=e1691] [cursor=pointer]:
+          - img [ref=e1692]
+        - link "Compare Brokers" [ref=e1695] [cursor=pointer]:
+          - /url: /compare
+          - text: Compare Brokers
+          - img [ref=e1696]
+  - generic [ref=e1699]:
+    - navigation "Breadcrumb" [ref=e1701]:
+      - list [ref=e1702]:
+        - listitem [ref=e1703]:
+          - link "Home" [ref=e1704] [cursor=pointer]:
+            - /url: /
+        - listitem [ref=e1705]:
+          - img [ref=e1707]
+          - link "Rankings" [ref=e1709] [cursor=pointer]:
+            - /url: /rankings
+        - listitem [ref=e1710]:
+          - img [ref=e1712]
+          - generic [ref=e1714]: Best Forex Brokers UK
+    - generic [ref=e1716]:
+      - generic [ref=e1717]: 🇬🇧
+      - heading "Best Forex Brokers UK 2026" [level=1] [ref=e1718]
+      - generic [ref=e1720]:
+        - generic [ref=e1721]:
+          - generic [ref=e1722]:
+            - img "David Kowalski" [ref=e1723]
+            - img [ref=e1725]
+          - generic [ref=e1727]:
+            - generic [ref=e1728]:
+              - link "David Kowalski" [ref=e1729] [cursor=pointer]:
+                - /url: https://linkedin.com/in/david-kowalski-risk
+              - link "David Kowalski on LinkedIn" [ref=e1730] [cursor=pointer]:
+                - /url: https://linkedin.com/in/david-kowalski-risk
+                - img [ref=e1731]
+            - generic [ref=e1735]: Risk & Regulation Expert
+            - generic [ref=e1736]:
+              - generic [ref=e1737]: 18 years
+              - generic [ref=e1738]: 45 reviews
+              - generic [ref=e1739]: CAMS
+        - generic [ref=e1740]:
+          - img [ref=e1741]
+          - generic [ref=e1743]: Fact-checked by
+          - link "Marcus Chen" [ref=e1744] [cursor=pointer]:
+            - /url: https://linkedin.com/in/marcus-chen-forex
+          - generic [ref=e1745]: ·
+          - generic [ref=e1746]: Updated February 2026
+    - generic [ref=e1748]:
+      - paragraph [ref=e1749]: UK traders benefit from some of the world's strongest regulatory protections through the Financial Conduct Authority (FCA). We tested 31 brokers available to UK residents, verifying FCA licenses, testing GBP account availability, evaluating UK-friendly payment methods, and measuring the actual trading conditions offered to British clients.
+      - paragraph [ref=e1750]: FCA regulation ensures segregated client funds, participation in the Financial Services Compensation Scheme (FSCS) protecting up to GBP 85,000, and strict conduct-of-business rules. Our ranking prioritizes brokers that fully comply with these requirements while offering competitive trading conditions.
+      - paragraph [ref=e1751]: This 2026 ranking is specifically tailored for UK-based traders, considering tax implications (spread betting for tax-free trading), GBP deposit options, and local customer support.
+    - generic [ref=e1754]:
+      - img [ref=e1755]
+      - generic [ref=e1758]:
+        - generic [ref=e1759]: Key Finding
+        - paragraph [ref=e1760]: For UK traders, IC Markets offers the best combination of FCA regulation, competitive spreads, and GBP account options. IG is the strongest UK-headquartered alternative with spread betting for tax-free trading. Pepperstone provides the tightest raw spreads.
+    - generic [ref=e1762]:
+      - generic [ref=e1763]:
+        - img [ref=e1764]
+        - generic [ref=e1767]: "35"
+        - generic [ref=e1768]: Brokers Ranked
+      - generic [ref=e1769]:
+        - img [ref=e1770]
+        - generic [ref=e1773]: 200+
+        - generic [ref=e1774]: Hours Research
+      - generic [ref=e1775]:
+        - img [ref=e1776]
+        - generic [ref=e1778]: Feb 2026
+        - generic [ref=e1779]: Last Updated
+    - generic [ref=e1781]:
+      - 'heading "Quick Summary: Top 3" [level=2] [ref=e1782]'
+      - generic [ref=e1783]:
+        - generic [ref=e1784]:
+          - generic [ref=e1785]:
+            - generic [ref=e1786]: "#1"
+            - link "IC Markets" [ref=e1787] [cursor=pointer]:
+              - /url: /review/ic-markets
+          - generic [ref=e1788]:
+            - generic [ref=e1789]:
+              - text: "Score:"
+              - strong [ref=e1790]: "9.7"
+            - generic [ref=e1791]:
+              - text: "Spread:"
+              - strong [ref=e1792]: 0.0 pips
+          - generic [ref=e1793]: ECN / Raw Spread
+          - generic [ref=e1794]:
+            - link "Visit IC Markets" [ref=e1795] [cursor=pointer]:
+              - /url: https://ratedbrokers.com/go/ic-markets
+              - generic [ref=e1796]:
+                - text: Visit IC Markets
+                - img [ref=e1797]
+            - link "Read Review" [ref=e1799] [cursor=pointer]:
+              - /url: /review/ic-markets
+        - generic [ref=e1800]:
+          - generic [ref=e1801]:
+            - generic [ref=e1802]: "#2"
+            - link "Pepperstone" [ref=e1803] [cursor=pointer]:
+              - /url: /review/pepperstone
+          - generic [ref=e1804]:
+            - generic [ref=e1805]:
+              - text: "Score:"
+              - strong [ref=e1806]: "9.5"
+            - generic [ref=e1807]:
+              - text: "Spread:"
+              - strong [ref=e1808]: 0.0 pips
+          - generic [ref=e1809]: ECN / STP
+          - generic [ref=e1810]:
+            - link "Visit Pepperstone" [ref=e1811] [cursor=pointer]:
+              - /url: https://ratedbrokers.com/go/pepperstone
+              - generic [ref=e1812]:
+                - text: Visit Pepperstone
+                - img [ref=e1813]
+            - link "Read Review" [ref=e1815] [cursor=pointer]:
+              - /url: /review/pepperstone
+        - generic [ref=e1816]:
+          - generic [ref=e1817]:
+            - generic [ref=e1818]: "#3"
+            - link "IG" [ref=e1819] [cursor=pointer]:
+              - /url: /review/ig
+          - generic [ref=e1820]:
+            - generic [ref=e1821]:
+              - text: "Score:"
+              - strong [ref=e1822]: "9.5"
+            - generic [ref=e1823]:
+              - text: "Spread:"
+              - strong [ref=e1824]: 0.6 pips
+          - generic [ref=e1825]: Market Maker / DMA
+          - generic [ref=e1826]:
+            - link "Visit IG" [ref=e1827] [cursor=pointer]:
+              - /url: https://ratedbrokers.com/go/ig
+              - generic [ref=e1828]:
+                - text: Visit IG
+                - img [ref=e1829]
+            - link "Read Review" [ref=e1831] [cursor=pointer]:
+              - /url: /review/ig
+    - generic [ref=e1832]:
+      - heading "All Best Forex Brokers UK 2026" [level=2] [ref=e1833]
+      - generic [ref=e1834]:
+        - generic [ref=e1835]:
+          - generic [ref=e1836]: "#1"
+          - generic [ref=e1837]:
+            - generic [ref=e1838]:
+              - link "IC Markets logo" [ref=e1839] [cursor=pointer]:
+                - /url: https://ratedbrokers.com/go/ic-markets
+                - img "IC Markets logo" [ref=e1840]
+              - generic [ref=e1841]:
+                - link "IC Markets" [ref=e1842] [cursor=pointer]:
+                  - /url: /review/ic-markets
+                - generic [ref=e1843]: ECN / Raw Spread
+            - generic [ref=e1844]: Editor's Choice 2026
+            - generic [ref=e1845]:
+              - link "ASIC" [ref=e1846] [cursor=pointer]:
+                - /url: /regulator/asic
+              - link "CySEC" [ref=e1847] [cursor=pointer]:
+                - /url: /regulator/cysec
+              - link "FSA" [ref=e1848] [cursor=pointer]:
+                - /url: /regulator/fsa
+          - generic [ref=e1849]:
+            - generic [ref=e1850]:
+              - generic [ref=e1851]: Spread
+              - generic [ref=e1852]: 0.0 pips
+            - generic [ref=e1853]:
+              - generic [ref=e1854]: Min Deposit
+              - generic [ref=e1855]: $200
+            - generic [ref=e1856]:
+              - generic [ref=e1857]: Leverage
+              - generic [ref=e1858]: 1:500
+            - generic [ref=e1859]:
+              - generic [ref=e1860]: Platforms
+              - generic [ref=e1861]: 4 platforms
+          - generic [ref=e1862]:
+            - generic [ref=e1864]: "9.7"
+            - text: Excellent
+          - generic [ref=e1865]:
+            - link "Visit Broker" [ref=e1866] [cursor=pointer]:
+              - /url: https://ratedbrokers.com/go/ic-markets
+            - link "Read Review" [ref=e1867] [cursor=pointer]:
+              - /url: /review/ic-markets
+        - generic [ref=e1868]:
+          - generic [ref=e1869]: "#2"
+          - generic [ref=e1870]:
+            - generic [ref=e1871]:
+              - link "Pepperstone logo" [ref=e1872] [cursor=pointer]:
+                - /url: https://ratedbrokers.com/go/pepperstone
+                - img "Pepperstone logo" [ref=e1873]
+              - generic [ref=e1874]:
+                - link "Pepperstone" [ref=e1875] [cursor=pointer]:
+                  - /url: /review/pepperstone
+                - generic [ref=e1876]: ECN / STP
+            - generic [ref=e1877]: Best Overall 2026
+            - generic [ref=e1878]:
+              - link "FCA" [ref=e1879] [cursor=pointer]:
+                - /url: /regulator/fca
+                - text: FCA
+                - img [ref=e1880]
+              - link "ASIC" [ref=e1882] [cursor=pointer]:
+                - /url: /regulator/asic
+              - link "CySEC" [ref=e1883] [cursor=pointer]:
+                - /url: /regulator/cysec
+          - generic [ref=e1884]:
+            - generic [ref=e1885]:
+              - generic [ref=e1886]: Spread
+              - generic [ref=e1887]: 0.0 pips
+            - generic [ref=e1888]:
+              - generic [ref=e1889]: Min Deposit
+              - generic [ref=e1890]: $0
+            - generic [ref=e1891]:
+              - generic [ref=e1892]: Leverage
+              - generic [ref=e1893]: 1:500
+            - generic [ref=e1894]:
+              - generic [ref=e1895]: Platforms
+              - generic [ref=e1896]: 4 platforms
+          - generic [ref=e1897]:
+            - generic [ref=e1899]: "9.5"
+            - text: Excellent
+          - generic [ref=e1900]:
+            - link "Visit Broker" [ref=e1901] [cursor=pointer]:
+              - /url: https://ratedbrokers.com/go/pepperstone
+            - link "Read Review" [ref=e1902] [cursor=pointer]:
+              - /url: /review/pepperstone
+        - generic [ref=e1903]:
+          - generic [ref=e1904]: "#3"
+          - generic [ref=e1905]:
+            - generic [ref=e1906]:
+              - link "IG logo" [ref=e1907] [cursor=pointer]:
+                - /url: https://ratedbrokers.com/go/ig
+                - img "IG logo" [ref=e1908]
+              - generic [ref=e1909]:
+                - link "IG" [ref=e1910] [cursor=pointer]:
+                  - /url: /review/ig
+                - generic [ref=e1911]: Market Maker / DMA
+            - generic [ref=e1912]: Most Trusted 2026
+            - generic [ref=e1913]:
+              - link "FCA" [ref=e1914] [cursor=pointer]:
+                - /url: /regulator/fca
+                - text: FCA
+                - img [ref=e1915]
+              - link "ASIC" [ref=e1917] [cursor=pointer]:
+                - /url: /regulator/asic
+              - link "NFA" [ref=e1918] [cursor=pointer]:
+                - /url: /regulator/nfa
+          - generic [ref=e1919]:
+            - generic [ref=e1920]:
+              - generic [ref=e1921]: Spread
+              - generic [ref=e1922]: 0.6 pips
+            - generic [ref=e1923]:
+              - generic [ref=e1924]: Min Deposit
+              - generic [ref=e1925]: $0
+            - generic [ref=e1926]:
+              - generic [ref=e1927]: Leverage
+              - generic [ref=e1928]: 1:200
+            - generic [ref=e1929]:
+              - generic [ref=e1930]: Platforms
+              - generic [ref=e1931]: 4 platforms
+          - generic [ref=e1932]:
+            - generic [ref=e1934]: "9.5"
+            - text: Excellent
+          - generic [ref=e1935]:
+            - link "Visit Broker" [ref=e1936] [cursor=pointer]:
+              - /url: https://ratedbrokers.com/go/ig
+            - link "Read Review" [ref=e1937] [cursor=pointer]:
+              - /url: /review/ig
+        - generic [ref=e1938]:
+          - generic [ref=e1939]: "#4"
+          - generic [ref=e1940]:
+            - generic [ref=e1941]:
+              - link "FP Markets logo" [ref=e1942] [cursor=pointer]:
+                - /url: https://ratedbrokers.com/go/fp-markets
+                - img "FP Markets logo" [ref=e1943]
+              - generic [ref=e1944]:
+                - link "FP Markets" [ref=e1945] [cursor=pointer]:
+                  - /url: /review/fp-markets
+                - generic [ref=e1946]: ECN / DMA
+            - generic [ref=e1947]: Best ECN Broker 2026
+            - generic [ref=e1948]:
+              - link "ASIC" [ref=e1949] [cursor=pointer]:
+                - /url: /regulator/asic
+              - link "CySEC" [ref=e1950] [cursor=pointer]:
+                - /url: /regulator/cysec
+              - link "FSCA" [ref=e1951] [cursor=pointer]:
+                - /url: /regulator/fsca
+          - generic [ref=e1952]:
+            - generic [ref=e1953]:
+              - generic [ref=e1954]: Spread
+              - generic [ref=e1955]: 0.0 pips
+            - generic [ref=e1956]:
+              - generic [ref=e1957]: Min Deposit
+              - generic [ref=e1958]: $100
+            - generic [ref=e1959]:
+              - generic [ref=e1960]: Leverage
+              - generic [ref=e1961]: 1:500
+            - generic [ref=e1962]:
+              - generic [ref=e1963]: Platforms
+              - generic [ref=e1964]: 4 platforms
+          - generic [ref=e1965]:
+            - generic [ref=e1967]: "9.4"
+            - text: Great
+          - generic [ref=e1968]:
+            - link "Visit Broker" [ref=e1969] [cursor=pointer]:
+              - /url: https://ratedbrokers.com/go/fp-markets
+            - link "Read Review" [ref=e1970] [cursor=pointer]:
+              - /url: /review/fp-markets
+        - generic [ref=e1971]:
+          - generic [ref=e1972]: "#5"
+          - generic [ref=e1973]:
+            - generic [ref=e1974]:
+              - link "IB" [ref=e1975] [cursor=pointer]:
+                - /url: https://ratedbrokers.com/go/interactive-brokers
+                - generic [ref=e1976]: IB
+              - generic [ref=e1977]:
+                - link "Interactive Brokers" [ref=e1978] [cursor=pointer]:
+                  - /url: /review/interactive-brokers
+                - generic [ref=e1979]: ECN / DMA
+            - generic [ref=e1980]:
+              - generic [ref=e1981]: SEC
+              - link "FCA" [ref=e1982] [cursor=pointer]:
+                - /url: /regulator/fca
+                - text: FCA
+                - img [ref=e1983]
+              - link "ASIC" [ref=e1985] [cursor=pointer]:
+                - /url: /regulator/asic
+          - generic [ref=e1986]:
+            - generic [ref=e1987]:
+              - generic [ref=e1988]: Spread
+              - generic [ref=e1989]: 0.1 pips
+            - generic [ref=e1990]:
+              - generic [ref=e1991]: Min Deposit
+              - generic [ref=e1992]: $0
+            - generic [ref=e1993]:
+              - generic [ref=e1994]: Leverage
+              - generic [ref=e1995]: 1:200
+            - generic [ref=e1996]:
+              - generic [ref=e1997]: Platforms
+              - generic [ref=e1998]: 4 platforms
+          - generic [ref=e1999]:
+            - generic [ref=e2001]: "9.4"
+            - text: Great
+          - generic [ref=e2002]:
+            - link "Visit Broker" [ref=e2003] [cursor=pointer]:
+              - /url: https://ratedbrokers.com/go/interactive-brokers
+            - link "Read Review" [ref=e2004] [cursor=pointer]:
+              - /url: /review/interactive-brokers
+        - generic [ref=e2005]:
+          - generic [ref=e2006]: "#6"
+          - generic [ref=e2007]:
+            - generic [ref=e2008]:
+              - link "CMC Markets logo" [ref=e2009] [cursor=pointer]:
+                - /url: https://ratedbrokers.com/go/cmc-markets
+                - img "CMC Markets logo" [ref=e2010]
+              - generic [ref=e2011]:
+                - link "CMC Markets" [ref=e2012] [cursor=pointer]:
+                  - /url: /review/cmc-markets
+                - generic [ref=e2013]: Market Maker
+            - generic [ref=e2014]: Best Platform 2026
+            - generic [ref=e2015]:
+              - link "FCA" [ref=e2016] [cursor=pointer]:
+                - /url: /regulator/fca
+                - text: FCA
+                - img [ref=e2017]
+              - link "ASIC" [ref=e2019] [cursor=pointer]:
+                - /url: /regulator/asic
+              - link "MAS" [ref=e2020] [cursor=pointer]:
+                - /url: /regulator/mas
+          - generic [ref=e2021]:
+            - generic [ref=e2022]:
+              - generic [ref=e2023]: Spread
+              - generic [ref=e2024]: 0.7 pips
+            - generic [ref=e2025]:
+              - generic [ref=e2026]: Min Deposit
+              - generic [ref=e2027]: $0
+            - generic [ref=e2028]:
+              - generic [ref=e2029]: Leverage
+              - generic [ref=e2030]: 1:500
+            - generic [ref=e2031]:
+              - generic [ref=e2032]: Platforms
+              - generic [ref=e2033]: 2 platforms
+          - generic [ref=e2034]:
+            - generic [ref=e2036]: "9.3"
+            - text: Great
+          - generic [ref=e2037]:
+            - link "Visit Broker" [ref=e2038] [cursor=pointer]:
+              - /url: https://ratedbrokers.com/go/cmc-markets
+            - link "Read Review" [ref=e2039] [cursor=pointer]:
+              - /url: /review/cmc-markets
+        - generic [ref=e2040]:
+          - generic [ref=e2041]: "#7"
+          - generic [ref=e2042]:
+            - generic [ref=e2043]:
+              - link "FOREX.com logo" [ref=e2044] [cursor=pointer]:
+                - /url: https://ratedbrokers.com/go/forex-com
+                - img "FOREX.com logo" [ref=e2045]
+              - generic [ref=e2046]:
+                - link "FOREX.com" [ref=e2047] [cursor=pointer]:
+                  - /url: /review/forex-com
+                - generic [ref=e2048]: Market Maker / DMA
+            - generic [ref=e2049]:
+              - link "NFA" [ref=e2050] [cursor=pointer]:
+                - /url: /regulator/nfa
+              - link "FCA" [ref=e2051] [cursor=pointer]:
+                - /url: /regulator/fca
+                - text: FCA
+                - img [ref=e2052]
+              - generic [ref=e2054]: IIROC
+          - generic [ref=e2055]:
+            - generic [ref=e2056]:
+              - generic [ref=e2057]: Spread
+              - generic [ref=e2058]: 0.8 pips
+            - generic [ref=e2059]:
+              - generic [ref=e2060]: Min Deposit
+              - generic [ref=e2061]: $100
+            - generic [ref=e2062]:
+              - generic [ref=e2063]: Leverage
+              - generic [ref=e2064]: 1:200
+            - generic [ref=e2065]:
+              - generic [ref=e2066]: Platforms
+              - generic [ref=e2067]: 4 platforms
+          - generic [ref=e2068]:
+            - generic [ref=e2070]: "9.3"
+            - text: Great
+          - generic [ref=e2071]:
+            - link "Visit Broker" [ref=e2072] [cursor=pointer]:
+              - /url: https://ratedbrokers.com/go/forex-com
+            - link "Read Review" [ref=e2073] [cursor=pointer]:
+              - /url: /review/forex-com
+        - generic [ref=e2074]:
+          - generic [ref=e2075]: "#8"
+          - generic [ref=e2076]:
+            - generic [ref=e2077]:
+              - link "Saxo Bank logo" [ref=e2078] [cursor=pointer]:
+                - /url: https://ratedbrokers.com/go/saxo-bank
+                - img "Saxo Bank logo" [ref=e2079]
+              - generic [ref=e2080]:
+                - link "Saxo Bank" [ref=e2081] [cursor=pointer]:
+                  - /url: /review/saxo-bank
+                - generic [ref=e2082]: DMA / Market Maker
+            - generic [ref=e2083]: Best for Professionals 2026
+            - generic [ref=e2084]:
+              - link "DFSA" [ref=e2085] [cursor=pointer]:
+                - /url: /regulator/dfsa
+              - link "FCA" [ref=e2086] [cursor=pointer]:
+                - /url: /regulator/fca
+                - text: FCA
+                - img [ref=e2087]
+              - link "ASIC" [ref=e2089] [cursor=pointer]:
+                - /url: /regulator/asic
+          - generic [ref=e2090]:
+            - generic [ref=e2091]:
+              - generic [ref=e2092]: Spread
+              - generic [ref=e2093]: 0.6 pips
+            - generic [ref=e2094]:
+              - generic [ref=e2095]: Min Deposit
+              - generic [ref=e2096]: $2000
+            - generic [ref=e2097]:
+              - generic [ref=e2098]: Leverage
+              - generic [ref=e2099]: 1:200
+            - generic [ref=e2100]:
+              - generic [ref=e2101]: Platforms
+              - generic [ref=e2102]: 3 platforms
+          - generic [ref=e2103]:
+            - generic [ref=e2105]: "9.2"
+            - text: Great
+          - generic [ref=e2106]:
+            - link "Visit Broker" [ref=e2107] [cursor=pointer]:
+              - /url: https://ratedbrokers.com/go/saxo-bank
+            - link "Read Review" [ref=e2108] [cursor=pointer]:
+              - /url: /review/saxo-bank
+        - generic [ref=e2109]:
+          - generic [ref=e2110]: "#9"
+          - generic [ref=e2111]:
+            - generic [ref=e2112]:
+              - link "Exness logo" [ref=e2113] [cursor=pointer]:
+                - /url: https://ratedbrokers.com/go/exness
+                - img "Exness logo" [ref=e2114]
+              - generic [ref=e2115]:
+                - link "Exness" [ref=e2116] [cursor=pointer]:
+                  - /url: /review/exness
+                - generic [ref=e2117]: ECN / Market Maker
+            - generic [ref=e2118]: Best for High Leverage 2026
+            - generic [ref=e2119]:
+              - link "CySEC" [ref=e2120] [cursor=pointer]:
+                - /url: /regulator/cysec
+              - link "FCA" [ref=e2121] [cursor=pointer]:
+                - /url: /regulator/fca
+                - text: FCA
+                - img [ref=e2122]
+              - link "FSA" [ref=e2124] [cursor=pointer]:
+                - /url: /regulator/fsa
+          - generic [ref=e2125]:
+            - generic [ref=e2126]:
+              - generic [ref=e2127]: Spread
+              - generic [ref=e2128]: 0.0 pips
+            - generic [ref=e2129]:
+              - generic [ref=e2130]: Min Deposit
+              - generic [ref=e2131]: $1
+            - generic [ref=e2132]:
+              - generic [ref=e2133]: Leverage
+              - generic [ref=e2134]: 1:Unlimited
+            - generic [ref=e2135]:
+              - generic [ref=e2136]: Platforms
+              - generic [ref=e2137]: 3 platforms
+          - generic [ref=e2138]:
+            - generic [ref=e2140]: "9.1"
+            - text: Great
+          - generic [ref=e2141]:
+            - link "Visit Broker" [ref=e2142] [cursor=pointer]:
+              - /url: https://ratedbrokers.com/go/exness
+            - link "Read Review" [ref=e2143] [cursor=pointer]:
+              - /url: /review/exness
+        - generic [ref=e2144]:
+          - generic [ref=e2145]: "#10"
+          - generic [ref=e2146]:
+            - generic [ref=e2147]:
+              - link "OANDA logo" [ref=e2148] [cursor=pointer]:
+                - /url: https://ratedbrokers.com/go/oanda
+                - img "OANDA logo" [ref=e2149]
+              - generic [ref=e2150]:
+                - link "OANDA" [ref=e2151] [cursor=pointer]:
+                  - /url: /review/oanda
+                - generic [ref=e2152]: Market Maker
+            - generic [ref=e2153]: Best for US Traders 2026
+            - generic [ref=e2154]:
+              - link "NFA" [ref=e2155] [cursor=pointer]:
+                - /url: /regulator/nfa
+              - link "FCA" [ref=e2156] [cursor=pointer]:
+                - /url: /regulator/fca
+                - text: FCA
+                - img [ref=e2157]
+              - link "ASIC" [ref=e2159] [cursor=pointer]:
+                - /url: /regulator/asic
+          - generic [ref=e2160]:
+            - generic [ref=e2161]:
+              - generic [ref=e2162]: Spread
+              - generic [ref=e2163]: 1.0 pips
+            - generic [ref=e2164]:
+              - generic [ref=e2165]: Min Deposit
+              - generic [ref=e2166]: $0
+            - generic [ref=e2167]:
+              - generic [ref=e2168]: Leverage
+              - generic [ref=e2169]: 1:200
+            - generic [ref=e2170]:
+              - generic [ref=e2171]: Platforms
+              - generic [ref=e2172]: 3 platforms
+          - generic [ref=e2173]:
+            - generic [ref=e2175]: "9"
+            - text: Great
+          - generic [ref=e2176]:
+            - link "Visit Broker" [ref=e2177] [cursor=pointer]:
+              - /url: https://ratedbrokers.com/go/oanda
+            - link "Read Review" [ref=e2178] [cursor=pointer]:
+              - /url: /review/oanda
+        - generic [ref=e2179]:
+          - generic [ref=e2180]: "#11"
+          - generic [ref=e2181]:
+            - generic [ref=e2182]:
+              - link "XTB logo" [ref=e2183] [cursor=pointer]:
+                - /url: https://ratedbrokers.com/go/xtb
+                - img "XTB logo" [ref=e2184]
+              - generic [ref=e2185]:
+                - link "XTB" [ref=e2186] [cursor=pointer]:
+                  - /url: /review/xtb
+                - generic [ref=e2187]: Market Maker / STP
+            - generic [ref=e2188]:
+              - link "FCA" [ref=e2189] [cursor=pointer]:
+                - /url: /regulator/fca
+                - text: FCA
+                - img [ref=e2190]
+              - link "KNF" [ref=e2192] [cursor=pointer]:
+                - /url: /regulator/knf
+              - link "CySEC" [ref=e2193] [cursor=pointer]:
+                - /url: /regulator/cysec
+          - generic [ref=e2194]:
+            - generic [ref=e2195]:
+              - generic [ref=e2196]: Spread
+              - generic [ref=e2197]: 0.5 pips
+            - generic [ref=e2198]:
+              - generic [ref=e2199]: Min Deposit
+              - generic [ref=e2200]: $0
+            - generic [ref=e2201]:
+              - generic [ref=e2202]: Leverage
+              - generic [ref=e2203]: 1:500
+            - generic [ref=e2204]:
+              - generic [ref=e2205]: Platforms
+              - generic [ref=e2206]: 2 platforms
+          - generic [ref=e2207]:
+            - generic [ref=e2209]: "8.9"
+            - text: Very Good
+          - generic [ref=e2210]:
+            - link "Visit Broker" [ref=e2211] [cursor=pointer]:
+              - /url: https://ratedbrokers.com/go/xtb
+            - link "Read Review" [ref=e2212] [cursor=pointer]:
+              - /url: /review/xtb
+        - generic [ref=e2213]:
+          - generic [ref=e2214]: "#12"
+          - generic [ref=e2215]:
+            - generic [ref=e2216]:
+              - link "Swissquote logo" [ref=e2217] [cursor=pointer]:
+                - /url: https://ratedbrokers.com/go/swissquote
+                - img "Swissquote logo" [ref=e2218]
+              - generic [ref=e2219]:
+                - link "Swissquote" [ref=e2220] [cursor=pointer]:
+                  - /url: /review/swissquote
+                - generic [ref=e2221]: Market Maker / DMA
+            - generic [ref=e2222]:
+              - link "FINMA" [ref=e2223] [cursor=pointer]:
+                - /url: /regulator/finma
+              - link "FCA" [ref=e2224] [cursor=pointer]:
+                - /url: /regulator/fca
+                - text: FCA
+                - img [ref=e2225]
+              - link "MAS" [ref=e2227] [cursor=pointer]:
+                - /url: /regulator/mas
+          - generic [ref=e2228]:
+            - generic [ref=e2229]:
+              - generic [ref=e2230]: Spread
+              - generic [ref=e2231]: 1.3 pips
+            - generic [ref=e2232]:
+              - generic [ref=e2233]: Min Deposit
+              - generic [ref=e2234]: $1000
+            - generic [ref=e2235]:
+              - generic [ref=e2236]: Leverage
+              - generic [ref=e2237]: 1:100
+            - generic [ref=e2238]:
+              - generic [ref=e2239]: Platforms
+              - generic [ref=e2240]: 3 platforms
+          - generic [ref=e2241]:
+            - generic [ref=e2243]: "8.9"
+            - text: Very Good
+          - generic [ref=e2244]:
+            - link "Visit Broker" [ref=e2245] [cursor=pointer]:
+              - /url: https://ratedbrokers.com/go/swissquote
+            - link "Read Review" [ref=e2246] [cursor=pointer]:
+              - /url: /review/swissquote
+        - generic [ref=e2247]:
+          - generic [ref=e2248]: "#13"
+          - generic [ref=e2249]:
+            - generic [ref=e2250]:
+              - link "XM logo" [ref=e2251] [cursor=pointer]:
+                - /url: https://ratedbrokers.com/go/xm
+                - img "XM logo" [ref=e2252]
+              - generic [ref=e2253]:
+                - link "XM" [ref=e2254] [cursor=pointer]:
+                  - /url: /review/xm
+                - generic [ref=e2255]: Market Maker
+            - generic [ref=e2256]: Best for Beginners 2026
+            - generic [ref=e2257]:
+              - link "CySEC" [ref=e2258] [cursor=pointer]:
+                - /url: /regulator/cysec
+              - link "ASIC" [ref=e2259] [cursor=pointer]:
+                - /url: /regulator/asic
+              - link "DFSA" [ref=e2260] [cursor=pointer]:
+                - /url: /regulator/dfsa
+          - generic [ref=e2261]:
+            - generic [ref=e2262]:
+              - generic [ref=e2263]: Spread
+              - generic [ref=e2264]: 0.6 pips
+            - generic [ref=e2265]:
+              - generic [ref=e2266]: Min Deposit
+              - generic [ref=e2267]: $5
+            - generic [ref=e2268]:
+              - generic [ref=e2269]: Leverage
+              - generic [ref=e2270]: 1:1000
+            - generic [ref=e2271]:
+              - generic [ref=e2272]: Platforms
+              - generic [ref=e2273]: 2 platforms
+          - generic [ref=e2274]:
+            - generic [ref=e2276]: "8.8"
+            - text: Very Good
+          - generic [ref=e2277]:
+            - link "Visit Broker" [ref=e2278] [cursor=pointer]:
+              - /url: https://ratedbrokers.com/go/xm
+            - link "Read Review" [ref=e2279] [cursor=pointer]:
+              - /url: /review/xm
+        - generic [ref=e2280]:
+          - generic [ref=e2281]: "#14"
+          - generic [ref=e2282]:
+            - generic [ref=e2283]:
+              - link "Tickmill logo" [ref=e2284] [cursor=pointer]:
+                - /url: https://ratedbrokers.com/go/tickmill
+                - img "Tickmill logo" [ref=e2285]
+              - generic [ref=e2286]:
+                - link "Tickmill" [ref=e2287] [cursor=pointer]:
+                  - /url: /review/tickmill
+                - generic [ref=e2288]: ECN / STP
+            - generic [ref=e2289]: Lowest Commission 2026
+            - generic [ref=e2290]:
+              - link "FCA" [ref=e2291] [cursor=pointer]:
+                - /url: /regulator/fca
+                - text: FCA
+                - img [ref=e2292]
+              - link "CySEC" [ref=e2294] [cursor=pointer]:
+                - /url: /regulator/cysec
+              - link "FSA" [ref=e2295] [cursor=pointer]:
+                - /url: /regulator/fsa
+          - generic [ref=e2296]:
+            - generic [ref=e2297]:
+              - generic [ref=e2298]: Spread
+              - generic [ref=e2299]: 0.0 pips
+            - generic [ref=e2300]:
+              - generic [ref=e2301]: Min Deposit
+              - generic [ref=e2302]: $100
+            - generic [ref=e2303]:
+              - generic [ref=e2304]: Leverage
+              - generic [ref=e2305]: 1:500
+            - generic [ref=e2306]:
+              - generic [ref=e2307]: Platforms
+              - generic [ref=e2308]: 2 platforms
+          - generic [ref=e2309]:
+            - generic [ref=e2311]: "8.7"
+            - text: Very Good
+          - generic [ref=e2312]:
+            - link "Visit Broker" [ref=e2313] [cursor=pointer]:
+              - /url: https://ratedbrokers.com/go/tickmill
+            - link "Read Review" [ref=e2314] [cursor=pointer]:
+              - /url: /review/tickmill
+        - generic [ref=e2315]:
+          - generic [ref=e2316]: "#15"
+          - generic [ref=e2317]:
+            - generic [ref=e2318]:
+              - link "Vantage logo" [ref=e2319] [cursor=pointer]:
+                - /url: https://ratedbrokers.com/go/vantage
+                - img "Vantage logo" [ref=e2320]
+              - generic [ref=e2321]:
+                - link "Vantage" [ref=e2322] [cursor=pointer]:
+                  - /url: /review/vantage
+                - generic [ref=e2323]: ECN / STP
+            - generic [ref=e2324]:
+              - link "ASIC" [ref=e2325] [cursor=pointer]:
+                - /url: /regulator/asic
+              - link "FCA" [ref=e2326] [cursor=pointer]:
+                - /url: /regulator/fca
+                - text: FCA
+                - img [ref=e2327]
+              - link "CIMA" [ref=e2329] [cursor=pointer]:
+                - /url: /regulator/cima
+          - generic [ref=e2330]:
+            - generic [ref=e2331]:
+              - generic [ref=e2332]: Spread
+              - generic [ref=e2333]: 0.0 pips
+            - generic [ref=e2334]:
+              - generic [ref=e2335]: Min Deposit
+              - generic [ref=e2336]: $50
+            - generic [ref=e2337]:
+              - generic [ref=e2338]: Leverage
+              - generic [ref=e2339]: 1:500
+            - generic [ref=e2340]:
+              - generic [ref=e2341]: Platforms
+              - generic [ref=e2342]: 3 platforms
+          - generic [ref=e2343]:
+            - generic [ref=e2345]: "8.6"
+            - text: Very Good
+          - generic [ref=e2346]:
+            - link "Visit Broker" [ref=e2347] [cursor=pointer]:
+              - /url: https://ratedbrokers.com/go/vantage
+            - link "Read Review" [ref=e2348] [cursor=pointer]:
+              - /url: /review/vantage
+        - generic [ref=e2349]:
+          - generic [ref=e2350]: "#16"
+          - generic [ref=e2351]:
+            - generic [ref=e2352]:
+              - link "Capital.com logo" [ref=e2353] [cursor=pointer]:
+                - /url: https://ratedbrokers.com/go/capital-com
+                - img "Capital.com logo" [ref=e2354]
+              - generic [ref=e2355]:
+                - link "Capital.com" [ref=e2356] [cursor=pointer]:
+                  - /url: /review/capital-com
+                - generic [ref=e2357]: Market Maker / CFD
+            - generic [ref=e2358]:
+              - link "FCA" [ref=e2359] [cursor=pointer]:
+                - /url: /regulator/fca
+                - text: FCA
+                - img [ref=e2360]
+              - link "CySEC" [ref=e2362] [cursor=pointer]:
+                - /url: /regulator/cysec
+              - link "ASIC" [ref=e2363] [cursor=pointer]:
+                - /url: /regulator/asic
+          - generic [ref=e2364]:
+            - generic [ref=e2365]:
+              - generic [ref=e2366]: Spread
+              - generic [ref=e2367]: 0.6 pips
+            - generic [ref=e2368]:
+              - generic [ref=e2369]: Min Deposit
+              - generic [ref=e2370]: $20
+            - generic [ref=e2371]:
+              - generic [ref=e2372]: Leverage
+              - generic [ref=e2373]: 1:30
+            - generic [ref=e2374]:
+              - generic [ref=e2375]: Platforms
+              - generic [ref=e2376]: 4 platforms
+          - generic [ref=e2377]:
+            - generic [ref=e2379]: "8.6"
+            - text: Very Good
+          - generic [ref=e2380]:
+            - link "Visit Broker" [ref=e2381] [cursor=pointer]:
+              - /url: https://ratedbrokers.com/go/capital-com
+            - link "Read Review" [ref=e2382] [cursor=pointer]:
+              - /url: /review/capital-com
+        - generic [ref=e2383]:
+          - generic [ref=e2384]: "#17"
+          - generic [ref=e2385]:
+            - generic [ref=e2386]:
+              - link "Eightcap logo" [ref=e2387] [cursor=pointer]:
+                - /url: https://ratedbrokers.com/go/eightcap
+                - img "Eightcap logo" [ref=e2388]
+              - generic [ref=e2389]:
+                - link "Eightcap" [ref=e2390] [cursor=pointer]:
+                  - /url: /review/eightcap
+                - generic [ref=e2391]: ECN / Raw Spread
+            - generic [ref=e2392]:
+              - link "ASIC" [ref=e2393] [cursor=pointer]:
+                - /url: /regulator/asic
+              - link "FCA" [ref=e2394] [cursor=pointer]:
+                - /url: /regulator/fca
+                - text: FCA
+                - img [ref=e2395]
+              - link "CySEC" [ref=e2397] [cursor=pointer]:
+                - /url: /regulator/cysec
+          - generic [ref=e2398]:
+            - generic [ref=e2399]:
+              - generic [ref=e2400]: Spread
+              - generic [ref=e2401]: 0.0 pips
+            - generic [ref=e2402]:
+              - generic [ref=e2403]: Min Deposit
+              - generic [ref=e2404]: $100
+            - generic [ref=e2405]:
+              - generic [ref=e2406]: Leverage
+              - generic [ref=e2407]: 1:500
+            - generic [ref=e2408]:
+              - generic [ref=e2409]: Platforms
+              - generic [ref=e2410]: 3 platforms
+          - generic [ref=e2411]:
+            - generic [ref=e2413]: "8.6"
+            - text: Very Good
+          - generic [ref=e2414]:
+            - link "Visit Broker" [ref=e2415] [cursor=pointer]:
+              - /url: https://ratedbrokers.com/go/eightcap
+            - link "Read Review" [ref=e2416] [cursor=pointer]:
+              - /url: /review/eightcap
+        - generic [ref=e2417]:
+          - generic [ref=e2418]: "#18"
+          - generic [ref=e2419]:
+            - generic [ref=e2420]:
+              - link "eToro logo" [ref=e2421] [cursor=pointer]:
+                - /url: https://ratedbrokers.com/go/etoro
+                - img "eToro logo" [ref=e2422]
+              - generic [ref=e2423]:
+                - link "eToro" [ref=e2424] [cursor=pointer]:
+                  - /url: /review/etoro
+                - generic [ref=e2425]: Social Trading / Market Maker
+            - generic [ref=e2426]: Best for Copy Trading 2026
+            - generic [ref=e2427]:
+              - link "FCA" [ref=e2428] [cursor=pointer]:
+                - /url: /regulator/fca
+                - text: FCA
+                - img [ref=e2429]
+              - link "CySEC" [ref=e2431] [cursor=pointer]:
+                - /url: /regulator/cysec
+              - link "ASIC" [ref=e2432] [cursor=pointer]:
+                - /url: /regulator/asic
+          - generic [ref=e2433]:
+            - generic [ref=e2434]:
+              - generic [ref=e2435]: Spread
+              - generic [ref=e2436]: 1.0 pips
+            - generic [ref=e2437]:
+              - generic [ref=e2438]: Min Deposit
+              - generic [ref=e2439]: $50
+            - generic [ref=e2440]:
+              - generic [ref=e2441]: Leverage
+              - generic [ref=e2442]: 1:400
+            - generic [ref=e2443]:
+              - generic [ref=e2444]: Platforms
+              - generic [ref=e2445]: 2 platforms
+          - generic [ref=e2446]:
+            - generic [ref=e2448]: "8.5"
+            - text: Very Good
+          - generic [ref=e2449]:
+            - link "Visit Broker" [ref=e2450] [cursor=pointer]:
+              - /url: https://ratedbrokers.com/go/etoro
+            - link "Read Review" [ref=e2451] [cursor=pointer]:
+              - /url: /review/etoro
+        - generic [ref=e2452]:
+          - generic [ref=e2453]: "#19"
+          - generic [ref=e2454]:
+            - generic [ref=e2455]:
+              - link "Admirals logo" [ref=e2456] [cursor=pointer]:
+                - /url: https://ratedbrokers.com/go/admirals
+                - img "Admirals logo" [ref=e2457]
+              - generic [ref=e2458]:
+                - link "Admirals" [ref=e2459] [cursor=pointer]:
+                  - /url: /review/admirals
+                - generic [ref=e2460]: STP / Market Maker
+            - generic [ref=e2461]:
+              - link "FCA" [ref=e2462] [cursor=pointer]:
+                - /url: /regulator/fca
+                - text: FCA
+                - img [ref=e2463]
+              - link "CySEC" [ref=e2465] [cursor=pointer]:
+                - /url: /regulator/cysec
+              - link "ASIC" [ref=e2466] [cursor=pointer]:
+                - /url: /regulator/asic
+          - generic [ref=e2467]:
+            - generic [ref=e2468]:
+              - generic [ref=e2469]: Spread
+              - generic [ref=e2470]: 0.5 pips
+            - generic [ref=e2471]:
+              - generic [ref=e2472]: Min Deposit
+              - generic [ref=e2473]: $25
+            - generic [ref=e2474]:
+              - generic [ref=e2475]: Leverage
+              - generic [ref=e2476]: 1:500
+            - generic [ref=e2477]:
+              - generic [ref=e2478]: Platforms
+              - generic [ref=e2479]: 3 platforms
+          - generic [ref=e2480]:
+            - generic [ref=e2482]: "8.5"
+            - text: Very Good
+          - generic [ref=e2483]:
+            - link "Visit Broker" [ref=e2484] [cursor=pointer]:
+              - /url: https://ratedbrokers.com/go/admirals
+            - link "Read Review" [ref=e2485] [cursor=pointer]:
+              - /url: /review/admirals
+        - generic [ref=e2486]:
+          - generic [ref=e2487]: "#20"
+          - generic [ref=e2488]:
+            - generic [ref=e2489]:
+              - link "FXTM logo" [ref=e2490] [cursor=pointer]:
+                - /url: https://ratedbrokers.com/go/fxtm
+                - img "FXTM logo" [ref=e2491]
+              - generic [ref=e2492]:
+                - link "FXTM" [ref=e2493] [cursor=pointer]:
+                  - /url: /review/fxtm
+                - generic [ref=e2494]: ECN / Market Maker
+            - generic [ref=e2495]:
+              - link "CySEC" [ref=e2496] [cursor=pointer]:
+                - /url: /regulator/cysec
+              - link "FCA" [ref=e2497] [cursor=pointer]:
+                - /url: /regulator/fca
+                - text: FCA
+                - img [ref=e2498]
+              - link "FSCA" [ref=e2500] [cursor=pointer]:
+                - /url: /regulator/fsca
+          - generic [ref=e2501]:
+            - generic [ref=e2502]:
+              - generic [ref=e2503]: Spread
+              - generic [ref=e2504]: 0.1 pips
+            - generic [ref=e2505]:
+              - generic [ref=e2506]: Min Deposit
+              - generic [ref=e2507]: $10
+            - generic [ref=e2508]:
+              - generic [ref=e2509]: Leverage
+              - generic [ref=e2510]: 1:2000
+            - generic [ref=e2511]:
+              - generic [ref=e2512]: Platforms
+              - generic [ref=e2513]: 3 platforms
+          - generic [ref=e2514]:
+            - generic [ref=e2516]: "8.5"
+            - text: Very Good
+          - generic [ref=e2517]:
+            - link "Visit Broker" [ref=e2518] [cursor=pointer]:
+              - /url: https://ratedbrokers.com/go/fxtm
+            - link "Read Review" [ref=e2519] [cursor=pointer]:
+              - /url: /review/fxtm
+        - generic [ref=e2520]:
+          - generic [ref=e2521]: "#21"
+          - generic [ref=e2522]:
+            - generic [ref=e2523]:
+              - link "Fusion Markets logo" [ref=e2524] [cursor=pointer]:
+                - /url: https://ratedbrokers.com/go/fusion-markets
+                - img "Fusion Markets logo" [ref=e2525]
+              - generic [ref=e2526]:
+                - link "Fusion Markets" [ref=e2527] [cursor=pointer]:
+                  - /url: /review/fusion-markets
+                - generic [ref=e2528]: ECN / True Zero
+            - generic [ref=e2529]: Cheapest ECN
+            - generic [ref=e2530]:
+              - link "ASIC" [ref=e2531] [cursor=pointer]:
+                - /url: /regulator/asic
+              - link "VFSC" [ref=e2532] [cursor=pointer]:
+                - /url: /regulator/vfsc
+              - link "FSA" [ref=e2533] [cursor=pointer]:
+                - /url: /regulator/fsa
+          - generic [ref=e2534]:
+            - generic [ref=e2535]:
+              - generic [ref=e2536]: Spread
+              - generic [ref=e2537]: 0.0 pips
+            - generic [ref=e2538]:
+              - generic [ref=e2539]: Min Deposit
+              - generic [ref=e2540]: $0
+            - generic [ref=e2541]:
+              - generic [ref=e2542]: Leverage
+              - generic [ref=e2543]: 1:500
+            - generic [ref=e2544]:
+              - generic [ref=e2545]: Platforms
+              - generic [ref=e2546]: 4 platforms
+          - generic [ref=e2547]:
+            - generic [ref=e2549]: "8.5"
+            - text: Very Good
+          - generic [ref=e2550]:
+            - link "Visit Broker" [ref=e2551] [cursor=pointer]:
+              - /url: https://ratedbrokers.com/go/fusion-markets
+            - link "Read Review" [ref=e2552] [cursor=pointer]:
+              - /url: /review/fusion-markets
+        - generic [ref=e2553]:
+          - generic [ref=e2554]: "#22"
+          - generic [ref=e2555]:
+            - generic [ref=e2556]:
+              - link "Trading 212 logo" [ref=e2557] [cursor=pointer]:
+                - /url: https://ratedbrokers.com/go/trading-212
+                - img "Trading 212 logo" [ref=e2558]
+              - generic [ref=e2559]:
+                - link "Trading 212" [ref=e2560] [cursor=pointer]:
+                  - /url: /review/trading-212
+                - generic [ref=e2561]: Market Maker
+            - generic [ref=e2562]:
+              - link "FCA" [ref=e2563] [cursor=pointer]:
+                - /url: /regulator/fca
+                - text: FCA
+                - img [ref=e2564]
+              - link "CySEC" [ref=e2566] [cursor=pointer]:
+                - /url: /regulator/cysec
+          - generic [ref=e2567]:
+            - generic [ref=e2568]:
+              - generic [ref=e2569]: Spread
+              - generic [ref=e2570]: 1.1 pips
+            - generic [ref=e2571]:
+              - generic [ref=e2572]: Min Deposit
+              - generic [ref=e2573]: $1
+            - generic [ref=e2574]:
+              - generic [ref=e2575]: Leverage
+              - generic [ref=e2576]: 1:30
+            - generic [ref=e2577]:
+              - generic [ref=e2578]: Platforms
+              - generic [ref=e2579]: 2 platforms
+          - generic [ref=e2580]:
+            - generic [ref=e2582]: "8.5"
+            - text: Very Good
+          - generic [ref=e2583]:
+            - link "Visit Broker" [ref=e2584] [cursor=pointer]:
+              - /url: https://ratedbrokers.com/go/trading-212
+            - link "Read Review" [ref=e2585] [cursor=pointer]:
+              - /url: /review/trading-212
+        - generic [ref=e2586]:
+          - generic [ref=e2587]: "#23"
+          - generic [ref=e2588]:
+            - generic [ref=e2589]:
+              - link "FxPro logo" [ref=e2590] [cursor=pointer]:
+                - /url: https://ratedbrokers.com/go/fxpro
+                - img "FxPro logo" [ref=e2591]
+              - generic [ref=e2592]:
+                - link "FxPro" [ref=e2593] [cursor=pointer]:
+                  - /url: /review/fxpro
+                - generic [ref=e2594]: NDD / Market Maker
+            - generic [ref=e2595]:
+              - link "FCA" [ref=e2596] [cursor=pointer]:
+                - /url: /regulator/fca
+                - text: FCA
+                - img [ref=e2597]
+              - link "CySEC" [ref=e2599] [cursor=pointer]:
+                - /url: /regulator/cysec
+              - link "FSCA" [ref=e2600] [cursor=pointer]:
+                - /url: /regulator/fsca
+          - generic [ref=e2601]:
+            - generic [ref=e2602]:
+              - generic [ref=e2603]: Spread
+              - generic [ref=e2604]: 0.6 pips
+            - generic [ref=e2605]:
+              - generic [ref=e2606]: Min Deposit
+              - generic [ref=e2607]: $100
+            - generic [ref=e2608]:
+              - generic [ref=e2609]: Leverage
+              - generic [ref=e2610]: 1:500
+            - generic [ref=e2611]:
+              - generic [ref=e2612]: Platforms
+              - generic [ref=e2613]: 4 platforms
+          - generic [ref=e2614]:
+            - generic [ref=e2616]: "8.4"
+            - text: Good
+          - generic [ref=e2617]:
+            - link "Visit Broker" [ref=e2618] [cursor=pointer]:
+              - /url: https://ratedbrokers.com/go/fxpro
+            - link "Read Review" [ref=e2619] [cursor=pointer]:
+              - /url: /review/fxpro
+        - generic [ref=e2620]:
+          - generic [ref=e2621]: "#24"
+          - generic [ref=e2622]:
+            - generic [ref=e2623]:
+              - link "AvaTrade logo" [ref=e2624] [cursor=pointer]:
+                - /url: https://ratedbrokers.com/go/avatrade
+                - img "AvaTrade logo" [ref=e2625]
+              - generic [ref=e2626]:
+                - link "AvaTrade" [ref=e2627] [cursor=pointer]:
+                  - /url: /review/avatrade
+                - generic [ref=e2628]: Market Maker
+            - generic [ref=e2629]:
+              - link "CBI" [ref=e2630] [cursor=pointer]:
+                - /url: /regulator/cbi
+              - link "ASIC" [ref=e2631] [cursor=pointer]:
+                - /url: /regulator/asic
+              - link "FSCA" [ref=e2632] [cursor=pointer]:
+                - /url: /regulator/fsca
+          - generic [ref=e2633]:
+            - generic [ref=e2634]:
+              - generic [ref=e2635]: Spread
+              - generic [ref=e2636]: 0.9 pips
+            - generic [ref=e2637]:
+              - generic [ref=e2638]: Min Deposit
+              - generic [ref=e2639]: $100
+            - generic [ref=e2640]:
+              - generic [ref=e2641]: Leverage
+              - generic [ref=e2642]: 1:400
+            - generic [ref=e2643]:
+              - generic [ref=e2644]: Platforms
+              - generic [ref=e2645]: 5 platforms
+          - generic [ref=e2646]:
+            - generic [ref=e2648]: "8.4"
+            - text: Good
+          - generic [ref=e2649]:
+            - link "Visit Broker" [ref=e2650] [cursor=pointer]:
+              - /url: https://ratedbrokers.com/go/avatrade
+            - link "Read Review" [ref=e2651] [cursor=pointer]:
+              - /url: /review/avatrade
+        - generic [ref=e2652]:
+          - generic [ref=e2653]: "#25"
+          - generic [ref=e2654]:
+            - generic [ref=e2655]:
+              - link "Plus500 logo" [ref=e2656] [cursor=pointer]:
+                - /url: https://ratedbrokers.com/go/plus500
+                - img "Plus500 logo" [ref=e2657]
+              - generic [ref=e2658]:
+                - link "Plus500" [ref=e2659] [cursor=pointer]:
+                  - /url: /review/plus500
+                - generic [ref=e2660]: Market Maker / CFD Only
+            - generic [ref=e2661]:
+              - link "FCA" [ref=e2662] [cursor=pointer]:
+                - /url: /regulator/fca
+                - text: FCA
+                - img [ref=e2663]
+              - link "CySEC" [ref=e2665] [cursor=pointer]:
+                - /url: /regulator/cysec
+              - link "ASIC" [ref=e2666] [cursor=pointer]:
+                - /url: /regulator/asic
+          - generic [ref=e2667]:
+            - generic [ref=e2668]:
+              - generic [ref=e2669]: Spread
+              - generic [ref=e2670]: 0.6 pips
+            - generic [ref=e2671]:
+              - generic [ref=e2672]: Min Deposit
+              - generic [ref=e2673]: $100
+            - generic [ref=e2674]:
+              - generic [ref=e2675]: Leverage
+              - generic [ref=e2676]: 1:300
+            - generic [ref=e2677]:
+              - generic [ref=e2678]: Platforms
+              - generic [ref=e2679]: 2 platforms
+          - generic [ref=e2680]:
+            - generic [ref=e2682]: "8.3"
+            - text: Good
+          - generic [ref=e2683]:
+            - link "Visit Broker" [ref=e2684] [cursor=pointer]:
+              - /url: https://ratedbrokers.com/go/plus500
+            - link "Read Review" [ref=e2685] [cursor=pointer]:
+              - /url: /review/plus500
+        - generic [ref=e2686]:
+          - generic [ref=e2687]: "#26"
+          - generic [ref=e2688]:
+            - generic [ref=e2689]:
+              - link "HFM logo" [ref=e2690] [cursor=pointer]:
+                - /url: https://ratedbrokers.com/go/hfm
+                - img "HFM logo" [ref=e2691]
+              - generic [ref=e2692]:
+                - link "HFM" [ref=e2693] [cursor=pointer]:
+                  - /url: /review/hfm
+                - generic [ref=e2694]: STP / Market Maker
+            - generic [ref=e2695]:
+              - link "CySEC" [ref=e2696] [cursor=pointer]:
+                - /url: /regulator/cysec
+              - link "FCA" [ref=e2697] [cursor=pointer]:
+                - /url: /regulator/fca
+                - text: FCA
+                - img [ref=e2698]
+              - link "DFSA" [ref=e2700] [cursor=pointer]:
+                - /url: /regulator/dfsa
+          - generic [ref=e2701]:
+            - generic [ref=e2702]:
+              - generic [ref=e2703]: Spread
+              - generic [ref=e2704]: 0.0 pips
+            - generic [ref=e2705]:
+              - generic [ref=e2706]: Min Deposit
+              - generic [ref=e2707]: $0
+            - generic [ref=e2708]:
+              - generic [ref=e2709]: Leverage
+              - generic [ref=e2710]: 1:2000
+            - generic [ref=e2711]:
+              - generic [ref=e2712]: Platforms
+              - generic [ref=e2713]: 3 platforms
+          - generic [ref=e2714]:
+            - generic [ref=e2716]: "8.3"
+            - text: Good
+          - generic [ref=e2717]:
+            - link "Visit Broker" [ref=e2718] [cursor=pointer]:
+              - /url: https://ratedbrokers.com/go/hfm
+            - link "Read Review" [ref=e2719] [cursor=pointer]:
+              - /url: /review/hfm
+        - generic [ref=e2720]:
+          - generic [ref=e2721]: "#27"
+          - generic [ref=e2722]:
+            - generic [ref=e2723]:
+              - link "ThinkMarkets logo" [ref=e2724] [cursor=pointer]:
+                - /url: https://ratedbrokers.com/go/thinkmarkets
+                - img "ThinkMarkets logo" [ref=e2725]
+              - generic [ref=e2726]:
+                - link "ThinkMarkets" [ref=e2727] [cursor=pointer]:
+                  - /url: /review/thinkmarkets
+                - generic [ref=e2728]: ECN / STP
+            - generic [ref=e2729]:
+              - link "ASIC" [ref=e2730] [cursor=pointer]:
+                - /url: /regulator/asic
+              - link "FCA" [ref=e2731] [cursor=pointer]:
+                - /url: /regulator/fca
+                - text: FCA
+                - img [ref=e2732]
+              - link "FSCA" [ref=e2734] [cursor=pointer]:
+                - /url: /regulator/fsca
+          - generic [ref=e2735]:
+            - generic [ref=e2736]:
+              - generic [ref=e2737]: Spread
+              - generic [ref=e2738]: 0.0 pips
+            - generic [ref=e2739]:
+              - generic [ref=e2740]: Min Deposit
+              - generic [ref=e2741]: $0
+            - generic [ref=e2742]:
+              - generic [ref=e2743]: Leverage
+              - generic [ref=e2744]: 1:500
+            - generic [ref=e2745]:
+              - generic [ref=e2746]: Platforms
+              - generic [ref=e2747]: 3 platforms
+          - generic [ref=e2748]:
+            - generic [ref=e2750]: "8.3"
+            - text: Good
+          - generic [ref=e2751]:
+            - link "Visit Broker" [ref=e2752] [cursor=pointer]:
+              - /url: https://ratedbrokers.com/go/thinkmarkets
+            - link "Read Review" [ref=e2753] [cursor=pointer]:
+              - /url: /review/thinkmarkets
+        - generic [ref=e2754]:
+          - generic [ref=e2755]: "#28"
+          - generic [ref=e2756]:
+            - generic [ref=e2757]:
+              - link "Axi logo" [ref=e2758] [cursor=pointer]:
+                - /url: https://ratedbrokers.com/go/axi
+                - img "Axi logo" [ref=e2759]
+              - generic [ref=e2760]:
+                - link "Axi" [ref=e2761] [cursor=pointer]:
+                  - /url: /review/axi
+                - generic [ref=e2762]: ECN / STP
+            - generic [ref=e2763]:
+              - link "ASIC" [ref=e2764] [cursor=pointer]:
+                - /url: /regulator/asic
+              - link "FCA" [ref=e2765] [cursor=pointer]:
+                - /url: /regulator/fca
+                - text: FCA
+                - img [ref=e2766]
+              - link "FMA" [ref=e2768] [cursor=pointer]:
+                - /url: /regulator/fma
+          - generic [ref=e2769]:
+            - generic [ref=e2770]:
+              - generic [ref=e2771]: Spread
+              - generic [ref=e2772]: 0.0 pips
+            - generic [ref=e2773]:
+              - generic [ref=e2774]: Min Deposit
+              - generic [ref=e2775]: $0
+            - generic [ref=e2776]:
+              - generic [ref=e2777]: Leverage
+              - generic [ref=e2778]: 1:500
+            - generic [ref=e2779]:
+              - generic [ref=e2780]: Platforms
+              - generic [ref=e2781]: 2 platforms
+          - generic [ref=e2782]:
+            - generic [ref=e2784]: "8.3"
+            - text: Good
+          - generic [ref=e2785]:
+            - link "Visit Broker" [ref=e2786] [cursor=pointer]:
+              - /url: https://ratedbrokers.com/go/axi
+            - link "Read Review" [ref=e2787] [cursor=pointer]:
+              - /url: /review/axi
+        - generic [ref=e2788]:
+          - generic [ref=e2789]: "#29"
+          - generic [ref=e2790]:
+            - generic [ref=e2791]:
+              - link "ActivTrades logo" [ref=e2792] [cursor=pointer]:
+                - /url: https://ratedbrokers.com/go/activtrades
+                - img "ActivTrades logo" [ref=e2793]
+              - generic [ref=e2794]:
+                - link "ActivTrades" [ref=e2795] [cursor=pointer]:
+                  - /url: /review/activtrades
+                - generic [ref=e2796]: STP / Market Maker
+            - generic [ref=e2797]:
+              - link "FCA" [ref=e2798] [cursor=pointer]:
+                - /url: /regulator/fca
+                - text: FCA
+                - img [ref=e2799]
+              - generic [ref=e2801]: CSSF
+              - link "SCB" [ref=e2802] [cursor=pointer]:
+                - /url: /regulator/scb
+          - generic [ref=e2803]:
+            - generic [ref=e2804]:
+              - generic [ref=e2805]: Spread
+              - generic [ref=e2806]: 0.5 pips
+            - generic [ref=e2807]:
+              - generic [ref=e2808]: Min Deposit
+              - generic [ref=e2809]: $0
+            - generic [ref=e2810]:
+              - generic [ref=e2811]: Leverage
+              - generic [ref=e2812]: 1:200
+            - generic [ref=e2813]:
+              - generic [ref=e2814]: Platforms
+              - generic [ref=e2815]: 4 platforms
+          - generic [ref=e2816]:
+            - generic [ref=e2818]: "8.3"
+            - text: Good
+          - generic [ref=e2819]:
+            - link "Visit Broker" [ref=e2820] [cursor=pointer]:
+              - /url: https://ratedbrokers.com/go/activtrades
+            - link "Read Review" [ref=e2821] [cursor=pointer]:
+              - /url: /review/activtrades
+        - generic [ref=e2822]:
+          - generic [ref=e2823]: "#30"
+          - generic [ref=e2824]:
+            - generic [ref=e2825]:
+              - link "Dukascopy logo" [ref=e2826] [cursor=pointer]:
+                - /url: https://ratedbrokers.com/go/dukascopy
+                - img "Dukascopy logo" [ref=e2827]
+              - generic [ref=e2828]:
+                - link "Dukascopy" [ref=e2829] [cursor=pointer]:
+                  - /url: /review/dukascopy
+                - generic [ref=e2830]: ECN / SWFX
+            - link "FINMA" [ref=e2832] [cursor=pointer]:
+              - /url: /regulator/finma
+          - generic [ref=e2833]:
+            - generic [ref=e2834]:
+              - generic [ref=e2835]: Spread
+              - generic [ref=e2836]: 0.1 pips
+            - generic [ref=e2837]:
+              - generic [ref=e2838]: Min Deposit
+              - generic [ref=e2839]: $1000
+            - generic [ref=e2840]:
+              - generic [ref=e2841]: Leverage
+              - generic [ref=e2842]: 1:200
+            - generic [ref=e2843]:
+              - generic [ref=e2844]: Platforms
+              - generic [ref=e2845]: 2 platforms
+          - generic [ref=e2846]:
+            - generic [ref=e2848]: "8.2"
+            - text: Good
+          - generic [ref=e2849]:
+            - link "Visit Broker" [ref=e2850] [cursor=pointer]:
+              - /url: https://ratedbrokers.com/go/dukascopy
+            - link "Read Review" [ref=e2851] [cursor=pointer]:
+              - /url: /review/dukascopy
+        - generic [ref=e2852]:
+          - generic [ref=e2853]: "#31"
+          - generic [ref=e2854]:
+            - generic [ref=e2855]:
+              - link "RoboForex logo" [ref=e2856] [cursor=pointer]:
+                - /url: https://ratedbrokers.com/go/roboforex
+                - img "RoboForex logo" [ref=e2857]
+              - generic [ref=e2858]:
+                - link "RoboForex" [ref=e2859] [cursor=pointer]:
+                  - /url: /review/roboforex
+                - generic [ref=e2860]: ECN / STP / MM
+            - generic [ref=e2861]:
+              - link "FSC" [ref=e2862] [cursor=pointer]:
+                - /url: /regulator/fsc
+              - link "CySEC" [ref=e2863] [cursor=pointer]:
+                - /url: /regulator/cysec
+          - generic [ref=e2864]:
+            - generic [ref=e2865]:
+              - generic [ref=e2866]: Spread
+              - generic [ref=e2867]: 0.0 pips
+            - generic [ref=e2868]:
+              - generic [ref=e2869]: Min Deposit
+              - generic [ref=e2870]: $10
+            - generic [ref=e2871]:
+              - generic [ref=e2872]: Leverage
+              - generic [ref=e2873]: 1:2000
+            - generic [ref=e2874]:
+              - generic [ref=e2875]: Platforms
+              - generic [ref=e2876]: 4 platforms
+          - generic [ref=e2877]:
+            - generic [ref=e2879]: "8.2"
+            - text: Good
+          - generic [ref=e2880]:
+            - link "Visit Broker" [ref=e2881] [cursor=pointer]:
+              - /url: https://ratedbrokers.com/go/roboforex
+            - link "Read Review" [ref=e2882] [cursor=pointer]:
+              - /url: /review/roboforex
+        - generic [ref=e2883]:
+          - generic [ref=e2884]: "#32"
+          - generic [ref=e2885]:
+            - generic [ref=e2886]:
+              - link "FXCM logo" [ref=e2887] [cursor=pointer]:
+                - /url: https://ratedbrokers.com/go/fxcm
+                - img "FXCM logo" [ref=e2888]
+              - generic [ref=e2889]:
+                - link "FXCM" [ref=e2890] [cursor=pointer]:
+                  - /url: /review/fxcm
+                - generic [ref=e2891]: NDD / Agency Model
+            - generic [ref=e2892]:
+              - link "FCA" [ref=e2893] [cursor=pointer]:
+                - /url: /regulator/fca
+                - text: FCA
+                - img [ref=e2894]
+              - link "ASIC" [ref=e2896] [cursor=pointer]:
+                - /url: /regulator/asic
+              - link "CySEC" [ref=e2897] [cursor=pointer]:
+                - /url: /regulator/cysec
+          - generic [ref=e2898]:
+            - generic [ref=e2899]:
+              - generic [ref=e2900]: Spread
+              - generic [ref=e2901]: 0.2 pips
+            - generic [ref=e2902]:
+              - generic [ref=e2903]: Min Deposit
+              - generic [ref=e2904]: $50
+            - generic [ref=e2905]:
+              - generic [ref=e2906]: Leverage
+              - generic [ref=e2907]: 1:400
+            - generic [ref=e2908]:
+              - generic [ref=e2909]: Platforms
+              - generic [ref=e2910]: 3 platforms
+          - generic [ref=e2911]:
+            - generic [ref=e2913]: "8.1"
+            - text: Good
+          - generic [ref=e2914]:
+            - link "Visit Broker" [ref=e2915] [cursor=pointer]:
+              - /url: https://ratedbrokers.com/go/fxcm
+            - link "Read Review" [ref=e2916] [cursor=pointer]:
+              - /url: /review/fxcm
+        - generic [ref=e2917]:
+          - generic [ref=e2918]: "#33"
+          - generic [ref=e2919]:
+            - generic [ref=e2920]:
+              - link "GO Markets logo" [ref=e2921] [cursor=pointer]:
+                - /url: https://ratedbrokers.com/go/go-markets
+                - img "GO Markets logo" [ref=e2922]
+              - generic [ref=e2923]:
+                - link "GO Markets" [ref=e2924] [cursor=pointer]:
+                  - /url: /review/go-markets
+                - generic [ref=e2925]: ECN / STP
+            - generic [ref=e2926]:
+              - link "ASIC" [ref=e2927] [cursor=pointer]:
+                - /url: /regulator/asic
+              - link "CySEC" [ref=e2928] [cursor=pointer]:
+                - /url: /regulator/cysec
+              - link "FSA" [ref=e2929] [cursor=pointer]:
+                - /url: /regulator/fsa
+          - generic [ref=e2930]:
+            - generic [ref=e2931]:
+              - generic [ref=e2932]: Spread
+              - generic [ref=e2933]: 0.0 pips
+            - generic [ref=e2934]:
+              - generic [ref=e2935]: Min Deposit
+              - generic [ref=e2936]: $200
+            - generic [ref=e2937]:
+              - generic [ref=e2938]: Leverage
+              - generic [ref=e2939]: 1:500
+            - generic [ref=e2940]:
+              - generic [ref=e2941]: Platforms
+              - generic [ref=e2942]: 4 platforms
+          - generic [ref=e2943]:
+            - generic [ref=e2945]: "8.1"
+            - text: Good
+          - generic [ref=e2946]:
+            - link "Visit Broker" [ref=e2947] [cursor=pointer]:
+              - /url: https://ratedbrokers.com/go/go-markets
+            - link "Read Review" [ref=e2948] [cursor=pointer]:
+              - /url: /review/go-markets
+        - generic [ref=e2949]:
+          - generic [ref=e2950]: "#34"
+          - generic [ref=e2951]:
+            - generic [ref=e2952]:
+              - link "Libertex logo" [ref=e2953] [cursor=pointer]:
+                - /url: https://ratedbrokers.com/go/libertex
+                - img "Libertex logo" [ref=e2954]
+              - generic [ref=e2955]:
+                - link "Libertex" [ref=e2956] [cursor=pointer]:
+                  - /url: /review/libertex
+                - generic [ref=e2957]: Market Maker / CFD
+            - link "CySEC" [ref=e2959] [cursor=pointer]:
+              - /url: /regulator/cysec
+          - generic [ref=e2960]:
+            - generic [ref=e2961]:
+              - generic [ref=e2962]: Spread
+              - generic [ref=e2963]: 0.0 pips
+            - generic [ref=e2964]:
+              - generic [ref=e2965]: Min Deposit
+              - generic [ref=e2966]: $10
+            - generic [ref=e2967]:
+              - generic [ref=e2968]: Leverage
+              - generic [ref=e2969]: 1:500
+            - generic [ref=e2970]:
+              - generic [ref=e2971]: Platforms
+              - generic [ref=e2972]: 3 platforms
+          - generic [ref=e2973]:
+            - generic [ref=e2975]: "7.8"
+            - text: Good
+          - generic [ref=e2976]:
+            - link "Visit Broker" [ref=e2977] [cursor=pointer]:
+              - /url: https://ratedbrokers.com/go/libertex
+            - link "Read Review" [ref=e2978] [cursor=pointer]:
+              - /url: /review/libertex
+        - generic [ref=e2979]:
+          - generic [ref=e2980]: "#35"
+          - generic [ref=e2981]:
+            - generic [ref=e2982]:
+              - link "NAGA logo" [ref=e2983] [cursor=pointer]:
+                - /url: https://ratedbrokers.com/go/naga
+                - img "NAGA logo" [ref=e2984]
+              - generic [ref=e2985]:
+                - link "NAGA" [ref=e2986] [cursor=pointer]:
+                  - /url: /review/naga
+                - generic [ref=e2987]: Social Trading / CFD
+            - generic [ref=e2988]:
+              - link "CySEC" [ref=e2989] [cursor=pointer]:
+                - /url: /regulator/cysec
+              - link "BaFin" [ref=e2990] [cursor=pointer]:
+                - /url: /regulator/bafin
+              - link "FSCA" [ref=e2991] [cursor=pointer]:
+                - /url: /regulator/fsca
+          - generic [ref=e2992]:
+            - generic [ref=e2993]:
+              - generic [ref=e2994]: Spread
+              - generic [ref=e2995]: 1.2 pips
+            - generic [ref=e2996]:
+              - generic [ref=e2997]: Min Deposit
+              - generic [ref=e2998]: $50
+            - generic [ref=e2999]:
+              - generic [ref=e3000]: Leverage
+              - generic [ref=e3001]: 1:30
+            - generic [ref=e3002]:
+              - generic [ref=e3003]: Platforms
+              - generic [ref=e3004]: 4 platforms
+          - generic [ref=e3005]:
+            - generic [ref=e3007]: "7.5"
+            - text: Good
+          - generic [ref=e3008]:
+            - link "Visit Broker" [ref=e3009] [cursor=pointer]:
+              - /url: https://ratedbrokers.com/go/naga
+            - link "Read Review" [ref=e3010] [cursor=pointer]:
+              - /url: /review/naga
+    - generic [ref=e3012]:
+      - heading "How We Ranked These Brokers" [level=2] [ref=e3013]
+      - paragraph [ref=e3014]: "UK-specific criteria shaped our scoring: FCA regulatory compliance (25%), GBP account and payment options (15%), spread betting availability (10%), trading conditions (20%), UK customer support (15%), and FSCS compensation eligibility (15%)."
+    - generic [ref=e3015]:
+      - heading "Related Rankings" [level=2] [ref=e3016]
+      - generic [ref=e3017]:
+        - link "🇦🇺 Best Forex Brokers Australia country / tier1" [ref=e3018] [cursor=pointer]:
+          - /url: /best-forex-brokers-australia
+          - generic [ref=e3019]: 🇦🇺
+          - generic [ref=e3020]:
+            - generic [ref=e3021]: Best Forex Brokers Australia
+            - generic [ref=e3022]: country / tier1
+        - link "🇺🇸 Best Forex Brokers USA country / tier1" [ref=e3023] [cursor=pointer]:
+          - /url: /best-forex-brokers-usa
+          - generic [ref=e3024]: 🇺🇸
+          - generic [ref=e3025]:
+            - generic [ref=e3026]: Best Forex Brokers USA
+            - generic [ref=e3027]: country / tier1
+        - link "🇩🇪 Best Forex Brokers Germany country / tier1" [ref=e3028] [cursor=pointer]:
+          - /url: /best-forex-brokers-germany
+          - generic [ref=e3029]: 🇩🇪
+          - generic [ref=e3030]:
+            - generic [ref=e3031]: Best Forex Brokers Germany
+            - generic [ref=e3032]: country / tier1
+        - link "🇨🇦 Best Forex Brokers Canada country / tier1" [ref=e3033] [cursor=pointer]:
+          - /url: /best-forex-brokers-canada
+          - generic [ref=e3034]: 🇨🇦
+          - generic [ref=e3035]:
+            - generic [ref=e3036]: Best Forex Brokers Canada
+            - generic [ref=e3037]: country / tier1
+        - link "🇨🇭 Best Forex Brokers Switzerland country / tier1" [ref=e3038] [cursor=pointer]:
+          - /url: /best-forex-brokers-switzerland
+          - generic [ref=e3039]: 🇨🇭
+          - generic [ref=e3040]:
+            - generic [ref=e3041]: Best Forex Brokers Switzerland
+            - generic [ref=e3042]: country / tier1
+        - link "🇸🇬 Best Forex Brokers Singapore country / tier1" [ref=e3043] [cursor=pointer]:
+          - /url: /best-forex-brokers-singapore
+          - generic [ref=e3044]: 🇸🇬
+          - generic [ref=e3045]:
+            - generic [ref=e3046]: Best Forex Brokers Singapore
+            - generic [ref=e3047]: country / tier1
+    - generic [ref=e3048]:
+      - heading "Frequently Asked Questions" [level=2] [ref=e3049]
+      - generic [ref=e3050]:
+        - button "What is the best forex broker in the UK in 2026?" [ref=e3052] [cursor=pointer]:
+          - generic [ref=e3053]: What is the best forex broker in the UK in 2026?
+          - img [ref=e3055]
+        - button "Is forex trading legal in the UK?" [ref=e3058] [cursor=pointer]:
+          - generic [ref=e3059]: Is forex trading legal in the UK?
+          - img [ref=e3061]
+        - button "What is spread betting and why is it popular in the UK?" [ref=e3064] [cursor=pointer]:
+          - generic [ref=e3065]: What is spread betting and why is it popular in the UK?
+          - img [ref=e3067]
+        - button "How are forex profits taxed in the UK?" [ref=e3070] [cursor=pointer]:
+          - generic [ref=e3071]: How are forex profits taxed in the UK?
+          - img [ref=e3073]
+        - button "What is the FSCS and how does it protect me?" [ref=e3076] [cursor=pointer]:
+          - generic [ref=e3077]: What is the FSCS and how does it protect me?
+          - img [ref=e3079]
+        - button "Can I get higher leverage in the UK?" [ref=e3082] [cursor=pointer]:
+          - generic [ref=e3083]: Can I get higher leverage in the UK?
+          - img [ref=e3085]
+    - generic [ref=e3088]:
+      - heading "How We Test Brokers" [level=3] [ref=e3089]
+      - paragraph [ref=e3090]: Our team opens live accounts, deposits real money, and executes hundreds of trades to give you rankings you can trust.
+      - link "Read Our Methodology" [ref=e3091] [cursor=pointer]:
+        - /url: /methodology
+    - generic [ref=e3093]:
+      - generic [ref=e3094]:
+        - img [ref=e3095]
+        - generic [ref=e3097]: Verified Expert Author
+      - generic [ref=e3098]:
+        - generic [ref=e3099]:
+          - generic [ref=e3100]:
+            - img "David Kowalski" [ref=e3101]
+            - img [ref=e3103]
+          - generic [ref=e3105]:
+            - generic [ref=e3106]: David Kowalski
+            - generic [ref=e3107]: Risk & Regulation Expert
+        - generic [ref=e3108]:
+          - generic [ref=e3109]:
+            - generic [ref=e3110]: "18"
+            - generic [ref=e3111]: yrs exp
+          - generic [ref=e3112]:
+            - generic [ref=e3113]: 45+
+            - generic [ref=e3114]: reviews
+          - generic [ref=e3115]:
+            - generic [ref=e3116]: CAMS
+            - generic [ref=e3117]: cert
+        - paragraph [ref=e3118]: David is a former compliance officer with 18 years in financial regulation. He verifies every broker's licenses directly with regulators, assesses fund safety measures, and serves as RatedBrokers' fact-checker for all published reviews.
+        - generic [ref=e3119]:
+          - img [ref=e3120]
+          - generic [ref=e3124]:
+            - strong [ref=e3125]: "Specialty:"
+            - text: Broker Licensing, Regulatory Compliance
+        - link "Connect on LinkedIn →" [ref=e3126] [cursor=pointer]:
+          - /url: https://linkedin.com/in/david-kowalski-risk
+          - img [ref=e3128]
+          - text: Connect on LinkedIn
+          - generic [ref=e3132]: →
+    - paragraph [ref=e3135]:
+      - strong [ref=e3136]: "Disclosure:"
+      - text: RatedBrokers.com may receive compensation from brokers listed on this page through affiliate partnerships. This does not influence our rankings, which are based on independent testing and research. CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. Between 74-89% of retail investor accounts lose money when trading CFDs. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money.
+  - contentinfo [ref=e3137]:
+    - generic [ref=e3138]:
+      - generic [ref=e3139]:
+        - generic [ref=e3140]:
+          - generic [ref=e3141]:
+            - generic [ref=e3142]: rated
+            - generic [ref=e3143]: brokers
+          - paragraph [ref=e3145]: Independent broker reviews and rankings tested with real money. Updated quarterly.
+          - generic [ref=e3146]:
+            - generic [ref=e3147]:
+              - img [ref=e3148]
+              - generic [ref=e3150]: 36 Brokers Tested
+            - generic [ref=e3151]:
+              - img [ref=e3152]
+              - generic [ref=e3154]: 500+ Real Trades
+            - generic [ref=e3155]:
+              - img [ref=e3156]
+              - generic [ref=e3159]: Updated Q1 2026
+          - paragraph [ref=e3160]: Independent & Expert-Led Reviews
+        - generic [ref=e3161]:
+          - generic [ref=e3162]: Popular Rankings
+          - link "Best Forex Brokers" [ref=e3163] [cursor=pointer]:
+            - /url: /best-forex-brokers
+          - link "Best Brokers for Beginners" [ref=e3164] [cursor=pointer]:
+            - /url: /best-forex-brokers-for-beginners
+          - link "Best Brokers for Scalping" [ref=e3165] [cursor=pointer]:
+            - /url: /best-forex-brokers-for-scalping
+          - link "Best Brokers for Day Trading" [ref=e3166] [cursor=pointer]:
+            - /url: /best-forex-brokers-for-day-trading
+          - link "Lowest Spread Forex Brokers" [ref=e3167] [cursor=pointer]:
+            - /url: /lowest-spread-forex-brokers
+          - link "Best ECN Forex Brokers" [ref=e3168] [cursor=pointer]:
+            - /url: /best-ecn-forex-brokers
+          - link "Best High Leverage Brokers" [ref=e3169] [cursor=pointer]:
+            - /url: /best-high-leverage-forex-brokers
+          - link "Best Copy Trading Platforms" [ref=e3170] [cursor=pointer]:
+            - /url: /best-copy-trading-platforms
+          - link "Best Forex Trading Apps" [ref=e3171] [cursor=pointer]:
+            - /url: /best-forex-trading-apps
+          - link "Best CFD Brokers" [ref=e3172] [cursor=pointer]:
+            - /url: /best-cfd-brokers
+          - link "All Rankings" [ref=e3173] [cursor=pointer]:
+            - /url: /rankings
+            - text: All Rankings
+            - img [ref=e3174]
+        - generic [ref=e3176]:
+          - generic [ref=e3177]: Top Broker Reviews
+          - link "IC Markets Review" [ref=e3178] [cursor=pointer]:
+            - /url: /review/ic-markets
+          - link "Pepperstone Review" [ref=e3179] [cursor=pointer]:
+            - /url: /review/pepperstone
+          - link "IG Review" [ref=e3180] [cursor=pointer]:
+            - /url: /review/ig
+          - link "FP Markets Review" [ref=e3181] [cursor=pointer]:
+            - /url: /review/fp-markets
+          - link "CMC Markets Review" [ref=e3182] [cursor=pointer]:
+            - /url: /review/cmc-markets
+          - link "Exness Review" [ref=e3183] [cursor=pointer]:
+            - /url: /review/exness
+          - link "XTB Review" [ref=e3184] [cursor=pointer]:
+            - /url: /review/xtb
+          - link "eToro Review" [ref=e3185] [cursor=pointer]:
+            - /url: /review/etoro
+          - link "Saxo Bank Review" [ref=e3186] [cursor=pointer]:
+            - /url: /review/saxo-bank
+          - link "Interactive Brokers Review" [ref=e3187] [cursor=pointer]:
+            - /url: /review/interactive-brokers
+          - link "Compare Brokers" [ref=e3188] [cursor=pointer]:
+            - /url: /compare
+            - text: Compare Brokers
+            - img [ref=e3189]
+        - generic [ref=e3191]:
+          - generic [ref=e3192]: Trading Guides
+          - link "What Is Forex Trading?" [ref=e3193] [cursor=pointer]:
+            - /url: /guide/what-is-forex-trading
+          - link "How to Start Forex Trading" [ref=e3194] [cursor=pointer]:
+            - /url: /guide/how-to-start-forex-trading
+          - link "How to Choose a Broker" [ref=e3195] [cursor=pointer]:
+            - /url: /guide/how-to-choose-a-forex-broker
+          - link "Spreads & Fees Explained" [ref=e3196] [cursor=pointer]:
+            - /url: /guide/understanding-spreads-and-fees
+          - link "ECN vs Market Maker" [ref=e3197] [cursor=pointer]:
+            - /url: /guide/ecn-vs-market-maker
+          - link "Forex Regulation Guide" [ref=e3198] [cursor=pointer]:
+            - /url: /guide/forex-regulation-guide
+          - link "Risk Management Guide" [ref=e3199] [cursor=pointer]:
+            - /url: /guide/risk-management-guide
+          - link "Day Trading Guide" [ref=e3200] [cursor=pointer]:
+            - /url: /guide/day-trading-guide
+        - generic [ref=e3201]:
+          - generic [ref=e3202]: Countries
+          - link "GB UK" [ref=e3203] [cursor=pointer]:
+            - /url: /best-forex-brokers-uk
+            - img "GB" [ref=e3204]
+            - text: UK
+          - link "AU Australia" [ref=e3205] [cursor=pointer]:
+            - /url: /best-forex-brokers-australia
+            - img "AU" [ref=e3206]
+            - text: Australia
+          - link "US USA" [ref=e3207] [cursor=pointer]:
+            - /url: /best-forex-brokers-usa
+            - img "US" [ref=e3208]
+            - text: USA
+          - link "AE UAE" [ref=e3209] [cursor=pointer]:
+            - /url: /best-forex-brokers-uae
+            - img "AE" [ref=e3210]
+            - text: UAE
+          - link "DE Germany" [ref=e3211] [cursor=pointer]:
+            - /url: /best-forex-brokers-germany
+            - img "DE" [ref=e3212]
+            - text: Germany
+          - link "SG Singapore" [ref=e3213] [cursor=pointer]:
+            - /url: /best-forex-brokers-singapore
+            - img "SG" [ref=e3214]
+            - text: Singapore
+          - link "CA Canada" [ref=e3215] [cursor=pointer]:
+            - /url: /best-forex-brokers-canada
+            - img "CA" [ref=e3216]
+            - text: Canada
+          - link "ZA South Africa" [ref=e3217] [cursor=pointer]:
+            - /url: /best-forex-brokers-south-africa
+            - img "ZA" [ref=e3218]
+            - text: South Africa
+          - link "IN India" [ref=e3219] [cursor=pointer]:
+            - /url: /best-forex-brokers-india
+            - img "IN" [ref=e3220]
+            - text: India
+          - link "JP Japan" [ref=e3221] [cursor=pointer]:
+            - /url: /best-forex-brokers-japan
+            - img "JP" [ref=e3222]
+            - text: Japan
+          - link "All Countries" [ref=e3223] [cursor=pointer]:
+            - /url: /best-forex-brokers-by-country
+            - text: All Countries
+            - img [ref=e3224]
+        - generic [ref=e3226]:
+          - generic [ref=e3227]: Company
+          - link "Our Methodology" [ref=e3228] [cursor=pointer]:
+            - /url: /methodology
+          - link "How We Make Money" [ref=e3229] [cursor=pointer]:
+            - /url: /how-we-make-money
+          - link "All Rankings" [ref=e3230] [cursor=pointer]:
+            - /url: /rankings
+          - link "About Us" [ref=e3231] [cursor=pointer]:
+            - /url: /about
+          - link "Contact" [ref=e3232] [cursor=pointer]:
+            - /url: "#"
+          - link "Privacy Policy" [ref=e3233] [cursor=pointer]:
+            - /url: "#"
+          - link "Terms of Use" [ref=e3234] [cursor=pointer]:
+            - /url: "#"
+      - generic [ref=e3235]:
+        - generic [ref=e3236]: "Platforms:"
+        - generic [ref=e3237]:
+          - link "MetaTrader 4 Guide" [ref=e3238] [cursor=pointer]:
+            - /url: /platform/metatrader-4
+          - generic [ref=e3239]: ·
+        - generic [ref=e3240]:
+          - link "MetaTrader 5 Guide" [ref=e3241] [cursor=pointer]:
+            - /url: /platform/metatrader-5
+          - generic [ref=e3242]: ·
+        - generic [ref=e3243]:
+          - link "cTrader Guide" [ref=e3244] [cursor=pointer]:
+            - /url: /platform/ctrader
+          - generic [ref=e3245]: ·
+        - generic [ref=e3246]:
+          - link "TradingView Guide" [ref=e3247] [cursor=pointer]:
+            - /url: /platform/tradingview
+          - generic [ref=e3248]: ·
+        - generic [ref=e3249]:
+          - link "MT4 vs MT5" [ref=e3250] [cursor=pointer]:
+            - /url: /guide/mt4-vs-mt5
+          - generic [ref=e3251]: ·
+        - generic [ref=e3252]:
+          - link "Best MT4 Brokers" [ref=e3253] [cursor=pointer]:
+            - /url: /best-metatrader-4-brokers
+          - generic [ref=e3254]: ·
+        - generic [ref=e3255]:
+          - link "Best MT5 Brokers" [ref=e3256] [cursor=pointer]:
+            - /url: /best-metatrader-5-brokers
+          - generic [ref=e3257]: ·
+        - link "Best TradingView Brokers" [ref=e3259] [cursor=pointer]:
+          - /url: /best-tradingview-brokers
+      - generic [ref=e3260]:
+        - generic [ref=e3261]:
+          - generic [ref=e3262]:
+            - img [ref=e3263]
+            - generic [ref=e3265]: RISK WARNING
+          - paragraph [ref=e3266]:
+            - text: CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. Between
+            - strong [ref=e3267]: 62% and 82%
+            - text: of retail investor accounts lose money when trading CFDs. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money.
+        - generic [ref=e3268]:
+          - generic [ref=e3269]:
+            - img [ref=e3270]
+            - generic [ref=e3272]: AFFILIATE DISCLOSURE
+          - paragraph [ref=e3273]: RatedBrokers.com earns a commission when you open an account through our links. This does not affect our rankings — all brokers are tested independently with real money.
+      - generic [ref=e3274]:
+        - generic [ref=e3275]: © 2026 RatedBrokers.com. All rights reserved.
+        - generic [ref=e3276]: 36 brokers independently tested with real money

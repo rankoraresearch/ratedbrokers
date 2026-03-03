@@ -86,7 +86,7 @@ export default function ForexBrokersPage() {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: "https://ratedbrokers.com/" },
+          { "@type": "ListItem", position: 1, name: "RatedBrokers", item: "https://ratedbrokers.com/" },
           { "@type": "ListItem", position: 2, name: "Best Forex Brokers 2026", item: "https://ratedbrokers.com/best-forex-brokers" },
         ],
       },
@@ -170,7 +170,7 @@ export default function ForexBrokersPage() {
       {/* Breadcrumbs */}
       <div style={{ ...cn, padding: mob ? "16px 16px 0" : "20px 24px 0" }}>
         <Breadcrumb items={[
-          { label: "Home", path: "/" },
+          { label: "RatedBrokers", path: "/" },
           { label: "Best Forex Brokers 2026" },
         ]} />
       </div>

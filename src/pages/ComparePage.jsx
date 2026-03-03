@@ -42,7 +42,7 @@ export default function ComparePage() {
       {/* Breadcrumbs */}
       <div style={{ ...cn, padding: "16px 24px" }}>
         <Breadcrumb items={[
-          { label: t("nav.home"), path: "/" },
+          { label: "RatedBrokers", path: "/" },
           { label: t("comp.breadCompare") },
         ]} />
       </div>

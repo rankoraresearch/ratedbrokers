@@ -608,6 +608,165 @@ const en = {
 
   // ===== FOOTER (new) =====
   "footer.howWeMakeMoney": "How We Make Money",
+
+  // ===== CONTACT PAGE =====
+  "contact.breadHome": "Home",
+  "contact.breadContact": "Contact Us",
+  "contact.badge": "GET IN TOUCH",
+  "contact.title": "Contact RatedBrokers",
+  "contact.subtitle": "Have a question, feedback, or business proposal? Our team is here to help. Choose the right department below and we'll get back to you promptly.",
+  "contact.generalTitle": "General Inquiries",
+  "contact.generalDesc": "Questions about our reviews, feedback on the site, or general suggestions. We'd love to hear from you.",
+  "contact.generalEmail": "hello@ratedbrokers.com",
+  "contact.bizTitle": "Business & Partnerships",
+  "contact.bizDesc": "Affiliate programs, advertising opportunities, PR collaborations, and strategic partnerships.",
+  "contact.bizEmail": "partnerships@ratedbrokers.com",
+  "contact.editorialTitle": "Editorial & Corrections",
+  "contact.editorialDesc": "Spotted an error in our data? Need a broker profile updated? Our editorial team takes accuracy seriously.",
+  "contact.editorialEmail": "editorial@ratedbrokers.com",
+  "contact.pressTitle": "Press & Media",
+  "contact.pressDesc": "Media inquiries, interview requests, expert commentary, and press kit access.",
+  "contact.pressEmail": "press@ratedbrokers.com",
+  "contact.responseTitle": "Response Time",
+  "contact.responseDesc": "We aim to respond to all inquiries within 24–48 business hours. For urgent editorial corrections, we typically respond same day.",
+  "contact.faqTitle": "Frequently Asked Questions",
+  "contact.faq1q": "How do I report incorrect broker data?",
+  "contact.faq1a": "Email editorial@ratedbrokers.com with the broker name, the specific data point that's incorrect, and a source for the correct information. We verify and update within 48 hours.",
+  "contact.faq2q": "Can brokers pay for better rankings?",
+  "contact.faq2a": "No. Our rankings are based entirely on our independent testing methodology. While some brokers are affiliate partners, this never influences scores. Our editorial and business teams operate independently.",
+  "contact.faq3q": "How do I request a broker review?",
+  "contact.faq3a": "Send us a request at hello@ratedbrokers.com with the broker name and website. We prioritize brokers with tier-1 regulation and significant market presence.",
+  "contact.faq4q": "Are you available for media interviews?",
+  "contact.faq4a": "Yes. Our founder and analysts are available for expert commentary on forex industry topics, broker regulation, and trading technology. Contact press@ratedbrokers.com.",
+  "contact.faq5q": "How do I report a security issue?",
+  "contact.faq5a": "For security vulnerabilities or concerns, please email hello@ratedbrokers.com with 'SECURITY' in the subject line. We take all security reports seriously and will respond within 24 hours.",
+  "contact.companyTitle": "About RatedBrokers",
+  "contact.companyDesc": "RatedBrokers is an independent broker comparison platform founded in 2024. We test forex, crypto, and CFD brokers with real money, scoring them across 6 transparent criteria. Our team of verified analysts publishes quarterly-updated rankings trusted by thousands of traders worldwide.",
+  "contact.ctaTitle": "Learn More About Us",
+  "contact.ctaDesc": "Discover how we test brokers and maintain editorial independence.",
+  "contact.ctaMethodology": "Our Methodology",
+  "contact.ctaAbout": "About Us",
+
+  // ===== TRUST SCORE PAGE =====
+  "ts.breadHome": "Home",
+  "ts.breadTrustScore": "Trust Score",
+  "ts.badge": "TRUST & TRANSPARENCY",
+  "ts.title": "RatedBrokers Trust Score",
+  "ts.subtitle": "A transparent broker rating system built on 6 scoring categories, 130+ data points, and real-money testing. Every formula published. Every score verifiable.",
+  "ts.statCategories": "Scoring Categories",
+  "ts.statDataPoints": "Data Points",
+  "ts.statBrokersRated": "Brokers Rated",
+  "ts.statUpdates": "Score Updates",
+  "ts.statUpdatesVal": "Quarterly",
+
+  // Trust Score: Quick Score Lookup
+  "ts.lookupTitle": "Quick Score Lookup",
+  "ts.lookupDesc": "Search for any broker to instantly see their Trust Score, tier, and category breakdown.",
+  "ts.lookupPlaceholder": "Type a broker name (e.g. IC Markets)...",
+  "ts.lookupNoResults": "No brokers found. Try a different name.",
+  "ts.lookupOverall": "Overall Score",
+  "ts.lookupReadReview": "Read Full Review →",
+
+  // Trust Score: What Is
+  "ts.whatIsTitle": "What Is the RatedBrokers Trust Score?",
+  "ts.whatIsP1": "The RatedBrokers Trust Score is a composite rating from 0 to 10 that measures the overall quality and trustworthiness of a forex, crypto, and CFD broker. It distills 130+ individual data points into a single, comparable number.",
+  "ts.whatIsP2": "Unlike proprietary rating systems used by our competitors, our scoring formula is fully published and applied equally to all brokers. Every score is backed by real-money testing — we open accounts, deposit funds, execute 500+ trades, and measure everything from spreads to withdrawal speeds.",
+  "ts.whatIsP3": "Scores are updated quarterly to reflect changes in regulation, costs, platform quality, and user sentiment. If a significant event occurs (regulatory action, security breach), we update the score immediately.",
+  "ts.whatIsLink": "See how we test brokers →",
+
+  // Trust Score: Score Tiers
+  "ts.tiersTitle": "Score Tiers: What Each Range Means",
+  "ts.tiersDesc": "Every Trust Score maps to one of five quality tiers. Here's what each tier means for traders.",
+  "ts.tiersBrokersCount": "{count} brokers",
+  "ts.tiersBroker": "{count} broker",
+  "ts.tiersExamples": "e.g. {names}",
+
+  // Trust Score: 6 Criteria
+  "ts.criteriaTitle": "The 6 Scoring Criteria",
+  "ts.criteriaDesc": "Our Trust Score is built from 6 weighted categories. Click any category to see sub-criteria, scoring ranges, and how we evaluate each one.",
+  "ts.criteriaWeight": "{weight}% weight",
+  "ts.criteriaSeeDetails": "See details",
+  "ts.criteriaHideDetails": "Hide details",
+  "ts.criteriaSubCriteria": "Sub-Criteria",
+  "ts.criteriaScoringRanges": "Scoring Ranges",
+  "ts.criteriaSubName": "Sub-Criterion",
+  "ts.criteriaSubWeight": "Weight",
+
+  // Trust Score: Score Distribution
+  "ts.distTitle": "Score Distribution: All 36 Brokers",
+  "ts.distDesc": "Visual overview of how our 36 reviewed brokers are distributed across the scoring spectrum.",
+  "ts.distHighest": "Highest",
+  "ts.distLowest": "Lowest",
+  "ts.distMedian": "Median",
+  "ts.distAverage": "Average",
+
+  // Trust Score: Top 10 Leaderboard
+  "ts.leaderTitle": "Top 10 Highest-Rated Brokers",
+  "ts.leaderDesc": "The top-scoring brokers based on our Trust Score methodology, updated quarterly.",
+  "ts.leaderRank": "Rank",
+  "ts.leaderBroker": "Broker",
+  "ts.leaderScore": "Score",
+  "ts.leaderVerdict": "Verdict",
+  "ts.leaderType": "Type",
+  "ts.leaderReview": "Review",
+  "ts.leaderShowAll": "Show all {count} brokers",
+  "ts.leaderShowTop": "Show top 10",
+  "ts.leaderReadReview": "Read →",
+
+  // Trust Score: How to Read
+  "ts.howToReadTitle": "How to Read a Broker's Score",
+  "ts.howToReadDesc": "Follow these 4 steps to interpret any broker's Trust Score and make an informed decision.",
+  "ts.howToReadStep": "STEP",
+
+  // Trust Score: Competitor Comparison
+  "ts.compareTitle": "How Our Score Compares",
+  "ts.compareDesc": "See how the RatedBrokers Trust Score stacks up against other major broker rating systems.",
+  "ts.compareSystem": "System",
+  "ts.compareScale": "Scale",
+  "ts.compareVariables": "Variables",
+  "ts.compareFormula": "Formula",
+  "ts.compareTesting": "Testing",
+  "ts.compareCallout": "Our differentiator: fully published formula + real-money testing. No other major comparison site offers both.",
+
+  // Trust Score: FAQ
+  "ts.faqTitle": "Frequently Asked Questions",
+
+  // Trust Score: CTA
+  "ts.ctaTitle": "Start Comparing Brokers",
+  "ts.ctaDesc": "Use our Trust Score to find the right broker for your trading style.",
+  "ts.ctaRankings": "View Rankings",
+  "ts.ctaMethodology": "Our Methodology",
+  "ts.ctaCompare": "Compare Brokers",
+
+  // Footer
+  "footer.trustScore": "Trust Score",
+  "footer.allGuides": "All Guides",
+
+  // ===== ALL GUIDES PAGE =====
+  "guides.breadcrumb": "Trading Guides",
+  "guides.pageTitle": "Forex Trading Guides — 2026",
+  "guides.pageSubtitle": "25 expert-written guides covering everything from forex basics to advanced trading strategies. Free, in-depth, and updated for 2026.",
+  "guides.statGuides": "Expert Guides",
+  "guides.statCategories": "Categories",
+  "guides.statAccess": "Free Access",
+  "guides.featuredTitle": "Where to Start",
+  "guides.featuredDesc": "New to forex? These three guides cover the essentials — what forex is, how to start, and how to pick the right broker.",
+  "guides.catGettingStarted": "Getting Started",
+  "guides.catGettingStartedDesc": "Learn the basics of forex trading, from opening your first account to understanding pips and leverage.",
+  "guides.catConcepts": "Key Concepts",
+  "guides.catConceptsDesc": "Master the core concepts every trader needs — spreads, regulation, market hours, and technical analysis.",
+  "guides.catStrategies": "Trading Strategies",
+  "guides.catStrategiesDesc": "Explore proven strategies from scalping to swing trading, copy trading, and trend following.",
+  "guides.catAdvanced": "Advanced Topics",
+  "guides.catAdvancedDesc": "Risk management, trading psychology, and platform comparisons for experienced traders.",
+  "guides.ctaTitle": "Ready to Find Your Broker?",
+  "guides.ctaDesc": "Apply what you've learned — browse our expert-tested broker rankings or compare brokers side-by-side.",
+  "guides.ctaRankings": "View All Rankings",
+  "guides.ctaCompare": "Compare Brokers",
+  "guides.guidesCount": "{count} guides",
+
+  // Mega menu
+  "mega.viewAllGuides": "View All 25 Trading Guides",
 };
 
 export default en;

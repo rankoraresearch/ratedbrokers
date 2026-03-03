@@ -19,6 +19,9 @@ import GuidePage from "./pages/GuidePage";
 import PlatformPage from "./pages/PlatformPage";
 import AboutPage from "./pages/AboutPage";
 import HowWeMakeMoneyPage from "./pages/HowWeMakeMoneyPage";
+import TrustScorePage from "./pages/TrustScorePage";
+import ContactPage from "./pages/ContactPage";
+import AllGuidesPage from "./pages/AllGuidesPage";
 import { LanguageProvider } from "./i18n/LanguageContext";
 import { LANGUAGES, isValidLang, getLangConfig, DEFAULT_LANG } from "./i18n/config";
 
@@ -54,13 +57,16 @@ const PAGE_ROUTES = (
     <Route path="compare" element={<ComparePage />} />
     <Route path="compare/:pair" element={<BrokerComparison />} />
     <Route path="methodology" element={<Methodology />} />
+    <Route path="trust-score" element={<TrustScorePage />} />
     <Route path="about" element={<AboutPage />} />
     <Route path="how-we-make-money" element={<HowWeMakeMoneyPage />} />
+    <Route path="contact" element={<ContactPage />} />
     <Route path="rankings" element={<AllRankingsPage />} />
     <Route path="reviews" element={<AllReviewsPage />} />
     <Route path="regulator/:slug" element={<RegulatorPage />} />
     <Route path="best-forex-brokers" element={<ForexBrokersPage />} />
     <Route path="best-crypto-brokers" element={<CryptoBrokersPage />} />
+    <Route path="guides" element={<AllGuidesPage />} />
     <Route path="guide/:slug" element={<GuidePage />} />
     <Route path="platform/:slug" element={<PlatformPage />} />
     <Route path=":slug" element={<RankingPage />} />

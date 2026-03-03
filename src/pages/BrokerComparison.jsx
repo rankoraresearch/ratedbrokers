@@ -262,7 +262,7 @@ export default function BrokerComparison() {
       {/* =================== BREADCRUMBS =================== */}
       <div style={{ ...cn, padding: "16px 24px" }}>
         <Breadcrumb items={[
-          { label: t("nav.home"), path: "/" },
+          { label: "RatedBrokers", path: "/" },
           { label: t("comp.breadCompare"), path: "/compare" },
           { label: `${A.name} vs ${B.name}` },
         ]} />

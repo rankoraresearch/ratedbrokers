@@ -84,7 +84,7 @@ export default function CryptoBrokersPage() {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Home", item: "https://ratedbrokers.com/" },
+          { "@type": "ListItem", position: 1, name: "RatedBrokers", item: "https://ratedbrokers.com/" },
           { "@type": "ListItem", position: 2, name: "Best Crypto Brokers 2026", item: "https://ratedbrokers.com/best-crypto-brokers" },
         ],
       },
@@ -168,7 +168,7 @@ export default function CryptoBrokersPage() {
       {/* Breadcrumbs */}
       <div style={{ ...cn, padding: mob ? "16px 16px 0" : "20px 24px 0" }}>
         <Breadcrumb items={[
-          { label: "Home", path: "/" },
+          { label: "RatedBrokers", path: "/" },
           { label: "Best Crypto Brokers 2026" },
         ]} />
       </div>

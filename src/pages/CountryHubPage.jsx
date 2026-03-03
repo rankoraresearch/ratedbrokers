@@ -45,7 +45,7 @@ export default function CountryHubPage() {
       {/* ===== BREADCRUMBS ===== */}
       <div style={{ ...cn, padding: mob ? "12px 16px" : "16px 24px" }}>
         <Breadcrumb items={[
-          { label: t("nav.home"), path: "/" },
+          { label: "RatedBrokers", path: "/" },
           { label: "Best Forex Brokers by Country" },
         ]} />
       </div>

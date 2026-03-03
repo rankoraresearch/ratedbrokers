@@ -58,7 +58,7 @@ export default function AllReviewsPage() {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ratedbrokers.com/" },
+          { "@type": "ListItem", "position": 1, "name": "RatedBrokers", "item": "https://ratedbrokers.com/" },
           { "@type": "ListItem", "position": 2, "name": "Reviews", "item": "https://ratedbrokers.com/reviews" },
         ],
       })}} />

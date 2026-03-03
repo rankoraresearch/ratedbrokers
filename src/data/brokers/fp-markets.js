@@ -13,7 +13,8 @@ const data = {
     platforms:["MetaTrader 4","MetaTrader 5","cTrader","IRESS"],
     promo:"0.0 pip ECN spreads + IRESS DMA platform",
     badge:"Best ECN Broker 2026",
-  },
+      riskWarning: "73.85% of retail investor accounts lose money when trading CFDs with this provider.",
+},
   SCORES: [
     { name:"Regulation & Safety", score:9.5, weight:25, detail:"Dual Tier-1 regulation (ASIC + CySEC). 19 years of operation since 2005. Client funds segregated at NAB. Professional indemnity insurance." },
     { name:"Trading Costs", score:9.7, weight:20, detail:"EUR/USD average spread 0.05 pips on Raw account. $6 round-turn commission. Among the lowest total costs in the industry." },

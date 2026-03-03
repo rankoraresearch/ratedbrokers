@@ -34,6 +34,8 @@ import interactiveBrokers from "./interactive-brokers";
 import trading212 from "./trading-212";
 import eightcap from "./eightcap";
 import activtrades from "./activtrades";
+import cityIndex from "./city-index";
+import spreadex from "./spreadex";
 
 const BROKERS = {
   "ic-markets": icMarkets,
@@ -72,6 +74,8 @@ const BROKERS = {
   "trading-212": trading212,
   "eightcap": eightcap,
   "activtrades": activtrades,
+  "city-index": cityIndex,
+  "spreadex": spreadex,
 };
 
 export function getBrokerData(slug) {
