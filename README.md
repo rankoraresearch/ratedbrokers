@@ -27,3 +27,4 @@ React 19 · Vite · react-router-dom v7 · lucide-react · fuse.js
 | [DECISIONS.md](DECISIONS.md) | Технологические решения и обоснования |
 | [MILESTONES.md](MILESTONES.md) | Дорожная карта: от кода до дохода |
 | [PROGRESS.md](PROGRESS.md) | История спринтов и текущий статус |
+| [RANKING-TRACKER.md](RANKING-TRACKER.md) | Трекер 207 рейтингов: 4 чекпоинта × 19 групп |
