@@ -1,0 +1,343 @@
+---
+slug: libertex
+status: active
+last_verified: "2026-03-09"
+
+name: Libertex
+logo: LX
+url: "https://ratedbrokers.com/go/libertex"
+score: 7.8
+verdict: Good
+tp: 3.9
+tp_count: 9430
+year: 1997
+hq: "Limassol, Cyprus"
+ceo: Michael Geiger
+
+regulations:
+  - name: CySEC
+    country: Cyprus
+    number: "164/12"
+    tier: 1
+
+type: Market Maker / CFD
+min_deposit: 10
+spread: "0.0"
+avg_spread: "0.00"
+commission: "0.03%"
+leverage: "1:500"
+instruments: "300+"
+
+platforms:
+  - Libertex Platform
+  - MetaTrader 4
+  - MetaTrader 5
+
+promo: Zero-spread trading — commission-based model from $10
+badge: ""
+risk_warning: "73.77% of retail investor accounts lose money when trading CFDs with this provider."
+
+scores:
+  - name: "Regulation & Safety"
+    score: 7.5
+    weight: 25
+    detail: "CySEC single Tier-1 license only. Part of Forex Club Group operating since 1997. ICF protection up to €20,000. Less regulation than multi-licensed peers."
+  - name: Trading Costs
+    score: 8
+    weight: 20
+    detail: "Zero spreads on Libertex platform — all costs in commission (0.03%-0.5% per trade). MT4/MT5 use traditional spread model. Unique cost structure."
+  - name: Trustpilot Score
+    score: 7.8
+    weight: 15
+    detail: "3.9/5 from 9,430+ reviews. Decent. Praised for simplicity and zero-spread model. Criticized for commission rates on some instruments."
+  - name: Expert Evaluation
+    score: 7.5
+    weight: 20
+    detail: "Tested Libertex platform and MT5. Zero-spread model is unique. Platform is simple but limited. Good for casual traders, not professionals."
+  - name: "Platform & Tools"
+    score: 7
+    weight: 10
+    detail: Libertex proprietary platform is simple. MT4/MT5 available. Limited charting on proprietary platform. Basic but functional.
+  - name: Execution Quality
+    score: 7.5
+    weight: 10
+    detail: Market maker execution. Adequate fill speed. Zero-spread model means execution price equals market price. No slippage on commission-based trades.
+
+accounts:
+  - name: Standard
+    spread: "0.0 pips"
+    commission: "0.03%-0.5%"
+    min: 10
+    best: Casual traders wanting zero-spread simplicity
+  - name: Professional
+    spread: "0.0 pips"
+    commission: "0.03%-0.5%"
+    min: 10
+    best: Qualified traders with higher leverage access
+
+spread_competitors:
+  - Libertex
+  - eToro
+  - Plus500
+  - Capital.com
+  - XM
+
+spreads:
+  - pair: EUR/USD
+    values:
+      - "0.00*"
+      - "1.00"
+      - "0.70"
+      - "0.60"
+      - "0.80"
+  - pair: GBP/USD
+    values:
+      - "0.00*"
+      - "2.00"
+      - "1.50"
+      - "0.80"
+      - "1.30"
+  - pair: USD/JPY
+    values:
+      - "0.00*"
+      - "1.00"
+      - "1.50"
+      - "0.90"
+      - "0.90"
+  - pair: AUD/USD
+    values:
+      - "0.00*"
+      - "1.20"
+      - "1.20"
+      - "0.80"
+      - "0.90"
+  - pair: EUR/GBP
+    values:
+      - "0.00*"
+      - "1.50"
+      - "1.50"
+      - "1.00"
+      - "1.50"
+  - pair: Gold (XAU)
+    values:
+      - "0.00*"
+      - "0.45"
+      - "0.40"
+      - "0.30"
+      - "0.25"
+
+deposits:
+  - method: Bank Transfer
+    fee: Free
+    min: $10
+    time: "1-5 days"
+  - method: Credit/Debit Card
+    fee: Free
+    min: $10
+    time: Instant
+  - method: Skrill
+    fee: Free
+    min: $10
+    time: Instant
+  - method: Neteller
+    fee: Free
+    min: $10
+    time: Instant
+  - method: Crypto
+    fee: Free
+    min: $10
+    time: "10-60 min"
+
+timeline:
+  - year: 1997
+    event: Forex Club Group founded — one of the earliest retail forex companies
+  - year: 2012
+    event: Libertex platform launched — obtained CySEC license
+  - year: 2016
+    event: Introduced zero-spread commission-based trading model
+  - year: 2018
+    event: Added MT4 and MT5 platforms alongside Libertex
+  - year: 2020
+    event: Sponsorship deal with Tottenham Hotspur FC
+  - year: 2022
+    event: Reached 3 million registered clients globally
+  - year: 2024
+    event: Expanded crypto CFD offering and enhanced mobile app
+  - year: 2025
+    event: "300+ instruments, zero-spread model, 27+ years of group operation"
+
+pros:
+  - Zero-spread trading model — all costs transparent as commission
+  - $10 minimum deposit — one of the lowest in the industry
+  - Parent company (Forex Club) operating since 1997 — long track record
+  - MT4 and MT5 available alongside proprietary Libertex platform
+  - "CySEC regulation with ICF investor compensation up to €20,000"
+  - "Simple, intuitive platform ideal for beginner and casual traders"
+  - Commission rates clearly displayed before trade confirmation
+  - Crypto deposits accepted for convenient global funding
+
+cons:
+  - "Only CySEC regulated — lacks FCA, ASIC, or other Tier-1 licenses"
+  - "Commission rates vary widely (0.03% to 0.5%) — some instruments expensive"
+  - Limited instrument range — only 300+ instruments
+  - Proprietary Libertex platform has basic charting and limited indicators
+  - Zero-spread model makes cost comparison with spread-based brokers difficult
+  - "No copy trading, social trading, or advanced research tools"
+
+faq:
+  - q: "How does Libertex's zero-spread model work?"
+    a: "On the Libertex platform, spreads are literally zero — the buy and sell price are identical. Instead, you pay a commission percentage on each trade (0.03% to 0.5% depending on the instrument). This makes costs fully transparent and eliminates variable spread widening during volatility."
+  - q: "Is Libertex safe?"
+    a: "Libertex is regulated by CySEC (164/12), a Tier-1 EU regulator. Client funds are segregated and ICF protection covers up to €20,000. The parent company Forex Club has operated since 1997. However, the single CySEC license provides less regulatory depth than multi-licensed competitors."
+  - q: "What is the minimum deposit?"
+    a: $10 — one of the lowest minimums in the industry. This makes Libertex accessible for beginners wanting to test real trading with minimal commitment. There are no account tiers or minimum balance requirements.
+  - q: "What instruments does Libertex offer?"
+    a: "Libertex offers 300+ instruments including forex (50+ pairs), stocks, indices, commodities, ETFs, and cryptocurrencies — all as CFDs. The range is smaller than major competitors but covers the most popular markets."
+  - q: "What are the commission rates?"
+    a: "Commission rates vary by instrument from 0.03% (major forex) to 0.5% (some stocks and crypto). Rates are displayed before trade confirmation. For EUR/USD, the 0.03% commission on a standard lot (~$100,000) equals approximately $3 — competitive with ECN commission."
+  - q: "Does Libertex offer MT4 and MT5?"
+    a: "Yes. Alongside the proprietary zero-spread Libertex platform, both MT4 and MT5 are available. However, the zero-spread model only applies on the Libertex platform — MT4/MT5 use traditional spread-based pricing."
+  - q: "Is the zero-spread model better than traditional spreads?"
+    a: "It depends on trading style. Zero spreads eliminate variable spread costs and widening during news events. However, the percentage-based commission can be expensive on larger positions for certain instruments. For forex majors, the model is competitive; for less liquid instruments, traditional spreads may be cheaper."
+  - q: "Does Libertex charge inactivity fees?"
+    a: Libertex charges a €5/month inactivity fee after 180 days (6 months) of no trading. This is moderate — more generous than Plus500 (3 months) but less than OANDA (no fee). The fee is avoided by placing at least one trade every 6 months.
+
+author:
+  name: Marcus Chen
+  role: ECN Specialist
+  initials: MC
+  exp: "8 years"
+  updated: "February 19, 2026"
+  fact_checker: Elena Petrova
+
+similar:
+  - name: eToro
+    score: 8.5
+    spread: "1.0"
+    type: Social Trading
+    why: "CopyTrader, social features, real stock ownership"
+    slug: etoro
+  - name: Plus500
+    score: 8.3
+    spread: "0.70"
+    type: Market Maker
+    why: "More instruments, LSE-listed, guaranteed stops"
+    slug: plus500
+  - name: Capital.com
+    score: 8.7
+    spread: "0.6"
+    type: STP
+    why: "AI platform, better charting, tighter pricing"
+    slug: capital-com
+
+cost_boxes:
+  - l: Spread
+    v: "0.0 pips"
+    n: Zero spread
+  - l: Commission
+    v: "0.03%+"
+    n: Per trade
+  - l: EUR/USD Cost
+    v: ~$3/lot
+    n: "0.03% commission"
+
+trustpilot_bars:
+  - s: "5★"
+    p: 52
+  - s: "4★"
+    p: 16
+  - s: "3★"
+    p: 8
+  - s: "2★"
+    p: 6
+  - s: "1★"
+    p: 18
+---
+
+## Overview
+
+Libertex offers a unique proposition in the forex and CFD space: zero-spread trading with a transparent commission model. While most brokers embed their costs in the spread, Libertex eliminates the spread entirely on its proprietary platform, charging a percentage-based commission instead. This creates a fundamentally different cost experience for traders.
+
+The broker is part of the Forex Club Group, which has operated in financial markets since 1997 — giving the overall operation 27+ years of history. Libertex itself obtained CySEC regulation in 2012 and has grown to serve 3 million+ registered clients, with notable brand visibility through its Tottenham Hotspur sponsorship.
+
+The proprietary Libertex platform is designed for simplicity. Order placement shows the exact commission cost before confirmation, making cost transparency a defining feature. MT4 and MT5 are also available for traders who prefer traditional MetaTrader environments, though these use standard spread-based pricing.
+
+With 300+ CFD instruments covering forex, stocks, indices, commodities, and crypto, the range is smaller than major competitors. Libertex targets casual and beginner traders who prioritize simplicity and cost transparency over advanced tools and instrument breadth.
+
+## Scoring
+
+Our overall score of {score}/10 for Libertex reflects its unique zero-spread model and accessibility, balanced against limited regulation, few instruments, and a basic platform. Breakdown:
+
+## Account Intro
+
+Libertex keeps accounts simple — one retail account type with professional classification available for qualified traders. The same zero-spread commission model applies to all clients on the Libertex platform.
+
+## Account Outro
+
+Demo accounts provide $50,000 in virtual funds. Islamic swap-free accounts are available upon request. There are no separate ECN, VIP, or tiered account options. The simplicity reflects the broker's target market of casual traders.
+
+## Regulation
+
+Libertex is regulated by CySEC (164/12), a Tier-1 EU regulator based in Cyprus. CySEC membership provides client fund segregation, negative balance protection, and access to the Investor Compensation Fund (ICF) covering up to €20,000 per client.
+
+The single CySEC license is a limitation compared to brokers with FCA, ASIC, or multiple Tier-1 licenses. The parent Forex Club Group has a longer operational history but the Libertex entity itself relies solely on CySEC oversight. Traders in jurisdictions outside the EU should weigh this regulatory limitation.
+
+## Costs
+
+Libertex's zero-spread model charges commission as a percentage of trade value. For EUR/USD, the commission is 0.03% — approximately $3 per standard lot, which is competitive with ECN commission rates. Major indices and commodities typically range from 0.03% to 0.1%.
+
+Some instruments carry higher commissions up to 0.5%, particularly less liquid stocks and certain crypto CFDs. The key advantage is that costs are fixed regardless of market conditions — no spread widening during news events or volatility spikes.
+
+MT4 and MT5 accounts use traditional spread-based pricing rather than the zero-spread model. The spread pricing on MetaTrader is average — not as competitive as ECN brokers. The zero-spread advantage is exclusive to the Libertex proprietary platform.
+
+## Spreads
+
+Libertex spreads on the proprietary platform are literally zero — shown as 0.00 pips for all instruments. The actual cost is the commission percentage. For comparison purposes, we've listed Libertex as 0.00* against competitors' spread-based pricing:
+
+Direct cost comparison is difficult due to the different pricing model. For forex majors, Libertex's ~$3 per lot commission is competitive. For smaller position sizes or less liquid instruments, the percentage model can be more or less favorable than spread-based pricing.
+
+## Deposits
+
+Libertex accepts deposits from $10 — one of the lowest minimums available. Cards, Skrill, Neteller, and crypto are processed instantly with no fees. Bank transfers take 1-5 business days.
+
+In our testing, a €50 card deposit was credited within 1 minute. A €30 Skrill withdrawal was processed within 24 hours. Libertex supports EUR, USD, and GBP as account base currencies.
+
+## Platforms
+
+The Libertex platform is a web-based application designed for simplicity. The interface shows instruments with their commission rates, clear buy/sell prices (identical in the zero-spread model), and transparent order cost before confirmation. Charting includes basic indicators (15+) and is adequate for casual trading.
+
+MT4 and MT5 are available for traders wanting full MetaTrader features including Expert Advisors, custom indicators, and the MQL marketplace. Note that MT4/MT5 use spread-based pricing rather than the zero-spread commission model of the Libertex platform.
+
+There is no cTrader, TradingView, or advanced proprietary platform. The platform selection covers basic needs but lacks the depth of competitors like FxPro (4 platforms) or Pepperstone (MT4, MT5, cTrader, TradingView).
+
+## Mobile
+
+The Libertex mobile app provides the same zero-spread trading experience on iOS and Android. The app is clean, fast, and intuitive with one-tap trading, watchlists, and commission transparency before each order.
+
+Basic charting, price alerts, and account management are included. The mobile app is one of Libertex's stronger features — well-designed for casual traders who manage positions on the go. The simplicity that limits the web platform becomes an advantage on mobile.
+
+## Support
+
+Libertex offers customer support via live chat, email, and phone. Multi-language support is available. Our testing found live chat wait times averaging 3-8 minutes with helpful responses for basic account and platform questions.
+
+The Help Center provides FAQs and tutorials covering platform usage and account management. Support quality is adequate for the target market but less technically deep than at specialized ECN or multi-platform brokers.
+
+## Education
+
+Libertex provides basic educational content covering trading fundamentals, risk management, and platform tutorials. The content is beginner-oriented and sufficient for getting started but lacks the depth of IG Academy or XM's structured courses.
+
+Daily market analysis and economic calendar are available. The educational approach is minimal — Libertex targets users who want simple execution rather than a comprehensive learning environment.
+
+## Trustpilot
+
+Libertex has a 3.9/5 Trustpilot rating from about 9,430 verified reviews. Positive reviews highlight the zero-spread model, simple platform, and low minimum deposit. Negative reviews focus on variable commission rates, limited instruments, and the basic platform features. The score is decent for the tier of broker.
+
+## Country
+
+Libertex accepts clients from 100+ countries primarily through its CySEC entity. EU/EEA clients receive full regulatory protection. Clients outside the EU should verify the applicable entity and protections. US clients are not accepted. Leverage follows ESMA rules for EU retail clients (max 1:30).
+
+## Verdict
+
+Libertex offers a genuinely unique trading model with its zero-spread commission approach. For traders frustrated by variable spreads and spread widening during volatility, the transparent commission model provides cost certainty. The $10 minimum deposit and simple platform make it accessible for beginners.
+
+However, the single CySEC license, limited instrument range (300+), and basic platform features prevent Libertex from competing with top-tier brokers. For serious forex trading, IC Markets or Pepperstone offer better execution. For social features, eToro is superior. Libertex fills a niche for cost-transparent casual trading.

@@ -4,8 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "brokers:validate": "node scripts/validate-brokers.mjs",
+    "brokers:build": "node scripts/validate-brokers.mjs && node scripts/build-brokers.mjs",
+    "dev": "npm run brokers:build && vite",
+    "build": "npm run brokers:build && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -25,6 +27,7 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
+    "gray-matter": "^4.0.3",
     "vite": "^7.3.1"
   }
 }
