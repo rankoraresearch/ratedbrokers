@@ -27,7 +27,7 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
 
   const ThematicBlurb = () => (
     <div style={{ padding: mob ? "0 16px 12px" : "12px 0 0" }}>
-      <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 13, color: "#059669", marginBottom: 4 }}>
+      <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 13, color: "#111827", marginBottom: 4 }}>
         {thematic.why}
       </div>
       <p style={{ fontSize: 14, lineHeight: 1.7, color: "#475569", margin: 0 }}>
@@ -41,8 +41,8 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
       {thematic.pros.map((p, i) => (
         <span key={`p${i}`} style={{
           display: "inline-flex", alignItems: "center", gap: 4,
-          padding: "3px 10px", borderRadius: 20, fontSize: 11, fontWeight: 600,
-          background: "#f0fdf4", color: "#059669", border: "1px solid #bbf7d0",
+          padding: "2px 8px", borderRadius: 16, fontSize: 10, fontWeight: 500,
+          background: "#ecfdf5", color: "#047857",
         }}>
           <Check size={10} /> {p}
         </span>
@@ -50,8 +50,8 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
       {thematic.cons.map((c, i) => (
         <span key={`c${i}`} style={{
           display: "inline-flex", alignItems: "center", gap: 4,
-          padding: "3px 10px", borderRadius: 20, fontSize: 11, fontWeight: 600,
-          background: "#fef2f2", color: "#dc2626", border: "1px solid #fecaca",
+          padding: "2px 8px", borderRadius: 16, fontSize: 10, fontWeight: 500,
+          background: "#fef2f2", color: "#b91c1c",
         }}>
           <XIcon size={10} /> {c}
         </span>
@@ -66,10 +66,10 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
         style={{
           display: "flex", alignItems: "center", gap: 6, padding: "8px 0",
           border: "none", background: "none", cursor: "pointer",
-          fontSize: 13, fontWeight: 700, color: "#059669", fontFamily: "inherit",
+          fontSize: 12, fontWeight: 600, color: "#2563eb", fontFamily: "inherit",
         }}
       >
-        {analysisOpen ? "Hide full analysis" : "📝 Read our full analysis"}
+        {analysisOpen ? "Hide full analysis" : "\uD83D\uDD0E Read our full analysis"}
         <span style={{
           transition: "transform 0.2s",
           transform: analysisOpen ? "rotate(180deg)" : "none",
@@ -79,46 +79,48 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
 
       {analysisOpen && (
         <div style={{ paddingTop: 8 }}>
-          {thematic.analysis.split("\n\n").map((p, i) => (
-            <p key={i} style={{ fontSize: 14, lineHeight: 1.75, color: "#374151", margin: i > 0 ? "12px 0 0" : 0 }}>
-              {p}
-            </p>
-          ))}
+          <div style={{ background: "#f8fafc", borderRadius: 8, padding: 14 }}>
+            {thematic.analysis.split("\n\n").map((p, i) => (
+              <p key={i} style={{ fontSize: 12, lineHeight: 1.7, color: "#374151", marginBottom: i < thematic.analysis.split("\n\n").length - 1 ? 8 : 0 }}>
+                {p}
+              </p>
+            ))}
 
-          {/* Pros/Cons Detail Grid */}
-          {(thematic.prosDetail || thematic.consDetail) && (
-            <div style={{
-              display: "grid", gridTemplateColumns: mob ? "1fr" : "1fr 1fr",
-              gap: 12, marginTop: 16,
-            }}>
-              {thematic.prosDetail && (
-                <div style={{ padding: 14, borderRadius: 12, background: "#f0fdf4", border: "1px solid #bbf7d0" }}>
-                  <div style={{ fontWeight: 700, fontSize: 13, color: "#059669", marginBottom: 8 }}>
-                    Pros for {rankingSlug ? rankingSlug.replace(/.*for-/, "").replace(/-/g, " ") : "this category"}
+            {/* Pros/Cons Detail Grid */}
+            {(thematic.prosDetail || thematic.consDetail) && (
+              <div style={{
+                display: "grid", gridTemplateColumns: mob ? "1fr" : "1fr 1fr",
+                gap: 10, marginTop: 10,
+              }}>
+                {thematic.prosDetail && (
+                  <div>
+                    <h4 style={{ fontSize: 11, fontWeight: 700, color: "#059669", marginBottom: 4 }}>
+                      Pros for {rankingSlug ? rankingSlug.replace(/.*for-/, "").replace(/-/g, " ") : "this category"}
+                    </h4>
+                    {thematic.prosDetail.map((p, i) => (
+                      <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 4, marginBottom: 3 }}>
+                        <span style={{ color: "#059669", fontWeight: 700, fontSize: 11 }}>✓</span>
+                        <span style={{ fontSize: 11, lineHeight: 1.5, color: "#4b5563" }}>{p}</span>
+                      </div>
+                    ))}
                   </div>
-                  {thematic.prosDetail.map((p, i) => (
-                    <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 6, marginBottom: 4 }}>
-                      <Check size={12} color="#059669" style={{ flexShrink: 0, marginTop: 3 }} />
-                      <span style={{ fontSize: 13, lineHeight: 1.5, color: "#374151" }}>{p}</span>
-                    </div>
-                  ))}
-                </div>
-              )}
-              {thematic.consDetail && (
-                <div style={{ padding: 14, borderRadius: 12, background: "#fef2f2", border: "1px solid #fecaca" }}>
-                  <div style={{ fontWeight: 700, fontSize: 13, color: "#dc2626", marginBottom: 8 }}>
-                    Cons for {rankingSlug ? rankingSlug.replace(/.*for-/, "").replace(/-/g, " ") : "this category"}
+                )}
+                {thematic.consDetail && (
+                  <div>
+                    <h4 style={{ fontSize: 11, fontWeight: 700, color: "#dc2626", marginBottom: 4 }}>
+                      Cons for {rankingSlug ? rankingSlug.replace(/.*for-/, "").replace(/-/g, " ") : "this category"}
+                    </h4>
+                    {thematic.consDetail.map((c, i) => (
+                      <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 4, marginBottom: 3 }}>
+                        <span style={{ color: "#dc2626", fontWeight: 700, fontSize: 11 }}>✗</span>
+                        <span style={{ fontSize: 11, lineHeight: 1.5, color: "#4b5563" }}>{c}</span>
+                      </div>
+                    ))}
                   </div>
-                  {thematic.consDetail.map((c, i) => (
-                    <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 6, marginBottom: 4 }}>
-                      <XIcon size={12} color="#dc2626" style={{ flexShrink: 0, marginTop: 3 }} />
-                      <span style={{ fontSize: 13, lineHeight: 1.5, color: "#374151" }}>{c}</span>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          )}
+                )}
+              </div>
+            )}
+          </div>
         </div>
       )}
     </div>
@@ -130,20 +132,21 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
       flexDirection: mob ? "column" : "row",
     }}>
       <a href={visitUrl} target="_blank" rel="noopener noreferrer nofollow" style={{
-        flex: 1, padding: "12px 16px", borderRadius: 10, textAlign: "center",
-        background: "linear-gradient(135deg,#059669,#34d399)",
+        flex: 1, minWidth: 170, padding: "11px 20px", borderRadius: 10, textAlign: "center",
+        background: "linear-gradient(135deg,#059669,#047857)",
         color: "#fff", fontWeight: 700, fontSize: 14, textDecoration: "none",
+        boxShadow: "0 2px 8px rgba(5,150,105,0.25)",
       }}>
         <span>Open {B.name} Account →</span>
-        {B.promo && <span style={{ display: "block", fontSize: 11, fontWeight: 500, opacity: 0.9, marginTop: 2 }}>{B.promo}</span>}
+        {B.promo && <span style={{ display: "block", fontSize: 10, fontWeight: 400, opacity: 0.8, marginTop: 2 }}>{B.promo}</span>}
       </a>
       <Link to={reviewPath} style={{
-        flex: 1, padding: "12px 16px", borderRadius: 10, textAlign: "center",
-        background: "#fff", color: "#475569", fontWeight: 600, fontSize: 14,
-        textDecoration: "none", border: "1.5px solid #cbd5e1",
+        flex: 1, minWidth: 140, padding: "11px 16px", borderRadius: 10, textAlign: "center",
+        background: "#ecfdf5", color: "#047857", fontWeight: 700, fontSize: 13,
+        textDecoration: "none", border: "2px solid #059669",
       }}>
         <span>Read Full Review</span>
-        <span style={{ display: "block", fontSize: 11, fontWeight: 500, color: "#94a3b8", marginTop: 2 }}>
+        <span style={{ display: "block", fontSize: 10, fontWeight: 400, opacity: 0.7, marginTop: 1 }}>
           {B.score}/10 · Expert tested
         </span>
       </Link>
@@ -154,7 +157,7 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
     B.riskWarning ? (
       <div style={{
         padding: mob ? "4px 16px 12px" : "4px 0 0",
-        fontSize: 9, lineHeight: 1.4, color: "#94a3b8",
+        fontSize: 9, lineHeight: 1.4, color: "#94a3b8", textAlign: "center",
       }}>
         {B.riskWarning}
       </div>
@@ -299,8 +302,9 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
           }}>
             <a href={visitUrl} target="_blank" rel="noopener noreferrer nofollow" style={{
               flex: 1, padding: "11px 16px", borderRadius: 10, textAlign: "center",
-              background: "linear-gradient(135deg,#059669,#34d399)",
+              background: "linear-gradient(135deg,#059669,#047857)",
               color: "#fff", fontWeight: 700, fontSize: 14, textDecoration: "none",
+              boxShadow: "0 2px 8px rgba(5,150,105,0.25)",
             }}>Visit Broker</a>
             <Link to={reviewPath} style={{
               flex: 1, padding: "11px 16px", borderRadius: 10, textAlign: "center",
@@ -398,9 +402,9 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
           <div style={{ display: "flex", flexDirection: "column", gap: 6, flexShrink: 0 }}>
             <a href={visitUrl} target="_blank" rel="noopener noreferrer nofollow" style={{
               padding: "10px 20px", borderRadius: 8, textAlign: "center",
-              background: "linear-gradient(135deg,#059669,#34d399)",
+              background: "linear-gradient(135deg,#059669,#047857)",
               color: "#fff", fontWeight: 700, fontSize: 13, textDecoration: "none",
-              whiteSpace: "nowrap",
+              whiteSpace: "nowrap", boxShadow: "0 2px 8px rgba(5,150,105,0.25)",
             }}>Visit Broker</a>
             <Link to={reviewPath} style={{
               padding: "8px 20px", borderRadius: 8, textAlign: "center",
