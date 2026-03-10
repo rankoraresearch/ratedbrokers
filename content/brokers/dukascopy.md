@@ -6,10 +6,10 @@ last_verified: "2026-03-09"
 name: Dukascopy
 logo: DK
 url: "https://ratedbrokers.com/go/dukascopy"
-score: 8.2
+score: 7.5
 verdict: Good
-tp: 3.4
-tp_count: 2180
+tp: 2.9
+tp_count: 798
 year: 2004
 hq: "Geneva, Switzerland"
 ceo: André Duka
@@ -38,29 +38,29 @@ risk_warning: "65% of retail investor accounts lose money when trading CFDs with
 
 scores:
   - name: "Regulation & Safety"
-    score: 9.8
+    score: 8.5
     weight: 25
-    detail: "FINMA Swiss banking license. Geneva-based. Client funds protected under Swiss banking law up to CHF 100,000. One of few ECN brokers with banking license."
+    detail: "FINMA Swiss banking license — single Tier-1 but highest banking standard. Client funds protected under Swiss banking law up to CHF 100,000. Base 8.4 (top of 1 Tier-1 range for banking license), +0.1 segregated."
   - name: Trading Costs
-    score: 8.8
+    score: 7.7
     weight: 20
-    detail: EUR/USD avg 0.20 pips + $3.50/lot commission. Total ~$5.50/lot. Competitive ECN pricing backed by Swiss banking safety.
+    detail: "EUR/USD avg 0.20 pips + $3.50/lot ($7 RT). Total cost $9.00/lot. Falls in $7-10 range, upper portion."
   - name: Trustpilot Score
-    score: 6.8
+    score: 3.4
     weight: 15
-    detail: "3.4/5 from 2,180+ reviews. Lower score reflects complex JForex platform and limited appeal to casual traders. Niche audience."
+    detail: "2.9/5 from 798 reviews. Below 3.0 threshold (base 3.7). -0.3 penalty for under 1,000 reviews. Reflects niche audience and complex JForex platform."
   - name: Expert Evaluation
-    score: 8
+    score: 8.0
     weight: 20
     detail: Tested JForex 4 and SWFX. Genuine ECN marketplace. Institutional-quality execution. Platform has steep learning curve.
   - name: "Platform & Tools"
     score: 7.5
     weight: 10
-    detail: "JForex 4 is powerful but complex. SWFX marketplace unique. MT4 available. No MT5, cTrader, or TradingView."
+    detail: "2 platforms: JForex 4, MT4. Base 7.5 for 2 platforms. No MT5, cTrader, or TradingView."
   - name: Execution Quality
-    score: 9.5
+    score: 9.8
     weight: 10
-    detail: SWFX Swiss FX Marketplace — genuine ECN with visible liquidity. Transparent execution. Published fill statistics. Institutional-grade.
+    detail: "SWFX Swiss FX Marketplace — genuine ECN with visible liquidity. Transparent execution. Published fill statistics. Base 9.5 + 0.3 ECN bonus."
 
 accounts:
   - name: Standard

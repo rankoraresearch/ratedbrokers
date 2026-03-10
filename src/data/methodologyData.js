@@ -51,10 +51,10 @@ export const CRITERIA_V2 = [
       { name: "Pricing transparency", weight: 2 },
     ],
     scoring: [
-      { range: "9.0 – 10.0", desc: "Total cost under $3/lot on EUR/USD. Commission under $7/lot RT. No hidden fees. No markup on raw spreads." },
-      { range: "7.0 – 8.9", desc: "Total cost $3-6/lot. Competitive commission structure. Minimal hidden fees." },
-      { range: "5.0 – 6.9", desc: "Total cost $6-10/lot. Spread markup present. Some hidden fees (inactivity, withdrawal)." },
-      { range: "Below 5.0", desc: "Total cost above $10/lot. Heavy spread markup. Multiple hidden fees. Deceptive pricing." },
+      { range: "9.0 – 10.0", desc: "Total cost under $7/lot on EUR/USD. Raw spreads with transparent commission. No hidden fees." },
+      { range: "7.5 – 8.9", desc: "Total cost $7-10/lot. Competitive pricing for most retail traders. Minimal hidden fees." },
+      { range: "5.5 – 7.4", desc: "Total cost $10-15/lot. Spread markup present. Some hidden fees (inactivity, withdrawal)." },
+      { range: "Below 5.5", desc: "Total cost above $15/lot. Heavy spread markup. Multiple hidden fees. Deceptive pricing." },
     ],
   },
   {

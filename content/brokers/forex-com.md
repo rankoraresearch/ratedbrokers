@@ -6,10 +6,10 @@ last_verified: "2026-03-09"
 name: FOREX.com
 logo: FX
 url: "https://ratedbrokers.com/go/forex-com"
-score: 9.3
+score: 9.2
 verdict: Excellent
-tp: 4
-tp_count: 2580
+tp: 4.6
+tp_count: 2305
 year: 2001
 hq: "Warren, New Jersey, USA"
 ceo: Phil Sheridan
@@ -56,29 +56,29 @@ risk_warning: "74% of retail investor accounts lose money when trading CFDs with
 
 scores:
   - name: "Regulation & Safety"
-    score: 9.8
+    score: 10.0
     weight: 25
-    detail: "Four Tier-1 licenses: NFA/CFTC, FCA, IIROC, ASIC. Part of StoneX Group (NASDAQ: SNEX), a $60B+ revenue Fortune 100 company. Client funds in segregated accounts."
+    detail: "Four Tier-1 licenses: NFA/CFTC, FCA, IIROC, ASIC + Tier-2 CIMA. Part of StoneX Group (NASDAQ: SNEX). Segregated client funds. Maximum regulatory coverage (+0.5 multi-Tier-1, +0.1 segregated)."
   - name: Trading Costs
-    score: 8.5
+    score: 8.0
     weight: 20
-    detail: Standard account EUR/USD 0.80 pips spread-only. RAW Pricing from 0.0 pips + $7/lot. DMA account for active traders. Competitive for a US-regulated broker.
+    detail: "Standard account EUR/USD avg 0.80 pips, no commission. Total cost $8.00/lot. Falls in $7-10 range. RAW Pricing from 0.0 pips + $7/lot RT available."
   - name: Trustpilot Score
-    score: 8
+    score: 9.2
     weight: 15
-    detail: "4.0/5 from 2,580+ reviews on Trustpilot. Strong considering the strict NFA regulatory framework that limits features available to US clients."
+    detail: "4.6/5 from 2,305 reviews on Trustpilot. Exceeds 4.5 threshold for top tier. No volume bonus (under 10,000 reviews)."
   - name: Expert Evaluation
     score: 9.2
     weight: 20
     detail: Tested Standard and RAW accounts with 150+ trades. Excellent proprietary platform with TradingView integration. Strong market research from StoneX team.
   - name: "Platform & Tools"
-    score: 9.4
+    score: 9.8
     weight: 10
-    detail: "FOREX.com Advanced Platform with 80+ indicators, integrated TradingView charts, and Performance Analytics. MT4 and MT5 also supported."
+    detail: "4 platforms: FOREX.com Platform, MT4, MT5, TradingView. Base 9.5 for 4+ platforms, +0.3 TradingView integration."
   - name: Execution Quality
-    score: 9
+    score: 9.1
     weight: 10
-    detail: "Direct market access available. Published execution statistics show 99.6% fill rate. Average fill speed 40ms. Part of StoneX institutional liquidity network."
+    detail: "Direct market access available. Published execution statistics show 99.6% fill rate. Average fill speed 40ms. Mixed DMA/Market Maker type (+0.3 DMA, -0.2 MM = +0.1 net)."
 
 accounts:
   - name: Standard

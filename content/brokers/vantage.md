@@ -6,10 +6,10 @@ last_verified: "2026-03-09"
 name: Vantage
 logo: VT
 url: "https://ratedbrokers.com/go/vantage"
-score: 8.6
-verdict: Very Good
-tp: 3.7
-tp_count: 4120
+score: 9.0
+verdict: Excellent
+tp: 4.3
+tp_count: 12049
 year: 2009
 hq: "Sydney, Australia"
 ceo: David Shayer
@@ -47,29 +47,29 @@ risk_warning: CFDs are complex instruments and come with a high risk of losing m
 
 scores:
   - name: "Regulation & Safety"
-    score: 8.5
+    score: 9.5
     weight: 25
-    detail: ASIC + FCA dual Tier-1 regulation. CIMA for international clients. 15 years of operation. Previously known as Vantage FX.
+    detail: "Two Tier-1 licenses (ASIC, FCA) + 1 Tier-3 (CIMA). Base 9.5 for 2x Tier-1. 15 years of operation. CIMA for international clients."
   - name: Trading Costs
-    score: 9
+    score: 8.8
     weight: 20
-    detail: Raw ECN from 0.0 pips + $3/lot commission ($6 round turn). Total cost ~$6.20 per lot. Among the cheapest ECN brokers.
+    detail: "EUR/USD avg 0.12 pips + $3/lot per side ($6 round turn). Total cost $7.20/lot (0.12 x $10 + $6). Falls in $7-10 range = 8.8."
   - name: Trustpilot Score
-    score: 7.4
+    score: 8.8
     weight: 15
-    detail: "3.7/5 from 4,120+ reviews. Mixed — praised for spreads and MT5, criticized for withdrawal times and bonus conditions."
+    detail: "4.3/5 from 12,049 reviews. Scores 8.6 in 4.0-4.4 band (7.5-8.9). +0.2 for >10,000 reviews = 8.8. Strong sentiment on spreads and platforms."
   - name: Expert Evaluation
     score: 8.5
     weight: 20
-    detail: Tested Raw ECN account. 80+ trades. Excellent execution speed. ProTrader platform is TradingView-powered. Good all-round offering.
+    detail: "Tested Raw ECN account. 80+ trades. Excellent execution speed. ProTrader platform is TradingView-powered. Good all-round offering. Not recalculated."
   - name: "Platform & Tools"
-    score: 8.8
+    score: 8.9
     weight: 10
-    detail: "MT4, MT5, and ProTrader (TradingView-based). Copy trading via Vantage app. Autochartist and Trading Central integrated."
+    detail: "3 platforms (MT4, MT5, ProTrader) = 8.5 base. +0.3 TradingView (ProTrader is TradingView-powered), +0.1 mobile app. Total 8.9."
   - name: Execution Quality
-    score: 9
+    score: 9.3
     weight: 10
-    detail: ECN execution via Equinix NY4/LD5. Average fill 1ms. Multiple liquidity providers. No dealing desk intervention.
+    detail: "ECN/STP execution. Base 9.0, +0.3 ECN/STP modifier = 9.3. Equinix NY4/LD5. Average fill 1ms. No dealing desk intervention."
 
 accounts:
   - name: Standard STP

@@ -6,10 +6,10 @@ last_verified: "2026-03-09"
 name: Capital.com
 logo: CC
 url: "https://ratedbrokers.com/go/capital-com"
-score: 8.6
-verdict: Very Good
-tp: 4.3
-tp_count: 11840
+score: 9.0
+verdict: Excellent
+tp: 4.6
+tp_count: 14057
 year: 2016
 hq: "London, United Kingdom"
 ceo: Ivan Gowan
@@ -52,29 +52,29 @@ risk_warning: "75% of retail investor accounts lose money when trading spread be
 
 scores:
   - name: "Regulation & Safety"
-    score: 8.8
+    score: 9.8
     weight: 25
-    detail: "Triple Tier-1 regulation: FCA + CySEC + ASIC. Segregated funds, negative balance protection. Founded 2016. Clean regulatory track record."
+    detail: "Triple Tier-1 regulation: FCA + CySEC + ASIC (base 9.5 + 0.2 for 3rd Tier-1). Segregated funds (+0.1). Negative balance protection. Clean regulatory track record. Final: 9.8."
   - name: Trading Costs
-    score: 8.5
+    score: 8.4
     weight: 20
-    detail: Commission-free CFD trading. EUR/USD spread averages 0.8 pips. No deposit or withdrawal fees. Competitive for commission-free model.
+    detail: "Commission-free CFD trading. EUR/USD spread averages 0.8 pips. Total cost/lot: $8.00 (0.8 pips x $10). Falls in $7-10 range, interpolated to 8.4. No deposit or withdrawal fees."
   - name: Trustpilot Score
-    score: 8.6
+    score: 9.4
     weight: 15
-    detail: "4.3/5 from 11,840+ reviews. Praised for user-friendly app, AI insights, and educational content. One of the highest-rated CFD brokers."
+    detail: "4.6/5 from 14,057 reviews. Base 9.2 (interpolated in 4.5+ band). +0.2 bonus for >10,000 reviews. Final: 9.4."
   - name: Expert Evaluation
     score: 8.5
     weight: 20
-    detail: Tested web platform and mobile app. AI-powered insights are genuinely useful. Smooth onboarding. Education quality is excellent. Spread-only model is simple.
+    detail: "Tested web platform and mobile app. AI-powered insights are genuinely useful. Smooth onboarding. Education quality is excellent. Not recalculated — based on manual testing."
   - name: "Platform & Tools"
-    score: 8.8
+    score: 8.9
     weight: 10
-    detail: "Proprietary platform with AI analysis, TradingView integration, MT4 support. Modern UI/UX design. Investmate educational app is a standout."
+    detail: "3 platforms: Capital.com proprietary (Web/App), MT4, TradingView (base 8.5). +0.3 TradingView integration. +0.1 mobile app. No cTrader or MT5. Final: 8.9."
   - name: Execution Quality
     score: 8.2
     weight: 10
-    detail: Market maker execution. Average fill speed adequate. No ECN option available. Spread widening during volatility is typical for the model.
+    detail: "Market maker execution. Average fill speed adequate. No ECN option available. Spread widening during volatility is typical for the model. Not recalculated — based on manual testing."
 
 accounts:
   - name: Standard

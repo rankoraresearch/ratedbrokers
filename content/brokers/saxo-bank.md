@@ -6,10 +6,10 @@ last_verified: "2026-03-09"
 name: Saxo Bank
 logo: SX
 url: "https://ratedbrokers.com/go/saxo-bank"
-score: 9.2
-verdict: Excellent
-tp: 3.8
-tp_count: 6420
+score: 8.4
+verdict: Very Good
+tp: 3.5
+tp_count: 8105
 year: 1992
 hq: "Copenhagen, Denmark"
 ceo: Kim Fournais
@@ -51,29 +51,29 @@ risk_warning: "65% of retail investor accounts lose money when trading CFDs with
 
 scores:
   - name: "Regulation & Safety"
-    score: 9.8
+    score: 9.9
     weight: 25
-    detail: DFSA + FCA + ASIC + MAS. Banking license in Denmark. 32 years of operation. One of the most regulated financial institutions in retail trading.
+    detail: "Four Tier-1 licenses (DFSA, FCA, ASIC, MAS). +0.4 for 2 extra Tier-1 beyond base two. Danish banking license. 32 years of operation."
   - name: Trading Costs
-    score: 8.5
+    score: 6.6
     weight: 20
-    detail: Classic tier EUR/USD 0.6 pips. Volume rebates for Platinum/VIP. Competitive for DMA. Higher than ECN but includes premium platform.
+    detail: "EUR/USD avg 0.6 pips + $3/100K commission ($6 round turn). Total cost $12.00/lot (0.6 x $10 + $6). Falls in $10-15 range = 6.6."
   - name: Trustpilot Score
-    score: 7.6
+    score: 6.0
     weight: 15
-    detail: "3.8/5 from 6,420+ reviews. Lower than broker-focused competitors. Some complaints about minimum deposit and complex fee structure."
+    detail: "3.5/5 from 8,105 reviews. Scores 6.0 at lower boundary of 3.5-3.9 band (6.0-7.4). No volume modifier. Some complaints about minimum deposit and fee complexity."
   - name: Expert Evaluation
     score: 9.5
     weight: 20
-    detail: Tested SaxoTraderGO and PRO. Premium institutional-quality platform. Excellent research from in-house team. Best for serious investors.
+    detail: "Tested SaxoTraderGO and PRO. Premium institutional-quality platform. Excellent research from in-house team. Best for serious investors. Not recalculated."
   - name: "Platform & Tools"
-    score: 9.8
+    score: 8.6
     weight: 10
-    detail: "SaxoTraderGO (web) and SaxoTraderPRO (desktop) are best-in-class. Institutional features, 50+ order types, and integrated research."
+    detail: "3 platforms (SaxoTraderGO, SaxoTraderPRO, SaxoInvestor) = 8.5 base. +0.1 mobile app. No TradingView or cTrader. Total 8.6."
   - name: Execution Quality
-    score: 9.2
+    score: 9.5
     weight: 10
-    detail: DMA execution available. Excellent fill rates. Access to real exchange order books. Average fill speed 20ms for DMA orders.
+    detail: "DMA execution available. Base 9.2, +0.3 DMA modifier = 9.5. Access to real exchange order books. Average fill speed 20ms for DMA orders."
 
 accounts:
   - name: Classic

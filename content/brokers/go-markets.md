@@ -6,10 +6,10 @@ last_verified: "2026-03-09"
 name: GO Markets
 logo: GO
 url: "https://ratedbrokers.com/go/go-markets"
-score: 8.1
-verdict: Good
-tp: 4.3
-tp_count: 1520
+score: 8.3
+verdict: Very Good
+tp: 4.4
+tp_count: 705
 year: 2006
 hq: "Melbourne, Australia"
 ceo: Tony Gruebner
@@ -48,29 +48,29 @@ risk_warning: CFDs are complex instruments and come with a high risk of losing m
 
 scores:
   - name: "Regulation & Safety"
-    score: 8.5
+    score: 9.6
     weight: 25
-    detail: "ASIC + CySEC dual Tier-1 regulation. 19 years of continuous operation. One of Australia's oldest retail forex brokers. Clean regulatory history."
+    detail: "2 Tier-1 (ASIC + CySEC) + Tier-3 (FSA Mauritius). Base 9.5 for 2+ Tier-1. +0.1 segregated funds. 19 years of continuous operation with clean regulatory history."
   - name: Trading Costs
-    score: 8
+    score: 6.3
     weight: 20
-    detail: "GO Plus: 0.0 pips + $6/lot. Standard: 1.0 pips, no commission. Competitive but not cheapest — Fusion Markets ($4.50) is cheaper. Solid middle ground."
+    detail: "GO Plus: avg 0.12 pips + $6/lot ($12 RT). Total cost $13.20/lot. Falls in $10-15 range. Not the cheapest — Fusion Markets ($5.40) significantly cheaper."
   - name: Trustpilot Score
-    score: 8.6
+    score: 8.4
     weight: 15
-    detail: "4.3/5 from 1,520+ reviews. Good sentiment for a mid-size broker. Praised for reliability and regulation. Smaller review sample than larger competitors."
+    detail: "4.4/5 from 705 reviews. Falls in 4.0-4.4 range (base 8.7). -0.3 penalty for under 1,000 reviews. Good sentiment for mid-size broker."
   - name: Expert Evaluation
     score: 7.8
     weight: 20
     detail: Tested GO Plus account on cTrader. Solid ECN execution. 19-year track record is reassuring. Platform selection good. Lacks standout unique features.
   - name: "Platform & Tools"
-    score: 8
+    score: 9.7
     weight: 10
-    detail: "MT4, MT5, cTrader, and GO WebTrader (proprietary). Good platform variety. cTrader adds depth-of-market. Autochartist available for pattern recognition."
+    detail: "4 platforms: MT4, MT5, cTrader, GO WebTrader. Base 9.5 for 4+ platforms, +0.2 cTrader. No TradingView."
   - name: Execution Quality
-    score: 8.2
+    score: 8.5
     weight: 10
-    detail: ECN/STP execution on GO Plus. Multiple LPs. Average fill speed approximately 30ms. Reliable during normal conditions. Some widening during news events.
+    detail: "ECN/STP execution on GO Plus. Multiple LPs. Average fill speed ~30ms. Base 8.2 + 0.3 ECN/STP bonus."
 
 accounts:
   - name: Standard

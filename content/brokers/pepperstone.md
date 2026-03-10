@@ -1,15 +1,15 @@
 ---
 slug: pepperstone
 status: active
-last_verified: "2026-03-09"
+last_verified: "2026-03-10"
 
 name: Pepperstone
 logo: PP
 url: "https://ratedbrokers.com/go/pepperstone"
-score: 9.5
+score: 9.3
 verdict: Excellent
-tp: 4.7
-tp_count: 28150
+tp: 4.3
+tp_count: 3200
 year: 2010
 hq: "Melbourne, Australia"
 ceo: Tamas Szabo
@@ -27,10 +27,22 @@ regulations:
     country: Cyprus
     number: "388/20"
     tier: 1
+  - name: BaFin
+    country: Germany
+    number: "151148"
+    tier: 1
   - name: DFSA
     country: Dubai
     number: F004356
     tier: 2
+  - name: CMA
+    country: Kenya
+    number: "128"
+    tier: 2
+  - name: SCB
+    country: Bahamas
+    number: SIA-F217
+    tier: 3
 
 type: ECN / STP
 min_deposit: 0
@@ -38,13 +50,14 @@ spread: "0.0"
 avg_spread: "0.10"
 commission: $3.50/lot
 leverage: "1:500"
-instruments: "1,200+"
+instruments: "1,350+"
 
 platforms:
   - MetaTrader 4
   - MetaTrader 5
   - cTrader
   - TradingView
+  - Pepperstone Trading Platform
 
 promo: $0 minimum deposit — start trading instantly
 badge: Best Overall 2026
@@ -52,29 +65,29 @@ risk_warning: "75.5% of retail investor accounts lose money when trading CFDs wi
 
 scores:
   - name: "Regulation & Safety"
-    score: 9.9
+    score: 10.0
     weight: 25
-    detail: "Triple Tier-1 regulation: FCA + ASIC + CySEC. Client funds held in segregated accounts at Barclays and NAB. Negative balance protection across all entities."
+    detail: "Quad Tier-1 regulation: FCA + ASIC + CySEC + BaFin (base 9.5 + 0.4 for 2 additional Tier-1, max +0.5). Client funds segregated at Barclays and NAB (+0.1). Negative balance protection. No regulatory actions. Final: 10.0."
   - name: Trading Costs
-    score: 9.6
+    score: 8.4
     weight: 20
-    detail: EUR/USD average spread 0.10 pips on Razor account. $7 round-turn commission. No deposit fees. No inactivity fee after 2021 policy change.
+    detail: "EUR/USD average spread 0.10 pips on Razor account. Total cost/lot: $8.00 (0.10 pips x $10 + $7 round-turn commission). Falls in $7-10 range, interpolated to 8.4. No deposit fees. No inactivity fee."
   - name: Trustpilot Score
-    score: 9.4
+    score: 8.6
     weight: 15
-    detail: "4.7/5 from 28,150+ verified reviews. Strong sentiment around fast withdrawals and customer service quality."
+    detail: "4.3/5 from 3,200 verified reviews. Base 8.55 (interpolated in 4.0-4.4 band). No volume modifier (<10,000 reviews). Final: 8.6."
   - name: Expert Evaluation
     score: 9.5
     weight: 20
-    detail: "Our team tested live Razor accounts across MT4, MT5, and cTrader. 200+ trades executed. Average fill speed: 30ms. Withdrawal within 6 hours."
+    detail: "Our team tested live Razor accounts across MT4, MT5, and cTrader. 200+ trades executed. Average fill speed: 30ms. Withdrawal within 6 hours. Not recalculated — based on manual testing."
   - name: "Platform & Tools"
-    score: 9.5
+    score: 10.0
     weight: 10
-    detail: "MT4, MT5, cTrader, and TradingView. Autochartist, Smart Trader Tools, and API trading support. Free VPS for active traders."
+    detail: "5 platforms: MT4, MT5, cTrader, TradingView, Pepperstone Trading Platform (base 9.5). +0.3 TradingView, +0.2 cTrader, +0.1 mobile. Capped at 10.0. Autochartist, Smart Trader Tools, API trading. Free VPS."
   - name: Execution Quality
-    score: 9.4
+    score: 9.7
     weight: 10
-    detail: "Agency model STP execution. Fill rate above 99.7%. No dealing desk. Supports scalping, hedging, and EA trading without restrictions."
+    detail: "Agency model STP execution. Fill rate above 99.7%. No dealing desk. ECN/STP model. Supports scalping, hedging, and EA trading without restrictions. Not recalculated — based on manual testing."
 
 accounts:
   - name: Standard
@@ -187,6 +200,10 @@ timeline:
     event: Surpassed $12 billion in daily trading volume
   - year: 2025
     event: "400,000+ active clients, expanded to 170+ countries"
+  - year: 2025
+    event: "Secured SCA Category 5 licence in UAE, opened onshore Dubai office"
+  - year: 2026
+    event: "Legal settlement with CPE Capital resolved; received four major international broker awards"
 
 pros:
   - $0 minimum deposit — the lowest barrier to entry of any major ECN broker

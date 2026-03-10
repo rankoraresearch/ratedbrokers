@@ -8,8 +8,8 @@ logo: EX
 url: "https://ratedbrokers.com/go/exness"
 score: 9.1
 verdict: Excellent
-tp: 4.5
-tp_count: 22340
+tp: 4.8
+tp_count: 27660
 year: 2008
 hq: "Limassol, Cyprus"
 ceo: Petr Valov
@@ -47,29 +47,29 @@ risk_warning: CFDs are complex instruments and come with a high risk of losing m
 
 scores:
   - name: "Regulation & Safety"
-    score: 9.2
+    score: 9.6
     weight: 25
-    detail: CySEC + FCA dual Tier-1 regulation. $13B+ monthly trading volume. Client funds segregated. Publishes audited financial reports.
+    detail: "CySEC + FCA dual Tier-1 regulation (base 9.5). Client funds segregated (+0.1). $13B+ monthly trading volume. Publishes Deloitte-audited financial reports. No regulatory incidents. Final: 9.6."
   - name: Trading Costs
-    score: 9.4
+    score: 8.4
     weight: 20
-    detail: Raw Spread account averages 0.10 pips EUR/USD with $3.50/lot commission. Standard account spread-only from 0.3 pips. Competitive.
+    detail: "Raw Spread account averages 0.10 pips EUR/USD. Total cost/lot: $8.00 (0.10 pips x $10 + $7 round-turn commission). Falls in $7-10 range, interpolated to 8.4. Standard account spread-only from 0.3 pips."
   - name: Trustpilot Score
-    score: 9
+    score: 9.9
     weight: 15
-    detail: "4.5/5 from 22,340+ verified reviews. Very strong ratings around instant withdrawals and competitive spreads."
+    detail: "4.8/5 from 27,660 verified reviews. Base 9.6 (interpolated in 4.5+ band). +0.3 bonus for >20,000 reviews. Final: 9.9."
   - name: Expert Evaluation
-    score: 9
+    score: 9.0
     weight: 20
-    detail: Tested Raw Spread and Standard accounts. 150+ trades. Instant execution confirmed. Withdrawal received within 10 seconds via Skrill.
+    detail: "Tested Raw Spread and Standard accounts. 150+ trades. Instant execution confirmed. Withdrawal received within 10 seconds via Skrill. Not recalculated — based on manual testing."
   - name: "Platform & Tools"
-    score: 8.8
+    score: 8.6
     weight: 10
-    detail: "MT4, MT5, and proprietary Exness Terminal web platform. Social trading via Exness. Limited third-party platform support."
+    detail: "3 platforms: MT4, MT5, Exness Terminal (base 8.5). +0.1 mobile app (Exness Trader). No TradingView or cTrader. Final: 8.6."
   - name: Execution Quality
     score: 9.2
     weight: 10
-    detail: Hybrid execution model. Fast fills averaging 25ms. Unlimited leverage on FSA entity. No requotes or slippage in testing.
+    detail: "Hybrid execution model. Fast fills averaging 25ms. Unlimited leverage on FSA entity. No requotes or slippage in testing. Not recalculated — based on manual testing."
 
 accounts:
   - name: Standard

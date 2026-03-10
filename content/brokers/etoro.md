@@ -1,15 +1,15 @@
 ---
 slug: etoro
 status: active
-last_verified: "2026-03-09"
+last_verified: "2026-03-10"
 
 name: eToro
 logo: eT
 url: "https://ratedbrokers.com/go/etoro"
 score: 8.5
 verdict: Very Good
-tp: 4.1
-tp_count: 24380
+tp: 4.4
+tp_count: 30843
 year: 2007
 hq: "Tel Aviv, Israel"
 ceo: Yoni Assia
@@ -27,6 +27,22 @@ regulations:
     country: Australia
     number: "491139"
     tier: 1
+  - name: SEC/FINRA
+    country: United States
+    number: "298361"
+    tier: 1
+  - name: MAS
+    country: Singapore
+    number: "CMS101824"
+    tier: 1
+  - name: ADGM FSRA
+    country: United Arab Emirates
+    number: "220073"
+    tier: 2
+  - name: FSA
+    country: Seychelles
+    number: "SD076"
+    tier: 3
 
 type: Social Trading / Market Maker
 min_deposit: 50
@@ -46,29 +62,29 @@ risk_warning: "51% of retail investor accounts lose money when trading CFDs with
 
 scores:
   - name: "Regulation & Safety"
-    score: 9
+    score: 10.0
     weight: 25
-    detail: "Triple Tier-1: FCA + CySEC + ASIC. Pre-IPO valuation of $3.5B. 30M+ registered users globally. Strong regulatory standing."
+    detail: "5x Tier-1: FCA + CySEC + ASIC + SEC/FINRA + MAS (base 9.5 + 0.5 max bonus for additional Tier-1). Segregated funds (+0.1). Capped at 10.0. No regulatory incidents."
   - name: Trading Costs
-    score: 7.2
+    score: 7.5
     weight: 20
-    detail: EUR/USD 1.0 pip spread. Zero-commission stock trading. $5 withdrawal fee. Higher forex costs than ECN but stock trading is competitive.
+    detail: "Total cost $10.00/lot EUR/USD (avg spread 1.00 pips x $10, zero commission). At $10 boundary of $7-10 range, interpolated to 7.5. Higher than ECN brokers but offset by zero-commission stocks."
   - name: Trustpilot Score
-    score: 8.2
+    score: 9.2
     weight: 15
-    detail: "4.1/5 from 24,380+ reviews. High volume. Mixed sentiment — praised for copy trading, criticized for forex spreads and withdrawal fees."
+    detail: "4.4/5 from 30,843 reviews. Base 8.9 (top of 4.0-4.4 band). +0.3 bonus for >20,000 reviews. Final: 9.2."
   - name: Expert Evaluation
     score: 8.6
     weight: 20
-    detail: "Tested CopyTrader, virtual portfolio, and live trading. Social features are industry-best. Forex execution adequate but not ECN-quality."
+    detail: "Tested CopyTrader, virtual portfolio, and live trading. Social features are industry-best. Forex execution adequate but not ECN-quality. Not recalculated — based on manual testing."
   - name: "Platform & Tools"
-    score: 8.8
+    score: 6.5
     weight: 10
-    detail: "Proprietary eToro platform with integrated social feed, CopyTrader, Smart Portfolios, and real stock/crypto ownership. Unique in the industry."
+    detail: "1 proprietary platform (eToro Platform). eToro Money is a wallet, not a trading platform. No MT4/MT5/cTrader/TradingView. Base 6.4 (top of 5.0-6.4 range for strong CopyTrader, Smart Portfolios). +0.1 mobile app. Final: 6.5."
   - name: Execution Quality
-    score: 7.8
+    score: 7.6
     weight: 10
-    detail: Market maker execution. Fill speed adequate for social trading. Not suitable for scalping. Minimum stop distances apply on some instruments.
+    detail: "Base 7.8 from manual testing. Market Maker modifier: -0.2 applied. Fill speed adequate for social trading. Not suitable for scalping. Not recalculated — based on manual testing."
 
 accounts:
   - name: Retail
@@ -180,12 +196,12 @@ timeline:
   - year: 2023
     event: Surpassed 30 million registered users globally
   - year: 2025
-    event: "6,000+ instruments, leading social trading platform worldwide"
+    event: "IPO on Nasdaq (ETOR) at $52/share, $4.2B valuation. 40M+ registered users. MAS Singapore licence activated."
 
 pros:
   - Industry-leading CopyTrader platform — automatically copy top performers
   - "Zero-commission real stock and ETF trading (non-US, non-leveraged)"
-  - "30 million+ registered users — the largest social trading community"
+  - "40 million+ registered users — the largest social trading community"
   - Triple Tier-1 regulation (FCA + CySEC + ASIC)
   - "6,000+ instruments including real stocks, crypto, forex, and commodities"
   - "Intuitive, beginner-friendly platform with integrated social feed"
@@ -210,7 +226,7 @@ faq:
   - q: "Why does eToro charge a $5 withdrawal fee?"
     a: eToro charges a flat $5 fee on all withdrawals with a $30 minimum withdrawal. This is unusual among major brokers and is a common complaint. The fee applies regardless of withdrawal method. eToro justifies this as part of their zero-commission stock trading model.
   - q: "Is eToro safe?"
-    a: "Yes. eToro is regulated by three Tier-1 authorities: FCA (UK), CySEC (Cyprus), and ASIC (Australia). Client funds are segregated and protected. The platform has 30 million+ registered users and has operated since 2007 without major regulatory incidents."
+    a: "Yes. eToro is regulated by three Tier-1 authorities: FCA (UK), CySEC (Cyprus), and ASIC (Australia). Client funds are segregated and protected. The platform has 40 million+ registered users and has operated since 2007 without major regulatory incidents."
   - q: "Can I trade crypto on eToro?"
     a: "Yes. eToro offers 70+ cryptocurrencies including Bitcoin, Ethereum, Cardano, Solana, and more. Non-leveraged crypto positions represent real ownership, and you can transfer coins to the eToro Money wallet. Leveraged crypto positions are CFDs."
   - q: "How do eToro Smart Portfolios work?"
@@ -272,7 +288,7 @@ trustpilot_bars:
 
 ## Overview
 
-eToro is the world's leading social trading platform, serving 30 million+ registered users across 140+ countries. Founded in 2007 in Tel Aviv by brothers Yoni and Ronen Assia along with David Ring, the company pioneered the concept of CopyTrader — allowing users to automatically replicate the trades of successful investors.
+eToro is the world's leading social trading platform, serving 40 million+ registered users across 140+ countries. Founded in 2007 in Tel Aviv by brothers Yoni and Ronen Assia along with David Ring, the company pioneered the concept of CopyTrader — allowing users to automatically replicate the trades of successful investors.
 
 What makes eToro fundamentally different from traditional brokers is its social-first approach. The platform functions like a financial social network where traders share strategies, publish analyses, and build followings. CopyTrader transforms this social layer into actionable investing — you can allocate funds to mirror any trader's portfolio with one click.
 
@@ -296,7 +312,7 @@ eToro's $100,000 virtual portfolio allows risk-free practice. There are no separ
 
 eToro holds three Tier-1 regulatory licenses: FCA (583263), CySEC (109/10), and ASIC (491139). Each entity provides segregated client funds, negative balance protection, and investor compensation scheme access. The FCA entity covers UK clients with FSCS protection up to £85,000.
 
-eToro's regulatory standing is reinforced by its size (30M+ users), institutional backing (SoftBank, Wellington Management investors), and preparation for public listing. The company publishes regular financial disclosures and maintains transparent operations across all regulated entities.
+eToro's regulatory standing is reinforced by its size (40M+ users), institutional backing (SoftBank, Wellington Management investors), and preparation for public listing. The company publishes regular financial disclosures and maintains transparent operations across all regulated entities.
 
 ## Costs
 
@@ -320,7 +336,7 @@ All deposits are converted to USD (eToro's base currency) with a conversion fee 
 
 ## Platforms
 
-The eToro platform is a proprietary web and mobile application that cannot be found elsewhere. It combines trading, social networking, copy trading, and portfolio management in one interface. The social feed shows real-time trades, analyses, and discussions from the 30M+ user community.
+The eToro platform is a proprietary web and mobile application that cannot be found elsewhere. It combines trading, social networking, copy trading, and portfolio management in one interface. The social feed shows real-time trades, analyses, and discussions from the 40M+ user community.
 
 CopyTrader is the flagship feature — select a trader to copy, allocate funds, and their positions are replicated in your account proportionally. CopyTrader includes risk management tools like Stop Loss on the copied trader's equity. Smart Portfolios provide themed, automatically rebalanced investment strategies.
 
@@ -346,7 +362,7 @@ The social feed itself serves as an informal educational resource — beginner t
 
 ## Trustpilot
 
-eToro has a 4.1/5 Trustpilot rating from over 24,000 verified reviews. Positive reviews highlight CopyTrader, the user interface, and zero-commission stocks. Negative reviews focus on the $5 withdrawal fee, forex spreads, customer support wait times, and conversion fees. The polarized reviews reflect eToro's position as a social platform rather than a trading-first broker.
+eToro has a 4.4/5 Trustpilot rating from over 30,843+ verified reviews. Positive reviews highlight CopyTrader, the user interface, and zero-commission stocks. Negative reviews focus on the $5 withdrawal fee, forex spreads, customer support wait times, and conversion fees. The polarized reviews reflect eToro's position as a social platform rather than a trading-first broker.
 
 ## Country
 

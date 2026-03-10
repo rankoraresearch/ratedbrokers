@@ -6,10 +6,10 @@ last_verified: "2026-03-09"
 name: Axi
 logo: AX
 url: "https://ratedbrokers.com/go/axi"
-score: 8.3
+score: 8.5
 verdict: Very Good
-tp: 4.4
-tp_count: 2450
+tp: 4.1
+tp_count: 5983
 year: 2007
 hq: "Sydney, Australia"
 ceo: Rajesh Yohannan
@@ -50,17 +50,17 @@ risk_warning: "69.6% of retail investor accounts lose money when trading CFDs wi
 
 scores:
   - name: "Regulation & Safety"
-    score: 8.8
+    score: 9.6
     weight: 25
-    detail: ASIC + FCA dual Tier-1 regulation. FMA New Zealand and DFSA UAE add coverage. 18 years operating. Strong regulatory profile.
+    detail: "ASIC + FCA dual Tier-1 (base 9.5) + segregated funds (+0.1). FMA and DFSA add regional coverage. 18 years clean operating history."
   - name: Trading Costs
-    score: 8.2
+    score: 8.3
     weight: 20
-    detail: "Pro account: 0.0 pips + $7/lot. Standard: 1.0 pips, no commission. Pro commission higher than leaders ($6-7 range). Free VPS offsets costs for algo traders."
+    detail: "Pro account: avg spread 0.10 pips + $7/lot RT. Total cost $8.00/lot — mid $7–10 range (base 8.3). Standard: 1.0 pips, no commission. Free VPS offsets for algo traders."
   - name: Trustpilot Score
-    score: 8.8
+    score: 7.8
     weight: 15
-    detail: "4.4/5 from 2,450+ reviews. Strong sentiment. Praised for execution, support, and the simplicity of the offering."
+    detail: "4.1/5 from 5,983 reviews. Solid rating in the 4.0–4.4 range (base 7.8). No volume modifier (between 1K and 10K reviews)."
   - name: Expert Evaluation
     score: 8.2
     weight: 20
@@ -68,11 +68,11 @@ scores:
   - name: "Platform & Tools"
     score: 7.5
     weight: 10
-    detail: "MT4 and new Axi Trading Platform. No MT5, cTrader, or TradingView integration. Free Autochartist and PsyQuation analytics compensate somewhat."
+    detail: "2 platforms (MT4, Axi Trading Platform). Base 7.5 for 2 platforms. No MT5, cTrader, or TradingView. Free Autochartist and PsyQuation compensate somewhat."
   - name: Execution Quality
-    score: 8.5
+    score: 8.8
     weight: 10
-    detail: ECN/STP execution with Tier-1 liquidity providers. Average fill under 30ms. Good fill rates. Equinix data centers. Slippage within norms.
+    detail: "ECN/STP execution. Base 8.5 + 0.3 ECN bonus. Tier-1 LPs. Average fill under 30ms. Equinix data centers. Slippage within norms."
 
 accounts:
   - name: Standard

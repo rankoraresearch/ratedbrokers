@@ -6,10 +6,10 @@ last_verified: "2026-03-09"
 name: RoboForex
 logo: RF
 url: "https://ratedbrokers.com/go/roboforex"
-score: 8.2
+score: 7.2
 verdict: Good
-tp: 4.6
-tp_count: 12350
+tp: 2.5
+tp_count: 694
 year: 2009
 hq: "Belize City, Belize"
 ceo: N/A
@@ -44,29 +44,29 @@ risk_warning: CFDs are complex instruments and come with a high risk of losing m
 
 scores:
   - name: "Regulation & Safety"
-    score: 7
+    score: 7.5
     weight: 25
-    detail: CySEC (Tier-1) for EU via RoboMarkets. FSC Belize (Tier-3) for international clients. Dual-entity structure. 16 years operating history.
+    detail: "1 Tier-1 (CySEC via RoboMarkets, EU only). FSC Belize (Tier-3) for international — base 7.5 for single Tier-1. 16 years operating history."
   - name: Trading Costs
-    score: 8.8
+    score: 7.8
     weight: 20
-    detail: "ECN account: 0.0 pips + $4/lot. Prime account: 0.0 pips + $2/lot (from $10K deposit). Competitive ECN pricing. Commission-free options also available."
+    detail: "ECN: avg spread 0.10 pips + $4/lot ($8 RT). Total cost $9.00/lot — mid $7–10 range (base 7.8). Prime: $2/lot ($4 RT) from $10K deposit."
   - name: Trustpilot Score
-    score: 9.2
+    score: 2.2
     weight: 15
-    detail: "4.6/5 from 12,350+ reviews — among the highest in the industry. Outstanding client satisfaction scores. Praised for execution and withdrawals."
+    detail: "2.5/5 from 694 reviews. Low rating under 3.0 threshold (base 2.5). Under 1,000 reviews penalty (−0.3). Final: 2.2."
   - name: Expert Evaluation
-    score: 8
+    score: 8.0
     weight: 20
     detail: Tested ECN Pro and R StocksTrader accounts. Enormous instrument range. CopyFX works well. Belize regulation is the main concern for non-EU clients.
   - name: "Platform & Tools"
-    score: 8.5
+    score: 9.7
     weight: 10
-    detail: "MT4, MT5, cTrader, and proprietary R StocksTrader. Wide platform selection. cTrader adds depth-of-market functionality. R StocksTrader offers real stocks."
+    detail: "4 platforms (MT4, MT5, cTrader, R StocksTrader). Base 9.5 for 4+ platforms + 0.2 cTrader bonus. No TradingView. R StocksTrader offers real stocks."
   - name: Execution Quality
-    score: 8.4
+    score: 8.7
     weight: 10
-    detail: ECN execution on Pro accounts. Multiple liquidity providers. Good fill rates. Average execution speed 30ms. Slippage within industry norms.
+    detail: "ECN execution on Pro accounts. Base 8.4 + 0.3 ECN bonus. Multiple LPs. Average speed 30ms. Slippage within industry norms."
 
 accounts:
   - name: Pro

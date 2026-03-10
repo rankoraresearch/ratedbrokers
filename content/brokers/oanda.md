@@ -6,10 +6,10 @@ last_verified: "2026-03-09"
 name: OANDA
 logo: OA
 url: "https://ratedbrokers.com/go/oanda"
-score: 9
-verdict: Excellent
-tp: 4.1
-tp_count: 9870
+score: 8.6
+verdict: Very Good
+tp: 3.8
+tp_count: 1203
 year: 1996
 hq: "New York, United States"
 ceo: Gavin Bambury
@@ -51,29 +51,29 @@ risk_warning: "74.7% of retail investor accounts lose money when trading CFDs wi
 
 scores:
   - name: "Regulation & Safety"
-    score: 9.8
+    score: 9.9
     weight: 25
-    detail: Four Tier-1 licenses including NFA/CFTC for US clients. One of two forex brokers accepting Americans. 28 years of operation. Publicly owned.
+    detail: "Four Tier-1 licenses (NFA, FCA, ASIC, MAS). +0.4 for 2 extra Tier-1 beyond base two. 28 years of operation. One of two forex brokers accepting US clients."
   - name: Trading Costs
     score: 7.5
     weight: 20
-    detail: EUR/USD average 1.0 pips on standard. Premium account from 0.6 pips. No commission. Wider than ECN but fair for market maker.
+    detail: "EUR/USD avg 1.0 pips, no commission. Total cost $10.00/lot (1.0 x $10 + $0). Falls in $7-10 range = 7.5. Wider than ECN but fair for market maker."
   - name: Trustpilot Score
-    score: 8.2
+    score: 7.1
     weight: 15
-    detail: "4.1/5 from 9,870+ reviews. Decent for a market maker. Positive around US access and platform. Some complaints about wider spreads."
+    detail: "3.8/5 from 1,203 reviews. Scores 7.1 in 3.5-3.9 band (6.0-7.4). No volume modifier (1,203 reviews between 1K-10K). Positive around US access and platform."
   - name: Expert Evaluation
     score: 9.2
     weight: 20
-    detail: "Tested US and UK entities. 120+ trades. Clean execution, no requotes. OANDA Trade platform provides excellent charting and analytics."
+    detail: "Tested US and UK entities. 120+ trades. Clean execution, no requotes. OANDA Trade platform provides excellent charting and analytics. Not recalculated."
   - name: "Platform & Tools"
-    score: 9
+    score: 8.9
     weight: 10
-    detail: "OANDA Trade proprietary platform, MT4, and TradingView integration. Excellent charting with 65+ indicators. API access for algo traders."
+    detail: "3 platforms (OANDA Trade, MT4, TradingView) = 8.5 base. +0.3 TradingView integration, +0.1 mobile app. Total 8.9."
   - name: Execution Quality
-    score: 8.8
+    score: 8.6
     weight: 10
-    detail: "Market maker execution. Average fill 15ms. 99.5% fill rate. Published execution statistics. Transparent pricing model."
+    detail: "Market maker execution. Base 8.8, -0.2 Market Maker modifier = 8.6. Average fill 15ms. 99.5% fill rate. Published execution statistics."
 
 accounts:
   - name: Standard

@@ -8,8 +8,8 @@ logo: FM
 url: "https://ratedbrokers.com/go/fusion-markets"
 score: 8.5
 verdict: Very Good
-tp: 4.5
-tp_count: 2180
+tp: 4.8
+tp_count: 6496
 year: 2017
 hq: "Melbourne, Australia"
 ceo: Phil Horner
@@ -48,29 +48,29 @@ risk_warning: CFDs are complex instruments and come with a high risk of losing m
 
 scores:
   - name: "Regulation & Safety"
-    score: 8
+    score: 7.9
     weight: 25
-    detail: ASIC Tier-1 regulation (primary). VFSC Vanuatu and FSA Seychelles for international. ASIC provides strong protection for Australian clients.
+    detail: "1 Tier-1 (ASIC) + 2 Tier-3 (VFSC, FSA Seychelles). Base 7.8 for single Tier-1 without Tier-2. +0.1 segregated funds. International clients under Tier-3 protection."
   - name: Trading Costs
-    score: 9.5
+    score: 7.5
     weight: 20
-    detail: "ZERO account: 0.0 pips + $4.50/lot — the lowest ECN commission from any ASIC-regulated broker. Classic: 0.9 pips, no commission. Extremely competitive."
+    detail: "ZERO account: avg 0.09 pips + $4.50/lot ($9 RT). Total cost $9.90/lot. Falls in $7-10 range, near upper boundary."
   - name: Trustpilot Score
-    score: 9
+    score: 9.6
     weight: 15
-    detail: "4.5/5 from 2,180+ reviews. Outstanding for a newer broker. Praised heavily for low costs, fast execution, and transparent pricing."
+    detail: "4.8/5 from 6,496 reviews. Well above 4.5 threshold (base 9.6). No volume bonus (under 10,000 reviews). Outstanding sentiment."
   - name: Expert Evaluation
     score: 8.5
     weight: 20
     detail: "Tested ZERO account. Genuinely the cheapest ASIC-regulated ECN. No gimmicks. Spreads tight. cTrader and TradingView add platform quality. Simple, cost-focused proposition."
   - name: "Platform & Tools"
-    score: 8.3
+    score: 10.0
     weight: 10
-    detail: "MT4, MT5, cTrader, TradingView. Four solid platforms. No proprietary platform but the selection covers all major needs. Myfxbook AutoTrade for copy trading."
+    detail: "4 platforms: MT4, MT5, cTrader, TradingView. Base 9.5, +0.3 TradingView, +0.2 cTrader = 10.0. Maximum platform coverage."
   - name: Execution Quality
-    score: 8.6
+    score: 8.9
     weight: 10
-    detail: ECN execution via multiple LPs. Good fill rates. Average execution speed under 40ms. No dealing desk. Slippage within ECN norms.
+    detail: "ECN execution via multiple LPs. Good fill rates. Average execution speed under 40ms. No dealing desk. Base 8.6 + 0.3 ECN bonus."
 
 accounts:
   - name: Classic

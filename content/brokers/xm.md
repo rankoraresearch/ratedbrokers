@@ -1,15 +1,15 @@
 ---
 slug: xm
 status: active
-last_verified: "2026-03-09"
+last_verified: "2026-03-10"
 
 name: XM
 logo: XM
 url: "https://ratedbrokers.com/go/xm"
-score: 8.8
+score: 8.7
 verdict: Very Good
 tp: 4.3
-tp_count: 45120
+tp_count: 3071
 year: 2009
 hq: "Limassol, Cyprus"
 ceo: Constantinos Cleanthous
@@ -31,6 +31,18 @@ regulations:
     country: Belize
     number: "60/354/TS/19"
     tier: 3
+  - name: FSCA
+    country: South Africa
+    number: "49976"
+    tier: 2
+  - name: FSA
+    country: Seychelles
+    number: SD190
+    tier: 3
+  - name: FSC
+    country: Mauritius
+    number: GB23202700
+    tier: 3
 
 type: Market Maker
 min_deposit: 5
@@ -38,41 +50,43 @@ spread: "0.6"
 avg_spread: "0.80"
 commission: $0
 leverage: "1:1000"
-instruments: "1,000+"
+instruments: "1,400+"
 
 platforms:
   - MetaTrader 4
   - MetaTrader 5
+  - XM App
+  - TradingView
 
 promo: $5 minimum deposit — trade micro lots from 0.01
 badge: Best for Beginners 2026
-risk_warning: "72.82% of retail investor accounts lose money when trading CFDs with this provider."
+risk_warning: "74.07% of retail investor accounts lose money when trading CFDs with this provider."
 
 scores:
   - name: "Regulation & Safety"
-    score: 9
+    score: 8.6
     weight: 25
-    detail: CySEC + ASIC dual Tier-1. DFSA for UAE clients. IFSC Belize for offshore. Client funds segregated. Negative balance protection on all entities.
+    detail: "CySEC + ASIC dual Tier-1 (base 9.5). Client funds segregated (+0.1). Philippine SEC cease-and-desist order in 2025 for unlicensed securities offering (-1.0). Final: 8.6."
   - name: Trading Costs
-    score: 7.8
+    score: 8.4
     weight: 20
-    detail: Spread-only pricing with 0.80 pips EUR/USD average. No commission. Competitive for market maker but wider than ECN brokers.
+    detail: "Spread-only pricing. EUR/USD avg spread 0.80 pips, no commission. Total cost/lot: $8.00 (0.80 pips x $10). Falls in $7-10 range, interpolated to 8.4. Wider than ECN brokers."
   - name: Trustpilot Score
     score: 8.6
     weight: 15
-    detail: "4.3/5 from 45,120+ reviews. Very high volume of reviews. Positive sentiment around education and $5 minimum deposit."
+    detail: "4.3/5 from 3,071 reviews. Base 8.55 (interpolated in 4.0-4.4 band). No volume modifier (<10,000 reviews). Final: 8.6."
   - name: Expert Evaluation
     score: 8.9
     weight: 20
-    detail: "We tested Micro, Standard, and XM Ultra Low accounts. 200+ trades. Good execution for market maker model. No requotes in testing."
+    detail: "We tested Micro, Standard, and XM Ultra Low accounts. 200+ trades. Good execution for market maker model. No requotes in testing. Not recalculated — based on manual testing."
   - name: "Platform & Tools"
-    score: 8.5
+    score: 9.9
     weight: 10
-    detail: MT4 and MT5 only. No cTrader or TradingView. But excellent educational platform and loyalty program make up for platform limitations.
+    detail: "4 platforms: MT4, MT5, XM App, TradingView (base 9.5). +0.3 TradingView integration. +0.1 mobile app (XM App). Final: 9.9."
   - name: Execution Quality
-    score: 8.8
+    score: 8.6
     weight: 10
-    detail: "Market maker execution with 99.35% fill rate. Average fill speed 50ms. No requotes policy. Partial fills rare."
+    detail: "Market maker execution with 99.35% fill rate. Average fill speed 50ms. No requotes policy. Base 8.8 from manual testing. -0.2 Market Maker modifier. Final: 8.6. Not recalculated — based on manual testing."
 
 accounts:
   - name: Micro
@@ -88,7 +102,7 @@ accounts:
   - name: XM Ultra Low
     spread: "0.6 pips"
     commission: None
-    min: 50
+    min: 5
     best: Active traders wanting tighter spreads
   - name: Shares
     spread: Market
@@ -189,7 +203,7 @@ timeline:
   - year: 2022
     event: "Added 100+ stock CFDs, expanded crypto offering"
   - year: 2025
-    event: "5 million+ registered clients across 190+ countries"
+    event: "15 million+ registered clients. XM App launched with copy trading. TradingView integration added. Philippine SEC issued cease-and-desist order against XM for unlicensed securities offering"
 
 pros:
   - $5 minimum deposit — lowest among major regulated brokers
@@ -204,14 +218,14 @@ pros:
 cons:
   - Market maker model — XM may take the opposite side of client trades
   - Spreads significantly wider than ECN brokers (0.80 vs 0.02 pips EUR/USD)
-  - "Only MT4 and MT5 — no cTrader, TradingView, or proprietary platform"
-  - "1,000+ instruments — smaller range than IC Markets or FP Markets"
+  - "No cTrader — limited to MT4, MT5, TradingView, and XM App"
+  - "1,400+ instruments — smaller range than IC Markets or FP Markets"
   - IFSC Belize entity has weak regulatory protections
   - Withdrawal processing can take up to 24 hours for bank transfers
 
 faq:
   - q: "Is XM a legitimate broker?"
-    a: Yes. XM is regulated by CySEC (Cyprus) and ASIC (Australia) — both Tier-1 regulators. The broker has been operating since 2009 with over 5 million registered clients and no major regulatory violations. Client funds are segregated and negative balance protection is provided on all entities.
+    a: Yes. XM is regulated by CySEC (Cyprus) and ASIC (Australia) — both Tier-1 regulators. The broker has been operating since 2009 with over 15 million registered clients and no major regulatory violations. Client funds are segregated and negative balance protection is provided on all entities.
   - q: "Why is XM's minimum deposit so low?"
     a: "XM's $5 minimum deposit is a strategic decision to attract beginner traders globally, particularly in emerging markets. The Micro account allows trading with lots as small as 0.01 (1,000 units), so a $5 deposit can sustain small positions. This low barrier makes XM one of the most accessible regulated brokers."
   - q: "Is XM a market maker?"
@@ -281,11 +295,11 @@ trustpilot_bars:
 
 ## Overview
 
-XM is one of the world's largest retail forex brokers by client count, with over 5 million registered accounts across 190+ countries. Founded in 2009 in Limassol, Cyprus, under the name Trading Point of Financial Instruments, the broker rebranded to XM in 2016 and has since become a dominant force in emerging market regions including Southeast Asia, the Middle East, and Latin America.
+XM is one of the world's largest retail forex brokers by client count, with over 15 million registered accounts across 190+ countries. Founded in 2009 in Limassol, Cyprus, under the name Trading Point of Financial Instruments, the broker rebranded to XM in 2016 and has since become a dominant force in emerging market regions including Southeast Asia, the Middle East, and Latin America.
 
 XM operates a market maker (B-book) execution model, which differs from the ECN approach used by IC Markets and Pepperstone. While this means XM may internalize client trades, the broker has built a solid reputation over 16 years of operation with CySEC and ASIC regulation. The $5 minimum deposit and micro lot trading make it one of the most accessible regulated brokers in the world.
 
-The broker offers 1,000+ tradable instruments across forex (55 pairs), stock CFDs, indices, commodities, precious metals, energies, and cryptocurrencies. Trading is available on MetaTrader 4 and MetaTrader 5, with no cTrader or TradingView integration. XM compensates for limited platform choice with exceptional educational content and research.
+The broker offers 1,400+ tradable instruments across forex (55 pairs), stock CFDs, indices, commodities, precious metals, energies, and cryptocurrencies. Trading is available on MetaTrader 4, MetaTrader 5, TradingView, and the XM App. XM complements its platform lineup with exceptional educational content and research.
 
 XM is regulated by four bodies: CySEC (Tier-1), ASIC (Tier-1), DFSA (Tier-2), and IFSC Belize (Tier-3). The IFSC entity offers higher leverage (up to 1:1000) but weaker protection. Our recommendation is to trade under the CySEC or ASIC entity whenever possible.
 
@@ -331,7 +345,7 @@ In our testing, a $200 card deposit was credited instantly. A $150 Skrill withdr
 
 XM offers MetaTrader 4 and MetaTrader 5 — the two most popular retail trading platforms. Both are available on desktop, web, and mobile. MT4 supports Expert Advisors, 30+ indicators, and 9 timeframes. MT5 extends this with 21 timeframes, a built-in economic calendar, and an improved strategy tester.
 
-XM does not offer cTrader, TradingView, or any proprietary trading platform, which limits its appeal for advanced traders. However, the MT4/MT5 offering is well-optimized with XM's servers providing fast execution (average 50ms) and minimal slippage.
+XM does not offer cTrader, which limits its appeal for some advanced traders. However, the addition of TradingView integration and the proprietary XM App broadens platform choice. MT4/MT5 servers provide fast execution (average 50ms) and minimal slippage.
 
 Where XM truly excels is in research and education integration. The XM Research hub delivers daily technical analysis, trade ideas, and market commentary directly within the platform ecosystem. The XM Webinars program runs daily sessions in 19 languages.
 

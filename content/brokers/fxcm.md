@@ -6,10 +6,10 @@ last_verified: "2026-03-09"
 name: FXCM
 logo: FX
 url: "https://ratedbrokers.com/go/fxcm"
-score: 8.1
-verdict: Good
-tp: 3.3
-tp_count: 2640
+score: 8.8
+verdict: Very Good
+tp: 4.6
+tp_count: 853
 year: 1999
 hq: "London, United Kingdom"
 ceo: Brendan Callan
@@ -47,29 +47,29 @@ risk_warning: "70% of retail investor accounts lose money when trading CFDs with
 
 scores:
   - name: "Regulation & Safety"
-    score: 8.5
+    score: 9.8
     weight: 25
-    detail: "FCA + ASIC + CySEC triple Tier-1. Previously NFA (US, lost in 2017). Owned by Jefferies Financial Group. 26 years of operation."
+    detail: "FCA + ASIC + CySEC triple Tier-1 (base 9.5 + 0.2 for 3rd Tier-1 + 0.1 segregated funds). NFA ban 2017 outside 2-year window. Jefferies-backed."
   - name: Trading Costs
-    score: 8.5
+    score: 7.8
     weight: 20
-    detail: "EUR/USD avg 0.30 pips on Active Trader. Standard from 1.0 pips. Agency model means FXCM profits from volume, not losses."
+    detail: "Active Trader: avg spread 0.30 pips + $3/lot ($6 RT). Total cost $9.00/lot — mid $7–10 range (base 7.8). Standard: 1.0 pips = $10/lot."
   - name: Trustpilot Score
-    score: 6.6
+    score: 8.9
     weight: 15
-    detail: "3.3/5 from 2,640+ reviews. Lower score partly reflects historical NFA issues. Recent reviews are more positive."
+    detail: "4.6/5 from 853 reviews. Strong rating at 4.5+ threshold (base 9.2). Under 1,000 reviews penalty (−0.3). Final: 8.9."
   - name: Expert Evaluation
-    score: 8
+    score: 8.0
     weight: 20
     detail: "Tested Trading Station and TradingView integration. Agency model is genuine — FXCM earns from commissions, not client losses."
   - name: "Platform & Tools"
-    score: 8.5
+    score: 8.8
     weight: 10
-    detail: "Trading Station proprietary platform, MT4, and TradingView integration. Trading Central, FXCM Signals, and Forex Market Scanner included."
+    detail: "3 platforms (Trading Station, MT4, TradingView). Base 8.5 for 3 platforms + 0.3 TradingView bonus. No MT5 or cTrader."
   - name: Execution Quality
-    score: 9
+    score: 9.3
     weight: 10
-    detail: Agency/NDD model — orders routed to liquidity providers. No dealing desk. Average fill 13ms. Published execution statistics.
+    detail: "Agency/NDD model. Base 9.0 + 0.3 NDD bonus. Orders routed to LPs. No dealing desk. Average fill 13ms. Published execution statistics."
 
 accounts:
   - name: Standard

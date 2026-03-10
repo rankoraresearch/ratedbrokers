@@ -6,7 +6,7 @@ last_verified: "2026-03-10"
 name: IC Markets
 logo: IC
 url: "https://ratedbrokers.com/go/ic-markets"
-score: 9.7
+score: 9.6
 verdict: Excellent
 tp: 4.8
 tp_count: 52067
@@ -48,29 +48,29 @@ risk_warning: "70.53% of retail investor accounts lose money when trading CFDs w
 
 scores:
   - name: "Regulation & Safety"
-    score: 9.8
-    weight: 25
-    detail: ASIC + CySEC dual Tier-1 regulation. Client funds segregated at Westpac and NAB. Negative balance protection for all retail clients.
-  - name: Trading Costs
-    score: 9.9
-    weight: 20
-    detail: EUR/USD average spread 0.02 pips on Raw account. $7 round-turn commission per lot. No deposit or withdrawal fees. No inactivity fee.
-  - name: Trustpilot Score
     score: 9.6
+    weight: 25
+    detail: "ASIC + CySEC dual Tier-1 regulation (base 9.5). Client funds segregated at Westpac and NAB (+0.1). Negative balance protection for all retail clients. No regulatory incidents. Final: 9.6."
+  - name: Trading Costs
+    score: 8.8
+    weight: 20
+    detail: "EUR/USD average spread 0.02 pips on Raw account. Total cost/lot: $7.20 (0.02 pips x $10 + $7 round-turn commission). Falls in $7-10 range, interpolated to 8.8. No deposit or withdrawal fees. No inactivity fee."
+  - name: Trustpilot Score
+    score: 9.9
     weight: 15
-    detail: "4.8/5 from 38,420+ verified reviews. 91% five-star ratings. Consistent positive sentiment around execution speed and customer support."
+    detail: "4.8/5 from 52,067 verified reviews. Base 9.6 (interpolated in 4.5+ band). +0.3 bonus for >20,000 reviews. Final: 9.9."
   - name: Expert Evaluation
     score: 9.7
     weight: 20
-    detail: "Our team opened live accounts, deposited real funds, executed 150+ trades across sessions, and tested withdrawals. Average execution: 40ms."
+    detail: "Our team opened live accounts, deposited real funds, executed 150+ trades across sessions, and tested withdrawals. Average execution: 40ms. Not recalculated — based on manual testing."
   - name: "Platform & Tools"
-    score: 9.5
+    score: 10.0
     weight: 10
-    detail: "MT4, MT5, cTrader, and TradingView integration. Equinix NY4/LD5 servers. Free VPS for high-volume traders. 50+ liquidity providers."
+    detail: "4 platforms: MT4, MT5, cTrader, TradingView (base 9.5). +0.3 TradingView integration. +0.2 cTrader. Equinix NY4/LD5 servers. Free VPS. Final: 10.0."
   - name: Execution Quality
     score: 9.8
     weight: 10
-    detail: "No dealing desk. Average fill speed 40ms. Less than 0.1% requote rate in our testing. Supports scalping, hedging, and EA trading."
+    detail: "No dealing desk. Average fill speed 40ms. Less than 0.1% requote rate in our testing. ECN model. Supports scalping, hedging, and EA trading. Not recalculated — based on manual testing."
 
 accounts:
   - name: Standard

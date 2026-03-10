@@ -6,10 +6,10 @@ last_verified: "2026-03-09"
 name: Interactive Brokers
 logo: IB
 url: "https://ratedbrokers.com/go/interactive-brokers"
-score: 9.4
+score: 9.1
 verdict: Excellent
-tp: 3.3
-tp_count: 3420
+tp: 3.5
+tp_count: 5134
 year: 1978
 hq: "Greenwich, Connecticut, USA"
 ceo: Milan Galik
@@ -56,29 +56,29 @@ risk_warning: CFDs are complex instruments and come with a high risk of losing m
 
 scores:
   - name: "Regulation & Safety"
-    score: 9.9
+    score: 10.0
     weight: 25
-    detail: "Five Tier-1 licenses: SEC, FCA, ASIC, MAS, IIROC. Publicly listed on NASDAQ (IBKR). $15T+ in client equity. The most regulated broker globally."
+    detail: "Five Tier-1 licenses (SEC, FCA, ASIC, MAS, IIROC). +0.5 for 3 extra Tier-1 (max modifier). NASDAQ-listed (IBKR). $15T+ in client equity."
   - name: Trading Costs
     score: 9.5
     weight: 20
-    detail: EUR/USD from 0.1 pips with $2/lot commission. IBKR Pro offers institutional pricing. Among the lowest forex costs available from a Tier-1 regulated broker.
+    detail: "EUR/USD avg 0.1 pips + $2/lot per side ($4 round turn). Total cost $5.00/lot (0.1 x $10 + $4). Falls in <$7 range = 9.5."
   - name: Trustpilot Score
-    score: 6.6
+    score: 6.0
     weight: 15
-    detail: "3.3/5 from 3,420+ reviews. Lower rating reflects the platform's complexity and steep learning curve rather than safety or execution issues."
+    detail: "3.5/5 from 5,134 reviews. Scores 6.0 at lower boundary of 3.5-3.9 band (6.0-7.4). No volume modifier. Lower rating reflects platform complexity, not safety."
   - name: Expert Evaluation
     score: 9.4
     weight: 20
-    detail: "Tested IBKR Pro with 200+ forex trades. Exceptional execution, vast market access, competitive pricing. Platform complexity is a barrier for retail traders."
+    detail: "Tested IBKR Pro with 200+ forex trades. Exceptional execution, vast market access, competitive pricing. Platform complexity is a barrier for retail traders. Not recalculated."
   - name: "Platform & Tools"
-    score: 9.2
+    score: 9.6
     weight: 10
-    detail: Trader Workstation (TWS) is the most powerful retail trading platform available. Complex but offers unmatched functionality for professional traders.
+    detail: "4 platforms (TWS, IBKR Mobile, Client Portal, IBKR GlobalTrader) = 9.5 base. +0.1 mobile app. No TradingView or cTrader. Total 9.6."
   - name: Execution Quality
-    score: 9.8
+    score: 10.0
     weight: 10
-    detail: True ECN/DMA execution. Smart Order Routing across 150+ exchanges. Sub-millisecond execution. Publicly reported best execution statistics.
+    detail: "True ECN/DMA execution. Base 9.8, +0.3 ECN/DMA modifier = 10.1, capped at 10.0. Smart Order Routing across 150+ exchanges. Sub-millisecond execution."
 
 accounts:
   - name: IBKR Lite

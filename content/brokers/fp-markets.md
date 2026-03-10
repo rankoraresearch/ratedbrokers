@@ -6,10 +6,10 @@ last_verified: "2026-03-09"
 name: FP Markets
 logo: FP
 url: "https://ratedbrokers.com/go/fp-markets"
-score: 9.4
+score: 9.5
 verdict: Excellent
 tp: 4.8
-tp_count: 12580
+tp_count: 10071
 year: 2005
 hq: "Sydney, Australia"
 ceo: Craig Allison
@@ -48,29 +48,29 @@ risk_warning: "73.85% of retail investor accounts lose money when trading CFDs w
 
 scores:
   - name: "Regulation & Safety"
-    score: 9.5
-    weight: 25
-    detail: Dual Tier-1 regulation (ASIC + CySEC). 19 years of operation since 2005. Client funds segregated at NAB. Professional indemnity insurance.
-  - name: Trading Costs
-    score: 9.7
-    weight: 20
-    detail: EUR/USD average spread 0.05 pips on Raw account. $6 round-turn commission. Among the lowest total costs in the industry.
-  - name: Trustpilot Score
     score: 9.6
+    weight: 25
+    detail: "Two Tier-1 licenses (ASIC, CySEC) + 1 Tier-2 (FSCA). Base 9.5. +0.1 for professional indemnity insurance (segregated funds). 19 years of operation."
+  - name: Trading Costs
+    score: 9.3
+    weight: 20
+    detail: "EUR/USD avg 0.05 pips + $3/lot per side ($6 round turn). Total cost $6.50/lot (0.05 x $10 + $6). Falls in <$7 range = 9.3."
+  - name: Trustpilot Score
+    score: 9.8
     weight: 15
-    detail: "4.8/5 from 12,580+ verified reviews. Exceptional rating for an ECN broker. Strong sentiment on spread quality and platform stability."
+    detail: "4.8/5 from 10,071 reviews. Scores 9.6 in 4.5+ band (9.0-10.0). +0.2 for >10,000 reviews = 9.8. Exceptional rating for an ECN broker."
   - name: Expert Evaluation
     score: 9.3
     weight: 20
-    detail: Live testing across Raw ECN and IRESS DMA accounts. 180+ trades. Average execution 35ms. IRESS provides true direct market access to exchanges.
+    detail: "Live testing across Raw ECN and IRESS DMA accounts. 180+ trades. Average execution 35ms. IRESS provides true direct market access. Not recalculated."
   - name: "Platform & Tools"
-    score: 9.5
+    score: 9.8
     weight: 10
-    detail: "MT4, MT5, cTrader, and the unique IRESS platform for DMA share trading. Myfxbook AutoTrade copy trading. VPS available."
+    detail: "4 platforms (MT4, MT5, cTrader, IRESS) = 9.5 base. +0.2 cTrader, +0.1 mobile app. No TradingView. Total 9.8."
   - name: Execution Quality
-    score: 9.3
+    score: 9.6
     weight: 10
-    detail: "True ECN execution with deep liquidity. No dealing desk. Average fill in 35ms. Supports scalping, hedging, and algorithmic trading."
+    detail: "True ECN/DMA execution. Base 9.3, +0.3 ECN/DMA modifier = 9.6. Deep liquidity. Average fill 35ms. Supports scalping and algo trading."
 
 accounts:
   - name: Standard

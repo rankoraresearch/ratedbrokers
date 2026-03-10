@@ -6,10 +6,10 @@ last_verified: "2026-03-09"
 name: Trading 212
 logo: T2
 url: "https://ratedbrokers.com/go/trading-212"
-score: 8.5
+score: 8.3
 verdict: Very Good
 tp: 4.6
-tp_count: 42800
+tp_count: 81567
 year: 2004
 hq: "London, United Kingdom"
 ceo: Ivan Ashminov
@@ -42,29 +42,29 @@ risk_warning: "73% of retail investor accounts lose money when trading CFDs with
 
 scores:
   - name: "Regulation & Safety"
-    score: 8.8
+    score: 9.6
     weight: 25
-    detail: "FCA and CySEC regulated. Client funds in segregated accounts with FSCS protection up to £85,000 (UK). Growing rapidly with 4M+ clients."
+    detail: "FCA + CySEC dual Tier-1 regulation (base 9.5). Client funds segregated (+0.1). FSCS protection up to £85,000 (UK). 4M+ clients. Final: 9.6."
   - name: Trading Costs
-    score: 7.8
+    score: 7.0
     weight: 20
-    detail: $0 commission on stocks and ETFs. CFD spreads from 1.1 pips on EUR/USD — wider than ECN brokers but competitive for commission-free model.
+    detail: "CFD spreads 1.1 pips EUR/USD, no commission. Total cost/lot: $11.00 (1.10 pips x $10). Falls in $10-15 range, interpolated to 7.0. $0 commission on stocks/ETFs (Invest account)."
   - name: Trustpilot Score
-    score: 9.2
+    score: 9.5
     weight: 15
-    detail: "4.6/5 from 42,800+ reviews — one of the highest Trustpilot ratings among all brokers. Hugely popular especially among European beginners."
+    detail: "4.6/5 from 81,567 verified reviews. Base 9.2 (interpolated in 4.5+ band). +0.3 bonus for >20,000 reviews. Final: 9.5."
   - name: Expert Evaluation
     score: 8.2
     weight: 20
-    detail: Tested CFD and Invest accounts with 100+ trades. Excellent mobile app. Limited advanced features. Great for beginners and stock investors.
+    detail: "Tested CFD and Invest accounts with 100+ trades. Excellent mobile app. Limited advanced features. Great for beginners and stock investors. Not recalculated — based on manual testing."
   - name: "Platform & Tools"
-    score: 8
+    score: 6.5
     weight: 10
-    detail: "Proprietary mobile-first platform. Clean, intuitive interface. Limited charting compared to MT4/TradingView. Pies (portfolio allocation) feature is unique."
+    detail: "1 proprietary platform (Trading 212 App/Web). Base 6.4 (top of 5.0-6.4 range for strong Pies feature, fractional shares). +0.1 mobile app. No MT4/MT5/cTrader/TradingView. Final: 6.5."
   - name: Execution Quality
-    score: 8
+    score: 8.0
     weight: 10
-    detail: "Market maker execution. Good fill rates but no DMA or ECN option. Execution suitable for retail/beginner traders, not for scalpers."
+    detail: "Market maker execution. Good fill rates but no DMA or ECN option. Execution suitable for retail/beginner traders, not for scalpers. Not recalculated — based on manual testing."
 
 accounts:
   - name: Invest

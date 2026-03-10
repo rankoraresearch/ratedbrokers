@@ -6,10 +6,10 @@ last_verified: "2026-03-09"
 name: Swissquote
 logo: SQ
 url: "https://ratedbrokers.com/go/swissquote"
-score: 8.9
+score: 8.2
 verdict: Very Good
 tp: 3.6
-tp_count: 3240
+tp_count: 3919
 year: 1996
 hq: "Gland, Switzerland"
 ceo: Marc Bürki
@@ -51,29 +51,29 @@ risk_warning: "60.93% of retail investor accounts lose money when trading CFDs w
 
 scores:
   - name: "Regulation & Safety"
-    score: 9.9
+    score: 9.7
     weight: 25
-    detail: FINMA Swiss banking license + FCA + MAS. Listed on SIX Swiss Exchange (SQN). Client funds protected by Swiss banking law. Highest safety tier.
+    detail: "Three Tier-1 licenses (FINMA, FCA, MAS) + 1 Tier-2 (DFSA). +0.2 for 1 extra Tier-1 beyond base two. FINMA Swiss banking license. SIX listed (SQN)."
   - name: Trading Costs
-    score: 7
+    score: 6.3
     weight: 20
-    detail: EUR/USD 1.3 pips standard. Premium from 0.6 pips. No commission on standard. Higher than competitors but includes Swiss banking protection.
+    detail: "EUR/USD avg 1.3 pips, no commission. Total cost $13.00/lot (1.3 x $10 + $0). Falls in $10-15 range = 6.3. Higher than competitors, Swiss banking overhead."
   - name: Trustpilot Score
-    score: 7.2
+    score: 6.4
     weight: 15
-    detail: "3.6/5 from 3,240+ reviews. Lower score reflects complex pricing and premium positioning. Some complaints about fees and platform complexity."
+    detail: "3.6/5 from 3,919 reviews. Scores 6.4 in 3.5-3.9 band (6.0-7.4). No volume modifier (3,919 reviews between 1K-10K). Reflects premium pricing expectations."
   - name: Expert Evaluation
-    score: 9
+    score: 9.0
     weight: 20
-    detail: Tested Advanced Trader and MT5. Access to 3M+ products including Swiss exchange. Banking integration is unique. Premium experience for investors.
+    detail: "Tested Advanced Trader and MT5. Access to 3M+ products including Swiss exchange. Banking integration is unique. Premium experience for investors. Not recalculated."
   - name: "Platform & Tools"
-    score: 8.5
+    score: 8.6
     weight: 10
-    detail: "Advanced Trader proprietary platform, MT4/MT5, and integrated banking. Robo-advisory through Invest Easy. Strong for multi-asset investing."
+    detail: "3 platforms (Advanced Trader, MT4, MT5) = 8.5 base. +0.1 mobile app. No TradingView or cTrader. Total 8.6."
   - name: Execution Quality
     score: 8.5
     weight: 10
-    detail: Market maker with DMA for stocks. Swiss execution infrastructure. Average fill 18ms. Reliable but not ultrafast ECN-grade execution.
+    detail: "Market Maker/DMA hybrid. Base 8.5, no modifier applied for hybrid type. Swiss execution infrastructure. Average fill 18ms."
 
 accounts:
   - name: Standard

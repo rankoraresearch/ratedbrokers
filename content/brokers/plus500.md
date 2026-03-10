@@ -6,10 +6,10 @@ last_verified: "2026-03-09"
 name: Plus500
 logo: P5
 url: "https://ratedbrokers.com/go/plus500"
-score: 8.3
-verdict: Good
-tp: 4
-tp_count: 15280
+score: 8.6
+verdict: Very Good
+tp: 4.2
+tp_count: 18445
 year: 2008
 hq: "Haifa, Israel"
 ceo: David Zruia
@@ -50,29 +50,29 @@ risk_warning: "82% of retail investor accounts lose money when trading CFDs with
 
 scores:
   - name: "Regulation & Safety"
-    score: 9.6
+    score: 10.0
     weight: 25
-    detail: Four Tier-1 licenses. Listed on LSE (PLUS). Publicly traded. Very strong safety. Regulated since 2008.
+    detail: "Four Tier-1 licenses: FCA + CySEC + ASIC + MAS (base 9.5 + 0.4 for 2 additional Tier-1). Listed on LSE (PLUS). Segregated funds (+0.1). Capped at 10.0. No regulatory incidents."
   - name: Trading Costs
-    score: 7.5
+    score: 8.9
     weight: 20
-    detail: EUR/USD avg 0.70 pips. No commission. Competitive for MM. Overnight fees and guaranteed stop fees can add up.
+    detail: "EUR/USD avg 0.70 pips. No commission. Total cost/lot: $7.00 (0.70 pips x $10). At $7 boundary of $7-10 range, interpolated to 8.9 (top of range). Overnight fees and guaranteed stop premiums apply separately."
   - name: Trustpilot Score
-    score: 8
+    score: 8.4
     weight: 15
-    detail: "4.0/5 from 15,280+ reviews. Mixed — praised for simplicity, criticized for limited features and overnight fees."
+    detail: "4.2/5 from 18,445 reviews. Base 8.2 (interpolated in 4.0-4.4 band). +0.2 bonus for >10,000 reviews. Final: 8.4."
   - name: Expert Evaluation
     score: 7.8
     weight: 20
-    detail: Tested live account. Simple platform suits beginners. Very limited charting and analysis tools. No MT4/MT5.
+    detail: "Tested live account. Simple platform suits beginners. Very limited charting and analysis tools. No MT4/MT5. Not recalculated — based on manual testing."
   - name: "Platform & Tools"
     score: 6.5
     weight: 10
-    detail: Proprietary WebTrader only. Clean and simple but minimal indicators (~15). No advanced order types or algo trading.
+    detail: "1 proprietary platform (Plus500 WebTrader/Mobile). Base 6.4 (top of 5.0-6.4 range). +0.1 mobile app. No MT4/MT5/cTrader/TradingView. Clean and simple but minimal indicators (~15). Final: 6.5."
   - name: Execution Quality
-    score: 8
+    score: 8.0
     weight: 10
-    detail: Market maker. Fast execution. Guaranteed stops available (with wider spreads). No dealing desk requotes.
+    detail: "Market maker. Fast execution. Guaranteed stops available (with wider spreads). No dealing desk requotes. Not recalculated — based on manual testing."
 
 accounts:
   - name: Standard

@@ -6,10 +6,10 @@ last_verified: "2026-03-09"
 name: IG
 logo: IG
 url: "https://ratedbrokers.com/go/ig"
-score: 9.5
+score: 9.3
 verdict: Excellent
-tp: 4.2
-tp_count: 18640
+tp: 3.9
+tp_count: 8902
 year: 1974
 hq: "London, United Kingdom"
 ceo: June Felix
@@ -52,29 +52,29 @@ risk_warning: "69% of retail investor accounts lose money when trading CFDs with
 
 scores:
   - name: "Regulation & Safety"
-    score: 9.9
+    score: 10.0
     weight: 25
-    detail: "Four Tier-1 licenses: FCA, ASIC, NFA, MAS. Publicly listed on LSE (IGG). 50 years of operation. The gold standard of broker regulation."
+    detail: "Four Tier-1 licenses: FCA, ASIC, NFA, MAS (base 9.5 + 0.4 for 2 additional Tier-1). Publicly listed on LSE (IGG). Segregated funds (+0.1). 50+ years of operation. Capped at 10.0."
   - name: Trading Costs
-    score: 8.8
+    score: 9.1
     weight: 20
-    detail: EUR/USD average 0.60 pips spread-only. No commission on standard. DMA account available with raw pricing. Competitive for market maker.
+    detail: "EUR/USD average 0.60 pips spread-only. No commission. Total cost/lot: $6.00 (<$7 range). Interpolated to 9.1. DMA account available with raw pricing."
   - name: Trustpilot Score
-    score: 8.4
+    score: 7.4
     weight: 15
-    detail: "4.2/5 from 18,640+ reviews. Lower than pure ECN brokers due to market maker model. Very high trust factor due to 50-year history."
+    detail: "3.9/5 from 8,902 reviews. Falls at the top of 3.5-3.9 band (6.0-7.4). No volume modifier (<10,000 reviews). Final: 7.4."
   - name: Expert Evaluation
     score: 9.6
     weight: 20
-    detail: Tested standard and DMA accounts. Proprietary platform is industry-best. 200+ trades. Excellent research. Premium analysis tools.
+    detail: "Tested standard and DMA accounts. Proprietary platform is industry-best. 200+ trades. Excellent research. Premium analysis tools. Not recalculated — based on manual testing."
   - name: "Platform & Tools"
-    score: 9.8
+    score: 9.6
     weight: 10
-    detail: IG Trading Platform is best-in-class. ProRealTime for advanced charting. L2 Dealer for DMA. MT4 also supported. Exceptional platform suite.
+    detail: "4 platforms: IG Trading Platform, MT4, ProRealTime, L2 Dealer (base 9.5). +0.1 mobile app. No TradingView or cTrader. Final: 9.6."
   - name: Execution Quality
     score: 9.4
     weight: 10
-    detail: "DMA available for pro traders. Market maker for retail. 99.9% fill rate. Average execution 14ms. Publicly reported execution statistics."
+    detail: "DMA available for pro traders. Market maker for retail. 99.9% fill rate. Average execution 14ms. Publicly reported execution statistics. Not recalculated — based on manual testing."
 
 accounts:
   - name: Standard

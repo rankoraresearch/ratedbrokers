@@ -6,10 +6,10 @@ last_verified: "2026-03-09"
 name: AvaTrade
 logo: AT
 url: "https://ratedbrokers.com/go/avatrade"
-score: 8.4
+score: 8.8
 verdict: Very Good
-tp: 4.4
-tp_count: 11240
+tp: 4.8
+tp_count: 12071
 year: 2006
 hq: "Dublin, Ireland"
 ceo: Dáire Ferguson
@@ -53,29 +53,29 @@ risk_warning: "71% of retail investor accounts lose money when trading CFDs with
 
 scores:
   - name: "Regulation & Safety"
-    score: 9.2
+    score: 9.8
     weight: 25
-    detail: CBI (Ireland) + ASIC + FSA Japan + 6 more jurisdictions. Regulated in 9 countries. 19 years of operation. One of the most widely regulated brokers.
+    detail: "CBI (Ireland) + ASIC + FSA Japan = 3x Tier-1 (base 9.5 + 0.2 for 3rd Tier-1). Segregated funds (+0.1). 9 jurisdictions total. 19 years of operation. No regulatory incidents. Final: 9.8."
   - name: Trading Costs
-    score: 7.5
+    score: 8.0
     weight: 20
-    detail: EUR/USD 0.9 pips spread-only. No commission. Competitive for MM but wider than ECN brokers. AvaProtect risk management tool adds unique value.
+    detail: "EUR/USD 0.9 pips spread-only. No commission. Total cost/lot: $9.00 (0.90 pips x $10). Falls in $7-10 range, interpolated to 8.0. AvaProtect risk management tool adds unique value."
   - name: Trustpilot Score
-    score: 8.8
+    score: 9.8
     weight: 15
-    detail: "4.4/5 from 11,240+ reviews — one of the highest in the industry. Exceptionally positive user sentiment across regions."
+    detail: "4.8/5 from 12,071 reviews. Base 9.6 (interpolated in 4.5+ band). +0.2 bonus for >10,000 reviews. Final: 9.8."
   - name: Expert Evaluation
     score: 8.2
     weight: 20
-    detail: "Tested AvaTradeGO, MT5, and AvaOptions. Good all-round offering. AvaOptions for vanilla options is unique. AvaSocial copy trading adequate."
+    detail: "Tested AvaTradeGO, MT5, and AvaOptions. Good all-round offering. AvaOptions for vanilla options is unique. AvaSocial copy trading adequate. Not recalculated — based on manual testing."
   - name: "Platform & Tools"
-    score: 8.3
+    score: 8.6
     weight: 10
-    detail: "Five platforms: AvaTradeGO, MT4, MT5, AvaOptions, AvaSocial. Unique options trading. Good platform variety for a market maker."
+    detail: "3 trading platforms: AvaTradeGO (proprietary), MT4, MT5 (base 8.5). AvaOptions and AvaSocial are specialized tools. +0.1 mobile app (AvaTradeGO is mobile-first). No TradingView or cTrader. Final: 8.6."
   - name: Execution Quality
-    score: 8
+    score: 8.0
     weight: 10
-    detail: Market maker execution. Average fill speed 20ms. Adequate for most trading styles. AvaProtect guarantees trade protection for a fee.
+    detail: "Market maker execution. Average fill speed 20ms. Adequate for most trading styles. AvaProtect guarantees trade protection for a fee. Not recalculated — based on manual testing."
 
 accounts:
   - name: Retail

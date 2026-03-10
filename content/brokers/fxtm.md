@@ -6,10 +6,10 @@ last_verified: "2026-03-09"
 name: FXTM
 logo: FM
 url: "https://ratedbrokers.com/go/fxtm"
-score: 8.5
+score: 8.1
 verdict: Very Good
-tp: 4.3
-tp_count: 5920
+tp: 2.5
+tp_count: 1070
 year: 2011
 hq: "Limassol, Cyprus"
 ceo: Andrey Dashin
@@ -47,29 +47,29 @@ risk_warning: "81% of retail investor accounts lose money when trading CFDs with
 
 scores:
   - name: "Regulation & Safety"
-    score: 8.5
+    score: 9.5
     weight: 25
-    detail: CySEC + FCA dual Tier-1. FSCA for Africa. Previously ForexTime. 14 years of operation. Strong in emerging markets.
+    detail: "Two Tier-1 licenses (CySEC, FCA) + 1 Tier-2 (FSCA). Base 9.5 for 2x Tier-1. 14 years of operation. Strong in emerging markets."
   - name: Trading Costs
-    score: 9
+    score: 9.4
     weight: 20
-    detail: "Advantage account: 0.0 pips + $2/lot ($4 round turn) — one of the lowest commissions in ECN. Excellent value."
+    detail: "EUR/USD avg 0.15 pips + $2/lot per side ($4 round turn). Total cost $5.50/lot (0.15 x $10 + $4). Falls in <$7 range = 9.4."
   - name: Trustpilot Score
-    score: 8.6
+    score: 3.3
     weight: 15
-    detail: "4.3/5 from 5,920+ reviews. Very strong sentiment. Praised for education, copy trading, and customer service."
+    detail: "2.5/5 from 1,070 reviews. Scores 3.3 in <3.0 band (0-3.9). No volume modifier. Frontmatter data indicates low Trustpilot score."
   - name: Expert Evaluation
     score: 8.4
     weight: 20
-    detail: Tested Advantage account and FXTM Invest. Low commission is genuine advantage. Copy trading well-implemented. Good educational content.
+    detail: "Tested Advantage account and FXTM Invest. Low commission is genuine advantage. Copy trading well-implemented. Good educational content. Not recalculated."
   - name: "Platform & Tools"
-    score: 8
+    score: 8.6
     weight: 10
-    detail: "MT4, MT5, and FXTM Trader (proprietary mobile). Standard MetaTrader offering. No cTrader or TradingView."
+    detail: "3 platforms (MT4, MT5, FXTM Trader) = 8.5 base. +0.1 mobile app. No cTrader or TradingView. Total 8.6."
   - name: Execution Quality
     score: 8.5
     weight: 10
-    detail: ECN execution on Advantage account. Average fill 12ms. Multiple liquidity providers. No dealing desk on ECN accounts.
+    detail: "ECN/Market Maker hybrid. Base 8.5, no modifier for hybrid type. Average fill 12ms. No dealing desk on ECN accounts."
 
 accounts:
   - name: Micro

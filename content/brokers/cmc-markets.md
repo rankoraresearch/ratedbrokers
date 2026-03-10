@@ -6,10 +6,10 @@ last_verified: "2026-03-09"
 name: CMC Markets
 logo: CM
 url: "https://ratedbrokers.com/go/cmc-markets"
-score: 9.3
+score: 9.1
 verdict: Excellent
-tp: 4.1
-tp_count: 7830
+tp: 4.3
+tp_count: 2949
 year: 1989
 hq: "London, United Kingdom"
 ceo: Lord Cruddas
@@ -50,29 +50,29 @@ risk_warning: "69% of retail investor accounts lose money when trading CFDs with
 
 scores:
   - name: "Regulation & Safety"
-    score: 9.7
+    score: 9.9
     weight: 25
-    detail: "Four Tier-1 licenses: FCA, ASIC, MAS, BaFin. Listed on LSE (CMCX). 36 years of operation. Banking-level corporate governance."
+    detail: "Four Tier-1 licenses (FCA, ASIC, MAS, BaFin). +0.4 for 2 extra Tier-1 beyond base two. Listed on LSE (CMCX). 36 years of operation."
   - name: Trading Costs
-    score: 8.5
+    score: 8.9
     weight: 20
-    detail: EUR/USD average 0.70 pips spread-only. No commission. Competitive for market maker. Alpha program offers cash rebates for active traders.
+    detail: "EUR/USD avg 0.70 pips, no commission. Total cost $7.00/lot (0.7 x $10 + $0). At $7 boundary of <$7 range = 8.9. Alpha program offers additional rebates."
   - name: Trustpilot Score
-    score: 8.2
+    score: 8.6
     weight: 15
-    detail: "4.1/5 from 7,830+ reviews. Good for market maker. Praised for platform quality. Some complaints about spread widening during volatility."
+    detail: "4.3/5 from 2,949 reviews. Scores 8.6 in 4.0-4.4 band (7.5-8.9). No volume modifier (2,949 reviews between 1K-10K). Praised for platform quality."
   - name: Expert Evaluation
     score: 9.5
     weight: 20
-    detail: "Tested Next Generation platform extensively. Best proprietary platform alongside IG. 12,000+ instruments. Advanced charting and client sentiment tools."
+    detail: "Tested Next Generation platform extensively. Best proprietary platform alongside IG. 12,000+ instruments. Advanced charting and client sentiment tools. Not recalculated."
   - name: "Platform & Tools"
-    score: 9.8
+    score: 7.6
     weight: 10
-    detail: "Next Generation is industry-leading: 115+ indicators, pattern recognition, Reuters news, client sentiment, linked charts. MT4 also available."
+    detail: "2 platforms (Next Generation, MT4) = 7.5 base. +0.1 mobile app. No TradingView or cTrader. Total 7.6."
   - name: Execution Quality
-    score: 9
+    score: 8.8
     weight: 10
-    detail: "Market maker execution. 99.9% fill rate. Average fill speed 12ms. Published execution statistics. Price improvement technology active."
+    detail: "Market maker execution. Base 9.0, -0.2 Market Maker modifier = 8.8. 99.9% fill rate. Average fill speed 12ms. Price improvement technology."
 
 accounts:
   - name: CFD Account

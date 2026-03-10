@@ -6,10 +6,10 @@ last_verified: "2026-03-09"
 name: ActivTrades
 logo: AT
 url: "https://ratedbrokers.com/go/activtrades"
-score: 8.3
+score: 8.8
 verdict: Very Good
-tp: 4.5
-tp_count: 2150
+tp: 3.9
+tp_count: 1250
 year: 2001
 hq: "London, United Kingdom"
 ceo: Alex Sheridan
@@ -52,29 +52,29 @@ risk_warning: "65% of retail investor accounts lose money when trading CFDs with
 
 scores:
   - name: "Regulation & Safety"
-    score: 8.6
+    score: 9.6
     weight: 25
-    detail: FCA and CSSF (Luxembourg) regulated — two EU Tier-1 licenses. Client funds protected up to £1M through free insurance (beyond FSCS £85K). 25+ years of operation.
+    detail: "2 Tier-1 (FCA + CSSF Luxembourg) + Tier-2 (CMVM Portugal) + Tier-3 (SCB Bahamas). Base 9.5 for 2+ Tier-1. +0.1 segregated funds with £1M insurance. 25+ years of clean operation."
   - name: Trading Costs
-    score: 8.8
+    score: 9.4
     weight: 20
-    detail: EUR/USD from 0.5 pips with no commission — competitive spread-only pricing. SmartOrder 2 technology for improved execution and minimal slippage.
+    detail: "EUR/USD avg 0.50 pips, no commission. Total cost $5.00/lot. Under $7 threshold — top tier pricing for spread-only model."
   - name: Trustpilot Score
-    score: 9
+    score: 7.2
     weight: 15
-    detail: "4.5/5 from 2,150+ reviews — very high rating reflecting strong customer satisfaction, particularly among European traders."
+    detail: "3.9/5 from 1,250 reviews. Falls in 3.5-3.9 range (base 7.2). Above 1,000 reviews — no volume penalty."
   - name: Expert Evaluation
-    score: 8
+    score: 8.0
     weight: 20
     detail: "Tested with 100+ trades on ActivTrader and MT5. Good execution, competitive pricing. ActivTrader platform is underrated. Limited instrument range."
   - name: "Platform & Tools"
-    score: 8.4
+    score: 9.8
     weight: 10
-    detail: "ActivTrader proprietary platform is intuitive with SmartTools. MT4, MT5, and TradingView also supported. Good platform variety."
+    detail: "4 platforms: ActivTrader, MT4, MT5, TradingView. Base 9.5 for 4+ platforms, +0.3 TradingView integration."
   - name: Execution Quality
-    score: 8.2
+    score: 8.3
     weight: 10
-    detail: SmartOrder 2 technology provides partial fills and improved execution. STP execution for most trades. Average execution speed 30ms.
+    detail: "SmartOrder 2 technology provides partial fills and improved execution. Mixed STP/Market Maker type (+0.3 STP, -0.2 MM = +0.1 net). Base 8.2 + 0.1."
 
 accounts:
   - name: Individual

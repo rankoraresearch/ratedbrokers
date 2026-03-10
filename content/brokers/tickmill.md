@@ -6,10 +6,10 @@ last_verified: "2026-03-09"
 name: Tickmill
 logo: TK
 url: "https://ratedbrokers.com/go/tickmill"
-score: 8.7
+score: 8.6
 verdict: Very Good
-tp: 4.6
-tp_count: 8420
+tp: 3.4
+tp_count: 1079
 year: 2014
 hq: "London, United Kingdom"
 ceo: Illimar Mattus
@@ -46,29 +46,29 @@ risk_warning: "73% of retail investor accounts lose money when trading CFDs with
 
 scores:
   - name: "Regulation & Safety"
-    score: 9.3
-    weight: 25
-    detail: FCA + CySEC dual Tier-1. London headquarters. Client funds at Barclays. Strong regulatory standing with clean history.
-  - name: Trading Costs
     score: 9.5
+    weight: 25
+    detail: "Two Tier-1 licenses (FCA, CySEC) + 1 Tier-3 (FSA Seychelles). Base 9.5 for 2x Tier-1. London headquarters. Client funds at Barclays."
+  - name: Trading Costs
+    score: 9.7
     weight: 20
-    detail: $2/lot/side commission on Pro account — the lowest among major ECN brokers. EUR/USD avg 0.08 pips. Total cost $4.80/lot.
+    detail: "EUR/USD avg 0.08 pips + $2/lot per side ($4 round turn). Total cost $4.80/lot (0.08 x $10 + $4). Falls in <$7 range = 9.7. Lowest ECN commission."
   - name: Trustpilot Score
-    score: 9.2
+    score: 5.9
     weight: 15
-    detail: "4.6/5 from 8,420+ reviews. Strong ratings for low costs and fast execution. Smaller review count reflects niche positioning."
+    detail: "3.4/5 from 1,079 reviews. Scores 5.9 at top of 3.0-3.4 band (4.0-5.9). No volume modifier (1,079 reviews just above 1K threshold)."
   - name: Expert Evaluation
     score: 8.5
     weight: 20
-    detail: Tested Pro and Classic accounts. 120+ trades. Execution quality excellent. Limited instruments compared to larger ECN brokers.
+    detail: "Tested Pro and Classic accounts. 120+ trades. Execution quality excellent. Limited instruments compared to larger ECN brokers. Not recalculated."
   - name: "Platform & Tools"
-    score: 7.8
+    score: 7.6
     weight: 10
-    detail: MT4 and MT5 only. No cTrader or TradingView. Free Autochartist and Myfxbook integration. VPS available for active traders.
+    detail: "2 platforms (MT4, MT5) = 7.5 base. +0.1 mobile app. No cTrader or TradingView. Free Autochartist. Total 7.6."
   - name: Execution Quality
-    score: 9
+    score: 9.3
     weight: 10
-    detail: "True ECN/STP execution. Average fill 30ms. No dealing desk. Less than 0.05% requote rate. Excellent for scalping."
+    detail: "True ECN/STP execution. Base 9.0, +0.3 ECN/STP modifier = 9.3. Average fill 30ms. No dealing desk. Excellent for scalping."
 
 accounts:
   - name: Classic

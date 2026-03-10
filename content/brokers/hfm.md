@@ -6,10 +6,10 @@ last_verified: "2026-03-09"
 name: HFM
 logo: HF
 url: "https://ratedbrokers.com/go/hfm"
-score: 8.3
-verdict: Good
-tp: 4.2
-tp_count: 7560
+score: 8.8
+verdict: Very Good
+tp: 4.5
+tp_count: 3032
 year: 2010
 hq: "Limassol, Cyprus"
 ceo: George Koumantaris
@@ -51,29 +51,29 @@ risk_warning: "70.51% of retail investor accounts lose money when trading CFDs w
 
 scores:
   - name: "Regulation & Safety"
-    score: 8
+    score: 9.6
     weight: 25
-    detail: CySEC + FCA dual Tier-1. DFSA and FSCA for regional coverage. Previously HotForex. 14 years of operation.
+    detail: "CySEC + FCA dual Tier-1 (base 9.5) + segregated funds (+0.1). DFSA and FSCA for regional coverage. Previously HotForex. 14 years of operation."
   - name: Trading Costs
-    score: 8.5
+    score: 8.9
     weight: 20
-    detail: Zero account EUR/USD 0.0 pips + $3/lot. Pro account from 0.5 pips no commission. Competitive pricing across tiers.
+    detail: "Zero account: avg spread 0.10 pips + $3/lot ($6 RT). Total cost $7.00/lot — top of $7–10 range (base 8.9). Pro from 0.5 pips no commission."
   - name: Trustpilot Score
-    score: 8.4
+    score: 9.0
     weight: 15
-    detail: "4.2/5 from 7,560+ reviews. Strong user satisfaction. Praised for copy trading and platform. Some complaints about withdrawals."
+    detail: "4.5/5 from 3,032 reviews. Excellent rating at 4.5+ threshold (base 9.0). No volume modifier (between 1K and 10K reviews)."
   - name: Expert Evaluation
     score: 8.2
     weight: 20
     detail: "Tested HFM copy trading, Zero account, and MT5. Good all-round offering. 1:2000 leverage is extremely high. Copy trading well-implemented."
   - name: "Platform & Tools"
-    score: 8
+    score: 8.6
     weight: 10
-    detail: "HFM proprietary platform, MT4, MT5. Copy trading is standout feature. Autochartist and VPS hosting included. Adequate but not premium."
+    detail: "3 platforms (HFM Platform, MT4, MT5). Base 8.5 + 0.1 mobile app bonus. No TradingView or cTrader. Copy trading and Autochartist included."
   - name: Execution Quality
-    score: 8.2
+    score: 8.0
     weight: 10
-    detail: STP execution on Zero/Pro accounts. Average fill 15ms. Multiple liquidity providers. No dealing desk on core accounts.
+    detail: "STP/MM execution on Zero/Pro. Base 8.2 − 0.2 MM penalty. Average fill 15ms. Multiple liquidity providers. No dealing desk on core accounts."
 
 accounts:
   - name: Premium

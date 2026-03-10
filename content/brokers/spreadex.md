@@ -6,10 +6,10 @@ last_verified: "2026-03-09"
 name: Spreadex
 logo: SX
 url: "https://ratedbrokers.com/go/spreadex"
-score: 8.5
+score: 8.1
 verdict: Very Good
-tp: 4.2
-tp_count: 180
+tp: 4.5
+tp_count: 184
 year: 1999
 hq: "St Albans, United Kingdom"
 ceo: David Mackenzie
@@ -38,29 +38,29 @@ risk_warning: "80% of retail investor accounts lose money when trading spread be
 
 scores:
   - name: "Regulation & Safety"
-    score: 8.8
+    score: 8.1
     weight: 25
-    detail: "FCA-regulated (190941) since 1999. FSCS £85,000 protection. Client funds segregated at Barclays/Lloyds. UK-only broker — no offshore entities."
+    detail: "1 Tier-1 (FCA) since 1999. Base 8.0 for single Tier-1 (FCA). +0.1 segregated funds (Barclays/Lloyds). FSCS £85K. UK-only — no offshore entities."
   - name: Trading Costs
-    score: 8.2
+    score: 7.6
     weight: 20
-    detail: "EUR/USD from 0.6 pips, spread-only pricing with zero commission. Tax-free spread betting makes effective costs lower than CFD alternatives for UK traders."
+    detail: "EUR/USD avg 0.90 pips, no commission. Total cost $9.00/lot. Falls in $7-10 range. Tax-free spread betting provides additional UK cost advantage."
   - name: Trustpilot Score
-    score: 8.4
+    score: 8.7
     weight: 15
-    detail: "4.2/5 from 180 financial trading reviews on Trustpilot. Small sample size but consistently positive sentiment around simplicity and customer service."
+    detail: "4.5/5 from 184 reviews. Exceeds 4.5 threshold (base 9.0). -0.3 penalty for under 1,000 reviews. Very small sample limits statistical significance."
   - name: Expert Evaluation
     score: 8.5
     weight: 20
     detail: Tested with real GBP account. Clean spread betting interface. Unique financial + sports betting combo. Good for UK-focused traders who want simplicity.
   - name: "Platform & Tools"
-    score: 8
+    score: 7.8
     weight: 10
-    detail: Proprietary web platform with TradingView integration. 100+ indicators via TradingView. No MT4/MT5 or cTrader. Adequate but not industry-leading.
+    detail: "2 platforms: Spreadex Platform, TradingView. Base 7.5 for 2 platforms, +0.3 TradingView integration. No MT4/MT5 or cTrader."
   - name: Execution Quality
-    score: 8.3
+    score: 8.1
     weight: 10
-    detail: Market maker execution. Adequate for spread betting. No DMA option. Execution quality sufficient for non-HFT traders.
+    detail: "Market maker execution. Adequate for spread betting. Base 8.3 - 0.2 Market Maker penalty. No DMA option."
 
 accounts:
   - name: Spread Betting

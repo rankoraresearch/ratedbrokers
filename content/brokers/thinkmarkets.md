@@ -7,9 +7,9 @@ name: ThinkMarkets
 logo: TM
 url: "https://ratedbrokers.com/go/thinkmarkets"
 score: 8.3
-verdict: Good
-tp: 4.1
-tp_count: 3870
+verdict: Very Good
+tp: 3.5
+tp_count: 524
 year: 2010
 hq: "Melbourne, Australia"
 ceo: Nauman Anees
@@ -51,29 +51,29 @@ risk_warning: "71.89% of retail investor accounts lose money when trading CFDs w
 
 scores:
   - name: "Regulation & Safety"
-    score: 8.5
+    score: 9.6
     weight: 25
-    detail: ASIC + FCA dual Tier-1. FSCA and FSA for regional coverage. 15 years of operation. Melbourne and London offices.
+    detail: "ASIC + FCA dual Tier-1 (base 9.5) + segregated funds (+0.1). FSCA and FSA for regional coverage. 15 years of operation."
   - name: Trading Costs
-    score: 8.5
-    weight: 20
-    detail: ThinkZero account from 0.0 pips + $3.50/lot. Standard from 0.4 pips no commission. Competitive ECN-tier pricing.
-  - name: Trustpilot Score
     score: 8.2
+    weight: 20
+    detail: "ThinkZero: avg spread 0.12 pips + $3.50/lot ($7 RT). Total cost $8.20/lot — mid $7–10 range (base 8.2). Standard: 0.4 pips no commission."
+  - name: Trustpilot Score
+    score: 5.7
     weight: 15
-    detail: "4.1/5 from 3,870+ reviews. Good for the tier. Praised for ThinkTrader platform. Some complaints about offshore entity."
+    detail: "3.5/5 from 524 reviews. Rating in the 3.5–3.9 range (base 6.0). Under 1,000 reviews penalty (−0.3). Final: 5.7."
   - name: Expert Evaluation
     score: 8.3
     weight: 20
     detail: Tested ThinkTrader extensively. Impressive proprietary platform with 80+ indicators and unique features. Good execution quality.
   - name: "Platform & Tools"
-    score: 9
+    score: 8.6
     weight: 10
-    detail: "ThinkTrader is excellent with 80+ indicators, multi-device sync, and unique signal hub. MT4/MT5 also available. Strong platform offering."
+    detail: "3 platforms (ThinkTrader, MT4, MT5). Base 8.5 + 0.1 mobile app bonus (ThinkTrader multi-device sync). No cTrader or TradingView."
   - name: Execution Quality
-    score: 8.5
+    score: 8.8
     weight: 10
-    detail: ECN/STP execution on ThinkZero. Multiple liquidity providers. Average fill 12ms. No dealing desk on ECN accounts.
+    detail: "ECN/STP execution on ThinkZero. Base 8.5 + 0.3 ECN bonus. Multiple LPs. Average fill 12ms. No dealing desk on ECN accounts."
 
 accounts:
   - name: Standard

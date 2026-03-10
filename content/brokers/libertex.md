@@ -6,7 +6,7 @@ last_verified: "2026-03-09"
 name: Libertex
 logo: LX
 url: "https://ratedbrokers.com/go/libertex"
-score: 7.8
+score: 7.9
 verdict: Good
 tp: 3.9
 tp_count: 9430
@@ -39,29 +39,29 @@ risk_warning: "73.77% of retail investor accounts lose money when trading CFDs w
 
 scores:
   - name: "Regulation & Safety"
-    score: 7.5
+    score: 7.6
     weight: 25
-    detail: "CySEC single Tier-1 license only. Part of Forex Club Group operating since 1997. ICF protection up to €20,000. Less regulation than multi-licensed peers."
+    detail: "1 Tier-1 (CySEC) only. Base 7.5 for single Tier-1. +0.1 for ICF protection (segregated funds). Part of Forex Club Group since 1997. Less regulation than multi-licensed peers."
   - name: Trading Costs
-    score: 8
+    score: 9.2
     weight: 20
-    detail: "Zero spreads on Libertex platform — all costs in commission (0.03%-0.5% per trade). MT4/MT5 use traditional spread model. Unique cost structure."
+    detail: "Zero spreads on Libertex platform. EUR/USD commission 0.03% = ~$3/lot one-way, ~$6 RT. Total cost ~$6.00/lot. Under $7 threshold — top tier."
   - name: Trustpilot Score
-    score: 7.8
+    score: 7.2
     weight: 15
-    detail: "3.9/5 from 9,430+ reviews. Decent. Praised for simplicity and zero-spread model. Criticized for commission rates on some instruments."
+    detail: "3.9/5 from 9,430 reviews. Falls in 3.5-3.9 range (base 7.2). Above 1,000 reviews — no volume penalty. Praised for zero-spread model simplicity."
   - name: Expert Evaluation
     score: 7.5
     weight: 20
     detail: "Tested Libertex platform and MT5. Zero-spread model is unique. Platform is simple but limited. Good for casual traders, not professionals."
   - name: "Platform & Tools"
-    score: 7
+    score: 8.5
     weight: 10
-    detail: Libertex proprietary platform is simple. MT4/MT5 available. Limited charting on proprietary platform. Basic but functional.
+    detail: "3 platforms: Libertex Platform, MT4, MT5. Base 8.5 for 3 platforms. No TradingView or cTrader. Limited charting on proprietary platform."
   - name: Execution Quality
-    score: 7.5
+    score: 7.3
     weight: 10
-    detail: Market maker execution. Adequate fill speed. Zero-spread model means execution price equals market price. No slippage on commission-based trades.
+    detail: "Market maker execution. Base 7.5 - 0.2 Market Maker penalty. Zero-spread model means execution price equals market price."
 
 accounts:
   - name: Standard

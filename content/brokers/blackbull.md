@@ -6,10 +6,10 @@ last_verified: "2026-03-09"
 name: BlackBull Markets
 logo: BB
 url: "https://ratedbrokers.com/go/blackbull"
-score: 8.4
+score: 8.5
 verdict: Very Good
-tp: 4.5
-tp_count: 2680
+tp: 4.8
+tp_count: 3192
 year: 2014
 hq: "Auckland, New Zealand"
 ceo: Mark Sachs
@@ -45,29 +45,29 @@ risk_warning: CFDs are complex instruments and come with a high risk of losing m
 
 scores:
   - name: "Regulation & Safety"
-    score: 7.5
+    score: 6.6
     weight: 25
-    detail: "FMA New Zealand (Tier-2) as primary regulator. FSA Seychelles for international. No Tier-1 EU/UK/AU license. 11 years operating, NZ-based."
+    detail: "FMA New Zealand (Tier-2) as primary regulator (base 6.5). FSA Seychelles (Tier-3) for international. +0.1 voluntary segregated funds. No Tier-1 license."
   - name: Trading Costs
-    score: 8.6
+    score: 8.9
     weight: 20
-    detail: "ECN Prime: 0.0 pips + $6/lot. Institutional: 0.0 pips + $4/lot ($20K min). Standard: 0.8 pips, no commission. Competitive ECN pricing."
+    detail: "ECN Prime: avg spread 0.10 pips + $6/lot RT. Total cost $7.00/lot — top of $7–10 range (base 8.9). Institutional: $4/lot RT ($20K min). Standard: 0.8 pips."
   - name: Trustpilot Score
-    score: 9
+    score: 9.6
     weight: 15
-    detail: "4.5/5 from 2,680+ reviews. Excellent sentiment. Praised for execution speed, platform variety, and customer support quality."
+    detail: "4.8/5 from 3,192 reviews. Outstanding rating at 4.5+ threshold (base 9.6). No volume modifier (between 1K and 10K reviews)."
   - name: Expert Evaluation
     score: 8.5
     weight: 20
     detail: "Tested ECN Prime account and cTrader. True ECN execution with good liquidity. 26,000+ instruments is exceptional. TradingView integration is seamless."
   - name: "Platform & Tools"
-    score: 9
+    score: 10.0
     weight: 10
-    detail: "MT4, MT5, cTrader, TradingView, and BlackBull Trade (proprietary). Five platform choices — one of the broadest selections available."
+    detail: "5 platforms (MT4, MT5, cTrader, TradingView, BlackBull Trade). Base 9.5 for 4+ platforms + 0.3 TradingView + 0.2 cTrader. Capped at 10.0."
   - name: Execution Quality
-    score: 8.8
+    score: 9.1
     weight: 10
-    detail: True ECN/NDD execution. Average fill speed under 20ms. Multiple Tier-1 liquidity providers. Equinix NY4 and LD4 servers. Minimal slippage.
+    detail: "True ECN/NDD execution. Base 8.8 + 0.3 ECN bonus. Average fill under 20ms. Equinix NY4 and LD4 servers. Minimal slippage."
 
 accounts:
   - name: Standard

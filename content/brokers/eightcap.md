@@ -6,10 +6,10 @@ last_verified: "2026-03-09"
 name: Eightcap
 logo: "8C"
 url: "https://ratedbrokers.com/go/eightcap"
-score: 8.6
+score: 8.8
 verdict: Very Good
-tp: 4.2
-tp_count: 2840
+tp: 4.1
+tp_count: 3559
 year: 2009
 hq: "Melbourne, Australia"
 ceo: Joel Murphy
@@ -51,29 +51,29 @@ risk_warning: "76.09% of retail investor accounts lose money when trading CFDs w
 
 scores:
   - name: "Regulation & Safety"
-    score: 8.8
+    score: 9.8
     weight: 25
-    detail: "Three Tier-1 licenses: ASIC, FCA, CySEC. Well-regulated for an ECN broker. No public listing but clean regulatory history since 2009."
+    detail: "Three Tier-1 licenses (ASIC, FCA, CySEC) + segregated funds. Clean regulatory history since 2009. +0.2 for 3rd Tier-1, +0.1 segregated funds."
   - name: Trading Costs
-    score: 9.2
+    score: 8.7
     weight: 20
-    detail: "Raw account: EUR/USD from 0.0 pips + $3.50/lot per side. Total cost ~$7.60/lot — very competitive. Standard account: 1.0 pips, no commission."
+    detail: "Raw account: avg spread 0.06 pips + $3.50/lot per side ($7 RT). Total cost ~$7.60/lot — competitive but above $7 threshold. Standard: 1.0 pips, no commission."
   - name: Trustpilot Score
-    score: 8.4
+    score: 7.8
     weight: 15
-    detail: "4.2/5 from 2,840+ reviews. Positive ratings for execution speed and pricing. Growing reputation in the ECN broker space."
+    detail: "4.1/5 from 3,559 reviews. Solid rating in the 4.0–4.4 range (base 7.8). No volume modifier (between 1K and 10K reviews)."
   - name: Expert Evaluation
     score: 8.4
     weight: 20
     detail: "Tested Raw account with 120+ trades. Good execution, competitive pricing. TradingView integration is a standout. Limited research content."
   - name: "Platform & Tools"
-    score: 8.6
-    weight: 10
-    detail: "MT4, MT5, and TradingView support — one of the few brokers offering all three. Capitalise.ai for code-free automated trading. Good platform suite."
-  - name: Execution Quality
     score: 8.8
     weight: 10
-    detail: ECN execution with raw spreads from 0.0 pips. Average execution speed 30ms. Multiple liquidity providers. Suitable for scalpers and algo traders.
+    detail: "3 platforms (MT4, MT5, TradingView). Base 8.5 for 3 platforms + 0.3 TradingView bonus. No cTrader. Capitalise.ai for code-free automated trading."
+  - name: Execution Quality
+    score: 9.1
+    weight: 10
+    detail: "ECN execution with raw spreads from 0.0 pips. Average speed 30ms. Multiple LPs. Base 8.8 + 0.3 ECN bonus. Suitable for scalpers and algo traders."
 
 accounts:
   - name: Standard

@@ -6,10 +6,10 @@ last_verified: "2026-03-09"
 name: NAGA
 logo: NG
 url: "https://ratedbrokers.com/go/naga"
-score: 7.5
+score: 7.7
 verdict: Good
-tp: 4.4
-tp_count: 3250
+tp: 4.1
+tp_count: 4279
 year: 2015
 hq: "Hamburg, Germany"
 ceo: Benjamin Bilski
@@ -48,29 +48,29 @@ risk_warning: "86.44% of retail investor accounts lose money when trading CFDs w
 
 scores:
   - name: "Regulation & Safety"
-    score: 8.2
+    score: 9.6
     weight: 25
-    detail: CySEC + BaFin dual Tier-1 regulation. German-headquartered and publicly listed (NAGA Group AG). Transparent corporate structure.
+    detail: "CySEC + BaFin dual Tier-1 (base 9.5) + segregated funds/public listing (+0.1). Frankfurt Stock Exchange listed. Transparent governance."
   - name: Trading Costs
-    score: 6.5
+    score: 5.5
     weight: 20
-    detail: Commission-free but spreads are wider — EUR/USD 1.5 pips average. Spread markup is the primary revenue model. Not competitive for active ECN traders.
+    detail: "Iron: EUR/USD avg 1.5 pips, no commission. Total cost $15.00/lot — at $10–15 boundary (base 5.5). Diamond ($15K): 0.7 pips = $7.00/lot."
   - name: Trustpilot Score
-    score: 8.8
+    score: 7.8
     weight: 15
-    detail: "4.4/5 from 3,250+ reviews. Strong for social trading platform. Praised for copy trading, mobile app, and community features."
+    detail: "4.1/5 from 4,279 reviews. Solid rating in the 4.0–4.4 range (base 7.8). No volume modifier (between 1K and 10K reviews)."
   - name: Expert Evaluation
     score: 7.2
     weight: 20
     detail: "Tested social trading and auto-copy features. Copy trading well-implemented. Platform modern. Spreads noticeably wider than ECN competitors. Best for social/copy traders, not cost-focused traders."
   - name: "Platform & Tools"
-    score: 7.5
+    score: 8.6
     weight: 10
-    detail: NAGA proprietary platform (web + app) with social feed. MT4/MT5 also available. Social features are the standout — traditional trading tools are adequate.
+    detail: "3 platforms (NAGA Web/App, MT4, MT5). Base 8.5 for 3 platforms + 0.1 mobile app bonus. No TradingView or cTrader. Social features are the standout."
   - name: Execution Quality
-    score: 7
+    score: 6.8
     weight: 10
-    detail: Market maker execution. No ECN option. Spreads widen during volatility. Adequate for social/copy trading use case. Not suitable for scalping.
+    detail: "Market maker execution. Base 7.0 − 0.2 MM penalty. No ECN option. Spreads widen during volatility. Adequate for social/copy trading. Not for scalping."
 
 accounts:
   - name: Iron

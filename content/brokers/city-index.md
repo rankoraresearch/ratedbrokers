@@ -52,29 +52,29 @@ risk_warning: "69% of retail investor accounts lose money when trading CFDs with
 
 scores:
   - name: "Regulation & Safety"
-    score: 9.2
+    score: 9.8
     weight: 25
-    detail: "FCA + ASIC + CySEC + MAS — four licences including three Tier-1. Part of NASDAQ-listed StoneX Group (SNEX, $2B+ revenue). FSCS £85K protection for UK clients."
+    detail: "3 Tier-1 (FCA + ASIC + CySEC) + Tier-2 (MAS). Base 9.5 for 2+ Tier-1, +0.2 for 3rd Tier-1 (CySEC), +0.1 segregated funds. NASDAQ-listed StoneX parent. FSCS £85K."
   - name: Trading Costs
-    score: 8.5
+    score: 7.6
     weight: 20
-    detail: EUR/USD from 0.5 pips with zero commission on forex. Spread betting is tax-free. Inactivity fee of £12/month after 12 months is a drawback. Competitive for a market maker.
+    detail: "EUR/USD avg 0.90 pips, no commission. Total cost $9.00/lot. Falls in $7-10 range. Tax-free spread betting for UK clients. £12/month inactivity fee after 12 months."
   - name: Trustpilot Score
-    score: 8.4
+    score: 7.8
     weight: 15
-    detail: "4.2/5 from 391 verified reviews. Moderate sample size. Positive sentiment around platform quality and speed. Some complaints about withdrawal times."
+    detail: "4.2/5 from 391 reviews. Falls in 4.0-4.4 range (base 8.1). -0.3 penalty for under 1,000 reviews. Moderate sample, positive sentiment."
   - name: Expert Evaluation
     score: 8.8
     weight: 20
     detail: Tested with real GBP spread betting account. TradingView integration is excellent. 80+ forex pairs. Strong research via Trading Central. Solid UK-focused offering.
   - name: "Platform & Tools"
-    score: 8.8
+    score: 9.9
     weight: 10
-    detail: Proprietary Web Trader + MT4 + TradingView integration. Award-winning mobile app (Best Trading App 2024). Trading Central research tools built-in.
+    detail: "4 platforms: City Index Web Trader, MT4, TradingView, City Index Mobile. Base 9.5 for 4+ platforms, +0.3 TradingView, +0.1 mobile app in platforms list."
   - name: Execution Quality
-    score: 8.5
+    score: 8.3
     weight: 10
-    detail: Market maker execution with competitive fills. No DMA for retail. Adequate for spread betting and casual CFD trading. Not optimised for HFT or scalping.
+    detail: "Market maker execution with competitive fills. Base 8.5 - 0.2 Market Maker penalty. Adequate for spread betting and casual CFD trading."
 
 accounts:
   - name: Spread Betting

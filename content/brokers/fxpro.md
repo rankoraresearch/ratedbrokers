@@ -8,8 +8,8 @@ logo: FP
 url: "https://ratedbrokers.com/go/fxpro"
 score: 8.4
 verdict: Very Good
-tp: 4
-tp_count: 8920
+tp: 3.1
+tp_count: 759
 year: 2006
 hq: "Limassol, Cyprus"
 ceo: Charalambos Psimolophitis
@@ -52,29 +52,29 @@ risk_warning: "73.12% of retail investor accounts lose money when trading CFDs w
 
 scores:
   - name: "Regulation & Safety"
-    score: 8.8
+    score: 9.6
     weight: 25
-    detail: FCA + CySEC dual Tier-1. 18 years of operation. Multiple award winner. Strong but international clients may get FSCA/SCB entities.
+    detail: "FCA + CySEC dual Tier-1 (base 9.5) + segregated funds (+0.1). 18 years of operation. International clients may get FSCA/SCB entities."
   - name: Trading Costs
-    score: 8.2
+    score: 9.4
     weight: 20
-    detail: EUR/USD 0.60 pips on standard. cTrader raw spread from 0.0 + $4.50/lot commission. Competitive but not the tightest ECN pricing.
+    detail: "Standard: EUR/USD avg 0.60 pips, no commission. Total cost $6.00/lot — under $7 threshold (base 9.4). cTrader raw spread + $4.50/100K also competitive."
   - name: Trustpilot Score
-    score: 8
+    score: 4.1
     weight: 15
-    detail: "4.0/5 from 8,920+ reviews. Good for the industry. Praised for platform variety and execution. Some complaints about withdrawal times."
+    detail: "3.1/5 from 759 reviews. Low rating in the 3.0–3.4 range (base 4.4). Under 1,000 reviews penalty (−0.3). Final: 4.1."
   - name: Expert Evaluation
     score: 8.5
     weight: 20
     detail: Tested all 4 platforms. cTrader implementation is excellent. FxPro Edge is a solid proprietary option. Good all-round broker.
   - name: "Platform & Tools"
-    score: 9.2
+    score: 9.7
     weight: 10
-    detail: "Four platforms: FxPro Edge, MT4, MT5, and cTrader. Excellent cTrader implementation. Trading Central and AutoChartist included."
+    detail: "4 platforms (FxPro Edge, MT4, MT5, cTrader). Base 9.5 for 4+ platforms + 0.2 cTrader bonus. No TradingView. Trading Central and AutoChartist included."
   - name: Execution Quality
-    score: 8.6
+    score: 8.4
     weight: 10
-    detail: NDD execution on cTrader. Market maker on MT4/MT5. Mixed model. Average fill 14ms. No dealing desk requotes on NDD accounts.
+    detail: "NDD on cTrader, Market Maker on MT4/MT5. Mixed model. Base 8.6 − 0.2 MM penalty. Average fill 14ms. No dealing desk requotes on NDD accounts."
 
 accounts:
   - name: Standard

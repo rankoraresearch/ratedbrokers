@@ -6,10 +6,10 @@ last_verified: "2026-03-09"
 name: Admirals
 logo: AD
 url: "https://ratedbrokers.com/go/admirals"
-score: 8.5
+score: 8.9
 verdict: Very Good
-tp: 4.3
-tp_count: 6780
+tp: 4.2
+tp_count: 2153
 year: 2001
 hq: "Tallinn, Estonia"
 ceo: Sergei Bogatenkov
@@ -51,17 +51,17 @@ risk_warning: "76% of retail investor accounts lose money when trading CFDs with
 
 scores:
   - name: "Regulation & Safety"
-    score: 9
+    score: 9.8
     weight: 25
-    detail: FCA + CySEC + ASIC triple Tier-1. 24 years of operation. Previously Admiral Markets. Strong multi-jurisdictional regulation.
+    detail: "FCA + CySEC + ASIC triple Tier-1 (base 9.5 + 0.2 for 3rd Tier-1 + 0.1 segregated funds). 24 years of operation. Previously Admiral Markets."
   - name: Trading Costs
-    score: 8.3
+    score: 9.4
     weight: 20
-    detail: EUR/USD from 0.5 pips on Zero account or 0.8 pips standard. Commission $3/lot on Zero. Competitive for the tier.
+    detail: "Trade.MT5: avg spread 0.60 pips, no commission. Total cost $6.00/lot — under $7 threshold (base 9.4). Zero.MT5: 0.0 pips + $3/lot ($6 RT)."
   - name: Trustpilot Score
-    score: 8.6
+    score: 8.0
     weight: 15
-    detail: "4.3/5 from 6,780+ reviews — one of the highest Trustpilot scores among brokers. Very positive sentiment."
+    detail: "4.2/5 from 2,153 reviews. Solid rating in the 4.0–4.4 range (base 8.0). No volume modifier (between 1K and 10K reviews)."
   - name: Expert Evaluation
     score: 8.4
     weight: 20
@@ -69,11 +69,11 @@ scores:
   - name: "Platform & Tools"
     score: 8.5
     weight: 10
-    detail: MT4/MT5 Supreme Edition with enhanced indicators and tools. Premium Analytics (Trading Central + Dow Jones News). SteamTrader for web.
+    detail: "3 platforms (MT4, MT5, SteamTrader). Base 8.5 for 3 platforms. No TradingView or cTrader. Supreme Edition with enhanced tools."
   - name: Execution Quality
-    score: 8.2
+    score: 8.0
     weight: 10
-    detail: STP/MM hybrid execution. Average fill 25ms. Adequate for most styles. Not ultra-low-latency like IC Markets but reliable.
+    detail: "STP/MM hybrid execution. Base 8.2 − 0.2 MM penalty. Average fill 25ms. Adequate for most styles. Not ultra-low-latency but reliable."
 
 accounts:
   - name: Trade.MT5

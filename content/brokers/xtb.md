@@ -6,10 +6,10 @@ last_verified: "2026-03-09"
 name: XTB
 logo: XT
 url: "https://ratedbrokers.com/go/xtb"
-score: 8.9
+score: 8.6
 verdict: Very Good
-tp: 3.8
-tp_count: 5640
+tp: 3.5
+tp_count: 2314
 year: 2002
 hq: "Warsaw, Poland"
 ceo: Omar Arnaout
@@ -50,29 +50,29 @@ risk_warning: "76% of retail investor accounts lose money when trading CFDs with
 
 scores:
   - name: "Regulation & Safety"
-    score: 9.5
+    score: 9.7
     weight: 25
-    detail: "FCA + KNF + CySEC triple Tier-1. Listed on Warsaw Stock Exchange (WSE: XTB). 22 years of operation. Polish banking-level oversight."
+    detail: "Three Tier-1 licenses (FCA, KNF, CySEC) + 1 Tier-2 (DFSA). +0.2 for 1 extra Tier-1 beyond base two. Listed on WSE (XTB). 22 years of operation."
   - name: Trading Costs
-    score: 9
-    weight: 20
-    detail: EUR/USD from 0.5 pips. No commission on CFDs. Zero-commission real stock trading up to €100K/month. Very competitive overall.
-  - name: Trustpilot Score
-    score: 7.6
-    weight: 15
-    detail: "3.8/5 from 5,640+ reviews. Mixed — praised for platform, criticized for limited instruments compared to IG and some withdrawal delays."
-  - name: Expert Evaluation
-    score: 9
-    weight: 20
-    detail: Tested xStation 5 extensively. Excellent proprietary platform with advanced analytics. Stock scanner and heatmap are standout features.
-  - name: "Platform & Tools"
     score: 9.5
+    weight: 20
+    detail: "EUR/USD avg 0.5 pips, no commission. Total cost $5.00/lot (0.5 x $10 + $0). Falls in <$7 range = 9.5. Very competitive spread-only pricing."
+  - name: Trustpilot Score
+    score: 6.0
+    weight: 15
+    detail: "3.5/5 from 2,314 reviews. Scores 6.0 at lower boundary of 3.5-3.9 band (6.0-7.4). No volume modifier. Mixed sentiment on instruments and withdrawals."
+  - name: Expert Evaluation
+    score: 9.0
+    weight: 20
+    detail: "Tested xStation 5 extensively. Excellent proprietary platform with advanced analytics. Stock scanner and heatmap are standout features. Not recalculated."
+  - name: "Platform & Tools"
+    score: 6.5
     weight: 10
-    detail: "xStation 5 is a top-tier proprietary platform. Built-in stock screener, market heatmap, trader calculator, and performance analytics."
+    detail: "1 proprietary platform (xStation 5; xStation Mobile is the same platform's mobile version) = 6.4 base. +0.1 mobile app. No MT4/MT5/cTrader/TradingView. Total 6.5."
   - name: Execution Quality
     score: 8.8
     weight: 10
-    detail: "Hybrid STP/MM execution. Fast order processing averaging 10ms. Price improvement technology. 99.5% fill rate on limit orders."
+    detail: "Hybrid STP/MM execution. Base 8.8, no modifier for hybrid type. Fast order processing averaging 10ms. 99.5% fill rate on limit orders."
 
 accounts:
   - name: Standard
