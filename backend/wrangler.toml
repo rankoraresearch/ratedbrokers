@@ -11,4 +11,4 @@ FRONTEND_URL = "https://rankoraresearch.github.io"
 [[d1_databases]]
 binding = "DB"
 database_name = "ratedbrokers"
-database_id = "LOCAL_PLACEHOLDER"
+database_id = "0583b2f5-4bba-4d05-868a-1228a109668e"
