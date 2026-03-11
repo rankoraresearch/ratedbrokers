@@ -67,6 +67,25 @@
 
 ---
 
+## M3 — Идеальный шаблон рейтинга (12 марта 2026)
+
+### `40aca8b` feat: M3 ranking template
+- Баг-фикс: 4 CTA ссылки в RankingPage направлены через /go/{slug} бэкенд
+- Mobile: метрика в Quick Verdict, touch targets 44px+, короткие Trust Stats лейблы
+- Mobile: Comparison Table → карточки с 2-колоночным grid вместо таблицы
+- Sticky CTA бар для #1 брокера (IntersectionObserver)
+- SEO: ItemList JSON-LD schema, `<main>` + `<header>` семантика
+- dateModified → динамическая дата
+- CTA текст: "Visit {name}" + promo, Risk warning fontSize 10
+
+### `378a506` fix: GitHub Pages images + API URL
+- BrokerLogo: `BASE_URL` prefix для /logos/ путей
+- AuthorAvatar + CountryPage: `BASE_URL` для /authors/ путей
+- deploy.yml: `VITE_API_URL` env для CI билда
+- Корень: Vite base=/ratedbrokers/, пути были от /
+
+---
+
 ## Текущее состояние
 
 | Метрика | Значение |
@@ -86,10 +105,10 @@
 
 ## Что дальше
 
-- [ ] Деплой (Vercel / Cloudflare Pages)
+- [x] Деплой — GitHub Pages + Cloudflare Workers API
+- [x] M3 — Идеальный шаблон рейтинга
 - [ ] OG-теги и мета-изображения для соцсетей
-- [ ] Sitemap.xml + robots.txt
-- [ ] Активация мультиязычности (ru, es, de первые)
+- [ ] Sitemap.xml (robots.txt есть)
 - [ ] Google Search Console + Analytics
 - [ ] Контентный аудит: уникальность текстов, keyword density
 - [ ] Бэклинк-стратегия
