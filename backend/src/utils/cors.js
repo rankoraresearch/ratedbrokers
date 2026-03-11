@@ -1,12 +1,16 @@
 const ALLOWED_ORIGINS = [
   'https://rankoraresearch.github.io',
-  'http://localhost:5173',
-  'http://localhost:4173',
 ];
+
+function isAllowedOrigin(origin) {
+  if (ALLOWED_ORIGINS.includes(origin)) return true;
+  if (/^http:\/\/localhost:\d+$/.test(origin)) return true;
+  return false;
+}
 
 export function corsHeaders(request) {
   const origin = request.headers.get('Origin') || '';
-  const isAllowed = ALLOWED_ORIGINS.includes(origin);
+  const isAllowed = isAllowedOrigin(origin);
 
   return {
     'Access-Control-Allow-Origin': isAllowed ? origin : ALLOWED_ORIGINS[0],

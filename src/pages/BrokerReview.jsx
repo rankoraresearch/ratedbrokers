@@ -28,10 +28,11 @@ function useMedia() {
   return { mob: w < 640, tab: w >= 640 && w < 1024, desk: w >= 1024 };
 }
 
-function CTA({ B, label, sub, compact }) {
+function CTA({ B, visitUrl, label, sub, compact }) {
+  const href = visitUrl || B.url;
   return <div style={{background:"#f0fdf4",border:"2px solid #86efac",borderRadius:compact?10:14,padding:compact?"14px 18px":"20px 24px",display:"flex",alignItems:"center",justifyContent:"space-between",gap:16,margin:"20px 0"}}>
     <div>{sub&&<div style={{fontSize:12,color:"#065f46",fontWeight:600}}>{sub}</div>}{!compact&&B.promo&&<div style={{fontSize:13,color:"#059669",fontWeight:600,marginTop:2,display:"flex",alignItems:"center",gap:4}}><Icon name="lightbulb" size={14} color="#f59e0b" /> {B.promo}</div>}</div>
-    <a href={B.url} target="_blank" rel="nofollow sponsored" style={{background:"linear-gradient(135deg,#059669,#047857)",color:"#fff",fontSize:compact?13:14,fontWeight:700,textDecoration:"none",padding:compact?"10px 20px":"12px 28px",borderRadius:8,boxShadow:"0 2px 8px rgba(5,150,105,0.25)",display:"inline-flex",alignItems:"center",gap:6,whiteSpace:"nowrap",flexShrink:0}}>{label||`Visit ${B.name}`}<svg width="14" height="14" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></a>
+    <a href={href} target="_blank" rel="nofollow sponsored" style={{background:"linear-gradient(135deg,#059669,#047857)",color:"#fff",fontSize:compact?13:14,fontWeight:700,textDecoration:"none",padding:compact?"10px 20px":"12px 28px",borderRadius:8,boxShadow:"0 2px 8px rgba(5,150,105,0.25)",display:"inline-flex",alignItems:"center",gap:6,whiteSpace:"nowrap",flexShrink:0}}>{label||`Visit ${B.name}`}<svg width="14" height="14" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></a>
   </div>;
 }
 
@@ -41,6 +42,8 @@ export default function BrokerReview() {
   const { mob, tab } = useMedia();
   const { t, tc } = useTranslation();
   const lp = useLocalePath();
+  const apiBase = import.meta.env.VITE_API_URL || '';
+  const visitUrl = apiBase ? `${apiBase}/go/${slug}` : data?.B?.url;
   const [openFaq, setOpenFaq] = useState(null);
   const [stickyVisible, setStickyVisible] = useState(false);
   const cn = {maxWidth:1200,margin:"0 auto",padding:mob?"0 16px":"0 24px"};
@@ -150,7 +153,7 @@ export default function BrokerReview() {
         <div style={{...cn,display:"flex",flexDirection:mob?"column":"row",justifyContent:"space-between",gap:mob?20:32}}>
           <div style={{flex:1}}>
             <div style={{display:"flex",alignItems:"center",gap:mob?12:16,marginBottom:14}}>
-              <a href={B.url} target="_blank" rel="noopener nofollow sponsored" style={{ display: "flex", flexShrink: 0 }}><BrokerLogo slug={slug} name={B.name} fallback={B.logo} size={mob?48:60} borderRadius={13} /></a>
+              <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" style={{ display: "flex", flexShrink: 0 }}><BrokerLogo slug={slug} name={B.name} fallback={B.logo} size={mob?48:60} borderRadius={13} /></a>
               <div>
                 <h1 style={{fontFamily:"Outfit",fontSize:mob?22:28,fontWeight:800,color:"#0f172a",letterSpacing:"-0.02em"}}>{t("review.review2026", { name: B.name })}</h1>
                 <p style={{fontSize:mob?13:15,color:"#64748b"}}>{B.type} {t("review.broker")} {"\u00b7"} {t("review.est")} {B.year}{!mob&&` \u00b7 ${B.hq}`}</p>
@@ -172,14 +175,14 @@ export default function BrokerReview() {
                 <div style={{fontSize:mob?10:12,color:"#94a3b8",fontWeight:600,textTransform:"uppercase",letterSpacing:"0.05em",marginBottom:2}}>{x.l}</div>
                 <div style={{fontSize:mob?14:15,color:"#1e293b",fontWeight:700}}>{x.v}</div></div>)}
             </div>
-            {mob&&<a href={B.url} target="_blank" rel="nofollow sponsored" style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,background:"linear-gradient(135deg,#059669,#047857)",color:"#fff",fontSize:14,fontWeight:700,textDecoration:"none",padding:"12px",borderRadius:10,marginTop:14}}>{t("review.visit", { name: B.name })} <ArrowRight size={14} /></a>}
+            {mob&&<a href={visitUrl} target="_blank" rel="nofollow sponsored" style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,background:"linear-gradient(135deg,#059669,#047857)",color:"#fff",fontSize:14,fontWeight:700,textDecoration:"none",padding:"12px",borderRadius:10,marginTop:14}}>{t("review.visit", { name: B.name })} <ArrowRight size={14} /></a>}
           </div>
           {!mob&&<div style={{width:tab?220:280,flexShrink:0,background:"#f0fdf4",border:"2px solid #86efac",borderRadius:14,padding:tab?"18px":"22px",textAlign:"center"}}>
             <div style={{fontSize:12,color:"#065f46",fontWeight:600,marginBottom:4}}>{t("review.ourRating")}</div>
             <div style={{fontFamily:"'JetBrains Mono'",fontSize:40,fontWeight:800,color:"#059669",lineHeight:1}}>{B.score}</div>
             <div style={{fontSize:12,color:"#059669",fontWeight:600,marginBottom:10}}>{verdict}</div>
             {promo&&<div style={{fontSize:11,color:"#065f46",background:"#dcfce7",borderRadius:6,padding:"5px 8px",marginBottom:12,display:"flex",alignItems:"center",gap:4}}><Icon name="lightbulb" size={13} color="#f59e0b" /> {promo}</div>}
-            <a href={B.url} target="_blank" rel="nofollow sponsored" style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,background:"linear-gradient(135deg,#059669,#047857)",color:"#fff",fontSize:15,fontWeight:700,textDecoration:"none",padding:"13px 24px",borderRadius:10,width:"100%",boxShadow:"0 4px 12px rgba(5,150,105,0.3)"}}>{t("review.visit", { name: B.name })} <svg width="14" height="14" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></a>
+            <a href={visitUrl} target="_blank" rel="nofollow sponsored" style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,background:"linear-gradient(135deg,#059669,#047857)",color:"#fff",fontSize:15,fontWeight:700,textDecoration:"none",padding:"13px 24px",borderRadius:10,width:"100%",boxShadow:"0 4px 12px rgba(5,150,105,0.3)"}}>{t("review.visit", { name: B.name })} <svg width="14" height="14" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></a>
             <div style={{fontSize:10,color:"#94a3b8",marginTop:8}}>{t("review.retailLose")}</div>
             <Link to={lp("/trust-score")} style={{fontSize:11,color:"#059669",textDecoration:"none",fontWeight:600,marginTop:6,display:"inline-block"}}>What does this score mean? →</Link>
           </div>}
@@ -204,7 +207,7 @@ export default function BrokerReview() {
           {/* OVERVIEW */}
           <H2 id="overview">{t("review.overview", { name: B.name })}</H2>
           {(content.overview || []).map((p,i)=><P key={i}>{p}</P>)}
-          <CTA B={B} sub={t("review.readyToTrade", { name: B.name })} />
+          <CTA B={B} visitUrl={visitUrl} sub={t("review.readyToTrade", { name: B.name })} />
 
           {/* SCORES */}
           <H2 id="scoring-breakdown">{t("review.scoringBreakdown")}</H2>
@@ -292,7 +295,7 @@ export default function BrokerReview() {
           </Card>
           {(content.costs || []).slice(1).map((p,i)=><P key={i}>{p}</P>)}
 
-          <CTA B={B} label={t("review.startTrading", { name: B.name })} sub={t("review.fromPips", { spread: B.spread })} compact />
+          <CTA B={B} visitUrl={visitUrl} label={t("review.startTrading", { name: B.name })} sub={t("review.fromPips", { spread: B.spread })} compact />
 
           {/* LIVE SPREAD COMPARISON */}
           <H2 id="live-spread-comparison">{t("review.liveSpread")}</H2>
@@ -349,7 +352,7 @@ export default function BrokerReview() {
           <H2 id="education-&-research">{t("review.educationResearch")}</H2>
           {(content.education || []).map((p,i)=><P key={i}>{p}</P>)}
 
-          <CTA B={B} label={t("review.visit", { name: B.name })} sub={t("review.openAccount")} />
+          <CTA B={B} visitUrl={visitUrl} label={t("review.visit", { name: B.name })} sub={t("review.openAccount")} />
 
           {/* TRUSTPILOT */}
           <H2 id="trustpilot-reviews">{t("review.trustpilotReviews")}</H2>
@@ -398,13 +401,13 @@ export default function BrokerReview() {
               <div><span style={{fontWeight:700,fontSize:14}}>{AUTHOR.name}</span><div style={{fontSize:12,color:"#64748b"}}>{AUTHOR.role}</div></div>
             </div>
             {(content.verdict || []).map((p,i)=><P key={i}>{p}</P>)}
-            <CTA B={B} label={t("review.openAccountWith", { name: B.name })} sub={`${B.type} \u00b7 ${t("review.regulated")}`}/>
+            <CTA B={B} visitUrl={visitUrl} label={t("review.openAccountWith", { name: B.name })} sub={`${B.type} \u00b7 ${t("review.regulated")}`}/>
           </Card>
 
           {/* ALTERNATIVES */}
           <H2 id="alternatives">{t("review.alternativesTitle", { name: B.name })}</H2>
           <P>{t("review.alternativesDesc", { name: B.name })}</P>
-          {SIMILAR.map((b,i)=>{const altData=getBrokerData(b.slug);const altUrl=altData?.B?.url||`https://ratedbrokers.com/go/${b.slug}`;return <Card key={i} style={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+          {SIMILAR.map((b,i)=>{const altData=getBrokerData(b.slug);const altUrl=apiBase?`${apiBase}/go/${b.slug}`:(altData?.B?.url||`https://ratedbrokers.com/go/${b.slug}`);return <Card key={i} style={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
             <div>
               <Link to={lp(`/review/${b.slug}`)} style={{fontWeight:700,fontSize:15,color:"inherit",textDecoration:"none"}}
                 onMouseEnter={e=>e.currentTarget.style.textDecoration="underline"}
@@ -441,7 +444,7 @@ export default function BrokerReview() {
             <div style={{background:"#f0fdf4",border:"2px solid #86efac",borderRadius:14,padding:"20px",textAlign:"center"}}>
               <div style={{fontFamily:"'JetBrains Mono'",fontSize:36,fontWeight:800,color:"#059669",lineHeight:1}}>{B.score}</div>
               <div style={{fontSize:12,color:"#059669",fontWeight:600,marginBottom:10}}>{verdict}</div>
-              <a href={B.url} target="_blank" rel="nofollow sponsored" style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,background:"linear-gradient(135deg,#059669,#047857)",color:"#fff",fontSize:14,fontWeight:700,textDecoration:"none",padding:"12px 20px",borderRadius:9,width:"100%",boxShadow:"0 4px 12px rgba(5,150,105,0.3)",marginBottom:6}}>{t("review.visit", { name: B.name })} {"\u2197"}</a>
+              <a href={visitUrl} target="_blank" rel="nofollow sponsored" style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,background:"linear-gradient(135deg,#059669,#047857)",color:"#fff",fontSize:14,fontWeight:700,textDecoration:"none",padding:"12px 20px",borderRadius:9,width:"100%",boxShadow:"0 4px 12px rgba(5,150,105,0.3)",marginBottom:6}}>{t("review.visit", { name: B.name })} {"\u2197"}</a>
               <div style={{fontSize:10,color:"#94a3b8"}}>{t("review.retailLose")}</div>
             </div>
             <Card style={{padding:"16px"}}>
@@ -453,7 +456,7 @@ export default function BrokerReview() {
             </Card>
             <Card style={{padding:"16px"}}>
               <div style={{fontFamily:"Outfit",fontWeight:700,fontSize:12,marginBottom:10}}>{t("review.alternatives")}</div>
-              {SIMILAR.map((b,i)=>{const altData=getBrokerData(b.slug);const altUrl=altData?.B?.url||`https://ratedbrokers.com/go/${b.slug}`;return <div key={i} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"8px 0",borderBottom:i<2?"1px solid #f0f4f8":"none"}}>
+              {SIMILAR.map((b,i)=>{const altData=getBrokerData(b.slug);const altUrl=apiBase?`${apiBase}/go/${b.slug}`:(altData?.B?.url||`https://ratedbrokers.com/go/${b.slug}`);return <div key={i} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"8px 0",borderBottom:i<2?"1px solid #f0f4f8":"none"}}>
                 <div><Link to={lp(`/review/${b.slug}`)} style={{fontWeight:600,fontSize:13,color:"inherit",textDecoration:"none"}}>{b.name}</Link><div style={{fontSize:11,color:"#94a3b8"}}>{b.type}</div></div>
                 <div style={{display:"flex",alignItems:"center",gap:6}}>
                   <a href={altUrl} target="_blank" rel="noopener nofollow sponsored" style={{fontSize:11,color:"#059669",fontWeight:600,textDecoration:"none"}}>Visit {"\u2197"}</a>

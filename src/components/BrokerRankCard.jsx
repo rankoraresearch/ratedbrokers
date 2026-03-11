@@ -16,7 +16,8 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
   const B = broker.B;
 
   const reviewPath = lp(`/review/${broker.slug}`);
-  const visitUrl = B.url;
+  const apiBase = import.meta.env.VITE_API_URL || '';
+  const visitUrl = apiBase ? `${apiBase}/go/${broker.slug}` : B.url;
 
   const pros = B.pros || broker.PROS || [];
   const topPros = pros.slice(0, 3);
