@@ -1,0 +1,14 @@
+{
+  "name": "ratedbrokers-api",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:init": "wrangler d1 execute ratedbrokers --local --file=schema.sql",
+    "db:seed": "wrangler d1 execute ratedbrokers --local --file=seed.sql"
+  },
+  "devDependencies": {
+    "wrangler": "^3.99.0"
+  }
+}

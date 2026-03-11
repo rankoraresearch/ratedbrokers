@@ -1,0 +1,14 @@
+name = "ratedbrokers-api"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+[vars]
+FRONTEND_URL = "https://rankoraresearch.github.io"
+# API_KEY is set via `wrangler secret put API_KEY` in production.
+# For local dev, set it here or via .dev.vars file:
+# API_KEY = "dev-test-key"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "ratedbrokers"
+database_id = "LOCAL_PLACEHOLDER"

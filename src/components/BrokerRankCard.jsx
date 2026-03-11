@@ -131,7 +131,7 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
       display: "flex", gap: 8, padding: mob ? "12px 16px 8px" : "12px 0 4px",
       flexDirection: mob ? "column" : "row",
     }}>
-      <a href={visitUrl} target="_blank" rel="noopener noreferrer nofollow" style={{
+      <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" style={{
         flex: 1, minWidth: 170, padding: "11px 20px", borderRadius: 10, textAlign: "center",
         background: "linear-gradient(135deg,#059669,#047857)",
         color: "#fff", fontWeight: 700, fontSize: 14, textDecoration: "none",
@@ -184,7 +184,7 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
             fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 13, color: "#fff",
           }}>#{rank}</div>
 
-          <a href={visitUrl} target="_blank" rel="noopener noreferrer nofollow" style={{ display: "flex", flexShrink: 0 }}>
+          <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" style={{ display: "flex", flexShrink: 0 }}>
             <BrokerLogo slug={broker.slug} name={B.name} fallback={B.logo} size={32} />
           </a>
 
@@ -300,7 +300,7 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
             display: "flex", gap: 8, padding: "12px 16px 16px",
             borderTop: "1px solid #f1f5f9",
           }}>
-            <a href={visitUrl} target="_blank" rel="noopener noreferrer nofollow" style={{
+            <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" style={{
               flex: 1, padding: "11px 16px", borderRadius: 10, textAlign: "center",
               background: "linear-gradient(135deg,#059669,#047857)",
               color: "#fff", fontWeight: 700, fontSize: 14, textDecoration: "none",
@@ -351,7 +351,7 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
         {/* Logo + Name block */}
         <div style={{ width: tab ? 140 : 180, flexShrink: 0 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-            <a href={visitUrl} target="_blank" rel="noopener noreferrer nofollow" style={{ display: "flex", flexShrink: 0 }}>
+            <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" style={{ display: "flex", flexShrink: 0 }}>
               <BrokerLogo slug={broker.slug} name={B.name} fallback={B.logo} size={36} />
             </a>
             <div>
@@ -400,7 +400,7 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
         {/* CTAs (compact, for non-thematic) */}
         {!hasThematic && (
           <div style={{ display: "flex", flexDirection: "column", gap: 6, flexShrink: 0 }}>
-            <a href={visitUrl} target="_blank" rel="noopener noreferrer nofollow" style={{
+            <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" style={{
               padding: "10px 20px", borderRadius: 8, textAlign: "center",
               background: "linear-gradient(135deg,#059669,#047857)",
               color: "#fff", fontWeight: 700, fontSize: 13, textDecoration: "none",

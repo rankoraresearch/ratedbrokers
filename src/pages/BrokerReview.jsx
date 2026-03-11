@@ -150,7 +150,7 @@ export default function BrokerReview() {
         <div style={{...cn,display:"flex",flexDirection:mob?"column":"row",justifyContent:"space-between",gap:mob?20:32}}>
           <div style={{flex:1}}>
             <div style={{display:"flex",alignItems:"center",gap:mob?12:16,marginBottom:14}}>
-              <a href={B.url} target="_blank" rel="noopener noreferrer nofollow" style={{ display: "flex", flexShrink: 0 }}><BrokerLogo slug={slug} name={B.name} fallback={B.logo} size={mob?48:60} borderRadius={13} /></a>
+              <a href={B.url} target="_blank" rel="noopener nofollow sponsored" style={{ display: "flex", flexShrink: 0 }}><BrokerLogo slug={slug} name={B.name} fallback={B.logo} size={mob?48:60} borderRadius={13} /></a>
               <div>
                 <h1 style={{fontFamily:"Outfit",fontSize:mob?22:28,fontWeight:800,color:"#0f172a",letterSpacing:"-0.02em"}}>{t("review.review2026", { name: B.name })}</h1>
                 <p style={{fontSize:mob?13:15,color:"#64748b"}}>{B.type} {t("review.broker")} {"\u00b7"} {t("review.est")} {B.year}{!mob&&` \u00b7 ${B.hq}`}</p>
@@ -414,7 +414,7 @@ export default function BrokerReview() {
             </div>
             <div style={{display:"flex",alignItems:"center",gap:10}}>
               <span style={{fontFamily:"'JetBrains Mono'",fontSize:16,fontWeight:800,color:"#059669"}}>{b.score}</span>
-              <a href={altUrl} target="_blank" rel="noopener noreferrer nofollow" style={{fontSize:12,color:"#fff",fontWeight:700,textDecoration:"none",padding:"6px 14px",borderRadius:6,background:"linear-gradient(135deg,#059669,#34d399)",display:"inline-flex",alignItems:"center",gap:4}}>Visit Site <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></a>
+              <a href={altUrl} target="_blank" rel="noopener nofollow sponsored" style={{fontSize:12,color:"#fff",fontWeight:700,textDecoration:"none",padding:"6px 14px",borderRadius:6,background:"linear-gradient(135deg,#059669,#34d399)",display:"inline-flex",alignItems:"center",gap:4}}>Visit Site <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></a>
               <Link to={lp(`/review/${b.slug}`)} style={{fontSize:12,color:"#1e3a5f",fontWeight:600,textDecoration:"none",padding:"6px 14px",border:"1px solid #cbd5e1",borderRadius:6,display:"inline-flex",alignItems:"center",gap:4}}>{t("home.review")} <ArrowRight size={14} /></Link>
             </div>
           </Card>})}
@@ -456,7 +456,7 @@ export default function BrokerReview() {
               {SIMILAR.map((b,i)=>{const altData=getBrokerData(b.slug);const altUrl=altData?.B?.url||`https://ratedbrokers.com/go/${b.slug}`;return <div key={i} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"8px 0",borderBottom:i<2?"1px solid #f0f4f8":"none"}}>
                 <div><Link to={lp(`/review/${b.slug}`)} style={{fontWeight:600,fontSize:13,color:"inherit",textDecoration:"none"}}>{b.name}</Link><div style={{fontSize:11,color:"#94a3b8"}}>{b.type}</div></div>
                 <div style={{display:"flex",alignItems:"center",gap:6}}>
-                  <a href={altUrl} target="_blank" rel="noopener noreferrer nofollow" style={{fontSize:11,color:"#059669",fontWeight:600,textDecoration:"none"}}>Visit {"\u2197"}</a>
+                  <a href={altUrl} target="_blank" rel="noopener nofollow sponsored" style={{fontSize:11,color:"#059669",fontWeight:600,textDecoration:"none"}}>Visit {"\u2197"}</a>
                   <Link to={lp(`/review/${b.slug}`)} style={{fontSize:11,color:"#1e3a5f",fontWeight:600,textDecoration:"none",display:"inline-flex",alignItems:"center",gap:3}}>{t("home.review")} <ArrowRight size={12} /></Link>
                 </div>
               </div>})}
