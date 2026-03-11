@@ -2,10 +2,16 @@
 
 Агенты запускаются через Claude Code Task tool. Каждый агент — промпт-файл с ролью, инструкциями и воркфлоу.
 
-## Цепочка
+## Цепочка данных
 
 ```
 Джон (сбор данных) → Боб (проверка + аппрув) → Лео (расчёт рейтингов)
+```
+
+## Дизайн
+
+```
+Барбара (аудит конкурентов → дизайн шаблонов → UX/UI ревью)
 ```
 
 ## Агенты
@@ -15,6 +21,7 @@
 | **Джон** | `john-data-collector.md` | Research Agent — сбор сырых данных с интернета | Да (данные) |
 | **Боб** | `bob-fact-checker.md` | Fact Checker — верификация + аппрув данных | Да (last_verified, status) |
 | **Лео** | `leo-rating-calculator.md` | Rating Calculator — расчёт скоров и ранжирование | Да (score, verdict, scores) |
+| **Барбара** | `barbara-designer.md` | Design Agent — дизайн шаблонов, UX/UI, аудит конкурентов | Да (стили, компоненты) |
 
 ## Как запускать
 
@@ -84,6 +91,39 @@ Task tool:
     check-rankings
 ```
 
+### Барбара — аудит шаблона страницы
+
+```
+Task tool:
+  subagent_type: general-purpose
+  prompt: |
+    Прочитай свои инструкции из файла agents/barbara-designer.md и выполни задание.
+    Рабочая директория проекта: /Users/yegorbarakovskiy/Desktop/ratedbrokers
+    audit: RankingPage
+```
+
+### Барбара — редизайн шаблона
+
+```
+Task tool:
+  subagent_type: general-purpose
+  prompt: |
+    Прочитай свои инструкции из файла agents/barbara-designer.md и выполни задание.
+    Рабочая директория проекта: /Users/yegorbarakovskiy/Desktop/ratedbrokers
+    redesign: BrokerReview
+```
+
+### Барбара — UX/UI ревью файла
+
+```
+Task tool:
+  subagent_type: general-purpose
+  prompt: |
+    Прочитай свои инструкции из файла agents/barbara-designer.md и выполни задание.
+    Рабочая директория проекта: /Users/yegorbarakovskiy/Desktop/ratedbrokers
+    review: src/pages/RankingPage.jsx
+```
+
 ## Типичные сценарии
 
 ### Полный цикл обновления брокера
@@ -107,19 +147,21 @@ Task tool:
 
 ## Что обновляет каждый агент
 
-| Поле | Джон | Боб | Лео |
-|------|------|-----|-----|
-| min_deposit, spread, leverage... | ✓ | — | — |
-| regulations | ✓ | — | — |
-| tp, tp_count | ✓ | — | — |
-| platforms, instruments | ✓ | — | — |
-| hq, ceo | ✓ | — | — |
-| status | ✓ | ✓ (under-review) | — |
-| last_verified | ✓ | ✓ (аппрув) | — |
-| score | — | — | ✓ |
-| verdict | — | — | ✓ |
-| scores (6 критериев) | — | — | ✓ |
-| Markdown body | — | — | — |
+| Поле | Джон | Боб | Лео | Барбара |
+|------|------|-----|-----|---------|
+| min_deposit, spread, leverage... | ✓ | — | — | — |
+| regulations | ✓ | — | — | — |
+| tp, tp_count | ✓ | — | — | — |
+| platforms, instruments | ✓ | — | — | — |
+| hq, ceo | ✓ | — | — | — |
+| status | ✓ | ✓ (under-review) | — | — |
+| last_verified | ✓ | ✓ (аппрув) | — | — |
+| score | — | — | ✓ | — |
+| verdict | — | — | ✓ | — |
+| scores (6 критериев) | — | — | ✓ | — |
+| Markdown body | — | — | — | — |
+| JSX шаблоны (стили, layout) | — | — | — | ✓ |
+| Компоненты UI | — | — | — | ✓ |
 
 ## Валидация
 
