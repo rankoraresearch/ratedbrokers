@@ -27,7 +27,7 @@ function Layout() {
   return (
     <LanguageProvider>
       <Header />
-      <div style={{ paddingTop: 84 }}>
+      <div style={{ paddingTop: 64 }}>
         <Outlet />
       </div>
       <Footer />

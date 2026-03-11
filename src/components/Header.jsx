@@ -215,16 +215,18 @@ export default function Header() {
     <button
       style={{
         fontSize: 14, fontWeight: 500,
-        color: activeDropdown === id ? "#34d399" : "rgba(255,255,255,0.85)",
-        background: activeDropdown === id ? "rgba(255,255,255,0.08)" : "transparent",
+        color: activeDropdown === id ? "#059669" : "#475569",
+        background: activeDropdown === id ? "#f0fdf4" : "transparent",
         border: "none", padding: "8px 10px", borderRadius: 8,
         cursor: "pointer", display: "flex", alignItems: "center", gap: 3,
         transition: "all 0.2s", fontFamily: "inherit", whiteSpace: "nowrap",
       }}
+      onMouseEnter={(e) => { if (activeDropdown !== id) { e.currentTarget.style.color = "#059669"; e.currentTarget.style.background = "#f0fdf4"; } }}
+      onMouseLeave={(e) => { if (activeDropdown !== id) { e.currentTarget.style.color = "#475569"; e.currentTarget.style.background = "transparent"; } }}
     >
       {label}
       <span style={{
-        color: "rgba(255,255,255,0.5)",
+        color: "#94a3b8",
         transition: "transform 0.2s",
         transform: activeDropdown === id ? "rotate(180deg)" : "none",
         display: "inline-flex",
@@ -238,10 +240,12 @@ export default function Header() {
       to={to}
       style={{
         fontSize: 14, fontWeight: match ? 700 : 500,
-        color: match ? "#34d399" : "rgba(255,255,255,0.85)",
+        color: match ? "#0f172a" : "#475569",
         textDecoration: "none", padding: "8px 10px", borderRadius: 8,
         transition: "all 0.2s", whiteSpace: "nowrap",
       }}
+      onMouseEnter={(e) => { e.currentTarget.style.color = "#059669"; e.currentTarget.style.background = "#f0fdf4"; }}
+      onMouseLeave={(e) => { e.currentTarget.style.color = match ? "#059669" : "#475569"; e.currentTarget.style.background = "transparent"; }}
     >
       {label}
     </Link>
@@ -328,83 +332,17 @@ export default function Header() {
     <header
       style={{
         position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000,
-        transform: scrolled ? "translateY(-32px)" : "translateY(0)",
-        transition: "transform 0.3s, background 0.3s",
+        transform: "translateY(0)",
+        transition: "transform 0.3s, box-shadow 0.3s",
       }}
     >
-      {/* ═══ TOP BAR ═══ */}
-      {!(mob || tab) && (
-        <div style={{
-          height: 32, background: "#080e1f",
-          borderBottom: "1px solid rgba(255,255,255,0.06)",
-          display: "flex", alignItems: "center",
-        }}>
-          <div style={{
-            maxWidth: 1200, margin: "0 auto", padding: "0 20px", width: "100%",
-            display: "flex", alignItems: "center", justifyContent: "space-between",
-          }}>
-            {/* Left: trust stats */}
-            <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 12, color: "#94a3b8" }}>
-              <Shield size={14} color="#34d399" />
-              <span>{t("nav.brokersTested")}</span>
-              <span style={{ margin: "0 4px", color: "#475569" }}>·</span>
-              <CalendarCheck size={14} color="#34d399" />
-              <span>{t("nav.updatedQ")}</span>
-            </div>
-            {/* Right: utility links */}
-            <div style={{ display: "flex", alignItems: "center", gap: 12, fontSize: 12 }}>
-              <Link to={lp("/methodology")} style={{
-                color: "#64748b", textDecoration: "none", transition: "color 0.2s",
-              }}
-                onMouseEnter={(e) => { e.currentTarget.style.color = "#34d399"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.color = "#64748b"; }}
-              >Methodology</Link>
-              <Link to={lp("/trust-score")} style={{
-                color: "#64748b", textDecoration: "none", transition: "color 0.2s",
-              }}
-                onMouseEnter={(e) => { e.currentTarget.style.color = "#34d399"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.color = "#64748b"; }}
-              >Trust Score</Link>
-              <Link to={lp("/how-we-make-money")} style={{
-                color: "#64748b", textDecoration: "none", transition: "color 0.2s",
-              }}
-                onMouseEnter={(e) => { e.currentTarget.style.color = "#34d399"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.color = "#64748b"; }}
-              >How We Make Money</Link>
-              <Link to={lp("/about")} style={{
-                color: "#64748b", textDecoration: "none", transition: "color 0.2s",
-              }}
-                onMouseEnter={(e) => { e.currentTarget.style.color = "#34d399"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.color = "#64748b"; }}
-              >About Us</Link>
-              <span style={{ color: "#334155" }}>|</span>
-              <button
-                onClick={() => setSearchOpen(true)}
-                style={{
-                  background: "none", border: "1px solid rgba(255,255,255,0.1)",
-                  color: "#64748b", padding: "2px 8px", borderRadius: 4,
-                  cursor: "pointer", fontSize: 11, fontFamily: "inherit",
-                  display: "inline-flex", alignItems: "center", gap: 4,
-                  transition: "color 0.2s",
-                }}
-                onMouseEnter={(e) => { e.currentTarget.style.color = "#34d399"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.color = "#64748b"; }}
-              >
-                <span style={{ fontSize: 11, fontFamily: "'SF Mono', 'JetBrains Mono', monospace" }}>⌘K</span>
-                <span>Search</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
       {/* ═══ MAIN NAV ═══ */}
       <div style={{
-        height: 52,
-        background: scrolled ? "rgba(15,23,42,0.98)" : "linear-gradient(135deg,#0f172a,#1e3a5f)",
-        backdropFilter: "blur(12px)",
-        borderBottom: scrolled ? "1px solid rgba(255,255,255,0.1)" : "1px solid transparent",
-        transition: "background 0.3s",
+        height: 64,
+        background: "#ffffff",
+        borderBottom: "1px solid #e2e8f0",
+        boxShadow: scrolled ? "0 1px 3px rgba(0,0,0,0.08)" : "none",
+        transition: "box-shadow 0.3s",
         display: "flex", alignItems: "center",
       }}>
         <div style={{
@@ -413,9 +351,9 @@ export default function Header() {
         }}>
           {/* LOGO */}
           <Link to={lp("/")} style={{ display: "flex", alignItems: "baseline", textDecoration: "none" }}>
-            <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, fontSize: mob ? 18 : 22, color: "#fff", letterSpacing: "-1px" }}>rated</span>
-            <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, fontSize: mob ? 18 : 22, color: "#34d399", letterSpacing: "-1px" }}>brokers</span>
-            <span style={{ display: "inline-block", width: mob ? 5 : 7, height: mob ? 5 : 7, borderRadius: "50%", background: "#fbbf24", marginLeft: 2, marginBottom: 1 }} />
+            <span style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 800, fontSize: mob ? 18 : 22, color: "#0f172a", letterSpacing: "-0.5px" }}>Rated</span>
+            <span style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 800, fontSize: mob ? 18 : 22, color: "#059669", letterSpacing: "-0.5px" }}>Brokers</span>
+            <span style={{ display: "inline-block", width: mob ? 5 : 6, height: mob ? 5 : 6, borderRadius: "50%", background: "#f59e0b", marginLeft: 2, marginBottom: 2 }} />
           </Link>
 
           {/* ══ DESKTOP NAV ══ */}
@@ -424,11 +362,11 @@ export default function Header() {
               <button
                 onClick={() => setSearchOpen(true)}
                 aria-label="Search"
-                style={{ background: "none", border: "none", color: "#fff", padding: "4px 8px", cursor: "pointer", display: "inline-flex", alignItems: "center" }}
+                style={{ background: "none", border: "none", color: "#475569", padding: "4px 8px", cursor: "pointer", display: "inline-flex", alignItems: "center" }}
               ><SearchIcon size={20} /></button>
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
-                style={{ background: "none", border: "none", color: "#fff", padding: "4px 8px", cursor: "pointer", display: "inline-flex", alignItems: "center" }}
+                style={{ background: "none", border: "none", color: "#475569", padding: "4px 8px", cursor: "pointer", display: "inline-flex", alignItems: "center" }}
               >{menuOpen ? <XIcon size={24} /> : <MenuIcon size={24} />}</button>
             </div>
           ) : (
@@ -438,15 +376,18 @@ export default function Header() {
               <div style={{ position: "relative" }} onMouseEnter={() => enter("forex")} onMouseLeave={leave}>
                 <Link to={lp("/best-forex-brokers")} style={{
                   fontSize: 14, fontWeight: 500,
-                  color: activeDropdown === "forex" ? "#34d399" : "rgba(255,255,255,0.85)",
-                  background: activeDropdown === "forex" ? "rgba(255,255,255,0.08)" : "transparent",
+                  color: activeDropdown === "forex" ? "#059669" : "#475569",
+                  background: activeDropdown === "forex" ? "#f0fdf4" : "transparent",
                   border: "none", padding: "8px 10px", borderRadius: 8,
                   display: "flex", alignItems: "center", gap: 3,
                   transition: "all 0.2s", whiteSpace: "nowrap", textDecoration: "none",
-                }}>
+                }}
+                  onMouseEnter={(e) => { e.currentTarget.style.color = "#059669"; e.currentTarget.style.background = "#f0fdf4"; }}
+                  onMouseLeave={(e) => { if (activeDropdown !== "forex") { e.currentTarget.style.color = "#475569"; e.currentTarget.style.background = "transparent"; } }}
+                >
                   {t("nav.forexBrokers")}
                   <span style={{
-                    color: "rgba(255,255,255,0.5)",
+                    color: "#94a3b8",
                     transition: "transform 0.2s",
                     transform: activeDropdown === "forex" ? "rotate(180deg)" : "none",
                     display: "inline-flex",
@@ -518,15 +459,18 @@ export default function Header() {
               <div style={{ position: "relative" }} onMouseEnter={() => enter("crypto")} onMouseLeave={leave}>
                 <Link to={lp("/best-crypto-brokers")} style={{
                   fontSize: 14, fontWeight: 500,
-                  color: activeDropdown === "crypto" ? "#34d399" : "rgba(255,255,255,0.85)",
-                  background: activeDropdown === "crypto" ? "rgba(255,255,255,0.08)" : "transparent",
+                  color: activeDropdown === "crypto" ? "#059669" : "#475569",
+                  background: activeDropdown === "crypto" ? "#f0fdf4" : "transparent",
                   border: "none", padding: "8px 10px", borderRadius: 8,
                   display: "flex", alignItems: "center", gap: 3,
                   transition: "all 0.2s", whiteSpace: "nowrap", textDecoration: "none",
-                }}>
+                }}
+                  onMouseEnter={(e) => { e.currentTarget.style.color = "#059669"; e.currentTarget.style.background = "#f0fdf4"; }}
+                  onMouseLeave={(e) => { if (activeDropdown !== "crypto") { e.currentTarget.style.color = "#475569"; e.currentTarget.style.background = "transparent"; } }}
+                >
                   {t("nav.cryptoBrokers")}
                   <span style={{
-                    color: "rgba(255,255,255,0.5)",
+                    color: "#94a3b8",
                     transition: "transform 0.2s",
                     transform: activeDropdown === "crypto" ? "rotate(180deg)" : "none",
                     display: "inline-flex",
@@ -730,13 +674,13 @@ export default function Header() {
                 onClick={() => setSearchOpen(true)}
                 aria-label="Search"
                 style={{
-                  background: "rgba(255,255,255,0.08)", border: "none",
-                  color: "rgba(255,255,255,0.7)", padding: "6px 8px", borderRadius: 8,
+                  background: "#f1f5f9", border: "none",
+                  color: "#64748b", padding: "6px 8px", borderRadius: 8,
                   cursor: "pointer", display: "inline-flex", alignItems: "center",
                   transition: "all 0.2s",
                 }}
-                onMouseEnter={(e) => { e.currentTarget.style.color = "#34d399"; e.currentTarget.style.background = "rgba(255,255,255,0.12)"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(255,255,255,0.7)"; e.currentTarget.style.background = "rgba(255,255,255,0.08)"; }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = "#059669"; e.currentTarget.style.background = "#f0fdf4"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = "#64748b"; e.currentTarget.style.background = "#f1f5f9"; }}
               ><SearchIcon size={16} /></button>
 
               {/* ─── CTA: Compare Brokers ─── */}
