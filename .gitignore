@@ -37,5 +37,6 @@ src/data/brokers/
 research/
 *.html
 !index.html
+!public/404.html
 risk-warnings.md
 uk-snapshot.md
