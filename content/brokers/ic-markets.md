@@ -228,25 +228,7 @@ author:
   updated: "February 24, 2026"
   fact_checker: David Kowalski
 
-similar:
-  - name: Pepperstone
-    score: 9.5
-    spread: "0.0"
-    type: ECN/STP
-    why: Better for beginners ($0 min deposit)
-    slug: pepperstone
-  - name: FP Markets
-    score: 9.4
-    spread: "0.0"
-    type: ECN
-    why: "Similar ECN quality, IRESS platform"
-    slug: fp-markets
-  - name: Tickmill
-    score: 8.7
-    spread: "0.0"
-    type: ECN
-    why: "FCA-regulated, lower commissions"
-    slug: tickmill
+similar: []
 
 cost_boxes:
   - l: EUR/USD Avg
