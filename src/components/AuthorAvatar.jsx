@@ -10,7 +10,7 @@ export default function AuthorAvatar({ author, size = 48, showVerified = false }
     <div style={{ position: "relative", width: size, height: size, flexShrink: 0 }}>
       {hasImage ? (
         <img
-          src={author.image}
+          src={author.image.startsWith('/') ? `${import.meta.env.BASE_URL}${author.image.slice(1)}` : author.image}
           alt={author.name}
           width={size}
           height={size}

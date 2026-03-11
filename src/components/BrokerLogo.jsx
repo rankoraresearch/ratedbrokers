@@ -22,7 +22,7 @@ export default function BrokerLogo({ slug, name, fallback, size = 48, borderRadi
 
   return (
     <img
-      src={`/logos/${slug}.png`}
+      src={`${import.meta.env.BASE_URL}logos/${slug}.png`}
       alt={`${name} logo`}
       width={size}
       height={size}

@@ -237,7 +237,7 @@ export default function CountryPage() {
             <div style={{ display: "flex", alignItems: "center", gap: mob ? 8 : 16, flexWrap: "wrap" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
                 {COUNTRY.author.image ? (
-                  <img src={COUNTRY.author.image} alt={COUNTRY.author.name} style={{
+                  <img src={COUNTRY.author.image.startsWith('/') ? `${import.meta.env.BASE_URL}${COUNTRY.author.image.slice(1)}` : COUNTRY.author.image} alt={COUNTRY.author.name} style={{
                     width: 32, height: 32, borderRadius: "50%", objectFit: "cover",
                   }} />
                 ) : (
