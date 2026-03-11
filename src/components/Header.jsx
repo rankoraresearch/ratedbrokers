@@ -3,7 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 import { useMedia } from "../hooks/useMedia";
 import { useTranslation } from "../i18n/LanguageContext";
 import { useLocalePath } from "../i18n/useLocalePath";
-import LanguageSwitcher from "../i18n/LanguageSwitcher";
 import Icon, { IconBox } from "./Icon";
 import CountryFlag from "./CountryFlag";
 import { ChevronDown, X as XIcon, Menu as MenuIcon, ArrowRight, Search as SearchIcon, Shield, CalendarCheck } from "lucide-react";
@@ -422,7 +421,6 @@ export default function Header() {
           {/* ══ DESKTOP NAV ══ */}
           {(mob || tab) ? (
             <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-              <LanguageSwitcher />
               <button
                 onClick={() => setSearchOpen(true)}
                 aria-label="Search"
@@ -758,7 +756,6 @@ export default function Header() {
                 <ArrowRight size={14} />
               </Link>
 
-              <LanguageSwitcher />
             </nav>
           )}
         </div>
@@ -1014,9 +1011,6 @@ export default function Header() {
           {/* 8. About Us */}
           <MobLink to={lp("/about")} label={t("nav.about")} match={location.pathname.includes("/about")} />
 
-          <div style={{ padding: "12px 0" }}>
-            <LanguageSwitcher mobile />
-          </div>
         </nav>
       )}
       {searchOpen && <SearchOverlay onClose={() => setSearchOpen(false)} />}
