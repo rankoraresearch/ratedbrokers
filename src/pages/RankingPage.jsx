@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { useMedia } from "../hooks/useMedia";
 import { useLocalePath } from "../i18n/useLocalePath";
@@ -19,6 +19,8 @@ import { getCountryData } from "../data/countries/index";
 import { canonicalPair } from "../data/comparisons";
 
 const YEAR = "2026";
+const apiBase = import.meta.env.VITE_API_URL || '';
+const makeVisitUrl = (slug, fallbackUrl) => apiBase ? `${apiBase}/go/${slug}` : fallbackUrl;
 
 export default function RankingPage() {
   const { slug } = useParams();
@@ -26,6 +28,8 @@ export default function RankingPage() {
   const lp = useLocalePath();
   const [openFaq, setOpenFaq] = useState(null);
   const [openThematicFaq, setOpenThematicFaq] = useState(null);
+  const [showStickyBar, setShowStickyBar] = useState(false);
+  const heroRef = useRef(null);
 
   const fullSlug = "/" + slug;
   const ranking = getRankingBySlug(fullSlug);
@@ -49,7 +53,7 @@ export default function RankingPage() {
           headline: seo?.metaTitle || `${ranking.title} ${YEAR}`,
           description: seo?.metaDesc || "",
           datePublished: "2026-01-15",
-          dateModified: "2026-02-28",
+          dateModified: new Date().toISOString().split('T')[0],
           author: {
             "@type": "Person",
             name: a.name,
@@ -86,6 +90,19 @@ export default function RankingPage() {
             acceptedAnswer: { "@type": "Answer", text: fv(f.a) },
           })),
         }] : []),
+        {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: seo?.metaTitle || `${ranking.title} ${YEAR}`,
+          itemListOrder: "https://schema.org/ItemListOrderDescending",
+          numberOfItems: brokersForSchema.length,
+          itemListElement: brokersForSchema.map(({ B: br, slug: s }, idx) => ({
+            "@type": "ListItem",
+            position: idx + 1,
+            name: br.name,
+            url: `https://ratedbrokers.com/review/${s}`,
+          })),
+        },
       ];
       let scriptEl = document.querySelector('script[data-jsonld="ranking"]');
       if (!scriptEl) {
@@ -102,6 +119,18 @@ export default function RankingPage() {
       if (el) el.remove();
     };
   }, [ranking]);
+
+  // Sticky CTA bar: show after hero scrolls out of view
+  useEffect(() => {
+    const el = heroRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setShowStickyBar(!entry.isIntersecting),
+      { threshold: 0 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   if (!ranking) return <Navigate to="/" replace />;
 
@@ -149,7 +178,7 @@ export default function RankingPage() {
   const compData = thematicData?.comparisonData || null;
 
   return (
-    <div style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb", minHeight: "100vh" }}>
+    <main style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb", minHeight: "100vh" }}>
 
       {/* BREADCRUMBS */}
       <div style={{ ...cn, padding: mob ? "16px 16px 0" : "20px 24px 0" }}>
@@ -161,7 +190,7 @@ export default function RankingPage() {
       </div>
 
       {/* HERO */}
-      <section style={{
+      <header ref={heroRef} style={{
         ...cn,
         padding: mob ? "24px 16px 32px" : "32px 24px 40px",
       }}>
@@ -178,7 +207,7 @@ export default function RankingPage() {
             <AuthorByline author={author} factChecker={factChecker} updatedDate={`February ${YEAR}`} variant="centered" />
           </div>
         </div>
-      </section>
+      </header>
 
       {/* SEO INTRO */}
       {seo.intro && (
@@ -225,9 +254,9 @@ export default function RankingPage() {
           gap: 12,
         }}>
           {[
-            ["search", `${brokers.length}`, "Brokers Ranked"],
-            ["timer", "200+", "Hours Research"],
-            ["calendar", `Feb ${YEAR}`, "Last Updated"],
+            ["search", `${brokers.length}`, mob ? "Ranked" : "Brokers Ranked"],
+            ["timer", "200+", mob ? "Research" : "Hours Research"],
+            ["calendar", `Feb ${YEAR}`, mob ? "Updated" : "Last Updated"],
           ].map(([iconName, val, label], i) => (
             <div key={i} style={{
               ...cardBg, padding: mob ? "14px" : "18px 24px",
@@ -262,19 +291,27 @@ export default function RankingPage() {
                     borderTop: i > 0 ? "1px solid #f1f5f9" : "none",
                   }}>
                     <span style={{ fontSize: mob ? 18 : 22, flexShrink: 0 }}>{v.icon}</span>
-                    <div style={{ width: mob ? 80 : 150, flexShrink: 0 }}>
+                    <div style={{ width: mob ? 80 : tab ? 110 : 150, flexShrink: 0 }}>
                       <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: mob ? 11 : 13, color: "#64748b", textTransform: "uppercase", letterSpacing: 0.3, lineHeight: 1.3 }}>
                         {v.label}
                       </div>
                     </div>
                     <div style={{ flex: 1, display: "flex", alignItems: "center", gap: 8, minWidth: 0 }}>
                       {!mob && <BrokerLogo slug={vBroker.slug} name={vBroker.B.name} fallback={vBroker.B.logo} size={24} />}
-                      <Link to={lp(`/review/${vBroker.slug}`)} style={{
-                        fontFamily: "Outfit", fontWeight: 700, fontSize: mob ? 14 : 15, color: "#0f172a", textDecoration: "none",
-                      }}
-                        onMouseEnter={e => e.currentTarget.style.textDecoration = "underline"}
-                        onMouseLeave={e => e.currentTarget.style.textDecoration = "none"}
-                      >{vBroker.B.name}</Link>
+                      <div>
+                        <Link to={lp(`/review/${vBroker.slug}`)} style={{
+                          fontFamily: "Outfit", fontWeight: 700, fontSize: mob ? 14 : 15, color: "#0f172a", textDecoration: "none",
+                        }}
+                          onMouseEnter={e => e.currentTarget.style.textDecoration = "underline"}
+                          onMouseLeave={e => e.currentTarget.style.textDecoration = "none"}
+                        >{vBroker.B.name}</Link>
+                        {mob && v.metric && (
+                          <div style={{
+                            fontFamily: "'JetBrains Mono',monospace", fontSize: 10,
+                            fontWeight: 600, color: "#64748b", marginTop: 1,
+                          }}>{v.metric}</div>
+                        )}
+                      </div>
                     </div>
                     {!mob && (
                       <div style={{
@@ -284,9 +321,9 @@ export default function RankingPage() {
                         {v.metric}
                       </div>
                     )}
-                    <a href={vBroker.B.url} target="_blank" rel="noopener noreferrer nofollow" style={{
+                    <a href={makeVisitUrl(vBroker.slug, vBroker.B.url)} target="_blank" rel="noopener nofollow sponsored" style={{
                       display: "inline-flex", alignItems: "center", gap: 4,
-                      padding: mob ? "7px 14px" : "8px 16px", borderRadius: 8, flexShrink: 0,
+                      padding: mob ? "10px 16px" : "8px 16px", borderRadius: 8, flexShrink: 0,
                       background: "#059669", color: "#fff", fontWeight: 700, fontSize: 12, textDecoration: "none",
                     }}>Visit <ArrowRight size={12} /></a>
                   </div>
@@ -326,7 +363,7 @@ export default function RankingPage() {
                   </div>
                   <div style={{ fontSize: 11, color: "#64748b", marginTop: 4 }}>{b.B.type}</div>
                   <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 10 }}>
-                    <a href={b.B.url} target="_blank" rel="noopener noreferrer nofollow" style={{
+                    <a href={makeVisitUrl(b.slug, b.B.url)} target="_blank" rel="noopener nofollow sponsored" style={{
                       display: "inline-flex", alignItems: "center", gap: 4,
                       padding: "6px 14px", borderRadius: 7,
                       background: "linear-gradient(135deg,#059669,#34d399)",
@@ -444,76 +481,128 @@ export default function RankingPage() {
         <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 20 : 26, marginBottom: 20 }}>
           {countryData ? `${countryData.name} Broker` : ranking.title} Comparison {YEAR}
         </h2>
-        <div style={{ ...cardBg, overflow: "hidden" }}>
-          <div style={{ overflowX: "auto", WebkitOverflowScrolling: "touch" }}>
-            <table style={{
-              width: "100%", minWidth: 700, borderCollapse: "collapse", fontSize: 14,
-            }}>
-              <thead>
-                <tr style={{ background: "#f8fafc" }}>
-                  {["Broker", "Score", ...compCols].map((h) => (
-                    <th key={h} style={{
-                      padding: "14px 16px", textAlign: "left", fontFamily: "Outfit", fontWeight: 700,
-                      fontSize: 12, color: "#64748b", textTransform: "uppercase", letterSpacing: "0.05em",
-                      borderBottom: "2px solid #e2e8f0", whiteSpace: "nowrap",
-                      ...(h === "Broker" ? { position: "sticky", left: 0, background: "#f8fafc", zIndex: 1 } : {}),
-                    }}>{h}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {brokers.map((b, i) => {
-                  const scoreColor = b.B.score >= 9.0 ? "#059669" : b.B.score >= 8.5 ? "#2563eb" : "#d97706";
-                  const customRow = compData?.[b.slug];
-                  return (
-                    <tr key={b.slug}
-                      style={{ borderBottom: "1px solid #f1f5f9", transition: "background 0.15s" }}
-                      onMouseEnter={(e) => e.currentTarget.style.background = "#f8fafc"}
-                      onMouseLeave={(e) => e.currentTarget.style.background = "transparent"}
-                    >
-                      <td style={{
-                        padding: "14px 16px", fontWeight: 600, color: "#0f172a", whiteSpace: "nowrap",
-                        position: "sticky", left: 0, background: "#fff", zIndex: 1,
-                      }}>
-                        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                          <span style={{
-                            width: 22, height: 22, borderRadius: 5, display: "inline-flex",
-                            alignItems: "center", justifyContent: "center",
-                            background: i === 0 ? "#059669" : "#1e3a5f", color: "#fff",
-                            fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: 10,
-                          }}>#{i + 1}</span>
-                          {b.B.name}
-                        </div>
-                      </td>
-                      <td style={{ padding: "14px 16px" }}>
-                        <span style={{
-                          fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 15,
-                          color: scoreColor,
-                        }}>{b.B.score}</span>
-                      </td>
-                      {compCols.map((col) => {
-                        const lc = col.toLowerCase();
-                        const fallback =
-                          lc.includes("spread") ? (b.B.avgSpread ? `${b.B.avgSpread} pips` : `${b.B.spread} pips`)
-                          : lc.includes("commission") ? (b.B.commission || "—")
-                          : lc.includes("execution") ? "—"
-                          : lc.includes("min dep") || lc.includes("deposit") ? (b.B.minDep === 0 ? "$0" : `$${b.B.minDep}`)
-                          : lc.includes("leverage") ? b.B.leverage
-                          : lc.includes("platform") ? (b.B.platforms?.length + " platforms" || "—")
-                          : "—";
-                        return (
-                          <td key={col} style={{ padding: "14px 16px", color: "#475569" }}>
-                            {customRow ? (customRow[col] || fallback) : fallback}
-                          </td>
-                        );
-                      })}
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+        {mob ? (
+          /* Mobile: cards instead of table */
+          <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+            {brokers.map((b, i) => {
+              const scoreColor = b.B.score >= 9.0 ? "#059669" : b.B.score >= 8.5 ? "#2563eb" : "#d97706";
+              const customRow = compData?.[b.slug];
+              const getVal = (col) => {
+                const lc = col.toLowerCase();
+                const fallback =
+                  lc.includes("spread") ? (b.B.avgSpread ? `${b.B.avgSpread} pips` : `${b.B.spread} pips`)
+                  : lc.includes("commission") ? (b.B.commission || "—")
+                  : lc.includes("execution") ? "—"
+                  : lc.includes("min dep") || lc.includes("deposit") ? (b.B.minDep === 0 ? "$0" : `$${b.B.minDep}`)
+                  : lc.includes("leverage") ? b.B.leverage
+                  : lc.includes("platform") ? (b.B.platforms?.length + " platforms" || "—")
+                  : "—";
+                return customRow ? (customRow[col] || fallback) : fallback;
+              };
+              return (
+                <div key={b.slug} style={{
+                  ...cardBg, padding: 14,
+                  border: i === 0 ? "2px solid #059669" : "1px solid #e2e8f0",
+                }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
+                    <span style={{
+                      width: 22, height: 22, borderRadius: 5, display: "inline-flex",
+                      alignItems: "center", justifyContent: "center",
+                      background: i === 0 ? "#059669" : "#1e3a5f", color: "#fff",
+                      fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: 10,
+                    }}>#{i + 1}</span>
+                    <span style={{ fontWeight: 700, fontSize: 14, color: "#0f172a", flex: 1 }}>{b.B.name}</span>
+                    <span style={{
+                      fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 16, color: scoreColor,
+                    }}>{b.B.score}</span>
+                  </div>
+                  <div style={{
+                    display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6px 12px",
+                  }}>
+                    {compCols.map((col) => (
+                      <div key={col}>
+                        <div style={{ fontSize: 10, color: "#94a3b8", fontWeight: 600, textTransform: "uppercase" }}>{col}</div>
+                        <div style={{ fontSize: 13, fontWeight: 600, color: "#475569", marginTop: 1 }}>{getVal(col)}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
           </div>
-        </div>
+        ) : (
+          /* Desktop/Tablet: table */
+          <div style={{ ...cardBg, overflow: "hidden" }}>
+            <div style={{ overflowX: "auto", WebkitOverflowScrolling: "touch" }}>
+              <table style={{
+                width: "100%", minWidth: 700, borderCollapse: "collapse", fontSize: 14,
+              }}>
+                <thead>
+                  <tr style={{ background: "#f8fafc" }}>
+                    {["Broker", "Score", ...compCols].map((h) => (
+                      <th key={h} style={{
+                        padding: "14px 16px", textAlign: "left", fontFamily: "Outfit", fontWeight: 700,
+                        fontSize: 12, color: "#64748b", textTransform: "uppercase", letterSpacing: "0.05em",
+                        borderBottom: "2px solid #e2e8f0", whiteSpace: "nowrap",
+                        ...(h === "Broker" ? { position: "sticky", left: 0, background: "#f8fafc", zIndex: 1 } : {}),
+                      }}>{h}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {brokers.map((b, i) => {
+                    const scoreColor = b.B.score >= 9.0 ? "#059669" : b.B.score >= 8.5 ? "#2563eb" : "#d97706";
+                    const customRow = compData?.[b.slug];
+                    return (
+                      <tr key={b.slug}
+                        style={{ borderBottom: "1px solid #f1f5f9", transition: "background 0.15s" }}
+                        onMouseEnter={(e) => e.currentTarget.style.background = "#f8fafc"}
+                        onMouseLeave={(e) => e.currentTarget.style.background = "transparent"}
+                      >
+                        <td style={{
+                          padding: "14px 16px", fontWeight: 600, color: "#0f172a", whiteSpace: "nowrap",
+                          position: "sticky", left: 0, background: "#fff", zIndex: 1,
+                        }}>
+                          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                            <span style={{
+                              width: 22, height: 22, borderRadius: 5, display: "inline-flex",
+                              alignItems: "center", justifyContent: "center",
+                              background: i === 0 ? "#059669" : "#1e3a5f", color: "#fff",
+                              fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: 10,
+                            }}>#{i + 1}</span>
+                            {b.B.name}
+                          </div>
+                        </td>
+                        <td style={{ padding: "14px 16px" }}>
+                          <span style={{
+                            fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 15,
+                            color: scoreColor,
+                          }}>{b.B.score}</span>
+                        </td>
+                        {compCols.map((col) => {
+                          const lc = col.toLowerCase();
+                          const fallback =
+                            lc.includes("spread") ? (b.B.avgSpread ? `${b.B.avgSpread} pips` : `${b.B.spread} pips`)
+                            : lc.includes("commission") ? (b.B.commission || "—")
+                            : lc.includes("execution") ? "—"
+                            : lc.includes("min dep") || lc.includes("deposit") ? (b.B.minDep === 0 ? "$0" : `$${b.B.minDep}`)
+                            : lc.includes("leverage") ? b.B.leverage
+                            : lc.includes("platform") ? (b.B.platforms?.length + " platforms" || "—")
+                            : "—";
+                          return (
+                            <td key={col} style={{ padding: "14px 16px", color: "#475569" }}>
+                              {customRow ? (customRow[col] || fallback) : fallback}
+                            </td>
+                          );
+                        })}
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )}
       </section>
 
       {/* IN-DEPTH BROKER REVIEWS (country rankings only) */}
@@ -539,7 +628,7 @@ export default function RankingPage() {
                   }}>
                     {/* Header */}
                     <div style={{ display: "flex", alignItems: mob ? "flex-start" : "center", gap: mob ? 12 : 16, marginBottom: 16, flexWrap: "wrap" }}>
-                      <a href={b.B.url} target="_blank" rel="noopener noreferrer nofollow" style={{ flexShrink: 0, display: "block" }}>
+                      <a href={makeVisitUrl(b.slug, b.B.url)} target="_blank" rel="noopener nofollow sponsored" style={{ flexShrink: 0, display: "block" }}>
                         <BrokerLogo slug={b.slug} name={b.B.name} fallback={b.B.logo} size={mob ? 44 : 52} />
                       </a>
                       <div style={{ flex: 1, minWidth: 0 }}>
@@ -597,7 +686,7 @@ export default function RankingPage() {
 
                     {/* CTA */}
                     <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-                      <a href={b.B.url} target="_blank" rel="noopener noreferrer nofollow" style={{
+                      <a href={makeVisitUrl(b.slug, b.B.url)} target="_blank" rel="noopener nofollow sponsored" style={{
                         display: "inline-flex", alignItems: "center", gap: 6,
                         padding: mob ? "10px 18px" : "10px 22px", borderRadius: 10,
                         background: "linear-gradient(135deg,#059669,#34d399)",
@@ -717,6 +806,45 @@ export default function RankingPage() {
       <section style={{ ...cn, paddingBottom: mob ? 40 : 60 }}>
         <AffiliateDisclosureBanner />
       </section>
-    </div>
+
+      {/* STICKY CTA BAR for #1 broker */}
+      {brokers[0] && (
+        <div style={{
+          position: "fixed", bottom: 0, left: 0, right: 0, zIndex: 999,
+          transform: showStickyBar ? "translateY(0)" : "translateY(100%)",
+          transition: "transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+          background: "rgba(15, 23, 42, 0.97)",
+          backdropFilter: "blur(16px)",
+          borderTop: "1px solid rgba(255,255,255,0.08)",
+          boxShadow: "0 -4px 24px rgba(0,0,0,0.2)",
+        }}>
+          <div style={{
+            maxWidth: 1200, margin: "0 auto",
+            padding: mob ? "10px 16px" : "12px 24px",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            gap: mob ? 10 : 16,
+          }}>
+            <BrokerLogo slug={brokers[0].slug} name={brokers[0].B.name} fallback={brokers[0].B.logo} size={mob ? 24 : 28} />
+            <span style={{
+              fontFamily: "Outfit", fontWeight: 700, fontSize: mob ? 13 : 15,
+              color: "#fff", whiteSpace: "nowrap",
+            }}>
+              #{1} {brokers[0].B.name}
+            </span>
+            <span style={{
+              fontFamily: "'JetBrains Mono',monospace", fontWeight: 800,
+              fontSize: mob ? 14 : 16, color: "#34d399",
+            }}>{brokers[0].B.score}</span>
+            <a href={makeVisitUrl(brokers[0].slug, brokers[0].B.url)} target="_blank" rel="noopener nofollow sponsored" style={{
+              padding: mob ? "8px 16px" : "10px 24px", borderRadius: 8,
+              background: "linear-gradient(135deg,#059669,#34d399)",
+              color: "#fff", fontWeight: 700, fontSize: mob ? 13 : 14,
+              textDecoration: "none", whiteSpace: "nowrap",
+              boxShadow: "0 2px 8px rgba(5,150,105,0.3)",
+            }}>Visit {brokers[0].B.name} <span style={{ marginLeft: 4 }}>&rarr;</span></a>
+          </div>
+        </div>
+      )}
+    </main>
   );
 }

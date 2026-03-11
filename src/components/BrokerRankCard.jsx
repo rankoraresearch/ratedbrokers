@@ -158,7 +158,7 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
     B.riskWarning ? (
       <div style={{
         padding: mob ? "4px 16px 12px" : "4px 0 0",
-        fontSize: 9, lineHeight: 1.4, color: "#94a3b8", textAlign: "center",
+        fontSize: 10, lineHeight: 1.4, color: "#94a3b8", textAlign: "center",
       }}>
         {B.riskWarning}
       </div>
@@ -306,7 +306,10 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
               background: "linear-gradient(135deg,#059669,#047857)",
               color: "#fff", fontWeight: 700, fontSize: 14, textDecoration: "none",
               boxShadow: "0 2px 8px rgba(5,150,105,0.25)",
-            }}>Visit Broker</a>
+            }}>
+              <span>Visit {B.name}</span>
+              {B.promo && <span style={{ display: "block", fontSize: 10, fontWeight: 400, opacity: 0.8, marginTop: 2 }}>{B.promo}</span>}
+            </a>
             <Link to={reviewPath} style={{
               flex: 1, padding: "11px 16px", borderRadius: 10, textAlign: "center",
               background: "#fff", color: "#475569", fontWeight: 600, fontSize: 14,
@@ -350,7 +353,7 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
         }}>#{rank}</div>
 
         {/* Logo + Name block */}
-        <div style={{ width: tab ? 140 : 180, flexShrink: 0 }}>
+        <div style={{ minWidth: tab ? 140 : 160, flexShrink: 0 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
             <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" style={{ display: "flex", flexShrink: 0 }}>
               <BrokerLogo slug={broker.slug} name={B.name} fallback={B.logo} size={36} />
@@ -406,7 +409,10 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
               background: "linear-gradient(135deg,#059669,#047857)",
               color: "#fff", fontWeight: 700, fontSize: 13, textDecoration: "none",
               whiteSpace: "nowrap", boxShadow: "0 2px 8px rgba(5,150,105,0.25)",
-            }}>Visit Broker</a>
+            }}>
+              <span>Visit {B.name}</span>
+              {B.promo && <span style={{ display: "block", fontSize: 10, fontWeight: 400, opacity: 0.8, marginTop: 2 }}>{B.promo}</span>}
+            </a>
             <Link to={reviewPath} style={{
               padding: "8px 20px", borderRadius: 8, textAlign: "center",
               background: "#fff", color: "#475569", fontWeight: 600, fontSize: 13,
