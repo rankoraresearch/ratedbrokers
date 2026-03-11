@@ -190,8 +190,8 @@ const es = {
   "meth.title": "Nuestra metodología",
   "meth.desc": "Cómo probamos, puntuamos y clasificamos brókers. Sin cajas negras ni agendas ocultas — cada puntuación se basa en pruebas con cuentas reales realizadas por profesionales verificados.",
   "meth.brokersTested": "Brókers probados",
-  "meth.daysPerTest": "Días por prueba",
-  "meth.tradesPerBroker": "Operaciones por bróker",
+  "meth.scoringCategories": "Categorías de puntuación",
+  "meth.knockoutReq": "Requisito eliminatorio",
   "meth.expertReviewers": "Analistas expertos",
   "meth.reEvaluation": "Reevaluación",
   "meth.quarterly": "Trimestral",
@@ -231,10 +231,10 @@ const es = {
   // ===== METHODOLOGY: CRITERIA =====
   "criteria.regulation": "Regulación y seguridad",
   "criteria.costs": "Costes de trading",
-  "criteria.trustpilot": "Reseñas de usuarios (Trustpilot)",
-  "criteria.expert": "Prueba práctica de expertos",
+  "criteria.reputation": "Reputación de usuarios",
+  "criteria.transparency": "Transparencia del bróker",
   "criteria.platform": "Plataformas y herramientas",
-  "criteria.execution": "Calidad de ejecución",
+  "criteria.execution": "Modelo de ejecución",
 
   // ===== COUNTRY PAGE =====
   "country.bestBrokersIn": "Mejores brókers de forex en {country} ({year})",

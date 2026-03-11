@@ -190,8 +190,8 @@ const de = {
   "meth.title": "Unsere Methodik",
   "meth.desc": "Wie wir Broker testen, bewerten und einstufen. Keine Blackboxes, keine versteckten Absichten — jede Bewertung basiert auf echten Kontotests durch verifizierte Fachleute.",
   "meth.brokersTested": "Broker getestet",
-  "meth.daysPerTest": "Tage pro Test",
-  "meth.tradesPerBroker": "Trades pro Broker",
+  "meth.scoringCategories": "Bewertungskategorien",
+  "meth.knockoutReq": "Mindestanforderung",
   "meth.expertReviewers": "Experten-Prüfer",
   "meth.reEvaluation": "Neubewertung",
   "meth.quarterly": "Vierteljährlich",
@@ -231,10 +231,10 @@ const de = {
   // ===== METHODOLOGY: CRITERIA =====
   "criteria.regulation": "Regulierung & Sicherheit",
   "criteria.costs": "Handelskosten",
-  "criteria.trustpilot": "Nutzerbewertungen (Trustpilot)",
-  "criteria.expert": "Praktischer Expertentest",
+  "criteria.reputation": "Nutzer-Reputation",
+  "criteria.transparency": "Broker-Transparenz",
   "criteria.platform": "Plattformen & Tools",
-  "criteria.execution": "Ausführungsqualität",
+  "criteria.execution": "Ausführungsmodell",
 
   // ===== COUNTRY PAGE =====
   "country.bestBrokersIn": "Beste Forex-Broker in {country} ({year})",

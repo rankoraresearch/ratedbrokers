@@ -18,8 +18,13 @@ import { Trophy, Handshake } from "lucide-react";
 const CATEGORY_ICONS = {
   "Regulation & Safety": "shield",
   "Trading Costs": "dollar-sign",
+  "User Reputation": "star",
+  "Broker Transparency": "eye",
+  "Platforms & Tools": "monitor",
+  "Execution Model": "zap",
+  // Legacy names (for old broker data files)
   "Trustpilot Score": "star",
-  "Expert Evaluation": "microscope",
+  "Expert Evaluation": "eye",
   "Platform & Tools": "monitor",
   "Execution Quality": "zap",
 };

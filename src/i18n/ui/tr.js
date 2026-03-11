@@ -190,8 +190,8 @@ const tr = {
   "meth.title": "Metodolojimiz",
   "meth.desc": "Aracı kurumları nasıl test ediyor, puanlıyor ve sıralıyoruz. Kara kutu yok, gizli gündem yok — her puan doğrulanmış profesyoneller tarafından gerçek hesap testlerine dayanır.",
   "meth.brokersTested": "Test Edilen Aracı Kurum",
-  "meth.daysPerTest": "Test Başına Gün",
-  "meth.tradesPerBroker": "Aracı Kurum Başına İşlem",
+  "meth.scoringCategories": "Puanlama Kategorileri",
+  "meth.knockoutReq": "Zorunlu Gereksinim",
   "meth.expertReviewers": "Uzman İncelemeciler",
   "meth.reEvaluation": "Yeniden Değerlendirme",
   "meth.quarterly": "Üç Aylık",
@@ -231,10 +231,10 @@ const tr = {
   // ===== METHODOLOGY: CRITERIA =====
   "criteria.regulation": "Düzenleme & Güvenlik",
   "criteria.costs": "İşlem Maliyetleri",
-  "criteria.trustpilot": "Kullanıcı Değerlendirmeleri (Trustpilot)",
-  "criteria.expert": "Uzman Uygulamalı Test",
+  "criteria.reputation": "Kullanıcı İtibarı",
+  "criteria.transparency": "Aracı Kurum Şeffaflığı",
   "criteria.platform": "Platformlar & Araçlar",
-  "criteria.execution": "İşlem Kalitesi",
+  "criteria.execution": "İşlem Modeli",
 
   // ===== COUNTRY PAGE =====
   "country.bestBrokersIn": "{country} İçin En İyi Forex Aracı Kurumları ({year})",

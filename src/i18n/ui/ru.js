@@ -190,8 +190,8 @@ const ru = {
   "meth.title": "Наша методология",
   "meth.desc": "Как мы тестируем, оцениваем и ранжируем брокеров. Никаких чёрных ящиков и скрытых мотивов — каждая оценка основана на реальном тестировании проверенными профессионалами.",
   "meth.brokersTested": "Брокеров протестировано",
-  "meth.daysPerTest": "Дней на тест",
-  "meth.tradesPerBroker": "Сделок на брокера",
+  "meth.scoringCategories": "Категорий оценки",
+  "meth.knockoutReq": "Обязательное требование",
   "meth.expertReviewers": "Экспертов-аналитиков",
   "meth.reEvaluation": "Переоценка",
   "meth.quarterly": "Ежеквартально",
@@ -231,10 +231,10 @@ const ru = {
   // ===== METHODOLOGY: CRITERIA =====
   "criteria.regulation": "Регулирование и безопасность",
   "criteria.costs": "Торговые издержки",
-  "criteria.trustpilot": "Отзывы пользователей (Trustpilot)",
-  "criteria.expert": "Экспертный практический тест",
+  "criteria.reputation": "Репутация пользователей",
+  "criteria.transparency": "Прозрачность брокера",
   "criteria.platform": "Платформы и инструменты",
-  "criteria.execution": "Качество исполнения",
+  "criteria.execution": "Модель исполнения",
 
   // ===== COUNTRY PAGE =====
   "country.bestBrokersIn": "Лучшие форекс-брокеры в {country} ({year})",

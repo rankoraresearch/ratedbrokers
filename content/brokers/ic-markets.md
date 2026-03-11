@@ -49,28 +49,28 @@ risk_warning: "70.53% of retail investor accounts lose money when trading CFDs w
 scores:
   - name: "Regulation & Safety"
     score: 9.6
-    weight: 25
-    detail: "ASIC + CySEC dual Tier-1 regulation (base 9.5). Client funds segregated at Westpac and NAB (+0.1). Negative balance protection for all retail clients. No regulatory incidents. Final: 9.6."
+    weight: 30
+    detail: "ASIC + CySEC dual Tier-1 regulation. Client funds segregated at Westpac and NAB. Negative balance protection for all retail clients. No regulatory incidents. Investor compensation up to €20,000 (CySEC). Final: 9.6."
   - name: Trading Costs
     score: 8.8
     weight: 20
-    detail: "EUR/USD average spread 0.02 pips on Raw account. Total cost/lot: $7.20 (0.02 pips x $10 + $7 round-turn commission). Falls in $7-10 range, interpolated to 8.8. No deposit or withdrawal fees. No inactivity fee."
-  - name: Trustpilot Score
+    detail: "EUR/USD average spread 0.02 pips on Raw account. Total cost/lot: ~$7.02 (0.02 pips + $7 round-turn commission). Falls in $7-10 range. No deposit or withdrawal fees. No inactivity fee. Final: 8.8."
+  - name: User Reputation
     score: 9.9
     weight: 15
-    detail: "4.8/5 from 52,067 verified reviews. Base 9.6 (interpolated in 4.5+ band). +0.3 bonus for >20,000 reviews. Final: 9.9."
-  - name: Expert Evaluation
-    score: 9.7
-    weight: 20
-    detail: "Our team opened live accounts, deposited real funds, executed 150+ trades across sessions, and tested withdrawals. Average execution: 40ms. Not recalculated — based on manual testing."
-  - name: "Platform & Tools"
+    detail: "Trustpilot 4.8/5 from 52,067 reviews. Extremely high volume adds statistical confidence. Broker actively responds to complaints. Consistent positive sentiment over last 12 months. Final: 9.9."
+  - name: Broker Transparency
+    score: 9.6
+    weight: 15
+    detail: "Full fee schedule published on website. Clear withdrawal conditions. Transparent ownership structure (privately held, CEO identified). Risk warning prominently displayed. All account conditions clearly documented. Final: 9.6."
+  - name: "Platforms & Tools"
     score: 10.0
-    weight: 10
-    detail: "4 platforms: MT4, MT5, cTrader, TradingView (base 9.5). +0.3 TradingView integration. +0.2 cTrader. Equinix NY4/LD5 servers. Free VPS. Final: 10.0."
-  - name: Execution Quality
+    weight: 15
+    detail: "4 platforms: MT4, MT5, cTrader, TradingView. Full-featured mobile apps. API/algo trading supported. Free VPS for qualifying clients. Comprehensive demo accounts. Final: 10.0."
+  - name: Execution Model
     score: 9.8
-    weight: 10
-    detail: "No dealing desk. Average fill speed 40ms. Less than 0.1% requote rate in our testing. ECN model. Supports scalping, hedging, and EA trading. Not recalculated — based on manual testing."
+    weight: 5
+    detail: "Verified ECN/STP with 50+ declared liquidity providers. No dealing desk. Published execution policy. Supports scalping, hedging, and EA trading without restrictions. Final: 9.8."
 
 accounts:
   - name: Standard
@@ -284,7 +284,7 @@ The broker is regulated by two Tier-1 financial authorities — ASIC (Australian
 
 ## Scoring
 
-Our overall score of {score}/10 for IC Markets is calculated using a weighted methodology across six key dimensions. Each score is based on real testing, verified data, and expert analysis — not broker-supplied marketing materials. Here's how IC Markets performed in each category:
+Our overall score of {score}/10 for IC Markets is calculated using our weighted methodology across six categories. Each score is based on verified data, independent research, and expert analysis — not broker-supplied marketing materials. Here's how IC Markets performed in each category:
 
 ## Account Intro
 
@@ -296,13 +296,13 @@ All account types provide access to the same instrument range and support hedgin
 
 ## Regulation
 
-Regulation is the most heavily weighted factor in our scoring methodology (25%). IC Markets holds licenses from three regulatory bodies, two of which are classified as Tier-1 — the highest category of financial regulation.
+Regulation is the most heavily weighted factor in our scoring methodology (30%). IC Markets holds licenses from three regulatory bodies, two of which are classified as Tier-1 — the highest category of financial regulation.
 
 Under ASIC and CySEC regulation, IC Markets is required to maintain full segregation of client funds, provide negative balance protection, submit to regular external audits, and maintain minimum capital adequacy requirements. The Seychelles entity operates under lighter regulation — our recommendation is to open your account under the ASIC or CySEC entity when possible for maximum protection.
 
 ## Costs
 
-Trading costs are a make-or-break factor for active traders. IC Markets earned a 9.9/10 in this category — the highest of any broker we've reviewed — thanks to its ultra-tight raw spreads and transparent commission structure.
+Trading costs are a make-or-break factor for active traders. IC Markets earned an 8.8/10 in this category thanks to its ultra-tight raw spreads and transparent commission structure.
 
 IC Markets sources pricing from 50+ liquidity providers, creating deep order books with genuine interbank pricing. The Standard account has no commission but wider spreads (average 0.82 pips EUR/USD). The Raw Spread account is where IC Markets truly shines — with average spreads of just 0.02 pips on EUR/USD plus a $3.50 per lot, per side commission, the total cost per standard lot round-turn is approximately $7.02.
 

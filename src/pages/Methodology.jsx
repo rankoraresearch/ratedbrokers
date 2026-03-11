@@ -14,13 +14,13 @@ import Breadcrumb from "../components/Breadcrumb";
 // STATIC DATA
 // ============================
 const PROCESS_STEPS = [
-  { step: "01", title: "Research & Shortlist", desc: "We identify brokers through market research, user requests, and industry monitoring. Each candidate must have at least one verifiable regulatory license.", duration: "1 week", icon: "search" },
+  { step: "01", title: "Research & Shortlist", desc: "We identify brokers through market research, user requests, and industry monitoring. Each candidate must hold at least one Tier-1 regulatory license (knockout criterion).", duration: "1 week", icon: "search" },
   { step: "02", title: "License Verification", desc: "We manually verify every regulatory license on the regulator's public database. We check authorization scope, disciplinary history, and any sanctions.", duration: "1-2 days", icon: "shield" },
-  { step: "03", title: "Account Opening & KYC", desc: "Two team members independently open real accounts, complete KYC verification, and deposit personal funds. We document the entire process.", duration: "2-5 days", icon: "clipboard-list" },
-  { step: "04", title: "30-Day Live Testing", desc: "We execute 500+ trades across major pairs, measuring real spreads, execution speed, slippage, and requotes. We test during both calm and volatile markets.", duration: "30 days", icon: "bar-chart-3" },
-  { step: "05", title: "Support & Withdrawal Test", desc: "We test customer support across all channels (chat, email, phone) with real questions. We request full withdrawal to verify speed and process.", duration: "1-2 weeks", icon: "message-circle" },
-  { step: "06", title: "Scoring & Review Writing", desc: "Two experts independently score the broker across all 6 criteria. Scores are averaged. The lead analyst writes the full review, which is fact-checked by a second expert.", duration: "1 week", icon: "pen-tool" },
-  { step: "07", title: "Quarterly Re-evaluation", desc: "Every published broker is re-tested quarterly. Scores are updated, new data is added, and rankings are adjusted. Brokers that decline are flagged or removed.", duration: "Ongoing", icon: "refresh-cw" },
+  { step: "03", title: "Data Collection", desc: "We collect spread data, fee schedules, platform features, and account conditions from broker websites and independent comparison sources.", duration: "3-5 days", icon: "clipboard-list" },
+  { step: "04", title: "User Review Aggregation", desc: "We aggregate Trustpilot scores, review volume, recency, and broker response patterns. We assess sentiment consistency across review platforms.", duration: "1-2 days", icon: "star" },
+  { step: "05", title: "Cross-Verification", desc: "We cross-check data points across multiple sources. Flag discrepancies for manual review. Verify fee disclosure, withdrawal conditions, and ownership structure for transparency scoring.", duration: "2-3 days", icon: "check-circle" },
+  { step: "06", title: "Scoring & Review Writing", desc: "We apply our scoring formula across all 6 criteria. The lead analyst writes the full review, which is fact-checked by a second expert.", duration: "1 week", icon: "pen-tool" },
+  { step: "07", title: "Quarterly Update", desc: "Every published broker is re-evaluated quarterly. Scores are updated, new data is collected, and rankings are adjusted. Brokers that decline are flagged or removed.", duration: "Ongoing", icon: "refresh-cw" },
 ];
 
 const TEAM = [
@@ -79,7 +79,7 @@ export default function MethodologyPage() {
   useEffect(() => {
     document.title = "How We Test Forex Brokers: Our Methodology | RatedBrokers";
     const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", "Our 6-category, 130+ data point scoring system explained. We open live accounts, deposit real money, and execute 500+ trades to rank brokers. Transparent, data-driven methodology with sub-criteria breakdown.");
+    if (meta) meta.setAttribute("content", "Our 6-category scoring methodology explained. We verify regulatory licenses, collect spread data from independent sources, and aggregate user reviews to rank brokers. Transparent, research-based methodology with full sub-criteria breakdown.");
 
     const schema = {
       "@context": "https://schema.org",
@@ -87,7 +87,7 @@ export default function MethodologyPage() {
         {
           "@type": "Article",
           headline: "How We Test & Rate Forex Brokers: Our Methodology",
-          description: "RatedBrokers methodology: 130+ data points, 6 weighted criteria, real-money testing.",
+          description: "RatedBrokers methodology: 6 weighted criteria, research-based scoring with transparent formula.",
           author: [
             { "@type": "Person", name: "Marcus Chen", jobTitle: "Senior Forex Analyst" },
             { "@type": "Person", name: "David Kowalski", jobTitle: "Compliance Analyst" },
@@ -162,9 +162,8 @@ export default function MethodologyPage() {
           {/* Trust stats */}
           <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
             {[
-              { val: "54", label: t("meth.brokersTested") },
-              { val: "130+", label: t("meth.dataPoints") },
-              { val: "500+", label: t("meth.tradesPerBroker") },
+              { val: "6", label: t("meth.scoringCategories") },
+              { val: "Tier-1", label: t("meth.knockoutReq") },
               { val: "4", label: t("meth.expertReviewers") },
               { val: t("meth.quarterly"), label: t("meth.reEvaluation") },
             ].map((s, i) => (
@@ -300,12 +299,12 @@ export default function MethodologyPage() {
             textAlign: "center", lineHeight: 2,
           }}>
             <span style={{ fontWeight: 800, color: "#0f172a", fontSize: 16 }}>{t("meth.overallScore")}</span> =<br/>
-            (<span style={{ color: "#059669", fontWeight: 700 }}>{t("criteria.regulation")} × 0.25</span>) +
+            (<span style={{ color: "#059669", fontWeight: 700 }}>{t("criteria.regulation")} × 0.30</span>) +
             (<span style={{ color: "#2563eb", fontWeight: 700 }}>{t("criteria.costs")} × 0.20</span>) +
-            (<span style={{ color: "#00B67A", fontWeight: 700 }}>{t("criteria.trustpilot")} × 0.15</span>) +
-            (<span style={{ color: "#7c3aed", fontWeight: 700 }}>{t("criteria.expert")} × 0.20</span>) +
-            (<span style={{ color: "#0ea5e9", fontWeight: 700 }}>{t("criteria.platform")} × 0.10</span>) +
-            (<span style={{ color: "#f59e0b", fontWeight: 700 }}>{t("criteria.execution")} × 0.10</span>)
+            (<span style={{ color: "#00B67A", fontWeight: 700 }}>{t("criteria.reputation")} × 0.15</span>) +
+            (<span style={{ color: "#7c3aed", fontWeight: 700 }}>{t("criteria.transparency")} × 0.15</span>) +
+            (<span style={{ color: "#0ea5e9", fontWeight: 700 }}>{t("criteria.platform")} × 0.15</span>) +
+            (<span style={{ color: "#f59e0b", fontWeight: 700 }}>{t("criteria.execution")} × 0.05</span>)
           </div>
         </div>
 

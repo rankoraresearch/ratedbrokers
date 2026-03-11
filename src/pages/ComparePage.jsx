@@ -245,10 +245,10 @@ export default function ComparePage() {
             How We Compare Forex Brokers
           </h2>
           <p style={{ fontSize: 16, lineHeight: 1.8, color: "#475569", marginBottom: 12 }}>
-            Our broker comparisons are built on real-account testing, not marketing claims. For every broker on RatedBrokers, our analyst team deposits real funds, executes 500+ trades across multiple sessions, and measures actual spreads, execution speed, and slippage. This data powers every comparison on this page.
+            Our broker comparisons are built on independent research, not marketing claims. For every broker on RatedBrokers, our analyst team collects data from regulatory databases, broker websites, independent sources, and aggregated user reviews. This data powers every comparison on this page.
           </p>
           <p style={{ fontSize: 16, lineHeight: 1.8, color: "#475569", marginBottom: 12 }}>
-            Each broker is scored across six weighted categories: Regulation &amp; Safety (25%), Trading Costs (20%), Trustpilot Reviews (15%), Expert Hands-On Evaluation (20%), Platforms &amp; Tools (10%), and Execution Quality (10%). When you compare two brokers, you see exactly where each one wins, loses, or ties — backed by data, not opinion.
+            Each broker is scored across six weighted categories: Regulation &amp; Safety (30%), Trading Costs (20%), User Reputation (15%), Broker Transparency (15%), Platforms &amp; Tools (15%), and Execution Model (5%). When you compare two brokers, you see exactly where each one wins, loses, or ties — backed by data, not opinion.
           </p>
           <p style={{ fontSize: 16, lineHeight: 1.8, color: "#475569", margin: 0 }}>
             All comparisons are updated quarterly to reflect the latest spreads, regulatory changes, and platform updates. Whether you're choosing between ECN brokers for scalping or looking for the safest regulated broker for long-term investing, our side-by-side tool helps you make an informed decision based on independently verified data.

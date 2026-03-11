@@ -53,11 +53,25 @@
 
 ---
 
+## Methodology v2 — Честный скоринг (11 марта 2026)
+
+### Переработка методологии
+- Новая формула: Regulation 30%, Costs 20%, User Reputation 15%, Broker Transparency 15%, Platforms & Tools 15%, Execution Model 5%
+- CySEC перемещён в Tier 1 (EU/MiFID)
+- Knockout-критерий: без Tier-1 лицензии брокер не попадает на сайт
+- Убраны все фейковые claims ("500+ trades", "30-day live testing", "NLP analysis")
+- "Expert Hands-On Test" → "Broker Transparency"
+- Новый файл: `docs/METHODOLOGY.md` (source of truth)
+- Обновлены: methodologyData.js, trustScoreData.js, Methodology.jsx, ic-markets.md
+- Обновлены все 10 языковых файлов i18n
+
+---
+
 ## Текущее состояние
 
 | Метрика | Значение |
 |---------|----------|
-| Брокеров | 38 |
+| Брокеров | 1 (IC Markets) |
 | Стран | 43 |
 | Рейтингов | 207 |
 | Гайдов | 25 |

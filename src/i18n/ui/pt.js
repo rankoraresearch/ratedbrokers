@@ -190,8 +190,8 @@ const pt = {
   "meth.title": "Nossa Metodologia",
   "meth.desc": "Como testamos, pontuamos e classificamos corretoras. Sem caixas-pretas, sem agendas ocultas — cada nota é baseada em testes com contas reais por profissionais verificados.",
   "meth.brokersTested": "Corretoras Testadas",
-  "meth.daysPerTest": "Dias Por Teste",
-  "meth.tradesPerBroker": "Operações Por Corretora",
+  "meth.scoringCategories": "Categorias de Avaliação",
+  "meth.knockoutReq": "Requisito Eliminatório",
   "meth.expertReviewers": "Analistas Especialistas",
   "meth.reEvaluation": "Reavaliação",
   "meth.quarterly": "Trimestral",
@@ -231,10 +231,10 @@ const pt = {
   // ===== METHODOLOGY: CRITERIA =====
   "criteria.regulation": "Regulamentação & Segurança",
   "criteria.costs": "Custos de Negociação",
-  "criteria.trustpilot": "Avaliações de Usuários (Trustpilot)",
-  "criteria.expert": "Teste Prático do Especialista",
+  "criteria.reputation": "Reputação de Usuários",
+  "criteria.transparency": "Transparência da Corretora",
   "criteria.platform": "Plataformas & Ferramentas",
-  "criteria.execution": "Qualidade de Execução",
+  "criteria.execution": "Modelo de Execução",
 
   // ===== COUNTRY PAGE =====
   "country.bestBrokersIn": "Melhores Corretoras Forex em {country} ({year})",

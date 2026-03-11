@@ -32,7 +32,7 @@ export default function TrustScorePage() {
   useEffect(() => {
     document.title = "RatedBrokers Trust Score — Transparent Broker Rating System | RatedBrokers";
     const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", "Understand the RatedBrokers Trust Score: a transparent 0–10 rating system for forex brokers, built on 6 categories, 130+ data points, and real-money testing. Search any broker instantly.");
+    if (meta) meta.setAttribute("content", "Understand the RatedBrokers Trust Score: a transparent 0–10 rating system for forex brokers, built on 6 weighted categories and independent research. Search any broker instantly.");
 
     const schema = {
       "@context": "https://schema.org",
@@ -40,7 +40,7 @@ export default function TrustScorePage() {
         {
           "@type": "DefinedTerm",
           name: "RatedBrokers Trust Score",
-          description: "A composite 0–10 rating measuring the quality and trustworthiness of forex brokers across 6 weighted categories and 130+ data points.",
+          description: "A composite 0–10 rating measuring the quality and trustworthiness of forex brokers across 6 weighted categories using independent research.",
           inDefinedTermSet: { "@type": "DefinedTermSet", name: "RatedBrokers Rating System" },
         },
         {

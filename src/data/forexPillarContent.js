@@ -35,8 +35,8 @@ const FOREX_PILLAR = {
     {
       title: "Why Trust RatedBrokers Rankings?",
       paragraphs: [
-        "We believe that broker reviews should be based on real trading experience, not marketing copy. Every broker in our rankings has been tested with real money deposited into live accounts. Our team of four analysts — with over 40 years of combined trading experience — executes hundreds of trades per evaluation cycle, measuring actual spreads, execution speed, and slippage under real market conditions.",
-        "Our scoring methodology is transparent and weighted: Regulation & Safety (25%), Trading Costs (20%), Expert Hands-On Test (20%), User Reviews via Trustpilot (15%), Platforms & Tools (10%), and Execution Quality (10%). We publish our full methodology openly and update all rankings quarterly to reflect changing market conditions.",
+        "We believe that broker reviews should be based on independent research, not marketing copy. Every broker in our rankings has been evaluated using data from official regulatory databases, broker websites, independent comparison sources, and aggregated user reviews. Our team of four analysts — with over 40 years of combined experience — verifies every data point and cross-checks across multiple sources.",
+        "Our scoring methodology is transparent and weighted: Regulation & Safety (30%), Trading Costs (20%), User Reputation (15%), Broker Transparency (15%), Platforms & Tools (15%), and Execution Model (5%). We publish our full methodology openly and update all rankings quarterly to reflect changing market conditions.",
         "Unlike many review sites that are secretly owned by brokers, RatedBrokers is editorially independent. While we earn affiliate commissions when you open an account through our links, this never influences our rankings. Several of our highest-rated brokers have no affiliate relationship with us — they rank highly because they earned it through our testing.",
       ],
     },

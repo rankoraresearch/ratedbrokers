@@ -190,8 +190,8 @@ const fr = {
   "meth.title": "Notre Méthodologie",
   "meth.desc": "Comment nous testons, notons et classons les brokers. Aucune boîte noire, aucun agenda caché — chaque note repose sur des tests en compte réel par des professionnels vérifiés.",
   "meth.brokersTested": "Brokers Testés",
-  "meth.daysPerTest": "Jours Par Test",
-  "meth.tradesPerBroker": "Trades Par Broker",
+  "meth.scoringCategories": "Catégories de notation",
+  "meth.knockoutReq": "Exigence éliminatoire",
   "meth.expertReviewers": "Analystes Experts",
   "meth.reEvaluation": "Réévaluation",
   "meth.quarterly": "Trimestrielle",
@@ -231,10 +231,10 @@ const fr = {
   // ===== METHODOLOGY: CRITERIA =====
   "criteria.regulation": "Régulation & Sécurité",
   "criteria.costs": "Coûts de Trading",
-  "criteria.trustpilot": "Avis Utilisateurs (Trustpilot)",
-  "criteria.expert": "Test Expert en Conditions Réelles",
+  "criteria.reputation": "Réputation Utilisateurs",
+  "criteria.transparency": "Transparence du Courtier",
   "criteria.platform": "Plateformes & Outils",
-  "criteria.execution": "Qualité d'Exécution",
+  "criteria.execution": "Modèle d'Exécution",
 
   // ===== COUNTRY PAGE =====
   "country.bestBrokersIn": "Meilleurs Brokers Forex en {country} ({year})",

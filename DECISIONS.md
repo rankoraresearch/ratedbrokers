@@ -160,19 +160,26 @@
 
 ---
 
-## 10. Система скоринга: 0–10, 6 критериев, публичная формула
+## 10. Система скоринга: 0–10, 6 критериев, публичная формула (v2)
 
-**Выбор:** Взвешенная формула с полностью опубликованными весами.
+**Выбор:** Взвешенная формула с полностью опубликованными весами. Research-based подход.
 
 ```
-Score = Regulation×0.25 + Costs×0.20 + Expert×0.20 + Reviews×0.15 + Platforms×0.10 + Execution×0.10
+Score = Regulation×0.30 + Costs×0.20 + Reputation×0.15 + Transparency×0.15 + Platforms×0.15 + Execution×0.05
 ```
 
 **Почему именно так:**
 - **0–10 шкала** (не 1-5, не 1-99) — интуитивно понятна, достаточная гранулярность
 - **6 критериев** — покрывают всё, что важно трейдеру, без информационного шума
 - **Публичная формула** — ключевое отличие от конкурентов (ForexBrokers.com — проприетарная, Investopedia — частичная)
-- **Regulation = 25%** — безопасность денег первична для финансового продукта
+- **Regulation = 30%** — безопасность денег первична для финансового продукта
+- **Knockout-критерий** — без Tier-1 лицензии брокер не попадает на сайт
+- **CySEC = Tier 1** — EU/MiFID framework, investor compensation до €20,000
+
+**v2 изменения (март 2026):**
+- Expert Hands-On Test (20%) → Broker Transparency (15%) — честный подход, без фейковых "500+ trades"
+- Regulation: 25% → 30%, Platforms: 10% → 15%, Execution: 10% → 5%
+- Source of truth: `docs/METHODOLOGY.md`
 
 **5 тиров:** Excellent (9+), Very Good (8-8.9), Good (7-7.9), Fair (6-6.9), Not Recommended (<6)
 
@@ -308,7 +315,7 @@ Score = Regulation×0.25 + Costs×0.20 + Expert×0.20 + Reviews×0.15 + Platform
 | Шрифты | DM Sans + Outfit + JetBrains Mono | System fonts | Fintech-эстетика, monospace для скоров |
 | Поиск | fuse.js | Algolia, ElasticSearch | Клиентский, 7KB, бесплатный |
 | SEO schema | JSON-LD в useEffect | SSR, плагины | Работает с CSR, полный контроль |
-| Скоринг | 0-10, 6 критериев | 1-5, 1-99 | Интуитивно, гранулярно, публично |
+| Скоринг | 0-10, 6 критериев, v2 | 1-5, 1-99 | Research-based, knockout Tier-1 |
 | Рейтинги | 207 программатических | Ручные страницы | Масштабируется за 5 минут |
 | UI | Вручную | Material UI, Chakra | 0KB overhead, точный бренд |
 | Деплой | Статика на CDN | Node.js сервер | $0, нет cold starts |

@@ -190,8 +190,8 @@ const zh = {
   "meth.title": "\u6211\u4eec\u7684\u65b9\u6cd5\u8bba",
   "meth.desc": "\u6211\u4eec\u5982\u4f55\u6d4b\u8bd5\u3001\u8bc4\u5206\u548c\u6392\u540d\u7ecf\u7eaa\u5546\u3002\u6ca1\u6709\u9ed1\u7bb1\u64cd\u4f5c\uff0c\u6ca1\u6709\u9690\u85cf\u52a8\u673a \u2014 \u6bcf\u4e2a\u8bc4\u5206\u90fd\u57fa\u4e8e\u7ecf\u8fc7\u9a8c\u8bc1\u7684\u4e13\u4e1a\u4eba\u58eb\u7684\u771f\u5b9e\u8d26\u6237\u6d4b\u8bd5\u3002",
   "meth.brokersTested": "\u5df2\u6d4b\u8bd5\u7ecf\u7eaa\u5546",
-  "meth.daysPerTest": "\u6bcf\u6b21\u6d4b\u8bd5\u5929\u6570",
-  "meth.tradesPerBroker": "\u6bcf\u5bb6\u4ea4\u6613\u7b14\u6570",
+  "meth.scoringCategories": "\u8bc4\u5206\u7c7b\u522b",
+  "meth.knockoutReq": "\u5fc5\u8981\u6761\u4ef6",
   "meth.expertReviewers": "\u4e13\u5bb6\u8bc4\u6d4b\u5458",
   "meth.reEvaluation": "\u91cd\u65b0\u8bc4\u4f30",
   "meth.quarterly": "\u6bcf\u5b63\u5ea6",
@@ -231,10 +231,10 @@ const zh = {
   // ===== METHODOLOGY: CRITERIA =====
   "criteria.regulation": "\u76d1\u7ba1\u4e0e\u5b89\u5168",
   "criteria.costs": "\u4ea4\u6613\u6210\u672c",
-  "criteria.trustpilot": "\u7528\u6237\u8bc4\u4ef7 (Trustpilot)",
-  "criteria.expert": "\u4e13\u5bb6\u5b9e\u6d4b",
+  "criteria.reputation": "\u7528\u6237\u58f0\u8a89",
+  "criteria.transparency": "\u7ecf\u7eaa\u5546\u900f\u660e\u5ea6",
   "criteria.platform": "\u5e73\u53f0\u4e0e\u5de5\u5177",
-  "criteria.execution": "\u6267\u884c\u8d28\u91cf",
+  "criteria.execution": "\u6267\u884c\u6a21\u5f0f",
 
   // ===== COUNTRY PAGE =====
   "country.bestBrokersIn": "{country}\u6700\u4f73\u5916\u6c47\u7ecf\u7eaa\u5546 ({year})",
