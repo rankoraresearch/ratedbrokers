@@ -4,12 +4,12 @@ import { useMedia } from "../hooks/useMedia";
 import { useLocalePath } from "../i18n/useLocalePath";
 import { useTranslation } from "../i18n/LanguageContext";
 import { getBrokersForRanking } from "../data/rankingFilters";
-import { getAuthorForRanking, getFactChecker } from "../data/authors";
+import { getAuthorForRanking, getFactChecker, getReviewerForAuthor } from "../data/authors";
 import CONTENT from "../data/forexPillarContent";
 import BrokerRankCard from "../components/BrokerRankCard";
 import Accordion from "../components/Accordion";
 import AffiliateDisclosureBanner from "../components/AffiliateDisclosureBanner";
-import AuthorByline from "../components/AuthorByline";
+import AuthorCredits from "../components/AuthorCredits";
 import AuthorBioCard from "../components/AuthorBioCard";
 import Breadcrumb from "../components/Breadcrumb";
 import Icon, { ArrowRight } from "../components/Icon";
@@ -26,6 +26,7 @@ export default function ForexBrokersPage() {
   const top5 = brokers.slice(0, 5);
   const top15 = brokers.slice(0, 15);
   const author = getAuthorForRanking("forex");
+  const reviewer = getReviewerForAuthor(author.id);
   const factChecker = getFactChecker(author.id);
 
   useEffect(() => {
@@ -140,7 +141,7 @@ export default function ForexBrokersPage() {
 
           {/* Author byline */}
           <div style={{ display: "flex", justifyContent: "center", marginBottom: 28 }}>
-            <AuthorByline author={author} factChecker={factChecker} updatedDate="February 2026" variant="onDark" />
+            <AuthorCredits author={author} reviewer={reviewer} factChecker={factChecker} updatedDate="March 2026" variant="onDark" />
           </div>
 
           {/* Trust stats */}

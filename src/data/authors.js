@@ -79,6 +79,17 @@ export function getAuthorForRanking(category) {
   return AUTHORS[authorId];
 }
 
+// Reviewer — перекрёстная проверка между экспертами
+export function getReviewerForAuthor(authorId) {
+  const map = {
+    "marcus-chen": "elena-petrova",
+    "sarah-williams": "marcus-chen",
+    "elena-petrova": "sarah-williams",
+    "david-kowalski": "elena-petrova",
+  };
+  return AUTHORS[map[authorId]] || AUTHORS["elena-petrova"];
+}
+
 // Получить автора для broker review по AUTHOR.name из broker data
 export function getAuthorByName(name) {
   return Object.values(AUTHORS).find((a) => a.name === name) || AUTHORS["marcus-chen"];

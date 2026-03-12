@@ -4,12 +4,12 @@ import { useMedia } from "../hooks/useMedia";
 import { useLocalePath } from "../i18n/useLocalePath";
 import { useTranslation } from "../i18n/LanguageContext";
 import { getBrokersForRanking } from "../data/rankingFilters";
-import { getAuthorForRanking, getFactChecker } from "../data/authors";
+import { getAuthorForRanking, getFactChecker, getReviewerForAuthor } from "../data/authors";
 import CONTENT from "../data/cryptoPillarContent";
 import BrokerRankCard from "../components/BrokerRankCard";
 import Accordion from "../components/Accordion";
 import AffiliateDisclosureBanner from "../components/AffiliateDisclosureBanner";
-import AuthorByline from "../components/AuthorByline";
+import AuthorCredits from "../components/AuthorCredits";
 import AuthorBioCard from "../components/AuthorBioCard";
 import Breadcrumb from "../components/Breadcrumb";
 
@@ -24,6 +24,7 @@ export default function CryptoBrokersPage() {
   const top5 = brokers.slice(0, 5);
   const top12 = brokers.slice(0, 12);
   const author = getAuthorForRanking("crypto");
+  const reviewer = getReviewerForAuthor(author.id);
   const factChecker = getFactChecker(author.id);
 
   useEffect(() => {
@@ -138,7 +139,7 @@ export default function CryptoBrokersPage() {
 
           {/* Author byline */}
           <div style={{ display: "flex", justifyContent: "center", marginBottom: 28 }}>
-            <AuthorByline author={author} factChecker={factChecker} updatedDate="February 2026" variant="onDark" />
+            <AuthorCredits author={author} reviewer={reviewer} factChecker={factChecker} updatedDate="March 2026" variant="onDark" />
           </div>
 
           {/* Trust stats */}

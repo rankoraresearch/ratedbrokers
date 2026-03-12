@@ -1,7 +1,10 @@
+import { Link } from "react-router-dom";
 import { Linkedin, Shield, Target } from "lucide-react";
+import { useLocalePath } from "../i18n/useLocalePath";
 import AuthorAvatar from "./AuthorAvatar";
 
 export default function AuthorBioCard({ author }) {
+  const lp = useLocalePath();
   if (!author) return null;
 
   const expNum = parseInt(author.exp) || 0;
@@ -85,6 +88,20 @@ export default function AuthorBioCard({ author }) {
             <span><strong style={{ color: "#1e293b" }}>Specialty:</strong> {author.specialty}</span>
           </div>
         )}
+
+        {/* View Full Profile */}
+        <Link
+          to={lp(`/author/${author.id}`)}
+          style={{
+            display: "block", textAlign: "center", padding: "12px 20px",
+            borderRadius: 10, marginBottom: 10,
+            background: "#f1f5f9", color: "#1e293b",
+            fontSize: 14, fontWeight: 700, textDecoration: "none",
+            transition: "background 0.2s",
+          }}
+        >
+          View Full Profile &rarr;
+        </Link>
 
         {/* LinkedIn CTA full-width */}
         <a

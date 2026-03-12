@@ -3,8 +3,8 @@ import { Link, useParams } from "react-router-dom";
 import { getBrokerData } from "../data/brokers/index";
 import { useTranslation } from "../i18n/LanguageContext";
 import { useLocalePath } from "../i18n/useLocalePath";
-import { getAuthorByName, getFactChecker } from "../data/authors";
-import AuthorByline from "../components/AuthorByline";
+import { getAuthorByName, getFactChecker, getReviewerForAuthor } from "../data/authors";
+import AuthorCredits from "../components/AuthorCredits";
 import AuthorBioCard from "../components/AuthorBioCard";
 import AuthorAvatar from "../components/AuthorAvatar";
 import RegBadge from "../components/RegBadge";
@@ -110,6 +110,7 @@ export default function BrokerReview() {
 
   const { B, SCORES, ACCOUNTS, SPREADS, spreadCompetitors, DEPOSITS, TIMELINE, PROS, CONS, FAQ, AUTHOR, SIMILAR, costBoxes, trustpilotBars, content: enContent } = data;
   const author = getAuthorByName(AUTHOR.name);
+  const authorReviewer = getReviewerForAuthor(author?.id);
   const authorFactChecker = getFactChecker(author?.id);
 
   // Merge translated content
@@ -201,7 +202,7 @@ export default function BrokerReview() {
         <main>
           {/* Author */}
           <div style={{marginBottom:20}}>
-            <AuthorByline author={author} factChecker={authorFactChecker} updatedDate={AUTHOR.updated} />
+            <AuthorCredits author={author} reviewer={authorReviewer} factChecker={authorFactChecker} updatedDate={AUTHOR.updated} />
           </div>
 
           {/* OVERVIEW */}

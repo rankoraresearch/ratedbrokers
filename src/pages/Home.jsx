@@ -9,6 +9,8 @@ import BrokerLogo from "../components/BrokerLogo";
 import Icon from "../components/Icon";
 import { ArrowRight, Award } from "lucide-react";
 import CountryFlag from "../components/CountryFlag";
+import { AUTHORS } from "../data/authors";
+import AuthorAvatar from "../components/AuthorAvatar";
 
 
 const COUNTRIES = [
@@ -534,6 +536,51 @@ export default function Home() {
               {t("home.founderLinkedin")}
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* ===== 9. OUR EXPERTS ===== */}
+      <section style={{ ...cn, padding: mob ? "0 16px 40px" : "0 24px 60px" }}>
+        <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 28, textAlign: "center", marginBottom: 8 }}>
+          Our Expert Team
+        </h2>
+        <p style={{ textAlign: "center", fontSize: 14, color: "#64748b", marginBottom: 24, maxWidth: 500, margin: "0 auto 24px" }}>
+          Every review is written, peer-reviewed, and fact-checked by certified industry professionals.
+        </p>
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: mob ? "1fr 1fr" : "repeat(4, 1fr)",
+          gap: 12,
+        }}>
+          {Object.values(AUTHORS).map((a) => (
+            <Link key={a.id} to={lp(`/author/${a.id}`)} style={{
+              display: "flex", flexDirection: "column", alignItems: "center", gap: 10,
+              padding: mob ? "20px 12px" : "24px 16px", borderRadius: 14,
+              background: "#fff", border: "1px solid #e2e8f0",
+              textDecoration: "none", color: "#1e293b",
+              transition: "all 0.2s",
+            }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = "#a7f3d0";
+                e.currentTarget.style.transform = "translateY(-2px)";
+                e.currentTarget.style.boxShadow = "0 4px 16px rgba(5,150,105,0.08)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = "#e2e8f0";
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "none";
+              }}
+            >
+              <AuthorAvatar author={a} size={mob ? 48 : 56} showVerified />
+              <div style={{ textAlign: "center" }}>
+                <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: mob ? 13 : 15 }}>{a.name}</div>
+                <div style={{ fontSize: 12, color: "#64748b", marginTop: 2 }}>{a.role}</div>
+              </div>
+              <span style={{
+                fontSize: 12, fontWeight: 600, color: "#059669",
+              }}>View Profile &rarr;</span>
+            </Link>
+          ))}
         </div>
       </section>
 

@@ -4,9 +4,9 @@ import { useMedia } from "../hooks/useMedia";
 import { useLocalePath } from "../i18n/useLocalePath";
 import { useTranslation } from "../i18n/LanguageContext";
 import { getGuideBySlug, getAllGuides } from "../data/guides/index";
-import { AUTHORS, getFactChecker } from "../data/authors";
+import { AUTHORS, getFactChecker, getReviewerForAuthor } from "../data/authors";
 import Accordion from "../components/Accordion";
-import AuthorByline from "../components/AuthorByline";
+import AuthorCredits from "../components/AuthorCredits";
 import AuthorBioCard from "../components/AuthorBioCard";
 import Breadcrumb, { breadcrumbSchema } from "../components/Breadcrumb";
 import renderLinkedText from "../utils/renderLinkedText";
@@ -105,6 +105,7 @@ export default function GuidePage() {
   }
 
   const author = AUTHORS[guide.author] || AUTHORS["marcus-chen"];
+  const reviewer = getReviewerForAuthor(author.id);
   const factChecker = getFactChecker(author.id);
   const cn = { maxWidth: 800, margin: "0 auto", padding: mob ? "0 16px" : "0 24px" };
   const allGuides = getAllGuides();
@@ -147,7 +148,7 @@ export default function GuidePage() {
           margin: "0 0 20px", maxWidth: 640,
         }}>{guide.hero.subtitle}</p>
 
-        <AuthorByline author={author} factChecker={factChecker} updatedDate={guide.updatedDate} />
+        <AuthorCredits author={author} reviewer={reviewer} factChecker={factChecker} updatedDate={guide.updatedDate} />
       </section>
 
       {/* ══════ TABLE OF CONTENTS ══════ */}

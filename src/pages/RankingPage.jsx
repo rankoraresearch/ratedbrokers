@@ -9,8 +9,8 @@ import { getThematicData, getBrokerBlurb, getQuickVerdict, getComparisonCols, ge
 import BrokerRankCard from "../components/BrokerRankCard";
 import Accordion from "../components/Accordion";
 import AffiliateDisclosureBanner from "../components/AffiliateDisclosureBanner";
-import { getAuthorForRanking, getFactChecker } from "../data/authors";
-import AuthorByline from "../components/AuthorByline";
+import { getAuthorForRanking, getFactChecker, getReviewerForAuthor } from "../data/authors";
+import AuthorCredits from "../components/AuthorCredits";
 import AuthorBioCard from "../components/AuthorBioCard";
 import Breadcrumb, { breadcrumbSchema } from "../components/Breadcrumb";
 import Icon, { ArrowRight, CircleCheck, Check, X as XIcon } from "../components/Icon";
@@ -138,6 +138,7 @@ export default function RankingPage() {
   const seo = SEO_CONTENT[ranking.id] || {};
   const topBroker = brokers[0]?.B?.name || "IC Markets";
   const author = getAuthorForRanking(ranking.category);
+  const reviewer = getReviewerForAuthor(author.id);
   const factChecker = getFactChecker(author.id);
 
   // Replace template variables
@@ -204,7 +205,7 @@ export default function RankingPage() {
             {ranking.title} {YEAR}
           </h1>
           <div style={{ display: "flex", justifyContent: "center", marginTop: 12 }}>
-            <AuthorByline author={author} factChecker={factChecker} updatedDate={`February ${YEAR}`} variant="centered" />
+            <AuthorCredits author={author} reviewer={reviewer} factChecker={factChecker} updatedDate={`March ${YEAR}`} variant="centered" />
           </div>
         </div>
       </header>

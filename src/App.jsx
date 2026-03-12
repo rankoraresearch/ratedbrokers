@@ -21,6 +21,7 @@ import HowWeMakeMoneyPage from "./pages/HowWeMakeMoneyPage";
 import TrustScorePage from "./pages/TrustScorePage";
 import ContactPage from "./pages/ContactPage";
 import AllGuidesPage from "./pages/AllGuidesPage";
+import AuthorPage from "./pages/AuthorPage";
 import { LanguageProvider } from "./i18n/LanguageContext";
 
 function Layout() {
@@ -58,6 +59,7 @@ function AppRoutes() {
         <Route path="best-crypto-brokers" element={<CryptoBrokersPage />} />
         <Route path="guides" element={<AllGuidesPage />} />
         <Route path="guide/:slug" element={<GuidePage />} />
+        <Route path="author/:slug" element={<AuthorPage />} />
         <Route path="platform/:slug" element={<PlatformPage />} />
         <Route path=":slug" element={<RankingPage />} />
       </Route>
