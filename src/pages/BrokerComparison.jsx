@@ -299,11 +299,7 @@ export default function BrokerComparison() {
         }}>
           {/* Broker A */}
           <div style={{ padding: mob ? "20px" : "32px", textAlign: "center", borderRight: mob ? "none" : "1px solid #f1f5f9", borderBottom: mob ? "1px solid #f1f5f9" : "none" }}>
-            <a href={A.url} target="_blank" rel="noopener noreferrer nofollow" style={{ display: "flex", justifyContent: "center", marginBottom: 12 }}><BrokerLogo slug={slugA} name={A.name} fallback={A.logo} size={80} shape="wide" variant="gray" /></a>
-            <Link to={lp(`/review/${slugA}`)} style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 24, color: "inherit", textDecoration: "none", display: "block" }}
-              onMouseEnter={e => e.currentTarget.style.textDecoration = "underline"}
-              onMouseLeave={e => e.currentTarget.style.textDecoration = "none"}
-            >{A.name}</Link>
+            <Link to={lp(`/review/${slugA}`)} style={{ display: "inline-flex", justifyContent: "center", marginBottom: 8, textDecoration: "none" }}><BrokerLogo slug={slugA} name={A.name} fallback={A.logo} size={64} shape="brand" variant="gray" /></Link>
             <div style={{ fontSize: 15, color: "#64748b", marginBottom: 12 }}>Est. {A.year} · {A.hq}</div>
             <div style={{ display: "flex", justifyContent: "center", marginBottom: 8 }}><ScoreBadge score={A.score} size="lg" /></div>
             <a href={getTrustpilotUrl(slugA)} target="_blank" rel="noopener noreferrer" style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 6, marginBottom: 16, textDecoration: "none", flexWrap: "wrap" }}>
@@ -333,11 +329,7 @@ export default function BrokerComparison() {
 
           {/* Broker B */}
           <div style={{ padding: mob ? "20px" : "32px", textAlign: "center" }}>
-            <a href={B.url} target="_blank" rel="noopener noreferrer nofollow" style={{ display: "flex", justifyContent: "center", marginBottom: 12 }}><BrokerLogo slug={slugB} name={B.name} fallback={B.logo} size={80} shape="wide" variant="gray" /></a>
-            <Link to={lp(`/review/${slugB}`)} style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 24, color: "inherit", textDecoration: "none", display: "block" }}
-              onMouseEnter={e => e.currentTarget.style.textDecoration = "underline"}
-              onMouseLeave={e => e.currentTarget.style.textDecoration = "none"}
-            >{B.name}</Link>
+            <Link to={lp(`/review/${slugB}`)} style={{ display: "inline-flex", justifyContent: "center", marginBottom: 8, textDecoration: "none" }}><BrokerLogo slug={slugB} name={B.name} fallback={B.logo} size={64} shape="brand" variant="gray" /></Link>
             <div style={{ fontSize: 15, color: "#64748b", marginBottom: 12 }}>Est. {B.year} · {B.hq}</div>
             <div style={{ display: "flex", justifyContent: "center", marginBottom: 8 }}><ScoreBadge score={B.score} size="lg" /></div>
             <a href={getTrustpilotUrl(slugB)} target="_blank" rel="noopener noreferrer" style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 6, marginBottom: 16, textDecoration: "none", flexWrap: "wrap" }}>
@@ -775,7 +767,7 @@ export default function BrokerComparison() {
         }}>
           {/* Broker A */}
           <div style={{ display: "flex", alignItems: "center", gap: mob ? 6 : 12, flex: mob ? 1 : "0 0 auto" }}>
-            {!mob && <BrokerLogo slug={slugA} name={A.name} fallback={A.logo} size={36} variant="gray" />}
+            {!mob && <BrokerLogo slug={slugA} name={A.name} fallback={A.logo} size={36} shape="icon" variant="gray" />}
             <div style={{ minWidth: 0 }}>
               <div style={{
                 fontFamily: "Outfit", fontWeight: 700, fontSize: mob ? 12 : 14, color: "#fff",
@@ -813,7 +805,7 @@ export default function BrokerComparison() {
 
           {/* Broker B */}
           <div style={{ display: "flex", alignItems: "center", gap: mob ? 6 : 12, flex: mob ? 1 : "0 0 auto", justifyContent: "flex-end" }}>
-            {!mob && <BrokerLogo slug={slugB} name={B.name} fallback={B.logo} size={36} variant="gray" />}
+            {!mob && <BrokerLogo slug={slugB} name={B.name} fallback={B.logo} size={36} shape="icon" variant="gray" />}
             <div style={{ minWidth: 0 }}>
               <div style={{
                 fontFamily: "Outfit", fontWeight: 700, fontSize: mob ? 12 : 14, color: "#fff",

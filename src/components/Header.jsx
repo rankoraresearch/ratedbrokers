@@ -5,7 +5,7 @@ import { useTranslation } from "../i18n/LanguageContext";
 import { useLocalePath } from "../i18n/useLocalePath";
 import Icon, { IconBox } from "./Icon";
 import CountryFlag from "./CountryFlag";
-import { ChevronDown, X as XIcon, Menu as MenuIcon, ArrowRight, Search as SearchIcon, Shield, CalendarCheck } from "lucide-react";
+import { ChevronDown, X as XIcon, Menu as MenuIcon, ArrowRight, Search as SearchIcon, Shield, CalendarCheck, Globe } from "lucide-react";
 import SearchOverlay from "./SearchOverlay";
 
 /* ── Data ───────────────────────────────────────────── */
@@ -358,12 +358,22 @@ export default function Header() {
 
           {/* ══ DESKTOP NAV ══ */}
           {(mob || tab) ? (
-            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
               <button
                 onClick={() => setSearchOpen(true)}
                 aria-label="Search"
                 style={{ background: "none", border: "none", color: "#475569", padding: "4px 8px", cursor: "pointer", display: "inline-flex", alignItems: "center" }}
               ><SearchIcon size={20} /></button>
+              <button
+                aria-label="Language"
+                style={{
+                  background: "none", border: "none", cursor: "pointer",
+                  display: "inline-flex", alignItems: "center", gap: 4,
+                  padding: "4px 6px", borderRadius: 6,
+                }}
+              >
+                <CountryFlag code="GB" size={16} />
+              </button>
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
                 style={{ background: "none", border: "none", color: "#475569", padding: "4px 8px", cursor: "pointer", display: "inline-flex", alignItems: "center" }}
@@ -682,6 +692,24 @@ export default function Header() {
                 onMouseEnter={(e) => { e.currentTarget.style.color = "#059669"; e.currentTarget.style.background = "#f0fdf4"; }}
                 onMouseLeave={(e) => { e.currentTarget.style.color = "#64748b"; e.currentTarget.style.background = "#f1f5f9"; }}
               ><SearchIcon size={16} /></button>
+
+              {/* ─── Language ─── */}
+              <button
+                aria-label="Language"
+                style={{
+                  background: "#f1f5f9", border: "none", cursor: "pointer",
+                  display: "inline-flex", alignItems: "center", gap: 5,
+                  padding: "5px 10px", borderRadius: 8,
+                  fontSize: 13, fontWeight: 600, color: "#475569",
+                  fontFamily: "inherit", transition: "all 0.2s",
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.background = "#f0fdf4"; e.currentTarget.style.color = "#059669"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.background = "#f1f5f9"; e.currentTarget.style.color = "#475569"; }}
+              >
+                <CountryFlag code="GB" size={16} />
+                EN
+                <ChevronDown size={11} style={{ color: "#94a3b8" }} />
+              </button>
 
               {/* ─── CTA: Compare Brokers ─── */}
               <Link

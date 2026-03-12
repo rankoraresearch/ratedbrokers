@@ -142,15 +142,11 @@ export default function AllReviewsPage() {
                   e.currentTarget.style.boxShadow = "none";
                 }}
               >
-                <BrokerLogo slug={b.slug} name={b.name} size={44} shape="wide" />
+                <BrokerLogo slug={b.slug} name={b.name} size={44} shape="brand" />
 
-                {/* Name + type */}
+                {/* Type */}
                 <div style={{ flex: 1, minWidth: 0 }}>
-                  <div style={{
-                    fontWeight: 700, fontSize: 15,
-                    whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis",
-                  }}>{b.name}</div>
-                  <div style={{ fontSize: 12, color: "#94a3b8", marginTop: 2 }}>
+                  <div style={{ fontSize: 12, color: "#94a3b8" }}>
                     {b.type}
                   </div>
                 </div>

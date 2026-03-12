@@ -196,15 +196,11 @@ export default function Home() {
                 )}
 
                 <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 14, marginTop: isFirst ? 8 : 0 }}>
-                  <Link to={lp(`/review/${broker.slug}`)} style={{ flexShrink: 0 }}>
-                    <BrokerLogo slug={broker.slug} name={b.name} fallback={b.logo} size={52} shape="wide" />
+                  <Link to={lp(`/review/${broker.slug}`)} style={{ flexShrink: 0, textDecoration: "none" }}>
+                    <BrokerLogo slug={broker.slug} name={b.name} fallback={b.logo} size={48} shape="brand" />
                   </Link>
                   <div style={{ flex: 1, minWidth: 0 }}>
-                    <Link to={lp(`/review/${broker.slug}`)} style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 17, color: "#1e293b", textDecoration: "none" }}
-                      onMouseEnter={(e) => { e.currentTarget.style.color = "#059669"; }}
-                      onMouseLeave={(e) => { e.currentTarget.style.color = "#1e293b"; }}
-                    >{b.name}</Link>
-                    <div style={{ fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: 18, color: b.score >= 9.5 ? "#059669" : "#2563eb" }}>{b.score}</div>
+                    <div style={{ fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: 20, color: b.score >= 9.5 ? "#059669" : "#2563eb" }}>{b.score}</div>
                   </div>
                   {!isFirst && (
                     <div style={{
@@ -441,13 +437,9 @@ export default function Home() {
                 e.currentTarget.style.transform = "translateY(0)";
               }}
             >
-              <BrokerLogo slug={broker.slug} name={broker.B.name} fallback={broker.B.logo} size={40} shape="wide" />
-              <div style={{ flex: 1, minWidth: 0 }}>
-                <div style={{
-                  fontWeight: 600, fontSize: 15, color: "#1e293b",
-                  whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis",
-                }}>{broker.B.name}</div>
-                <div style={{ fontFamily: "'JetBrains Mono'", fontSize: 13, fontWeight: 700, color: broker.B.score >= 9.0 ? "#059669" : broker.B.score >= 8.0 ? "#2563eb" : "#d97706" }}>{broker.B.score}</div>
+              <BrokerLogo slug={broker.slug} name={broker.B.name} fallback={broker.B.logo} size={40} shape="brand" />
+              <div style={{ flex: 1, minWidth: 0, textAlign: "right" }}>
+                <div style={{ fontFamily: "'JetBrains Mono'", fontSize: 14, fontWeight: 800, color: broker.B.score >= 9.0 ? "#059669" : broker.B.score >= 8.0 ? "#2563eb" : "#d97706" }}>{broker.B.score}</div>
               </div>
               <ArrowRight size={14} color="#94a3b8" style={{ flexShrink: 0 }} />
             </Link>

@@ -370,7 +370,7 @@ export default function CountryPage() {
                     {/* Row 1: Logo + Name + Score */}
                     <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 10 }}>
                       <a href={b.url} target="_blank" rel="noopener noreferrer nofollow" style={{ position: "relative", flexShrink: 0, display: "block" }}>
-                        <BrokerLogo slug={b.slug} name={b.name} fallback={b.logo} size={52} shape="wide" />
+                        <BrokerLogo slug={b.slug} name={b.name} fallback={b.logo} size={48} shape="brand" />
                         <div style={{
                           position: "absolute", top: -5, left: -5,
                           width: 20, height: 20, borderRadius: "50%",
@@ -471,7 +471,7 @@ export default function CountryPage() {
                     }}>
                       {/* Logo */}
                       <a href={b.url} target="_blank" rel="noopener noreferrer nofollow" style={{ position: "relative", flexShrink: 0, display: "block" }}>
-                        <BrokerLogo slug={b.slug} name={b.name} fallback={b.logo} size={56} shape="wide" />
+                        <BrokerLogo slug={b.slug} name={b.name} fallback={b.logo} size={48} shape="brand" />
                         <div style={{
                           position: "absolute", top: -6, left: -6,
                           width: 22, height: 22, borderRadius: "50%",
@@ -635,7 +635,7 @@ export default function CountryPage() {
                   {/* Header: logo + name + score + badge */}
                   <div style={{ display: "flex", alignItems: mob ? "flex-start" : "center", gap: mob ? 12 : 16, marginBottom: 16, flexWrap: "wrap" }}>
                     <a href={b.url} target="_blank" rel="noopener noreferrer nofollow" style={{ flexShrink: 0, display: "block" }}>
-                      <BrokerLogo slug={b.slug} name={b.name} fallback={b.logo} size={mob ? 48 : 56} shape="wide" />
+                      <BrokerLogo slug={b.slug} name={b.name} fallback={b.logo} size={mob ? 44 : 52} shape="brand" />
                     </a>
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <h3 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 18 : 22, margin: 0, lineHeight: 1.2 }}>

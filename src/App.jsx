@@ -21,6 +21,7 @@ import TrustScorePage from "./pages/TrustScorePage";
 import ContactPage from "./pages/ContactPage";
 import AllGuidesPage from "./pages/AllGuidesPage";
 import AuthorPage from "./pages/AuthorPage";
+import PrototypesPage from "./pages/prototypes/PrototypesPage";
 import { LanguageProvider } from "./i18n/LanguageContext";
 
 function Layout() {
@@ -38,6 +39,7 @@ function Layout() {
 function AppRoutes() {
   return (
     <Routes>
+      <Route path="prototypes" element={<PrototypesPage />} />
       <Route element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="uk" element={<Navigate to="/best-forex-brokers-uk" replace />} />

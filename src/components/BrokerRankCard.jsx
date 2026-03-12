@@ -185,16 +185,12 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
             fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 14, color: "#fff",
           }}>#{rank}</div>
 
-          <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" style={{ display: "flex", flexShrink: 0 }}>
-            <BrokerLogo slug={broker.slug} name={B.name} fallback={B.logo} size={40} shape="wide" />
-          </a>
+          <Link to={reviewPath} style={{ display: "flex", flexShrink: 0, textDecoration: "none" }}>
+            <BrokerLogo slug={broker.slug} name={B.name} fallback={B.logo} size={42} shape="brand" />
+          </Link>
 
-          <div style={{ flex: 1 }}>
+          <div style={{ flex: 1, minWidth: 0 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap" }}>
-              <Link to={reviewPath} style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 16, color: "inherit", textDecoration: "none" }}
-                onMouseEnter={e => e.currentTarget.style.textDecoration = "underline"}
-                onMouseLeave={e => e.currentTarget.style.textDecoration = "none"}
-              >{B.name}</Link>
               {B.badge && (
                 <span style={{
                   padding: "1px 6px", borderRadius: 4, fontSize: 11, fontWeight: 700,
@@ -202,7 +198,7 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
                 }}>{B.badge}</span>
               )}
             </div>
-            <div style={{ fontSize: 14, color: "#64748b", marginTop: 2 }}>{B.type}</div>
+            <div style={{ fontSize: 13, color: "#64748b", marginTop: 2 }}>{B.type}</div>
           </div>
 
           <ScoreBadge score={B.score} size="md" />
@@ -226,8 +222,8 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
             ["Leverage", B.leverage],
           ].map(([label, val]) => (
             <div key={label} style={{ background: "#f8fafc", padding: "8px 10px", textAlign: "center" }}>
-              <div style={{ fontSize: 11, color: "#94a3b8", fontWeight: 600, textTransform: "uppercase" }}>{label}</div>
-              <div style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 15, fontWeight: 700, color: "#1e293b", marginTop: 2 }}>{val}</div>
+              <div style={{ fontSize: 11, color: "#94a3b8", fontWeight: 600, textTransform: "uppercase", whiteSpace: "nowrap" }}>{label}</div>
+              <div style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 15, fontWeight: 700, color: "#1e293b", marginTop: 2, whiteSpace: "nowrap" }}>{val}</div>
             </div>
           ))}
         </div>
@@ -299,21 +295,23 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
         {hasThematic ? <DualCTA /> : (
           <div style={{
             display: "flex", gap: 8, padding: "12px 16px 16px",
-            borderTop: "1px solid #f1f5f9",
+            borderTop: "1px solid #f1f5f9", alignItems: "stretch",
           }}>
             <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" style={{
               flex: 1, padding: "11px 16px", borderRadius: 10, textAlign: "center",
               background: "linear-gradient(135deg,#059669,#047857)",
               color: "#fff", fontWeight: 700, fontSize: 15, textDecoration: "none",
               boxShadow: "0 2px 8px rgba(5,150,105,0.25)",
+              display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
             }}>
               <span>Visit {B.name}</span>
-              {B.promo && <span style={{ display: "block", fontSize: 11, fontWeight: 400, opacity: 0.8, marginTop: 2 }}>{B.promo}</span>}
+              {B.promo && <span style={{ fontSize: 11, fontWeight: 400, opacity: 0.8, marginTop: 2 }}>{B.promo}</span>}
             </a>
             <Link to={reviewPath} style={{
               flex: 1, padding: "11px 16px", borderRadius: 10, textAlign: "center",
               background: "#fff", color: "#475569", fontWeight: 600, fontSize: 15,
               textDecoration: "none", border: "1.5px solid #cbd5e1",
+              display: "flex", alignItems: "center", justifyContent: "center",
             }}>Read Review</Link>
           </div>
         )}
@@ -353,19 +351,11 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
         }}>#{rank}</div>
 
         {/* Logo + Name block */}
-        <div style={{ minWidth: tab ? 150 : 190, flexShrink: 0 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-            <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" style={{ display: "flex", flexShrink: 0 }}>
-              <BrokerLogo slug={broker.slug} name={B.name} fallback={B.logo} size={44} shape="wide" />
-            </a>
-            <div>
-              <Link to={reviewPath} style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 16, lineHeight: 1.2, color: "inherit", textDecoration: "none", display: "inline-block" }}
-                onMouseEnter={e => e.currentTarget.style.textDecoration = "underline"}
-                onMouseLeave={e => e.currentTarget.style.textDecoration = "none"}
-              >{B.name}</Link>
-              <div style={{ fontSize: 14, color: "#64748b", marginTop: 1 }}>{B.type}</div>
-            </div>
-          </div>
+        <div style={{ minWidth: tab ? 170 : 210, flexShrink: 0 }}>
+          <Link to={reviewPath} style={{ display: "inline-flex", textDecoration: "none" }}>
+            <BrokerLogo slug={broker.slug} name={B.name} fallback={B.logo} size={46} shape="brand" />
+          </Link>
+          <div style={{ fontSize: 13, color: "#64748b", marginTop: 4 }}>{B.type}</div>
           {B.badge && (
             <span style={{
               display: "inline-block", marginTop: 6, padding: "2px 8px", borderRadius: 5,
@@ -392,8 +382,8 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
             ...(!tab ? [["Platforms", B.platforms.length + " platforms"]] : []),
           ].map(([label, val]) => (
             <div key={label}>
-              <div style={{ fontSize: 11, color: "#94a3b8", fontWeight: 600, textTransform: "uppercase", letterSpacing: 0.5 }}>{label}</div>
-              <div style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 15, fontWeight: 700, color: "#1e293b", marginTop: 2 }}>{val}</div>
+              <div style={{ fontSize: 11, color: "#94a3b8", fontWeight: 600, textTransform: "uppercase", letterSpacing: 0.5, whiteSpace: "nowrap" }}>{label}</div>
+              <div style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 15, fontWeight: 700, color: "#1e293b", marginTop: 2, whiteSpace: "nowrap" }}>{val}</div>
             </div>
           ))}
         </div>
@@ -403,7 +393,7 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
 
         {/* CTAs (compact, for non-thematic) */}
         {!hasThematic && (
-          <div style={{ display: "flex", flexDirection: "column", gap: 6, flexShrink: 0 }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 6, flexShrink: 0, minWidth: 220 }}>
             <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" style={{
               padding: "10px 20px", borderRadius: 8, textAlign: "center",
               background: "linear-gradient(135deg,#059669,#047857)",
