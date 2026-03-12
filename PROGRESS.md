@@ -86,6 +86,19 @@
 
 ---
 
+## M3.2 — Страницы экспертов и авторские блоки (12 марта 2026)
+
+### `0a2820e` feat: AuthorCredits + AuthorPage + Expert section
+- **AuthorCredits** — новый компонент: 3 колонки "Written By / Reviewed By / Fact Checked By" с аватарами 36px, LinkedIn, ссылками на /author/{id}
+- **AuthorPage** — `/author/:slug`: hero, stats, bio, specialty, peer review блоки, "Articles by {Name}", JSON-LD Person schema
+- **AuthorBioCard** — добавлена ссылка "View Full Profile" на AuthorPage
+- **Home** — секция "Our Expert Team" с 4 мини-карточками (аватар + имя + роль + ссылка)
+- **getReviewerForAuthor()** — маппинг перекрёстной проверки между экспертами
+- Заменён AuthorByline → AuthorCredits на 5 страницах: RankingPage, BrokerReview, GuidePage, ForexBrokersPage, CryptoBrokersPage
+- Responsive: 3 колонки на desktop, вертикальный стек на mobile
+
+---
+
 ## Текущее состояние
 
 | Метрика | Значение |
