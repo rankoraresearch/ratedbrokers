@@ -5,6 +5,7 @@ import { useTranslation } from "../i18n/LanguageContext";
 import { useLocalePath } from "../i18n/useLocalePath";
 import { getAllBrokers } from "../data/brokers";
 import { ArrowRight } from "../components/Icon";
+import BrokerLogo from "../components/BrokerLogo";
 
 const YEAR = "2026";
 
@@ -141,16 +142,7 @@ export default function AllReviewsPage() {
                   e.currentTarget.style.boxShadow = "none";
                 }}
               >
-                {/* Logo placeholder */}
-                <div style={{
-                  width: 40, height: 40, borderRadius: 8,
-                  background: "linear-gradient(135deg,#1e3a5f,#2d5a8e)",
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                  fontFamily: "Outfit", fontWeight: 800, fontSize: 13, color: "#fff",
-                  flexShrink: 0,
-                }}>
-                  {b.name.slice(0, 2).toUpperCase()}
-                </div>
+                <BrokerLogo slug={b.slug} name={b.name} size={44} shape="wide" />
 
                 {/* Name + type */}
                 <div style={{ flex: 1, minWidth: 0 }}>

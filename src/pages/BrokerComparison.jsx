@@ -298,7 +298,7 @@ export default function BrokerComparison() {
         }}>
           {/* Broker A */}
           <div style={{ padding: mob ? "20px" : "32px", textAlign: "center", borderRight: mob ? "none" : "1px solid #f1f5f9", borderBottom: mob ? "1px solid #f1f5f9" : "none" }}>
-            <a href={A.url} target="_blank" rel="noopener noreferrer nofollow" style={{ display: "flex", justifyContent: "center", marginBottom: 12 }}><BrokerLogo slug={slugA} name={A.name} fallback={A.logo} size={72} variant="gray" /></a>
+            <a href={A.url} target="_blank" rel="noopener noreferrer nofollow" style={{ display: "flex", justifyContent: "center", marginBottom: 12 }}><BrokerLogo slug={slugA} name={A.name} fallback={A.logo} size={80} shape="wide" variant="gray" /></a>
             <Link to={lp(`/review/${slugA}`)} style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 24, color: "inherit", textDecoration: "none", display: "block" }}
               onMouseEnter={e => e.currentTarget.style.textDecoration = "underline"}
               onMouseLeave={e => e.currentTarget.style.textDecoration = "none"}
@@ -332,7 +332,7 @@ export default function BrokerComparison() {
 
           {/* Broker B */}
           <div style={{ padding: mob ? "20px" : "32px", textAlign: "center" }}>
-            <a href={B.url} target="_blank" rel="noopener noreferrer nofollow" style={{ display: "flex", justifyContent: "center", marginBottom: 12 }}><BrokerLogo slug={slugB} name={B.name} fallback={B.logo} size={72} variant="gray" /></a>
+            <a href={B.url} target="_blank" rel="noopener noreferrer nofollow" style={{ display: "flex", justifyContent: "center", marginBottom: 12 }}><BrokerLogo slug={slugB} name={B.name} fallback={B.logo} size={80} shape="wide" variant="gray" /></a>
             <Link to={lp(`/review/${slugB}`)} style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 24, color: "inherit", textDecoration: "none", display: "block" }}
               onMouseEnter={e => e.currentTarget.style.textDecoration = "underline"}
               onMouseLeave={e => e.currentTarget.style.textDecoration = "none"}
@@ -774,7 +774,7 @@ export default function BrokerComparison() {
         }}>
           {/* Broker A */}
           <div style={{ display: "flex", alignItems: "center", gap: mob ? 6 : 12, flex: mob ? 1 : "0 0 auto" }}>
-            {!mob && <BrokerLogo slug={slugA} name={A.name} fallback={A.logo} size={32} variant="gray" />}
+            {!mob && <BrokerLogo slug={slugA} name={A.name} fallback={A.logo} size={36} variant="gray" />}
             <div style={{ minWidth: 0 }}>
               <div style={{
                 fontFamily: "Outfit", fontWeight: 700, fontSize: mob ? 12 : 14, color: "#fff",
@@ -812,7 +812,7 @@ export default function BrokerComparison() {
 
           {/* Broker B */}
           <div style={{ display: "flex", alignItems: "center", gap: mob ? 6 : 12, flex: mob ? 1 : "0 0 auto", justifyContent: "flex-end" }}>
-            {!mob && <BrokerLogo slug={slugB} name={B.name} fallback={B.logo} size={32} variant="gray" />}
+            {!mob && <BrokerLogo slug={slugB} name={B.name} fallback={B.logo} size={36} variant="gray" />}
             <div style={{ minWidth: 0 }}>
               <div style={{
                 fontFamily: "Outfit", fontWeight: 700, fontSize: mob ? 12 : 14, color: "#fff",

@@ -298,7 +298,7 @@ export default function RankingPage() {
                       </div>
                     </div>
                     <div style={{ flex: 1, display: "flex", alignItems: "center", gap: 8, minWidth: 0 }}>
-                      {!mob && <BrokerLogo slug={vBroker.slug} name={vBroker.B.name} fallback={vBroker.B.logo} size={24} />}
+                      {!mob && <BrokerLogo slug={vBroker.slug} name={vBroker.B.name} fallback={vBroker.B.logo} size={28} />}
                       <div>
                         <Link to={lp(`/review/${vBroker.slug}`)} style={{
                           fontFamily: "Outfit", fontWeight: 700, fontSize: mob ? 14 : 15, color: "#0f172a", textDecoration: "none",
@@ -630,7 +630,7 @@ export default function RankingPage() {
                     {/* Header */}
                     <div style={{ display: "flex", alignItems: mob ? "flex-start" : "center", gap: mob ? 12 : 16, marginBottom: 16, flexWrap: "wrap" }}>
                       <a href={makeVisitUrl(b.slug, b.B.url)} target="_blank" rel="noopener nofollow sponsored" style={{ flexShrink: 0, display: "block" }}>
-                        <BrokerLogo slug={b.slug} name={b.B.name} fallback={b.B.logo} size={mob ? 44 : 52} />
+                        <BrokerLogo slug={b.slug} name={b.B.name} fallback={b.B.logo} size={mob ? 48 : 56} shape="wide" />
                       </a>
                       <div style={{ flex: 1, minWidth: 0 }}>
                         <h3 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 18 : 22, margin: 0, lineHeight: 1.2 }}>
@@ -825,7 +825,7 @@ export default function RankingPage() {
             display: "flex", alignItems: "center", justifyContent: "center",
             gap: mob ? 10 : 16,
           }}>
-            <BrokerLogo slug={brokers[0].slug} name={brokers[0].B.name} fallback={brokers[0].B.logo} size={mob ? 24 : 28} />
+            <BrokerLogo slug={brokers[0].slug} name={brokers[0].B.name} fallback={brokers[0].B.logo} size={mob ? 28 : 32} />
             <span style={{
               fontFamily: "Outfit", fontWeight: 700, fontSize: mob ? 13 : 15,
               color: "#fff", whiteSpace: "nowrap",

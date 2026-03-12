@@ -161,9 +161,9 @@ export default function ComparePage() {
                 textDecoration: "none", color: "#1e293b",
               }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 8, flex: 1 }}>
-                  <BrokerLogo slug={fp.slugA} name={dA.B.name} fallback={dA.B.logo} size={36} variant="gray" />
+                  <BrokerLogo slug={fp.slugA} name={dA.B.name} fallback={dA.B.logo} size={40} shape="wide" variant="gray" />
                   <span style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 12, color: "#94a3b8" }}>vs</span>
-                  <BrokerLogo slug={fp.slugB} name={dB.B.name} fallback={dB.B.logo} size={36} variant="gray" />
+                  <BrokerLogo slug={fp.slugB} name={dB.B.name} fallback={dB.B.logo} size={40} shape="wide" variant="gray" />
                   <div style={{ minWidth: 0 }}>
                     <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 16, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
                       {dA.B.name} vs {dB.B.name}

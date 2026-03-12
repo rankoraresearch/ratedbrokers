@@ -186,7 +186,7 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
           }}>#{rank}</div>
 
           <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" style={{ display: "flex", flexShrink: 0 }}>
-            <BrokerLogo slug={broker.slug} name={B.name} fallback={B.logo} size={32} />
+            <BrokerLogo slug={broker.slug} name={B.name} fallback={B.logo} size={40} shape="wide" />
           </a>
 
           <div style={{ flex: 1 }}>
@@ -353,10 +353,10 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
         }}>#{rank}</div>
 
         {/* Logo + Name block */}
-        <div style={{ minWidth: tab ? 140 : 160, flexShrink: 0 }}>
+        <div style={{ minWidth: tab ? 150 : 190, flexShrink: 0 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
             <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" style={{ display: "flex", flexShrink: 0 }}>
-              <BrokerLogo slug={broker.slug} name={B.name} fallback={B.logo} size={36} />
+              <BrokerLogo slug={broker.slug} name={B.name} fallback={B.logo} size={44} shape="wide" />
             </a>
             <div>
               <Link to={reviewPath} style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 16, lineHeight: 1.2, color: "inherit", textDecoration: "none", display: "inline-block" }}

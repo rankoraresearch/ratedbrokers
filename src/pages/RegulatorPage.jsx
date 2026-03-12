@@ -198,7 +198,7 @@ export default function RegulatorPage() {
               {regulatedBrokers.map((b, i) => (
                 <Card key={i} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "16px 20px" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                    <a href={b.B.url} target="_blank" rel="noopener noreferrer nofollow" style={{ display: "flex", flexShrink: 0 }}><BrokerLogo slug={b.slug} name={b.B.name} fallback={b.B.logo} size={40} variant="gray" /></a>
+                    <a href={b.B.url} target="_blank" rel="noopener noreferrer nofollow" style={{ display: "flex", flexShrink: 0 }}><BrokerLogo slug={b.slug} name={b.B.name} fallback={b.B.logo} size={44} shape="wide" variant="gray" /></a>
                     <div>
                       <Link to={lp(`/review/${b.slug}`)} style={{ fontWeight: 700, fontSize: 16, color: "#0f172a", textDecoration: "none", display: "block" }}
                         onMouseEnter={e => e.currentTarget.style.textDecoration = "underline"}

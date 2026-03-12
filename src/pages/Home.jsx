@@ -197,7 +197,7 @@ export default function Home() {
 
                 <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 14, marginTop: isFirst ? 8 : 0 }}>
                   <Link to={lp(`/review/${broker.slug}`)} style={{ flexShrink: 0 }}>
-                    <BrokerLogo slug={broker.slug} name={b.name} fallback={b.logo} size={48} />
+                    <BrokerLogo slug={broker.slug} name={b.name} fallback={b.logo} size={52} shape="wide" />
                   </Link>
                   <div style={{ flex: 1, minWidth: 0 }}>
                     <Link to={lp(`/review/${broker.slug}`)} style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 17, color: "#1e293b", textDecoration: "none" }}
@@ -441,7 +441,7 @@ export default function Home() {
                 e.currentTarget.style.transform = "translateY(0)";
               }}
             >
-              <BrokerLogo slug={broker.slug} name={broker.B.name} fallback={broker.B.logo} size={34} />
+              <BrokerLogo slug={broker.slug} name={broker.B.name} fallback={broker.B.logo} size={40} shape="wide" />
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div style={{
                   fontWeight: 600, fontSize: 15, color: "#1e293b",
