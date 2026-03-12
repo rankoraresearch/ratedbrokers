@@ -23,7 +23,7 @@ function TierBadge({ tier }) {
   return (
     <span style={{
       display: "inline-block", padding: "3px 10px", borderRadius: 6,
-      fontSize: 12, fontWeight: 700, background: bg, color, border: `1px solid ${border}`,
+      fontSize: 13, fontWeight: 700, background: bg, color, border: `1px solid ${border}`,
     }}>Tier {tier}</span>
   );
 }
@@ -110,20 +110,20 @@ export default function RegulatorPage() {
                 </h1>
                 <div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 6 }}>
                   <TierBadge tier={reg.tier} />
-                  <span style={{ fontSize: 14, color: "#64748b" }}>{reg.country}</span>
-                  <span style={{ fontSize: 14, color: "#94a3b8" }}>Est. {reg.established}</span>
+                  <span style={{ fontSize: 15, color: "#64748b" }}>{reg.country}</span>
+                  <span style={{ fontSize: 15, color: "#94a3b8" }}>Est. {reg.established}</span>
                 </div>
               </div>
             </div>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 16 }}>
               <a href={reg.website} target="_blank" rel="noopener noreferrer" style={{
                 display: "inline-flex", alignItems: "center", gap: 6,
-                padding: "8px 16px", borderRadius: 8, fontSize: 13, fontWeight: 600,
+                padding: "8px 16px", borderRadius: 8, fontSize: 14, fontWeight: 600,
                 background: "#eff6ff", color: "#2563eb", textDecoration: "none", border: "1px solid #bfdbfe",
               }}>Official Website <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="#2563eb" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></a>
               <a href={reg.licenseCheck} target="_blank" rel="noopener noreferrer" style={{
                 display: "inline-flex", alignItems: "center", gap: 6,
-                padding: "8px 16px", borderRadius: 8, fontSize: 13, fontWeight: 600,
+                padding: "8px 16px", borderRadius: 8, fontSize: 14, fontWeight: 600,
                 background: "#f0fdf4", color: "#059669", textDecoration: "none", border: "1px solid #a7f3d0",
               }}>Check License Register <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="#059669" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></a>
             </div>
@@ -151,7 +151,7 @@ export default function RegulatorPage() {
             {reg.requirements.map((req, i) => (
               <div key={i} style={{ display: "flex", gap: 10, padding: "6px 0", borderBottom: i < reg.requirements.length - 1 ? "1px solid #f0f4f8" : "none" }}>
                 <span style={{ color: "#059669", flexShrink: 0 }}><Check size={16} /></span>
-                <span style={{ fontSize: 15, color: "#334155", lineHeight: 1.6 }}>{req}</span>
+                <span style={{ fontSize: 16, color: "#334155", lineHeight: 1.6 }}>{req}</span>
               </div>
             ))}
           </Card>
@@ -192,7 +192,7 @@ export default function RegulatorPage() {
             Brokers Regulated by {reg.name}
           </h2>
           {regulatedBrokers.length === 0 ? (
-            <p style={{ fontSize: 15, color: "#64748b" }}>No brokers in our database are currently regulated by {reg.name}.</p>
+            <p style={{ fontSize: 16, color: "#64748b" }}>No brokers in our database are currently regulated by {reg.name}.</p>
           ) : (
             <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
               {regulatedBrokers.map((b, i) => (
@@ -200,11 +200,11 @@ export default function RegulatorPage() {
                   <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
                     <a href={b.B.url} target="_blank" rel="noopener noreferrer nofollow" style={{ display: "flex", flexShrink: 0 }}><BrokerLogo slug={b.slug} name={b.B.name} fallback={b.B.logo} size={40} variant="gray" /></a>
                     <div>
-                      <Link to={lp(`/review/${b.slug}`)} style={{ fontWeight: 700, fontSize: 15, color: "#0f172a", textDecoration: "none", display: "block" }}
+                      <Link to={lp(`/review/${b.slug}`)} style={{ fontWeight: 700, fontSize: 16, color: "#0f172a", textDecoration: "none", display: "block" }}
                         onMouseEnter={e => e.currentTarget.style.textDecoration = "underline"}
                         onMouseLeave={e => e.currentTarget.style.textDecoration = "none"}
                       >{b.B.name}</Link>
-                      <div style={{ fontSize: 13, color: "#64748b" }}>{b.B.type} {"\u00b7"} Min. ${b.B.minDep}</div>
+                      <div style={{ fontSize: 14, color: "#64748b" }}>{b.B.type} {"\u00b7"} Min. ${b.B.minDep}</div>
                     </div>
                   </div>
                   <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
@@ -214,7 +214,7 @@ export default function RegulatorPage() {
                       fontSize: 16, fontWeight: 800, color: "#059669",
                     }}>{b.B.score}</div>
                     <Link to={lp(`/review/${b.slug}`)} style={{
-                      fontSize: 12, color: "#1e3a5f", fontWeight: 600, textDecoration: "none",
+                      fontSize: 13, color: "#1e3a5f", fontWeight: 600, textDecoration: "none",
                       padding: "6px 14px", border: "1px solid #cbd5e1", borderRadius: 6,
                     }}><span style={{ display: "inline-flex", alignItems: "center", gap: 3 }}>Read Review <ArrowRight size={12} /></span></Link>
                   </div>
@@ -234,11 +234,11 @@ export default function RegulatorPage() {
                 padding: "14px 18px", cursor: "pointer", fontFamily: "DM Sans",
                 display: "flex", justifyContent: "space-between", alignItems: "center",
               }}>
-                <span style={{ fontWeight: 600, fontSize: 15, color: "#1e293b", flex: 1, paddingRight: 12 }}>{f.q}</span>
+                <span style={{ fontWeight: 600, fontSize: 16, color: "#1e293b", flex: 1, paddingRight: 12 }}>{f.q}</span>
                 <span style={{ color: "#94a3b8", fontSize: 18, transform: openFaq === i ? "rotate(45deg)" : "none", transition: "transform 0.2s", flexShrink: 0 }}>+</span>
               </button>
               {openFaq === i && (
-                <div style={{ padding: "0 18px 14px", fontSize: 15, color: "#64748b", lineHeight: 1.7 }}>{f.a}</div>
+                <div style={{ padding: "0 18px 14px", fontSize: 16, color: "#64748b", lineHeight: 1.7 }}>{f.a}</div>
               )}
             </div>
           ))}
@@ -249,7 +249,7 @@ export default function RegulatorPage() {
           <aside>
             <div style={{ position: "sticky", top: 70, display: "flex", flexDirection: "column", gap: 14 }}>
               <Card style={{ padding: "20px" }}>
-                <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 14, marginBottom: 14, color: "#0f172a" }}>Key Facts</div>
+                <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 15, marginBottom: 14, color: "#0f172a" }}>Key Facts</div>
                 {[
                   { l: "Established", v: reg.established },
                   { l: "Jurisdiction", v: reg.country },
@@ -259,13 +259,13 @@ export default function RegulatorPage() {
                   { l: "Leverage Limit", v: reg.leverageLimit },
                 ].map((x, i) => (
                   <div key={i} style={{ display: "flex", justifyContent: "space-between", padding: "7px 0", borderBottom: i < 5 ? "1px solid #f0f4f8" : "none" }}>
-                    <span style={{ fontSize: 13, color: "#94a3b8" }}>{x.l}</span>
-                    <span style={{ fontSize: 13, color: "#1e293b", fontWeight: 600, textAlign: "right", maxWidth: "60%" }}>{x.v}</span>
+                    <span style={{ fontSize: 14, color: "#94a3b8" }}>{x.l}</span>
+                    <span style={{ fontSize: 14, color: "#1e293b", fontWeight: 600, textAlign: "right", maxWidth: "60%" }}>{x.v}</span>
                   </div>
                 ))}
                 <a href={reg.licenseCheck} target="_blank" rel="noopener noreferrer" style={{
                   display: "block", textAlign: "center", marginTop: 14,
-                  padding: "10px", borderRadius: 8, fontSize: 13, fontWeight: 600,
+                  padding: "10px", borderRadius: 8, fontSize: 14, fontWeight: 600,
                   background: "#f0fdf4", color: "#059669", textDecoration: "none",
                   border: "1px solid #a7f3d0",
                 }}><span style={{ display: "inline-flex", alignItems: "center", gap: 4 }}>Verify License <ExternalLink size={13} /></span></a>
@@ -273,14 +273,14 @@ export default function RegulatorPage() {
 
               {/* Other regulators */}
               <Card style={{ padding: "16px" }}>
-                <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 12, marginBottom: 10 }}>Other Regulators</div>
+                <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 13, marginBottom: 10 }}>Other Regulators</div>
                 {REGULATORS.filter(r => r.slug !== reg.slug).slice(0, 6).map((r, i) => (
                   <div key={i} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "6px 0", borderBottom: i < 5 ? "1px solid #f0f4f8" : "none" }}>
                     <div>
                       <CountryFlag code={r.code} size={12} />
-                      <span style={{ fontWeight: 600, fontSize: 12 }}>{r.name}</span>
+                      <span style={{ fontWeight: 600, fontSize: 13 }}>{r.name}</span>
                     </div>
-                    <Link to={lp(`/regulator/${r.slug}`)} style={{ fontSize: 11, color: "#1e3a5f", fontWeight: 600, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 3 }}>View <ArrowRight size={11} /></Link>
+                    <Link to={lp(`/regulator/${r.slug}`)} style={{ fontSize: 12, color: "#1e3a5f", fontWeight: 600, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 3 }}>View <ArrowRight size={11} /></Link>
                   </div>
                 ))}
               </Card>

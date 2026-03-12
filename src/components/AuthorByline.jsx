@@ -28,7 +28,7 @@ export default function AuthorByline({ author, factChecker, updatedDate, variant
               target="_blank"
               rel="noopener"
               style={{
-                fontFamily: "Outfit", fontWeight: 700, fontSize: 15,
+                fontFamily: "Outfit", fontWeight: 700, fontSize: 16,
                 color: nameColor, textDecoration: "none",
               }}
             >{author.name}</a>
@@ -48,14 +48,14 @@ export default function AuthorByline({ author, factChecker, updatedDate, variant
               <Linkedin size={16} color="#fff" strokeWidth={0} fill="#fff" />
             </a>
           </div>
-          <div style={{ fontSize: 13, color: textColor }}>{author.role}</div>
+          <div style={{ fontSize: 14, color: textColor }}>{author.role}</div>
 
           {/* Trust pills */}
           <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginTop: 2 }}>
             {author.exp && (
               <span style={{
                 display: "inline-flex", alignItems: "center", gap: 4,
-                padding: "2px 8px", borderRadius: 10, fontSize: 11, fontWeight: 600,
+                padding: "2px 8px", borderRadius: 10, fontSize: 12, fontWeight: 600,
                 background: onDark ? "rgba(16,185,129,0.15)" : "#ecfdf5",
                 color: onDark ? "#6ee7b7" : "#059669",
                 border: `1px solid ${onDark ? "rgba(16,185,129,0.25)" : "#a7f3d0"}`,
@@ -64,7 +64,7 @@ export default function AuthorByline({ author, factChecker, updatedDate, variant
             {author.reviews && (
               <span style={{
                 display: "inline-flex", alignItems: "center", gap: 4,
-                padding: "2px 8px", borderRadius: 10, fontSize: 11, fontWeight: 600,
+                padding: "2px 8px", borderRadius: 10, fontSize: 12, fontWeight: 600,
                 background: onDark ? "rgba(59,130,246,0.15)" : "#eff6ff",
                 color: onDark ? "#93c5fd" : "#2563eb",
                 border: `1px solid ${onDark ? "rgba(59,130,246,0.25)" : "#bfdbfe"}`,
@@ -73,7 +73,7 @@ export default function AuthorByline({ author, factChecker, updatedDate, variant
             {(author.credentials || []).map((c) => (
               <span key={c} style={{
                 display: "inline-flex", alignItems: "center", gap: 4,
-                padding: "2px 8px", borderRadius: 10, fontSize: 11, fontWeight: 600,
+                padding: "2px 8px", borderRadius: 10, fontSize: 12, fontWeight: 600,
                 background: onDark ? "rgba(139,92,246,0.15)" : "#f5f3ff",
                 color: onDark ? "#c4b5fd" : "#7c3aed",
                 border: `1px solid ${onDark ? "rgba(139,92,246,0.25)" : "#ddd6fe"}`,
@@ -87,7 +87,7 @@ export default function AuthorByline({ author, factChecker, updatedDate, variant
       {(factChecker || updatedDate) && (
         <div style={{
           display: "flex", alignItems: "center", gap: 6,
-          fontSize: 12, color: textColor,
+          fontSize: 13, color: textColor,
           paddingLeft: centered ? 0 : 60,
           flexWrap: "wrap",
         }}>

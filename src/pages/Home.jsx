@@ -110,7 +110,7 @@ export default function Home() {
           <div style={{
             display: "inline-block", padding: "6px 16px", borderRadius: 100,
             background: "rgba(52,211,153,0.15)", border: "1px solid rgba(52,211,153,0.3)",
-            fontSize: 12, fontWeight: 600, color: "#34d399", marginBottom: 20, letterSpacing: 0.5,
+            fontSize: 13, fontWeight: 600, color: "#34d399", marginBottom: 20, letterSpacing: 0.5,
           }}>
             {t("home.updated")}
           </div>
@@ -145,7 +145,7 @@ export default function Home() {
             ].map(([val, label], i) => (
               <div key={i} style={{ textAlign: "center" }}>
                 <div style={{ fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: mob ? 18 : 22, color: "#fff" }}>{val}</div>
-                <div style={{ fontSize: 12, color: "rgba(255,255,255,0.5)", fontWeight: 600 }}>{label}</div>
+                <div style={{ fontSize: 13, color: "rgba(255,255,255,0.5)", fontWeight: 600 }}>{label}</div>
               </div>
             ))}
           </div>
@@ -158,7 +158,7 @@ export default function Home() {
           <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 30, marginBottom: 8 }}>
             {t("home.mostPopularBrokers")}
           </h2>
-          <p style={{ fontSize: 14, color: "#64748b", maxWidth: 500, margin: "0 auto" }}>
+          <p style={{ fontSize: 15, color: "#64748b", maxWidth: 500, margin: "0 auto" }}>
             {t("home.mostPopularBrokersDesc")}
           </p>
         </div>
@@ -189,7 +189,7 @@ export default function Home() {
                     display: "inline-flex", alignItems: "center", gap: 4,
                     padding: "4px 12px", borderRadius: 100,
                     background: "#059669", color: "#fff",
-                    fontSize: 11, fontWeight: 700, whiteSpace: "nowrap",
+                    fontSize: 12, fontWeight: 700, whiteSpace: "nowrap",
                   }}>
                     <Award size={13} /> #1 {t("home.editorChoice")}
                   </div>
@@ -211,14 +211,14 @@ export default function Home() {
                       width: 28, height: 28, borderRadius: "50%",
                       background: "#1e3a5f", color: "#fff",
                       display: "flex", alignItems: "center", justifyContent: "center",
-                      fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: 11,
+                      fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: 12,
                     }}>#{rank}</div>
                   )}
                 </div>
 
                 <div style={{
                   display: "flex", gap: 16, marginBottom: 14,
-                  fontSize: 13, color: "#64748b",
+                  fontSize: 14, color: "#64748b",
                 }}>
                   <div><span style={{ fontWeight: 700, color: "#1e293b" }}>{b.spread}</span> pips</div>
                   <div>Min <span style={{ fontWeight: 700, color: "#1e293b" }}>${b.minDep}</span></div>
@@ -237,7 +237,7 @@ export default function Home() {
                   style={{
                     display: "block", padding: "12px 0", borderRadius: 10,
                     background: "linear-gradient(135deg,#059669,#34d399)",
-                    color: "#fff", fontWeight: 700, fontSize: 14,
+                    color: "#fff", fontWeight: 700, fontSize: 15,
                     textAlign: "center", textDecoration: "none",
                     transition: "opacity 0.2s",
                   }}
@@ -258,7 +258,7 @@ export default function Home() {
           <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 30, marginBottom: 8 }}>
             {t("home.quickRankingsTitle")}
           </h2>
-          <p style={{ fontSize: 14, color: "#64748b", maxWidth: 500, margin: "0 auto" }}>
+          <p style={{ fontSize: 15, color: "#64748b", maxWidth: 500, margin: "0 auto" }}>
             {t("home.quickRankingsDesc")}
           </p>
         </div>
@@ -272,7 +272,7 @@ export default function Home() {
               padding: "10px 18px", borderRadius: 100,
               background: "#fff", border: "1px solid #e2e8f0",
               textDecoration: "none", color: "#1e293b",
-              fontSize: 13, fontWeight: 600,
+              fontSize: 14, fontWeight: 600,
               transition: "all 0.2s",
             }}
               onMouseEnter={(e) => {
@@ -293,7 +293,7 @@ export default function Home() {
           <Link to={lp("/rankings")} style={{
             display: "inline-flex", alignItems: "center", gap: 6,
             padding: "10px 24px", borderRadius: 10,
-            background: "transparent", color: "#059669", fontWeight: 700, fontSize: 14,
+            background: "transparent", color: "#059669", fontWeight: 700, fontSize: 15,
             textDecoration: "none", border: "2px solid #059669",
             transition: "all 0.2s",
           }}
@@ -321,7 +321,7 @@ export default function Home() {
             {t("home.aboutTitle")}
           </h2>
           <p style={{
-            fontSize: 15, color: "#475569", lineHeight: 1.7, maxWidth: 720,
+            fontSize: 16, color: "#475569", lineHeight: 1.7, maxWidth: 720,
             margin: "0 auto 24px", textAlign: "center",
           }}>
             {t("home.aboutText")}
@@ -344,7 +344,7 @@ export default function Home() {
                 display: "flex", flexDirection: "column", alignItems: "center", gap: 8,
               }}>
                 <Icon name={iconName} size={22} color="#059669" />
-                <span style={{ fontWeight: 700, fontSize: 13, color: "#1e293b" }}>{label}</span>
+                <span style={{ fontWeight: 700, fontSize: 14, color: "#1e293b" }}>{label}</span>
               </div>
             ))}
           </div>
@@ -352,12 +352,12 @@ export default function Home() {
             <Link to={lp("/methodology")} style={{
               padding: "10px 22px", borderRadius: 10,
               background: "#1e3a5f", color: "#fff",
-              fontWeight: 700, fontSize: 14, textDecoration: "none",
+              fontWeight: 700, fontSize: 15, textDecoration: "none",
             }}>{t("home.aboutMethodology")}</Link>
             <Link to={lp("/about")} style={{
               padding: "10px 22px", borderRadius: 10,
               background: "#f1f5f9", color: "#475569",
-              fontWeight: 600, fontSize: 14, textDecoration: "none",
+              fontWeight: 600, fontSize: 15, textDecoration: "none",
             }}>{t("home.aboutLearnMore")}</Link>
           </div>
         </div>
@@ -368,7 +368,7 @@ export default function Home() {
         <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 30, textAlign: "center", marginBottom: 8 }}>
           {t("home.countryTitle")}
         </h2>
-        <p style={{ textAlign: "center", fontSize: 15, color: "#64748b", marginBottom: 32, maxWidth: 500, margin: "0 auto 32px" }}>
+        <p style={{ textAlign: "center", fontSize: 16, color: "#64748b", marginBottom: 32, maxWidth: 500, margin: "0 auto 32px" }}>
           {t("home.countryDesc")}
         </p>
         <div style={{
@@ -390,7 +390,7 @@ export default function Home() {
                   position: "absolute", top: -10, right: 16,
                   padding: "3px 10px", borderRadius: 6,
                   background: "#059669", color: "#fff",
-                  fontSize: 10, fontWeight: 700,
+                  fontSize: 11, fontWeight: 700,
                 }}>{t("home.mostPopular")}</span>
               )}
               <CountryFlag code={c.code} size={mob ? 32 : 38} />
@@ -400,9 +400,9 @@ export default function Home() {
                   <span style={{
                     padding: "2px 8px", borderRadius: 4,
                     background: "#ecfdf5", color: "#059669",
-                    fontSize: 11, fontWeight: 700,
+                    fontSize: 12, fontWeight: 700,
                   }}>{c.reg}</span>
-                  <span style={{ fontSize: 13, color: "#64748b" }}>{c.count} {t("home.brokers")}</span>
+                  <span style={{ fontSize: 14, color: "#64748b" }}>{c.count} {t("home.brokers")}</span>
                 </div>
               </div>
               <ArrowRight size={18} color="#94a3b8" />
@@ -416,7 +416,7 @@ export default function Home() {
         <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 30, textAlign: "center", marginBottom: 8 }}>
           {t("home.allTitle")}
         </h2>
-        <p style={{ textAlign: "center", fontSize: 15, color: "#64748b", marginBottom: 32, maxWidth: 500, margin: "0 auto 32px" }}>
+        <p style={{ textAlign: "center", fontSize: 16, color: "#64748b", marginBottom: 32, maxWidth: 500, margin: "0 auto 32px" }}>
           {t("home.allDesc", { count: allBrokersData.length })}
         </p>
         <div style={{
@@ -444,10 +444,10 @@ export default function Home() {
               <BrokerLogo slug={broker.slug} name={broker.B.name} fallback={broker.B.logo} size={34} />
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div style={{
-                  fontWeight: 600, fontSize: 14, color: "#1e293b",
+                  fontWeight: 600, fontSize: 15, color: "#1e293b",
                   whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis",
                 }}>{broker.B.name}</div>
-                <div style={{ fontFamily: "'JetBrains Mono'", fontSize: 12, fontWeight: 700, color: broker.B.score >= 9.0 ? "#059669" : broker.B.score >= 8.0 ? "#2563eb" : "#d97706" }}>{broker.B.score}</div>
+                <div style={{ fontFamily: "'JetBrains Mono'", fontSize: 13, fontWeight: 700, color: broker.B.score >= 9.0 ? "#059669" : broker.B.score >= 8.0 ? "#2563eb" : "#d97706" }}>{broker.B.score}</div>
               </div>
               <ArrowRight size={14} color="#94a3b8" style={{ flexShrink: 0 }} />
             </Link>
@@ -472,18 +472,18 @@ export default function Home() {
               textAlign: "center", textDecoration: "none", color: "#1e293b",
               transition: "all 0.2s",
             }}>
-              <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 15, marginBottom: 8 }}>{c.a}</div>
+              <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 16, marginBottom: 8 }}>{c.a}</div>
               <div style={{
                 width: 36, height: 36, borderRadius: "50%", margin: "0 auto 8px",
                 background: "linear-gradient(135deg,#1e3a5f,#2d5a8e)",
                 display: "flex", alignItems: "center", justifyContent: "center",
-                fontWeight: 800, fontSize: 11, color: "#fff",
+                fontWeight: 800, fontSize: 12, color: "#fff",
               }}>VS</div>
-              <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 15, marginBottom: 12 }}>{c.b}</div>
+              <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 16, marginBottom: 12 }}>{c.b}</div>
               <span style={{
                 padding: "6px 14px", borderRadius: 6,
                 background: "#f1f5f9", color: "#2563eb",
-                fontSize: 12, fontWeight: 700,
+                fontSize: 13, fontWeight: 700,
               }}>{t("home.compare")}</span>
             </Link>
           ))}
@@ -514,10 +514,10 @@ export default function Home() {
             <div style={{ fontWeight: 700, fontSize: 17, color: "#1e293b", marginBottom: 2 }}>
               {t("home.founderName")}
             </div>
-            <div style={{ fontSize: 13, color: "#059669", fontWeight: 600, marginBottom: 12 }}>
+            <div style={{ fontSize: 14, color: "#059669", fontWeight: 600, marginBottom: 12 }}>
               {t("home.founderRole")}
             </div>
-            <p style={{ fontSize: 14, color: "#475569", lineHeight: 1.7, marginBottom: 16, maxWidth: 560 }}>
+            <p style={{ fontSize: 15, color: "#475569", lineHeight: 1.7, marginBottom: 16, maxWidth: 560 }}>
               {t("home.founderBio")}
             </p>
             <a
@@ -528,7 +528,7 @@ export default function Home() {
                 display: "inline-flex", alignItems: "center", gap: 6,
                 padding: "8px 18px", borderRadius: 8,
                 background: "#eff6ff", color: "#2563eb",
-                fontWeight: 600, fontSize: 13, textDecoration: "none",
+                fontWeight: 600, fontSize: 14, textDecoration: "none",
                 border: "1px solid #bfdbfe",
               }}
             >
@@ -544,7 +544,7 @@ export default function Home() {
         <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 28, textAlign: "center", marginBottom: 8 }}>
           Our Expert Team
         </h2>
-        <p style={{ textAlign: "center", fontSize: 14, color: "#64748b", marginBottom: 24, maxWidth: 500, margin: "0 auto 24px" }}>
+        <p style={{ textAlign: "center", fontSize: 15, color: "#64748b", marginBottom: 24, maxWidth: 500, margin: "0 auto 24px" }}>
           Every review is written, peer-reviewed, and fact-checked by certified industry professionals.
         </p>
         <div style={{
@@ -574,10 +574,10 @@ export default function Home() {
               <AuthorAvatar author={a} size={mob ? 48 : 56} showVerified />
               <div style={{ textAlign: "center" }}>
                 <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: mob ? 13 : 15 }}>{a.name}</div>
-                <div style={{ fontSize: 12, color: "#64748b", marginTop: 2 }}>{a.role}</div>
+                <div style={{ fontSize: 13, color: "#64748b", marginTop: 2 }}>{a.role}</div>
               </div>
               <span style={{
-                fontSize: 12, fontWeight: 600, color: "#059669",
+                fontSize: 13, fontWeight: 600, color: "#059669",
               }}>View Profile &rarr;</span>
             </Link>
           ))}

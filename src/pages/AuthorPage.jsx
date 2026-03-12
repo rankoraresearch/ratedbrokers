@@ -93,14 +93,14 @@ export default function AuthorPage() {
                 fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 26 : 34,
                 color: "#fff", margin: "0 0 4px",
               }}>{author.name}</h1>
-              <div style={{ fontSize: 15, color: "#34d399", fontWeight: 600, marginBottom: 8 }}>
+              <div style={{ fontSize: 16, color: "#34d399", fontWeight: 600, marginBottom: 8 }}>
                 {author.role}
               </div>
               {author.credentials?.length > 0 && (
                 <div style={{ display: "flex", gap: 6, flexWrap: "wrap", justifyContent: mob ? "center" : "flex-start", marginBottom: 12 }}>
                   {author.credentials.map((c) => (
                     <span key={c} style={{
-                      padding: "3px 10px", borderRadius: 6, fontSize: 11, fontWeight: 700,
+                      padding: "3px 10px", borderRadius: 6, fontSize: 12, fontWeight: 700,
                       background: "rgba(139,92,246,0.15)", color: "#c4b5fd",
                       border: "1px solid rgba(139,92,246,0.25)",
                     }}>{c}</span>
@@ -115,7 +115,7 @@ export default function AuthorPage() {
                   display: "inline-flex", alignItems: "center", gap: 8,
                   padding: "8px 18px", borderRadius: 8,
                   background: "#0A66C2", color: "#fff",
-                  fontSize: 13, fontWeight: 700, textDecoration: "none",
+                  fontSize: 14, fontWeight: 700, textDecoration: "none",
                 }}
               >
                 <Linkedin size={16} color="#fff" strokeWidth={0} fill="#fff" />
@@ -141,7 +141,7 @@ export default function AuthorPage() {
                 fontSize: 24, color: s.color, lineHeight: 1,
               }}>{s.value}</div>
               <div style={{
-                fontSize: 12, color: s.color, fontWeight: 600,
+                fontSize: 13, color: s.color, fontWeight: 600,
                 textTransform: "uppercase", marginTop: 6,
               }}>{s.label}</div>
             </div>
@@ -158,11 +158,11 @@ export default function AuthorPage() {
           <h2 style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 20, marginBottom: 12, color: "#0f172a" }}>
             About {author.name}
           </h2>
-          <p style={{ fontSize: 15, lineHeight: 1.8, color: "#475569", margin: "0 0 16px" }}>
+          <p style={{ fontSize: 16, lineHeight: 1.8, color: "#475569", margin: "0 0 16px" }}>
             {author.bio}
           </p>
           {author.specialty && (
-            <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 14, color: "#475569" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 15, color: "#475569" }}>
               <Target size={16} color="#059669" />
               <span><strong style={{ color: "#1e293b" }}>Specialty:</strong> {author.specialty}</span>
             </div>
@@ -182,8 +182,8 @@ export default function AuthorPage() {
             }}>
               <AuthorAvatar author={reviewer} size={40} />
               <div>
-                <div style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: "#94a3b8", letterSpacing: "0.05em" }}>Reviewed By</div>
-                <Link to={lp(`/author/${reviewer.id}`)} style={{ fontSize: 14, fontWeight: 700, color: "#1e293b", textDecoration: "none" }}>
+                <div style={{ fontSize: 12, fontWeight: 700, textTransform: "uppercase", color: "#94a3b8", letterSpacing: "0.05em" }}>Reviewed By</div>
+                <Link to={lp(`/author/${reviewer.id}`)} style={{ fontSize: 15, fontWeight: 700, color: "#1e293b", textDecoration: "none" }}>
                   {reviewer.name}
                 </Link>
               </div>
@@ -196,8 +196,8 @@ export default function AuthorPage() {
             }}>
               <AuthorAvatar author={factChecker} size={40} />
               <div>
-                <div style={{ fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: "#94a3b8", letterSpacing: "0.05em" }}>Fact Checked By</div>
-                <Link to={lp(`/author/${factChecker.id}`)} style={{ fontSize: 14, fontWeight: 700, color: "#1e293b", textDecoration: "none" }}>
+                <div style={{ fontSize: 12, fontWeight: 700, textTransform: "uppercase", color: "#94a3b8", letterSpacing: "0.05em" }}>Fact Checked By</div>
+                <Link to={lp(`/author/${factChecker.id}`)} style={{ fontSize: 15, fontWeight: 700, color: "#1e293b", textDecoration: "none" }}>
                   {factChecker.name}
                 </Link>
               </div>
@@ -225,7 +225,7 @@ export default function AuthorPage() {
                 onMouseLeave={(e) => { e.currentTarget.style.borderColor = "#e2e8f0"; }}
               >
                 <span style={{ fontSize: 18 }}>{r.icon}</span>
-                <span style={{ fontSize: 14, fontWeight: 600, flex: 1 }}>{r.title}</span>
+                <span style={{ fontSize: 15, fontWeight: 600, flex: 1 }}>{r.title}</span>
                 <ArrowRight size={14} color="#94a3b8" />
               </Link>
             ))}

@@ -18,7 +18,7 @@ export default function Breadcrumb({ items, containerStyle }) {
           display: "flex",
           alignItems: "center",
           gap: 6,
-          fontSize: 13,
+          fontSize: 14,
           color: "#94a3b8",
           flexWrap: "wrap",
           listStyle: "none",

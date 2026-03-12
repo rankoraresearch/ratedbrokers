@@ -176,7 +176,7 @@ export default function Header() {
   /* ── shared styles ── */
 
   const secHead = {
-    fontSize: 11, fontWeight: 700, color: "#94a3b8",
+    fontSize: 12, fontWeight: 700, color: "#94a3b8",
     textTransform: "uppercase", letterSpacing: 1.2,
     marginBottom: 12, paddingBottom: 8,
     borderBottom: "1px solid #f1f5f9",
@@ -186,7 +186,7 @@ export default function Header() {
     display: "flex", alignItems: "center", gap: 10,
     padding: "8px 10px", borderRadius: 8,
     textDecoration: "none", color: "#1e293b",
-    fontSize: 14, fontWeight: 500, transition: "all 0.15s",
+    fontSize: 15, fontWeight: 500, transition: "all 0.15s",
   };
 
   const ddBase = {
@@ -204,7 +204,7 @@ export default function Header() {
   const compactLink = {
     display: "block", padding: "5px 8px", borderRadius: 6,
     textDecoration: "none", color: "#334155",
-    fontSize: 13, fontWeight: 500, transition: "all 0.15s",
+    fontSize: 14, fontWeight: 500, transition: "all 0.15s",
     lineHeight: 1.4,
   };
   const hovCompact = (e) => { e.currentTarget.style.background = "#f0fdf4"; e.currentTarget.style.color = "#059669"; };
@@ -214,7 +214,7 @@ export default function Header() {
   const NavBtn = ({ id, label }) => (
     <button
       style={{
-        fontSize: 14, fontWeight: 500,
+        fontSize: 15, fontWeight: 500,
         color: activeDropdown === id ? "#059669" : "#475569",
         background: activeDropdown === id ? "#f0fdf4" : "transparent",
         border: "none", padding: "8px 10px", borderRadius: 8,
@@ -239,7 +239,7 @@ export default function Header() {
     <Link
       to={to}
       style={{
-        fontSize: 14, fontWeight: match ? 700 : 500,
+        fontSize: 15, fontWeight: match ? 700 : 500,
         color: match ? "#0f172a" : "#475569",
         textDecoration: "none", padding: "8px 10px", borderRadius: 8,
         transition: "all 0.2s", whiteSpace: "nowrap",
@@ -259,7 +259,7 @@ export default function Header() {
       onClick={() => setMobileExpanded(mobileExpanded === id ? null : id)}
       style={{
         display: "flex", alignItems: "center", justifyContent: "space-between",
-        width: "100%", fontSize: 15, fontWeight: 500, color: "#1e293b",
+        width: "100%", fontSize: 16, fontWeight: 500, color: "#1e293b",
         background: "none", border: "none", padding: "12px 0",
         borderBottom: "1px solid #f1f5f9", cursor: "pointer", fontFamily: "inherit",
       }}
@@ -278,7 +278,7 @@ export default function Header() {
     <Link
       to={to}
       style={{
-        display: "block", fontSize: 15,
+        display: "block", fontSize: 16,
         fontWeight: match ? 700 : 500,
         color: match ? "#059669" : "#1e293b",
         textDecoration: "none", padding: "12px 0",
@@ -301,8 +301,8 @@ export default function Header() {
         >
           <IconBox name={item.icon} color={item.color} />
           <div>
-            <div style={{ fontWeight: 600, fontSize: 14, lineHeight: 1.2 }}>{t(`mega.${item.key}`)}</div>
-            <div style={{ fontSize: 12, color: "#94a3b8", marginTop: 1 }}>{t(`mega.${item.key}Desc`)}</div>
+            <div style={{ fontWeight: 600, fontSize: 15, lineHeight: 1.2 }}>{t(`mega.${item.key}`)}</div>
+            <div style={{ fontSize: 13, color: "#94a3b8", marginTop: 1 }}>{t(`mega.${item.key}Desc`)}</div>
           </div>
         </Link>
       ))}
@@ -317,7 +317,7 @@ export default function Header() {
         to={lp(item.path)}
         style={{
           display: "flex", alignItems: "center", gap: 8,
-          padding: "8px 0", fontSize: 13, fontWeight: 500,
+          padding: "8px 0", fontSize: 14, fontWeight: 500,
           color: "#475569", textDecoration: "none",
         }}
       >
@@ -375,7 +375,7 @@ export default function Header() {
               {/* ─── 1. Forex Brokers ▾ ─── */}
               <div style={{ position: "relative" }} onMouseEnter={() => enter("forex")} onMouseLeave={leave}>
                 <Link to={lp("/best-forex-brokers")} style={{
-                  fontSize: 14, fontWeight: 500,
+                  fontSize: 15, fontWeight: 500,
                   color: activeDropdown === "forex" ? "#059669" : "#475569",
                   background: activeDropdown === "forex" ? "#f0fdf4" : "transparent",
                   border: "none", padding: "8px 10px", borderRadius: 8,
@@ -440,12 +440,12 @@ export default function Header() {
                     </div>
                     <Link to={lp("/best-forex-brokers")} style={{
                       display: "block", marginTop: 16, padding: "10px 14px", borderRadius: 8,
-                      background: "#f0fdf4", color: "#059669", fontSize: 13, fontWeight: 700,
+                      background: "#f0fdf4", color: "#059669", fontSize: 14, fontWeight: 700,
                       textDecoration: "none", textAlign: "center", border: "1px solid #a7f3d0",
                     }}>Best Forex Brokers 2026 — Full Rankings &amp; Comparison <ArrowRight size={14} style={{ verticalAlign: "middle" }} /></Link>
                     <Link to={lp("/rankings")} style={{
                       display: "block", marginTop: 6, padding: "8px 14px", borderRadius: 8,
-                      background: "transparent", color: "#64748b", fontSize: 12, fontWeight: 600,
+                      background: "transparent", color: "#64748b", fontSize: 13, fontWeight: 600,
                       textDecoration: "none", textAlign: "center", transition: "color 0.15s",
                     }}
                       onMouseEnter={(e) => { e.currentTarget.style.color = "#059669"; }}
@@ -458,7 +458,7 @@ export default function Header() {
               {/* ─── 2. Crypto Brokers ▾ ─── */}
               <div style={{ position: "relative" }} onMouseEnter={() => enter("crypto")} onMouseLeave={leave}>
                 <Link to={lp("/best-crypto-brokers")} style={{
-                  fontSize: 14, fontWeight: 500,
+                  fontSize: 15, fontWeight: 500,
                   color: activeDropdown === "crypto" ? "#059669" : "#475569",
                   background: activeDropdown === "crypto" ? "#f0fdf4" : "transparent",
                   border: "none", padding: "8px 10px", borderRadius: 8,
@@ -500,7 +500,7 @@ export default function Header() {
                     </div>
                     <Link to={lp("/best-crypto-brokers")} style={{
                       display: "block", marginTop: 16, padding: "10px 14px", borderRadius: 8,
-                      background: "#f0fdf4", color: "#059669", fontSize: 13, fontWeight: 700,
+                      background: "#f0fdf4", color: "#059669", fontSize: 14, fontWeight: 700,
                       textDecoration: "none", textAlign: "center", border: "1px solid #a7f3d0",
                     }}>Best Crypto Brokers 2026 — Full Rankings &amp; Comparison <ArrowRight size={14} style={{ verticalAlign: "middle" }} /></Link>
                   </div>
@@ -533,7 +533,7 @@ export default function Header() {
                                 <span style={{ fontWeight: 600 }}>{b.name}</span>
                               </div>
                               <span style={{
-                                fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: 12,
+                                fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: 13,
                                 color: b.score >= 9.5 ? "#059669" : "#2563eb",
                                 background: b.score >= 9.5 ? "#ecfdf5" : "#eff6ff",
                                 padding: "2px 6px", borderRadius: 4,
@@ -561,7 +561,7 @@ export default function Header() {
                         </div>
                         <Link to={lp("/reviews")} style={{
                           display: "block", marginTop: 12, padding: "10px 14px", borderRadius: 8,
-                          background: "#f0fdf4", color: "#059669", fontSize: 13, fontWeight: 700,
+                          background: "#f0fdf4", color: "#059669", fontSize: 14, fontWeight: 700,
                           textDecoration: "none", textAlign: "center",
                         }}>{t("mega.viewAllReviews", { count: 36 })}</Link>
                       </div>
@@ -605,7 +605,7 @@ export default function Header() {
                     </div>
                     <Link to={lp("/guides")} style={{
                       display: "block", marginTop: 16, padding: "10px 14px", borderRadius: 8,
-                      background: "#f0fdf4", color: "#059669", fontSize: 13, fontWeight: 700,
+                      background: "#f0fdf4", color: "#059669", fontSize: 14, fontWeight: 700,
                       textDecoration: "none", textAlign: "center",
                     }}
                       onMouseEnter={(e) => { e.currentTarget.style.background = "#dcfce7"; }}
@@ -659,7 +659,7 @@ export default function Header() {
                     </div>
                     <Link to={lp("/best-forex-brokers-by-country")} style={{
                       display: "block", marginTop: 16, padding: "10px 14px", borderRadius: 8,
-                      background: "#f0fdf4", color: "#059669", fontSize: 13, fontWeight: 700,
+                      background: "#f0fdf4", color: "#059669", fontSize: 14, fontWeight: 700,
                       textDecoration: "none", textAlign: "center",
                     }}
                       onMouseEnter={(e) => { e.currentTarget.style.background = "#dcfce7"; }}
@@ -689,7 +689,7 @@ export default function Header() {
                 style={{
                   background: "#059669", color: "#fff",
                   padding: "8px 16px", borderRadius: 8,
-                  fontWeight: 700, fontSize: 13,
+                  fontWeight: 700, fontSize: 14,
                   textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 6,
                   transition: "background 0.2s", whiteSpace: "nowrap",
                 }}
@@ -718,7 +718,7 @@ export default function Header() {
               borderBottom: "1px solid #f1f5f9",
             }}>
               <Link to={lp("/best-forex-brokers")} style={{
-                flex: 1, fontSize: 15, fontWeight: 500, color: "#1e293b",
+                flex: 1, fontSize: 16, fontWeight: 500, color: "#1e293b",
                 textDecoration: "none", padding: "12px 0",
               }}>{t("nav.forexBrokers")}</Link>
               <button
@@ -733,48 +733,48 @@ export default function Header() {
             </div>
             {mobileExpanded === "forex" && (
               <div style={{ padding: "8px 0 8px 12px" }}>
-                <div style={{ fontSize: 10, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginBottom: 6 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginBottom: 6 }}>
                   By Trading Style
                 </div>
                 {FOREX_CATEGORIES.map((item) => (
                   <Link key={item.key} to={lp(item.path)} style={{
-                    display: "block", padding: "6px 0", fontSize: 13, fontWeight: 500, color: "#475569", textDecoration: "none",
+                    display: "block", padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#475569", textDecoration: "none",
                   }}>{t(`mega.${item.key}`)}</Link>
                 ))}
-                <div style={{ fontSize: 10, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginTop: 10, marginBottom: 6 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginTop: 10, marginBottom: 6 }}>
                   By Cost
                 </div>
                 {FOREX_COSTS.map((item) => (
                   <Link key={item.key} to={lp(item.path)} style={{
-                    display: "block", padding: "6px 0", fontSize: 13, fontWeight: 500, color: "#475569", textDecoration: "none",
+                    display: "block", padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#475569", textDecoration: "none",
                   }}>{t(`mega.${item.key}`)}</Link>
                 ))}
-                <div style={{ fontSize: 10, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginTop: 10, marginBottom: 6 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginTop: 10, marginBottom: 6 }}>
                   By Platform
                 </div>
                 {FOREX_PLATFORMS.map((p) => (
                   <Link key={p.name} to={lp(p.path)} style={{
-                    display: "block", padding: "6px 0", fontSize: 13, fontWeight: 500, color: "#475569", textDecoration: "none",
+                    display: "block", padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#475569", textDecoration: "none",
                   }}>Best {p.name} Brokers</Link>
                 ))}
-                <div style={{ fontSize: 10, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginTop: 10, marginBottom: 6 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginTop: 10, marginBottom: 6 }}>
                   Platform Guides
                 </div>
                 {FOREX_PLATFORMS.map((p) => (
                   <Link key={`guide-${p.name}`} to={lp(`/platform/${p.name.toLowerCase().replace(/\s+/g, "-")}`)} style={{
-                    display: "block", padding: "6px 0", fontSize: 13, fontWeight: 500, color: "#475569", textDecoration: "none",
+                    display: "block", padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#475569", textDecoration: "none",
                   }}>{p.name} Guide</Link>
                 ))}
-                <div style={{ fontSize: 10, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginTop: 10, marginBottom: 6 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginTop: 10, marginBottom: 6 }}>
                   By Account Type
                 </div>
                 {FOREX_ACCOUNTS.map((item) => (
                   <Link key={item.key} to={lp(item.path)} style={{
-                    display: "block", padding: "6px 0", fontSize: 13, fontWeight: 500, color: "#475569", textDecoration: "none",
+                    display: "block", padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#475569", textDecoration: "none",
                   }}>{t(`mega.${item.key}`)}</Link>
                 ))}
                 <Link to={lp("/best-forex-brokers")} style={{
-                  display: "block", marginTop: 10, padding: "8px 0", fontSize: 13,
+                  display: "block", marginTop: 10, padding: "8px 0", fontSize: 14,
                   fontWeight: 700, color: "#059669", textDecoration: "none",
                 }}>Best Forex Brokers 2026 — Full Rankings <ArrowRight size={14} style={{ verticalAlign: "middle" }} /></Link>
               </div>
@@ -788,7 +788,7 @@ export default function Header() {
               borderBottom: "1px solid #f1f5f9",
             }}>
               <Link to={lp("/best-crypto-brokers")} style={{
-                flex: 1, fontSize: 15, fontWeight: 500, color: "#1e293b",
+                flex: 1, fontSize: 16, fontWeight: 500, color: "#1e293b",
                 textDecoration: "none", padding: "12px 0",
               }}>{t("nav.cryptoBrokers")}</Link>
               <button
@@ -803,24 +803,24 @@ export default function Header() {
             </div>
             {mobileExpanded === "crypto" && (
               <div style={{ padding: "8px 0 8px 12px" }}>
-                <div style={{ fontSize: 10, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginBottom: 6 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginBottom: 6 }}>
                   By Cryptocurrency
                 </div>
                 {CRYPTO_BY_COIN.map((item) => (
                   <Link key={item.key} to={lp(item.path)} style={{
-                    display: "block", padding: "6px 0", fontSize: 13, fontWeight: 500, color: "#475569", textDecoration: "none",
+                    display: "block", padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#475569", textDecoration: "none",
                   }}>{t(`mega.${item.key}`)}</Link>
                 ))}
-                <div style={{ fontSize: 10, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginTop: 10, marginBottom: 6 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginTop: 10, marginBottom: 6 }}>
                   By Feature
                 </div>
                 {CRYPTO_BY_FEATURE.map((item) => (
                   <Link key={item.key} to={lp(item.path)} style={{
-                    display: "block", padding: "6px 0", fontSize: 13, fontWeight: 500, color: "#475569", textDecoration: "none",
+                    display: "block", padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#475569", textDecoration: "none",
                   }}>{t(`mega.${item.key}`)}</Link>
                 ))}
                 <Link to={lp("/best-crypto-brokers")} style={{
-                  display: "block", marginTop: 10, padding: "8px 0", fontSize: 13,
+                  display: "block", marginTop: 10, padding: "8px 0", fontSize: 14,
                   fontWeight: 700, color: "#059669", textDecoration: "none",
                 }}>Best Crypto Brokers 2026 — Full Rankings <ArrowRight size={14} style={{ verticalAlign: "middle" }} /></Link>
               </div>
@@ -832,28 +832,28 @@ export default function Header() {
             <MobToggle id="reviews" label={t("nav.reviews")} />
             {mobileExpanded === "reviews" && (
               <div style={{ padding: "8px 0 8px 12px" }}>
-                <div style={{ fontSize: 10, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginBottom: 8 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginBottom: 8 }}>
                   {t("mega.topRated")}
                 </div>
                 {TOP_REVIEWS.map((b) => (
                   <Link key={b.slug} to={lp(`/review/${b.slug}`)} style={{
                     display: "flex", alignItems: "center", justifyContent: "space-between",
-                    padding: "8px 0", fontSize: 13, fontWeight: 500, color: "#475569", textDecoration: "none",
+                    padding: "8px 0", fontSize: 14, fontWeight: 500, color: "#475569", textDecoration: "none",
                   }}>
                     <span>{b.name}</span>
-                    <span style={{ fontFamily: "'JetBrains Mono'", fontSize: 11, fontWeight: 700, color: b.score >= 9.5 ? "#059669" : "#2563eb" }}>{b.score}</span>
+                    <span style={{ fontFamily: "'JetBrains Mono'", fontSize: 12, fontWeight: 700, color: b.score >= 9.5 ? "#059669" : "#2563eb" }}>{b.score}</span>
                   </Link>
                 ))}
-                <div style={{ fontSize: 10, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginTop: 12, marginBottom: 8 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginTop: 12, marginBottom: 8 }}>
                   {t("mega.popular")}
                 </div>
                 {POPULAR_REVIEWS.map((b) => (
                   <Link key={b.slug} to={lp(`/review/${b.slug}`)} style={{
-                    display: "block", padding: "8px 0", fontSize: 13, fontWeight: 500, color: "#475569", textDecoration: "none",
+                    display: "block", padding: "8px 0", fontSize: 14, fontWeight: 500, color: "#475569", textDecoration: "none",
                   }}>{b.name}</Link>
                 ))}
                 <Link to={lp("/reviews")} style={{
-                  display: "block", marginTop: 8, padding: "8px 0", fontSize: 13,
+                  display: "block", marginTop: 8, padding: "8px 0", fontSize: 14,
                   fontWeight: 700, color: "#059669", textDecoration: "none",
                 }}>{t("mega.viewAllReviews", { count: 36 })} <ArrowRight size={14} style={{ verticalAlign: "middle" }} /></Link>
               </div>
@@ -865,32 +865,32 @@ export default function Header() {
             <MobToggle id="guides" label={t("nav.guides")} />
             {mobileExpanded === "guides" && (
               <div style={{ padding: "8px 0 8px 12px" }}>
-                <div style={{ fontSize: 10, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginBottom: 8 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginBottom: 8 }}>
                   {t("mega.guideGettingStarted")}
                 </div>
                 {GUIDE_GETTING_STARTED.map((item) => (
                   <Link key={item.key} to={lp(item.path)} style={{
-                    display: "block", padding: "6px 0", fontSize: 13, fontWeight: 500, color: "#475569", textDecoration: "none",
+                    display: "block", padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#475569", textDecoration: "none",
                   }}>{t(`mega.${item.key}`)}</Link>
                 ))}
-                <div style={{ fontSize: 10, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginTop: 12, marginBottom: 8 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginTop: 12, marginBottom: 8 }}>
                   {t("mega.guideStrategiesHead")}
                 </div>
                 {GUIDE_STRATEGIES.map((item) => (
                   <Link key={item.key} to={lp(item.path)} style={{
-                    display: "block", padding: "6px 0", fontSize: 13, fontWeight: 500, color: "#475569", textDecoration: "none",
+                    display: "block", padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#475569", textDecoration: "none",
                   }}>{t(`mega.${item.key}`)}</Link>
                 ))}
-                <div style={{ fontSize: 10, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginTop: 12, marginBottom: 8 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginTop: 12, marginBottom: 8 }}>
                   {t("mega.guideConceptsHead")}
                 </div>
                 {GUIDE_CONCEPTS.map((item) => (
                   <Link key={item.key} to={lp(item.path)} style={{
-                    display: "block", padding: "6px 0", fontSize: 13, fontWeight: 500, color: "#475569", textDecoration: "none",
+                    display: "block", padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#475569", textDecoration: "none",
                   }}>{t(`mega.${item.key}`)}</Link>
                 ))}
                 <Link to={lp("/guides")} style={{
-                  display: "block", marginTop: 8, padding: "8px 0", fontSize: 13,
+                  display: "block", marginTop: 8, padding: "8px 0", fontSize: 14,
                   fontWeight: 700, color: "#059669", textDecoration: "none",
                 }}>{t("mega.viewAllGuides")} <ArrowRight size={14} style={{ verticalAlign: "middle" }} /></Link>
               </div>
@@ -905,44 +905,44 @@ export default function Header() {
             <MobToggle id="countries" label={t("nav.countries")} />
             {mobileExpanded === "countries" && (
               <div style={{ padding: "8px 0 8px 12px" }}>
-                <div style={{ fontSize: 10, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginBottom: 8 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginBottom: 8 }}>
                   {t("mega.countryEurope")}
                 </div>
                 {COUNTRIES_EUROPE.map((c) => (
                   <Link key={c.code} to={lp(c.path)} style={{
                     display: "flex", alignItems: "center", gap: 8,
-                    padding: "6px 0", fontSize: 13, fontWeight: 500, color: "#475569", textDecoration: "none",
+                    padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#475569", textDecoration: "none",
                   }}>
                     <CountryFlag code={c.code} size={16} />
                     {c.name}
                   </Link>
                 ))}
-                <div style={{ fontSize: 10, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginTop: 12, marginBottom: 8 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginTop: 12, marginBottom: 8 }}>
                   {t("mega.countryAsiaPacific")}
                 </div>
                 {COUNTRIES_ASIA_PACIFIC.map((c) => (
                   <Link key={c.code} to={lp(c.path)} style={{
                     display: "flex", alignItems: "center", gap: 8,
-                    padding: "6px 0", fontSize: 13, fontWeight: 500, color: "#475569", textDecoration: "none",
+                    padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#475569", textDecoration: "none",
                   }}>
                     <CountryFlag code={c.code} size={16} />
                     {c.name}
                   </Link>
                 ))}
-                <div style={{ fontSize: 10, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginTop: 12, marginBottom: 8 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginTop: 12, marginBottom: 8 }}>
                   {t("mega.countryAmericasMena")}
                 </div>
                 {COUNTRIES_AMERICAS_MENA.map((c) => (
                   <Link key={c.code} to={lp(c.path)} style={{
                     display: "flex", alignItems: "center", gap: 8,
-                    padding: "6px 0", fontSize: 13, fontWeight: 500, color: "#475569", textDecoration: "none",
+                    padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#475569", textDecoration: "none",
                   }}>
                     <CountryFlag code={c.code} size={16} />
                     {c.name}
                   </Link>
                 ))}
                 <Link to={lp("/best-forex-brokers-by-country")} style={{
-                  display: "block", marginTop: 8, padding: "8px 0", fontSize: 13,
+                  display: "block", marginTop: 8, padding: "8px 0", fontSize: 14,
                   fontWeight: 700, color: "#059669", textDecoration: "none",
                 }}>{t("mega.viewAllCountries")} <ArrowRight size={14} style={{ verticalAlign: "middle" }} /></Link>
               </div>

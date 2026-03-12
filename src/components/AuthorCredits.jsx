@@ -12,7 +12,7 @@ function CreditColumn({ label, author, onDark }) {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
       <span style={{
-        fontSize: 11, fontWeight: 700, textTransform: "uppercase",
+        fontSize: 12, fontWeight: 700, textTransform: "uppercase",
         letterSpacing: "0.06em", color: labelColor,
       }}>{label}</span>
       <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
@@ -21,7 +21,7 @@ function CreditColumn({ label, author, onDark }) {
           <Link
             to={lp(`/author/${author.id}`)}
             style={{
-              fontSize: 13, fontWeight: 700, color: nameColor,
+              fontSize: 14, fontWeight: 700, color: nameColor,
               textDecoration: "none",
             }}
             onMouseEnter={(e) => { e.currentTarget.style.textDecoration = "underline"; }}
@@ -70,7 +70,7 @@ export default function AuthorCredits({ author, reviewer, factChecker, updatedDa
         {factChecker && <CreditColumn label="Fact Checked By" author={factChecker} onDark={onDark} />}
       </div>
       {updatedDate && (
-        <span style={{ fontSize: 12, color: dateColor }}>
+        <span style={{ fontSize: 13, color: dateColor }}>
           Updated {updatedDate}
         </span>
       )}

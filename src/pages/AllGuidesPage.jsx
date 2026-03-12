@@ -142,7 +142,7 @@ export default function AllGuidesPage() {
                   fontFamily: "'JetBrains Mono'", fontWeight: 800,
                   fontSize: mob ? 22 : 28, color: "#34d399",
                 }}>{val}</div>
-                <div style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", fontWeight: 600 }}>{label}</div>
+                <div style={{ fontSize: 14, color: "rgba(255,255,255,0.6)", fontWeight: 600 }}>{label}</div>
               </div>
             ))}
           </div>
@@ -152,7 +152,7 @@ export default function AllGuidesPage() {
         <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 20 : 26, marginBottom: 6 }}>
           {t("guides.featuredTitle")}
         </h2>
-        <p style={{ fontSize: 15, color: "#64748b", marginBottom: 16, lineHeight: 1.6 }}>
+        <p style={{ fontSize: 16, color: "#64748b", marginBottom: 16, lineHeight: 1.6 }}>
           {t("guides.featuredDesc")}
         </p>
         <div style={{
@@ -187,13 +187,13 @@ export default function AllGuidesPage() {
                 {g.hero.h1}
               </div>
               <div style={{
-                fontSize: 14, color: "#64748b", lineHeight: 1.6,
+                fontSize: 15, color: "#64748b", lineHeight: 1.6,
                 display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden",
               }}>
                 {g.hero.subtitle}
               </div>
               <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "auto" }}>
-                <span style={{ fontSize: 12, color: "#94a3b8", fontFamily: "'JetBrains Mono'", fontWeight: 600 }}>{g.readTime}</span>
+                <span style={{ fontSize: 13, color: "#94a3b8", fontFamily: "'JetBrains Mono'", fontWeight: 600 }}>{g.readTime}</span>
                 <ArrowRight size={16} color="#059669" />
               </div>
             </Link>
@@ -220,13 +220,13 @@ export default function AllGuidesPage() {
                   {t("guides." + cat.tKey)}
                 </h2>
                 <span style={{
-                  fontSize: 12, fontFamily: "'JetBrains Mono'", fontWeight: 700,
+                  fontSize: 13, fontFamily: "'JetBrains Mono'", fontWeight: 700,
                   color: "#94a3b8", marginLeft: 4,
                 }}>
                   {t("guides.guidesCount", { count: guides.length })}
                 </span>
               </div>
-              <p style={{ fontSize: 14, color: "#64748b", marginBottom: 14, lineHeight: 1.6, marginLeft: 46 }}>
+              <p style={{ fontSize: 15, color: "#64748b", marginBottom: 14, lineHeight: 1.6, marginLeft: 46 }}>
                 {t("guides." + cat.descKey)}
               </p>
 
@@ -257,14 +257,14 @@ export default function AllGuidesPage() {
                         : <Icon name={g.hero.icon || "book-open"} size={18} color={cat.color} />}
                     </span>
                     <div style={{ minWidth: 0, flex: 1 }}>
-                      <div style={{ fontWeight: 700, fontSize: 14, lineHeight: 1.3, marginBottom: 2 }}>{g.hero.h1}</div>
+                      <div style={{ fontWeight: 700, fontSize: 15, lineHeight: 1.3, marginBottom: 2 }}>{g.hero.h1}</div>
                       <div style={{
-                        fontSize: 13, color: "#64748b", lineHeight: 1.5,
+                        fontSize: 14, color: "#64748b", lineHeight: 1.5,
                         display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden",
                       }}>
                         {g.hero.subtitle}
                       </div>
-                      <div style={{ fontSize: 11, color: "#94a3b8", fontFamily: "'JetBrains Mono'", fontWeight: 600, marginTop: 4 }}>
+                      <div style={{ fontSize: 12, color: "#94a3b8", fontFamily: "'JetBrains Mono'", fontWeight: 600, marginTop: 4 }}>
                         {g.readTime}
                       </div>
                     </div>
@@ -294,7 +294,7 @@ export default function AllGuidesPage() {
             <Link to={lp("/rankings")} style={{
               padding: "12px 24px", borderRadius: 10,
               background: "linear-gradient(135deg,#059669,#34d399)",
-              color: "#fff", fontWeight: 700, fontSize: 15, textDecoration: "none",
+              color: "#fff", fontWeight: 700, fontSize: 16, textDecoration: "none",
             }}>
               <span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
                 {t("guides.ctaRankings")} <ArrowRight size={16} />
@@ -303,7 +303,7 @@ export default function AllGuidesPage() {
             <Link to={lp("/compare")} style={{
               padding: "12px 24px", borderRadius: 10,
               background: "#f1f5f9", color: "#1e293b",
-              fontWeight: 700, fontSize: 15, textDecoration: "none",
+              fontWeight: 700, fontSize: 16, textDecoration: "none",
             }}>
               {t("guides.ctaCompare")}
             </Link>

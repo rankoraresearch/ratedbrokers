@@ -68,7 +68,7 @@ export default function ComparePage() {
         }}>
           <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "1fr auto 1fr", gap: 16, alignItems: "end" }}>
             <div>
-              <label style={{ display: "block", fontSize: 12, fontWeight: 700, color: "#64748b", textTransform: "uppercase", marginBottom: 6 }}>
+              <label style={{ display: "block", fontSize: 13, fontWeight: 700, color: "#64748b", textTransform: "uppercase", marginBottom: 6 }}>
                 {t("comp.pickA")}
               </label>
               <select
@@ -76,7 +76,7 @@ export default function ComparePage() {
                 onChange={e => setPickA(e.target.value)}
                 style={{
                   width: "100%", padding: "12px 14px", borderRadius: 10, border: "1px solid #e2e8f0",
-                  fontSize: 15, fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb",
+                  fontSize: 16, fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb",
                   color: pickA ? "#1e293b" : "#94a3b8", cursor: "pointer",
                 }}
               >
@@ -93,12 +93,12 @@ export default function ComparePage() {
               <div style={{
                 width: 40, height: 40, borderRadius: "50%", background: "#f1f5f9",
                 display: "flex", alignItems: "center", justifyContent: "center",
-                fontFamily: "Outfit", fontWeight: 900, fontSize: 13, color: "#64748b",
+                fontFamily: "Outfit", fontWeight: 900, fontSize: 14, color: "#64748b",
               }}>VS</div>
             )}
 
             <div>
-              <label style={{ display: "block", fontSize: 12, fontWeight: 700, color: "#64748b", textTransform: "uppercase", marginBottom: 6 }}>
+              <label style={{ display: "block", fontSize: 13, fontWeight: 700, color: "#64748b", textTransform: "uppercase", marginBottom: 6 }}>
                 {t("comp.pickB")}
               </label>
               <select
@@ -106,7 +106,7 @@ export default function ComparePage() {
                 onChange={e => setPickB(e.target.value)}
                 style={{
                   width: "100%", padding: "12px 14px", borderRadius: 10, border: "1px solid #e2e8f0",
-                  fontSize: 15, fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb",
+                  fontSize: 16, fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb",
                   color: pickB ? "#1e293b" : "#94a3b8", cursor: "pointer",
                 }}
               >
@@ -144,7 +144,7 @@ export default function ComparePage() {
         <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 28, marginBottom: 8, textAlign: "center" }}>
           {t("comp.featuredTitle")}
         </h2>
-        <p style={{ fontSize: 15, color: "#64748b", textAlign: "center", marginBottom: 20 }}>
+        <p style={{ fontSize: 16, color: "#64748b", textAlign: "center", marginBottom: 20 }}>
           The most searched broker matchups — based on real trader interest.
         </p>
         <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "repeat(3, 1fr)", gap: 12 }}>
@@ -162,13 +162,13 @@ export default function ComparePage() {
               }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 8, flex: 1 }}>
                   <BrokerLogo slug={fp.slugA} name={dA.B.name} fallback={dA.B.logo} size={36} variant="gray" />
-                  <span style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 11, color: "#94a3b8" }}>vs</span>
+                  <span style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 12, color: "#94a3b8" }}>vs</span>
                   <BrokerLogo slug={fp.slugB} name={dB.B.name} fallback={dB.B.logo} size={36} variant="gray" />
                   <div style={{ minWidth: 0 }}>
-                    <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 15, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+                    <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 16, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
                       {dA.B.name} vs {dB.B.name}
                     </div>
-                    <div style={{ fontSize: 13, color: "#64748b" }}>
+                    <div style={{ fontSize: 14, color: "#64748b" }}>
                       <span style={{ fontFamily: "'JetBrains Mono',monospace", fontWeight: 700, color: "#059669" }}>{dA.B.score}</span>
                       {" vs "}
                       <span style={{ fontFamily: "'JetBrains Mono',monospace", fontWeight: 700, color: "#2563eb" }}>{dB.B.score}</span>
@@ -187,7 +187,7 @@ export default function ComparePage() {
         <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 28, marginBottom: 8, textAlign: "center" }}>
           All Broker Comparisons
         </h2>
-        <p style={{ fontSize: 15, color: "#64748b", textAlign: "center", marginBottom: 20 }}>
+        <p style={{ fontSize: 16, color: "#64748b", textAlign: "center", marginBottom: 20 }}>
           {FEATURED_PAIRS.length} side-by-side comparisons across all brokers in our database.
         </p>
         <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr 1fr" : "repeat(4, 1fr)", gap: 10 }}>
@@ -205,7 +205,7 @@ export default function ComparePage() {
                 <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: mob ? 13 : 14, lineHeight: 1.4 }}>
                   {dA.B.name} <span style={{ color: "#94a3b8", fontWeight: 400 }}>vs</span> {dB.B.name}
                 </div>
-                <div style={{ fontSize: 12, color: "#64748b", marginTop: 4 }}>
+                <div style={{ fontSize: 13, color: "#64748b", marginTop: 4 }}>
                   <span style={{ color: "#059669", fontWeight: 700 }}>{dA.B.score}</span>
                   {" / "}
                   <span style={{ color: "#2563eb", fontWeight: 700 }}>{dB.B.score}</span>
@@ -233,7 +233,7 @@ export default function ComparePage() {
             }}>
               <div style={{ marginBottom: 12 }}><Icon name={card.icon} size={36} color="#059669" /></div>
               <h3 style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 18, marginBottom: 8, marginTop: 0 }}>{card.title}</h3>
-              <p style={{ fontSize: 15, lineHeight: 1.7, color: "#475569", margin: 0 }}>{card.desc}</p>
+              <p style={{ fontSize: 16, lineHeight: 1.7, color: "#475569", margin: 0 }}>{card.desc}</p>
             </div>
           ))}
         </div>

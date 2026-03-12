@@ -151,9 +151,9 @@ export default function PlatformPage() {
             <span style={{
               display: "inline-block", padding: "4px 10px", borderRadius: 6,
               background: platform.hero.badgeColor || "#eff6ff", color: platform.hero.badgeTextColor || "#2563eb",
-              fontSize: 11, fontWeight: 700, letterSpacing: 0.5, textTransform: "uppercase",
+              fontSize: 12, fontWeight: 700, letterSpacing: 0.5, textTransform: "uppercase",
             }}>{platform.hero.badge}</span>
-            <span style={{ fontSize: 12, color: "#94a3b8" }}>{platform.readTime}</span>
+            <span style={{ fontSize: 13, color: "#94a3b8" }}>{platform.readTime}</span>
           </div>
           <h1 style={{
             fontFamily: "Outfit", fontWeight: 800,
@@ -192,19 +192,19 @@ export default function PlatformPage() {
               )}
 
               {(section.paragraphs || []).map((p, i) => (
-                <p key={i} style={{ fontSize: 15, lineHeight: 1.8, color: "#334155", margin: "0 0 16px" }}>{p}</p>
+                <p key={i} style={{ fontSize: 16, lineHeight: 1.8, color: "#334155", margin: "0 0 16px" }}>{p}</p>
               ))}
 
               {section.list && (
                 <ul style={{ margin: "0 0 16px", paddingLeft: 20 }}>
                   {section.list.map((item, i) => (
-                    <li key={i} style={{ fontSize: 15, lineHeight: 1.8, color: "#334155", marginBottom: 6 }}>{item}</li>
+                    <li key={i} style={{ fontSize: 16, lineHeight: 1.8, color: "#334155", marginBottom: 6 }}>{item}</li>
                   ))}
                 </ul>
               )}
 
               {(section.paragraphs2 || []).map((p, i) => (
-                <p key={`p2-${i}`} style={{ fontSize: 15, lineHeight: 1.8, color: "#334155", margin: "0 0 16px" }}>{p}</p>
+                <p key={`p2-${i}`} style={{ fontSize: 16, lineHeight: 1.8, color: "#334155", margin: "0 0 16px" }}>{p}</p>
               ))}
 
               {section.tip && (
@@ -212,10 +212,10 @@ export default function PlatformPage() {
                   background: "#f0fdf4", border: "1px solid #bbf7d0", borderRadius: 12,
                   padding: mob ? "14px 16px" : "16px 20px", margin: "16px 0",
                 }}>
-                  <div style={{ fontWeight: 700, fontSize: 14, color: "#059669", marginBottom: 4, display: "flex", alignItems: "center", gap: 6 }}>
+                  <div style={{ fontWeight: 700, fontSize: 15, color: "#059669", marginBottom: 4, display: "flex", alignItems: "center", gap: 6 }}>
                     <Lightbulb size={16} /> {section.tip.title || "Pro Tip"}
                   </div>
-                  <p style={{ fontSize: 14, lineHeight: 1.7, color: "#166534", margin: 0 }}>{section.tip.text}</p>
+                  <p style={{ fontSize: 15, lineHeight: 1.7, color: "#166534", margin: 0 }}>{section.tip.text}</p>
                 </div>
               )}
 
@@ -224,10 +224,10 @@ export default function PlatformPage() {
                   background: "#fef3c7", border: "1px solid #fde68a", borderRadius: 12,
                   padding: mob ? "14px 16px" : "16px 20px", margin: "16px 0",
                 }}>
-                  <div style={{ fontWeight: 700, fontSize: 14, color: "#92400e", marginBottom: 4, display: "flex", alignItems: "center", gap: 6 }}>
+                  <div style={{ fontWeight: 700, fontSize: 15, color: "#92400e", marginBottom: 4, display: "flex", alignItems: "center", gap: 6 }}>
                     <AlertTriangle size={16} /> Warning
                   </div>
-                  <p style={{ fontSize: 14, lineHeight: 1.7, color: "#78350f", margin: 0 }}>{section.warning}</p>
+                  <p style={{ fontSize: 15, lineHeight: 1.7, color: "#78350f", margin: 0 }}>{section.warning}</p>
                 </div>
               )}
             </section>
@@ -241,7 +241,7 @@ export default function PlatformPage() {
               margin: "0 0 16px", lineHeight: 1.25,
             }}>Technical Specifications</h2>
             <div style={{ overflowX: "auto" }}>
-              <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 14 }}>
+              <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 15 }}>
                 <thead>
                   <tr>
                     {platform.specs.headers.map((h, i) => (
@@ -280,17 +280,17 @@ export default function PlatformPage() {
             }}>Pros & Cons</h2>
             <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "1fr 1fr", gap: 14 }}>
               <div style={{ background: "#f0fdf4", border: "1px solid #bbf7d0", borderRadius: 12, padding: "20px" }}>
-                <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 14, color: "#059669", marginBottom: 12 }}>Pros</div>
+                <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 15, color: "#059669", marginBottom: 12 }}>Pros</div>
                 {platform.pros.map((p, i) => (
-                  <div key={i} style={{ fontSize: 13, color: "#1e293b", marginBottom: 8, paddingLeft: 16, position: "relative", lineHeight: 1.5 }}>
+                  <div key={i} style={{ fontSize: 14, color: "#1e293b", marginBottom: 8, paddingLeft: 16, position: "relative", lineHeight: 1.5 }}>
                     <span style={{ position: "absolute", left: 0, color: "#059669" }}><Check size={14} /></span>{p}
                   </div>
                 ))}
               </div>
               <div style={{ background: "#fef2f2", border: "1px solid #fecaca", borderRadius: 12, padding: "20px" }}>
-                <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 14, color: "#dc2626", marginBottom: 12 }}>Cons</div>
+                <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 15, color: "#dc2626", marginBottom: 12 }}>Cons</div>
                 {platform.cons.map((c, i) => (
-                  <div key={i} style={{ fontSize: 13, color: "#1e293b", marginBottom: 8, paddingLeft: 16, position: "relative", lineHeight: 1.5 }}>
+                  <div key={i} style={{ fontSize: 14, color: "#1e293b", marginBottom: 8, paddingLeft: 16, position: "relative", lineHeight: 1.5 }}>
                     <span style={{ position: "absolute", left: 0, color: "#dc2626" }}><XIcon size={14} /></span>{c}
                   </div>
                 ))}
@@ -305,11 +305,11 @@ export default function PlatformPage() {
               fontSize: mob ? 20 : 26, color: "#0f172a",
               margin: "0 0 16px", lineHeight: 1.25,
             }}>Best Brokers Using {platform.platformName}</h2>
-            <p style={{ fontSize: 15, lineHeight: 1.8, color: "#334155", margin: "0 0 20px" }}>
+            <p style={{ fontSize: 16, lineHeight: 1.8, color: "#334155", margin: "0 0 20px" }}>
               We tested {platformBrokers.length} brokers that offer {platform.platformName}. Here are the top-rated ones, sorted by our expert score. All brokers are tested with real money accounts.
             </p>
             {platformBrokers.length === 0 ? (
-              <p style={{ fontSize: 15, color: "#64748b" }}>No brokers in our database currently offer {platform.platformName}.</p>
+              <p style={{ fontSize: 16, color: "#64748b" }}>No brokers in our database currently offer {platform.platformName}.</p>
             ) : (
               <div style={{ display: "flex", flexDirection: "column", gap: mob ? 12 : 14 }}>
                 {platformBrokers.map((b, i) => (
@@ -328,13 +328,13 @@ export default function PlatformPage() {
             <div style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 18 : 22, color: "#fff", marginBottom: 8 }}>
               Find the Best {platform.platformName} Broker
             </div>
-            <p style={{ fontSize: 14, color: "rgba(255,255,255,0.65)", marginBottom: 20 }}>
+            <p style={{ fontSize: 15, color: "rgba(255,255,255,0.65)", marginBottom: 20 }}>
               Compare {platformBrokers.length} {platform.platformName} brokers by spreads, fees, and regulation in our expert-tested ranking.
             </p>
             <Link to={lp(platform.rankingSlug)} style={{
               display: "inline-block", padding: "12px 28px", borderRadius: 10,
               background: "linear-gradient(135deg,#059669,#34d399)",
-              color: "#fff", fontWeight: 700, fontSize: 15, textDecoration: "none",
+              color: "#fff", fontWeight: 700, fontSize: 16, textDecoration: "none",
             }}>View Full Ranking <ArrowRight size={16} style={{ display: "inline", verticalAlign: "middle" }} /></Link>
           </div>
 
@@ -376,8 +376,8 @@ export default function PlatformPage() {
                       fontSize: 18, flexShrink: 0,
                     }}><Icon name={rp.hero?.icon || "laptop"} size={18} /></span>
                     <div>
-                      <div style={{ fontWeight: 700, fontSize: 14 }}>{rp.platformName}</div>
-                      <div style={{ fontSize: 12, color: "#94a3b8" }}>{rp.readTime}</div>
+                      <div style={{ fontWeight: 700, fontSize: 15 }}>{rp.platformName}</div>
+                      <div style={{ fontSize: 13, color: "#94a3b8" }}>{rp.readTime}</div>
                     </div>
                   </Link>
                 ))}
@@ -395,10 +395,10 @@ export default function PlatformPage() {
             background: "#fff", borderRadius: 14, border: "1px solid #e2e8f0",
             padding: mob ? 16 : 20, marginBottom: mob ? 28 : 40,
           }}>
-            <div style={{ fontSize: 12, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginBottom: 6 }}>
+            <div style={{ fontSize: 13, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginBottom: 6 }}>
               Risk Disclosure
             </div>
-            <p style={{ fontSize: 12, lineHeight: 1.7, color: "#64748b", margin: 0 }}>
+            <p style={{ fontSize: 13, lineHeight: 1.7, color: "#64748b", margin: 0 }}>
               CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. Between 62% and 82% of retail investor accounts lose money when trading CFDs. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money.
             </p>
           </div>
@@ -410,7 +410,7 @@ export default function PlatformPage() {
             <div style={{ position: "sticky", top: 70, display: "flex", flexDirection: "column", gap: 14 }}>
               {/* Quick Facts */}
               <Card style={{ padding: "20px" }}>
-                <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 14, marginBottom: 14, color: "#0f172a" }}>Quick Facts</div>
+                <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 15, marginBottom: 14, color: "#0f172a" }}>Quick Facts</div>
                 {[
                   { l: "Developer", v: platform.quickFacts.developer },
                   { l: "Released", v: platform.quickFacts.released },
@@ -421,13 +421,13 @@ export default function PlatformPage() {
                   { l: "OS", v: platform.quickFacts.operatingSystems },
                 ].map((x, i) => (
                   <div key={i} style={{ display: "flex", justifyContent: "space-between", padding: "7px 0", borderBottom: i < 6 ? "1px solid #f0f4f8" : "none" }}>
-                    <span style={{ fontSize: 13, color: "#94a3b8" }}>{x.l}</span>
-                    <span style={{ fontSize: 13, color: "#1e293b", fontWeight: 600, textAlign: "right", maxWidth: "55%" }}>{x.v}</span>
+                    <span style={{ fontSize: 14, color: "#94a3b8" }}>{x.l}</span>
+                    <span style={{ fontSize: 14, color: "#1e293b", fontWeight: 600, textAlign: "right", maxWidth: "55%" }}>{x.v}</span>
                   </div>
                 ))}
                 <a href={platform.quickFacts.website} target="_blank" rel="noopener noreferrer" style={{
                   display: "block", textAlign: "center", marginTop: 14,
-                  padding: "10px", borderRadius: 8, fontSize: 13, fontWeight: 600,
+                  padding: "10px", borderRadius: 8, fontSize: 14, fontWeight: 600,
                   background: "#eff6ff", color: "#2563eb", textDecoration: "none",
                   border: "1px solid #bfdbfe",
                 }}>Official Website <ExternalLink size={13} style={{ display: "inline", verticalAlign: "middle" }} /></a>
@@ -436,11 +436,11 @@ export default function PlatformPage() {
               {/* Related Rankings */}
               {platform.relatedRankings && platform.relatedRankings.length > 0 && (
                 <Card style={{ padding: "16px" }}>
-                  <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 12, marginBottom: 10, color: "#0f172a" }}>Related Rankings</div>
+                  <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 13, marginBottom: 10, color: "#0f172a" }}>Related Rankings</div>
                   {platform.relatedRankings.map((r, i) => (
                     <Link key={i} to={lp(r.path)} style={{
                       display: "block", padding: "7px 8px", borderRadius: 6,
-                      fontSize: 13, fontWeight: 500, color: "#2563eb",
+                      fontSize: 14, fontWeight: 500, color: "#2563eb",
                       textDecoration: "none", transition: "background 0.15s",
                     }}
                       onMouseEnter={(e) => { e.currentTarget.style.background = "#f0fdf4"; }}
@@ -453,14 +453,14 @@ export default function PlatformPage() {
               {/* Other Platforms */}
               {related.length > 0 && (
                 <Card style={{ padding: "16px" }}>
-                  <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 12, marginBottom: 10, color: "#0f172a" }}>Other Platforms</div>
+                  <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 13, marginBottom: 10, color: "#0f172a" }}>Other Platforms</div>
                   {related.map((rp, i) => (
                     <div key={i} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "6px 0", borderBottom: i < related.length - 1 ? "1px solid #f0f4f8" : "none" }}>
                       <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
                         <Icon name={rp.hero?.icon || "laptop"} size={14} />
-                        <span style={{ fontWeight: 600, fontSize: 12 }}>{rp.platformName}</span>
+                        <span style={{ fontWeight: 600, fontSize: 13 }}>{rp.platformName}</span>
                       </div>
-                      <Link to={lp(`/platform/${rp.slug}`)} style={{ fontSize: 11, color: "#1e3a5f", fontWeight: 600, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 3 }}>View <ArrowRight size={11} /></Link>
+                      <Link to={lp(`/platform/${rp.slug}`)} style={{ fontSize: 12, color: "#1e3a5f", fontWeight: 600, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 3 }}>View <ArrowRight size={11} /></Link>
                     </div>
                   ))}
                 </Card>

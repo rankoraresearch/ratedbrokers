@@ -36,7 +36,7 @@ export default function AuthorBioCard({ author }) {
       }}>
         <Shield size={14} color="#059669" />
         <span style={{
-          fontSize: 11, fontWeight: 700, color: "#065f46",
+          fontSize: 12, fontWeight: 700, color: "#065f46",
           textTransform: "uppercase", letterSpacing: "0.06em",
         }}>Verified Expert Author</span>
       </div>
@@ -49,7 +49,7 @@ export default function AuthorBioCard({ author }) {
             <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 19, color: "#0f172a" }}>
               {author.name}
             </div>
-            <div style={{ fontSize: 14, color: "#64748b" }}>{author.role}</div>
+            <div style={{ fontSize: 15, color: "#64748b" }}>{author.role}</div>
           </div>
         </div>
 
@@ -66,7 +66,7 @@ export default function AuthorBioCard({ author }) {
                 fontSize: 20, color: s.color, lineHeight: 1,
               }}>{s.value}</div>
               <div style={{
-                fontSize: 11, color: s.color, fontWeight: 600,
+                fontSize: 12, color: s.color, fontWeight: 600,
                 textTransform: "uppercase", marginTop: 4,
               }}>{s.label}</div>
             </div>
@@ -74,7 +74,7 @@ export default function AuthorBioCard({ author }) {
         </div>
 
         {/* Bio */}
-        <p style={{ fontSize: 14, lineHeight: 1.8, color: "#475569", margin: "0 0 14px" }}>
+        <p style={{ fontSize: 15, lineHeight: 1.8, color: "#475569", margin: "0 0 14px" }}>
           {author.bio}
         </p>
 
@@ -82,7 +82,7 @@ export default function AuthorBioCard({ author }) {
         {author.specialty && (
           <div style={{
             display: "flex", alignItems: "center", gap: 8,
-            fontSize: 13, color: "#475569", marginBottom: 20,
+            fontSize: 14, color: "#475569", marginBottom: 20,
           }}>
             <Target size={14} color="#059669" />
             <span><strong style={{ color: "#1e293b" }}>Specialty:</strong> {author.specialty}</span>
@@ -96,7 +96,7 @@ export default function AuthorBioCard({ author }) {
             display: "block", textAlign: "center", padding: "12px 20px",
             borderRadius: 10, marginBottom: 10,
             background: "#f1f5f9", color: "#1e293b",
-            fontSize: 14, fontWeight: 700, textDecoration: "none",
+            fontSize: 15, fontWeight: 700, textDecoration: "none",
             transition: "background 0.2s",
           }}
         >
@@ -112,7 +112,7 @@ export default function AuthorBioCard({ author }) {
             display: "flex", alignItems: "center", justifyContent: "center", gap: 10,
             width: "100%", padding: "14px 20px", borderRadius: 10,
             background: "#0A66C2", color: "#fff",
-            fontSize: 14, fontWeight: 700, textDecoration: "none",
+            fontSize: 15, fontWeight: 700, textDecoration: "none",
             transition: "background 0.2s",
           }}
         >

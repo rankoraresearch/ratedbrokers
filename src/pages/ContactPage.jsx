@@ -59,7 +59,7 @@ function FaqItem({ question, answer }) {
         <Icon name={open ? "chevron-up" : "chevron-down"} size={18} color="#64748b" />
       </button>
       {open && (
-        <div style={{ padding: "0 0 18px", fontSize: 15, lineHeight: 1.7, color: "#475569" }}>
+        <div style={{ padding: "0 0 18px", fontSize: 16, lineHeight: 1.7, color: "#475569" }}>
           {answer}
         </div>
       )}
@@ -99,7 +99,7 @@ function ContactForm({ mob, cn, t }) {
 
   const inputStyle = {
     width: '100%', padding: '12px 16px', borderRadius: 10,
-    border: '1px solid #e2e8f0', fontSize: 15, fontFamily: 'inherit',
+    border: '1px solid #e2e8f0', fontSize: 16, fontFamily: 'inherit',
     color: '#1e293b', background: '#f8fafc', outline: 'none',
     transition: 'border-color 0.2s',
   };
@@ -116,7 +116,7 @@ function ContactForm({ mob, cn, t }) {
           <div style={{ fontFamily: 'Outfit', fontWeight: 800, fontSize: 22, color: '#059669', marginBottom: 8 }}>
             Message Sent
           </div>
-          <div style={{ fontSize: 15, color: '#475569' }}>
+          <div style={{ fontSize: 16, color: '#475569' }}>
             Thank you! We'll get back to you within 24–48 business hours.
           </div>
         </div>
@@ -136,7 +136,7 @@ function ContactForm({ mob, cn, t }) {
       }}>
         <div style={{ display: 'grid', gridTemplateColumns: mob ? '1fr' : '1fr 1fr', gap: 16 }}>
           <div>
-            <label style={{ display: 'block', fontSize: 13, fontWeight: 600, color: '#475569', marginBottom: 6 }}>Name</label>
+            <label style={{ display: 'block', fontSize: 14, fontWeight: 600, color: '#475569', marginBottom: 6 }}>Name</label>
             <input
               type="text"
               required
@@ -149,7 +149,7 @@ function ContactForm({ mob, cn, t }) {
             />
           </div>
           <div>
-            <label style={{ display: 'block', fontSize: 13, fontWeight: 600, color: '#475569', marginBottom: 6 }}>Email</label>
+            <label style={{ display: 'block', fontSize: 14, fontWeight: 600, color: '#475569', marginBottom: 6 }}>Email</label>
             <input
               type="email"
               required
@@ -163,7 +163,7 @@ function ContactForm({ mob, cn, t }) {
           </div>
         </div>
         <div>
-          <label style={{ display: 'block', fontSize: 13, fontWeight: 600, color: '#475569', marginBottom: 6 }}>Message</label>
+          <label style={{ display: 'block', fontSize: 14, fontWeight: 600, color: '#475569', marginBottom: 6 }}>Message</label>
           <textarea
             required
             maxLength={5000}
@@ -176,7 +176,7 @@ function ContactForm({ mob, cn, t }) {
           />
         </div>
         {status === 'error' && (
-          <div style={{ padding: '10px 16px', borderRadius: 8, background: '#fef2f2', color: '#dc2626', fontSize: 14 }}>
+          <div style={{ padding: '10px 16px', borderRadius: 8, background: '#fef2f2', color: '#dc2626', fontSize: 15 }}>
             {errorMsg || 'Failed to send message. Please try again.'}
           </div>
         )}
@@ -186,7 +186,7 @@ function ContactForm({ mob, cn, t }) {
           style={{
             alignSelf: 'flex-start', padding: '13px 32px', borderRadius: 10,
             background: status === 'sending' ? '#94a3b8' : 'linear-gradient(135deg,#059669,#047857)',
-            color: '#fff', fontWeight: 700, fontSize: 15,
+            color: '#fff', fontWeight: 700, fontSize: 16,
             border: 'none', cursor: status === 'sending' ? 'not-allowed' : 'pointer',
             fontFamily: 'inherit',
             boxShadow: '0 2px 8px rgba(5,150,105,0.25)',
@@ -277,7 +277,7 @@ export default function ContactPage() {
           <span style={{
             display: "inline-block", padding: "5px 14px", borderRadius: 6,
             background: "#ecfdf5", color: "#059669",
-            fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 12,
+            fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 13,
             letterSpacing: 1, marginBottom: 14,
           }}>{t("contact.badge")}</span>
           <h1 style={{
@@ -311,7 +311,7 @@ export default function ContactPage() {
                 <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 19, color: "#0f172a" }}>
                   {t(card.titleKey)}
                 </div>
-                <div style={{ fontSize: 14, color: "#475569", lineHeight: 1.7, flex: 1 }}>
+                <div style={{ fontSize: 15, color: "#475569", lineHeight: 1.7, flex: 1 }}>
                   {t(card.descKey)}
                 </div>
                 <a
@@ -320,7 +320,7 @@ export default function ContactPage() {
                     display: "inline-flex", alignItems: "center", gap: 8,
                     padding: "10px 18px", borderRadius: 8,
                     background: `${card.color}10`, color: card.color,
-                    fontSize: 14, fontWeight: 700,
+                    fontSize: 15, fontWeight: 700,
                     fontFamily: "'JetBrains Mono',monospace",
                     textDecoration: "none", border: `1px solid ${card.color}30`,
                     transition: "background 0.2s",
@@ -351,7 +351,7 @@ export default function ContactPage() {
             <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 17, color: "#0f172a", marginBottom: 4 }}>
               {t("contact.responseTitle")}
             </div>
-            <div style={{ fontSize: 14, color: "#475569", lineHeight: 1.6 }}>
+            <div style={{ fontSize: 15, color: "#475569", lineHeight: 1.6 }}>
               {t("contact.responseDesc")}
             </div>
           </div>
@@ -383,7 +383,7 @@ export default function ContactPage() {
           <h3 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 20, color: "#0f172a", margin: "0 0 10px" }}>
             {t("contact.companyTitle")}
           </h3>
-          <p style={{ fontSize: 15, lineHeight: 1.8, color: "#475569", margin: 0 }}>
+          <p style={{ fontSize: 16, lineHeight: 1.8, color: "#475569", margin: 0 }}>
             {t("contact.companyDesc")}
           </p>
         </div>

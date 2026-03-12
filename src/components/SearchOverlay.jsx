@@ -110,7 +110,7 @@ export default function SearchOverlay({ onClose }) {
   };
 
   const secHead = {
-    fontSize: 11, fontWeight: 700, color: "#94a3b8",
+    fontSize: 12, fontWeight: 700, color: "#94a3b8",
     textTransform: "uppercase", letterSpacing: 1.2,
     padding: "12px 20px 6px",
   };
@@ -119,13 +119,13 @@ export default function SearchOverlay({ onClose }) {
     display: "flex", alignItems: "center", justifyContent: "center",
     gap: 20, padding: "10px 20px",
     borderTop: "1px solid #e2e8f0", background: "#f8fafc",
-    fontSize: 12, color: "#94a3b8", flexShrink: 0,
+    fontSize: 13, color: "#94a3b8", flexShrink: 0,
   };
 
   const kbd = {
     display: "inline-flex", alignItems: "center", justifyContent: "center",
     padding: "1px 5px", borderRadius: 4,
-    background: "#e2e8f0", fontSize: 11, fontWeight: 600,
+    background: "#e2e8f0", fontSize: 12, fontWeight: 600,
     fontFamily: "'JetBrains Mono', monospace", color: "#64748b",
     minWidth: 20, lineHeight: 1.5,
   };
@@ -145,14 +145,14 @@ export default function SearchOverlay({ onClose }) {
       return (
         <div style={{ display: "flex", alignItems: "center", gap: 6, flexShrink: 0 }}>
           <span style={{
-            fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: 12,
+            fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: 13,
             color: item.meta.score >= 9.5 ? "#059669" : "#2563eb",
             background: item.meta.score >= 9.5 ? "#ecfdf5" : "#eff6ff",
             padding: "2px 6px", borderRadius: 4,
           }}>{item.meta.score}</span>
           {item.meta.badge && (
             <span style={{
-              fontSize: 11, color: "#64748b", fontWeight: 500,
+              fontSize: 12, color: "#64748b", fontWeight: 500,
             }}>{item.meta.badge}</span>
           )}
         </div>
@@ -165,7 +165,7 @@ export default function SearchOverlay({ onClose }) {
       return <span style={{ fontSize: 16, flexShrink: 0 }}>{item.meta.icon}</span>;
     }
     if (item.type === "guide" && item.meta.readTime) {
-      return <span style={{ fontSize: 11, color: "#94a3b8", flexShrink: 0 }}>{item.meta.readTime}</span>;
+      return <span style={{ fontSize: 12, color: "#94a3b8", flexShrink: 0 }}>{item.meta.readTime}</span>;
     }
     return null;
   };
@@ -205,7 +205,7 @@ export default function SearchOverlay({ onClose }) {
                   style={{
                     display: "block", width: "100%", textAlign: "left",
                     padding: "10px 20px", border: "none", background: "transparent",
-                    fontSize: 14, fontWeight: 500, color: "#1e293b", cursor: "pointer",
+                    fontSize: 15, fontWeight: 500, color: "#1e293b", cursor: "pointer",
                     fontFamily: "inherit", transition: "background 0.1s",
                   }}
                   onMouseEnter={(e) => { e.currentTarget.style.background = "#f0fdf4"; }}
@@ -220,7 +220,7 @@ export default function SearchOverlay({ onClose }) {
 
           {/* Typing but < 2 chars */}
           {query.length > 0 && query.length < 2 && (
-            <div style={{ padding: "40px 20px", textAlign: "center", color: "#94a3b8", fontSize: 14 }}>
+            <div style={{ padding: "40px 20px", textAlign: "center", color: "#94a3b8", fontSize: 15 }}>
               {t("search.minChars")}
             </div>
           )}
@@ -247,7 +247,7 @@ export default function SearchOverlay({ onClose }) {
                         fontFamily: "inherit", transition: "all 0.1s",
                         background: isActive ? "#f0fdf4" : "transparent",
                         borderLeft: isActive ? "3px solid #059669" : "3px solid transparent",
-                        fontSize: 14, fontWeight: 500, color: "#1e293b",
+                        fontSize: 15, fontWeight: 500, color: "#1e293b",
                       }}
                       onMouseEnter={(e) => {
                         setActiveIdx(idx);
@@ -273,10 +273,10 @@ export default function SearchOverlay({ onClose }) {
           {/* No results */}
           {query.length >= 2 && results.length === 0 && (
             <div style={{ padding: "40px 20px", textAlign: "center" }}>
-              <div style={{ fontSize: 14, color: "#64748b", fontWeight: 500, marginBottom: 6 }}>
+              <div style={{ fontSize: 15, color: "#64748b", fontWeight: 500, marginBottom: 6 }}>
                 {t("search.noResults")} &laquo;{query}&raquo;
               </div>
-              <div style={{ fontSize: 13, color: "#94a3b8" }}>
+              <div style={{ fontSize: 14, color: "#94a3b8" }}>
                 {t("search.tryQuery")}
               </div>
             </div>

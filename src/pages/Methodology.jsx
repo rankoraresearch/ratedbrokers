@@ -52,7 +52,7 @@ function WeightBar({ weight, color }) {
       <div style={{ flex: 1, height: 8, borderRadius: 4, background: "#e2e8f0", overflow: "hidden" }}>
         <div style={{ width: weight + "%", height: "100%", borderRadius: 4, background: color, transition: "width 0.5s" }}/>
       </div>
-      <span style={{ fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 14, color, minWidth: 40, textAlign: "right" }}>{weight}%</span>
+      <span style={{ fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 15, color, minWidth: 40, textAlign: "right" }}>{weight}%</span>
     </div>
   );
 }
@@ -172,7 +172,7 @@ export default function MethodologyPage() {
                 border: "1px solid #e2e8f0", textAlign: "center",
               }}>
                 <div style={{ fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 22, color: "#059669" }}>{s.val}</div>
-                <div style={{ fontSize: 11, color: "#64748b", fontWeight: 500 }}>{s.label}</div>
+                <div style={{ fontSize: 12, color: "#64748b", fontWeight: 500 }}>{s.label}</div>
               </div>
             ))}
           </div>
@@ -181,18 +181,18 @@ export default function MethodologyPage() {
 
       {/* =================== AUTHOR BYLINE =================== */}
       <section style={{ ...cn, marginBottom: 24 }}>
-        <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 12, fontSize: 13, color: "#64748b" }}>
+        <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 12, fontSize: 14, color: "#64748b" }}>
           <span>{t("meth.writtenBy")} <strong style={{ color: "#1e293b" }}>Marcus Chen, CMT</strong></span>
           <span style={{ color: "#e2e8f0" }}>|</span>
           <span>{t("meth.factChecked")} <strong style={{ color: "#1e293b" }}>David Kowalski, CAMS</strong></span>
           <span style={{ color: "#e2e8f0" }}>|</span>
           <span style={{
             padding: "2px 8px", borderRadius: 4,
-            background: "#ecfdf5", color: "#059669", fontSize: 11, fontWeight: 600,
+            background: "#ecfdf5", color: "#059669", fontSize: 12, fontWeight: 600,
           }}>{t("meth.lastUpdated")}: March 2026</span>
           <span style={{
             padding: "2px 8px", borderRadius: 4,
-            background: "#eff6ff", color: "#2563eb", fontSize: 11, fontWeight: 600,
+            background: "#eff6ff", color: "#2563eb", fontSize: 12, fontWeight: 600,
           }}>{t("meth.nextReview")}: June 2026</span>
         </div>
       </section>
@@ -212,10 +212,10 @@ export default function MethodologyPage() {
             {TOC_ITEMS.map((item, i) => (
               <a key={i} href={`#${item.id}`} style={{
                 display: "flex", alignItems: "center", gap: 8,
-                padding: "6px 0", fontSize: 14, color: "#2563eb",
+                padding: "6px 0", fontSize: 15, color: "#2563eb",
                 textDecoration: "none", fontWeight: 500,
               }}>
-                <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 12, color: "#94a3b8", minWidth: 20 }}>{i + 1}.</span>
+                <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 13, color: "#94a3b8", minWidth: 20 }}>{i + 1}.</span>
                 {item.label}
               </a>
             ))}
@@ -235,7 +235,7 @@ export default function MethodologyPage() {
             <div style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 22, color: "#fff", marginBottom: 6 }}>
               {t("meth.coreTitle")}
             </div>
-            <div style={{ fontSize: 15, color: "#94a3b8", lineHeight: 1.7 }}>
+            <div style={{ fontSize: 16, color: "#94a3b8", lineHeight: 1.7 }}>
               {t("meth.coreDesc")}
             </div>
           </div>
@@ -266,14 +266,14 @@ export default function MethodologyPage() {
                 color: tier.color, marginBottom: 4,
               }}>{tier.min}–{tier.max}</div>
               <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 16, marginBottom: 6 }}>{tier.label}</div>
-              <div style={{ fontSize: 12, color: "#64748b", lineHeight: 1.6 }}>{tier.desc}</div>
+              <div style={{ fontSize: 13, color: "#64748b", lineHeight: 1.6 }}>{tier.desc}</div>
             </div>
           ))}
         </div>
 
         <div style={{ marginTop: 16 }}>
           <Link to={lp("/trust-score")} style={{
-            color: "#059669", fontWeight: 600, fontSize: 14, textDecoration: "none",
+            color: "#059669", fontWeight: 600, fontSize: 15, textDecoration: "none",
             display: "inline-flex", alignItems: "center", gap: 4,
           }}>Learn how to interpret scores & search any broker →</Link>
         </div>
@@ -294,7 +294,7 @@ export default function MethodologyPage() {
           border: "1px solid #e2e8f0", marginBottom: 24,
         }}>
           <div style={{
-            fontFamily: "'JetBrains Mono',monospace", fontSize: 14, color: "#334155",
+            fontFamily: "'JetBrains Mono',monospace", fontSize: 15, color: "#334155",
             padding: "14px 20px", borderRadius: 10, background: "#f8f9fb",
             textAlign: "center", lineHeight: 2,
           }}>
@@ -319,7 +319,7 @@ export default function MethodologyPage() {
             }}>
               <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
                 <Icon name={c.icon} size={20} color={c.color} />
-                <span style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 15 }}>{t("criteria." + c.key)}</span>
+                <span style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 16 }}>{t("criteria." + c.key)}</span>
               </div>
               <WeightBar weight={c.weight} color={c.color} />
             </div>
@@ -354,15 +354,15 @@ export default function MethodologyPage() {
                     <span style={{
                       padding: "3px 10px", borderRadius: 6,
                       background: c.color + "14", color: c.color,
-                      fontFamily: "'JetBrains Mono',monospace", fontSize: 13, fontWeight: 800,
+                      fontFamily: "'JetBrains Mono',monospace", fontSize: 14, fontWeight: 800,
                     }}>{c.weight}% {t("meth.weight")}</span>
                     <span style={{
                       padding: "3px 10px", borderRadius: 6,
                       background: "#f1f5f9", color: "#64748b",
-                      fontSize: 11, fontWeight: 600,
+                      fontSize: 12, fontWeight: 600,
                     }}>{c.subCriteria.length} sub-criteria</span>
                   </div>
-                  <div style={{ fontSize: 14, color: "#64748b", marginTop: 4 }}>{c.summary}</div>
+                  <div style={{ fontSize: 15, color: "#64748b", marginTop: 4 }}>{c.summary}</div>
                 </div>
                 <span style={{
                   color: "#94a3b8", transition: "transform 0.2s",
@@ -374,7 +374,7 @@ export default function MethodologyPage() {
               {/* Expanded content */}
               {expandedCriteria === i && (
                 <div style={{ padding: "0 24px 24px", borderTop: "1px solid #f1f5f9" }}>
-                  <p style={{ fontSize: 15, lineHeight: 1.8, color: "#334155", margin: "16px 0 20px" }}>
+                  <p style={{ fontSize: 16, lineHeight: 1.8, color: "#334155", margin: "16px 0 20px" }}>
                     {c.details}
                   </p>
 
@@ -385,7 +385,7 @@ export default function MethodologyPage() {
                       <div style={{
                         display: "grid", gridTemplateColumns: "1fr 60px",
                         padding: "10px 16px", background: c.color + "08",
-                        fontWeight: 700, fontSize: 12, color: "#64748b", textTransform: "uppercase",
+                        fontWeight: 700, fontSize: 13, color: "#64748b", textTransform: "uppercase",
                       }}>
                         <div>{t("meth.subCriteriaName")}</div>
                         <div style={{ textAlign: "center" }}>{t("meth.weight")}</div>
@@ -397,10 +397,10 @@ export default function MethodologyPage() {
                           background: si % 2 === 0 ? "#fff" : "#f8f9fb",
                           borderTop: "1px solid #f1f5f9",
                         }}>
-                          <span style={{ fontSize: 13, color: "#334155" }}>{sc.name}</span>
+                          <span style={{ fontSize: 14, color: "#334155" }}>{sc.name}</span>
                           <span style={{
                             textAlign: "center", fontFamily: "'JetBrains Mono',monospace",
-                            fontWeight: 700, fontSize: 13, color: c.color,
+                            fontWeight: 700, fontSize: 14, color: c.color,
                           }}>{sc.weight}%</span>
                         </div>
                       ))}
@@ -418,11 +418,11 @@ export default function MethodologyPage() {
                           borderBottom: si < c.scoring.length - 1 ? "1px solid #f1f5f9" : "none",
                         }}>
                           <span style={{
-                            fontFamily: "'JetBrains Mono',monospace", fontWeight: 700, fontSize: 13,
+                            fontFamily: "'JetBrains Mono',monospace", fontWeight: 700, fontSize: 14,
                             color: si === 0 ? "#059669" : si === 1 ? "#2563eb" : si === 2 ? "#d97706" : "#dc2626",
                             minWidth: 90,
                           }}>{s.range}</span>
-                          <span style={{ fontSize: 13, color: "#475569", lineHeight: 1.6 }}>{s.desc}</span>
+                          <span style={{ fontSize: 14, color: "#475569", lineHeight: 1.6 }}>{s.desc}</span>
                         </div>
                       ))}
                     </div>
@@ -438,12 +438,12 @@ export default function MethodologyPage() {
                             padding: "14px 16px", borderRadius: 10,
                             background: tier.color + "08", border: `1px solid ${tier.color}30`,
                           }}>
-                            <div style={{ fontWeight: 700, fontSize: 14, color: tier.color, marginBottom: 8 }}>{tier.tier}</div>
+                            <div style={{ fontWeight: 700, fontSize: 15, color: tier.color, marginBottom: 8 }}>{tier.tier}</div>
                             {tier.regs.map((r, ri) => {
                               const abbr = r.split(" (")[0].split("/")[0];
                               const regData = getRegulatorByName(abbr);
                               return (
-                                <div key={ri} style={{ fontSize: 12, color: "#475569", padding: "2px 0" }}>
+                                <div key={ri} style={{ fontSize: 13, color: "#475569", padding: "2px 0" }}>
                                   {regData ? <Link to={lp(`/regulator/${regData.slug}`)} style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>{r}</Link> : r}
                                 </div>
                               );
@@ -482,7 +482,7 @@ export default function MethodologyPage() {
                 <div style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 20, color: "#fff" }}>
                   {icData.B.name}
                 </div>
-                <div style={{ fontSize: 13, color: "#94a3b8" }}>{t("meth.scoringExampleSubtitle")}</div>
+                <div style={{ fontSize: 14, color: "#94a3b8" }}>{t("meth.scoringExampleSubtitle")}</div>
               </div>
               <div style={{
                 fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 28,
@@ -494,7 +494,7 @@ export default function MethodologyPage() {
             <div style={{
               display: "grid", gridTemplateColumns: mob ? "1fr 60px 60px 70px" : "2fr 80px 80px 100px",
               padding: "10px 24px", background: "#f8f9fb",
-              fontWeight: 700, fontSize: 12, color: "#64748b", textTransform: "uppercase",
+              fontWeight: 700, fontSize: 13, color: "#64748b", textTransform: "uppercase",
             }}>
               <div>{t("meth.criterion")}</div>
               <div style={{ textAlign: "center" }}>{t("meth.weight")}</div>
@@ -511,18 +511,18 @@ export default function MethodologyPage() {
                   padding: "12px 24px", borderTop: "1px solid #f1f5f9",
                   background: i % 2 === 0 ? "#fff" : "#fafbfc",
                 }}>
-                  <div style={{ fontSize: 14, fontWeight: 500 }}>{s.name}</div>
+                  <div style={{ fontSize: 15, fontWeight: 500 }}>{s.name}</div>
                   <div style={{
                     textAlign: "center", fontFamily: "'JetBrains Mono',monospace",
-                    fontSize: 13, color: "#64748b",
+                    fontSize: 14, color: "#64748b",
                   }}>{s.weight}%</div>
                   <div style={{
                     textAlign: "center", fontFamily: "'JetBrains Mono',monospace",
-                    fontWeight: 700, fontSize: 14, color: "#059669",
+                    fontWeight: 700, fontSize: 15, color: "#059669",
                   }}>{s.score}</div>
                   <div style={{
                     textAlign: "center", fontFamily: "'JetBrains Mono',monospace",
-                    fontWeight: 700, fontSize: 14, color: "#1e293b",
+                    fontWeight: 700, fontSize: 15, color: "#1e293b",
                   }}>{weighted}</div>
                 </div>
               );
@@ -534,7 +534,7 @@ export default function MethodologyPage() {
               padding: "14px 24px", borderTop: "2px solid #e2e8f0",
               background: "#ecfdf5",
             }}>
-              <div style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 15 }}>{t("meth.total")}</div>
+              <div style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 16 }}>{t("meth.total")}</div>
               <div></div>
               <div></div>
               <div style={{
@@ -547,7 +547,7 @@ export default function MethodologyPage() {
 
         <div style={{ marginTop: 12 }}>
           <Link to={lp("/review/ic-markets")} style={{
-            color: "#2563eb", fontWeight: 600, textDecoration: "none", fontSize: 14,
+            color: "#2563eb", fontWeight: 600, textDecoration: "none", fontSize: 15,
           }}>{t("meth.readFullReview")} →</Link>
         </div>
       </section>
@@ -584,13 +584,13 @@ export default function MethodologyPage() {
               }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
                   <span style={{
-                    fontFamily: "'JetBrains Mono',monospace", fontSize: 11, fontWeight: 800,
+                    fontFamily: "'JetBrains Mono',monospace", fontSize: 12, fontWeight: 800,
                     color: "#059669", background: "#ecfdf5", padding: "2px 8px", borderRadius: 4,
                   }}>{t("meth.step")} {s.step}</span>
-                  <span style={{ fontSize: 12, color: "#94a3b8" }}>⏱ {s.duration}</span>
+                  <span style={{ fontSize: 13, color: "#94a3b8" }}>⏱ {s.duration}</span>
                 </div>
                 <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 17, marginBottom: 4 }}>{s.title}</div>
-                <div style={{ fontSize: 14, color: "#475569", lineHeight: 1.7 }}>{s.desc}</div>
+                <div style={{ fontSize: 15, color: "#475569", lineHeight: 1.7 }}>{s.desc}</div>
               </div>
             </div>
           ))}
@@ -612,7 +612,7 @@ export default function MethodologyPage() {
                 <Icon name="shield" size={20} color="#059669" />
                 <span style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 17 }}>{t("meth.editorialWall")}</span>
               </div>
-              <p style={{ fontSize: 14, lineHeight: 1.8, color: "#475569", margin: "0 0 16px" }}>
+              <p style={{ fontSize: 15, lineHeight: 1.8, color: "#475569", margin: "0 0 16px" }}>
                 {t("meth.editorialWallDesc")}
               </p>
             </div>
@@ -621,7 +621,7 @@ export default function MethodologyPage() {
                 <Icon name="eye-off" size={20} color="#7c3aed" />
                 <span style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 17 }}>{t("meth.editorialBlind")}</span>
               </div>
-              <p style={{ fontSize: 14, lineHeight: 1.8, color: "#475569", margin: "0 0 16px" }}>
+              <p style={{ fontSize: 15, lineHeight: 1.8, color: "#475569", margin: "0 0 16px" }}>
                 {t("meth.editorialBlindDesc")}
               </p>
             </div>
@@ -630,14 +630,14 @@ export default function MethodologyPage() {
             padding: "14px 20px", borderRadius: 10,
             background: "#f8f9fb", marginTop: 8,
           }}>
-            <p style={{ fontSize: 13, lineHeight: 1.7, color: "#475569", margin: 0 }}>
+            <p style={{ fontSize: 14, lineHeight: 1.7, color: "#475569", margin: 0 }}>
               <strong>{t("meth.editorialProof")}</strong>{" "}
               {t("meth.editorialProofDesc")}
             </p>
           </div>
           <div style={{ marginTop: 16 }}>
             <Link to={lp("/how-we-make-money")} style={{
-              color: "#059669", fontWeight: 600, textDecoration: "none", fontSize: 14,
+              color: "#059669", fontWeight: 600, textDecoration: "none", fontSize: 15,
             }}>{t("meth.editorialLink")} →</Link>
           </div>
         </div>
@@ -655,21 +655,21 @@ export default function MethodologyPage() {
               <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 26, color: "#991b1b", margin: "0 0 10px" }}>
                 {t("meth.pledgeTitle")}
               </h2>
-              <p style={{ fontSize: 15, lineHeight: 1.8, color: "#b91c1c", margin: "0 0 16px" }}>
+              <p style={{ fontSize: 16, lineHeight: 1.8, color: "#b91c1c", margin: "0 0 16px" }}>
                 {t("meth.pledgeDesc1")}
               </p>
-              <p style={{ fontSize: 15, lineHeight: 1.8, color: "#b91c1c", margin: "0 0 16px" }}>
+              <p style={{ fontSize: 16, lineHeight: 1.8, color: "#b91c1c", margin: "0 0 16px" }}>
                 {t("meth.pledgeDesc2")}
               </p>
               <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
                 <Link to={lp("/guide/ecn-vs-market-maker")} style={{
                   padding: "10px 20px", borderRadius: 8,
-                  background: "#dc2626", color: "#fff", fontWeight: 700, fontSize: 13,
+                  background: "#dc2626", color: "#fff", fontWeight: 700, fontSize: 14,
                   textDecoration: "none",
                 }}>{t("meth.pledgeLink1")}</Link>
                 <Link to={lp("/best-a-book-forex-brokers")} style={{
                   padding: "10px 20px", borderRadius: 8,
-                  background: "#fff", color: "#dc2626", fontWeight: 700, fontSize: 13,
+                  background: "#fff", color: "#dc2626", fontWeight: 700, fontSize: 14,
                   textDecoration: "none", border: "1px solid #fecaca",
                 }}>{t("meth.pledgeLink2")}</Link>
               </div>
@@ -692,8 +692,8 @@ export default function MethodologyPage() {
           padding: "16px 20px", borderRadius: 10,
           background: "#eff6ff", border: "1px solid #bfdbfe", marginBottom: 20,
         }}>
-          <div style={{ fontWeight: 700, fontSize: 14, color: "#1e40af", marginBottom: 8 }}>{t("meth.triggerTitle")}</div>
-          <div style={{ fontSize: 13, color: "#1e3a8a", lineHeight: 1.7 }}>
+          <div style={{ fontWeight: 700, fontSize: 15, color: "#1e40af", marginBottom: 8 }}>{t("meth.triggerTitle")}</div>
+          <div style={{ fontSize: 14, color: "#1e3a8a", lineHeight: 1.7 }}>
             {t("meth.triggerList")}
           </div>
         </div>
@@ -703,7 +703,7 @@ export default function MethodologyPage() {
           <div style={{
             display: "grid", gridTemplateColumns: mob ? "80px 80px 80px 1fr" : "100px 120px 100px 1fr",
             padding: "10px 20px", background: "#f8f9fb",
-            fontWeight: 700, fontSize: 12, color: "#64748b", textTransform: "uppercase",
+            fontWeight: 700, fontSize: 13, color: "#64748b", textTransform: "uppercase",
           }}>
             <div>{t("meth.clDate")}</div>
             <div>{t("meth.clBroker")}</div>
@@ -715,12 +715,12 @@ export default function MethodologyPage() {
               display: "grid", gridTemplateColumns: mob ? "80px 80px 80px 1fr" : "100px 120px 100px 1fr",
               padding: "12px 20px", borderTop: "1px solid #f1f5f9",
               background: i % 2 === 0 ? "#fff" : "#fafbfc",
-              fontSize: 13,
+              fontSize: 14,
             }}>
               <div style={{ color: "#64748b" }}>{entry.date}</div>
               <div style={{ fontWeight: 600 }}>{entry.broker}</div>
               <div style={{
-                fontFamily: "'JetBrains Mono',monospace", fontSize: 12,
+                fontFamily: "'JetBrains Mono',monospace", fontSize: 13,
                 color: entry.change.includes("→") && entry.change.split("→")[0].trim() !== entry.change.split("→")[1].trim()
                   ? (parseFloat(entry.change.split("→")[1]) > parseFloat(entry.change.split("→")[0]) ? "#059669" : "#dc2626")
                   : "#64748b",
@@ -760,21 +760,21 @@ export default function MethodologyPage() {
                 }}>{member.initials}</div>
               )}
               <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 17 }}>{member.name}</div>
-              <div style={{ fontSize: 12, color: "#64748b", marginBottom: 10 }}>{member.role}</div>
+              <div style={{ fontSize: 13, color: "#64748b", marginBottom: 10 }}>{member.role}</div>
               <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "1fr 1fr", gap: 6, marginBottom: 12 }}>
                 <div style={{ padding: "6px", borderRadius: 6, background: "#f8f9fb" }}>
                   <div style={{ fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 16, color: "#059669" }}>{member.reviews}</div>
                   <div style={{ fontSize: 9, color: "#94a3b8" }}>{t("meth.teamReviews")}</div>
                 </div>
                 <div style={{ padding: "6px", borderRadius: 6, background: "#f8f9fb" }}>
-                  <div style={{ fontWeight: 700, fontSize: 13, color: "#1e293b" }}>{member.exp}</div>
+                  <div style={{ fontWeight: 700, fontSize: 14, color: "#1e293b" }}>{member.exp}</div>
                   <div style={{ fontSize: 9, color: "#94a3b8" }}>{t("meth.teamExperience")}</div>
                 </div>
               </div>
-              <div style={{ fontSize: 11, color: "#64748b", marginBottom: 10 }}>{t("meth.teamSpecialty")}: {member.specialty}</div>
+              <div style={{ fontSize: 12, color: "#64748b", marginBottom: 10 }}>{t("meth.teamSpecialty")}: {member.specialty}</div>
               <a href={member.linkedin} style={{
                 display: "block", padding: "8px", borderRadius: 6,
-                background: "#eff6ff", color: "#2563eb", fontSize: 12, fontWeight: 600,
+                background: "#eff6ff", color: "#2563eb", fontSize: 13, fontWeight: 600,
                 textDecoration: "none", border: "1px solid #bfdbfe",
               }}>{t("meth.verifyLinkedin")}</a>
             </div>
@@ -791,17 +791,17 @@ export default function MethodologyPage() {
           <h3 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 20, color: "#92400e", margin: "0 0 10px" }}>
             {t("meth.affTitle")}
           </h3>
-          <p style={{ fontSize: 14, lineHeight: 1.8, color: "#78350f", margin: "0 0 12px" }}>
+          <p style={{ fontSize: 15, lineHeight: 1.8, color: "#78350f", margin: "0 0 12px" }}>
             {t("meth.affDesc1")}
           </p>
-          <p style={{ fontSize: 14, lineHeight: 1.8, color: "#78350f", margin: "0 0 12px" }}>
+          <p style={{ fontSize: 15, lineHeight: 1.8, color: "#78350f", margin: "0 0 12px" }}>
             <strong>{t("meth.affDesc2")}</strong>
           </p>
-          <p style={{ fontSize: 14, lineHeight: 1.8, color: "#78350f", margin: "0 0 12px" }}>
+          <p style={{ fontSize: 15, lineHeight: 1.8, color: "#78350f", margin: "0 0 12px" }}>
             {t("meth.affDesc3")}
           </p>
           <Link to={lp("/how-we-make-money")} style={{
-            color: "#92400e", fontWeight: 700, textDecoration: "none", fontSize: 14,
+            color: "#92400e", fontWeight: 700, textDecoration: "none", fontSize: 15,
           }}>{t("meth.affLink")} →</Link>
         </div>
       </section>
@@ -818,11 +818,11 @@ export default function MethodologyPage() {
                 padding: "16px 20px", cursor: "pointer",
                 display: "flex", alignItems: "center", justifyContent: "space-between",
               }}>
-                <span style={{ fontWeight: 600, fontSize: 15 }}>{item.q}</span>
+                <span style={{ fontWeight: 600, fontSize: 16 }}>{item.q}</span>
                 <span style={{ color: "#64748b", transform: expandedFAQ === i ? "rotate(180deg)" : "none", transition: "transform 0.2s", display: "inline-flex" }}><ChevronDown size={18} /></span>
               </div>
               {expandedFAQ === i && (
-                <div style={{ padding: "0 20px 18px", fontSize: 14, lineHeight: 1.8, color: "#334155", borderTop: "1px solid #f1f5f9" }}>
+                <div style={{ padding: "0 20px 18px", fontSize: 15, lineHeight: 1.8, color: "#334155", borderTop: "1px solid #f1f5f9" }}>
                   <p style={{ marginTop: 12 }}>{item.a}</p>
                 </div>
               )}

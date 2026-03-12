@@ -14,7 +14,7 @@ export default function RegBadge({ reg }) {
     display: "inline-block",
     padding: "2px 6px",
     borderRadius: 4,
-    fontSize: 10,
+    fontSize: 11,
     fontWeight: 700,
     letterSpacing: 0.5,
     background: isFCA ? "#dbeafe" : isTier1 ? "#ecfdf5" : "#f1f5f9",

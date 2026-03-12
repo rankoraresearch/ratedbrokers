@@ -28,7 +28,7 @@ export default function Accordion({ items, expanded, setExpanded }) {
             }}
           >
             <span
-              style={{ fontWeight: 700, fontSize: 14, color: "#1e293b", flex: 1 }}
+              style={{ fontWeight: 700, fontSize: 15, color: "#1e293b", flex: 1 }}
             >
               {item.q}
             </span>
@@ -48,7 +48,7 @@ export default function Accordion({ items, expanded, setExpanded }) {
             <div style={{ padding: "0 16px 16px" }}>
               <p
                 style={{
-                  fontSize: 13,
+                  fontSize: 14,
                   lineHeight: 1.7,
                   color: "#475569",
                   margin: 0,

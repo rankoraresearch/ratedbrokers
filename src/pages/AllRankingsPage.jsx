@@ -115,7 +115,7 @@ export default function AllRankingsPage() {
                   borderColor: activeTab === t.key ? "#34d399" : "rgba(255,255,255,0.15)",
                   background: activeTab === t.key ? "rgba(52,211,153,0.15)" : "rgba(255,255,255,0.05)",
                   color: activeTab === t.key ? "#34d399" : "rgba(255,255,255,0.7)",
-                  fontSize: 13, fontWeight: 600, cursor: "pointer",
+                  fontSize: 14, fontWeight: 600, cursor: "pointer",
                   fontFamily: "inherit", transition: "all 0.2s",
                 }}
               >
@@ -144,7 +144,7 @@ export default function AllRankingsPage() {
             {Object.entries(subs).map(([sub, rankings]) => (
               <div key={sub} style={{ marginBottom: 24 }}>
                 <h3 style={{
-                  fontSize: 14, fontWeight: 700, color: "#64748b",
+                  fontSize: 15, fontWeight: 700, color: "#64748b",
                   textTransform: "uppercase", letterSpacing: 0.5,
                   marginBottom: 12,
                 }}>
@@ -178,10 +178,10 @@ export default function AllRankingsPage() {
                       <Icon name={r.icon} size={20} style={{ flexShrink: 0 }} />
                       <div style={{ flex: 1, minWidth: 0 }}>
                         <div style={{
-                          fontWeight: 600, fontSize: 13,
+                          fontWeight: 600, fontSize: 14,
                           whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis",
                         }}>{r.title}</div>
-                        <div style={{ fontSize: 11, color: "#94a3b8", marginTop: 2 }}>
+                        <div style={{ fontSize: 12, color: "#94a3b8", marginTop: 2 }}>
                           {getBrokerCountForRanking(r.id)} brokers
                         </div>
                       </div>

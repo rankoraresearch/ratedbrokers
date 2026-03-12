@@ -83,7 +83,7 @@ export default function CountryHubPage() {
             ].map(([val, label], i) => (
               <div key={i}>
                 <div style={{ fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: mob ? 22 : 28, color: "#34d399" }}>{val}</div>
-                <div style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", fontWeight: 600 }}>{label}</div>
+                <div style={{ fontSize: 14, color: "rgba(255,255,255,0.6)", fontWeight: 600 }}>{label}</div>
               </div>
             ))}
           </div>
@@ -110,7 +110,7 @@ export default function CountryHubPage() {
               <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: mob ? 14 : 16, marginBottom: 4, lineHeight: 1.3 }}>
                 Best Forex Brokers in {c.name}
               </div>
-              <div style={{ fontSize: 13, color: "#64748b" }}>
+              <div style={{ fontSize: 14, color: "#64748b" }}>
                 {c.regulator}-regulated {"\u2022"} {c.brokersCount} brokers tested
               </div>
             </Link>
@@ -140,7 +140,7 @@ export default function CountryHubPage() {
                     <CountryFlag code={c.code} size={mob ? 20 : 24} />
                     <div style={{ minWidth: 0 }}>
                       <div style={{ fontWeight: 600, fontSize: mob ? 13 : 14 }}>Best Forex Brokers in {c.name}</div>
-                      <div style={{ fontSize: 12, color: "#94a3b8" }}>{c.regulator}-regulated {"\u2022"} {c.brokersCount} brokers</div>
+                      <div style={{ fontSize: 13, color: "#94a3b8" }}>{c.regulator}-regulated {"\u2022"} {c.brokersCount} brokers</div>
                     </div>
                   </Link>
                 ))}
@@ -166,12 +166,12 @@ export default function CountryHubPage() {
             <Link to={lp("/rankings")} style={{
               padding: "12px 24px", borderRadius: 10,
               background: "linear-gradient(135deg,#059669,#34d399)",
-              color: "#fff", fontWeight: 700, fontSize: 15, textDecoration: "none",
+              color: "#fff", fontWeight: 700, fontSize: 16, textDecoration: "none",
             }}><span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>View All Broker Rankings <ArrowRight size={16} /></span></Link>
             <Link to={lp("/compare")} style={{
               padding: "12px 24px", borderRadius: 10,
               background: "#f1f5f9", color: "#1e293b",
-              fontWeight: 700, fontSize: 15, textDecoration: "none",
+              fontWeight: 700, fontSize: 16, textDecoration: "none",
             }}>Compare Forex Brokers</Link>
           </div>
         </div>

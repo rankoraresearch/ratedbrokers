@@ -98,7 +98,7 @@ export default function AllReviewsPage() {
                   borderColor: activeFilter === f.key ? "#34d399" : "rgba(255,255,255,0.15)",
                   background: activeFilter === f.key ? "rgba(52,211,153,0.15)" : "rgba(255,255,255,0.05)",
                   color: activeFilter === f.key ? "#34d399" : "rgba(255,255,255,0.7)",
-                  fontSize: 13, fontWeight: 600, cursor: "pointer",
+                  fontSize: 14, fontWeight: 600, cursor: "pointer",
                   fontFamily: "inherit", transition: "all 0.2s",
                 }}
               >
@@ -111,7 +111,7 @@ export default function AllReviewsPage() {
 
       {/* BROKER GRID */}
       <section style={{ ...cn, padding: mob ? "32px 16px 60px" : "48px 24px 80px" }}>
-        <div style={{ marginBottom: 16, fontSize: 14, color: "#64748b" }}>
+        <div style={{ marginBottom: 16, fontSize: 15, color: "#64748b" }}>
           {filtered.length} broker{filtered.length !== 1 ? "s" : ""}
         </div>
         <div style={{
@@ -146,7 +146,7 @@ export default function AllReviewsPage() {
                   width: 40, height: 40, borderRadius: 8,
                   background: "linear-gradient(135deg,#1e3a5f,#2d5a8e)",
                   display: "flex", alignItems: "center", justifyContent: "center",
-                  fontFamily: "Outfit", fontWeight: 800, fontSize: 12, color: "#fff",
+                  fontFamily: "Outfit", fontWeight: 800, fontSize: 13, color: "#fff",
                   flexShrink: 0,
                 }}>
                   {b.name.slice(0, 2).toUpperCase()}
@@ -155,17 +155,17 @@ export default function AllReviewsPage() {
                 {/* Name + type */}
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <div style={{
-                    fontWeight: 700, fontSize: 14,
+                    fontWeight: 700, fontSize: 15,
                     whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis",
                   }}>{b.name}</div>
-                  <div style={{ fontSize: 11, color: "#94a3b8", marginTop: 2 }}>
+                  <div style={{ fontSize: 12, color: "#94a3b8", marginTop: 2 }}>
                     {b.type}
                   </div>
                 </div>
 
                 {/* Score badge */}
                 <span style={{
-                  fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: 13,
+                  fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: 14,
                   color: badge.color, background: badge.bg,
                   padding: "4px 8px", borderRadius: 6, flexShrink: 0,
                 }}>

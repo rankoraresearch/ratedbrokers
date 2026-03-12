@@ -92,7 +92,7 @@ const FOOTER_COMPANY = [
 const sectionHeadingStyle = {
   fontFamily: "Inter, sans-serif",
   fontWeight: 700,
-  fontSize: 12,
+  fontSize: 13,
   color: "#e2e8f0",
   marginBottom: 12,
   textTransform: "uppercase",
@@ -100,7 +100,7 @@ const sectionHeadingStyle = {
 };
 
 const baseLinkStyle = {
-  fontSize: 14,
+  fontSize: 15,
   color: "#94a3b8",
   textDecoration: "none",
   display: "block",
@@ -177,7 +177,7 @@ export default function Footer() {
               <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, fontSize: 18, color: "#34d399", letterSpacing: "-1px" }}>brokers</span>
               <span style={{ display: "inline-block", width: 5, height: 5, borderRadius: "50%", background: "#fbbf24", marginLeft: 2, marginBottom: 1 }} />
             </div>
-            <p style={{ fontSize: 13, color: "#64748b", lineHeight: 1.7, maxWidth: 280, marginBottom: 16 }}>
+            <p style={{ fontSize: 14, color: "#64748b", lineHeight: 1.7, maxWidth: 280, marginBottom: 16 }}>
               {t("footer.desc")}
             </p>
 
@@ -190,11 +190,11 @@ export default function Footer() {
               ].map(({ Icon, text }) => (
                 <div key={text} style={{ display: "flex", alignItems: "center", gap: 6 }}>
                   <Icon size={14} color="#34d399" />
-                  <span style={{ fontSize: 12, color: "#94a3b8" }}>{text}</span>
+                  <span style={{ fontSize: 13, color: "#94a3b8" }}>{text}</span>
                 </div>
               ))}
             </div>
-            <p style={{ fontSize: 12, color: "#64748b", fontStyle: "italic", margin: 0 }}>
+            <p style={{ fontSize: 13, color: "#64748b", fontStyle: "italic", margin: 0 }}>
               Independent & Expert-Led Reviews
             </p>
           </div>
@@ -237,7 +237,7 @@ export default function Footer() {
             <div style={sectionHeadingStyle}>{t("footer.countries")}</div>
             {FOOTER_COUNTRIES.map(({ code, label, path }) => (
               <HoverLink key={path} to={lp(path)}>
-                <CountryFlag code={code} size={14} /><span style={{ marginLeft: 6 }}>{label}</span>
+                <CountryFlag code={code} size={15} /><span style={{ marginLeft: 6 }}>{label}</span>
               </HoverLink>
             ))}
             <HoverLink to={lp("/best-forex-brokers-by-country")} style={{ color: "#34d399", fontWeight: 600, marginTop: 4 }}>
@@ -275,16 +275,16 @@ export default function Footer() {
             gap: isMobile ? 8 : 4,
           }}
         >
-          <span style={{ fontSize: 12, fontWeight: 700, color: "#e2e8f0", textTransform: "uppercase", letterSpacing: 1, marginRight: 8 }}>
+          <span style={{ fontSize: 13, fontWeight: 700, color: "#e2e8f0", textTransform: "uppercase", letterSpacing: 1, marginRight: 8 }}>
             {t("footer.platforms")}:
           </span>
           {FOOTER_PLATFORMS.map(({ label, path }, i) => (
             <span key={path} style={{ display: "inline-flex", alignItems: "center" }}>
-              <HoverLink to={lp(path)} style={{ fontSize: 13, display: "inline", padding: 0 }}>
+              <HoverLink to={lp(path)} style={{ fontSize: 14, display: "inline", padding: 0 }}>
                 {label}
               </HoverLink>
               {i < FOOTER_PLATFORMS.length - 1 && (
-                <span style={{ color: "#334155", margin: "0 8px", fontSize: 13 }}>&middot;</span>
+                <span style={{ color: "#334155", margin: "0 8px", fontSize: 14 }}>&middot;</span>
               )}
             </span>
           ))}
@@ -310,11 +310,11 @@ export default function Footer() {
           >
             <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
               <AlertTriangle size={14} color="#f59e0b" />
-              <span style={{ fontSize: 12, fontWeight: 700, color: "#f59e0b", textTransform: "uppercase", letterSpacing: 0.5 }}>
+              <span style={{ fontSize: 13, fontWeight: 700, color: "#f59e0b", textTransform: "uppercase", letterSpacing: 0.5 }}>
                 {t("footer.riskTitle")}
               </span>
             </div>
-            <p style={{ fontSize: 12, color: "#64748b", lineHeight: 1.7, margin: 0 }}>
+            <p style={{ fontSize: 13, color: "#64748b", lineHeight: 1.7, margin: 0 }}>
               CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. Between{" "}
               <strong style={{ color: "#94a3b8" }}>62% and 82%</strong>{" "}
               of retail investor accounts lose money when trading CFDs. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money.
@@ -332,11 +332,11 @@ export default function Footer() {
           >
             <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
               <Info size={14} color="#3b82f6" />
-              <span style={{ fontSize: 12, fontWeight: 700, color: "#3b82f6", textTransform: "uppercase", letterSpacing: 0.5 }}>
+              <span style={{ fontSize: 13, fontWeight: 700, color: "#3b82f6", textTransform: "uppercase", letterSpacing: 0.5 }}>
                 {t("footer.affTitle")}
               </span>
             </div>
-            <p style={{ fontSize: 12, color: "#64748b", lineHeight: 1.7, margin: 0 }}>
+            <p style={{ fontSize: 13, color: "#64748b", lineHeight: 1.7, margin: 0 }}>
               {t("footer.affText")}
             </p>
           </div>
@@ -353,10 +353,10 @@ export default function Footer() {
             textAlign: isMobile ? "center" : "left",
           }}
         >
-          <span style={{ fontSize: 12, color: "#475569" }}>
+          <span style={{ fontSize: 13, color: "#475569" }}>
             {t("footer.copy")}
           </span>
-          <span style={{ fontSize: 12, color: "#475569" }}>
+          <span style={{ fontSize: 13, color: "#475569" }}>
             36 brokers independently tested with real money
           </span>
         </div>

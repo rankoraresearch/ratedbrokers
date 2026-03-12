@@ -30,9 +30,9 @@ const CATEGORY_ICONS = {
 };
 
 function WinnerBadge({ winner, nameA, nameB, t }) {
-  if (winner === "tie") return <span style={{ padding: "3px 10px", borderRadius: 6, background: "#f1f5f9", color: "#64748b", fontSize: 13, fontWeight: 700, display: "inline-flex", alignItems: "center", gap: 4 }}><Handshake size={14} /> {t("comp.tie")}</span>;
+  if (winner === "tie") return <span style={{ padding: "3px 10px", borderRadius: 6, background: "#f1f5f9", color: "#64748b", fontSize: 14, fontWeight: 700, display: "inline-flex", alignItems: "center", gap: 4 }}><Handshake size={14} /> {t("comp.tie")}</span>;
   const name = winner === "a" ? nameA : nameB;
-  return <span style={{ padding: "3px 10px", borderRadius: 6, background: "#ecfdf5", color: "#059669", fontSize: 13, fontWeight: 700, display: "inline-flex", alignItems: "center", gap: 4 }}><Trophy size={14} /> {name}</span>;
+  return <span style={{ padding: "3px 10px", borderRadius: 6, background: "#ecfdf5", color: "#059669", fontSize: 14, fontWeight: 700, display: "inline-flex", alignItems: "center", gap: 4 }}><Trophy size={14} /> {name}</span>;
 }
 
 function parseCommission(s) {
@@ -303,10 +303,10 @@ export default function BrokerComparison() {
               onMouseEnter={e => e.currentTarget.style.textDecoration = "underline"}
               onMouseLeave={e => e.currentTarget.style.textDecoration = "none"}
             >{A.name}</Link>
-            <div style={{ fontSize: 14, color: "#64748b", marginBottom: 12 }}>Est. {A.year} · {A.hq}</div>
+            <div style={{ fontSize: 15, color: "#64748b", marginBottom: 12 }}>Est. {A.year} · {A.hq}</div>
             <div style={{ display: "flex", justifyContent: "center", marginBottom: 8 }}><ScoreBadge score={A.score} size="lg" /></div>
             <a href={getTrustpilotUrl(slugA)} target="_blank" rel="noopener noreferrer" style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 6, marginBottom: 16, textDecoration: "none", flexWrap: "wrap" }}>
-              <TrustpilotLogo size="xs" /><Stars r={A.tp} /><span style={{ fontSize: 14, color: "#64748b" }}>{A.tp} ({(A.tpCount / 1000).toFixed(1)}k)</span>
+              <TrustpilotLogo size="xs" /><Stars r={A.tp} /><span style={{ fontSize: 15, color: "#64748b" }}>{A.tp} ({(A.tpCount / 1000).toFixed(1)}k)</span>
             </a>
             <div style={{ display: "flex", gap: 4, justifyContent: "center", flexWrap: "wrap", marginBottom: 16 }}>
               {A.regs.map(r => <RegBadge key={r.name} reg={r.name} />)}
@@ -337,10 +337,10 @@ export default function BrokerComparison() {
               onMouseEnter={e => e.currentTarget.style.textDecoration = "underline"}
               onMouseLeave={e => e.currentTarget.style.textDecoration = "none"}
             >{B.name}</Link>
-            <div style={{ fontSize: 14, color: "#64748b", marginBottom: 12 }}>Est. {B.year} · {B.hq}</div>
+            <div style={{ fontSize: 15, color: "#64748b", marginBottom: 12 }}>Est. {B.year} · {B.hq}</div>
             <div style={{ display: "flex", justifyContent: "center", marginBottom: 8 }}><ScoreBadge score={B.score} size="lg" /></div>
             <a href={getTrustpilotUrl(slugB)} target="_blank" rel="noopener noreferrer" style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 6, marginBottom: 16, textDecoration: "none", flexWrap: "wrap" }}>
-              <TrustpilotLogo size="xs" /><Stars r={B.tp} /><span style={{ fontSize: 14, color: "#64748b" }}>{B.tp} ({(B.tpCount / 1000).toFixed(1)}k)</span>
+              <TrustpilotLogo size="xs" /><Stars r={B.tp} /><span style={{ fontSize: 15, color: "#64748b" }}>{B.tp} ({(B.tpCount / 1000).toFixed(1)}k)</span>
             </a>
             <div style={{ display: "flex", gap: 4, justifyContent: "center", flexWrap: "wrap", marginBottom: 16 }}>
               {B.regs.map(r => <RegBadge key={r.name} reg={r.name} />)}
@@ -364,15 +364,15 @@ export default function BrokerComparison() {
         }}>
           <div style={{ textAlign: "center", flex: 1 }}>
             <div style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: mob ? 28 : 36, fontWeight: 800, color: "#34d399" }}>{aWins}</div>
-            <div style={{ fontSize: 14, color: "#94a3b8" }}>{A.name} {t("comp.wins")}</div>
+            <div style={{ fontSize: 15, color: "#94a3b8" }}>{A.name} {t("comp.wins")}</div>
           </div>
           <div style={{ textAlign: "center", flex: 1 }}>
             <div style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: mob ? 28 : 36, fontWeight: 800, color: "#94a3b8" }}>{ties}</div>
-            <div style={{ fontSize: 14, color: "#64748b" }}>{t("comp.ties")}</div>
+            <div style={{ fontSize: 15, color: "#64748b" }}>{t("comp.ties")}</div>
           </div>
           <div style={{ textAlign: "center", flex: 1 }}>
             <div style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: mob ? 28 : 36, fontWeight: 800, color: "#60a5fa" }}>{bWins}</div>
-            <div style={{ fontSize: 14, color: "#94a3b8" }}>{B.name} {t("comp.wins")}</div>
+            <div style={{ fontSize: 15, color: "#94a3b8" }}>{B.name} {t("comp.wins")}</div>
           </div>
         </div>
       </section>
@@ -389,13 +389,13 @@ export default function BrokerComparison() {
                 <Icon name={cat.icon} size={24} color="#1e3a5f" />
                 <span style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 18, flex: 1 }}>{cat.name}</span>
                 <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                  <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 14, fontWeight: 700, color: "#059669" }}>{cat.scoreA}</span>
-                  <span style={{ fontSize: 13, color: "#94a3b8" }}>vs</span>
-                  <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 14, fontWeight: 700, color: "#2563eb" }}>{cat.scoreB}</span>
+                  <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 15, fontWeight: 700, color: "#059669" }}>{cat.scoreA}</span>
+                  <span style={{ fontSize: 14, color: "#94a3b8" }}>vs</span>
+                  <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 15, fontWeight: 700, color: "#2563eb" }}>{cat.scoreB}</span>
                 </div>
                 <WinnerBadge winner={cat.winner} nameA={A.name} nameB={B.name} t={t} />
               </div>
-              <div style={{ fontSize: 15, lineHeight: 1.7, color: "#334155" }}>{cat.summary}</div>
+              <div style={{ fontSize: 16, lineHeight: 1.7, color: "#334155" }}>{cat.summary}</div>
             </div>
           ))}
         </div>
@@ -410,16 +410,16 @@ export default function BrokerComparison() {
         }}>
           <div style={{ color: "#fff" }}>
             <div style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 20, marginBottom: 4 }}>Ready to try them out?</div>
-            <div style={{ fontSize: 15, opacity: 0.9 }}>Both brokers offer demo accounts — test risk-free.</div>
+            <div style={{ fontSize: 16, opacity: 0.9 }}>Both brokers offer demo accounts — test risk-free.</div>
           </div>
           <div style={{ display: "flex", gap: 12 }}>
             <a href={A.url} target="_blank" rel="noopener noreferrer nofollow" style={{
               padding: "10px 24px", borderRadius: 8, background: "#fff", color: "#059669",
-              fontWeight: 800, fontSize: 15, textDecoration: "none", whiteSpace: "nowrap",
+              fontWeight: 800, fontSize: 16, textDecoration: "none", whiteSpace: "nowrap",
             }}><span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>{A.name} <ArrowRight size={15} /></span></a>
             <a href={B.url} target="_blank" rel="noopener noreferrer nofollow" style={{
               padding: "10px 24px", borderRadius: 8, background: "rgba(255,255,255,0.2)", color: "#fff",
-              fontWeight: 800, fontSize: 15, textDecoration: "none", border: "1px solid rgba(255,255,255,0.4)", whiteSpace: "nowrap",
+              fontWeight: 800, fontSize: 16, textDecoration: "none", border: "1px solid rgba(255,255,255,0.4)", whiteSpace: "nowrap",
             }}><span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>{B.name} <ArrowRight size={15} /></span></a>
           </div>
         </div>
@@ -436,10 +436,10 @@ export default function BrokerComparison() {
             <table style={{ width: "100%", borderCollapse: "collapse", minWidth: 500 }}>
               <thead>
                 <tr style={{ background: "#0f172a" }}>
-                  <th style={{ padding: "14px 20px", textAlign: "left", color: "#fff", fontFamily: "Outfit", fontWeight: 700, fontSize: 14 }}>Pair</th>
-                  <th style={{ padding: "14px 20px", textAlign: "center", color: "#34d399", fontFamily: "Outfit", fontWeight: 700, fontSize: 14 }}>{A.name}</th>
-                  <th style={{ padding: "14px 20px", textAlign: "center", color: "#60a5fa", fontFamily: "Outfit", fontWeight: 700, fontSize: 14 }}>{B.name}</th>
-                  <th style={{ padding: "14px 20px", textAlign: "center", color: "#fff", fontFamily: "Outfit", fontWeight: 700, fontSize: 14 }}>{t("comp.winner")}</th>
+                  <th style={{ padding: "14px 20px", textAlign: "left", color: "#fff", fontFamily: "Outfit", fontWeight: 700, fontSize: 15 }}>Pair</th>
+                  <th style={{ padding: "14px 20px", textAlign: "center", color: "#34d399", fontFamily: "Outfit", fontWeight: 700, fontSize: 15 }}>{A.name}</th>
+                  <th style={{ padding: "14px 20px", textAlign: "center", color: "#60a5fa", fontFamily: "Outfit", fontWeight: 700, fontSize: 15 }}>{B.name}</th>
+                  <th style={{ padding: "14px 20px", textAlign: "center", color: "#fff", fontFamily: "Outfit", fontWeight: 700, fontSize: 15 }}>{t("comp.winner")}</th>
                 </tr>
               </thead>
               <tbody>
@@ -451,20 +451,20 @@ export default function BrokerComparison() {
                   const w = valA < valB ? "a" : valA > valB ? "b" : "tie";
                   return (
                     <tr key={i} style={{ background: i % 2 === 0 ? "#fff" : "#f8f9fb" }}>
-                      <td style={{ padding: "12px 20px", fontWeight: 700, fontSize: 15 }}>{sp.pair}</td>
+                      <td style={{ padding: "12px 20px", fontWeight: 700, fontSize: 16 }}>{sp.pair}</td>
                       <td style={{
                         padding: "12px 20px", textAlign: "center",
-                        fontFamily: "'JetBrains Mono',monospace", fontWeight: 700, fontSize: 15,
+                        fontFamily: "'JetBrains Mono',monospace", fontWeight: 700, fontSize: 16,
                         color: w === "a" ? "#059669" : "#334155",
                         background: w === "a" ? "#f0fdf4" : "transparent",
                       }}>{valA.toFixed(2)} pips</td>
                       <td style={{
                         padding: "12px 20px", textAlign: "center",
-                        fontFamily: "'JetBrains Mono',monospace", fontWeight: 700, fontSize: 15,
+                        fontFamily: "'JetBrains Mono',monospace", fontWeight: 700, fontSize: 16,
                         color: w === "b" ? "#2563eb" : "#334155",
                         background: w === "b" ? "#eff6ff" : "transparent",
                       }}>{valB.toFixed(2)} pips</td>
-                      <td style={{ padding: "12px 20px", textAlign: "center", fontSize: 14, fontWeight: 600 }}>
+                      <td style={{ padding: "12px 20px", textAlign: "center", fontSize: 15, fontWeight: 600 }}>
                         {w === "a" ? <span style={{ color: "#059669", display: "inline-flex", alignItems: "center", gap: 4 }}><Check size={14} /> {A.name}</span> : w === "b" ? <span style={{ color: "#2563eb", display: "inline-flex", alignItems: "center", gap: 4 }}><Check size={14} /> {B.name}</span> : <span style={{ color: "#94a3b8" }}>{t("comp.tie")}</span>}
                       </td>
                     </tr>
@@ -473,22 +473,22 @@ export default function BrokerComparison() {
               </tbody>
               <tfoot>
                 <tr style={{ background: "#f8f9fb", borderTop: "2px solid #e2e8f0" }}>
-                  <td style={{ padding: "14px 20px", fontWeight: 800, fontSize: 15 }}>{t("comp.commissionRT")}</td>
-                  <td style={{ padding: "14px 20px", textAlign: "center", fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 15, color: commA <= commB ? "#059669" : "#334155" }}>
+                  <td style={{ padding: "14px 20px", fontWeight: 800, fontSize: 16 }}>{t("comp.commissionRT")}</td>
+                  <td style={{ padding: "14px 20px", textAlign: "center", fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 16, color: commA <= commB ? "#059669" : "#334155" }}>
                     {commA === 0 ? "$0" : `$${commA.toFixed(0)}`}
                   </td>
-                  <td style={{ padding: "14px 20px", textAlign: "center", fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 15, color: commB <= commA ? "#2563eb" : "#334155" }}>
+                  <td style={{ padding: "14px 20px", textAlign: "center", fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 16, color: commB <= commA ? "#2563eb" : "#334155" }}>
                     {commB === 0 ? "$0" : `$${commB.toFixed(0)}`}
                   </td>
-                  <td style={{ padding: "14px 20px", textAlign: "center", fontSize: 14, fontWeight: 600, color: commA <= commB ? "#059669" : "#2563eb" }}>
+                  <td style={{ padding: "14px 20px", textAlign: "center", fontSize: 15, fontWeight: 600, color: commA <= commB ? "#059669" : "#2563eb" }}>
                     <span style={{ display: "inline-flex", alignItems: "center", gap: 4 }}><Check size={14} /> {commA <= commB ? A.name : B.name}</span>
                   </td>
                 </tr>
                 <tr style={{ background: "#0f172a" }}>
-                  <td style={{ padding: "14px 20px", fontWeight: 800, fontSize: 15, color: "#fff" }}>{t("comp.totalCost")}</td>
+                  <td style={{ padding: "14px 20px", fontWeight: 800, fontSize: 16, color: "#fff" }}>{t("comp.totalCost")}</td>
                   <td style={{ padding: "14px 20px", textAlign: "center", fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 16, color: "#34d399" }}>${totalA.toFixed(2)}</td>
                   <td style={{ padding: "14px 20px", textAlign: "center", fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 16, color: "#60a5fa" }}>${totalB.toFixed(2)}</td>
-                  <td style={{ padding: "14px 20px", textAlign: "center", fontSize: 14, fontWeight: 700, color: totalA <= totalB ? "#34d399" : "#60a5fa" }}>
+                  <td style={{ padding: "14px 20px", textAlign: "center", fontSize: 15, fontWeight: 700, color: totalA <= totalB ? "#34d399" : "#60a5fa" }}>
                     <span style={{ display: "inline-flex", alignItems: "center", gap: 4 }}><Trophy size={14} /> {totalA <= totalB ? A.name : B.name}</span>
                   </td>
                 </tr>
@@ -501,7 +501,7 @@ export default function BrokerComparison() {
       {/* =================== ACCOUNT TYPES =================== */}
       <section style={{ ...cn, marginBottom: 48 }}>
         <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 24 : 26, marginBottom: 8 }}>{t("comp.accountTitle")}</h2>
-        <p style={{ fontSize: 15, lineHeight: 1.7, color: "#64748b", marginBottom: 20 }}>
+        <p style={{ fontSize: 16, lineHeight: 1.7, color: "#64748b", marginBottom: 20 }}>
           {A.name} offers {dataA.ACCOUNTS.length} account type{dataA.ACCOUNTS.length > 1 ? "s" : ""}{" "}
           {A.minDep === 0 ? "with no minimum deposit" : `starting from $${A.minDep}`}.{" "}
           {B.name} offers {dataB.ACCOUNTS.length} account type{dataB.ACCOUNTS.length > 1 ? "s" : ""}{" "}
@@ -524,8 +524,8 @@ export default function BrokerComparison() {
                       { l: t("table.bestFor"), v: acc.best },
                     ].map((d, di) => (
                       <div key={di}>
-                        <div style={{ fontSize: 12, color: "#94a3b8", fontWeight: 600, textTransform: "uppercase" }}>{d.l}</div>
-                        <div style={{ fontSize: 14, fontWeight: 600, color: "#1e293b" }}>{d.v}</div>
+                        <div style={{ fontSize: 13, color: "#94a3b8", fontWeight: 600, textTransform: "uppercase" }}>{d.l}</div>
+                        <div style={{ fontSize: 15, fontWeight: 600, color: "#1e293b" }}>{d.v}</div>
                       </div>
                     ))}
                   </div>
@@ -539,7 +539,7 @@ export default function BrokerComparison() {
       {/* =================== FEATURE TABLE =================== */}
       <section style={{ ...cn, marginBottom: 48 }}>
         <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 24 : 26, marginBottom: 8 }}>{t("comp.featureTitle")}</h2>
-        <p style={{ fontSize: 15, lineHeight: 1.7, color: "#64748b", marginBottom: 20 }}>
+        <p style={{ fontSize: 16, lineHeight: 1.7, color: "#64748b", marginBottom: 20 }}>
           A detailed side-by-side look at regulation, trading conditions, platforms, and fees for {A.name} and {B.name}.
         </p>
         <div style={{ borderRadius: 14, border: "1px solid #e2e8f0", overflow: "hidden", background: "#fff" }}>
@@ -547,9 +547,9 @@ export default function BrokerComparison() {
             <table style={{ width: "100%", borderCollapse: "collapse", minWidth: 500 }}>
               <thead>
                 <tr style={{ background: "#f8f9fb" }}>
-                  <th style={{ padding: "14px 20px", textAlign: "left", fontWeight: 700, color: "#64748b", fontSize: 14, width: "30%" }}>{t("comp.feature")}</th>
-                  <th style={{ padding: "14px 20px", textAlign: "center", fontWeight: 700, color: "#059669", fontSize: 14 }}>{A.name}</th>
-                  <th style={{ padding: "14px 20px", textAlign: "center", fontWeight: 700, color: "#2563eb", fontSize: 14 }}>{B.name}</th>
+                  <th style={{ padding: "14px 20px", textAlign: "left", fontWeight: 700, color: "#64748b", fontSize: 15, width: "30%" }}>{t("comp.feature")}</th>
+                  <th style={{ padding: "14px 20px", textAlign: "center", fontWeight: 700, color: "#059669", fontSize: 15 }}>{A.name}</th>
+                  <th style={{ padding: "14px 20px", textAlign: "center", fontWeight: 700, color: "#2563eb", fontSize: 15 }}>{B.name}</th>
                 </tr>
               </thead>
               <tbody>
@@ -569,9 +569,9 @@ export default function BrokerComparison() {
                   [t("comp.feat.depositMethods"), dataA.DEPOSITS.length + " " + t("comp.methods"), dataB.DEPOSITS.length + " " + t("comp.methods")],
                 ].map((row, ri) => (
                   <tr key={ri} style={{ background: ri % 2 === 0 ? "#fff" : "#f8f9fb" }}>
-                    <td style={{ padding: "11px 20px", fontWeight: 600, fontSize: 14, color: "#334155", borderBottom: "1px solid #f1f5f9" }}>{row[0]}</td>
-                    <td style={{ padding: "11px 20px", textAlign: "center", fontSize: 14, color: "#1e293b", borderBottom: "1px solid #f1f5f9" }}>{row[1]}</td>
-                    <td style={{ padding: "11px 20px", textAlign: "center", fontSize: 14, color: "#1e293b", borderBottom: "1px solid #f1f5f9" }}>{row[2]}</td>
+                    <td style={{ padding: "11px 20px", fontWeight: 600, fontSize: 15, color: "#334155", borderBottom: "1px solid #f1f5f9" }}>{row[0]}</td>
+                    <td style={{ padding: "11px 20px", textAlign: "center", fontSize: 15, color: "#1e293b", borderBottom: "1px solid #f1f5f9" }}>{row[1]}</td>
+                    <td style={{ padding: "11px 20px", textAlign: "center", fontSize: 15, color: "#1e293b", borderBottom: "1px solid #f1f5f9" }}>{row[2]}</td>
                   </tr>
                 ))}
               </tbody>
@@ -583,7 +583,7 @@ export default function BrokerComparison() {
       {/* =================== PROS & CONS =================== */}
       <section style={{ ...cn, marginBottom: 48 }}>
         <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 24 : 26, marginBottom: 8 }}>{t("comp.prosConsTitle")}</h2>
-        <p style={{ fontSize: 15, lineHeight: 1.7, color: "#64748b", marginBottom: 20 }}>
+        <p style={{ fontSize: 16, lineHeight: 1.7, color: "#64748b", marginBottom: 20 }}>
           Key strengths and weaknesses identified during our real-money testing of both brokers.
         </p>
         <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "1fr 1fr", gap: 20 }}>
@@ -594,15 +594,15 @@ export default function BrokerComparison() {
                 background: item.bg, color: item.color, borderBottom: "1px solid #e2e8f0",
               }}>{item.b.name}</div>
               <div style={{ padding: "16px 20px" }}>
-                <div style={{ fontSize: 14, fontWeight: 700, color: "#059669", textTransform: "uppercase", marginBottom: 8 }}>{t("review.pros")}</div>
+                <div style={{ fontSize: 15, fontWeight: 700, color: "#059669", textTransform: "uppercase", marginBottom: 8 }}>{t("review.pros")}</div>
                 {item.data.PROS.map((p, pi) => (
-                  <div key={pi} style={{ fontSize: 14, lineHeight: 1.6, color: "#334155", padding: "4px 0", paddingLeft: 16, position: "relative" }}>
+                  <div key={pi} style={{ fontSize: 15, lineHeight: 1.6, color: "#334155", padding: "4px 0", paddingLeft: 16, position: "relative" }}>
                     <span style={{ position: "absolute", left: 0, color: "#059669" }}>+</span>{p}
                   </div>
                 ))}
-                <div style={{ fontSize: 14, fontWeight: 700, color: "#dc2626", textTransform: "uppercase", marginTop: 16, marginBottom: 8 }}>{t("review.cons")}</div>
+                <div style={{ fontSize: 15, fontWeight: 700, color: "#dc2626", textTransform: "uppercase", marginTop: 16, marginBottom: 8 }}>{t("review.cons")}</div>
                 {item.data.CONS.map((c, ci) => (
-                  <div key={ci} style={{ fontSize: 14, lineHeight: 1.6, color: "#334155", padding: "4px 0", paddingLeft: 16, position: "relative" }}>
+                  <div key={ci} style={{ fontSize: 15, lineHeight: 1.6, color: "#334155", padding: "4px 0", paddingLeft: 16, position: "relative" }}>
                     <span style={{ position: "absolute", left: 0, color: "#dc2626" }}>&minus;</span>{c}
                   </div>
                 ))}
@@ -622,10 +622,10 @@ export default function BrokerComparison() {
               <div style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 20, color: item.color, marginBottom: 6 }}>
                 {t("comp.chooseIf", { name: item.b.name })}
               </div>
-              <p style={{ fontSize: 15, lineHeight: 1.8, color: "#334155", margin: 0 }}>{item.verdict}</p>
+              <p style={{ fontSize: 16, lineHeight: 1.8, color: "#334155", margin: 0 }}>{item.verdict}</p>
               <a href={item.b.url} target="_blank" rel="noopener noreferrer nofollow" style={{
                 display: "inline-block", marginTop: 16, padding: "12px 28px", borderRadius: 10,
-                background: item.grad, color: "#fff", fontWeight: 800, fontSize: 15, textDecoration: "none",
+                background: item.grad, color: "#fff", fontWeight: 800, fontSize: 16, textDecoration: "none",
               }}><span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>{t("review.visit", { name: item.b.name })} <ArrowRight size={15} /></span></a>
             </div>
           ))}
@@ -635,7 +635,7 @@ export default function BrokerComparison() {
       {/* =================== QUICK DECISION =================== */}
       <section style={{ ...cn, marginBottom: 48 }}>
         <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 24 : 26, marginBottom: 8 }}>{t("comp.quickTitle")}</h2>
-        <p style={{ fontSize: 15, lineHeight: 1.7, color: "#64748b", marginBottom: 20 }}>
+        <p style={{ fontSize: 16, lineHeight: 1.7, color: "#64748b", marginBottom: 20 }}>
           Based on our testing data, here's which broker is better for specific trading needs.
         </p>
         <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "repeat(3, 1fr)", gap: 12 }}>
@@ -647,9 +647,9 @@ export default function BrokerComparison() {
             }}>
               <div style={{ width: 8, height: 36, borderRadius: 4, background: item.color, flexShrink: 0 }} />
               <div>
-                <div style={{ fontSize: 14, fontWeight: 700, color: "#1e293b" }}>{item.need}</div>
-                <div style={{ fontSize: 14, color: item.color, fontWeight: 600, display: "flex", alignItems: "center", gap: 4 }}><ArrowRight size={14} /> {item.pick}</div>
-                <div style={{ fontSize: 13, color: "#94a3b8" }}>{item.reason}</div>
+                <div style={{ fontSize: 15, fontWeight: 700, color: "#1e293b" }}>{item.need}</div>
+                <div style={{ fontSize: 15, color: item.color, fontWeight: 600, display: "flex", alignItems: "center", gap: 4 }}><ArrowRight size={14} /> {item.pick}</div>
+                <div style={{ fontSize: 14, color: "#94a3b8" }}>{item.reason}</div>
               </div>
             </div>
           ))}
@@ -659,7 +659,7 @@ export default function BrokerComparison() {
       {/* =================== FAQ =================== */}
       <section style={{ ...cn, marginBottom: 48 }}>
         <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 24 : 26, marginBottom: 8 }}>{t("comp.faqTitle")}</h2>
-        <p style={{ fontSize: 15, lineHeight: 1.7, color: "#64748b", marginBottom: 20 }}>
+        <p style={{ fontSize: 16, lineHeight: 1.7, color: "#64748b", marginBottom: 20 }}>
           Common questions traders ask when choosing between {A.name} and {B.name}.
         </p>
         <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
@@ -673,7 +673,7 @@ export default function BrokerComparison() {
                 <ChevronDown size={20} color="#64748b" style={{ transition: "transform 0.2s", transform: expandedFAQ === i ? "rotate(180deg)" : "none" }} />
               </div>
               {expandedFAQ === i && (
-                <div style={{ padding: "0 20px 18px", fontSize: 15, lineHeight: 1.8, color: "#334155", borderTop: "1px solid #f1f5f9" }}>
+                <div style={{ padding: "0 20px 18px", fontSize: 16, lineHeight: 1.8, color: "#334155", borderTop: "1px solid #f1f5f9" }}>
                   <p style={{ marginTop: 12 }}>{item.a}</p>
                 </div>
               )}
@@ -752,7 +752,7 @@ export default function BrokerComparison() {
               color: "#fff", fontWeight: 800, fontSize: mob ? 15 : 16, textDecoration: "none",
             }}><span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>{t("review.visit", { name: B.name })} <ArrowRight size={16} /></span></a>
           </div>
-          <div style={{ fontSize: 13, color: "#64748b", marginTop: 16 }}>{t("comp.ctaRisk")}</div>
+          <div style={{ fontSize: 14, color: "#64748b", marginTop: 16 }}>{t("comp.ctaRisk")}</div>
         </div>
       </section>
 

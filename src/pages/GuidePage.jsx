@@ -132,9 +132,9 @@ export default function GuidePage() {
           <span style={{
             display: "inline-block", padding: "4px 10px", borderRadius: 6,
             background: guide.hero.badgeColor || "#ecfdf5", color: guide.hero.badgeTextColor || "#059669",
-            fontSize: 11, fontWeight: 700, letterSpacing: 0.5, textTransform: "uppercase",
+            fontSize: 12, fontWeight: 700, letterSpacing: 0.5, textTransform: "uppercase",
           }}>{guide.hero.badge || "GUIDE"}</span>
-          <span style={{ fontSize: 12, color: "#94a3b8" }}>{guide.readTime}</span>
+          <span style={{ fontSize: 13, color: "#94a3b8" }}>{guide.readTime}</span>
         </div>
 
         <h1 style={{
@@ -157,7 +157,7 @@ export default function GuidePage() {
           background: "#fff", borderRadius: 14, border: "1px solid #e2e8f0",
           padding: mob ? "16px 16px" : "20px 24px", marginBottom: mob ? 24 : 36,
         }}>
-          <div style={{ fontSize: 13, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginBottom: 10 }}>
+          <div style={{ fontSize: 14, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginBottom: 10 }}>
             Contents
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
@@ -166,20 +166,20 @@ export default function GuidePage() {
                 key={s.id}
                 href={`#${s.id}`}
                 style={{
-                  fontSize: 14, color: "#2563eb", textDecoration: "none",
+                  fontSize: 15, color: "#2563eb", textDecoration: "none",
                   padding: "4px 0", fontWeight: 500,
                   display: "flex", alignItems: "center", gap: 8,
                 }}
               >
-                <span style={{ fontSize: 11, color: "#94a3b8", fontFamily: "'JetBrains Mono'", fontWeight: 700, width: 20 }}>
+                <span style={{ fontSize: 12, color: "#94a3b8", fontFamily: "'JetBrains Mono'", fontWeight: 700, width: 20 }}>
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 {s.title}
               </a>
             ))}
             {guide.faq && guide.faq.length > 0 && (
-              <a href="#faq" style={{ fontSize: 14, color: "#2563eb", textDecoration: "none", padding: "4px 0", fontWeight: 500, display: "flex", alignItems: "center", gap: 8 }}>
-                <span style={{ fontSize: 11, color: "#94a3b8", fontFamily: "'JetBrains Mono'", fontWeight: 700, width: 20 }}>
+              <a href="#faq" style={{ fontSize: 15, color: "#2563eb", textDecoration: "none", padding: "4px 0", fontWeight: 500, display: "flex", alignItems: "center", gap: 8 }}>
+                <span style={{ fontSize: 12, color: "#94a3b8", fontFamily: "'JetBrains Mono'", fontWeight: 700, width: 20 }}>
                   {String(guide.sections.filter(s => s.title).length + 1).padStart(2, "0")}
                 </span>
                 Frequently Asked Questions
@@ -202,7 +202,7 @@ export default function GuidePage() {
             )}
 
             {(section.paragraphs || []).map((p, i) => (
-              <p key={i} style={{ fontSize: 15, lineHeight: 1.8, color: "#334155", margin: "0 0 16px" }}>
+              <p key={i} style={{ fontSize: 16, lineHeight: 1.8, color: "#334155", margin: "0 0 16px" }}>
                 {renderLinkedText(p, slug, linkedUrls, lp)}
               </p>
             ))}
@@ -210,7 +210,7 @@ export default function GuidePage() {
             {section.list && (
               <ul style={{ margin: "0 0 16px", paddingLeft: 20 }}>
                 {section.list.map((item, i) => (
-                  <li key={i} style={{ fontSize: 15, lineHeight: 1.8, color: "#334155", marginBottom: 6 }}>{item}</li>
+                  <li key={i} style={{ fontSize: 16, lineHeight: 1.8, color: "#334155", marginBottom: 6 }}>{item}</li>
                 ))}
               </ul>
             )}
@@ -218,7 +218,7 @@ export default function GuidePage() {
             {section.numberedList && (
               <ol style={{ margin: "0 0 16px", paddingLeft: 20 }}>
                 {section.numberedList.map((item, i) => (
-                  <li key={i} style={{ fontSize: 15, lineHeight: 1.8, color: "#334155", marginBottom: 6 }}>{item}</li>
+                  <li key={i} style={{ fontSize: 16, lineHeight: 1.8, color: "#334155", marginBottom: 6 }}>{item}</li>
                 ))}
               </ol>
             )}
@@ -228,10 +228,10 @@ export default function GuidePage() {
                 background: "#f0fdf4", border: "1px solid #bbf7d0", borderRadius: 12,
                 padding: mob ? "14px 16px" : "16px 20px", margin: "16px 0",
               }}>
-                <div style={{ fontWeight: 700, fontSize: 14, color: "#059669", marginBottom: 4, display: "flex", alignItems: "center", gap: 6 }}>
+                <div style={{ fontWeight: 700, fontSize: 15, color: "#059669", marginBottom: 4, display: "flex", alignItems: "center", gap: 6 }}>
                   {section.tip.icon || <Icon name="lightbulb" size={16} color="#f59e0b" />} {section.tip.title || "Pro Tip"}
                 </div>
-                <p style={{ fontSize: 14, lineHeight: 1.7, color: "#166534", margin: 0 }}>{section.tip.text}</p>
+                <p style={{ fontSize: 15, lineHeight: 1.7, color: "#166534", margin: 0 }}>{section.tip.text}</p>
               </div>
             )}
 
@@ -240,16 +240,16 @@ export default function GuidePage() {
                 background: "#fef3c7", border: "1px solid #fde68a", borderRadius: 12,
                 padding: mob ? "14px 16px" : "16px 20px", margin: "16px 0",
               }}>
-                <div style={{ fontWeight: 700, fontSize: 14, color: "#92400e", marginBottom: 4, display: "flex", alignItems: "center", gap: 6 }}>
+                <div style={{ fontWeight: 700, fontSize: 15, color: "#92400e", marginBottom: 4, display: "flex", alignItems: "center", gap: 6 }}>
                   <Icon name="alert-triangle" size={16} color="#d97706" /> Warning
                 </div>
-                <p style={{ fontSize: 14, lineHeight: 1.7, color: "#78350f", margin: 0 }}>{section.warning}</p>
+                <p style={{ fontSize: 15, lineHeight: 1.7, color: "#78350f", margin: 0 }}>{section.warning}</p>
               </div>
             )}
 
             {section.table && (
               <div style={{ overflowX: "auto", margin: "16px 0" }}>
-                <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 14 }}>
+                <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 15 }}>
                   <thead>
                     <tr>
                       {section.table.headers.map((h, i) => (
@@ -291,17 +291,17 @@ export default function GuidePage() {
                     <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 17, color: "#0f172a", marginBottom: 10 }}>
                       {card.title}
                     </div>
-                    {card.description && <p style={{ fontSize: 14, color: "#475569", lineHeight: 1.7, marginBottom: 10 }}>{card.description}</p>}
+                    {card.description && <p style={{ fontSize: 15, color: "#475569", lineHeight: 1.7, marginBottom: 10 }}>{card.description}</p>}
                     {card.pros && (
                       <div style={{ marginBottom: 8 }}>
-                        <div style={{ fontSize: 12, fontWeight: 700, color: "#059669", marginBottom: 4 }}>PROS</div>
-                        {card.pros.map((p, pi) => <div key={pi} style={{ fontSize: 13, color: "#334155", padding: "2px 0", display: "flex", alignItems: "center", gap: 6 }}><CircleCheck size={14} color="#059669" style={{ flexShrink: 0 }} /> {p}</div>)}
+                        <div style={{ fontSize: 13, fontWeight: 700, color: "#059669", marginBottom: 4 }}>PROS</div>
+                        {card.pros.map((p, pi) => <div key={pi} style={{ fontSize: 14, color: "#334155", padding: "2px 0", display: "flex", alignItems: "center", gap: 6 }}><CircleCheck size={14} color="#059669" style={{ flexShrink: 0 }} /> {p}</div>)}
                       </div>
                     )}
                     {card.cons && (
                       <div>
-                        <div style={{ fontSize: 12, fontWeight: 700, color: "#dc2626", marginBottom: 4 }}>CONS</div>
-                        {card.cons.map((c, ci2) => <div key={ci2} style={{ fontSize: 13, color: "#334155", padding: "2px 0", display: "flex", alignItems: "center", gap: 6 }}><CircleX size={14} color="#dc2626" style={{ flexShrink: 0 }} /> {c}</div>)}
+                        <div style={{ fontSize: 13, fontWeight: 700, color: "#dc2626", marginBottom: 4 }}>CONS</div>
+                        {card.cons.map((c, ci2) => <div key={ci2} style={{ fontSize: 14, color: "#334155", padding: "2px 0", display: "flex", alignItems: "center", gap: 6 }}><CircleX size={14} color="#dc2626" style={{ flexShrink: 0 }} /> {c}</div>)}
                       </div>
                     )}
                   </div>
@@ -321,7 +321,7 @@ export default function GuidePage() {
             <div style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 18 : 22, color: "#fff", marginBottom: 8 }}>
               Ready to Find Your Broker?
             </div>
-            <p style={{ fontSize: 14, color: "rgba(255,255,255,0.65)", marginBottom: 20 }}>
+            <p style={{ fontSize: 15, color: "rgba(255,255,255,0.65)", marginBottom: 20 }}>
               Browse our expert-tested broker rankings, updated quarterly with real money accounts.
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 10, justifyContent: "center" }}>
@@ -329,7 +329,7 @@ export default function GuidePage() {
                 <Link key={i} to={lp(r.path)} style={{
                   padding: "10px 20px", borderRadius: 10,
                   background: i === 0 ? "linear-gradient(135deg,#059669,#34d399)" : "rgba(255,255,255,0.1)",
-                  color: "#fff", fontWeight: 700, fontSize: 14, textDecoration: "none",
+                  color: "#fff", fontWeight: 700, fontSize: 15, textDecoration: "none",
                   border: i === 0 ? "none" : "1px solid rgba(255,255,255,0.2)",
                 }}>{r.label} {"\u2192"}</Link>
               ))}
@@ -375,8 +375,8 @@ export default function GuidePage() {
                     fontSize: 18, flexShrink: 0,
                   }}>{rg.hero?.icon || "\uD83D\uDCDA"}</span>
                   <div>
-                    <div style={{ fontWeight: 700, fontSize: 14 }}>{rg.hero?.h1 || rg.slug}</div>
-                    <div style={{ fontSize: 12, color: "#94a3b8" }}>{rg.readTime}</div>
+                    <div style={{ fontWeight: 700, fontSize: 15 }}>{rg.hero?.h1 || rg.slug}</div>
+                    <div style={{ fontSize: 13, color: "#94a3b8" }}>{rg.readTime}</div>
                   </div>
                 </Link>
               ))}
@@ -394,10 +394,10 @@ export default function GuidePage() {
           background: "#fff", borderRadius: 14, border: "1px solid #e2e8f0",
           padding: mob ? 16 : 20, marginBottom: mob ? 28 : 40,
         }}>
-          <div style={{ fontSize: 12, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginBottom: 6 }}>
+          <div style={{ fontSize: 13, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginBottom: 6 }}>
             Risk Disclosure
           </div>
-          <p style={{ fontSize: 12, lineHeight: 1.7, color: "#64748b", margin: 0 }}>
+          <p style={{ fontSize: 13, lineHeight: 1.7, color: "#64748b", margin: 0 }}>
             CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. Between 62% and 82% of retail investor accounts lose money when trading CFDs. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money.
           </p>
         </div>

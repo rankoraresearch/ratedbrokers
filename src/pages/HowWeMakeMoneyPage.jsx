@@ -96,7 +96,7 @@ export default function HowWeMakeMoneyPage() {
           <div style={{
             display: "inline-block", padding: "4px 12px", borderRadius: 6,
             background: "#ecfdf5", color: "#059669",
-            fontSize: 11, fontWeight: 800, letterSpacing: 1, marginBottom: 14,
+            fontSize: 12, fontWeight: 800, letterSpacing: 1, marginBottom: 14,
             textTransform: "uppercase",
           }}>{t("hwmm.badge")}</div>
           <h1 style={{ fontFamily: "Outfit", fontWeight: 900, fontSize: mob ? 26 : 42, lineHeight: 1.15, color: "#0f172a", margin: "0 0 14px" }}>
@@ -160,7 +160,7 @@ export default function HowWeMakeMoneyPage() {
                 color: s.color + "20",
               }}>{s.step}</div>
               <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 17, marginBottom: 6 }}>{s.title}</div>
-              <div style={{ fontSize: 14, color: "#64748b", lineHeight: 1.7 }}>{s.desc}</div>
+              <div style={{ fontSize: 15, color: "#64748b", lineHeight: 1.7 }}>{s.desc}</div>
             </div>
           ))}
         </div>
@@ -175,10 +175,10 @@ export default function HowWeMakeMoneyPage() {
           <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 24, color: "#065f46", margin: "0 0 10px" }}>
             {t("hwmm.payTitle")}
           </h2>
-          <p style={{ fontSize: 15, lineHeight: 1.8, color: "#064e3b", margin: "0 0 8px" }}>
+          <p style={{ fontSize: 16, lineHeight: 1.8, color: "#064e3b", margin: "0 0 8px" }}>
             {t("hwmm.payText1")}
           </p>
-          <p style={{ fontSize: 15, lineHeight: 1.8, color: "#064e3b", margin: 0 }}>
+          <p style={{ fontSize: 16, lineHeight: 1.8, color: "#064e3b", margin: 0 }}>
             {t("hwmm.payText2")}
           </p>
         </div>
@@ -199,7 +199,7 @@ export default function HowWeMakeMoneyPage() {
           <div style={{
             display: "grid", gridTemplateColumns: mob ? "1fr 80px" : "1fr 120px 160px",
             padding: "12px 20px", background: "#f8f9fb",
-            fontWeight: 700, fontSize: 12, color: "#64748b", textTransform: "uppercase", letterSpacing: 0.5,
+            fontWeight: 700, fontSize: 13, color: "#64748b", textTransform: "uppercase", letterSpacing: 0.5,
           }}>
             <div>{t("hwmm.colBroker")}</div>
             <div style={{ textAlign: "center" }}>{t("hwmm.colScore")}</div>
@@ -213,13 +213,13 @@ export default function HowWeMakeMoneyPage() {
               alignItems: "center",
             }}>
               <Link to={lp(`/review/${b.slug}`)} style={{
-                color: "#1e293b", textDecoration: "none", fontWeight: 500, fontSize: 14,
+                color: "#1e293b", textDecoration: "none", fontWeight: 500, fontSize: 15,
               }}>{b.name}</Link>
               <div style={{
-                textAlign: "center", fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 14,
+                textAlign: "center", fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 15,
                 color: b.score >= 9 ? "#059669" : b.score >= 8 ? "#2563eb" : "#f59e0b",
               }}>{b.score}</div>
-              {!mob && <div style={{ textAlign: "center", fontSize: 12, color: "#64748b" }}>{b.type}</div>}
+              {!mob && <div style={{ textAlign: "center", fontSize: 13, color: "#64748b" }}>{b.type}</div>}
             </div>
           ))}
         </div>
@@ -229,7 +229,7 @@ export default function HowWeMakeMoneyPage() {
           marginTop: 16, padding: "14px 20px", borderRadius: 10,
           background: "#fffbeb", border: "1px solid #fde68a",
         }}>
-          <p style={{ fontSize: 13, lineHeight: 1.7, color: "#92400e", margin: 0 }}>
+          <p style={{ fontSize: 14, lineHeight: 1.7, color: "#92400e", margin: 0 }}>
             <strong>{t("hwmm.varianceNote")}</strong>{" "}
             {t("hwmm.varianceText")}
           </p>
@@ -258,16 +258,16 @@ export default function HowWeMakeMoneyPage() {
                 <Icon name={card.icon} size={22} color={card.color} />
               </div>
               <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 17, marginBottom: 6 }}>{card.title}</div>
-              <div style={{ fontSize: 14, color: "#64748b", lineHeight: 1.7 }}>{card.desc}</div>
+              <div style={{ fontSize: 15, color: "#64748b", lineHeight: 1.7 }}>{card.desc}</div>
             </div>
           ))}
         </div>
         <div style={{ marginTop: 16, display: "flex", gap: 20, flexWrap: "wrap" }}>
           <Link to={lp("/methodology")} style={{
-            color: "#059669", fontWeight: 600, textDecoration: "none", fontSize: 14,
+            color: "#059669", fontWeight: 600, textDecoration: "none", fontSize: 15,
           }}>{t("hwmm.readMethodology")}</Link>
           <Link to={lp("/trust-score")} style={{
-            color: "#059669", fontWeight: 600, textDecoration: "none", fontSize: 14,
+            color: "#059669", fontWeight: 600, textDecoration: "none", fontSize: 15,
           }}>Understand our Trust Score →</Link>
         </div>
       </section>
@@ -290,9 +290,9 @@ export default function HowWeMakeMoneyPage() {
               <span style={{
                 width: 24, height: 24, borderRadius: "50%",
                 background: "#fef2f2", display: "flex", alignItems: "center", justifyContent: "center",
-                flexShrink: 0, fontSize: 13,
+                flexShrink: 0, fontSize: 14,
               }}>✗</span>
-              <span style={{ fontSize: 15, color: "#334155" }}>{item}</span>
+              <span style={{ fontSize: 16, color: "#334155" }}>{item}</span>
             </div>
           ))}
         </div>
@@ -310,11 +310,11 @@ export default function HowWeMakeMoneyPage() {
                 padding: "16px 20px", cursor: "pointer",
                 display: "flex", alignItems: "center", justifyContent: "space-between",
               }}>
-                <span style={{ fontWeight: 600, fontSize: 15 }}>{item.q}</span>
+                <span style={{ fontWeight: 600, fontSize: 16 }}>{item.q}</span>
                 <span style={{ color: "#64748b", transform: expandedFAQ === i ? "rotate(180deg)" : "none", transition: "transform 0.2s", display: "inline-flex" }}><ChevronDown size={18} /></span>
               </div>
               {expandedFAQ === i && (
-                <div style={{ padding: "0 20px 18px", fontSize: 14, lineHeight: 1.8, color: "#334155", borderTop: "1px solid #f1f5f9" }}>
+                <div style={{ padding: "0 20px 18px", fontSize: 15, lineHeight: 1.8, color: "#334155", borderTop: "1px solid #f1f5f9" }}>
                   <p style={{ marginTop: 12 }}>{item.a}</p>
                 </div>
               )}
