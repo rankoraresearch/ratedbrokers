@@ -80,7 +80,7 @@ const FOOTER_COMPANY = [
   { label: "methodology", path: "/methodology", isLink: true },
   { label: "trustScore", path: "/trust-score", isLink: true },
   { label: "howWeMakeMoney", path: "/how-we-make-money", isLink: true },
-  { label: "allRankings", path: "/rankings", isLink: true },
+  { label: "allRankings", path: "/best-forex-brokers", isLink: true },
   { label: "aboutUs", path: "/about", isLink: true },
   { label: "contact", path: "/contact", isLink: true },
   { label: "privacy", path: "#", isLink: false },
@@ -205,7 +205,7 @@ export default function Footer() {
             {FOOTER_RANKINGS.map(({ label, path }) => (
               <HoverLink key={path} to={lp(path)}>{label}</HoverLink>
             ))}
-            <HoverLink to={lp("/rankings")} style={{ color: "#34d399", fontWeight: 600, marginTop: 4 }}>
+            <HoverLink to={lp("/best-forex-brokers")} style={{ color: "#34d399", fontWeight: 600, marginTop: 4 }}>
               {t("footer.allRankings")} {arrowIcon}
             </HoverLink>
           </div>

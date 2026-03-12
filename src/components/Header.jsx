@@ -559,11 +559,11 @@ export default function Header() {
                             </Link>
                           ))}
                         </div>
-                        <Link to={lp("/reviews")} style={{
+                        <Link to={lp("/best-forex-brokers")} style={{
                           display: "block", marginTop: 12, padding: "10px 14px", borderRadius: 8,
                           background: "#f0fdf4", color: "#059669", fontSize: 14, fontWeight: 700,
                           textDecoration: "none", textAlign: "center",
-                        }}>{t("mega.viewAllReviews", { count: 36 })}</Link>
+                        }}>Best Forex Brokers 2026 — Full Rankings</Link>
                       </div>
                     </div>
                   </div>
@@ -852,10 +852,10 @@ export default function Header() {
                     display: "block", padding: "8px 0", fontSize: 14, fontWeight: 500, color: "#475569", textDecoration: "none",
                   }}>{b.name}</Link>
                 ))}
-                <Link to={lp("/reviews")} style={{
+                <Link to={lp("/best-forex-brokers")} style={{
                   display: "block", marginTop: 8, padding: "8px 0", fontSize: 14,
                   fontWeight: 700, color: "#059669", textDecoration: "none",
-                }}>{t("mega.viewAllReviews", { count: 36 })} <ArrowRight size={14} style={{ verticalAlign: "middle" }} /></Link>
+                }}>Best Forex Brokers 2026 — Full Rankings <ArrowRight size={14} style={{ verticalAlign: "middle" }} /></Link>
               </div>
             )}
           </div>

@@ -43,6 +43,7 @@ export default function ComparePage() {
       <div style={{ ...cn, padding: "16px 24px" }}>
         <Breadcrumb items={[
           { label: "RatedBrokers", path: "/" },
+          { label: "Forex Brokers", path: "/best-forex-brokers" },
           { label: t("comp.breadCompare") },
         ]} />
       </div>
@@ -58,7 +59,7 @@ export default function ComparePage() {
           </p>
         </div>
         <p style={{ fontSize: 16, lineHeight: 1.7, color: "#475569", maxWidth: 800, margin: "0 auto 28px", textAlign: "center" }}>
-          Every broker in our database has been tested with real money deposits and 500+ live trades. Select any two from {allBrokers.length} brokers below to see how they stack up on spreads, execution speed, regulatory coverage, and total trading costs.
+          Every broker in our database has been tested with real money deposits and 500+ live trades. Select any two from {allBrokers.length} brokers below to see how they stack up on spreads, execution speed, regulatory coverage, and total trading costs. Not sure where to start? Check our <Link to={lp("/best-forex-brokers")} style={{ color: "#059669", fontWeight: 600 }}>best forex brokers</Link> ranking first.
         </p>
 
         <div style={{
@@ -251,7 +252,7 @@ export default function ComparePage() {
             Each broker is scored across six weighted categories: Regulation &amp; Safety (30%), Trading Costs (20%), User Reputation (15%), Broker Transparency (15%), Platforms &amp; Tools (15%), and Execution Model (5%). When you compare two brokers, you see exactly where each one wins, loses, or ties — backed by data, not opinion.
           </p>
           <p style={{ fontSize: 16, lineHeight: 1.8, color: "#475569", margin: 0 }}>
-            All comparisons are updated quarterly to reflect the latest spreads, regulatory changes, and platform updates. Whether you're choosing between ECN brokers for scalping or looking for the safest regulated broker for long-term investing, our side-by-side tool helps you make an informed decision based on independently verified data.
+            All comparisons are updated quarterly to reflect the latest spreads, regulatory changes, and platform updates. Whether you're choosing between ECN brokers for scalping or looking for the safest regulated broker for long-term investing, our side-by-side tool helps you make an informed decision based on independently verified data. See our full <Link to={lp("/best-forex-brokers")} style={{ color: "#059669", fontWeight: 600 }}>best forex brokers</Link> ranking for 2026.
           </p>
         </div>
       </section>

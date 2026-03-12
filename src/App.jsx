@@ -8,7 +8,6 @@ import BrokerReview from "./pages/BrokerReview";
 import BrokerComparison from "./pages/BrokerComparison";
 import ComparePage from "./pages/ComparePage";
 import Methodology from "./pages/Methodology";
-import AllRankingsPage from "./pages/AllRankingsPage";
 import AllReviewsPage from "./pages/AllReviewsPage";
 import RankingPage from "./pages/RankingPage";
 import ForexBrokersPage from "./pages/ForexBrokersPage";
@@ -52,7 +51,7 @@ function AppRoutes() {
         <Route path="about" element={<AboutPage />} />
         <Route path="how-we-make-money" element={<HowWeMakeMoneyPage />} />
         <Route path="contact" element={<ContactPage />} />
-        <Route path="rankings" element={<AllRankingsPage />} />
+        <Route path="rankings" element={<Navigate to="/best-forex-brokers" replace />} />
         <Route path="reviews" element={<AllReviewsPage />} />
         <Route path="regulator/:slug" element={<RegulatorPage />} />
         <Route path="best-forex-brokers" element={<ForexBrokersPage />} />

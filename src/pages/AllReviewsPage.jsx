@@ -60,7 +60,7 @@ export default function AllReviewsPage() {
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "RatedBrokers", "item": "https://ratedbrokers.com/" },
-          { "@type": "ListItem", "position": 2, "name": "Reviews", "item": "https://ratedbrokers.com/reviews" },
+          { "@type": "ListItem", "position": 2, "name": "Forex Brokers", "item": "https://ratedbrokers.com/best-forex-brokers" },
         ],
       })}} />
 
@@ -168,6 +168,18 @@ export default function AllReviewsPage() {
               </Link>
             );
           })}
+        </div>
+
+        {/* Internal link to main ranking */}
+        <div style={{ textAlign: "center", marginTop: 32 }}>
+          <Link to={lp("/best-forex-brokers")} style={{
+            display: "inline-block", padding: "14px 32px", borderRadius: 10,
+            background: "linear-gradient(135deg,#059669,#34d399)", color: "#fff",
+            fontWeight: 800, fontSize: 16, textDecoration: "none",
+            boxShadow: "0 4px 16px rgba(5,150,105,0.3)",
+          }}>
+            Best Forex Brokers 2026 — Full Rankings
+          </Link>
         </div>
       </section>
     </div>

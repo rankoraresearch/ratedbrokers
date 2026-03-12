@@ -78,7 +78,7 @@ export default function RankingPage() {
         },
         breadcrumbSchema([
           { label: "RatedBrokers", path: "/" },
-          { label: "Rankings", path: "/rankings" },
+          { label: "Forex Brokers", path: "/best-forex-brokers" },
           { label: `${ranking.title} ${YEAR}`, path: fullSlug },
         ]),
         ...(seo.faq?.length ? [{
@@ -185,7 +185,7 @@ export default function RankingPage() {
       <div style={{ ...cn, padding: mob ? "16px 16px 0" : "20px 24px 0" }}>
         <Breadcrumb items={[
           { label: "RatedBrokers", path: "/" },
-          { label: "Rankings", path: "/rankings" },
+          { label: "Forex Brokers", path: "/best-forex-brokers" },
           { label: ranking.title },
         ]} />
       </div>

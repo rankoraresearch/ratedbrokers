@@ -89,7 +89,7 @@ export default function BrokerReview() {
         },
         breadcrumbSchema([
           { label: "RatedBrokers", path: "/" },
-          { label: "Reviews", path: "/reviews" },
+          { label: "Forex Brokers", path: "/best-forex-brokers" },
           { label: `${data.B.name} Review`, path: `/review/${slug}` },
         ]),
       ];
@@ -143,7 +143,7 @@ export default function BrokerReview() {
         <div style={cn}>
           <Breadcrumb items={[
             { label: "RatedBrokers", path: "/" },
-            { label: t("nav.reviews"), path: "/reviews" },
+            { label: "Forex Brokers", path: "/best-forex-brokers" },
             { label: t("review.review2026", { name: B.name }) },
           ]} />
         </div>

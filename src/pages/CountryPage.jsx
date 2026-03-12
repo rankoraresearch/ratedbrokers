@@ -199,7 +199,8 @@ export default function CountryPage() {
         <div style={{ ...cn, padding: mob ? "12px 16px" : "16px 24px" }}>
           <Breadcrumb items={[
             { label: "RatedBrokers", path: "/" },
-            { label: "Best Forex Brokers by Country", path: "/best-forex-brokers-by-country" },
+            { label: "Forex Brokers", path: "/best-forex-brokers" },
+            { label: "By Country", path: "/best-forex-brokers-by-country" },
             { label: COUNTRY.name },
           ]} />
         </div>
