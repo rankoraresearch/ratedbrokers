@@ -15,6 +15,7 @@ import AuthorBioCard from "../components/AuthorBioCard";
 import Breadcrumb, { breadcrumbSchema } from "../components/Breadcrumb";
 import Icon, { ArrowRight, CircleCheck, Check, X as XIcon } from "../components/Icon";
 import BrokerLogo from "../components/BrokerLogo";
+import HeroWave, { DotGrid } from "../components/HeroWave";
 import { getCountryData } from "../data/countries/index";
 import { canonicalPair } from "../data/comparisons";
 
@@ -192,24 +193,34 @@ export default function RankingPage() {
       </div>
 
       {/* HERO */}
-      <header ref={heroRef} style={{
-        ...cn,
-        padding: mob ? "24px 16px 32px" : "32px 24px 40px",
+      <div style={{
+        position: "relative", overflow: "hidden",
+        background: "linear-gradient(180deg, #f0f9ff 0%, #ecfdf5 50%, #f8f9fb 100%)",
+        borderTop: "4px solid #059669",
       }}>
-        <div style={{ textAlign: "center" }}>
-          <span style={{ display: "block", marginBottom: 12 }}><Icon name={ranking.icon} size={mob ? 36 : 48} /></span>
-          <h1 style={{
-            fontFamily: "Outfit", fontWeight: 900,
-            fontSize: mob ? 26 : tab ? 34 : 42,
-            lineHeight: 1.1, color: "#0f172a", marginBottom: 8,
-          }}>
-            {ranking.title} {YEAR}
-          </h1>
-          <div style={{ display: "flex", justifyContent: "center", marginTop: 12 }}>
-            <AuthorCredits author={author} editor={editor} reviewer={reviewer} factChecker={factChecker} updatedDate={`March ${YEAR}`} variant="centered" />
+        <DotGrid size={28} color="rgba(5,150,105,0.04)" dotSize={1} />
+        <header ref={heroRef} style={{
+          ...cn, position: "relative",
+          padding: mob ? "28px 16px 8px" : "36px 24px 8px",
+        }}>
+          <div style={{ textAlign: "center" }}>
+            <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: mob ? 56 : 72, height: mob ? 56 : 72, borderRadius: 16, background: "rgba(5,150,105,0.08)", marginBottom: 14 }}>
+              <Icon name={ranking.icon} size={mob ? 28 : 36} />
+            </span>
+            <h1 style={{
+              fontFamily: "Outfit", fontWeight: 900,
+              fontSize: mob ? 26 : tab ? 34 : 42,
+              lineHeight: 1.1, color: "#0f172a", marginBottom: 8,
+            }}>
+              {ranking.title} {YEAR}
+            </h1>
+            <div style={{ display: "flex", justifyContent: "center", marginTop: 12 }}>
+              <AuthorCredits author={author} editor={editor} reviewer={reviewer} factChecker={factChecker} updatedDate={`March ${YEAR}`} variant="centered" />
+            </div>
           </div>
-        </div>
-      </header>
+        </header>
+        <HeroWave color="#f8f9fb" height={mob ? 28 : 40} />
+      </div>
 
       {/* SEO INTRO */}
       {seo.intro && (
@@ -299,7 +310,7 @@ export default function RankingPage() {
                       </div>
                     </div>
                     <div style={{ flex: 1, display: "flex", alignItems: "center", gap: 8, minWidth: 0 }}>
-                      {!mob && <BrokerLogo slug={vBroker.slug} name={vBroker.B.name} fallback={vBroker.B.logo} size={28} shape="icon" />}
+                      {!mob && <BrokerLogo slug={vBroker.slug} name={vBroker.B.name} fallback={vBroker.B.logo} size={32} shape="icon" />}
                       <div>
                         <Link to={lp(`/review/${vBroker.slug}`)} style={{
                           fontFamily: "Outfit", fontWeight: 700, fontSize: mob ? 14 : 15, color: "#0f172a", textDecoration: "none",
@@ -631,7 +642,7 @@ export default function RankingPage() {
                     {/* Header */}
                     <div style={{ display: "flex", alignItems: mob ? "flex-start" : "center", gap: mob ? 12 : 16, marginBottom: 16, flexWrap: "wrap" }}>
                       <a href={makeVisitUrl(b.slug, b.B.url)} target="_blank" rel="noopener nofollow sponsored" style={{ flexShrink: 0, display: "block", textDecoration: "none" }}>
-                        <BrokerLogo slug={b.slug} name={b.B.name} fallback={b.B.logo} size={mob ? 44 : 52} shape="brand" />
+                        <BrokerLogo slug={b.slug} name={b.B.name} fallback={b.B.logo} size={mob ? 52 : 60} shape="brand" />
                       </a>
                       <div style={{ flex: 1, minWidth: 0 }}>
                         <h3 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 18 : 22, margin: 0, lineHeight: 1.2 }}>
@@ -826,7 +837,7 @@ export default function RankingPage() {
             display: "flex", alignItems: "center", justifyContent: "center",
             gap: mob ? 10 : 16,
           }}>
-            <BrokerLogo slug={brokers[0].slug} name={brokers[0].B.name} fallback={brokers[0].B.logo} size={mob ? 28 : 32} shape="icon" />
+            <BrokerLogo slug={brokers[0].slug} name={brokers[0].B.name} fallback={brokers[0].B.logo} size={mob ? 32 : 36} shape="icon" />
             <span style={{
               fontFamily: "Outfit", fontWeight: 700, fontSize: mob ? 13 : 15,
               color: "#fff", whiteSpace: "nowrap",

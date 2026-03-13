@@ -12,6 +12,7 @@ import AuthorBioCard from "../components/AuthorBioCard";
 import Breadcrumb, { breadcrumbSchema } from "../components/Breadcrumb";
 import Icon, { ArrowRight, Check, X as XIcon, ExternalLink } from "../components/Icon";
 import PlatformLogo from "../components/PlatformLogo";
+import HeroWave, { DotGrid } from "../components/HeroWave";
 import { Lightbulb, AlertTriangle } from "lucide-react";
 
 function Card({ children, style = {} }) {
@@ -147,29 +148,33 @@ export default function PlatformPage() {
       </div>
 
       {/* ══════ HERO ══════ */}
-      <section style={{ background: "#fff", borderBottom: "1px solid #e8ecf1", padding: mob ? "24px 0" : "36px 0" }}>
-        <div style={cn}>
-          <div style={{ display: "flex", gap: 10, marginBottom: 12, flexWrap: "wrap", alignItems: "center" }}>
-            <PlatformLogo slug={slug} name={platform.platformName} size={mob ? 40 : 52} shape="icon" />
-            <span style={{
-              display: "inline-block", padding: "4px 10px", borderRadius: 6,
-              background: platform.hero.badgeColor || "#eff6ff", color: platform.hero.badgeTextColor || "#2563eb",
-              fontSize: 12, fontWeight: 700, letterSpacing: 0.5, textTransform: "uppercase",
-            }}>{platform.hero.badge}</span>
-            <span style={{ fontSize: 13, color: "#94a3b8" }}>{platform.readTime}</span>
+      <div style={{ position: "relative", overflow: "hidden", background: "linear-gradient(180deg, #eef2ff 0%, #f5f7ff 50%, #f8f9fb 100%)", borderTop: "4px solid #3b82f6" }}>
+        <DotGrid size={28} color="rgba(59,130,246,0.04)" dotSize={1} />
+        <section style={{ position: "relative", padding: mob ? "24px 0 0" : "36px 0 0" }}>
+          <div style={cn}>
+            <div style={{ display: "flex", gap: 10, marginBottom: 12, flexWrap: "wrap", alignItems: "center" }}>
+              <PlatformLogo slug={slug} name={platform.platformName} size={mob ? 40 : 52} shape="icon" />
+              <span style={{
+                display: "inline-block", padding: "4px 10px", borderRadius: 6,
+                background: platform.hero.badgeColor || "#eff6ff", color: platform.hero.badgeTextColor || "#2563eb",
+                fontSize: 12, fontWeight: 700, letterSpacing: 0.5, textTransform: "uppercase",
+              }}>{platform.hero.badge}</span>
+              <span style={{ fontSize: 13, color: "#94a3b8" }}>{platform.readTime}</span>
+            </div>
+            <h1 style={{
+              fontFamily: "Outfit", fontWeight: 800,
+              fontSize: mob ? 26 : tab ? 32 : 40,
+              lineHeight: 1.15, color: "#0f172a", margin: "0 0 14px",
+            }}>{platform.hero.h1}</h1>
+            <p style={{
+              fontSize: mob ? 15 : 17, lineHeight: 1.6, color: "#475569",
+              margin: "0 0 20px", maxWidth: 700,
+            }}>{platform.hero.subtitle}</p>
+            <AuthorByline author={author} editor={editor} factChecker={factChecker} reviewer={reviewer} updatedDate={platform.updatedDate} />
           </div>
-          <h1 style={{
-            fontFamily: "Outfit", fontWeight: 800,
-            fontSize: mob ? 26 : tab ? 32 : 40,
-            lineHeight: 1.15, color: "#0f172a", margin: "0 0 14px",
-          }}>{platform.hero.h1}</h1>
-          <p style={{
-            fontSize: mob ? 15 : 17, lineHeight: 1.6, color: "#475569",
-            margin: "0 0 20px", maxWidth: 700,
-          }}>{platform.hero.subtitle}</p>
-          <AuthorByline author={author} editor={editor} factChecker={factChecker} reviewer={reviewer} updatedDate={platform.updatedDate} />
-        </div>
-      </section>
+        </section>
+        <HeroWave color="#f8f9fb" height={mob ? 24 : 36} />
+      </div>
 
       {/* ══════ MAIN LAYOUT: content + sidebar ══════ */}
       <div style={{

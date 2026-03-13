@@ -18,6 +18,7 @@ import { getPlatformSlugByName } from "../data/platforms/index";
 import Breadcrumb, { breadcrumbSchema } from "../components/Breadcrumb";
 import Icon from "../components/Icon";
 import { Check, X as XIcon, ArrowRight, ChevronRight } from "lucide-react";
+import HeroWave, { DotGrid } from "../components/HeroWave";
 
 function Stars({r,size=15}){ return <div style={{display:"flex",gap:2}}>{[1,2,3,4,5].map(i=><div key={i} style={{width:size,height:size,background:i<=Math.floor(r)?"#00B67A":i-0.5<=r?"linear-gradient(90deg,#00B67A 50%,#d1d5db 50%)":"#d1d5db",clipPath:"polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)"}}/>)}</div>; }
 function H2({id,children}){ return <h2 id={id} style={{fontFamily:"Outfit",fontSize:24,fontWeight:800,color:"#0f172a",marginBottom:14,marginTop:32,scrollMarginTop:80}}>{children}</h2>; }
@@ -153,11 +154,13 @@ export default function BrokerReview() {
       </div>
 
       {/* Hero */}
-      <section style={{background:"#fff",borderBottom:"1px solid #e8ecf1",padding:"28px 0"}}>
+      <div style={{ position:"relative", overflow:"hidden", background:"linear-gradient(180deg, #f0fdf4 0%, #f8fafb 60%, #f8f9fb 100%)", borderTop:"4px solid #059669" }}>
+        <DotGrid size={32} color="rgba(5,150,105,0.03)" dotSize={1} />
+      <section style={{position:"relative",padding:"28px 0 0"}}>
         <div style={{...cn,display:"flex",flexDirection:mob?"column":"row",justifyContent:"space-between",gap:mob?20:32}}>
           <div style={{flex:1}}>
             <div style={{display:"flex",alignItems:"center",gap:mob?12:16,marginBottom:14}}>
-              <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" style={{ display: "flex", flexShrink: 0, textDecoration: "none" }}><BrokerLogo slug={slug} name={B.name} fallback={B.logo} size={mob?48:60} shape="brand" borderRadius={12} /></a>
+              <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" style={{ display: "flex", flexShrink: 0, textDecoration: "none" }}><BrokerLogo slug={slug} name={B.name} fallback={B.logo} size={mob?56:72} shape="brand" borderRadius={12} /></a>
               <div>
                 <h1 style={{fontFamily:"Outfit",fontSize:mob?22:28,fontWeight:800,color:"#0f172a",letterSpacing:"-0.02em"}}>{t("review.review2026", { name: B.name })}</h1>
                 <p style={{fontSize:mob?13:15,color:"#64748b"}}>{B.type} {t("review.broker")} {"\u00b7"} {t("review.est")} {B.year}{!mob&&` \u00b7 ${B.hq}`}</p>
@@ -192,6 +195,8 @@ export default function BrokerReview() {
           </div>}
         </div>
       </section>
+        <HeroWave color="#f8f9fb" height={mob ? 24 : 36} />
+      </div>
 
       {/* MAIN LAYOUT */}
       <div style={{...cn,display:mob?"flex":"grid",flexDirection:"column",gridTemplateColumns:mob?"1fr":tab?"1fr 220px":"200px 1fr 260px",gap:mob?16:24,paddingTop:mob?20:28,paddingBottom:mob?40:64}}>

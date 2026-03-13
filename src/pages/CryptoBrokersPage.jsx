@@ -12,6 +12,7 @@ import AffiliateDisclosureBanner from "../components/AffiliateDisclosureBanner";
 import AuthorCredits from "../components/AuthorCredits";
 import AuthorBioCard from "../components/AuthorBioCard";
 import Breadcrumb from "../components/Breadcrumb";
+import HeroWave from "../components/HeroWave";
 
 export default function CryptoBrokersPage() {
   const { mob, tab } = useMedia();
@@ -117,8 +118,14 @@ export default function CryptoBrokersPage() {
 
       {/* ══════ 1. HERO ══════ */}
       <section style={{
-        background: "linear-gradient(135deg,#0f172a 0%,#1a1a2e 50%,#0f172a 100%)",
-        padding: mob ? "40px 16px 48px" : "56px 24px 64px",
+        position: "relative", overflow: "hidden",
+        backgroundImage: [
+          "radial-gradient(ellipse 600px 400px at 15% 55%, rgba(251,191,36,0.10) 0%, transparent 70%)",
+          "radial-gradient(ellipse 500px 350px at 85% 30%, rgba(245,158,11,0.08) 0%, transparent 70%)",
+          "radial-gradient(ellipse 300px 300px at 50% 85%, rgba(217,119,6,0.06) 0%, transparent 70%)",
+          "linear-gradient(135deg, #0f172a 0%, #1a1a2e 50%, #1e1b4b 100%)",
+        ].join(", "),
+        padding: mob ? "40px 16px 0" : "56px 24px 0",
       }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", textAlign: "center" }}>
           {/* Badge */}
@@ -165,6 +172,7 @@ export default function CryptoBrokersPage() {
             ))}
           </div>
         </div>
+        <HeroWave color="#f8f9fb" height={mob ? 32 : 48} />
       </section>
 
       {/* Breadcrumbs */}

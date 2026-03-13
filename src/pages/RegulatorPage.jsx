@@ -10,6 +10,7 @@ import Icon, { ArrowRight, Check, ExternalLink } from "../components/Icon";
 import { Shield, AlertTriangle, CircleX } from "lucide-react";
 import CountryFlag from "../components/CountryFlag";
 import RegulatorLogo from "../components/RegulatorLogo";
+import HeroWave, { DotGrid } from "../components/HeroWave";
 
 function useMedia() {
   const [w, setW] = useState(typeof window !== "undefined" ? window.innerWidth : 1200);
@@ -100,38 +101,42 @@ export default function RegulatorPage() {
       </div>
 
       {/* Hero */}
-      <section style={{ background: "#fff", borderBottom: "1px solid #e8ecf1", padding: mob ? "24px 0" : "36px 0" }}>
-        <div style={{ ...cn, display: "flex", flexDirection: mob ? "column" : "row", justifyContent: "space-between", gap: mob ? 20 : 32 }}>
-          <div style={{ flex: 1 }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 12 }}>
-              <RegulatorLogo slug={reg.slug} name={reg.name} size={mob ? 44 : 56} shape="icon" tier={reg.tier} />
-              <CountryFlag code={reg.code} size={mob ? 24 : 30} />
-              <div>
-                <h1 style={{ fontFamily: "Outfit", fontSize: mob ? 24 : 34, fontWeight: 800, color: "#0f172a", letterSpacing: "-0.02em", margin: 0 }}>
-                  {reg.fullName} ({reg.name})
-                </h1>
-                <div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 6 }}>
-                  <TierBadge tier={reg.tier} />
-                  <span style={{ fontSize: 15, color: "#64748b" }}>{reg.country}</span>
-                  <span style={{ fontSize: 15, color: "#94a3b8" }}>Est. {reg.established}</span>
+      <div style={{ position: "relative", overflow: "hidden", background: "linear-gradient(180deg, #f0f9ff 0%, #f5faff 50%, #f8f9fb 100%)", borderTop: "4px solid #0ea5e9" }}>
+        <DotGrid size={28} color="rgba(14,165,233,0.04)" dotSize={1} />
+        <section style={{ position: "relative", padding: mob ? "24px 0 0" : "36px 0 0" }}>
+          <div style={{ ...cn, display: "flex", flexDirection: mob ? "column" : "row", justifyContent: "space-between", gap: mob ? 20 : 32 }}>
+            <div style={{ flex: 1 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 12 }}>
+                <RegulatorLogo slug={reg.slug} name={reg.name} size={mob ? 44 : 56} shape="icon" tier={reg.tier} />
+                <CountryFlag code={reg.code} size={mob ? 24 : 30} />
+                <div>
+                  <h1 style={{ fontFamily: "Outfit", fontSize: mob ? 24 : 34, fontWeight: 800, color: "#0f172a", letterSpacing: "-0.02em", margin: 0 }}>
+                    {reg.fullName} ({reg.name})
+                  </h1>
+                  <div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 6 }}>
+                    <TierBadge tier={reg.tier} />
+                    <span style={{ fontSize: 15, color: "#64748b" }}>{reg.country}</span>
+                    <span style={{ fontSize: 15, color: "#94a3b8" }}>Est. {reg.established}</span>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 16 }}>
-              <a href={reg.website} target="_blank" rel="noopener noreferrer" style={{
-                display: "inline-flex", alignItems: "center", gap: 6,
-                padding: "8px 16px", borderRadius: 8, fontSize: 14, fontWeight: 600,
-                background: "#eff6ff", color: "#2563eb", textDecoration: "none", border: "1px solid #bfdbfe",
-              }}>Official Website <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="#2563eb" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></a>
-              <a href={reg.licenseCheck} target="_blank" rel="noopener noreferrer" style={{
-                display: "inline-flex", alignItems: "center", gap: 6,
-                padding: "8px 16px", borderRadius: 8, fontSize: 14, fontWeight: 600,
-                background: "#f0fdf4", color: "#059669", textDecoration: "none", border: "1px solid #a7f3d0",
-              }}>Check License Register <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="#059669" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></a>
+              <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 16 }}>
+                <a href={reg.website} target="_blank" rel="noopener noreferrer" style={{
+                  display: "inline-flex", alignItems: "center", gap: 6,
+                  padding: "8px 16px", borderRadius: 8, fontSize: 14, fontWeight: 600,
+                  background: "#eff6ff", color: "#2563eb", textDecoration: "none", border: "1px solid #bfdbfe",
+                }}>Official Website <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="#2563eb" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></a>
+                <a href={reg.licenseCheck} target="_blank" rel="noopener noreferrer" style={{
+                  display: "inline-flex", alignItems: "center", gap: 6,
+                  padding: "8px 16px", borderRadius: 8, fontSize: 14, fontWeight: 600,
+                  background: "#f0fdf4", color: "#059669", textDecoration: "none", border: "1px solid #a7f3d0",
+                }}>Check License Register <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="#059669" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></a>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+        <HeroWave color="#f8f9fb" height={mob ? 24 : 36} />
+      </div>
 
       {/* Main Layout */}
       <div style={{ ...cn, display: mob ? "flex" : "grid", flexDirection: "column", gridTemplateColumns: mob ? "1fr" : "1fr 300px", gap: mob ? 16 : 28, paddingTop: mob ? 20 : 28, paddingBottom: mob ? 40 : 64 }}>

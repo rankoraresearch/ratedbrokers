@@ -18,6 +18,7 @@ import PlatformLogo from "../components/PlatformLogo";
 import RegulatorLogo from "../components/RegulatorLogo";
 import { getPlatformSlugByName } from "../data/platforms/index";
 import { getRegulatorByName } from "../data/regulators";
+import HeroWave from "../components/HeroWave";
 
 export default function ForexBrokersPage() {
   const { mob, tab } = useMedia();
@@ -123,8 +124,14 @@ export default function ForexBrokersPage() {
 
       {/* ══════ 1. HERO ══════ */}
       <section style={{
-        background: "linear-gradient(135deg,#0f172a 0%,#1e3a5f 50%,#0f172a 100%)",
-        padding: mob ? "40px 16px 48px" : "56px 24px 64px",
+        position: "relative", overflow: "hidden",
+        backgroundImage: [
+          "radial-gradient(ellipse 600px 400px at 15% 60%, rgba(52,211,153,0.12) 0%, transparent 70%)",
+          "radial-gradient(ellipse 500px 350px at 85% 25%, rgba(59,130,246,0.09) 0%, transparent 70%)",
+          "radial-gradient(ellipse 300px 300px at 50% 90%, rgba(16,185,129,0.07) 0%, transparent 70%)",
+          "linear-gradient(135deg, #0f172a 0%, #1a365d 50%, #134e4a 100%)",
+        ].join(", "),
+        padding: mob ? "40px 16px 0" : "56px 24px 0",
       }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", textAlign: "center" }}>
           {/* Badge */}
@@ -171,6 +178,7 @@ export default function ForexBrokersPage() {
             ))}
           </div>
         </div>
+        <HeroWave color="#f8f9fb" height={mob ? 32 : 48} />
       </section>
 
       {/* Breadcrumbs */}

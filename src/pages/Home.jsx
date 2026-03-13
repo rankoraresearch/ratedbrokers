@@ -12,6 +12,7 @@ import { ArrowRight, Award, Check } from "lucide-react";
 import CountryFlag from "../components/CountryFlag";
 import { AUTHORS } from "../data/authors";
 import AuthorAvatar from "../components/AuthorAvatar";
+import HeroWave from "../components/HeroWave";
 
 // ══════════════════════════════════════════════════════
 // VARIANT CONFIG — change these to preview layouts
@@ -306,7 +307,7 @@ function BrokerPodium({ mob, tab, lp, brokers }) {
                 )}
                 <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 14, marginTop: isFirst ? 8 : 0 }}>
                   <Link to={lp(`/review/${broker.slug}`)} style={{ flexShrink: 0, textDecoration: "none" }}>
-                    <BrokerLogo slug={broker.slug} name={b.name} fallback={b.logo} size={48} shape="brand" />
+                    <BrokerLogo slug={broker.slug} name={b.name} fallback={b.logo} size={56} shape="brand" />
                   </Link>
                   <div style={{ flex: 1, minWidth: 0, textAlign: "right" }}>
                     <div style={{ fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: 22, color: scoreColor(b.score) }}>{b.score}</div>
@@ -364,7 +365,7 @@ function BrokerPodium({ mob, tab, lp, brokers }) {
                   color: "#94a3b8", width: 28, textAlign: "center", flexShrink: 0,
                 }}>#{rank}</span>
                 <Link to={lp(`/review/${broker.slug}`)} style={{ flexShrink: 0, textDecoration: "none" }}>
-                  <BrokerLogo slug={broker.slug} name={b.name} fallback={b.logo} size={36} shape="brand" />
+                  <BrokerLogo slug={broker.slug} name={b.name} fallback={b.logo} size={44} shape="brand" />
                 </Link>
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <span style={{
@@ -468,7 +469,7 @@ function BrokerCardGrid({ mob, tab, lp, brokers }) {
                 }}>#{rank}</div>
                 <div style={{ display: "flex", justifyContent: "center", marginBottom: 12, marginTop: isFirst ? 8 : 0 }}>
                   <Link to={lp(`/review/${broker.slug}`)} style={{ textDecoration: "none" }}>
-                    <BrokerLogo slug={broker.slug} name={b.name} fallback={b.logo} size={48} shape="brand" />
+                    <BrokerLogo slug={broker.slug} name={b.name} fallback={b.logo} size={56} shape="brand" />
                   </Link>
                 </div>
                 <div style={{ marginBottom: 8 }}>
@@ -509,7 +510,7 @@ function BrokerCardGrid({ mob, tab, lp, brokers }) {
               }}>
                 <div style={{ fontSize: 11, fontWeight: 800, color: "#94a3b8", marginBottom: 8, fontFamily: "'JetBrains Mono'" }}>#{rank}</div>
                 <div style={{ display: "flex", justifyContent: "center", marginBottom: 8 }}>
-                  <BrokerLogo slug={broker.slug} name={b.name} fallback={b.logo} size={32} shape="icon" />
+                  <BrokerLogo slug={broker.slug} name={b.name} fallback={b.logo} size={40} shape="icon" />
                 </div>
                 <div style={{ fontWeight: 700, fontSize: 13, marginBottom: 4, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{b.name}</div>
                 <div style={{ fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: 16, color: scoreColor(b.score), marginBottom: 10 }}>{b.score}</div>
@@ -582,7 +583,7 @@ function BrokerEditorial({ mob, tab, lp, brokers }) {
           }}>
             <div style={{ display: "flex", alignItems: "center", gap: 16, flex: 1, minWidth: 0 }}>
               <Link to={lp(`/review/${featured.slug}`)} style={{ flexShrink: 0, textDecoration: "none" }}>
-                <BrokerLogo slug={featured.slug} name={fb.name} fallback={fb.logo} size={52} shape="brand" />
+                <BrokerLogo slug={featured.slug} name={fb.name} fallback={fb.logo} size={60} shape="brand" />
               </Link>
               <div>
                 <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
@@ -650,7 +651,7 @@ function BrokerEditorial({ mob, tab, lp, brokers }) {
                   color: "#94a3b8", width: mob ? 24 : 40, textAlign: "center", flexShrink: 0,
                 }}>#{rank}</span>
                 <Link to={lp(`/review/${broker.slug}`)} style={{ flexShrink: 0, textDecoration: "none" }}>
-                  <BrokerLogo slug={broker.slug} name={b.name} fallback={b.logo} size={36} shape="brand" />
+                  <BrokerLogo slug={broker.slug} name={b.name} fallback={b.logo} size={44} shape="brand" />
                 </Link>
                 <div style={{ flex: 1 }}>
                   <span style={{
@@ -732,8 +733,15 @@ export default function Home() {
       {NAV_VARIANT === "B" ? (
         /* Variant B: Hero with integrated pill navigation */
         <section style={{
-          background: "linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%)",
-          padding: mob ? "36px 16px 32px" : "52px 24px 44px",
+          position: "relative", overflow: "hidden",
+          background: "linear-gradient(135deg, #0f172a 0%, #1a365d 50%, #134e4a 100%)",
+          backgroundImage: [
+            "radial-gradient(ellipse 600px 400px at 15% 60%, rgba(52,211,153,0.12) 0%, transparent 70%)",
+            "radial-gradient(ellipse 500px 350px at 85% 25%, rgba(59,130,246,0.09) 0%, transparent 70%)",
+            "radial-gradient(ellipse 300px 300px at 50% 90%, rgba(16,185,129,0.07) 0%, transparent 70%)",
+            "linear-gradient(135deg, #0f172a 0%, #1a365d 50%, #134e4a 100%)",
+          ].join(", "),
+          padding: mob ? "36px 16px 0" : "52px 24px 0",
         }}>
           <div style={{
             ...cn,
@@ -803,12 +811,19 @@ export default function Home() {
               ))}
             </div>
           </div>
+          <HeroWave color="#f8f9fb" height={mob ? 32 : 48} />
         </section>
       ) : (
         /* Variants A & C: Compact standalone hero */
         <section style={{
-          background: "linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%)",
-          padding: mob ? "32px 16px 24px" : "40px 24px 32px",
+          position: "relative", overflow: "hidden",
+          background: "linear-gradient(135deg, #0f172a 0%, #1a365d 50%, #134e4a 100%)",
+          backgroundImage: [
+            "radial-gradient(ellipse 600px 400px at 15% 60%, rgba(52,211,153,0.12) 0%, transparent 70%)",
+            "radial-gradient(ellipse 500px 350px at 85% 25%, rgba(59,130,246,0.09) 0%, transparent 70%)",
+            "linear-gradient(135deg, #0f172a 0%, #1a365d 50%, #134e4a 100%)",
+          ].join(", "),
+          padding: mob ? "32px 16px 0" : "40px 24px 0",
           textAlign: "center",
         }}>
           <div style={{ ...cn }}>
@@ -844,6 +859,7 @@ export default function Home() {
               ))}
             </div>
           </div>
+          <HeroWave color="#f8f9fb" height={mob ? 32 : 48} />
         </section>
       )}
 
@@ -933,7 +949,7 @@ export default function Home() {
                 e.currentTarget.style.transform = "translateY(0)";
               }}
             >
-              <BrokerLogo slug={broker.slug} name={broker.B.name} fallback={broker.B.logo} size={40} shape="brand" />
+              <BrokerLogo slug={broker.slug} name={broker.B.name} fallback={broker.B.logo} size={48} shape="brand" />
               <div style={{ flex: 1, minWidth: 0, textAlign: "right" }}>
                 <div style={{ fontFamily: "'JetBrains Mono'", fontSize: 14, fontWeight: 800, color: scoreColor(broker.B.score) }}>{broker.B.score}</div>
               </div>
