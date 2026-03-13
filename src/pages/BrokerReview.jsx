@@ -18,7 +18,7 @@ import { getPlatformSlugByName } from "../data/platforms/index";
 import Breadcrumb, { breadcrumbSchema } from "../components/Breadcrumb";
 import Icon from "../components/Icon";
 import { Check, X as XIcon, ArrowRight, ChevronRight } from "lucide-react";
-import HeroWave, { DotGrid } from "../components/HeroWave";
+import HeroBand from "../components/HeroBand";
 
 function Stars({r,size=15}){ return <div style={{display:"flex",gap:2}}>{[1,2,3,4,5].map(i=><div key={i} style={{width:size,height:size,background:i<=Math.floor(r)?"#00B67A":i-0.5<=r?"linear-gradient(90deg,#00B67A 50%,#d1d5db 50%)":"#d1d5db",clipPath:"polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)"}}/>)}</div>; }
 function H2({id,children}){ return <h2 id={id} style={{fontFamily:"Outfit",fontSize:24,fontWeight:800,color:"#0f172a",marginBottom:14,marginTop:32,scrollMarginTop:80}}>{children}</h2>; }
@@ -154,49 +154,49 @@ export default function BrokerReview() {
       </div>
 
       {/* Hero */}
-      <div style={{ position:"relative", overflow:"hidden", background:"linear-gradient(180deg, #f0fdf4 0%, #f8fafb 60%, #f8f9fb 100%)", borderTop:"4px solid #059669" }}>
-        <DotGrid size={32} color="rgba(5,150,105,0.03)" dotSize={1} />
-      <section style={{position:"relative",padding:"28px 0 0"}}>
-        <div style={{...cn,display:"flex",flexDirection:mob?"column":"row",justifyContent:"space-between",gap:mob?20:32}}>
+      <HeroBand mob={mob} tab={tab}>
+        <div style={{display:"flex",flexDirection:mob?"column":"row",justifyContent:"space-between",gap:mob?20:32}}>
           <div style={{flex:1}}>
             <div style={{display:"flex",alignItems:"center",gap:mob?12:16,marginBottom:14}}>
-              <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" style={{ display: "flex", flexShrink: 0, textDecoration: "none" }}><BrokerLogo slug={slug} name={B.name} fallback={B.logo} size={mob?56:72} shape="brand" borderRadius={12} /></a>
+              <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" style={{ display: "flex", flexShrink: 0, textDecoration: "none" }}>
+                <div style={{ background: "#fff", borderRadius: 12, padding: 4, display: "inline-flex" }}>
+                  <BrokerLogo slug={slug} name={B.name} fallback={B.logo} size={mob?52:68} shape="brand" borderRadius={8} />
+                </div>
+              </a>
               <div>
-                <h1 style={{fontFamily:"Outfit",fontSize:mob?22:28,fontWeight:800,color:"#0f172a",letterSpacing:"-0.02em"}}>{t("review.review2026", { name: B.name })}</h1>
-                <p style={{fontSize:mob?13:15,color:"#374151"}}>{B.type} {t("review.broker")} {"\u00b7"} {t("review.est")} {B.year}{!mob&&` \u00b7 ${B.hq}`}</p>
+                <h1 style={{fontFamily:"Outfit",fontSize:mob?22:28,fontWeight:800,color:"#fff",letterSpacing:"-0.02em"}}>{t("review.review2026", { name: B.name })}</h1>
+                <p style={{fontSize:mob?13:15,color:"rgba(255,255,255,0.6)"}}>{B.type} {t("review.broker")} {"\u00b7"} {t("review.est")} {B.year}{!mob&&` \u00b7 ${B.hq}`}</p>
               </div>
             </div>
             <div style={{display:"flex",alignItems:"center",gap:mob?8:16,flexWrap:"wrap",marginBottom:14}}>
               <div style={{display:"flex",alignItems:"center",gap:6}}>
-                <div style={{background:"#ecfdf5",border:"2px solid #059669",borderRadius:8,padding:"4px 10px",fontFamily:"'JetBrains Mono'",fontSize:mob?16:18,fontWeight:800,color:"#059669"}}>{B.score}</div>
-                <span style={{fontSize:mob?12:14,fontWeight:600,color:"#059669"}}>{verdict}</span>
+                <div style={{background:"rgba(52,211,153,0.15)",border:"2px solid #34d399",borderRadius:8,padding:"4px 10px",fontFamily:"'JetBrains Mono'",fontSize:mob?16:18,fontWeight:800,color:"#34d399"}}>{B.score}</div>
+                <span style={{fontSize:mob?12:14,fontWeight:600,color:"#34d399"}}>{verdict}</span>
               </div>
-              {!mob&&<div style={{width:1,height:20,background:"#e2e8f0"}}/>}
-              <a href={getTrustpilotUrl(slug)} target="_blank" rel="noopener noreferrer" style={{display:"flex",alignItems:"center",gap:6,textDecoration:"none"}}><TrustpilotLogo size="xs"/><Stars r={B.tp} size={14}/><span style={{fontFamily:"'JetBrains Mono'",fontSize:14,fontWeight:700,color:"#111827"}}>{B.tp}</span><span style={{fontSize:13,color:"#64748b"}}>({B.tpCount.toLocaleString()})</span></a>
-              {!mob&&<><div style={{width:1,height:20,background:"#e2e8f0"}}/>
-              <div style={{display:"flex",gap:4}}>{B.regs.filter(r=>r.tier===1).map(r=><RegBadge key={r.name} reg={r.name} />)}</div></>}
-              {B.badge&&<span style={{background:"#ecfdf5",color:"#059669",fontSize:mob?10:11,fontWeight:600,padding:"3px 10px",borderRadius:5,border:"1px solid #a7f3d0"}}>{"\ud83c\udfc6"} {B.badge}</span>}
+              {!mob&&<div style={{width:1,height:20,background:"rgba(255,255,255,0.15)"}}/>}
+              <a href={getTrustpilotUrl(slug)} target="_blank" rel="noopener noreferrer" style={{display:"flex",alignItems:"center",gap:6,textDecoration:"none"}}><TrustpilotLogo size="xs" onDark /><Stars r={B.tp} size={14}/><span style={{fontFamily:"'JetBrains Mono'",fontSize:14,fontWeight:700,color:"#fff"}}>{B.tp}</span><span style={{fontSize:13,color:"rgba(255,255,255,0.5)"}}>({B.tpCount.toLocaleString()})</span></a>
+              {!mob&&<><div style={{width:1,height:20,background:"rgba(255,255,255,0.15)"}}/>
+              <div style={{display:"flex",gap:4}}>{B.regs.filter(r=>r.tier===1).map(r=><RegBadge key={r.name} reg={r.name} onDark />)}</div></>}
+              {B.badge&&<span style={{background:"rgba(52,211,153,0.15)",color:"#34d399",fontSize:mob?10:11,fontWeight:600,padding:"3px 10px",borderRadius:5,border:"1px solid rgba(110,231,183,0.3)"}}>{"\ud83c\udfc6"} {B.badge}</span>}
             </div>
             <div style={{display:"grid",gridTemplateColumns:mob?"repeat(3,1fr)":"repeat(5,auto)",gap:mob?8:20}}>
-              {[{l:t("review.spread"),v:`${B.spread} pips`},{l:t("review.commission"),v:B.commission},{l:t("review.minDeposit"),v:`$${B.minDep}`},...(!mob?[{l:t("review.leverage"),v:B.leverage},{l:t("review.instruments"),v:B.instruments}]:[])].map((x,i)=><div key={i} style={mob?{textAlign:"center",padding:"6px",background:"#f8fafc",borderRadius:6}:{}}>
-                <div style={{fontSize:mob?10:12,color:"#64748b",fontWeight:600,textTransform:"uppercase",letterSpacing:"0.05em",marginBottom:2}}>{x.l}</div>
-                <div style={{fontSize:mob?14:15,color:"#111827",fontWeight:700}}>{x.v}</div></div>)}
+              {[{l:t("review.spread"),v:`${B.spread} pips`},{l:t("review.commission"),v:B.commission},{l:t("review.minDeposit"),v:`$${B.minDep}`},...(!mob?[{l:t("review.leverage"),v:B.leverage},{l:t("review.instruments"),v:B.instruments}]:[])].map((x,i)=><div key={i} style={mob?{textAlign:"center",padding:"6px",background:"rgba(255,255,255,0.06)",borderRadius:6}:{}}>
+                <div style={{fontSize:mob?10:12,color:"rgba(255,255,255,0.5)",fontWeight:600,textTransform:"uppercase",letterSpacing:"0.05em",marginBottom:2}}>{x.l}</div>
+                <div style={{fontSize:mob?14:15,color:"#fff",fontWeight:700}}>{x.v}</div></div>)}
             </div>
-            {mob&&<a href={visitUrl} target="_blank" rel="nofollow sponsored" style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,background:"linear-gradient(135deg,#059669,#047857)",color:"#fff",fontSize:15,fontWeight:700,textDecoration:"none",padding:"12px",borderRadius:10,marginTop:14}}>{t("review.visit", { name: B.name })} <ArrowRight size={14} /></a>}
+            {mob&&<a href={visitUrl} target="_blank" rel="nofollow sponsored" style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,background:"#f59e0b",color:"#0f172a",fontSize:15,fontWeight:700,textDecoration:"none",padding:"12px",borderRadius:10,marginTop:14}}>{t("review.visit", { name: B.name })} <ArrowRight size={14} /></a>}
           </div>
-          {!mob&&<div style={{width:tab?220:280,flexShrink:0,background:"#f0fdf4",border:"2px solid #86efac",borderRadius:14,padding:tab?"18px":"22px",textAlign:"center"}}>
-            <div style={{fontSize:13,color:"#065f46",fontWeight:600,marginBottom:4}}>{t("review.ourRating")}</div>
-            <div style={{fontFamily:"'JetBrains Mono'",fontSize:40,fontWeight:800,color:"#059669",lineHeight:1}}>{B.score}</div>
-            <div style={{fontSize:13,color:"#059669",fontWeight:600,marginBottom:10}}>{verdict}</div>
-            {promo&&<div style={{fontSize:12,color:"#065f46",background:"#dcfce7",borderRadius:6,padding:"5px 8px",marginBottom:12,display:"flex",alignItems:"center",gap:4}}><Icon name="lightbulb" size={13} color="#f59e0b" /> {promo}</div>}
-            <a href={visitUrl} target="_blank" rel="nofollow sponsored" style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,background:"linear-gradient(135deg,#059669,#047857)",color:"#fff",fontSize:16,fontWeight:700,textDecoration:"none",padding:"13px 24px",borderRadius:10,width:"100%",boxShadow:"0 4px 12px rgba(5,150,105,0.3)"}}>{t("review.visit", { name: B.name })} <svg width="14" height="14" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></a>
-            <div style={{fontSize:11,color:"#64748b",marginTop:8}}>{t("review.retailLose")}</div>
-            <Link to={lp("/trust-score")} style={{fontSize:12,color:"#059669",textDecoration:"none",fontWeight:600,marginTop:6,display:"inline-block"}}>What does this score mean? →</Link>
+          {!mob&&<div style={{width:tab?220:280,flexShrink:0,background:"rgba(255,255,255,0.08)",backdropFilter:"blur(12px)",border:"1px solid rgba(255,255,255,0.12)",borderRadius:16,padding:tab?"18px":"22px",textAlign:"center"}}>
+            <div style={{fontSize:13,color:"rgba(255,255,255,0.6)",fontWeight:600,marginBottom:4}}>{t("review.ourRating")}</div>
+            <div style={{fontFamily:"'JetBrains Mono'",fontSize:40,fontWeight:800,color:"#34d399",lineHeight:1}}>{B.score}</div>
+            <div style={{fontSize:13,color:"#34d399",fontWeight:600,marginBottom:10}}>{verdict}</div>
+            {promo&&<div style={{fontSize:12,color:"rgba(255,255,255,0.7)",background:"rgba(255,255,255,0.08)",borderRadius:6,padding:"5px 8px",marginBottom:12,display:"flex",alignItems:"center",gap:4}}><Icon name="lightbulb" size={13} color="#f59e0b" /> {promo}</div>}
+            <a href={visitUrl} target="_blank" rel="nofollow sponsored" style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,background:"#f59e0b",color:"#0f172a",fontSize:16,fontWeight:700,textDecoration:"none",padding:"13px 24px",borderRadius:10,width:"100%",boxShadow:"0 4px 12px rgba(245,158,11,0.3)"}}>{t("review.visit", { name: B.name })} <svg width="14" height="14" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="#0f172a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></a>
+            <div style={{fontSize:11,color:"rgba(255,255,255,0.4)",marginTop:8}}>{t("review.retailLose")}</div>
+            <Link to={lp("/trust-score")} style={{fontSize:12,color:"#34d399",textDecoration:"none",fontWeight:600,marginTop:6,display:"inline-block"}}>What does this score mean? →</Link>
           </div>}
         </div>
-      </section>
-        <HeroWave color="#f8f9fb" height={mob ? 24 : 36} />
-      </div>
+      </HeroBand>
 
       {/* MAIN LAYOUT */}
       <div style={{...cn,display:mob?"flex":"grid",flexDirection:"column",gridTemplateColumns:mob?"1fr":tab?"1fr 220px":"200px 1fr 260px",gap:mob?16:24,paddingTop:mob?20:28,paddingBottom:mob?40:64}}>
@@ -476,6 +476,43 @@ export default function BrokerReview() {
             </Card>
           </div>
         </aside>}
+      </div>
+
+      {/* STICKY CTA BAR */}
+      <div style={{
+        position: "fixed", bottom: 0, left: 0, right: 0, zIndex: 999,
+        transform: stickyVisible ? "translateY(0)" : "translateY(100%)",
+        transition: "transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+        background: "rgba(15, 23, 42, 0.97)",
+        backdropFilter: "blur(16px)",
+        borderTop: "1px solid rgba(255,255,255,0.08)",
+        boxShadow: "0 -4px 24px rgba(0,0,0,0.2)",
+      }}>
+        <div style={{
+          maxWidth: 1200, margin: "0 auto",
+          padding: mob ? "10px 16px" : "12px 24px",
+          display: "flex", alignItems: "center", justifyContent: "center",
+          gap: mob ? 10 : 16,
+        }}>
+          <BrokerLogo slug={slug} name={B.name} fallback={B.logo} size={mob ? 32 : 36} shape="icon" />
+          <span style={{
+            fontFamily: "Outfit", fontWeight: 700, fontSize: mob ? 13 : 15,
+            color: "#fff", whiteSpace: "nowrap",
+          }}>
+            {B.name}
+          </span>
+          <span style={{
+            fontFamily: "'JetBrains Mono',monospace", fontWeight: 800,
+            fontSize: mob ? 14 : 16, color: "#34d399",
+          }}>{B.score}</span>
+          <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" style={{
+            padding: mob ? "8px 16px" : "10px 24px", borderRadius: 8,
+            background: "#f59e0b",
+            color: "#0f172a", fontWeight: 700, fontSize: mob ? 13 : 14,
+            textDecoration: "none", whiteSpace: "nowrap",
+            boxShadow: "0 2px 8px rgba(245,158,11,0.3)",
+          }}>{t("review.visit", { name: B.name })} <span style={{ marginLeft: 4 }}>&rarr;</span></a>
+        </div>
       </div>
     </div>
   );

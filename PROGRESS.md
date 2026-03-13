@@ -124,6 +124,32 @@
 
 ---
 
+## Логотипы брокеров — попытки и откат (13 марта 2026)
+
+### Попытка 1: Увеличение пропорций
+- BrokerLogo.jsx: iconSize 0.65→0.75, pillW 3.2→3.5
+- Размеры +20-30% на 8 файлах (BrokerRankCard, Home, BrokerReview, RankingPage, AllReviewsPage, BrokerComparison, CountryPage)
+- Результат: Егор — "по-прежнему некрасивые и маленькие"
+
+### Попытка 2: Composite wide logos (icon + текст → sharp)
+- `scripts/generate-wide-logos.mjs` — генерация 480x96 PNG из квадратных иконок
+- `public/logos/wide/` — 38 файлов
+- BrokerLogo.jsx переписан для показа wide image в pill
+- Результат: Егор — "текст в логотипе недопустимо, нужны оригинальные"
+
+### Попытка 3: Playwright-скрейпинг 38 сайтов
+- Скачивание реальных логотипов из header/nav сайтов брокеров
+- Результат: 21/38 (таймауты, cert errors, redirects, SSR)
+- Егор: "решение плохое и исполнение, откати"
+
+### Откат
+- BrokerLogo.jsx восстановлен к коммитнутой версии (pill: icon + text)
+- `public/logos/wide/` удалена
+- Скрипты удалены, sharp/playwright убраны из deps
+- Размеры в страницах (Home, BrokerRankCard, etc.) остались увеличенными (были закоммичены ранее)
+
+---
+
 ## Текущее состояние
 
 | Метрика | Значение |
@@ -138,6 +164,38 @@
 | LOC | ~44,650 |
 | Языков | 1 активен / 10 готовы |
 | GitHub | rankoraresearch/ratedbrokers (private) |
+
+---
+
+## Gradient Duo — единая тёмная hero-плашка (13 марта 2026)
+
+### `HeroBand.jsx` — переписан
+- Удалены TriangleMesh, FloatingShapes, DiagonalDivider
+- Navy-to-green gradient: `linear-gradient(135deg, #0f172a 0%, #0f2e24 40%, #047857 100%)`
+- Diagonal line texture (3% opacity) + orange glow accent (6% opacity)
+- Props: `children`, `mob`, `tab`, `compact`
+
+### Supporting components обновлены
+- **AuthorCredits**: новый `onDark` boolean prop (backward-compatible с `variant="onDark"`)
+- **TrustpilotLogo**: `onDark` prop → белый wordmark
+- **RegBadge**: `onDark` prop → полупрозрачные цвета для тёмного фона
+
+### 4 страницы переведены на HeroBand
+- **RankingPage**: green icon box → translucent, белый H1, centered AuthorCredits onDark
+- **PlatformPage**: белая подложка под лого, зелёный badge, compact padding
+- **RegulatorPage**: TierBadge с onDark вариантами, кнопки glassmorphic стиль
+- **BrokerReview**: glassmorphic sidebar, score/verdict #34d399, orange CTA (#f59e0b), sticky CTA bar
+
+### Sticky CTA bar
+- BrokerReview: новый sticky bar (position fixed bottom, navy bg, blur)
+- BrokerLogo + Name + Score (#34d399) + Orange Visit CTA (#f59e0b)
+- Slide-up animation on scroll > 500px
+- RankingPage: sticky bar CTA обновлена на оранжевую (#f59e0b)
+
+### Brand colors
+- Navy: #0f172a, Green: #059669/#047857/#34d399
+- Orange CTA: #f59e0b (на тёмном фоне), #d97706 (hover)
+- Gradient: `135deg, #0f172a → #0f2e24 → #047857`
 
 ---
 

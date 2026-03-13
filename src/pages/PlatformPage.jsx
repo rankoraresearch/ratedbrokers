@@ -12,7 +12,7 @@ import AuthorBioCard from "../components/AuthorBioCard";
 import Breadcrumb, { breadcrumbSchema } from "../components/Breadcrumb";
 import Icon, { ArrowRight, Check, X as XIcon, ExternalLink } from "../components/Icon";
 import PlatformLogo from "../components/PlatformLogo";
-import HeroWave, { DotGrid } from "../components/HeroWave";
+import HeroBand from "../components/HeroBand";
 import { Lightbulb, AlertTriangle } from "lucide-react";
 
 function Card({ children, style = {} }) {
@@ -148,33 +148,29 @@ export default function PlatformPage() {
       </div>
 
       {/* ══════ HERO ══════ */}
-      <div style={{ position: "relative", overflow: "hidden", background: "linear-gradient(180deg, #eef2ff 0%, #f5f7ff 50%, #f8f9fb 100%)", borderTop: "4px solid #3b82f6" }}>
-        <DotGrid size={28} color="rgba(59,130,246,0.04)" dotSize={1} />
-        <section style={{ position: "relative", padding: mob ? "24px 0 0" : "36px 0 0" }}>
-          <div style={cn}>
-            <div style={{ display: "flex", gap: 10, marginBottom: 12, flexWrap: "wrap", alignItems: "center" }}>
-              <PlatformLogo slug={slug} name={platform.platformName} size={mob ? 40 : 52} shape="icon" />
-              <span style={{
-                display: "inline-block", padding: "4px 10px", borderRadius: 6,
-                background: platform.hero.badgeColor || "#eff6ff", color: platform.hero.badgeTextColor || "#2563eb",
-                fontSize: 12, fontWeight: 700, letterSpacing: 0.5, textTransform: "uppercase",
-              }}>{platform.hero.badge}</span>
-              <span style={{ fontSize: 13, color: "#1f2937" }}>{platform.readTime}</span>
-            </div>
-            <h1 style={{
-              fontFamily: "Outfit", fontWeight: 800,
-              fontSize: mob ? 26 : tab ? 32 : 40,
-              lineHeight: 1.15, color: "#0f172a", margin: "0 0 14px",
-            }}>{platform.hero.h1}</h1>
-            <p style={{
-              fontSize: mob ? 15 : 17, lineHeight: 1.6, color: "#1f2937",
-              margin: "0 0 20px", maxWidth: 700,
-            }}>{platform.hero.subtitle}</p>
-            <AuthorCredits author={author} editor={editor} factChecker={factChecker} reviewer={reviewer} updatedDate={platform.updatedDate} />
+      <HeroBand mob={mob} tab={tab} compact>
+        <div style={{ display: "flex", gap: 10, marginBottom: 12, flexWrap: "wrap", alignItems: "center" }}>
+          <div style={{ background: "#fff", borderRadius: 10, padding: 4, display: "inline-flex" }}>
+            <PlatformLogo slug={slug} name={platform.platformName} size={mob ? 36 : 48} shape="icon" />
           </div>
-        </section>
-        <HeroWave color="#f8f9fb" height={mob ? 24 : 36} />
-      </div>
+          <span style={{
+            display: "inline-block", padding: "4px 10px", borderRadius: 6,
+            background: "rgba(52,211,153,0.15)", color: "#34d399",
+            fontSize: 12, fontWeight: 700, letterSpacing: 0.5, textTransform: "uppercase",
+          }}>{platform.hero.badge}</span>
+          <span style={{ fontSize: 13, color: "rgba(255,255,255,0.5)" }}>{platform.readTime}</span>
+        </div>
+        <h1 style={{
+          fontFamily: "Outfit", fontWeight: 800,
+          fontSize: mob ? 26 : tab ? 32 : 40,
+          lineHeight: 1.15, color: "#fff", margin: "0 0 14px",
+        }}>{platform.hero.h1}</h1>
+        <p style={{
+          fontSize: mob ? 15 : 17, lineHeight: 1.6, color: "rgba(255,255,255,0.7)",
+          margin: "0 0 20px", maxWidth: 700,
+        }}>{platform.hero.subtitle}</p>
+        <AuthorCredits author={author} editor={editor} factChecker={factChecker} reviewer={reviewer} updatedDate={platform.updatedDate} onDark />
+      </HeroBand>
 
       {/* ══════ MAIN LAYOUT: content + sidebar ══════ */}
       <div style={{

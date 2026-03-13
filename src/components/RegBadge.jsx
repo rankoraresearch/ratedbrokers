@@ -4,7 +4,7 @@ import { getRegulatorByName } from "../data/regulators";
 import { useLocalePath } from "../i18n/useLocalePath";
 import { Check } from "lucide-react";
 
-export default function RegBadge({ reg }) {
+export default function RegBadge({ reg, onDark = false }) {
   const lp = useLocalePath();
   const [imgErr, setImgErr] = useState(false);
   const tier1 = ["FCA", "ASIC", "NFA", "FINMA", "BaFin", "CFTC", "MAS"];
@@ -12,7 +12,22 @@ export default function RegBadge({ reg }) {
   const isFCA = reg === "FCA";
   const regData = getRegulatorByName(reg);
 
-  const style = {
+  const style = onDark ? {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: 3,
+    padding: "2px 6px",
+    borderRadius: 4,
+    fontSize: 11,
+    fontWeight: 700,
+    letterSpacing: 0.5,
+    background: isFCA ? "rgba(59,130,246,0.2)" : isTier1 ? "rgba(52,211,153,0.15)" : "rgba(255,255,255,0.1)",
+    color: isFCA ? "#93c5fd" : isTier1 ? "#6ee7b7" : "rgba(255,255,255,0.7)",
+    border: `1px solid ${
+      isFCA ? "rgba(147,197,253,0.3)" : isTier1 ? "rgba(110,231,183,0.3)" : "rgba(255,255,255,0.15)"
+    }`,
+    textDecoration: "none",
+  } : {
     display: "inline-flex",
     alignItems: "center",
     gap: 3,

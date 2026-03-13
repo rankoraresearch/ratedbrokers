@@ -56,10 +56,10 @@ function Dot({ onDark }) {
   );
 }
 
-export default function AuthorCredits({ author, editor, reviewer, factChecker, updatedDate, variant = "default" }) {
+export default function AuthorCredits({ author, editor, reviewer, factChecker, updatedDate, variant = "default", onDark: onDarkProp = false }) {
   if (!author) return null;
 
-  const onDark = variant === "onDark";
+  const onDark = onDarkProp || variant === "onDark";
   const centered = variant === "centered";
   const dateColor = onDark ? "rgba(255,255,255,0.55)" : "#1f2937";
 

@@ -15,7 +15,7 @@ import AuthorBioCard from "../components/AuthorBioCard";
 import Breadcrumb, { breadcrumbSchema } from "../components/Breadcrumb";
 import Icon, { ArrowRight, CircleCheck, Check, X as XIcon } from "../components/Icon";
 import BrokerLogo from "../components/BrokerLogo";
-import HeroWave, { DotGrid } from "../components/HeroWave";
+import HeroBand from "../components/HeroBand";
 import { getCountryData } from "../data/countries/index";
 import { canonicalPair } from "../data/comparisons";
 
@@ -193,34 +193,23 @@ export default function RankingPage() {
       </div>
 
       {/* HERO */}
-      <div style={{
-        position: "relative", overflow: "hidden",
-        background: "linear-gradient(180deg, #f0f9ff 0%, #ecfdf5 50%, #f8f9fb 100%)",
-        borderTop: "4px solid #059669",
-      }}>
-        <DotGrid size={28} color="rgba(5,150,105,0.04)" dotSize={1} />
-        <header ref={heroRef} style={{
-          ...cn, position: "relative",
-          padding: mob ? "28px 16px 8px" : "36px 24px 8px",
-        }}>
-          <div style={{ textAlign: "center" }}>
-            <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: mob ? 56 : 72, height: mob ? 56 : 72, borderRadius: 16, background: "rgba(5,150,105,0.08)", marginBottom: 14 }}>
-              <Icon name={ranking.icon} size={mob ? 28 : 36} />
-            </span>
-            <h1 style={{
-              fontFamily: "Outfit", fontWeight: 900,
-              fontSize: mob ? 26 : tab ? 34 : 42,
-              lineHeight: 1.1, color: "#0f172a", marginBottom: 8,
-            }}>
-              {ranking.title} {YEAR}
-            </h1>
-            <div style={{ display: "flex", justifyContent: "center", marginTop: 12 }}>
-              <AuthorCredits author={author} editor={editor} reviewer={reviewer} factChecker={factChecker} updatedDate={`March ${YEAR}`} variant="centered" />
-            </div>
+      <HeroBand mob={mob} tab={tab}>
+        <header ref={heroRef} style={{ textAlign: "center" }}>
+          <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: mob ? 56 : 72, height: mob ? 56 : 72, borderRadius: 16, background: "rgba(255,255,255,0.1)", marginBottom: 14 }}>
+            <Icon name={ranking.icon} size={mob ? 28 : 36} color="#34d399" />
+          </span>
+          <h1 style={{
+            fontFamily: "Outfit", fontWeight: 900,
+            fontSize: mob ? 26 : tab ? 34 : 42,
+            lineHeight: 1.1, color: "#fff", marginBottom: 8,
+          }}>
+            {ranking.title} {YEAR}
+          </h1>
+          <div style={{ display: "flex", justifyContent: "center", marginTop: 12 }}>
+            <AuthorCredits author={author} editor={editor} reviewer={reviewer} factChecker={factChecker} updatedDate={`March ${YEAR}`} variant="centered" onDark />
           </div>
         </header>
-        <HeroWave color="#f8f9fb" height={mob ? 28 : 40} />
-      </div>
+      </HeroBand>
 
       {/* SEO INTRO */}
       {seo.intro && (
@@ -850,10 +839,10 @@ export default function RankingPage() {
             }}>{brokers[0].B.score}</span>
             <a href={makeVisitUrl(brokers[0].slug, brokers[0].B.url)} target="_blank" rel="noopener nofollow sponsored" style={{
               padding: mob ? "8px 16px" : "10px 24px", borderRadius: 8,
-              background: "linear-gradient(135deg,#059669,#34d399)",
-              color: "#fff", fontWeight: 700, fontSize: mob ? 13 : 14,
+              background: "#f59e0b",
+              color: "#0f172a", fontWeight: 700, fontSize: mob ? 13 : 14,
               textDecoration: "none", whiteSpace: "nowrap",
-              boxShadow: "0 2px 8px rgba(5,150,105,0.3)",
+              boxShadow: "0 2px 8px rgba(245,158,11,0.3)",
             }}>Visit {brokers[0].B.name} <span style={{ marginLeft: 4 }}>&rarr;</span></a>
           </div>
         </div>
