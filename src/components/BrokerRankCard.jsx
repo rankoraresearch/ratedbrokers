@@ -393,20 +393,20 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
 
         {/* CTAs (compact, for non-thematic) */}
         {!hasThematic && (
-          <div style={{ display: "flex", flexDirection: "column", gap: 6, flexShrink: 0, minWidth: 220 }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 6, flexShrink: 0, width: 240 }}>
             <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" style={{
               padding: "10px 20px", borderRadius: 8, textAlign: "center",
               background: "linear-gradient(135deg,#059669,#047857)",
               color: "#fff", fontWeight: 700, fontSize: 14, textDecoration: "none",
-              whiteSpace: "nowrap", boxShadow: "0 2px 8px rgba(5,150,105,0.25)",
+              boxShadow: "0 2px 8px rgba(5,150,105,0.25)",
             }}>
-              <span>Visit {B.name}</span>
-              {B.promo && <span style={{ display: "block", fontSize: 11, fontWeight: 400, opacity: 0.8, marginTop: 2 }}>{B.promo}</span>}
+              <span style={{ whiteSpace: "nowrap" }}>Visit {B.name}</span>
+              {B.promo && <span style={{ display: "block", fontSize: 11, fontWeight: 400, opacity: 0.8, marginTop: 2, lineHeight: 1.3 }}>{B.promo}</span>}
             </a>
             <Link to={reviewPath} style={{
               padding: "8px 20px", borderRadius: 8, textAlign: "center",
               background: "#fff", color: "#475569", fontWeight: 600, fontSize: 14,
-              textDecoration: "none", whiteSpace: "nowrap", border: "1.5px solid #cbd5e1",
+              textDecoration: "none", border: "1.5px solid #cbd5e1",
             }}>Read Review</Link>
           </div>
         )}

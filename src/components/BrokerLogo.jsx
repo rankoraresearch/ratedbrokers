@@ -67,14 +67,13 @@ export default function BrokerLogo({ slug, name, fallback, size = 48, borderRadi
   const iconR = Math.round(iconSize / 4);
   const gap = Math.round(size * 0.15);
   const px = Math.round(size * 0.18);
-  // Fixed min/max width so all pills have consistent size regardless of name length
-  const minW = Math.round(size * 3);
-  const maxW = Math.round(size * 4.5);
+  // Fixed width so all pills are identical regardless of name length
+  const pillW = Math.round(size * 3.2);
 
   return (
     <div style={{
       display: "inline-flex", alignItems: "center", gap,
-      height: size, minWidth: minW, maxWidth: maxW, padding: `0 ${px}px`,
+      height: size, width: pillW, padding: `0 ${px}px`,
       background: bgColor, border: `1px solid ${borderColor}`,
       borderRadius: r, flexShrink: 0, overflow: "hidden",
     }}>
