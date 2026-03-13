@@ -197,15 +197,13 @@ export default function CountryPage() {
     <div style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb", color: "#111827", minHeight: "100vh" }}>
 
       {/* ===== BREADCRUMBS ===== */}
-      <div style={{ paddingTop: 0 }}>
-        <div style={{ ...cn, padding: mob ? "12px 16px" : "16px 24px" }}>
-          <Breadcrumb items={[
-            { label: "RatedBrokers", path: "/" },
-            { label: "Forex Brokers", path: "/best-forex-brokers" },
-            { label: "By Country", path: "/best-forex-brokers-by-country" },
-            { label: COUNTRY.name },
-          ]} />
-        </div>
+      <div style={{ ...cn, padding: mob ? "12px 16px 0" : "16px 24px 0" }}>
+        <Breadcrumb items={[
+          { label: "RatedBrokers", path: "/" },
+          { label: "Forex Brokers", path: "/best-forex-brokers" },
+          { label: "By Country", path: "/best-forex-brokers-by-country" },
+          { label: COUNTRY.name },
+        ]} />
       </div>
 
       {/* ===== HERO ===== */}

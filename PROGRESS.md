@@ -150,6 +150,21 @@
 
 ---
 
+## Редизайн секции брокеров на Home (13 марта 2026)
+
+### `2f296ec` feat: add 3 new broker section variants (D, E, F) — set E as active
+- **Variant D** — NerdWallet-style горизонтальные строки (top 5, крупные CTA)
+- **Variant E** — Compact Power Cards: 5 карточек в ряд (активный вариант)
+  - Логотип + название + скор + spread/min dep + регуляторы + Visit Broker CTA
+  - #1 с "Editor's Choice" зелёной лентой
+  - Mobile: 2 колонки, Tablet: 3 колонки
+- **Variant F** — Leaderboard Table: все 10 брокеров в табличном формате
+- Все варианты: affiliate tracking через `/go/{slug}`, responsive, hover-эффекты
+- `BROKER_VARIANT = "E"` в `src/pages/Home.jsx`
+- Конкурентный анализ: NerdWallet, BestBrokers, ForexBrokers.com
+
+---
+
 ## Текущее состояние
 
 | Метрика | Значение |

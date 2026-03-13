@@ -119,7 +119,7 @@ export default function GuidePage() {
     <div style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb", color: "#111827", minHeight: "100vh" }}>
 
       {/* ══════ BREADCRUMBS ══════ */}
-      <div style={{ ...cn, paddingTop: mob ? 12 : 16, paddingBottom: 0 }}>
+      <div style={{ ...cn, padding: mob ? "12px 16px 0" : "16px 24px 0" }}>
         <Breadcrumb items={[
           { label: "RatedBrokers", path: "/" },
           { label: "Guides", path: "/guides" },

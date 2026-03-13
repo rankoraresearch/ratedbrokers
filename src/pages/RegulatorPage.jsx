@@ -99,7 +99,7 @@ export default function RegulatorPage() {
   return (
     <div style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb", color: "#111827", minHeight: "100vh" }}>
       {/* Breadcrumbs */}
-      <div style={{ background: "#fff", borderBottom: "1px solid #e8ecf1", padding: "10px 0" }}>
+      <div style={{ background: "#fff", borderBottom: "1px solid #e8ecf1", padding: mob ? "10px 0" : "12px 0" }}>
         <div style={cn}>
           <Breadcrumb items={[
             { label: "RatedBrokers", path: "/" },

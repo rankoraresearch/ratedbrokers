@@ -176,7 +176,7 @@ export default function CryptoBrokersPage() {
       </section>
 
       {/* Breadcrumbs */}
-      <div style={{ ...cn, padding: mob ? "16px 16px 0" : "20px 24px 0" }}>
+      <div style={{ ...cn, padding: mob ? "12px 16px 0" : "16px 24px 0" }}>
         <Breadcrumb items={[
           { label: "RatedBrokers", path: "/" },
           { label: "Best Crypto Brokers 2026" },

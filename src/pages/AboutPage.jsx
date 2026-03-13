@@ -70,13 +70,11 @@ export default function AboutPage() {
     <div style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb", color: "#111827", minHeight: "100vh" }}>
 
       {/* =================== BREADCRUMBS =================== */}
-      <div style={{ paddingTop: 0 }}>
-        <div style={{ ...cn, padding: "16px 24px" }}>
-          <Breadcrumb items={[
-            { label: "RatedBrokers", path: "/" },
-            { label: t("about.breadAbout") },
-          ]} />
-        </div>
+      <div style={{ ...cn, padding: mob ? "12px 16px 0" : "16px 24px 0" }}>
+        <Breadcrumb items={[
+          { label: "RatedBrokers", path: "/" },
+          { label: t("about.breadAbout") },
+        ]} />
       </div>
 
       {/* =================== HERO =================== */}
