@@ -71,7 +71,7 @@ export default function CountryHubPage() {
             fontSize: mob ? 15 : 17, color: "rgba(255,255,255,0.75)",
             maxWidth: 560, margin: "0 auto 20px", lineHeight: 1.6,
           }}>
-            We test brokers in {allCountries.length}+ countries with real money accounts. Find the best regulated forex broker for your location.
+            We analyze brokers in {allCountries.length}+ countries across 130+ data points. Find the best regulated forex broker for your location.
           </p>
           <div style={{
             display: "flex", justifyContent: "center", gap: mob ? 16 : 32,

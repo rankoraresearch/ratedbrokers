@@ -12,7 +12,7 @@ const data = {
   author: { name: "Lars van Dijk", role: "European Markets Analyst", exp: "12 years", initials: "LV", linkedin: "#" },
   factChecker: "Marcus Chen",
   metaTitle: "8 Best Forex Brokers in Netherlands for 2026 — AFM Regulated",
-  metaDescription: "We tested 28 AFM-registered brokers with real EUR accounts. These 8 offer the best trading conditions for Dutch traders including iDEAL deposits, EUR accounts, and ESMA-compliant leverage.",
+  metaDescription: "We analyzed 28 AFM-registered brokers for Dutch traders. These 8 offer the best trading conditions including iDEAL deposits, EUR accounts, and ESMA-compliant leverage.",
   keyFinding: "AFM-registered brokers in the Netherlands provide strong retail protection under ESMA rules. iDEAL support for instant EUR deposits is a key differentiator — 7 of our top 8 brokers accept iDEAL, making funding seamless for Dutch traders.",
 
   brokers: [
@@ -21,7 +21,7 @@ const data = {
     { rank: 3, slug: "saxo-bank", badge: "Best Multi-Asset", badgeColor: "#1e293b", localCurrencyMin: "€500", verdict: "Premium multi-asset platform with access to 72,000+ instruments including Euronext Amsterdam.", localAdvantages: ["Danish bank, AFM-registered", "Direct access to Euronext Amsterdam", "72,000+ instruments", "Professional-grade SaxoTraderPRO", "EUR accounts with SEPA transfers"], spreadBetting: false, localAccount: true, localRegRef: null },
     { rank: 4, slug: "xtb", badge: "Best Platform", badgeColor: "#2563eb", localCurrencyMin: "€0", verdict: "Award-winning xStation 5 platform with no minimum deposit. Excellent for Dutch beginners and intermediates.", localAdvantages: ["CySEC-regulated, AFM-registered", "xStation 5 — award-winning platform", "0% commission real stocks up to €100K/mo", "No minimum deposit required", "iDEAL deposits available"], spreadBetting: false, localAccount: true, localRegRef: null },
     { rank: 5, slug: "etoro", badge: "Best Social Trading", badgeColor: "#2563eb", localCurrencyMin: "€100", verdict: "Best for Dutch beginners interested in copy trading. Simple interface with fractional shares.", localAdvantages: ["CySEC-regulated, AFM-registered", "Copy Trading — follow top traders", "Fractional shares from €10", "iDEAL deposits supported", "30M+ users worldwide"], spreadBetting: false, localAccount: true, localRegRef: null },
-    { rank: 6, slug: "ic-markets", badge: "Tightest Spreads", badgeColor: "#d97706", localCurrencyMin: "€200", verdict: "Tightest raw spreads in our test. Ideal for Dutch traders who prioritize execution quality.", localAdvantages: ["CySEC-regulated, EU-passported", "0.02 pip average EUR/USD spread", "EUR base account available", "cTrader + TradingView", "25+ tier-1 liquidity providers"], spreadBetting: false, localAccount: true, localRegRef: null },
+    { rank: 6, slug: "ic-markets", badge: "Tightest Spreads", badgeColor: "#d97706", localCurrencyMin: "€200", verdict: "Tightest raw spreads in our analysis. Ideal for Dutch traders who prioritize execution quality.", localAdvantages: ["CySEC-regulated, EU-passported", "0.02 pip average EUR/USD spread", "EUR base account available", "cTrader + TradingView", "25+ tier-1 liquidity providers"], spreadBetting: false, localAccount: true, localRegRef: null },
     { rank: 7, slug: "xm", badge: "Best Education", badgeColor: "#d97706", localCurrencyMin: "€5", verdict: "Lowest minimum deposit and excellent educational resources. Great starting point for new Dutch traders.", localAdvantages: ["CySEC-regulated, AFM-registered", "€5 minimum deposit", "1,000+ instruments", "Free educational webinars", "EUR base account available"], spreadBetting: false, localAccount: true, localRegRef: null },
     { rank: 8, slug: "admirals", badge: null, badgeColor: null, localCurrencyMin: "€100", verdict: "Solid all-rounder with MetaTrader Supreme Edition and real stock investing via Invest.MT5.", localAdvantages: ["CySEC-regulated, EU-passported", "MetaTrader Supreme Edition free", "EUR base account", "Invest.MT5 for real stocks", "iDEAL deposits available"], spreadBetting: false, localAccount: true, localRegRef: null },
   ],
@@ -62,7 +62,7 @@ const data = {
   ],
 
   faq: [
-    { q: "What is the best forex broker in the Netherlands for 2026?", a: "Pepperstone is our top pick for Dutch traders in 2026. It's CySEC-regulated with AFM registration, offers EUR base accounts, iDEAL deposits, and the tightest spreads in our test." },
+    { q: "What is the best forex broker in the Netherlands for 2026?", a: "Pepperstone is our top pick for Dutch traders in 2026. It's CySEC-regulated with AFM registration, offers EUR base accounts, iDEAL deposits, and the tightest spreads in our analysis." },
     { q: "Do I pay capital gains tax on forex in the Netherlands?", a: "No. The Netherlands uses a Box 3 wealth tax system. You pay tax on the deemed return of your total assets, not on individual capital gains." },
     { q: "Is forex trading legal in the Netherlands?", a: "Yes, forex trading is fully legal. Brokers must be registered with the AFM or authorized under EU passporting. The AFM actively supervises trading services." },
     { q: "What leverage can Dutch traders use?", a: "Under ESMA rules enforced by the AFM, retail clients are limited to 1:30 on major forex pairs, 1:20 minor, 1:10 commodities, 1:5 equities, 1:2 crypto." },

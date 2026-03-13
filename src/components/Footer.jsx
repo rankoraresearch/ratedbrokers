@@ -357,7 +357,7 @@ export default function Footer() {
             {t("footer.copy")}
           </span>
           <span style={{ fontSize: 13, color: "#475569" }}>
-            36 brokers independently tested with real money
+            36 brokers independently researched and expert-scored
           </span>
         </div>
       </div>

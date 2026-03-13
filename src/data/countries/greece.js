@@ -11,7 +11,7 @@ const data = {
   author: { name: "Sophia Papadimitriou", role: "European Markets Analyst", exp: "12 years", initials: "SP", linkedin: "#" },
   factChecker: "Marcus Chen",
   metaTitle: "10 Best Forex Brokers in Greece for 2026 — HCMC & CySEC Regulated",
-  metaDescription: "We tested 24 brokers accepting Greek traders with EUR accounts. These 10 offer ESMA-compliant trading with ICF protection, SEPA deposits, and competitive spreads for Greek forex traders.",
+  metaDescription: "We analyzed 24 brokers accepting Greek traders. These 10 offer ESMA-compliant trading with ICF protection, SEPA deposits, and competitive spreads for Greek forex traders.",
   keyFinding: "Greek traders benefit from EU-wide ESMA protections including 1:30 leverage cap, negative balance protection, and ICF compensation up to €30,000. Cyprus (CySEC) is the EU's forex hub, and most CySEC-regulated brokers passporting into Greece offer strong conditions for Greek traders.",
 
   brokers: [

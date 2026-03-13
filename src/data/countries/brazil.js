@@ -11,7 +11,7 @@ const data = {
   author: { name: "Carlos Mendes", role: "Latin American Markets Specialist", exp: "13 years", initials: "CM", linkedin: "#" },
   factChecker: "Marcus Chen",
   metaTitle: "10 Best Forex Brokers in Brazil for 2026 — CVM Regulated",
-  metaDescription: "We tested 22 brokers accepting Brazilian traders with BRL accounts. These 10 offer PIX deposits, Portuguese support, and strong regulation for Brazilian forex traders.",
+  metaDescription: "We analyzed 22 brokers accepting Brazilian traders. These 10 offer PIX deposits, Portuguese support, and strong regulation for Brazilian forex traders.",
   keyFinding: "Brazil's forex market is regulated by CVM and BCB, but most retail forex trading happens through internationally regulated brokers. PIX instant payments have revolutionized how Brazilian traders fund accounts — all our top picks support it for free, instant deposits.",
 
   brokers: [

@@ -139,10 +139,10 @@ const TEMPLATES = {
       ],
       sections: [
         {
-          heading: `How We Tested Brokers for ${name}`,
+          heading: `How We Analyzed Brokers for ${name}`,
           paragraphs: [
-            `Our ranking methodology for ${name.toLowerCase()} involved opening live, funded accounts with each broker and executing real trades under market conditions. We measured execution speed, spread consistency during peak and off-peak hours, slippage distribution, and platform reliability.`,
-            "All testing was conducted over a minimum 30-day period with multiple trade sessions per day. We used the broker's tightest-spread account type available to retail clients and recorded all metrics programmatically to eliminate subjective bias.",
+            `Our ranking methodology for ${name.toLowerCase()} involved independently analyzing 130+ data points per broker — verifying licenses, collecting spread data from independent sources, and cross-checking conditions. We evaluated execution speed, spread consistency during peak and off-peak hours, slippage data, and platform reliability.`,
+            "All analysis covers verified data from the broker's tightest-spread account type available to retail clients. Metrics are collected from independent sources and cross-referenced to eliminate bias.",
           ],
         },
         {
@@ -153,7 +153,7 @@ const TEMPLATES = {
           points: [
             { bold: "Average spread during active sessions", text: "— we measured during London/New York overlap (13:00–17:00 UTC), when most forex volume occurs and spreads should be at their tightest." },
             { bold: "Execution fill rate and speed", text: "— the percentage of orders filled at the requested price and the time from submission to confirmation." },
-            { bold: "Platform stability under volatility", text: "— we tested during high-impact news events to verify the platform remained responsive." },
+            { bold: "Platform stability under volatility", text: "— we evaluated platform behavior during high-impact news events to verify responsiveness." },
             { bold: "Regulatory protection tier", text: "— Tier-1 regulated brokers scored higher due to mandatory client fund segregation and compensation schemes." },
           ],
         },

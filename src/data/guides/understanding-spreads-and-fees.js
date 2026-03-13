@@ -146,9 +146,9 @@ export default {
       id: "how-we-measure",
       title: "How We Measure Spreads at RatedBrokers",
       paragraphs: [
-        "At RatedBrokers, we do not rely on broker-reported spreads. We measure them independently using real-money accounts during actual trading conditions. Our methodology ensures that the spread data in our rankings reflects what you will actually experience as a trader.",
+        "At RatedBrokers, we do not rely on broker-reported spreads. We collect spread data from independent sources and verify conditions across multiple data points. Our methodology ensures that the spread data in our rankings reflects what you will actually experience as a trader.",
         "We record tick-by-tick spread data on major, minor, and exotic pairs across multiple trading sessions over a minimum two-week period. We calculate the average spread, the median spread, and the 95th percentile spread (the worst spread you would experience 5% of the time). We also measure spreads specifically during high-impact news events to show how much spreads widen during volatility.",
-        "This data is published in our broker reviews and comparison tables, allowing you to make cost comparisons based on real-world conditions rather than the best-case scenario figures that brokers prefer to advertise. When we say a broker offers a 0.8-pip average spread on EUR/USD, that is a verified number from our own testing."
+        "This data is published in our broker reviews and comparison tables, allowing you to make cost comparisons based on real-world conditions rather than the best-case scenario figures that brokers prefer to advertise. When we say a broker offers a 0.8-pip average spread on EUR/USD, that is a verified number from our independent research."
       ]
     },
     {

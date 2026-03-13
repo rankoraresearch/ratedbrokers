@@ -127,10 +127,10 @@ const en = {
   // ===== HOME: HERO =====
   "home.updated": "UPDATED MARCH 2026",
   "home.heroTitle1": "Independent Broker Reviews",
-  "home.heroSubtitle": "Tested With Real Money",
-  "home.heroDesc": "We test forex, crypto, and CFD brokers by depositing real funds and executing 500+ trades. Data-driven rankings you can trust.",
-  "home.stat.brokers": "Brokers Tested",
-  "home.stat.trades": "Real Trades",
+  "home.heroSubtitle": "Independently Researched",
+  "home.heroDesc": "We analyze forex, crypto, and CFD brokers across 130+ data points — verifying regulations, comparing costs, and cross-checking conditions. Data-driven rankings you can trust.",
+  "home.stat.brokers": "Brokers Analyzed",
+  "home.stat.trades": "Data Points",
   "home.stat.research": "Research Per Review",
   "home.stat.update": "Latest Update",
 
@@ -147,8 +147,8 @@ const en = {
 
   // ===== HOME: ABOUT =====
   "home.aboutTitle": "About RatedBrokers",
-  "home.aboutText": "RatedBrokers is an independent broker comparison platform built for traders who demand transparency. We open real accounts, deposit real money, and execute 500+ trades per broker — measuring spreads, execution speed, slippage, and withdrawal times. Our scores are calculated by a transparent, published formula. No broker can pay for a higher ranking. Every review is written by verified experts with public credentials.",
-  "home.aboutDiff1": "Real Money Testing",
+  "home.aboutText": "RatedBrokers is an independent broker comparison platform built for traders who demand transparency. We analyze 130+ data points per broker — verifying licenses on regulatory databases, collecting spread data from independent sources, and aggregating thousands of user reviews. Our scores are calculated by a transparent, published formula. No broker can pay for a higher ranking. Every review is written by verified experts with public credentials.",
+  "home.aboutDiff1": "Independent Research",
   "home.aboutDiff2": "Independent & Unbiased",
   "home.aboutDiff3": "Transparent Methodology",
   "home.aboutDiff4": "Updated Quarterly",
@@ -163,7 +163,7 @@ const en = {
 
   // ===== HOME: ALL REVIEWS =====
   "home.allTitle": "All Broker Reviews",
-  "home.allDesc": "In-depth reviews of {count} brokers, each tested with real money and scored across 6 categories.",
+  "home.allDesc": "In-depth reviews of {count} brokers, each expert-analyzed and scored across 6 categories.",
 
   // ===== HOME: COMPARISONS =====
   "home.compTitle": "Head-to-Head Comparisons",
@@ -177,7 +177,7 @@ const en = {
   "home.founderLinkedin": "Connect on LinkedIn",
 
   // ===== FOOTER =====
-  "footer.desc": "Independent broker reviews and rankings tested with real money. Updated quarterly.",
+  "footer.desc": "Independent broker reviews and rankings based on expert research. Updated quarterly.",
   "footer.rankings": "Rankings",
   "footer.topReviews": "Top Reviews",
   "footer.popularRankings": "Popular Rankings",
@@ -197,7 +197,7 @@ const en = {
   "footer.riskTitle": "RISK WARNING",
   "footer.riskText": "CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. Between 62% and 82% of retail investor accounts lose money when trading CFDs. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money.",
   "footer.affTitle": "AFFILIATE DISCLOSURE",
-  "footer.affText": "RatedBrokers.com earns a commission when you open an account through our links. This does not affect our rankings \u2014 all brokers are tested independently with real money.",
+  "footer.affText": "RatedBrokers.com earns a commission when you open an account through our links. This does not affect our rankings \u2014 all brokers are scored independently using our published methodology.",
   "footer.copy": "\u00a9 2026 RatedBrokers.com. All rights reserved.",
 
   // ===== BROKER REVIEW =====
@@ -339,7 +339,7 @@ const en = {
 
   // ===== COUNTRY PAGE =====
   "country.bestBrokersIn": "Best Forex Brokers in {country} ({year})",
-  "country.tested": "We tested {count} {reg}-regulated brokers with real {currency} accounts. Updated {date}.",
+  "country.tested": "We analyzed {count} {reg}-regulated brokers for {currency}-based traders. Updated {date}.",
   "country.brokersTested": "Brokers Tested",
   "country.hoursResearch": "Hours Research",
   "country.topBrokers": "Top {reg} Brokers",
@@ -380,7 +380,7 @@ const en = {
   "comp.vs": "vs",
   "comp.breadCompare": "Compare",
   "comp.sideBy": "Side-by-side comparison",
-  "comp.basedOnReal": "based on real account testing",
+  "comp.basedOnReal": "based on independent expert analysis",
   "comp.updated": "Updated February 2026",
   "comp.wins": "Wins",
   "comp.ties": "Ties",
@@ -455,17 +455,17 @@ const en = {
   // ===== ABOUT US =====
   "about.badge": "ABOUT US",
   "about.title": "Independent Broker Reviews You Can Trust",
-  "about.subtitle": "We test forex, crypto, and CFD brokers with real money so you don't have to. No pay-for-placement. No hidden agendas. Just data.",
+  "about.subtitle": "We research forex, crypto, and CFD brokers across 130+ data points so you don't have to. No pay-for-placement. No hidden agendas. Just data.",
   "about.breadHome": "Home",
   "about.breadAbout": "About Us",
   "about.statBrokers": "Brokers Tested",
-  "about.statTrades": "Real Trades",
+  "about.statTrades": "Data Points",
   "about.statRankings": "Rankings",
   "about.statAnalysts": "Analysts",
   "about.statEst": "Est.",
   "about.missionTitle": "Our Mission",
   "about.missionP1": "The forex broker industry has a transparency problem. Thousands of traders lose money not because they can't trade — but because they chose the wrong broker. Misleading ads, fake reviews, and hidden fees make it nearly impossible for traders to make informed decisions.",
-  "about.missionP2": "RatedBrokers was built to fix that. We open real accounts, deposit real money, execute 500+ trades, and measure every detail — spreads, execution speed, slippage, withdrawal times. Our scores are calculated by a transparent formula, not by who pays the most.",
+  "about.missionP2": "RatedBrokers was built to fix that. We verify every license on regulatory databases, collect spread data from independent sources, aggregate thousands of user reviews, and cross-check conditions across multiple platforms. Our scores are calculated by a transparent formula, not by who pays the most.",
   "about.missionP3": "We're committed to keeping our methodology public and our editorial process independent. Every reviewer has a verifiable identity. Every score has data behind it. Every ranking is updated quarterly.",
   "about.founderTitle": "Meet the Founder",
   "about.founderName": "Yegor Barakovskiy",
@@ -479,8 +479,8 @@ const en = {
   "about.teamSpecialty": "Specialty",
   "about.teamLinkedin": "Verify on LinkedIn",
   "about.diffTitle": "How We're Different",
-  "about.diff1Title": "Real-Money Testing",
-  "about.diff1Desc": "We deposit our own funds and execute 500+ trades per broker. No simulated data, no broker-provided numbers.",
+  "about.diff1Title": "Independent Research",
+  "about.diff1Desc": "We analyze 130+ data points per broker from independent sources. No broker-provided numbers, no marketing claims.",
   "about.diff2Title": "Editorial Independence",
   "about.diff2Desc": "Our analysts score brokers independently, with no visibility into affiliate partnerships. Scores can't be bought.",
   "about.diff3Title": "Verified Experts",
@@ -488,15 +488,15 @@ const en = {
   "about.diff4Title": "Quarterly Updates",
   "about.diff4Desc": "All rankings are re-tested every 3 months. Brokers that decline are flagged or removed — no legacy placements.",
   "about.affTitle": "Affiliate Disclosure: Full Transparency",
-  "about.affDesc": "Some brokers listed on RatedBrokers.com are affiliate partners. When you click \"Visit Broker\" and open an account, we may earn a commission. This is how we fund our independent testing. However, this never affects our rankings — our editorial team scores brokers independently and has no visibility into affiliate relationships.",
+  "about.affDesc": "Some brokers listed on RatedBrokers.com are affiliate partners. When you click \"Visit Broker\" and open an account, we may earn a commission. This is how we fund our independent research. However, this never affects our rankings — our editorial team scores brokers independently and has no visibility into affiliate relationships.",
   "about.ctaTitle": "See Our Rankings",
-  "about.ctaDesc": "Browse our broker rankings — every score backed by real-money testing and transparent methodology.",
+  "about.ctaDesc": "Browse our broker rankings — every score backed by independent research and transparent methodology.",
   "about.ctaButton": "View All Rankings →",
   "about.ctaMethod": "Read Our Methodology",
 
   // ===== ALL REVIEWS PAGE =====
   "reviews.pageTitle": "All Broker Reviews 2026",
-  "reviews.pageDesc": "In-depth reviews of {count} forex, crypto, and CFD brokers — each tested with real money and scored across 6 categories. Updated quarterly.",
+  "reviews.pageDesc": "In-depth reviews of {count} forex, crypto, and CFD brokers — each expert-analyzed and scored across 6 categories. Updated quarterly.",
   "reviews.filterAll": "All",
   "reviews.filterTop": "Top Rated (9+)",
   "reviews.filterGreat": "Great (8.5+)",
@@ -652,7 +652,7 @@ const en = {
   "ts.breadTrustScore": "Trust Score",
   "ts.badge": "TRUST & TRANSPARENCY",
   "ts.title": "RatedBrokers Trust Score",
-  "ts.subtitle": "A transparent broker rating system built on 6 scoring categories, 130+ data points, and real-money testing. Every formula published. Every score verifiable.",
+  "ts.subtitle": "A transparent broker rating system built on 6 scoring categories, 130+ data points, and independent research. Every formula published. Every score verifiable.",
   "ts.statCategories": "Scoring Categories",
   "ts.statDataPoints": "Data Points",
   "ts.statBrokersRated": "Brokers Rated",
@@ -670,7 +670,7 @@ const en = {
   // Trust Score: What Is
   "ts.whatIsTitle": "What Is the RatedBrokers Trust Score?",
   "ts.whatIsP1": "The RatedBrokers Trust Score is a composite rating from 0 to 10 that measures the overall quality and trustworthiness of a forex, crypto, and CFD broker. It distills 130+ individual data points into a single, comparable number.",
-  "ts.whatIsP2": "Unlike proprietary rating systems used by our competitors, our scoring formula is fully published and applied equally to all brokers. Every score is backed by real-money testing — we open accounts, deposit funds, execute 500+ trades, and measure everything from spreads to withdrawal speeds.",
+  "ts.whatIsP2": "Unlike proprietary rating systems used by our competitors, our scoring formula is fully published and applied equally to all brokers. Every score is backed by independent research — we verify licenses on regulatory databases, collect spread data from independent sources, and aggregate user reviews across multiple platforms.",
   "ts.whatIsP3": "Scores are updated quarterly to reflect changes in regulation, costs, platform quality, and user sentiment. If a significant event occurs (regulatory action, security breach), we update the score immediately.",
   "ts.whatIsLink": "See how we test brokers →",
 
@@ -726,7 +726,7 @@ const en = {
   "ts.compareVariables": "Variables",
   "ts.compareFormula": "Formula",
   "ts.compareTesting": "Testing",
-  "ts.compareCallout": "Our differentiator: fully published formula + real-money testing. No other major comparison site offers both.",
+  "ts.compareCallout": "Our differentiator: fully published formula + independent research methodology. No other major comparison site offers both.",
 
   // Trust Score: FAQ
   "ts.faqTitle": "Frequently Asked Questions",

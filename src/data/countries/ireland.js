@@ -12,7 +12,7 @@ const data = {
   author: { name: "Liam O'Brien", role: "Irish Markets Analyst", exp: "13 years", initials: "LO", linkedin: "#" },
   factChecker: "Marcus Chen",
   metaTitle: "9 Best Forex Brokers in Ireland for 2026 — CBI Regulated",
-  metaDescription: "We tested 26 CBI-registered brokers with real EUR accounts. These 9 offer the best trading conditions for Irish traders including EUR accounts, ESMA-compliant leverage, and Irish tax reporting support.",
+  metaDescription: "We analyzed 26 CBI-registered brokers for Irish traders. These 9 offer the best trading conditions including EUR accounts, ESMA-compliant leverage, and Irish tax reporting support.",
   keyFinding: "The Central Bank of Ireland is one of Europe's most respected regulators. Irish traders benefit from strong ESMA protections and access to both CBI-regulated local brokers and EU-passported firms. AvaTrade, headquartered in Dublin, gives Irish traders a strong homegrown option.",
 
   brokers: [

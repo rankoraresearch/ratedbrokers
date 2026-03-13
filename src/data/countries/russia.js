@@ -11,7 +11,7 @@ const data = {
   author: { name: "Dmitry Volkov", role: "CIS Markets Analyst", exp: "15 years", initials: "DV", linkedin: "#" },
   factChecker: "Marcus Chen",
   metaTitle: "8 Best Forex Brokers in Russia for 2026 — CBR Licensed",
-  metaDescription: "We tested brokers accepting Russian traders under heavy sanctions. These 8 still operate for Russian clients with RUB accounts, offering the best available conditions in a restricted market.",
+  metaDescription: "We analyzed brokers accepting Russian traders under heavy sanctions. These 8 still operate for Russian clients with RUB accounts, offering the best available conditions in a restricted market.",
   keyFinding: "Since 2022, Western sanctions have severely restricted Russian access to international forex brokers. Most FCA/ASIC/CySEC-regulated brokers no longer accept Russian clients. Our list focuses on CBR-licensed dealers and the few international brokers still serving Russian traders — with important risk caveats.",
 
   brokers: [

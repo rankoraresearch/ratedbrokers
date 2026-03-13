@@ -32,7 +32,7 @@ export default function RankingB() {
   const displayBrokers = showAll ? brokers : brokers.slice(0, 5);
 
   const faqs = [
-    { q: "How do you test forex brokers?", a: "We open real accounts, deposit real money, and execute 100+ trades per broker. We measure actual spreads, test withdrawals, and evaluate platforms — just like a regular trader would." },
+    { q: "How do you research forex brokers?", a: "We analyze 130+ data points per broker — verifying licenses, collecting spread data from independent sources, aggregating user reviews, and cross-checking trading conditions." },
     { q: "Can beginners trust these rankings?", a: "Absolutely. Our rankings are specifically designed to help new traders find safe, regulated brokers. We prioritize regulation, ease of use, and education in our scoring." },
     { q: "Do brokers pay to be listed?", a: "No. We may earn commissions if you open an account through our links, but this never affects our rankings. See our methodology for full transparency." },
     { q: "How often do rankings change?", a: "We review and update rankings every quarter. Major regulatory changes or fee updates trigger immediate re-evaluations." },
@@ -70,7 +70,7 @@ export default function RankingB() {
           fontSize: mob ? 15 : 17, color: "#78716c", lineHeight: 1.7,
           maxWidth: 540, margin: "0 auto 12px",
         }}>
-          We tested {brokers.length} brokers with real money so you don't have to.
+          We analyzed {brokers.length} brokers across 130+ data points so you don't have to.
           Here are the ones we actually recommend.
         </p>
 

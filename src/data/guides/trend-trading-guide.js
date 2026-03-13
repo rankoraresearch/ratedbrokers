@@ -117,7 +117,7 @@ export default {
       id: "common-mistakes",
       title: "Common Trend Trading Mistakes",
       paragraphs: [
-        "After testing strategies across 500+ trades per broker, we've observed that these mistakes consistently separate losing trend traders from profitable ones."
+        "After analyzing strategies across 130+ data points per broker, we've observed that these mistakes consistently separate losing trend traders from profitable ones."
       ],
       list: [
         "Trading against the trend: Trying to pick tops and bottoms is the most expensive mistake. Always trade in the direction of the dominant trend.",

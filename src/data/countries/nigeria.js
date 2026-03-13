@@ -11,7 +11,7 @@ const data = {
   author: { name: "James Okonkwo", role: "African Markets Analyst", exp: "11 years", initials: "JO", linkedin: "#" },
   factChecker: "Marcus Chen",
   metaTitle: "10 Best Forex Brokers in Nigeria for 2026 — SEC Regulated",
-  metaDescription: "We tested 20 brokers accepting Nigerian traders with NGN accounts. These 10 offer low minimum deposits, NGN funding, and strong regulation for Nigerian forex traders.",
+  metaDescription: "We analyzed 20 brokers accepting Nigerian traders. These 10 offer low minimum deposits, NGN funding, and strong regulation for Nigerian forex traders.",
   keyFinding: "Nigeria has Africa's largest forex trading community but limited local regulation. Our top picks are internationally regulated brokers that accept Nigerian clients with NGN deposits, low minimums, and Naira-denominated accounts to avoid costly USD conversion fees.",
 
   brokers: [

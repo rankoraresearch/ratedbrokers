@@ -577,7 +577,7 @@ export default function BrokerComparison() {
       <section style={{ ...cn, marginBottom: 48 }}>
         <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 24 : 26, marginBottom: 8 }}>{t("comp.prosConsTitle")}</h2>
         <p style={{ fontSize: 16, lineHeight: 1.7, color: "#64748b", marginBottom: 20 }}>
-          Key strengths and weaknesses identified during our real-money testing of both brokers.
+          Key strengths and weaknesses identified during our independent analysis of both brokers.
         </p>
         <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "1fr 1fr", gap: 20 }}>
           {[{ b: A, data: dataA, bg: "#ecfdf5", color: "#059669" }, { b: B, data: dataB, bg: "#eff6ff", color: "#2563eb" }].map((item, bi) => (

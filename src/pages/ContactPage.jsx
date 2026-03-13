@@ -234,7 +234,7 @@ export default function ContactPage() {
           name: "RatedBrokers",
           url: "https://ratedbrokers.com",
           foundingDate: "2024",
-          description: "Independent forex and CFD broker comparison platform with real-money testing.",
+          description: "Independent forex and CFD broker comparison platform with expert-driven research methodology.",
           contactPoint: [
             { "@type": "ContactPoint", contactType: "customer service", email: "hello@ratedbrokers.com" },
             { "@type": "ContactPoint", contactType: "business development", email: "partnerships@ratedbrokers.com" },

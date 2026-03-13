@@ -77,7 +77,7 @@ export default function HeaderB() {
             <Heart size={12} color="#f97066" fill="#f97066" /> New to Forex? We'll help you start
           </span>
           <span>·</span>
-          <span>Tested with Real Money</span>
+          <span>Independently Researched</span>
           <span>·</span>
           <span>100% Independent Reviews</span>
         </div>

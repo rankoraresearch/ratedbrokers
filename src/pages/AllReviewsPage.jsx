@@ -45,7 +45,7 @@ export default function AllReviewsPage() {
   useEffect(() => {
     document.title = `All Broker Reviews ${YEAR} — ${allBrokers.length} Expert-Tested Reviews | RatedBrokers`;
     const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", `Browse ${allBrokers.length} in-depth broker reviews for ${YEAR}. Forex, crypto, and CFD brokers tested with real money. Scored across 6 categories.`);
+    if (meta) meta.setAttribute("content", `Browse ${allBrokers.length} in-depth broker reviews for ${YEAR}. Forex, crypto, and CFD brokers independently analyzed. Scored across 6 categories.`);
     window.scrollTo(0, 0);
   }, [allBrokers.length]);
 

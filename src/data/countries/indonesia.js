@@ -12,7 +12,7 @@ const data = {
   author: { name: "Ravi Santoso", role: "Southeast Asia Markets Analyst", exp: "11 years", initials: "RS", linkedin: "#" },
   factChecker: "Marcus Chen",
   metaTitle: "10 Best Forex Brokers in Indonesia for 2026 — BAPPEBTI Licensed",
-  metaDescription: "We tested 22 BAPPEBTI-licensed brokers with real IDR accounts. These 10 offer the best trading conditions for Indonesian traders including local regulation, IDR deposits, and competitive spreads.",
+  metaDescription: "We analyzed 22 BAPPEBTI-licensed brokers for Indonesian traders. These 10 offer the best trading conditions including local regulation, IDR deposits, and competitive spreads.",
   keyFinding: "Indonesia requires all forex brokers to hold a BAPPEBTI licence. The market has grown rapidly with over 1 million active retail traders. BAPPEBTI-licensed brokers must clear through the Indonesia Clearing House (ICH) and Jakarta Futures Exchange (JFX) or Indonesia Commodity & Derivatives Exchange (ICDX).",
 
   brokers: [

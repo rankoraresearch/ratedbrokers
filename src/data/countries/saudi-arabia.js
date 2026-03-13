@@ -11,7 +11,7 @@ const data = {
   author: { name: "Omar Farooq", role: "MENA Markets Specialist", exp: "14 years", initials: "OF", linkedin: "#" },
   factChecker: "Marcus Chen",
   metaTitle: "10 Best Forex Brokers in Saudi Arabia for 2026 — CMA Regulated",
-  metaDescription: "We tested 22 brokers accepting Saudi traders with real SAR accounts. These 10 offer the best trading conditions including CMA regulation, SAR deposits, and Sharia-compliant accounts.",
+  metaDescription: "We analyzed 22 brokers accepting Saudi traders. These 10 offer the best trading conditions including CMA regulation, SAR deposits, and Sharia-compliant accounts.",
   keyFinding: "CMA-regulated brokers provide the strongest protection for Saudi traders. Our top picks all offer Islamic swap-free accounts, SAR base currencies, and Arabic-language support — essential for compliant trading in the Kingdom.",
 
   brokers: [

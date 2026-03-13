@@ -88,7 +88,7 @@ export default function Proto15() {
               Best Forex Brokers of 2026 — Tested & Ranked
             </h1>
             <p style={{ fontSize: 15, color: "#94a3b8", lineHeight: 1.6, marginBottom: 20 }}>
-              We tested {brokers.length} brokers with real money across 6 categories.
+              We analyzed {brokers.length} brokers across 6 scoring categories.
               Here are the results.
             </p>
             <Link to={lp("/best-forex-brokers")} style={{

@@ -76,7 +76,7 @@ export default function HeaderA() {
             <Shield size={12} color={green} /> Independent Research
           </span>
           <span>·</span>
-          <span>Real Money Testing</span>
+          <span>Expert Analysis</span>
           <span>·</span>
           <span>No Sponsored Rankings</span>
         </div>

@@ -11,7 +11,7 @@ const data = {
   author: { name: "Carlos Mendes", role: "Latin American Markets Specialist", exp: "13 years", initials: "CM", linkedin: "#" },
   factChecker: "Marcus Chen",
   metaTitle: "8 Best Forex Brokers in Chile for 2026 — CMF Regulated",
-  metaDescription: "We tested 14 brokers accepting Chilean traders with CLP deposits. These 8 offer bank transfer funding, Spanish support, and strong international regulation for Chilean forex traders.",
+  metaDescription: "We analyzed 14 brokers accepting Chilean traders. These 8 offer bank transfer funding, Spanish support, and strong international regulation for Chilean forex traders.",
   keyFinding: "Chile has South America's most stable economy and a well-developed financial regulatory framework under CMF. Our top picks are internationally regulated brokers that accept Chilean clients with CLP deposits via local bank transfers and offer full Spanish-language support.",
 
   brokers: [

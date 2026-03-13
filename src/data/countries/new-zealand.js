@@ -12,7 +12,7 @@ const data = {
   author: { name: "James Whitfield", role: "Pacific Markets Analyst", exp: "12 years", initials: "JW", linkedin: "#" },
   factChecker: "Marcus Chen",
   metaTitle: "10 Best Forex Brokers in New Zealand for 2026 — FMA Regulated",
-  metaDescription: "We tested 18 FMA-regulated brokers with real NZD accounts. These 10 offer the best trading conditions for New Zealand traders including FMA regulation, NZD base accounts, and competitive spreads.",
+  metaDescription: "We analyzed 18 FMA-regulated brokers for New Zealand traders. These 10 offer the best trading conditions including FMA regulation, NZD base accounts, and competitive spreads.",
   keyFinding: "New Zealand's FMA provides solid oversight but no deposit compensation scheme — making broker selection critical. All our top picks are regulated by the FMA or hold equivalent tier-1 licences, and most offer NZD base accounts to eliminate conversion costs.",
 
   brokers: [

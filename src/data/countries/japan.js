@@ -12,7 +12,7 @@ const data = {
   author: { name: "Takeshi Morimoto", role: "Asia-Pacific Trading Specialist", exp: "15 years", initials: "TM", linkedin: "#" },
   factChecker: "Marcus Chen",
   metaTitle: "10 Best Forex Brokers in Japan for 2026 — JFSA Regulated",
-  metaDescription: "We tested 55 JFSA-registered brokers with real JPY accounts. These 10 offer the best trading conditions for Japanese traders including full JIPF protection, ultra-tight JPY pair spreads, and 1:25 leverage.",
+  metaDescription: "We analyzed 55 JFSA-registered brokers for Japanese traders. These 10 offer the best trading conditions including full JIPF protection, ultra-tight JPY pair spreads, and 1:25 leverage.",
   keyFinding: "Japan has the world's largest retail forex market and strictest regulation. All JFSA-registered brokers must cap leverage at 1:25 and contribute to the JIPF compensation fund. Japanese domestic brokers dominate, but several international brokers hold JFSA licences and offer competitive JPY pair spreads.",
 
   brokers: [

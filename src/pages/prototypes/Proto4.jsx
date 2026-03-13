@@ -46,7 +46,7 @@ export default function Proto4() {
             The Best Forex Brokers of 2026, Ranked by Our Research Team
           </h1>
           <p style={{ fontFamily: serif, fontSize: mob ? 18 : 22, color: "#4b5563", lineHeight: 1.6, fontStyle: "italic", marginBottom: 24 }}>
-            After depositing real money and executing over 500 trades at each of {brokers.length} brokers, our analysts present the definitive ranking for this quarter.
+            After analyzing 130+ data points at each of {brokers.length} brokers, our analysts present the definitive ranking for this quarter.
           </p>
           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
             <AuthorAvatar author={author} size={44} />

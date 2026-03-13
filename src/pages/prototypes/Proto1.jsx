@@ -26,7 +26,7 @@ export default function Proto1() {
       {/* Trust strip */}
       <div style={{ background: "#f0fdf4", padding: "10px 0", borderBottom: "1px solid #d1fae5" }}>
         <div style={{ ...cn, display: "flex", justifyContent: "center", gap: mob ? 16 : 32, fontSize: 13, color: "#065f46" }}>
-          <span style={{ display: "flex", alignItems: "center", gap: 4 }}><Shield size={13} color={green} /> Real Money Testing</span>
+          <span style={{ display: "flex", alignItems: "center", gap: 4 }}><Shield size={13} color={green} /> Independent Research</span>
           <span style={{ display: "flex", alignItems: "center", gap: 4 }}><CheckCircle size={13} color={green} /> Independent Research</span>
           {!mob && <span style={{ display: "flex", alignItems: "center", gap: 4 }}><Award size={13} color={green} /> No Sponsored Rankings</span>}
         </div>
@@ -55,7 +55,7 @@ export default function Proto1() {
               fontSize: mob ? 16 : 18, color: "#64748b", lineHeight: 1.7,
               marginBottom: 28, maxWidth: 440,
             }}>
-              {brokers.length} brokers independently tested with real deposits. Transparent scoring. No pay-to-play.
+              {brokers.length} brokers independently researched and expert-scored. Transparent scoring. No pay-to-play.
             </p>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
               <Link to={lp("/best-forex-brokers")} style={{

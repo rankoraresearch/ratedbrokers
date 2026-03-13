@@ -31,7 +31,7 @@ export default function Proto2() {
           Find the Best Broker<br />for Your Trading Style
         </h1>
         <p style={{ fontSize: mob ? 16 : 20, color: "#64748b", maxWidth: 560, margin: "0 auto 32px", lineHeight: 1.6 }}>
-          {brokers.length} brokers independently tested with real money. Compare spreads, fees, and regulation side by side.
+          {brokers.length} brokers independently researched and expert-scored. Compare spreads, fees, and regulation side by side.
         </p>
         {/* Search bar */}
         <div style={{
@@ -139,7 +139,7 @@ export default function Proto2() {
           </h2>
           <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "repeat(3, 1fr)", gap: 24 }}>
             {[
-              { icon: <Shield size={28} color={teal} />, title: "Independent Testing", desc: "We deposit real money and execute 500+ trades per broker. No demo shortcuts." },
+              { icon: <Shield size={28} color={teal} />, title: "Independent Research", desc: "We analyze 130+ data points per broker from independent sources. No marketing shortcuts." },
               { icon: <DollarSign size={28} color={teal} />, title: "No Pay-to-Play", desc: "Rankings are based on our methodology, not sponsorship fees. Affiliate revenue never influences scores." },
               { icon: <BarChart3 size={28} color={teal} />, title: "Transparent Scoring", desc: "6 weighted categories, published formula. Every score is verifiable and reproducible." },
             ].map((item, i) => (

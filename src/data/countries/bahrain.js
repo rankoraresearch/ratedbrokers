@@ -11,7 +11,7 @@ const data = {
   author: { name: "Omar Farooq", role: "MENA Markets Specialist", exp: "14 years", initials: "OF", linkedin: "#" },
   factChecker: "Marcus Chen",
   metaTitle: "8 Best Forex Brokers in Bahrain for 2026 — CBB Regulated",
-  metaDescription: "We tested 16 brokers accepting Bahraini traders with real BHD accounts. These 8 offer the best conditions including CBB regulation, Islamic accounts, and competitive spreads.",
+  metaDescription: "We analyzed 16 brokers accepting Bahraini traders. These 8 offer the best conditions including CBB regulation, Islamic accounts, and competitive spreads.",
   keyFinding: "Bahrain's CBB is one of the most progressive financial regulators in the Gulf. All our top-rated brokers offer Islamic swap-free accounts and accept BHD deposits, with several maintaining physical offices in Bahrain's financial district.",
 
   brokers: [

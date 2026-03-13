@@ -27,7 +27,7 @@ export default function RankingA() {
   const cardBg = { background: "#fff", borderRadius: 16, border: "1px solid #e2e8f0" };
 
   const faqs = [
-    { q: "How do you test forex brokers?", a: "We open real accounts, deposit real money, and execute 100+ trades per broker. We measure spreads during London and New York sessions, test withdrawal speed, and evaluate platform stability under volatility." },
+    { q: "How do you research forex brokers?", a: "We analyze 130+ data points per broker — verifying licenses on regulatory databases, collecting spread data from independent sources, aggregating user reviews, and cross-checking conditions across multiple platforms." },
     { q: "How often are rankings updated?", a: "Rankings are reviewed quarterly. We re-test top brokers and adjust scores based on any regulatory changes, fee updates, or platform improvements." },
     { q: "Do you accept payment for rankings?", a: "No. Our rankings are 100% independent. We earn through affiliate partnerships, but this never influences our scores or rankings. See our methodology for details." },
     { q: "What makes a broker \"best for beginners\"?", a: "Low minimum deposits, educational resources, a user-friendly platform, responsive customer support, and strong regulation. We weight these factors more heavily in our beginner-specific rankings." },
@@ -67,7 +67,7 @@ export default function RankingA() {
           fontSize: mob ? 15 : 17, color: "#64748b", lineHeight: 1.7,
           maxWidth: 600, margin: "0 auto 8px",
         }}>
-          We tested {brokers.length} brokers with real money across 6 scoring categories.
+          We analyzed {brokers.length} brokers across 6 scoring categories.
           Here are the ones we actually recommend.
         </p>
 
@@ -309,7 +309,7 @@ export default function RankingA() {
           </h2>
           <p style={{ fontSize: 15, lineHeight: 1.8, color: "#475569", marginBottom: 16 }}>
             Each broker was evaluated across 6 weighted categories using our proprietary methodology.
-            We open real accounts, deposit our own money, and test every aspect of the trading experience.
+            We analyze 130+ data points from independent sources and verify every aspect of the trading experience.
           </p>
           <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "1fr 1fr", gap: 12 }}>
             {[

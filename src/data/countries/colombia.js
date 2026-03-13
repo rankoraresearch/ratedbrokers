@@ -11,7 +11,7 @@ const data = {
   author: { name: "Carlos Mendes", role: "Latin American Markets Specialist", exp: "13 years", initials: "CM", linkedin: "#" },
   factChecker: "Marcus Chen",
   metaTitle: "8 Best Forex Brokers in Colombia for 2026 — SFC Regulated",
-  metaDescription: "We tested 16 brokers accepting Colombian traders with COP deposits. These 8 offer PSE transfers, Spanish support, and strong international regulation for Colombian forex traders.",
+  metaDescription: "We analyzed 16 brokers accepting Colombian traders. These 8 offer PSE transfers, Spanish support, and strong international regulation for Colombian forex traders.",
   keyFinding: "Colombia's forex market is growing under SFC oversight, but most retail trading happens through internationally regulated brokers. PSE bank transfers are the preferred funding method, with several brokers now accepting Nequi and Daviplata mobile payments.",
 
   brokers: [

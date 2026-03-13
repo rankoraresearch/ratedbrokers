@@ -12,7 +12,7 @@ const data = {
   author: { name: "Marco Rossi", role: "Mediterranean Markets Specialist", exp: "15 years", initials: "MR", linkedin: "#" },
   factChecker: "Marcus Chen",
   metaTitle: "10 Best Forex Brokers in Italy for 2026 — CONSOB Regulated",
-  metaDescription: "We tested 30 CONSOB-registered brokers with real EUR accounts. These 10 offer the best trading conditions for Italian traders including EUR accounts, ESMA protection, and Italian-language support.",
+  metaDescription: "We analyzed 30 CONSOB-registered brokers for Italian traders. These 10 offer the best trading conditions including EUR accounts, ESMA protection, and Italian-language support.",
   keyFinding: "CONSOB-registered brokers provide strong trader protection under Italian and ESMA regulations. All top 5 brokers for Italy offer Italian-language platforms, EUR accounts, and full ESMA compliance — essential for retail traders in one of Europe's largest CFD markets.",
 
   brokers: [

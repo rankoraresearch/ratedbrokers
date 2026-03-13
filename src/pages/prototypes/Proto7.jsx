@@ -29,7 +29,7 @@ export default function Proto7() {
       <div style={{ background: "#eff6ff", padding: "10px 0", borderBottom: "1px solid #bfdbfe" }}>
         <div style={{ ...cn, display: "flex", justifyContent: "center", gap: mob ? 16 : 32, fontSize: 12, color: "#1e40af" }}>
           <span style={{ display: "flex", alignItems: "center", gap: 4 }}><Shield size={12} color={blue} /> Independent Research</span>
-          <span style={{ display: "flex", alignItems: "center", gap: 4 }}><Lock size={12} color={blue} /> Real Money Testing</span>
+          <span style={{ display: "flex", alignItems: "center", gap: 4 }}><Lock size={12} color={blue} /> Expert Analysis</span>
           {!mob && <span style={{ display: "flex", alignItems: "center", gap: 4 }}><CheckCircle size={12} color={blue} /> No Sponsored Rankings</span>}
         </div>
       </div>
@@ -52,7 +52,7 @@ export default function Proto7() {
             Your Money Deserves<br />a Safe Broker
           </h1>
           <p style={{ fontSize: mob ? 16 : 18, color: "#64748b", maxWidth: 560, margin: "0 auto 32px", lineHeight: 1.7 }}>
-            We test {brokers.length} brokers with real money so you don't have to. Every broker verified against 6 safety and performance criteria.
+            We analyze {brokers.length} brokers across 130+ data points so you don't have to. Every broker verified against 6 safety and performance criteria.
           </p>
           <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
             <Link to={lp("/best-forex-brokers")} style={{
@@ -73,7 +73,7 @@ export default function Proto7() {
           display: "grid", gridTemplateColumns: mob ? "1fr 1fr" : "repeat(4, 1fr)", gap: 12,
         }}>
           {[
-            { val: String(brokers.length), label: "Brokers Tested", sub: "With real deposits" },
+            { val: String(brokers.length), label: "Brokers Analyzed", sub: "130+ data points each" },
             { val: "100%", label: "Independent", sub: "No pay-to-play" },
             { val: "6", label: "Safety Criteria", sub: "Transparent formula" },
             { val: "Quarterly", label: "Updated", sub: "Fresh data always" },

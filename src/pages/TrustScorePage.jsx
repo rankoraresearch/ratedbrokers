@@ -969,8 +969,8 @@ function CompareSection({ cn, mob, t }) {
             }}>{sys.formula}</span>
             <span style={{
               fontSize: 14,
-              color: sys.testing === "Real Money" ? "#059669" : "#94a3b8",
-              fontWeight: sys.testing === "Real Money" ? 700 : 400,
+              color: sys.highlight ? "#059669" : "#94a3b8",
+              fontWeight: sys.highlight ? 700 : 400,
             }}>{sys.testing}</span>
           </div>
         ))}

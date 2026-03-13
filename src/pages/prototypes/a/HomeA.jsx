@@ -32,7 +32,7 @@ export default function HomeA() {
       {/* Trust strip */}
       <div style={{ background: "#f0fdf4", padding: "10px 0", borderBottom: "1px solid #d1fae5" }}>
         <div style={{ ...cn, display: "flex", justifyContent: "center", gap: mob ? 16 : 32, fontSize: 13, color: "#065f46", flexWrap: "wrap" }}>
-          <span style={{ display: "flex", alignItems: "center", gap: 4 }}><Shield size={13} color={green} /> Real Money Testing</span>
+          <span style={{ display: "flex", alignItems: "center", gap: 4 }}><Shield size={13} color={green} /> Independent Research</span>
           <span style={{ display: "flex", alignItems: "center", gap: 4 }}><CheckCircle size={13} color={green} /> Independent Research</span>
           {!mob && <span style={{ display: "flex", alignItems: "center", gap: 4 }}><Award size={13} color={green} /> No Sponsored Rankings</span>}
         </div>
@@ -60,7 +60,7 @@ export default function HomeA() {
               fontSize: mob ? 16 : 18, color: "#64748b", lineHeight: 1.7,
               marginBottom: 28, maxWidth: 440,
             }}>
-              {brokers.length} brokers independently tested with real deposits.
+              {brokers.length} brokers independently researched and expert-scored.
               Transparent scoring. No pay-to-play.
             </p>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
@@ -242,8 +242,8 @@ export default function HomeA() {
               How We Test Brokers
             </h2>
             <p style={{ fontSize: 16, color: "#64748b", lineHeight: 1.7, marginBottom: 20 }}>
-              Every ranking is backed by real money testing. We deposit funds, execute 100+ trades per broker,
-              and measure everything that matters to traders.
+              Every ranking is backed by independent research. We analyze 130+ data points per broker
+              and verify everything that matters to traders.
             </p>
             <Link to={lp("/methodology")} style={{
               display: "inline-flex", alignItems: "center", gap: 6,
@@ -253,8 +253,8 @@ export default function HomeA() {
 
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
             {[
-              { title: "Open Real Accounts", desc: "We sign up, verify, and deposit — just like you would" },
-              { title: "Execute Real Trades", desc: "100+ trades during peak sessions to measure true costs" },
+              { title: "Verify Credentials", desc: "We check every license on regulatory databases" },
+              { title: "Analyze 130+ Data Points", desc: "Spreads, fees, user reviews — from independent sources" },
               { title: "Score Objectively", desc: "6 weighted categories, transparent formula" },
               { title: "Update Quarterly", desc: "Re-test every 3 months to keep scores accurate" },
             ].map((s, i) => (
@@ -347,7 +347,7 @@ export default function HomeA() {
             Trade with Confidence
           </h2>
           <p style={{ fontSize: 16, color: "rgba(255,255,255,0.7)", marginBottom: 28, lineHeight: 1.7 }}>
-            Every recommendation on RatedBrokers is backed by real money testing and transparent methodology.
+            Every recommendation on RatedBrokers is backed by independent research and transparent methodology.
             No broker can buy their way to the top.
           </p>
           <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>

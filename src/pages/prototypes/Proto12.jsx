@@ -54,7 +54,7 @@ export default function Proto12() {
           fontSize: mob ? 16 : 18, color: "#78716c", maxWidth: 520,
           margin: "0 auto 32px", lineHeight: 1.7,
         }}>
-          We tested {brokers.length} forex brokers with real money so you don't have to.
+          We analyzed {brokers.length} forex brokers across 130+ data points so you don't have to.
           Simple, honest, beginner-friendly reviews.
         </p>
         <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>

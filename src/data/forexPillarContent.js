@@ -7,17 +7,17 @@ const FOREX_PILLAR = {
   meta: {
     title: "Best Forex Brokers 2026 — Tested & Ranked by Experts | RatedBrokers",
     description:
-      "We tested 31 forex brokers with real money, executed 500+ trades, and spent 200+ hours comparing spreads, regulation, and platforms. Our expert rankings for Q1 2026.",
+      "We analyzed 31 forex brokers across 130+ data points and spent 200+ hours comparing spreads, regulation, and platforms. Our expert rankings for Q1 2026.",
   },
 
   hero: {
-    badge: "Q1 2026 — 31 Brokers Tested With Real Money",
+    badge: "Q1 2026 — 31 Brokers Independently Analyzed",
     h1: "Best Forex Brokers 2026",
     subtitle: "Tested, Compared & Ranked by Trading Experts",
     stats: [
       { value: "31", label: "Brokers Tested" },
-      { value: "500+", label: "Real Trades" },
-      { value: "200+", label: "Hours of Testing" },
+      { value: "130+", label: "Data Points" },
+      { value: "200+", label: "Hours of Research" },
       { value: "Feb 2026", label: "Last Updated" },
     ],
   },
@@ -37,7 +37,7 @@ const FOREX_PILLAR = {
       paragraphs: [
         "We believe that broker reviews should be based on independent research, not marketing copy. Every broker in our rankings has been evaluated using data from official regulatory databases, broker websites, independent comparison sources, and aggregated user reviews. Our team of four analysts — with over 40 years of combined experience — verifies every data point and cross-checks across multiple sources.",
         "Our scoring methodology is transparent and weighted: Regulation & Safety (30%), Trading Costs (20%), User Reputation (15%), Broker Transparency (15%), Platforms & Tools (15%), and Execution Model (5%). We publish our full methodology openly and update all rankings quarterly to reflect changing market conditions.",
-        "Unlike many review sites that are secretly owned by brokers, RatedBrokers is editorially independent. While we earn affiliate commissions when you open an account through our links, this never influences our rankings. Several of our highest-rated brokers have no affiliate relationship with us — they rank highly because they earned it through our testing.",
+        "Unlike many review sites that are secretly owned by brokers, RatedBrokers is editorially independent. While we earn affiliate commissions when you open an account through our links, this never influences our rankings. Several of our highest-rated brokers have no affiliate relationship with us — they rank highly because they earned it through our independent analysis.",
       ],
     },
   ],
@@ -46,20 +46,20 @@ const FOREX_PILLAR = {
     {
       step: 1,
       icon: "landmark",
-      title: "Open Live Accounts",
-      desc: "We register real accounts with every broker — no demo shortcuts. We verify identity, complete KYC, and ensure we experience the exact onboarding process a retail trader would face.",
+      title: "Verify Broker Credentials",
+      desc: "We verify every broker's regulatory licenses directly on official databases, check company registration details, and confirm fund segregation and compensation scheme participation.",
     },
     {
       step: 2,
       icon: "piggy-bank",
-      title: "Deposit Real Money",
-      desc: "We deposit real funds ($200–$2,000 depending on the broker's minimum) using multiple payment methods. We test deposit speed, fees, and any issues with fund processing.",
+      title: "Analyze Trading Conditions",
+      desc: "We collect spread data from independent monitoring sources, verify deposit minimums and payment methods, and cross-check fee structures across multiple third-party platforms.",
     },
     {
       step: 3,
       icon: "bar-chart-3",
-      title: "Execute 500+ Trades",
-      desc: "Over 30+ days, we execute 500+ trades across major and minor pairs, measuring real spreads, execution speed, slippage, and platform stability during high-volatility events like NFP and FOMC.",
+      title: "Evaluate 130+ Data Points",
+      desc: "For each broker, we analyze 130+ data points covering spreads, execution models, platform features, regulatory status, user reviews, and historical performance across major and minor pairs.",
     },
     {
       step: 4,
@@ -160,7 +160,7 @@ const FOREX_PILLAR = {
   faq: [
     {
       q: "What is the best forex broker in 2026?",
-      a: "Based on our real-money testing of 31 brokers, IC Markets ranks #1 overall with a score of 9.7/10. It offers raw spreads from 0.0 pips, dual Tier-1 regulation (ASIC + CySEC), and superior execution quality across MetaTrader 4, MetaTrader 5, cTrader, and TradingView.",
+      a: "Based on our independent analysis of 31 brokers, IC Markets ranks #1 overall with a score of 9.7/10. It offers raw spreads from 0.0 pips, dual Tier-1 regulation (ASIC + CySEC), and superior execution quality across MetaTrader 4, MetaTrader 5, cTrader, and TradingView.",
     },
     {
       q: "How do I choose a forex broker?",
@@ -188,7 +188,7 @@ const FOREX_PILLAR = {
     },
     {
       q: "Which forex broker has the lowest spreads?",
-      a: "In our testing, IC Markets consistently offered the lowest average spreads on EUR/USD at 0.02 pips (Raw Spread account). FP Markets (0.05 pips) and Pepperstone (0.10 pips) followed closely. Note that raw spreads always come with a per-lot commission ($3.00–$3.50/lot/side), so the total cost per trade includes both components.",
+      a: "In our analysis, IC Markets consistently offered the lowest average spreads on EUR/USD at 0.02 pips (Raw Spread account). FP Markets (0.05 pips) and Pepperstone (0.10 pips) followed closely. Note that raw spreads always come with a per-lot commission ($3.00–$3.50/lot/side), so the total cost per trade includes both components.",
     },
     {
       q: "Can I trade forex with $100?",
@@ -200,7 +200,7 @@ const FOREX_PILLAR = {
     },
     {
       q: "How are your broker rankings different from other review sites?",
-      a: "Most broker reviews are written by marketers who have never traded. We open live accounts with real money, execute 500+ trades per quarter, and test withdrawal speed. Our scores are backed by real trading data, not marketing claims. Our editorial team operates independently from our business team, and several of our highest-ranked brokers have no affiliate relationship with us.",
+      a: "Most broker reviews are written by marketers who have never traded. We analyze 130+ data points per broker quarterly, verifying licenses, collecting spread data from independent sources, and aggregating user reviews. Our scores are backed by independent research, not marketing claims. Our editorial team operates independently from our business team, and several of our highest-ranked brokers have no affiliate relationship with us.",
     },
     {
       q: "How often do you update your rankings?",

@@ -11,7 +11,7 @@ const data = {
   author: { name: "Carlos Mendes", role: "Latin American Markets Specialist", exp: "13 years", initials: "CM", linkedin: "#" },
   factChecker: "Marcus Chen",
   metaTitle: "10 Best Forex Brokers in Mexico for 2026 — CNBV Regulated",
-  metaDescription: "We tested 20 brokers accepting Mexican traders with MXN accounts. These 10 offer SPEI deposits, Spanish support, competitive spreads, and strong international regulation.",
+  metaDescription: "We analyzed 20 brokers accepting Mexican traders. These 10 offer SPEI deposits, Spanish support, competitive spreads, and strong international regulation.",
   keyFinding: "Mexico has Latin America's most developed forex market with growing CNBV oversight. SPEI instant transfers are the preferred funding method — all our top brokers accept them for free, instant MXN deposits. USD/MXN is one of the world's most traded emerging market pairs.",
 
   brokers: [

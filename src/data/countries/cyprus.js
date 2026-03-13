@@ -12,7 +12,7 @@ const data = {
   author: { name: "Andreas Georgiou", role: "CySEC Regulation Expert", exp: "15 years", initials: "AG", linkedin: "#" },
   factChecker: "Marcus Chen",
   metaTitle: "10 Best Forex Brokers in Cyprus for 2026 — CySEC Regulated",
-  metaDescription: "We tested 45 CySEC-regulated brokers with real EUR accounts. These 10 offer the best conditions for Cypriot traders including ICF protection, zero capital gains tax, and EUR base accounts.",
+  metaDescription: "We analyzed 45 CySEC-regulated brokers for Cypriot traders. These 10 offer the best conditions including ICF protection, zero capital gains tax, and EUR base accounts.",
   keyFinding: "Cyprus is the forex hub of Europe — home to more CySEC-regulated brokers than any other EU country. Local traders benefit from zero capital gains tax on trading profits, ESMA protection, and direct access to locally headquartered brokers with physical offices in Limassol and Nicosia.",
 
   brokers: [

@@ -48,7 +48,7 @@ export default function Proto11() {
             fontSize: mob ? 16 : 19, color: "#7c7268", maxWidth: 520,
             margin: "0 auto 36px", lineHeight: 1.7,
           }}>
-            {brokers.length} brokers tested with real capital. Transparent methodology. No sponsored placements.
+            {brokers.length} brokers independently analyzed. Transparent methodology. No sponsored placements.
           </p>
 
           <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>

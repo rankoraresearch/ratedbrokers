@@ -7,7 +7,7 @@ const CRYPTO_PILLAR = {
   meta: {
     title: "Best Crypto Brokers 2026 — Tested & Ranked | RatedBrokers",
     description:
-      "We tested the top crypto brokers with real money. Compare BTC spreads, security, staking rewards, and regulation. Expert rankings for Q1 2026.",
+      "We independently analyzed the top crypto brokers. Compare BTC spreads, security, staking rewards, and regulation. Expert rankings for Q1 2026.",
   },
 
   hero: {
@@ -16,8 +16,8 @@ const CRYPTO_PILLAR = {
     subtitle: "Tested, Compared & Ranked by Crypto Trading Experts",
     stats: [
       { value: "31", label: "Brokers Tested" },
-      { value: "500+", label: "Real Trades" },
-      { value: "200+", label: "Hours of Testing" },
+      { value: "130+", label: "Data Points" },
+      { value: "200+", label: "Hours of Research" },
       { value: "Feb 2026", label: "Last Updated" },
     ],
   },
@@ -141,7 +141,7 @@ const CRYPTO_PILLAR = {
   faq: [
     {
       q: "What is the best crypto broker in 2026?",
-      a: "Based on our real-money testing, the best overall crypto broker depends on your trading style. For CFD trading with leverage and tight spreads, IC Markets and Pepperstone lead our rankings. For spot trading and staking, eToro offers a balanced combination of regulated trading with real cryptocurrency ownership.",
+      a: "Based on our independent analysis, the best overall crypto broker depends on your trading style. For CFD trading with leverage and tight spreads, IC Markets and Pepperstone lead our rankings. For spot trading and staking, eToro offers a balanced combination of regulated trading with real cryptocurrency ownership.",
     },
     {
       q: "What is the difference between a crypto broker and an exchange?",
@@ -177,7 +177,7 @@ const CRYPTO_PILLAR = {
     },
     {
       q: "How are your crypto broker rankings different from other sites?",
-      a: "We test every crypto broker with real money — not demo accounts or broker-provided data. Our team deposits real funds, executes hundreds of trades, measures actual BTC spreads and execution speed, and tests withdrawal processes. We also verify regulatory status directly with authorities. Our rankings are updated quarterly.",
+      a: "We independently analyze every crypto broker across 130+ data points — verifying licenses on regulatory databases, collecting real-time spread data from independent sources, and aggregating user reviews. We also verify regulatory status directly with authorities. Our rankings are updated quarterly.",
     },
   ],
 };

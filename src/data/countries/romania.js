@@ -11,7 +11,7 @@ const data = {
   author: { name: "Sophia Papadimitriou", role: "European Markets Analyst", exp: "12 years", initials: "SP", linkedin: "#" },
   factChecker: "Marcus Chen",
   metaTitle: "10 Best Forex Brokers in Romania for 2026 — ASF & CySEC Regulated",
-  metaDescription: "We tested 20 brokers accepting Romanian traders with EUR/RON accounts. These 10 offer ESMA-compliant trading, ICF protection, and competitive conditions for Romanian forex traders.",
+  metaDescription: "We analyzed 20 brokers accepting Romanian traders. These 10 offer ESMA-compliant trading, ICF protection, and competitive conditions for Romanian forex traders.",
   keyFinding: "Romanian traders benefit from EU-wide ESMA protections through ASF regulation and CySEC-passported brokers. While Romania uses RON, most traders prefer EUR-denominated accounts to avoid conversion costs. XTB maintains a strong local presence with a Bucharest office.",
 
   brokers: [

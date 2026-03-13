@@ -31,7 +31,7 @@ export default function Proto6() {
           Best Forex<br />Brokers {mob ? "" : <span style={{ color: red }}>2026</span>}{mob && <span style={{ color: red }}>2026</span>}.
         </h1>
         <p style={{ fontSize: mob ? 16 : 20, color: "#71717a", maxWidth: 480, lineHeight: 1.7, marginBottom: 40 }}>
-          {brokers.length} brokers. Real money. Independent research. No sponsored rankings.
+          {brokers.length} brokers. Independent research. Expert-scored. No sponsored rankings.
         </p>
         <Link to={lp("/best-forex-brokers")} style={{
           display: "inline-flex", alignItems: "center", gap: 8,

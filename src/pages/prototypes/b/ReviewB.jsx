@@ -92,7 +92,7 @@ export default function ReviewB() {
                 {B.name} Review 2026
               </h1>
               <p style={{ fontSize: 15, color: "#78716c", margin: 0 }}>
-                Is {B.name} right for you? Here's our honest verdict after testing with real money.
+                Is {B.name} right for you? Here's our honest verdict based on independent expert analysis.
               </p>
             </div>
             <div style={{ textAlign: "center", flexShrink: 0 }}>

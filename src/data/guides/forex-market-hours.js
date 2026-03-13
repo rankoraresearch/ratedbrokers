@@ -91,7 +91,7 @@ export default {
         "Christmas/New Year (Dec 24 \u2013 Jan 2): Trading volumes drop 60\u201380%. Spreads can be 3\u20135x wider than normal.",
         "Immediately before major news releases: The 5\u201310 minutes before NFP, FOMC, or ECB decisions see liquidity vanish as market makers pull quotes."
       ],
-      warning: "Trading during low-liquidity hours significantly increases your costs. Our testing shows that EUR/USD spreads during the Asian session are 2\u20133x wider than during the London-New York overlap, even on ECN accounts."
+      warning: "Trading during low-liquidity hours significantly increases your costs. Our analysis shows that EUR/USD spreads during the Asian session are 2\u20133x wider than during the London-New York overlap, even on ECN accounts."
     },
     {
       id: "news-calendar",
@@ -127,7 +127,7 @@ export default {
     { q: "Is the forex market really open 24 hours?", a: "Yes, from Sunday 22:00 UTC to Friday 22:00 UTC. The market transitions seamlessly between sessions as financial centers open and close around the world. The only full closure is on weekends." },
     { q: "What is the best time to trade forex?", a: "The London-New York session overlap (13:00\u201317:00 UTC) offers the tightest spreads, deepest liquidity, and strongest price movements. This is the optimal window for most forex traders." },
     { q: "Can I trade forex on weekends?", a: "Standard forex markets are closed on weekends. Some brokers offer weekend trading on cryptocurrencies or exotic instruments, but liquidity is extremely low and spreads are wide. Weekend gaps on Sunday open can also trigger stop losses." },
-    { q: "Do spreads change during different sessions?", a: "Yes, significantly. Our testing shows EUR/USD spreads averaging 0.0\u20130.2 pips during London-NY overlap on ECN accounts, but widening to 0.5\u20131.5 pips during the Asian session. Market Maker brokers may maintain fixed spreads but widen them during low liquidity." },
+    { q: "Do spreads change during different sessions?", a: "Yes, significantly. Our analysis shows EUR/USD spreads averaging 0.0\u20130.2 pips during London-NY overlap on ECN accounts, but widening to 0.5\u20131.5 pips during the Asian session. Market Maker brokers may maintain fixed spreads but widen them during low liquidity." },
     { q: "Should I trade during news events?", a: "News trading can be highly profitable but carries extreme risk. Spreads widen dramatically, slippage increases, and price gaps can blow through stop losses. Only experienced traders with strict risk management should trade during high-impact news releases." },
     { q: "What timezone does my broker use?", a: "Most forex brokers use either UTC, GMT, or server time aligned to GMT+2 or GMT+3 (to align daily candle closes with the New York session close). Check your broker's platform settings to confirm their server timezone." },
     { q: "Is it bad to hold trades overnight?", a: "Holding trades overnight incurs swap fees (positive or negative) and exposes you to gap risk from overnight news. However, swing and position traders routinely hold overnight. The key is setting appropriate stop losses and being aware of upcoming news events." },

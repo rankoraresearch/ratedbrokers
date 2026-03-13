@@ -11,7 +11,7 @@ const data = {
   author: { name: "Sophia Papadimitriou", role: "European Markets Analyst", exp: "12 years", initials: "SP", linkedin: "#" },
   factChecker: "Marcus Chen",
   metaTitle: "10 Best Forex Brokers in Czech Republic for 2026 — CNB Regulated",
-  metaDescription: "We tested 22 brokers accepting Czech traders with CZK/EUR accounts. These 10 offer CNB regulation, ESMA protections, and competitive conditions for Czech forex traders.",
+  metaDescription: "We analyzed 22 brokers accepting Czech traders. These 10 offer CNB regulation, ESMA protections, and competitive conditions for Czech forex traders.",
   keyFinding: "The Czech Republic has one of Central Europe's strongest financial regulators in the CNB. Czech traders benefit from ESMA protections while having access to CZK-denominated accounts. XTB and Purple Trading maintain strong local presences in Prague.",
 
   brokers: [

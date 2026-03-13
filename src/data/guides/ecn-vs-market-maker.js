@@ -22,7 +22,7 @@ export default {
       title: null,
       paragraphs: [
         "One of the most important decisions a forex trader makes is choosing between an ECN (Electronic Communication Network) broker and a Market Maker. This choice directly impacts your trading costs, execution speed, and whether your broker has a financial incentive to trade against you.",
-        "At RatedBrokers, we test both ECN and Market Maker brokers with real money accounts, measuring actual spreads, execution times, and slippage across 500+ trades per broker. This guide breaks down the key differences so you can make an informed decision."
+        "At RatedBrokers, we independently analyze both ECN and Market Maker brokers across 130+ data points, evaluating spreads, execution times, and slippage from verified sources. This guide breaks down the key differences so you can make an informed decision."
       ]
     },
     {
@@ -138,9 +138,9 @@ export default {
     },
     {
       id: "our-testing",
-      title: "How We Test Execution Models at RatedBrokers",
+      title: "How We Analyze Execution Models at RatedBrokers",
       paragraphs: [
-        "Our testing methodology involves opening live accounts with real money deposits at every broker we review. We execute 500+ trades across different market conditions \u2014 quiet Asian sessions, volatile London opens, and high-impact news events.",
+        "Our research methodology involves independently analyzing 130+ data points per broker. We evaluate conditions across different market scenarios \u2014 quiet Asian sessions, volatile London opens, and high-impact news events.",
         "We measure actual spreads (not the 'typical' spreads brokers advertise), execution speed in milliseconds, slippage frequency and direction, and requote rates. This data forms the basis of our broker scores and rankings.",
         "Our findings consistently show that the gap between ECN and Market Maker costs is most significant for high-frequency traders. For someone placing 5\u201310 trades per month, the cost difference may be negligible. For a scalper placing 50+ trades per day, ECN execution can save thousands of dollars annually."
       ]

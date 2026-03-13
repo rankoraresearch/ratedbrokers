@@ -23,7 +23,7 @@ export default function ComparePage() {
   useEffect(() => {
     document.title = "Compare Forex Brokers 2026 | Side-by-Side | RatedBrokers";
     const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.content = "Compare 31 forex brokers side-by-side. Spreads, commissions, regulation, and platforms tested with real money. Find the best broker for your trading style.";
+    if (meta) meta.content = "Compare 31 forex brokers side-by-side. Spreads, commissions, regulation, and platforms independently analyzed. Find the best broker for your trading style.";
   }, []);
 
   const handleCompare = () => {
@@ -59,7 +59,7 @@ export default function ComparePage() {
           </p>
         </div>
         <p style={{ fontSize: 16, lineHeight: 1.7, color: "#475569", maxWidth: 800, margin: "0 auto 28px", textAlign: "center" }}>
-          Every broker in our database has been tested with real money deposits and 500+ live trades. Select any two from {allBrokers.length} brokers below to see how they stack up on spreads, execution speed, regulatory coverage, and total trading costs. Not sure where to start? Check our <Link to={lp("/best-forex-brokers")} style={{ color: "#059669", fontWeight: 600 }}>best forex brokers</Link> ranking first.
+          Every broker in our database has been independently analyzed across 130+ data points. Select any two from {allBrokers.length} brokers below to see how they stack up on spreads, execution speed, regulatory coverage, and total trading costs. Not sure where to start? Check our <Link to={lp("/best-forex-brokers")} style={{ color: "#059669", fontWeight: 600 }}>best forex brokers</Link> ranking first.
         </p>
 
         <div style={{

@@ -12,7 +12,7 @@ const data = {
   author: { name: "Erik Lindström", role: "Nordic Markets Specialist", exp: "11 years", initials: "EL", linkedin: "#" },
   factChecker: "Marcus Chen",
   metaTitle: "9 Best Forex Brokers in Sweden for 2026 — FI Regulated",
-  metaDescription: "We tested 24 FI-registered brokers with real SEK accounts. These 9 offer the best trading conditions for Swedish traders including Swish deposits, SEK accounts, and ESMA-compliant leverage.",
+  metaDescription: "We analyzed 24 FI-registered brokers for Swedish traders. These 9 offer the best trading conditions including Swish deposits, SEK accounts, and ESMA-compliant leverage.",
   keyFinding: "Swedish traders benefit from some of the highest deposit protection in Europe at SEK 1,050,000. Finansinspektionen enforces strict ESMA rules while allowing access to major EU-passported brokers. Swish support makes instant funding seamless.",
 
   brokers: [

@@ -153,7 +153,7 @@ export default {
       paragraphs: [
         "Broker reviews are a valuable resource, but they must be read with discernment. The forex industry is plagued by paid reviews, affiliate-driven content, and fake user testimonials. Here is how to extract genuine signal from the noise.",
         "Look for reviews that include specific, verifiable claims: measured spread data, documented withdrawal timelines, screenshots of platform performance. Vague praise like \"great broker, highly recommended\" with no specifics is often paid content. Conversely, extremely negative reviews from users with a single post history may be competitor attacks or disgruntled traders blaming the broker for their own losses.",
-        "At RatedBrokers, every broker review is based on real-money account testing. We measure live spreads over multi-week periods, document withdrawal speeds with timestamped screenshots, and verify regulatory status directly with the authorities. Our methodology is published transparently so you can evaluate our conclusions yourself."
+        "At RatedBrokers, every broker review is based on independent research across 130+ data points. We collect spread data from verified sources, document withdrawal processing times, and verify regulatory status directly with the authorities. Our methodology is published transparently so you can evaluate our conclusions yourself."
       ]
     },
     {

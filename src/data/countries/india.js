@@ -12,7 +12,7 @@ const data = {
   author: { name: "Arjun Mehta", role: "Indian Markets Specialist", exp: "14 years", initials: "AM", linkedin: "#" },
   factChecker: "Marcus Chen",
   metaTitle: "8 Best Forex Brokers in India for 2026 — SEBI Regulated",
-  metaDescription: "India heavily restricts forex trading to INR pairs on domestic exchanges. We tested SEBI-regulated brokers offering legitimate currency derivatives. These 8 are the best options for Indian residents.",
+  metaDescription: "India heavily restricts forex trading to INR pairs on domestic exchanges. We analyzed SEBI-regulated brokers offering legitimate currency derivatives. These 8 are the best options for Indian residents.",
   keyFinding: "Forex trading in India is legal ONLY through SEBI-regulated exchanges (NSE, BSE, MCX-SX) and restricted to INR-based currency pairs (USD/INR, EUR/INR, GBP/INR, JPY/INR). Trading international pairs like EUR/USD through offshore brokers violates FEMA regulations. Our top picks are SEBI-registered brokers offering legitimate currency derivatives.",
 
   brokers: [

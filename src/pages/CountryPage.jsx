@@ -158,7 +158,7 @@ export default function CountryPage() {
     if (COUNTRY) {
       document.title = COUNTRY.metaTitle || `Best Forex Brokers in ${COUNTRY.name} for 2026 | RatedBrokers`;
       const meta = document.querySelector('meta[name="description"]');
-      if (meta) meta.setAttribute("content", COUNTRY.metaDescription || `Compare the best forex brokers for ${COUNTRY.name} traders in 2026. ${COUNTRY.regulator}-regulated, tested with real money.`);
+      if (meta) meta.setAttribute("content", COUNTRY.metaDescription || `Compare the best forex brokers for ${COUNTRY.name} traders in 2026. ${COUNTRY.regulator}-regulated, independently analyzed.`);
     }
     window.scrollTo(0, 0);
   }, [countrySlug, COUNTRY]);
@@ -623,7 +623,7 @@ export default function CountryPage() {
               {COUNTRY.name} Broker Reviews \u2014 In-Depth Analysis
             </h2>
             <p style={{ fontSize: 16, color: "#64748b", lineHeight: 1.7, marginBottom: 28 }}>
-              We tested each broker with a real {COUNTRY.currency} account, executing 50+ trades per broker. Here\u2019s what {COUNTRY.name} traders need to know.
+              We analyzed each broker's {COUNTRY.currency} account conditions, regulatory status, and trading costs. Here\u2019s what {COUNTRY.name} traders need to know.
             </p>
 
             <div style={{ display: "flex", flexDirection: "column", gap: mob ? 24 : 32 }}>
@@ -925,7 +925,7 @@ export default function CountryPage() {
             Start Trading with a {COUNTRY.regulator} Broker
           </h2>
           <p style={{ fontSize: mob ? 14 : 16, color: "rgba(255,255,255,0.8)", marginBottom: 24, maxWidth: 440, marginLeft: "auto", marginRight: "auto" }}>
-            All brokers tested with real money. {COUNTRY.compensation ? COUNTRY.compensation + "." : ""}
+            All brokers independently researched and expert-scored. {COUNTRY.compensation ? COUNTRY.compensation + "." : ""}
           </p>
           <a href={BROKERS[0]?.url} target="_blank" rel="noopener noreferrer nofollow" style={{
             display: "inline-block", padding: mob ? "12px 28px" : "14px 36px", borderRadius: 12,

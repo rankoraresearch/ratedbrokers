@@ -12,7 +12,7 @@ const data = {
   author: { name: "Thabo Ndlovu", role: "African Markets Specialist", exp: "10 years", initials: "TN", linkedin: "#" },
   factChecker: "Marcus Chen",
   metaTitle: "9 Best Forex Brokers in South Africa for 2026 \u2014 FSCA Regulated",
-  metaDescription: "We tested 28 FSCA-regulated brokers with real ZAR accounts. These 9 offer the best trading conditions for South African traders including FSCA regulation, ZAR deposits, and local EFT support.",
+  metaDescription: "We analyzed 28 FSCA-regulated brokers for South African traders. These 9 offer the best trading conditions including FSCA regulation, ZAR deposits, and local EFT support.",
   keyFinding: "South Africa\u2019s FSCA provides a solid regulatory foundation, though it\u2019s less restrictive than tier-1 regulators like the FCA or ASIC. Higher leverage is available (up to 1:200+), but without mandatory negative balance protection. All our top picks hold FSCA licences and offer ZAR base accounts.",
 
   brokers: [

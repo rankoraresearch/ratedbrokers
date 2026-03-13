@@ -45,7 +45,7 @@ export default function Proto3() {
             Broker Intelligence,<br />{mob ? "" : ""}Simplified.
           </h1>
           <p style={{ fontSize: mob ? 16 : 20, color: "rgba(255,255,255,0.7)", maxWidth: 580, margin: "0 auto 36px", lineHeight: 1.6 }}>
-            Independent broker reviews backed by real-money testing. Find, compare, and choose with confidence.
+            Independent broker reviews backed by expert research. Find, compare, and choose with confidence.
           </p>
           <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
             <Link to={lp("/best-forex-brokers")} style={{
@@ -113,8 +113,8 @@ export default function Proto3() {
         </h2>
         <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "repeat(3, 1fr)", gap: 24 }}>
           {[
-            { icon: <Shield size={32} color={accent} />, step: "01", title: "Open Real Accounts", desc: "We register, verify, and deposit real money with every broker we review." },
-            { icon: <Zap size={32} color={accent} />, step: "02", title: "Execute 500+ Trades", desc: "Test spreads, execution speed, slippage, and platform stability over 30+ days." },
+            { icon: <Shield size={32} color={accent} />, step: "01", title: "Verify Credentials", desc: "We verify every license on regulatory databases and check corporate transparency." },
+            { icon: <Zap size={32} color={accent} />, step: "02", title: "Analyze 130+ Data Points", desc: "Collect spread data, compare costs, aggregate user reviews from independent sources." },
             { icon: <Star size={32} color={accent} />, step: "03", title: "Score & Rank", desc: "Rate across 6 weighted categories with a transparent, published methodology." },
           ].map((item, i) => (
             <div key={i} style={{ textAlign: "center", padding: "32px 24px" }}>

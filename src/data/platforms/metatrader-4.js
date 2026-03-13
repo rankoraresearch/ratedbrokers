@@ -4,7 +4,7 @@ const metatrader4 = {
   rankingSlug: "/best-metatrader-4-brokers",
   meta: {
     title: "MetaTrader 4 (MT4) Platform Guide 2026: Features & Best Brokers | RatedBrokers",
-    description: "Complete MetaTrader 4 guide: features, Expert Advisors, MQL4, mobile trading, pros & cons, and the best MT4 brokers tested with real money in 2026.",
+    description: "Complete MetaTrader 4 guide: features, Expert Advisors, MQL4, mobile trading, pros & cons, and the best MT4 brokers independently analyzed for 2026.",
   },
   hero: {
     badge: "PLATFORM",

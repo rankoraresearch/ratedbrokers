@@ -11,7 +11,7 @@ const data = {
   author: { name: "Elif Arslan", role: "Turkish Markets Specialist", exp: "12 years", initials: "EA", linkedin: "#" },
   factChecker: "Marcus Chen",
   metaTitle: "10 Best Forex Brokers in Turkey for 2026 — SPK Regulated",
-  metaDescription: "We tested 28 SPK-regulated brokers with real TRY accounts. These 10 offer the best conditions for Turkish traders including SPK regulation, TRY accounts, and investor compensation.",
+  metaDescription: "We analyzed 28 SPK-regulated brokers for Turkish traders. These 10 offer the best conditions including SPK regulation, TRY accounts, and investor compensation.",
   keyFinding: "Turkey's SPK imposes the world's strictest leverage cap at 1:10 for retail forex, making it crucial to choose brokers with the tightest spreads. All our top SPK-regulated picks offer investor compensation, negative balance protection, and TRY accounts.",
 
   brokers: [

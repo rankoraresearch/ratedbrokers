@@ -30,7 +30,7 @@ export default function HomeB() {
   const steps = [
     { num: "01", title: "Choose Your Style", desc: "Scalper, swing, or long-term? We have rankings for each trading approach.", icon: <Compass size={24} color={teal} /> },
     { num: "02", title: "Compare Brokers", desc: "See detailed side-by-side comparisons on fees, platforms, and safety.", icon: <BookOpen size={24} color={teal} /> },
-    { num: "03", title: "Start Trading", desc: "Open your account with confidence. We tested them all with real money.", icon: <CheckCircle size={24} color={teal} /> },
+    { num: "03", title: "Start Trading", desc: "Open your account with confidence. We analyzed them all across 130+ data points.", icon: <CheckCircle size={24} color={teal} /> },
   ];
 
   return (
@@ -45,7 +45,7 @@ export default function HomeB() {
             <Heart size={12} color={coral} fill={coral} /> Trusted by Beginners
           </span>
           <span style={{ display: "flex", alignItems: "center", gap: 4 }}>
-            <Shield size={12} color={teal} /> Real Money Testing
+            <Shield size={12} color={teal} /> Independent Research
           </span>
           {!mob && <span style={{ display: "flex", alignItems: "center", gap: 4 }}>
             <Award size={12} color={teal} /> 100% Independent
@@ -75,7 +75,7 @@ export default function HomeB() {
           fontSize: mob ? 16 : 18, color: "#78716c", maxWidth: 520,
           margin: "0 auto 32px", lineHeight: 1.7,
         }}>
-          We tested {brokers.length} forex brokers with real money so you don't have to.
+          We analyzed {brokers.length} forex brokers across 130+ data points so you don't have to.
           Simple, honest, beginner-friendly reviews.
         </p>
         <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
@@ -198,11 +198,11 @@ export default function HomeB() {
               <span style={{ fontSize: 13, fontWeight: 700, color: teal }}>Why Trust Us</span>
             </div>
             <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 24 : 32, marginBottom: 12, lineHeight: 1.15 }}>
-              Real Testing,<br />Honest Results
+              Independent Research,<br />Honest Results
             </h2>
             <p style={{ fontSize: 16, color: "#78716c", lineHeight: 1.7, marginBottom: 20 }}>
-              We don't just read about brokers — we test them. Real accounts, real money,
-              real trades. No broker can pay for a better ranking.
+              We don't just read about brokers — we research them. 130+ data points,
+              independent sources. No broker can pay for a better ranking.
             </p>
             <Link to={lp("/methodology")} style={{
               display: "inline-flex", alignItems: "center", gap: 6,

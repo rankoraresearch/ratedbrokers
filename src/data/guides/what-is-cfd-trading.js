@@ -149,7 +149,7 @@ export default {
       title: "How to Choose a CFD Broker",
       paragraphs: [
         "Selecting the right CFD broker is critical. At RatedBrokers, we evaluate brokers on regulation (Tier 1 licenses from FCA, ASIC, or CySEC are essential), trading costs (spreads, commissions, and swap fees), execution quality (speed and slippage), platform quality (charting tools, order types, mobile apps), and range of markets (how many CFD instruments are available).",
-        "Our top-rated CFD brokers combine competitive pricing with strict regulation and excellent execution. We test every broker with real money accounts, executing 500+ trades to measure actual trading conditions."
+        "Our top-rated CFD brokers combine competitive pricing with strict regulation and excellent execution. We independently analyze every broker across 130+ data points to verify actual trading conditions."
       ]
     }
   ],

@@ -11,7 +11,7 @@ const data = {
   author: { name: "Daniel Levi", role: "Middle East Financial Markets Expert", exp: "16 years", initials: "DL", linkedin: "#" },
   factChecker: "Marcus Chen",
   metaTitle: "10 Best Forex Brokers in Israel for 2026 — ISA Regulated",
-  metaDescription: "We tested 18 brokers accepting Israeli traders with ILS accounts. These 10 offer ISA-compliant trading, competitive spreads, and Hebrew-language support for Israeli forex traders.",
+  metaDescription: "We analyzed 18 brokers accepting Israeli traders. These 10 offer ISA-compliant trading, competitive spreads, and Hebrew-language support for Israeli forex traders.",
   keyFinding: "Israel's ISA imposes strict regulation including 1:100 leverage cap for forex, mandatory risk warnings, and binary options ban. eToro (founded in Tel Aviv) is the most prominent Israeli-origin broker. Our top picks combine ISA compliance with tight spreads and ILS account support.",
 
   brokers: [

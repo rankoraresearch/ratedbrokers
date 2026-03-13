@@ -11,7 +11,7 @@ const data = {
   author: { name: "James Okonkwo", role: "African Markets Analyst", exp: "11 years", initials: "JO", linkedin: "#" },
   factChecker: "Marcus Chen",
   metaTitle: "10 Best Forex Brokers in Kenya for 2026 — CMA Regulated",
-  metaDescription: "We tested 18 brokers accepting Kenyan traders with M-Pesa deposits. These 10 offer the best conditions including CMA Kenya regulation, KES accounts, and low minimum deposits.",
+  metaDescription: "We analyzed 18 brokers accepting Kenyan traders. These 10 offer the best conditions including CMA Kenya regulation, KES accounts, and low minimum deposits.",
   keyFinding: "Kenya is East Africa's leading forex trading hub with a growing number of CMA-licensed brokers. M-Pesa integration is the most important feature for Kenyan traders — our top 5 brokers all support it for instant deposits.",
 
   brokers: [

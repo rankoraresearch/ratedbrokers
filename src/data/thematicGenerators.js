@@ -255,7 +255,7 @@ function buildAnalysis(B, cfg) {
   // P1: Core value proposition for this theme
   if (isECN || isDMA) {
     paragraphs.push(
-      `${B.name} operates a ${isECN ? "true ECN" : "DMA"} execution model, routing orders directly to liquidity providers without dealing desk intervention. For ${theme}, this means transparent pricing with raw spreads from ${B.spread || "0.0"} pips on the tightest account tier. The average EUR/USD spread of ${s} pips in our testing places ${B.name} ${s <= 0.1 ? "among the tightest-spread brokers available" : s <= 0.3 ? "in the competitive mid-range for ECN brokers" : "at a reasonable level for its execution model"}.`
+      `${B.name} operates a ${isECN ? "true ECN" : "DMA"} execution model, routing orders directly to liquidity providers without dealing desk intervention. For ${theme}, this means transparent pricing with raw spreads from ${B.spread || "0.0"} pips on the tightest account tier. The average EUR/USD spread of ${s} pips in our analysis places ${B.name} ${s <= 0.1 ? "among the tightest-spread brokers available" : s <= 0.3 ? "in the competitive mid-range for ECN brokers" : "at a reasonable level for its execution model"}.`
     );
   } else if (isMM) {
     paragraphs.push(

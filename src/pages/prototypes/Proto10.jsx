@@ -20,7 +20,7 @@ export default function Proto10() {
   const green = "#10b981";
 
   const testimonials = [
-    { name: "James T.", country: "UK", text: "Finally a review site that tests with real money. Found my broker in 10 minutes.", rating: 5 },
+    { name: "James T.", country: "UK", text: "Finally a review site with transparent methodology. Found my broker in 10 minutes.", rating: 5 },
     { name: "Akira M.", country: "Japan", text: "The side-by-side comparison saved me from a poorly regulated broker. Thank you!", rating: 5 },
     { name: "Sophie L.", country: "Australia", text: "Best resource for beginners. The scoring breakdown makes it so easy to compare.", rating: 5 },
   ];
@@ -51,7 +51,7 @@ export default function Proto10() {
           Trusted by 50,000+<br />Traders Worldwide
         </h1>
         <p style={{ fontSize: mob ? 16 : 18, color: "#64748b", maxWidth: 540, margin: "0 auto 12px", lineHeight: 1.6 }}>
-          {brokers.length} brokers independently tested with real money. See which brokers traders actually recommend.
+          {brokers.length} brokers independently researched and expert-scored. See which brokers traders actually recommend.
         </p>
         <div style={{ display: "flex", justifyContent: "center", gap: 4, marginBottom: 32 }}>
           {[1, 2, 3, 4, 5].map(i => <Star key={i} size={20} fill="#fbbf24" color="#fbbf24" />)}

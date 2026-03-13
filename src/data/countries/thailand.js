@@ -12,7 +12,7 @@ const data = {
   author: { name: "Siriporn Tanaka", role: "ASEAN Markets Analyst", exp: "10 years", initials: "ST", linkedin: "#" },
   factChecker: "Marcus Chen",
   metaTitle: "10 Best Forex Brokers in Thailand for 2026 — SEC Licensed",
-  metaDescription: "We tested brokers accessible to Thai traders with THB deposits. These 10 offer the best conditions including strong regulation, Thai language support, and competitive spreads for THB pair trading.",
+  metaDescription: "We analyzed brokers accessible to Thai traders. These 10 offer the best conditions including strong regulation, Thai language support, and competitive spreads for THB pair trading.",
   keyFinding: "Thailand's SEC and Bank of Thailand (BOT) regulate forex activity. Retail forex CFD trading through international brokers operates in a grey area — not explicitly banned but not domestically regulated. Most Thai traders use internationally-regulated brokers with THB deposit options. The BOT manages THB foreign exchange controls.",
 
   brokers: [

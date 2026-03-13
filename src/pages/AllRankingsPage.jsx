@@ -65,7 +65,7 @@ export default function AllRankingsPage() {
   useEffect(() => {
     document.title = `All Broker Rankings ${YEAR} — 207 Expert-Tested Lists | RatedBrokers`;
     const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", `Browse 207 broker rankings for ${YEAR}. Forex, crypto, CFDs — filtered by trading style, platform, costs, regulation, and country. All tested with real money.`);
+    if (meta) meta.setAttribute("content", `Browse 207 broker rankings for ${YEAR}. Forex, crypto, CFDs — filtered by trading style, platform, costs, regulation, and country. All independently analyzed.`);
     window.scrollTo(0, 0);
   }, []);
 
