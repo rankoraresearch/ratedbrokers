@@ -7,7 +7,7 @@ import { getAllBrokersWithData } from "../data/brokers/index";
 import { AUTHORS, getFactChecker, getReviewerForAuthor, getEditor } from "../data/authors";
 import BrokerRankCard from "../components/BrokerRankCard";
 import Accordion from "../components/Accordion";
-import AuthorByline from "../components/AuthorByline";
+import AuthorCredits from "../components/AuthorCredits";
 import AuthorBioCard from "../components/AuthorBioCard";
 import Breadcrumb, { breadcrumbSchema } from "../components/Breadcrumb";
 import Icon, { ArrowRight, Check, X as XIcon, ExternalLink } from "../components/Icon";
@@ -170,7 +170,7 @@ export default function PlatformPage() {
               fontSize: mob ? 15 : 17, lineHeight: 1.6, color: "#1f2937",
               margin: "0 0 20px", maxWidth: 700,
             }}>{platform.hero.subtitle}</p>
-            <AuthorByline author={author} editor={editor} factChecker={factChecker} reviewer={reviewer} updatedDate={platform.updatedDate} />
+            <AuthorCredits author={author} editor={editor} factChecker={factChecker} reviewer={reviewer} updatedDate={platform.updatedDate} />
           </div>
         </section>
         <HeroWave color="#f8f9fb" height={mob ? 24 : 36} />

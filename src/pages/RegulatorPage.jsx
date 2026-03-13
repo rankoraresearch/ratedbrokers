@@ -11,6 +11,8 @@ import { Shield, AlertTriangle, CircleX } from "lucide-react";
 import CountryFlag from "../components/CountryFlag";
 import RegulatorLogo from "../components/RegulatorLogo";
 import HeroWave, { DotGrid } from "../components/HeroWave";
+import AuthorCredits from "../components/AuthorCredits";
+import { TEAM } from "../data/authors";
 
 function useMedia() {
   const [w, setW] = useState(typeof window !== "undefined" ? window.innerWidth : 1200);
@@ -249,6 +251,17 @@ export default function RegulatorPage() {
               )}
             </div>
           ))}
+
+          {/* Author Credits */}
+          <div style={{ marginTop: 32, paddingTop: 20, borderTop: "1px solid #e8ecf1" }}>
+            <AuthorCredits
+              author={TEAM.writer}
+              editor={TEAM.editor}
+              factChecker={TEAM.factChecker}
+              reviewer={TEAM.reviewer}
+              updatedDate="March 2026"
+            />
+          </div>
         </main>
 
         {/* Sidebar - Key Facts */}

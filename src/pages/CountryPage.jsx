@@ -12,6 +12,8 @@ import Breadcrumb from "../components/Breadcrumb";
 import Icon from "../components/Icon";
 import { Check, X as XIcon, ArrowRight, ChevronRight, ChevronUp, ChevronDown, HelpCircle, ExternalLink } from "lucide-react";
 import CountryFlag from "../components/CountryFlag";
+import AuthorCredits from "../components/AuthorCredits";
+import { TEAM } from "../data/authors";
 
 // ============================
 // RESPONSIVE HOOK
@@ -234,31 +236,14 @@ export default function CountryPage() {
               {t("country.tested", { count: COUNTRY.localBrokersTotal, reg: COUNTRY.regulator, currency: COUNTRY.currency, date: COUNTRY.updatedDate })}
             </p>
 
-            {/* Author */}
-            <div style={{ display: "flex", alignItems: "center", gap: mob ? 8 : 16, flexWrap: "wrap" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                {COUNTRY.author.image ? (
-                  <img src={COUNTRY.author.image.startsWith('/') ? `${import.meta.env.BASE_URL}${COUNTRY.author.image.slice(1)}` : COUNTRY.author.image} alt={COUNTRY.author.name} style={{
-                    width: 32, height: 32, borderRadius: "50%", objectFit: "cover",
-                  }} />
-                ) : (
-                  <div style={{
-                    width: 32, height: 32, borderRadius: "50%",
-                    background: "linear-gradient(135deg,#1e3a5f,#2d5a8e)",
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                    fontWeight: 700, fontSize: 14, color: "#fff",
-                  }}>{COUNTRY.author.initials}</div>
-                )}
-                <div>
-                  <div style={{ fontSize: 15, fontWeight: 700 }}>{COUNTRY.author.name}</div>
-                  <div style={{ fontSize: 13, color: "#1f2937" }}>{COUNTRY.author.role}</div>
-                </div>
-              </div>
-              {!mob && <div style={{ width: 1, height: 24, background: "#e2e8f0" }} />}
-              <div style={{ fontSize: 14, color: "#1f2937" }}>
-                {t("country.lastUpdated")}: {COUNTRY.updatedDate}
-              </div>
-            </div>
+            {/* Author Credits */}
+            <AuthorCredits
+              author={TEAM.writer}
+              editor={TEAM.editor}
+              factChecker={TEAM.factChecker}
+              reviewer={TEAM.reviewer}
+              updatedDate={COUNTRY.updatedDate}
+            />
           </div>
 
           {/* Quick Facts card */}
