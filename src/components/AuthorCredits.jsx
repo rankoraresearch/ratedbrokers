@@ -56,7 +56,7 @@ function Dot({ onDark }) {
   );
 }
 
-export default function AuthorCredits({ author, editor, reviewer, factChecker, updatedDate, variant = "default", onDark: onDarkProp = false }) {
+export default function AuthorCredits({ author, editor, reviewer, factChecker, updatedDate, variant = "default", onDark: onDarkProp = false, compact = false }) {
   if (!author) return null;
 
   const onDark = onDarkProp || variant === "onDark";
@@ -68,6 +68,33 @@ export default function AuthorCredits({ author, editor, reviewer, factChecker, u
   if (editor) credits.push({ label: "Edited by", author: editor, isFactChecker: false });
   if (factChecker) credits.push({ label: "Fact-checked by", author: factChecker, isFactChecker: true });
   if (reviewer) credits.push({ label: "Reviewed by", author: reviewer, isFactChecker: false });
+
+  if (compact) {
+    const rest = credits.slice(1);
+    return (
+      <div style={{ display: "flex", flexDirection: "column", gap: 4, marginTop: 8 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+          <AuthorAvatar author={author} size={20} />
+          <InlineCredit label={credits[0].label} author={credits[0].author} onDark={onDark} isFactChecker={false} />
+        </div>
+        {(rest.length > 0 || updatedDate) && (
+          <div style={{ display: "flex", alignItems: "center", gap: 4, flexWrap: "wrap", paddingLeft: 26 }}>
+            {rest.map((c, i) => (
+              <span key={c.author.id + c.label} style={{ display: "inline-flex", alignItems: "center" }}>
+                <InlineCredit label={c.label} author={c.author} onDark={onDark} isFactChecker={c.isFactChecker} />
+                {(i < rest.length - 1 || updatedDate) && <Dot onDark={onDark} />}
+              </span>
+            ))}
+            {updatedDate && (
+              <span style={{ fontSize: 13, color: dateColor, whiteSpace: "nowrap" }}>
+                Updated {updatedDate}
+              </span>
+            )}
+          </div>
+        )}
+      </div>
+    );
+  }
 
   return (
     <div style={{
