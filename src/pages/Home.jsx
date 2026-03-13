@@ -272,7 +272,7 @@ function BrokerPodium({ mob, tab, lp, brokers }) {
           Best Forex Brokers 2026
         </h2>
         <p style={{ textAlign: "center", fontSize: 15, color: "#64748b", marginBottom: 28, maxWidth: 500, margin: "0 auto 28px" }}>
-          Ranked by our expert team after testing with real money deposits.
+          Ranked by our expert team across 6 scoring categories.
         </p>
 
         {/* Top 3 Cards */}
@@ -428,7 +428,7 @@ function BrokerCardGrid({ mob, tab, lp, brokers }) {
           Top Rated Brokers 2026
         </h2>
         <p style={{ textAlign: "center", fontSize: 15, color: "#64748b", marginBottom: 28, maxWidth: 500, margin: "0 auto 28px" }}>
-          Our highest-scoring brokers based on real-money testing.
+          Our highest-scoring brokers based on independent expert analysis.
         </p>
 
         {/* Top 3 Large Cards */}
@@ -560,7 +560,7 @@ function BrokerEditorial({ mob, tab, lp, brokers }) {
           Our Top Picks &mdash; March 2026
         </h2>
         <p style={{ textAlign: "center", fontSize: 15, color: "#64748b", marginBottom: 28, maxWidth: 500, margin: "0 auto 28px" }}>
-          Handpicked by our editorial team after exhaustive real-money testing.
+          Handpicked by our editorial team after exhaustive research and analysis.
         </p>
 
         {/* #1 Featured Card */}
@@ -708,7 +708,7 @@ export default function Home() {
   useEffect(() => {
     document.title = "RatedBrokers \u2014 Forex Broker Reviews & Rankings (2026)";
     const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", `RatedBrokers is an independent broker comparison platform. We test ${allBrokersData.length} forex brokers with real money deposits. Expert reviews, rankings by category, and side-by-side comparisons.`);
+    if (meta) meta.setAttribute("content", `RatedBrokers is an independent broker comparison platform. We analyze ${allBrokersData.length} forex brokers across 130+ data points. Expert reviews, rankings by category, and side-by-side comparisons.`);
     const schemas = [
       { "@context": "https://schema.org", "@type": "WebSite", name: "RatedBrokers", url: "https://ratedbrokers.com" },
       { "@context": "https://schema.org", "@type": "Organization", name: "RatedBrokers", url: "https://ratedbrokers.com", logo: "https://ratedbrokers.com/logo.png" },
@@ -756,12 +756,12 @@ export default function Home() {
                 {t("home.heroTitle1")}
               </h1>
               <p style={{ fontSize: mob ? 15 : 17, color: "rgba(255,255,255,0.7)", fontWeight: 600, marginBottom: 20, lineHeight: 1.5 }}>
-                Tested with real money. {allBrokersData.length} brokers ranked.
+                Independently researched. {allBrokersData.length} brokers ranked.
               </p>
               <div style={{ display: "flex", gap: mob ? 16 : 28, flexWrap: "wrap" }}>
                 {[
                   [String(allBrokersData.length), t("home.stat.brokers")],
-                  ["500+", t("home.stat.trades")],
+                  ["130+", t("home.stat.trades")],
                   ["96h", t("home.stat.research")],
                   ["Q1 2026", t("home.stat.update")],
                 ].map(([val, label], i) => (

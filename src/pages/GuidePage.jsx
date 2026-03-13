@@ -4,7 +4,7 @@ import { useMedia } from "../hooks/useMedia";
 import { useLocalePath } from "../i18n/useLocalePath";
 import { useTranslation } from "../i18n/LanguageContext";
 import { getGuideBySlug, getAllGuides } from "../data/guides/index";
-import { AUTHORS, getFactChecker, getReviewerForAuthor } from "../data/authors";
+import { AUTHORS, getFactChecker, getReviewerForAuthor, getEditor } from "../data/authors";
 import Accordion from "../components/Accordion";
 import AuthorCredits from "../components/AuthorCredits";
 import AuthorBioCard from "../components/AuthorBioCard";
@@ -105,6 +105,7 @@ export default function GuidePage() {
   }
 
   const author = AUTHORS[guide.author] || AUTHORS["marcus-chen"];
+  const editor = getEditor();
   const reviewer = getReviewerForAuthor(author.id);
   const factChecker = getFactChecker(author.id);
   const cn = { maxWidth: 800, margin: "0 auto", padding: mob ? "0 16px" : "0 24px" };
@@ -148,7 +149,7 @@ export default function GuidePage() {
           margin: "0 0 20px", maxWidth: 640,
         }}>{guide.hero.subtitle}</p>
 
-        <AuthorCredits author={author} reviewer={reviewer} factChecker={factChecker} updatedDate={guide.updatedDate} />
+        <AuthorCredits author={author} editor={editor} reviewer={reviewer} factChecker={factChecker} updatedDate={guide.updatedDate} />
       </section>
 
       {/* ══════ TABLE OF CONTENTS ══════ */}
@@ -322,7 +323,7 @@ export default function GuidePage() {
               Ready to Find Your Broker?
             </div>
             <p style={{ fontSize: 15, color: "rgba(255,255,255,0.65)", marginBottom: 20 }}>
-              Browse our expert-tested broker rankings, updated quarterly with real money accounts.
+              Browse our expert-analyzed broker rankings, updated quarterly.
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 10, justifyContent: "center" }}>
               {guide.relatedRankings.map((r, i) => (

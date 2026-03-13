@@ -4,7 +4,7 @@ import { useMedia } from "../hooks/useMedia";
 import { useLocalePath } from "../i18n/useLocalePath";
 import { getPlatformBySlug, getAllPlatforms } from "../data/platforms/index";
 import { getAllBrokersWithData } from "../data/brokers/index";
-import { AUTHORS, getFactChecker } from "../data/authors";
+import { AUTHORS, getFactChecker, getReviewerForAuthor, getEditor } from "../data/authors";
 import BrokerRankCard from "../components/BrokerRankCard";
 import Accordion from "../components/Accordion";
 import AuthorByline from "../components/AuthorByline";
@@ -117,7 +117,9 @@ export default function PlatformPage() {
   }
 
   const author = AUTHORS[platform.author] || AUTHORS["marcus-chen"];
+  const editor = getEditor();
   const factChecker = getFactChecker(author.id);
+  const reviewer = getReviewerForAuthor(author.id);
 
   // Get brokers that support this platform
   const allBrokers = getAllBrokersWithData();
@@ -165,7 +167,7 @@ export default function PlatformPage() {
             fontSize: mob ? 15 : 17, lineHeight: 1.6, color: "#475569",
             margin: "0 0 20px", maxWidth: 700,
           }}>{platform.hero.subtitle}</p>
-          <AuthorByline author={author} factChecker={factChecker} updatedDate={platform.updatedDate} />
+          <AuthorByline author={author} editor={editor} factChecker={factChecker} reviewer={reviewer} updatedDate={platform.updatedDate} />
         </div>
       </section>
 
@@ -307,7 +309,7 @@ export default function PlatformPage() {
               margin: "0 0 16px", lineHeight: 1.25,
             }}>Best Brokers Using {platform.platformName}</h2>
             <p style={{ fontSize: 16, lineHeight: 1.8, color: "#334155", margin: "0 0 20px" }}>
-              We tested {platformBrokers.length} brokers that offer {platform.platformName}. Here are the top-rated ones, sorted by our expert score. All brokers are tested with real money accounts.
+              We analyzed {platformBrokers.length} brokers that offer {platform.platformName}. Here are the top-rated ones, sorted by our expert score. All brokers are independently researched and scored.
             </p>
             {platformBrokers.length === 0 ? (
               <p style={{ fontSize: 16, color: "#64748b" }}>No brokers in our database currently offer {platform.platformName}.</p>

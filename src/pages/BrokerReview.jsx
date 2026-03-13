@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { getBrokerData } from "../data/brokers/index";
 import { useTranslation } from "../i18n/LanguageContext";
 import { useLocalePath } from "../i18n/useLocalePath";
-import { getAuthorByName, getFactChecker, getReviewerForAuthor } from "../data/authors";
+import { getAuthorByName, getFactChecker, getReviewerForAuthor, getEditor } from "../data/authors";
 import AuthorCredits from "../components/AuthorCredits";
 import AuthorBioCard from "../components/AuthorBioCard";
 import AuthorAvatar from "../components/AuthorAvatar";
@@ -61,7 +61,7 @@ export default function BrokerReview() {
     if (data) {
       document.title = `${data.B.name} Review 2026: Fees, Pros & Cons | RatedBrokers`;
       const metaDesc = document.querySelector('meta[name="description"]');
-      if (metaDesc) metaDesc.setAttribute("content", `Is ${data.B.name} any good? We tested it with real money. Score: ${data.B.score}/10. Spreads from ${data.B.spread} pips, ${data.B.type} execution, ${data.B.regs.filter(r=>r.tier===1).map(r=>r.name).join(" & ")||"regulated"} broker. Full expert review.`);
+      if (metaDesc) metaDesc.setAttribute("content", `Is ${data.B.name} any good? Expert-analyzed across 6 categories. Score: ${data.B.score}/10. Spreads from ${data.B.spread} pips, ${data.B.type} execution, ${data.B.regs.filter(r=>r.tier===1).map(r=>r.name).join(" & ")||"regulated"} broker. Full expert review.`);
       const a = getAuthorByName(data.AUTHOR.name);
       const jsonLd = [
         {
@@ -112,6 +112,7 @@ export default function BrokerReview() {
 
   const { B, SCORES, ACCOUNTS, SPREADS, spreadCompetitors, DEPOSITS, TIMELINE, PROS, CONS, FAQ, AUTHOR, SIMILAR, costBoxes, trustpilotBars, content: enContent } = data;
   const author = getAuthorByName(AUTHOR.name);
+  const authorEditor = getEditor();
   const authorReviewer = getReviewerForAuthor(author?.id);
   const authorFactChecker = getFactChecker(author?.id);
 
@@ -204,7 +205,7 @@ export default function BrokerReview() {
         <main>
           {/* Author */}
           <div style={{marginBottom:20}}>
-            <AuthorCredits author={author} reviewer={authorReviewer} factChecker={authorFactChecker} updatedDate={AUTHOR.updated} />
+            <AuthorCredits author={author} editor={authorEditor} reviewer={authorReviewer} factChecker={authorFactChecker} updatedDate={AUTHOR.updated} />
           </div>
 
           {/* OVERVIEW */}

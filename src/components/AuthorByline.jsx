@@ -1,7 +1,11 @@
+import { Link } from "react-router-dom";
 import { Linkedin, Shield } from "lucide-react";
+import { useLocalePath } from "../i18n/useLocalePath";
 import AuthorAvatar from "./AuthorAvatar";
+import AuthorHoverCard from "./AuthorHoverCard";
 
-export default function AuthorByline({ author, factChecker, updatedDate, variant = "default" }) {
+export default function AuthorByline({ author, editor, factChecker, reviewer, updatedDate, variant = "default" }) {
+  const lp = useLocalePath();
   if (!author) return null;
 
   const onDark = variant === "onDark";
@@ -9,7 +13,6 @@ export default function AuthorByline({ author, factChecker, updatedDate, variant
 
   const textColor = onDark ? "rgba(255,255,255,0.7)" : "#64748b";
   const nameColor = onDark ? "#fff" : "#1e293b";
-  const pillBorder = onDark ? "rgba(255,255,255,0.15)" : "#e2e8f0";
 
   return (
     <div style={{
@@ -23,16 +26,17 @@ export default function AuthorByline({ author, factChecker, updatedDate, variant
         {/* Name + Role + LinkedIn */}
         <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-            <a
-              href={author.linkedin}
-              target="_blank"
-              rel="noopener"
-              style={{
-                fontFamily: "Outfit", fontWeight: 700, fontSize: 16,
-                color: nameColor, textDecoration: "none",
-              }}
-            >{author.name}</a>
-            {/* LinkedIn button */}
+            <AuthorHoverCard author={author} onDark={onDark}>
+              <Link
+                to={lp(`/author/${author.id}`)}
+                style={{
+                  fontFamily: "Outfit", fontWeight: 700, fontSize: 16,
+                  color: nameColor, textDecoration: "none",
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.textDecoration = "underline"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.textDecoration = "none"; }}
+              >{author.name}</Link>
+            </AuthorHoverCard>
             <a
               href={author.linkedin}
               target="_blank"
@@ -83,30 +87,58 @@ export default function AuthorByline({ author, factChecker, updatedDate, variant
         </div>
       </div>
 
-      {/* Fact-checker + updated date */}
-      {(factChecker || updatedDate) && (
+      {/* Secondary credits + date */}
+      {(editor || factChecker || reviewer || updatedDate) && (
         <div style={{
           display: "flex", alignItems: "center", gap: 6,
           fontSize: 13, color: textColor,
           paddingLeft: centered ? 0 : 60,
           flexWrap: "wrap",
         }}>
+          {editor && (
+            <>
+              <span>Edited by </span>
+              <AuthorHoverCard author={editor} onDark={onDark}>
+                <Link to={lp(`/author/${editor.id}`)} style={{ color: nameColor, fontWeight: 600, textDecoration: "none" }}
+                  onMouseEnter={(e) => { e.currentTarget.style.textDecoration = "underline"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.textDecoration = "none"; }}
+                >{editor.name}</Link>
+              </AuthorHoverCard>
+              <span style={{ color: onDark ? "rgba(255,255,255,0.3)" : "#cbd5e1" }}>&middot;</span>
+            </>
+          )}
           {factChecker && (
             <>
               <Shield size={13} color={onDark ? "#6ee7b7" : "#059669"} />
               <span>Fact-checked by </span>
-              <a
-                href={factChecker.linkedin}
-                target="_blank"
-                rel="noopener"
-                style={{ color: nameColor, fontWeight: 600, textDecoration: "none" }}
-              >{factChecker.name}</a>
+              <AuthorHoverCard author={factChecker} onDark={onDark}>
+                <Link to={lp(`/author/${factChecker.id}`)} style={{ color: nameColor, fontWeight: 600, textDecoration: "none" }}
+                  onMouseEnter={(e) => { e.currentTarget.style.textDecoration = "underline"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.textDecoration = "none"; }}
+                >{factChecker.name}</Link>
+              </AuthorHoverCard>
+              <span style={{ color: onDark ? "rgba(255,255,255,0.3)" : "#cbd5e1" }}>&middot;</span>
             </>
           )}
-          {factChecker && updatedDate && (
-            <span style={{ color: onDark ? "rgba(255,255,255,0.3)" : "#cbd5e1" }}>&middot;</span>
+          {reviewer && (
+            <>
+              <span>Reviewed by </span>
+              <AuthorHoverCard author={reviewer} onDark={onDark}>
+                <Link to={lp(`/author/${reviewer.id}`)} style={{ color: nameColor, fontWeight: 600, textDecoration: "none" }}
+                  onMouseEnter={(e) => { e.currentTarget.style.textDecoration = "underline"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.textDecoration = "none"; }}
+                >{reviewer.name}</Link>
+              </AuthorHoverCard>
+            </>
           )}
-          {updatedDate && <span>Updated {updatedDate}</span>}
+          {updatedDate && (
+            <>
+              {(editor || factChecker || reviewer) && (
+                <span style={{ color: onDark ? "rgba(255,255,255,0.3)" : "#cbd5e1" }}>&middot;</span>
+              )}
+              <span>Updated {updatedDate}</span>
+            </>
+          )}
         </div>
       )}
     </div>

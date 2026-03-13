@@ -9,7 +9,7 @@ import { getThematicData, getBrokerBlurb, getQuickVerdict, getComparisonCols, ge
 import BrokerRankCard from "../components/BrokerRankCard";
 import Accordion from "../components/Accordion";
 import AffiliateDisclosureBanner from "../components/AffiliateDisclosureBanner";
-import { getAuthorForRanking, getFactChecker, getReviewerForAuthor } from "../data/authors";
+import { getAuthorForRanking, getFactChecker, getReviewerForAuthor, getEditor } from "../data/authors";
 import AuthorCredits from "../components/AuthorCredits";
 import AuthorBioCard from "../components/AuthorBioCard";
 import Breadcrumb, { breadcrumbSchema } from "../components/Breadcrumb";
@@ -138,6 +138,7 @@ export default function RankingPage() {
   const seo = SEO_CONTENT[ranking.id] || {};
   const topBroker = brokers[0]?.B?.name || "IC Markets";
   const author = getAuthorForRanking(ranking.category);
+  const editor = getEditor();
   const reviewer = getReviewerForAuthor(author.id);
   const factChecker = getFactChecker(author.id);
 
@@ -205,7 +206,7 @@ export default function RankingPage() {
             {ranking.title} {YEAR}
           </h1>
           <div style={{ display: "flex", justifyContent: "center", marginTop: 12 }}>
-            <AuthorCredits author={author} reviewer={reviewer} factChecker={factChecker} updatedDate={`March ${YEAR}`} variant="centered" />
+            <AuthorCredits author={author} editor={editor} reviewer={reviewer} factChecker={factChecker} updatedDate={`March ${YEAR}`} variant="centered" />
           </div>
         </div>
       </header>
@@ -614,7 +615,7 @@ export default function RankingPage() {
               {countryData.name} Broker Reviews — In-Depth Analysis
             </h2>
             <p style={{ fontSize: 16, color: "#64748b", lineHeight: 1.7, marginBottom: 28 }}>
-              We tested each broker with a real {countryData.currency || "local"} account, executing 50+ trades per broker. Here's what {countryData.name} traders need to know.
+              We analyzed each broker's {countryData.currency || "local"} account conditions, regulatory status, and trading costs. Here's what {countryData.name} traders need to know.
             </p>
 
             <div style={{ display: "flex", flexDirection: "column", gap: mob ? 24 : 32 }}>
@@ -787,7 +788,7 @@ export default function RankingPage() {
             How We Test Brokers
           </h3>
           <p style={{ fontSize: 14, color: "rgba(255,255,255,0.7)", marginBottom: 20, maxWidth: 500, margin: "0 auto 20px" }}>
-            Our team opens live accounts, deposits real money, and executes hundreds of trades to give you rankings you can trust.
+            Our team verifies licenses, analyzes 130+ data points per broker, and cross-checks conditions across independent sources to give you rankings you can trust.
           </p>
           <Link to={lp("/methodology")} style={{
             display: "inline-block", padding: "12px 28px", borderRadius: 10,

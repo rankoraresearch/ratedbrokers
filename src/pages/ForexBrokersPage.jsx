@@ -4,7 +4,7 @@ import { useMedia } from "../hooks/useMedia";
 import { useLocalePath } from "../i18n/useLocalePath";
 import { useTranslation } from "../i18n/LanguageContext";
 import { getBrokersForRanking } from "../data/rankingFilters";
-import { getAuthorForRanking, getFactChecker, getReviewerForAuthor } from "../data/authors";
+import { getAuthorForRanking, getFactChecker, getReviewerForAuthor, getEditor } from "../data/authors";
 import CONTENT from "../data/forexPillarContent";
 import BrokerRankCard from "../components/BrokerRankCard";
 import Accordion from "../components/Accordion";
@@ -30,6 +30,7 @@ export default function ForexBrokersPage() {
   const top5 = brokers.slice(0, 5);
   const top15 = brokers.slice(0, 15);
   const author = getAuthorForRanking("forex");
+  const editor = getEditor();
   const reviewer = getReviewerForAuthor(author.id);
   const factChecker = getFactChecker(author.id);
 
@@ -145,7 +146,7 @@ export default function ForexBrokersPage() {
 
           {/* Author byline */}
           <div style={{ display: "flex", justifyContent: "center", marginBottom: 28 }}>
-            <AuthorCredits author={author} reviewer={reviewer} factChecker={factChecker} updatedDate="March 2026" variant="onDark" />
+            <AuthorCredits author={author} editor={editor} reviewer={reviewer} factChecker={factChecker} updatedDate="March 2026" variant="onDark" />
           </div>
 
           {/* Trust stats */}
@@ -581,7 +582,7 @@ export default function ForexBrokersPage() {
             How We Test Brokers
           </h3>
           <p style={{ fontSize: 14, color: "rgba(255,255,255,0.7)", marginBottom: 20, maxWidth: 500, margin: "0 auto 20px" }}>
-            Our team opens live accounts, deposits real money, and executes hundreds of trades to give you rankings you can trust.
+            Our team verifies licenses, analyzes 130+ data points per broker, and cross-checks conditions across independent sources to give you rankings you can trust.
           </p>
           <Link to={lp("/methodology")} style={{
             display: "inline-block", padding: "12px 28px", borderRadius: 10,
