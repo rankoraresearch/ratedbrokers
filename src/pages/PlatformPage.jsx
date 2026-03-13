@@ -11,6 +11,7 @@ import AuthorByline from "../components/AuthorByline";
 import AuthorBioCard from "../components/AuthorBioCard";
 import Breadcrumb, { breadcrumbSchema } from "../components/Breadcrumb";
 import Icon, { ArrowRight, Check, X as XIcon, ExternalLink } from "../components/Icon";
+import PlatformLogo from "../components/PlatformLogo";
 import { Lightbulb, AlertTriangle } from "lucide-react";
 
 function Card({ children, style = {} }) {
@@ -146,8 +147,8 @@ export default function PlatformPage() {
       {/* ══════ HERO ══════ */}
       <section style={{ background: "#fff", borderBottom: "1px solid #e8ecf1", padding: mob ? "24px 0" : "36px 0" }}>
         <div style={cn}>
-          <div style={{ display: "flex", gap: 8, marginBottom: 12, flexWrap: "wrap", alignItems: "center" }}>
-            <Icon name={platform.hero.icon} size={mob ? 28 : 36} />
+          <div style={{ display: "flex", gap: 10, marginBottom: 12, flexWrap: "wrap", alignItems: "center" }}>
+            <PlatformLogo slug={slug} name={platform.platformName} size={mob ? 40 : 52} shape="icon" />
             <span style={{
               display: "inline-block", padding: "4px 10px", borderRadius: 6,
               background: platform.hero.badgeColor || "#eff6ff", color: platform.hero.badgeTextColor || "#2563eb",
@@ -369,12 +370,7 @@ export default function PlatformPage() {
                     textDecoration: "none", color: "#1e293b",
                     transition: "box-shadow 0.2s",
                   }}>
-                    <span style={{
-                      width: 36, height: 36, borderRadius: 8,
-                      background: `${rp.hero?.badgeTextColor || "#2563eb"}15`,
-                      display: "flex", alignItems: "center", justifyContent: "center",
-                      fontSize: 18, flexShrink: 0,
-                    }}><Icon name={rp.hero?.icon || "laptop"} size={18} /></span>
+                    <PlatformLogo slug={rp.slug} name={rp.platformName} size={36} shape="icon" />
                     <div>
                       <div style={{ fontWeight: 700, fontSize: 15 }}>{rp.platformName}</div>
                       <div style={{ fontSize: 13, color: "#94a3b8" }}>{rp.readTime}</div>
@@ -457,7 +453,7 @@ export default function PlatformPage() {
                   {related.map((rp, i) => (
                     <div key={i} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "6px 0", borderBottom: i < related.length - 1 ? "1px solid #f0f4f8" : "none" }}>
                       <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                        <Icon name={rp.hero?.icon || "laptop"} size={14} />
+                        <PlatformLogo slug={rp.slug} name={rp.platformName} size={22} shape="icon" />
                         <span style={{ fontWeight: 600, fontSize: 13 }}>{rp.platformName}</span>
                       </div>
                       <Link to={lp(`/platform/${rp.slug}`)} style={{ fontSize: 12, color: "#1e3a5f", fontWeight: 600, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 3 }}>View <ArrowRight size={11} /></Link>

@@ -9,6 +9,7 @@ import Breadcrumb, { breadcrumbSchema } from "../components/Breadcrumb";
 import Icon, { ArrowRight, Check, ExternalLink } from "../components/Icon";
 import { Shield, AlertTriangle, CircleX } from "lucide-react";
 import CountryFlag from "../components/CountryFlag";
+import RegulatorLogo from "../components/RegulatorLogo";
 
 function useMedia() {
   const [w, setW] = useState(typeof window !== "undefined" ? window.innerWidth : 1200);
@@ -103,7 +104,8 @@ export default function RegulatorPage() {
         <div style={{ ...cn, display: "flex", flexDirection: mob ? "column" : "row", justifyContent: "space-between", gap: mob ? 20 : 32 }}>
           <div style={{ flex: 1 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 12 }}>
-              <CountryFlag code={reg.code} size={mob ? 36 : 48} />
+              <RegulatorLogo slug={reg.slug} name={reg.name} size={mob ? 44 : 56} shape="icon" tier={reg.tier} />
+              <CountryFlag code={reg.code} size={mob ? 24 : 30} />
               <div>
                 <h1 style={{ fontFamily: "Outfit", fontSize: mob ? 24 : 34, fontWeight: 800, color: "#0f172a", letterSpacing: "-0.02em", margin: 0 }}>
                   {reg.fullName} ({reg.name})
@@ -276,8 +278,8 @@ export default function RegulatorPage() {
                 <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 13, marginBottom: 10 }}>Other Regulators</div>
                 {REGULATORS.filter(r => r.slug !== reg.slug).slice(0, 6).map((r, i) => (
                   <div key={i} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "6px 0", borderBottom: i < 5 ? "1px solid #f0f4f8" : "none" }}>
-                    <div>
-                      <CountryFlag code={r.code} size={12} />
+                    <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                      <RegulatorLogo slug={r.slug} name={r.name} size={22} shape="icon" tier={r.tier} />
                       <span style={{ fontWeight: 600, fontSize: 13 }}>{r.name}</span>
                     </div>
                     <Link to={lp(`/regulator/${r.slug}`)} style={{ fontSize: 12, color: "#1e3a5f", fontWeight: 600, textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 3 }}>View <ArrowRight size={11} /></Link>

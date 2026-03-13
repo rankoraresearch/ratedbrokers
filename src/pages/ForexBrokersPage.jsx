@@ -14,6 +14,10 @@ import AuthorBioCard from "../components/AuthorBioCard";
 import Breadcrumb from "../components/Breadcrumb";
 import Icon, { ArrowRight } from "../components/Icon";
 import CountryFlag from "../components/CountryFlag";
+import PlatformLogo from "../components/PlatformLogo";
+import RegulatorLogo from "../components/RegulatorLogo";
+import { getPlatformSlugByName } from "../data/platforms/index";
+import { getRegulatorByName } from "../data/regulators";
 
 export default function ForexBrokersPage() {
   const { mob, tab } = useMedia();
@@ -343,13 +347,20 @@ export default function ForexBrokersPage() {
                     </td>
                     <td style={{ padding: "12px 14px", fontFamily: "'JetBrains Mono'", fontWeight: 700 }}>{b.B.leverage}</td>
                     <td style={{ padding: "12px 14px" }}>
-                      <div style={{ display: "flex", gap: 3, flexWrap: "wrap" }}>
-                        {b.B.platforms.slice(0, 3).map((p) => (
-                          <span key={p} style={{
-                            padding: "2px 6px", borderRadius: 4, fontSize: 11, fontWeight: 600,
-                            background: "#f1f5f9", color: "#475569",
-                          }}>{p}</span>
-                        ))}
+                      <div style={{ display: "flex", gap: 4, flexWrap: "wrap", alignItems: "center" }}>
+                        {b.B.platforms.slice(0, 3).map((p) => {
+                          const pSlug = getPlatformSlugByName(p);
+                          return (
+                            <span key={p} style={{
+                              display: "inline-flex", alignItems: "center", gap: 3,
+                              padding: "2px 6px", borderRadius: 4, fontSize: 11, fontWeight: 600,
+                              background: "#f1f5f9", color: "#475569",
+                            }}>
+                              {pSlug && <PlatformLogo slug={pSlug} name={p} size={14} shape="icon" />}
+                              {p}
+                            </span>
+                          );
+                        })}
                         {b.B.platforms.length > 3 && (
                           <span style={{ padding: "2px 6px", borderRadius: 4, fontSize: 11, fontWeight: 600, background: "#f1f5f9", color: "#94a3b8" }}>
                             +{b.B.platforms.length - 3}
@@ -358,14 +369,21 @@ export default function ForexBrokersPage() {
                       </div>
                     </td>
                     <td style={{ padding: "12px 14px" }}>
-                      <div style={{ display: "flex", gap: 3, flexWrap: "wrap" }}>
-                        {b.B.regs.slice(0, 2).map((r) => (
-                          <span key={r.name} style={{
-                            padding: "2px 6px", borderRadius: 4, fontSize: 11, fontWeight: 700,
-                            background: r.tier === 1 ? "#ecfdf5" : "#f1f5f9",
-                            color: r.tier === 1 ? "#059669" : "#64748b",
-                          }}>{r.name}</span>
-                        ))}
+                      <div style={{ display: "flex", gap: 4, flexWrap: "wrap", alignItems: "center" }}>
+                        {b.B.regs.slice(0, 2).map((r) => {
+                          const rd = getRegulatorByName(r.name);
+                          return (
+                            <span key={r.name} style={{
+                              display: "inline-flex", alignItems: "center", gap: 3,
+                              padding: "2px 6px", borderRadius: 4, fontSize: 11, fontWeight: 700,
+                              background: r.tier === 1 ? "#ecfdf5" : "#f1f5f9",
+                              color: r.tier === 1 ? "#059669" : "#64748b",
+                            }}>
+                              {rd && <RegulatorLogo slug={rd.slug} name={r.name} size={14} shape="icon" tier={r.tier} />}
+                              {r.name}
+                            </span>
+                          );
+                        })}
                       </div>
                     </td>
                   </tr>
@@ -457,6 +475,7 @@ export default function ForexBrokersPage() {
           {CONTENT.regulationGuide.regulators.map((reg) => (
             <div key={reg.name} style={{ ...cardBg, padding: mob ? "20px" : "24px" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
+                {(() => { const rd = getRegulatorByName(reg.name); return rd ? <RegulatorLogo slug={rd.slug} name={reg.name} size={32} shape="icon" tier={reg.tier} /> : null; })()}
                 <div style={{
                   padding: "4px 10px", borderRadius: 6,
                   background: reg.tier === 1 ? "#ecfdf5" : "#f1f5f9",
@@ -490,11 +509,13 @@ export default function ForexBrokersPage() {
         <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : tab ? "1fr 1fr" : "1fr 1fr 1fr 1fr", gap: 16 }}>
           {CONTENT.platformComparison.platforms.map((pl) => (
             <div key={pl.name} style={{ ...cardBg, padding: mob ? "20px" : "24px" }}>
-              <div style={{
-                fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: 22,
-                color: "#1e3a5f", marginBottom: 4,
-              }}>{pl.abbr}</div>
-              <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 16, marginBottom: 10 }}>{pl.name}</div>
+              <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
+                <PlatformLogo slug={getPlatformSlugByName(pl.name)} name={pl.name} size={40} shape="icon" />
+                <div>
+                  <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 16 }}>{pl.name}</div>
+                  <div style={{ fontFamily: "'JetBrains Mono'", fontWeight: 700, fontSize: 13, color: "#94a3b8" }}>{pl.abbr}</div>
+                </div>
+              </div>
               <div style={{ marginBottom: 8 }}>
                 <div style={{ fontSize: 11, fontWeight: 700, color: "#059669", textTransform: "uppercase", marginBottom: 4 }}>Strengths</div>
                 <p style={{ fontSize: 13, lineHeight: 1.6, color: "#475569", margin: 0 }}>{pl.strengths}</p>

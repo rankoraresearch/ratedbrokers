@@ -7,6 +7,7 @@ import { getRegulatorByName } from "../data/regulators";
 import { getBrokerData } from "../data/brokers/index";
 import { TRUST_SCORE_TIERS, CRITERIA_V2, CHANGELOG, FAQ_METHODOLOGY } from "../data/methodologyData";
 import Icon from "../components/Icon";
+import RegulatorLogo from "../components/RegulatorLogo";
 import { ChevronDown } from "lucide-react";
 import Breadcrumb from "../components/Breadcrumb";
 
@@ -443,7 +444,8 @@ export default function MethodologyPage() {
                               const abbr = r.split(" (")[0].split("/")[0];
                               const regData = getRegulatorByName(abbr);
                               return (
-                                <div key={ri} style={{ fontSize: 13, color: "#475569", padding: "2px 0" }}>
+                                <div key={ri} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 13, color: "#475569", padding: "3px 0" }}>
+                                  {regData && <RegulatorLogo slug={regData.slug} name={regData.name} size={18} shape="icon" tier={ti + 1} />}
                                   {regData ? <Link to={lp(`/regulator/${regData.slug}`)} style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>{r}</Link> : r}
                                 </div>
                               );

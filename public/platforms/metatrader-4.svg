@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <rect width="120" height="120" rx="24" fill="#1976D2"/>
+  <rect x="2" y="2" width="116" height="116" rx="22" stroke="white" stroke-opacity="0.15" stroke-width="2"/>
+  <!-- M shape from chart/mountain pattern -->
+  <path d="M28 82V48l16 18 16-18 16 18 16-18v34" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Horizontal baseline -->
+  <line x1="24" y1="86" x2="96" y2="86" stroke="white" stroke-opacity="0.4" stroke-width="2" stroke-linecap="round"/>
+  <!-- "4" text -->
+  <text x="96" y="42" font-family="system-ui,sans-serif" font-weight="800" font-size="24" fill="white" opacity="0.85" text-anchor="end">4</text>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <path d="M60 8L104 28V64C104 88 84 108 60 114C36 108 16 88 16 64V28L60 8Z" fill="#002855"/>
+  <path d="M60 14L98 32V64C98 85 80 102 60 108C40 102 22 85 22 64V32L60 14Z" fill="#002855" stroke="white" stroke-opacity="0.2" stroke-width="1.5"/>
+  <path d="M60 20L92 36V64C92 82 76 96 60 102C44 96 28 82 28 64V36L60 20Z" fill="#003D7A"/>
+  <!-- Stars (US) -->
+  <polygon points="50,28 51,31 54,31 52,33 53,36 50,34 47,36 48,33 46,31 49,31" fill="white" opacity="0.8"/>
+  <polygon points="60,24 61,27 64,27 62,29 63,32 60,30 57,32 58,29 56,27 59,27" fill="white" opacity="0.8"/>
+  <polygon points="70,28 71,31 74,31 72,33 73,36 70,34 67,36 68,33 66,31 69,31" fill="white" opacity="0.8"/>
+  <text x="60" y="68" font-family="system-ui,sans-serif" font-weight="800" font-size="28" fill="white" text-anchor="middle" dominant-baseline="middle">NFA</text>
+  <line x1="38" y1="78" x2="82" y2="78" stroke="white" stroke-opacity="0.4" stroke-width="1.5" stroke-linecap="round"/>
+  <text x="60" y="90" font-family="system-ui,sans-serif" font-weight="600" font-size="9" fill="white" opacity="0.7" text-anchor="middle">USA</text>
+</svg>

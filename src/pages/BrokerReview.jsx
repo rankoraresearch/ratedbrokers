@@ -9,6 +9,8 @@ import AuthorBioCard from "../components/AuthorBioCard";
 import AuthorAvatar from "../components/AuthorAvatar";
 import RegBadge from "../components/RegBadge";
 import BrokerLogo from "../components/BrokerLogo";
+import RegulatorLogo from "../components/RegulatorLogo";
+import PlatformLogo from "../components/PlatformLogo";
 import { getRegulatorSlug } from "../data/regulators";
 import { getTrustpilotUrl } from "../data/trustpilot-links";
 import TrustpilotLogo from "../components/TrustpilotLogo";
@@ -271,14 +273,15 @@ export default function BrokerReview() {
           <H2 id="regulation-&-safety">{t("review.regulationSafety")}</H2>
           <P>{(content.regulation || [])[0]}</P>
           <Card style={{padding:0,overflow:"hidden"}}>
-            {B.regs.map((r,i)=><div key={i} style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"12px 18px",borderBottom:i<B.regs.length-1?"1px solid #f0f4f8":"none"}}>
+            {B.regs.map((r,i)=>{const rSlug=getRegulatorSlug(r.name);return <div key={i} style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"12px 18px",borderBottom:i<B.regs.length-1?"1px solid #f0f4f8":"none"}}>
               <div style={{display:"flex",alignItems:"center",gap:10}}>
+                {rSlug && <RegulatorLogo slug={rSlug} name={r.name} size={28} shape="icon" tier={r.tier} />}
                 <span style={{background:r.tier===1?"#ecfdf5":"#fffbeb",color:r.tier===1?"#059669":"#d97706",fontSize:11,fontWeight:600,padding:"3px 8px",borderRadius:4,border:`1px solid ${r.tier===1?"#a7f3d0":"#fde68a"}`}}>Tier {r.tier}</span>
-                {getRegulatorSlug(r.name) ? <Link to={lp(`/regulator/${getRegulatorSlug(r.name)}`)} style={{fontWeight:600,fontSize:15,color:"#1e293b",textDecoration:"none"}}>{r.name}</Link> : <span style={{fontWeight:600,fontSize:15}}>{r.name}</span>}
+                {rSlug ? <Link to={lp(`/regulator/${rSlug}`)} style={{fontWeight:600,fontSize:15,color:"#1e293b",textDecoration:"none"}}>{r.name}</Link> : <span style={{fontWeight:600,fontSize:15}}>{r.name}</span>}
                 <span style={{fontSize:13,color:"#94a3b8"}}>{r.country}</span>
               </div>
               <span style={{fontFamily:"'JetBrains Mono'",fontSize:13,color:"#64748b"}}>#{r.num}</span>
-            </div>)}
+            </div>;})}
           </Card>
           <P>{(content.regulation || [])[1]}</P>
 
@@ -337,7 +340,7 @@ export default function BrokerReview() {
           <H2 id="platforms-&-tools">{t("review.platformsTools")}</H2>
           <P>{(content.platforms || [])[0]}</P>
           <div style={{display:"grid",gridTemplateColumns:mob?"1fr 1fr":`repeat(${Math.min(B.platforms.length,4)},1fr)`,gap:10,marginBottom:16}}>
-            {B.platforms.map((p,i)=>{const pSlug=getPlatformSlugByName(p);const inner=<><div style={{fontSize:22,marginBottom:6}}>{"\ud83d\udda5\ufe0f"}</div><div style={{fontWeight:600,fontSize:14}}>{p}</div></>;return pSlug?<Link key={i} to={lp(`/platform/${pSlug}`)} style={{background:"#fff",border:"1px solid #e8ecf1",borderRadius:10,padding:"16px",textAlign:"center",textDecoration:"none",color:"#1e293b",transition:"border-color 0.2s"}} onMouseEnter={e=>{e.currentTarget.style.borderColor="#059669"}} onMouseLeave={e=>{e.currentTarget.style.borderColor="#e8ecf1"}}>{inner}</Link>:<div key={i} style={{background:"#fff",border:"1px solid #e8ecf1",borderRadius:10,padding:"16px",textAlign:"center"}}>{inner}</div>;})}
+            {B.platforms.map((p,i)=>{const pSlug=getPlatformSlugByName(p);const inner=<><div style={{display:"flex",justifyContent:"center",marginBottom:8}}><PlatformLogo slug={pSlug} name={p} size={44} shape="icon" /></div><div style={{fontWeight:600,fontSize:14}}>{p}</div></>;return pSlug?<Link key={i} to={lp(`/platform/${pSlug}`)} style={{background:"#fff",border:"1px solid #e8ecf1",borderRadius:10,padding:"16px",textAlign:"center",textDecoration:"none",color:"#1e293b",transition:"border-color 0.2s"}} onMouseEnter={e=>{e.currentTarget.style.borderColor="#059669"}} onMouseLeave={e=>{e.currentTarget.style.borderColor="#e8ecf1"}}>{inner}</Link>:<div key={i} style={{background:"#fff",border:"1px solid #e8ecf1",borderRadius:10,padding:"16px",textAlign:"center"}}>{inner}</div>;})}
           </div>
           {(content.platforms || []).slice(1).map((p,i)=><P key={i}>{p}</P>)}
 

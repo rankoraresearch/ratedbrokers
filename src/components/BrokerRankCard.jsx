@@ -5,6 +5,7 @@ import { useLocalePath } from "../i18n/useLocalePath";
 import ScoreBadge from "./ScoreBadge";
 import RegBadge from "./RegBadge";
 import BrokerLogo from "./BrokerLogo";
+import PlatformLogo from "./PlatformLogo";
 import { getPlatformSlugByName } from "../data/platforms/index";
 import { ChevronDown, Check, X as XIcon } from "lucide-react";
 
@@ -261,12 +262,13 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
               <div style={{ padding: "0 16px 12px" }}>
                 <div style={{ marginBottom: 10 }}>
                   <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", marginBottom: 4 }}>Platforms</div>
-                  <div style={{ display: "flex", gap: 4, flexWrap: "wrap" }}>
+                  <div style={{ display: "flex", gap: 6, flexWrap: "wrap", alignItems: "center" }}>
                     {B.platforms.map((p) => {
                       const pSlug = getPlatformSlugByName(p);
-                      const tagStyle = { padding: "2px 6px", borderRadius: 4, fontSize: 11, fontWeight: 600, background: "#f1f5f9", color: "#475569" };
+                      const tagStyle = { display: "inline-flex", alignItems: "center", gap: 4, padding: "3px 8px", borderRadius: 6, fontSize: 11, fontWeight: 600, background: "#f1f5f9", color: "#475569", textDecoration: "none" };
+                      const logo = pSlug ? <PlatformLogo slug={pSlug} name={p} size={16} shape="icon" /> : null;
                       return pSlug
-                        ? <Link key={p} to={lp(`/platform/${pSlug}`)} style={{ ...tagStyle, textDecoration: "none" }}>{p}</Link>
+                        ? <Link key={p} to={lp(`/platform/${pSlug}`)} style={tagStyle}>{logo}{p}</Link>
                         : <span key={p} style={tagStyle}>{p}</span>;
                     })}
                   </div>
