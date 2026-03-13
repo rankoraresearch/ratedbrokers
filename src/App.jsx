@@ -10,8 +10,6 @@ import ComparePage from "./pages/ComparePage";
 import Methodology from "./pages/Methodology";
 import AllReviewsPage from "./pages/AllReviewsPage";
 import RankingPage from "./pages/RankingPage";
-import ForexBrokersPage from "./pages/ForexBrokersPage";
-import CryptoBrokersPage from "./pages/CryptoBrokersPage";
 import RegulatorPage from "./pages/RegulatorPage";
 import GuidePage from "./pages/GuidePage";
 import PlatformPage from "./pages/PlatformPage";
@@ -57,8 +55,6 @@ function AppRoutes() {
         <Route path="rankings" element={<AllRankingsPage />} />
         <Route path="reviews" element={<AllReviewsPage />} />
         <Route path="regulator/:slug" element={<RegulatorPage />} />
-        <Route path="best-forex-brokers" element={<ForexBrokersPage />} />
-        <Route path="best-crypto-brokers" element={<CryptoBrokersPage />} />
         <Route path="guides" element={<AllGuidesPage />} />
         <Route path="guide/:slug" element={<GuidePage />} />
         <Route path="author/:slug" element={<AuthorPage />} />
