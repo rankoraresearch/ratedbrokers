@@ -69,12 +69,12 @@ function Accordion({ items, expanded, setExpanded }) {
             border: "none", cursor: "pointer", display: "flex", alignItems: "center",
             justifyContent: "space-between", textAlign: "left", gap: 12,
           }}>
-            <span style={{ fontWeight: 700, fontSize: 16, color: "#1e293b", flex: 1 }}>{item.q}</span>
-            <span style={{ fontSize: 16, color: "#64748b", transform: expanded === i ? "rotate(180deg)" : "none", transition: "transform 0.2s", flexShrink: 0 }}>{"\u25BE"}</span>
+            <span style={{ fontWeight: 700, fontSize: 16, color: "#111827", flex: 1 }}>{item.q}</span>
+            <span style={{ fontSize: 16, color: "#1f2937", transform: expanded === i ? "rotate(180deg)" : "none", transition: "transform 0.2s", flexShrink: 0 }}>{"\u25BE"}</span>
           </button>
           {expanded === i && (
             <div style={{ padding: "0 16px 16px" }}>
-              <p style={{ fontSize: 15, lineHeight: 1.7, color: "#334155", margin: 0 }}>{item.a}</p>
+              <p style={{ fontSize: 15, lineHeight: 1.7, color: "#1f2937", margin: 0 }}>{item.a}</p>
             </div>
           )}
         </div>
@@ -192,7 +192,7 @@ export default function CountryPage() {
     : null;
 
   return (
-    <div style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb", color: "#1e293b", minHeight: "100vh" }}>
+    <div style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb", color: "#111827", minHeight: "100vh" }}>
 
       {/* ===== BREADCRUMBS ===== */}
       <div style={{ paddingTop: 0 }}>
@@ -221,7 +221,7 @@ export default function CountryPage() {
               <div>
                 <h1 style={{
                   fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 24 : tab ? 28 : 34,
-                  lineHeight: 1.1, color: "#1e293b", margin: 0,
+                  lineHeight: 1.1, color: "#111827", margin: 0,
                 }}>
                   {t("country.bestBrokersIn", { country: COUNTRY.name, year: COUNTRY.year })}
                 </h1>
@@ -230,7 +230,7 @@ export default function CountryPage() {
                 </span>
               </div>
             </div>
-            <p style={{ fontSize: mob ? 15 : 16, lineHeight: 1.7, color: "#334155", marginBottom: 16 }}>
+            <p style={{ fontSize: mob ? 15 : 16, lineHeight: 1.7, color: "#1f2937", marginBottom: 16 }}>
               {t("country.tested", { count: COUNTRY.localBrokersTotal, reg: COUNTRY.regulator, currency: COUNTRY.currency, date: COUNTRY.updatedDate })}
             </p>
 
@@ -251,11 +251,11 @@ export default function CountryPage() {
                 )}
                 <div>
                   <div style={{ fontSize: 15, fontWeight: 700 }}>{COUNTRY.author.name}</div>
-                  <div style={{ fontSize: 13, color: "#475569" }}>{COUNTRY.author.role}</div>
+                  <div style={{ fontSize: 13, color: "#1f2937" }}>{COUNTRY.author.role}</div>
                 </div>
               </div>
               {!mob && <div style={{ width: 1, height: 24, background: "#e2e8f0" }} />}
-              <div style={{ fontSize: 14, color: "#475569" }}>
+              <div style={{ fontSize: 14, color: "#1f2937" }}>
                 {t("country.lastUpdated")}: {COUNTRY.updatedDate}
               </div>
             </div>
@@ -274,8 +274,8 @@ export default function CountryPage() {
                 display: "flex", justifyContent: "space-between", alignItems: "center",
                 padding: "8px 0", borderBottom: i < quickFacts.length - 1 ? "1px solid #f1f5f9" : "none",
               }}>
-                <span style={{ fontSize: 15, color: "#475569" }}>{label}</span>
-                <span style={{ fontSize: 15, fontWeight: 600, color: "#1e293b", textAlign: "right", maxWidth: "60%" }}>{val}</span>
+                <span style={{ fontSize: 15, color: "#1f2937" }}>{label}</span>
+                <span style={{ fontSize: 15, fontWeight: 600, color: "#111827", textAlign: "right", maxWidth: "60%" }}>{val}</span>
               </div>
             ))}
             <a href={COUNTRY.regulatorUrl} target="_blank" rel="noopener noreferrer" style={{
@@ -294,7 +294,7 @@ export default function CountryPage() {
           <span style={{ fontSize: 18 }}>{"\uD83D\uDD11"}</span>
           <div>
             <span style={{ fontWeight: 700, fontSize: 14, color: "#059669", letterSpacing: 0.5 }}>{t("country.keyFinding").toUpperCase()}</span>
-            <p style={{ fontSize: 15, lineHeight: 1.6, color: "#1e293b", margin: "4px 0 0" }}>{COUNTRY.keyFinding}</p>
+            <p style={{ fontSize: 15, lineHeight: 1.6, color: "#111827", margin: "4px 0 0" }}>{COUNTRY.keyFinding}</p>
           </div>
         </div>
 
@@ -312,7 +312,7 @@ export default function CountryPage() {
           ].map(([val, label], i) => (
             <div key={i} style={{ textAlign: "center" }}>
               <div style={{ fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: mob ? 20 : 24, color: "#1e3a5f" }}>{val}</div>
-              <div style={{ fontSize: 13, color: "#475569", fontWeight: 600 }}>{label}</div>
+              <div style={{ fontSize: 13, color: "#1f2937", fontWeight: 600 }}>{label}</div>
             </div>
           ))}
         </div>
@@ -329,7 +329,7 @@ export default function CountryPage() {
             <button key={tb.key} onClick={() => setActiveTab(tb.key)} style={{
               padding: mob ? "6px 12px" : "8px 16px", borderRadius: 8, whiteSpace: "nowrap",
               background: activeTab === tb.key ? "#1e3a5f" : "#fff",
-              color: activeTab === tb.key ? "#fff" : "#334155",
+              color: activeTab === tb.key ? "#fff" : "#1f2937",
               border: `1px solid ${activeTab === tb.key ? "#1e3a5f" : "#e2e8f0"}`,
               fontWeight: 600, fontSize: 15, cursor: "pointer",
             }}>
@@ -397,7 +397,7 @@ export default function CountryPage() {
                           <TrustpilotLogo size="xs" />
                           <Stars r={b.tp} size={12} />
                           <span style={{ fontSize: 14, fontWeight: 700, color: "#00B67A" }}>{b.tp}</span>
-                          <span style={{ fontSize: 13, color: "#64748b" }}>({(b.tpCount/1000).toFixed(1)}K)</span>
+                          <span style={{ fontSize: 13, color: "#1f2937" }}>({(b.tpCount/1000).toFixed(1)}K)</span>
                         </a>
                       </div>
                       <ScoreBadge score={b.score} />
@@ -423,15 +423,15 @@ export default function CountryPage() {
                         ["Leverage", b.leverage],
                       ].map(([k, v], i) => (
                         <div key={i} style={{ textAlign: "center", padding: "8px 4px", background: "#f8fafc", borderRadius: 8 }}>
-                          <div style={{ fontSize: 12, color: "#64748b", marginBottom: 2 }}>{k}</div>
-                          <div style={{ fontFamily: "'JetBrains Mono'", fontWeight: 700, fontSize: 15, color: i === 1 ? "#059669" : "#1e293b" }}>{v}</div>
+                          <div style={{ fontSize: 12, color: "#1f2937", marginBottom: 2 }}>{k}</div>
+                          <div style={{ fontFamily: "'JetBrains Mono'", fontWeight: 700, fontSize: 15, color: i === 1 ? "#059669" : "#111827" }}>{v}</div>
                         </div>
                       ))}
                     </div>
 
                     {/* Verdict */}
-                    <div style={{ fontSize: 15, lineHeight: 1.6, color: "#334155", marginBottom: 12, padding: "10px 12px", background: "#f8fafc", borderRadius: 8 }}>
-                      <span style={{ fontWeight: 700, color: "#1e293b" }}>{t("country.ourVerdict")}: </span>{b.verdict}
+                    <div style={{ fontSize: 15, lineHeight: 1.6, color: "#1f2937", marginBottom: 12, padding: "10px 12px", background: "#f8fafc", borderRadius: 8 }}>
+                      <span style={{ fontWeight: 700, color: "#111827" }}>{t("country.ourVerdict")}: </span>{b.verdict}
                     </div>
 
                     {/* CTA */}
@@ -445,12 +445,12 @@ export default function CountryPage() {
                     <div style={{ display: "flex", gap: 8 }}>
                       <Link to={lp(`/review/${b.slug}`)} style={{
                         flex: 1, padding: "8px 0", borderRadius: 8, textAlign: "center",
-                        background: "#f1f5f9", color: "#334155", fontSize: 15, fontWeight: 600, textDecoration: "none",
+                        background: "#f1f5f9", color: "#1f2937", fontSize: 15, fontWeight: 600, textDecoration: "none",
                       }}>{t("country.readReview")}</Link>
                       <button onClick={() => toggleCompare(b.id)} style={{
                         flex: 1, padding: "8px 0", borderRadius: 8,
                         background: compare.includes(b.id) ? "#1e3a5f" : "#f1f5f9",
-                        color: compare.includes(b.id) ? "#fff" : "#334155",
+                        color: compare.includes(b.id) ? "#fff" : "#1f2937",
                         fontSize: 15, fontWeight: 600, border: "none", cursor: "pointer",
                       }}>{compare.includes(b.id) ? <><Check size={14} color="#059669" style={{ verticalAlign: "middle" }} /> Added</> : "Compare"}</button>
                       <button onClick={() => setExpandedBroker(expandedBroker === b.id ? null : b.id)} style={{
@@ -498,16 +498,16 @@ export default function CountryPage() {
                           <TrustpilotLogo size="sm" />
                           <Stars r={b.tp} />
                           <span style={{ fontSize: 15, fontWeight: 700, color: "#00B67A" }}>{b.tp}</span>
-                          <span style={{ fontSize: 14, color: "#64748b" }}>({b.tpCount.toLocaleString()})</span>
+                          <span style={{ fontSize: 14, color: "#1f2937" }}>({b.tpCount.toLocaleString()})</span>
                         </a>
-                        {b.localRegRef && <span style={{ fontSize: 13, color: "#475569", marginLeft: 6 }}>{COUNTRY.regulator} #{b.localRegRef}</span>}
+                        {b.localRegRef && <span style={{ fontSize: 13, color: "#1f2937", marginLeft: 6 }}>{COUNTRY.regulator} #{b.localRegRef}</span>}
                       </div>
 
                       {/* Stats */}
                       <div style={{ textAlign: "center" }}>
-                        <div style={{ fontSize: 13, color: "#475569", marginBottom: 1 }}>{t("country.minDeposit")}</div>
+                        <div style={{ fontSize: 13, color: "#1f2937", marginBottom: 1 }}>{t("country.minDeposit")}</div>
                         <div style={{ fontFamily: "'JetBrains Mono'", fontWeight: 700, fontSize: 16 }}>{b.minDepLocal}</div>
-                        <div style={{ fontSize: 13, color: "#475569", marginTop: 4, marginBottom: 1 }}>{t("country.spread")}</div>
+                        <div style={{ fontSize: 13, color: "#1f2937", marginTop: 4, marginBottom: 1 }}>{t("country.spread")}</div>
                         <div style={{ fontFamily: "'JetBrains Mono'", fontWeight: 700, fontSize: 15, color: "#059669" }}>{b.spread} pips</div>
                       </div>
 
@@ -523,8 +523,8 @@ export default function CountryPage() {
                             color: "#fff", fontWeight: 700, fontSize: 15, textDecoration: "none",
                           }}>{t("country.visitBroker")} {b.name} <ArrowRight size={14} style={{ verticalAlign: "middle" }} /></a>
                           <div style={{ display: "flex", gap: 6 }}>
-                            <Link to={lp(`/review/${b.slug}`)} style={{ flex: 1, padding: "6px 0", borderRadius: 7, textAlign: "center", background: "#f1f5f9", color: "#334155", fontSize: 14, fontWeight: 600, textDecoration: "none" }}>{t("home.review")}</Link>
-                            <button onClick={() => toggleCompare(b.id)} style={{ flex: 1, padding: "6px 0", borderRadius: 7, background: compare.includes(b.id) ? "#1e3a5f" : "#f1f5f9", color: compare.includes(b.id) ? "#fff" : "#334155", fontSize: 14, fontWeight: 600, border: "none", cursor: "pointer" }}>{compare.includes(b.id) ? <Check size={14} color="#059669" /> : "Compare"}</button>
+                            <Link to={lp(`/review/${b.slug}`)} style={{ flex: 1, padding: "6px 0", borderRadius: 7, textAlign: "center", background: "#f1f5f9", color: "#1f2937", fontSize: 14, fontWeight: 600, textDecoration: "none" }}>{t("home.review")}</Link>
+                            <button onClick={() => toggleCompare(b.id)} style={{ flex: 1, padding: "6px 0", borderRadius: 7, background: compare.includes(b.id) ? "#1e3a5f" : "#f1f5f9", color: compare.includes(b.id) ? "#fff" : "#1f2937", fontSize: 14, fontWeight: 600, border: "none", cursor: "pointer" }}>{compare.includes(b.id) ? <Check size={14} color="#059669" /> : "Compare"}</button>
                           </div>
                         </div>
                       )}
@@ -538,15 +538,15 @@ export default function CountryPage() {
                           background: "linear-gradient(135deg,#059669,#34d399)",
                           color: "#fff", fontWeight: 700, fontSize: 15, textDecoration: "none",
                         }}>{t("country.visitBroker")} {b.name} <ArrowRight size={14} style={{ verticalAlign: "middle" }} /></a>
-                        <Link to={lp(`/review/${b.slug}`)} style={{ flex: 1, padding: "10px 0", borderRadius: 8, textAlign: "center", background: "#f1f5f9", color: "#334155", fontSize: 15, fontWeight: 600, textDecoration: "none" }}>{t("home.review")}</Link>
-                        <button onClick={() => toggleCompare(b.id)} style={{ flex: 1, padding: "10px 0", borderRadius: 8, background: compare.includes(b.id) ? "#1e3a5f" : "#f1f5f9", color: compare.includes(b.id) ? "#fff" : "#334155", fontSize: 15, fontWeight: 600, border: "none", cursor: "pointer" }}>{compare.includes(b.id) ? <><Check size={14} color="#059669" style={{ verticalAlign: "middle" }} /> Added</> : "Compare"}</button>
+                        <Link to={lp(`/review/${b.slug}`)} style={{ flex: 1, padding: "10px 0", borderRadius: 8, textAlign: "center", background: "#f1f5f9", color: "#1f2937", fontSize: 15, fontWeight: 600, textDecoration: "none" }}>{t("home.review")}</Link>
+                        <button onClick={() => toggleCompare(b.id)} style={{ flex: 1, padding: "10px 0", borderRadius: 8, background: compare.includes(b.id) ? "#1e3a5f" : "#f1f5f9", color: compare.includes(b.id) ? "#fff" : "#1f2937", fontSize: 15, fontWeight: 600, border: "none", cursor: "pointer" }}>{compare.includes(b.id) ? <><Check size={14} color="#059669" style={{ verticalAlign: "middle" }} /> Added</> : "Compare"}</button>
                       </div>
                     )}
 
                     {/* Verdict */}
                     <div style={{ marginTop: 14, padding: "10px 14px", background: "#f8fafc", borderRadius: 8 }}>
-                      <span style={{ fontSize: 15, lineHeight: 1.6, color: "#334155" }}>
-                        <span style={{ fontWeight: 700, color: "#1e293b" }}>{t("country.ourVerdict")}: </span>{b.verdict}
+                      <span style={{ fontSize: 15, lineHeight: 1.6, color: "#1f2937" }}>
+                        <span style={{ fontWeight: 700, color: "#111827" }}>{t("country.ourVerdict")}: </span>{b.verdict}
                       </span>
                     </div>
 
@@ -572,7 +572,7 @@ export default function CountryPage() {
                         {b.localAdvantages.map((adv, i) => (
                           <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 8, marginBottom: 6 }}>
                             <Check size={14} color="#059669" style={{ flexShrink: 0, marginTop: 2 }} />
-                            <span style={{ fontSize: 15, lineHeight: "18px", color: "#334155" }}>{adv}</span>
+                            <span style={{ fontSize: 15, lineHeight: "18px", color: "#1f2937" }}>{adv}</span>
                           </div>
                         ))}
                       </div>
@@ -586,8 +586,8 @@ export default function CountryPage() {
                             ["Execution", b.execution],
                           ].map(([k, v], i) => (
                             <div key={i} style={{ padding: "6px 8px", background: "#f8fafc", borderRadius: 6 }}>
-                              <div style={{ fontSize: 12, color: "#64748b", marginBottom: 1 }}>{k}</div>
-                              <div style={{ fontSize: 14, fontWeight: 600, color: "#1e293b" }}>{v}</div>
+                              <div style={{ fontSize: 12, color: "#1f2937", marginBottom: 1 }}>{k}</div>
+                              <div style={{ fontSize: 14, fontWeight: 600, color: "#111827" }}>{v}</div>
                             </div>
                           ))}
                         </div>
@@ -622,7 +622,7 @@ export default function CountryPage() {
             <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 20 : 28, marginBottom: 6 }}>
               {COUNTRY.name} Broker Reviews \u2014 In-Depth Analysis
             </h2>
-            <p style={{ fontSize: 16, color: "#475569", lineHeight: 1.7, marginBottom: 28 }}>
+            <p style={{ fontSize: 16, color: "#1f2937", lineHeight: 1.7, marginBottom: 28 }}>
               We analyzed each broker's {COUNTRY.currency} account conditions, regulatory status, and trading costs. Here\u2019s what {COUNTRY.name} traders need to know.
             </p>
 
@@ -655,7 +655,7 @@ export default function CountryPage() {
                   {/* Review text paragraphs */}
                   <div style={{ marginBottom: 16 }}>
                     {b.countryReview.paragraphs.map((p, i) => (
-                      <p key={i} style={{ fontSize: 16, lineHeight: 1.75, color: "#374151", margin: i < b.countryReview.paragraphs.length - 1 ? "0 0 12px" : 0 }}>{p}</p>
+                      <p key={i} style={{ fontSize: 16, lineHeight: 1.75, color: "#1f2937", margin: i < b.countryReview.paragraphs.length - 1 ? "0 0 12px" : 0 }}>{p}</p>
                     ))}
                   </div>
 
@@ -671,7 +671,7 @@ export default function CountryPage() {
                       {b.countryReview.pros.map((pro, i) => (
                         <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 8, marginBottom: 5 }}>
                           <Check size={14} color="#059669" style={{ flexShrink: 0, marginTop: 3 }} />
-                          <span style={{ fontSize: 15, lineHeight: 1.5, color: "#374151" }}>{pro}</span>
+                          <span style={{ fontSize: 15, lineHeight: 1.5, color: "#1f2937" }}>{pro}</span>
                         </div>
                       ))}
                     </div>
@@ -680,7 +680,7 @@ export default function CountryPage() {
                       {b.countryReview.cons.map((con, i) => (
                         <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 8, marginBottom: 5 }}>
                           <XIcon size={14} color="#dc2626" style={{ flexShrink: 0, marginTop: 3 }} />
-                          <span style={{ fontSize: 15, lineHeight: 1.5, color: "#374151" }}>{con}</span>
+                          <span style={{ fontSize: 15, lineHeight: 1.5, color: "#1f2937" }}>{con}</span>
                         </div>
                       ))}
                     </div>
@@ -697,7 +697,7 @@ export default function CountryPage() {
                     <Link to={lp(`/review/${b.slug}`)} style={{
                       display: "inline-flex", alignItems: "center", gap: 6,
                       padding: mob ? "10px 18px" : "10px 22px", borderRadius: 10,
-                      background: "#f1f5f9", color: "#334155", fontWeight: 600, fontSize: 15, textDecoration: "none",
+                      background: "#f1f5f9", color: "#1f2937", fontWeight: 600, fontSize: 15, textDecoration: "none",
                     }}>Read Full {b.name} Review <ArrowRight size={14} /></Link>
                   </div>
                 </div>
@@ -717,7 +717,7 @@ export default function CountryPage() {
             <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 20 : 26, marginBottom: 6 }}>
               {"\uD83D\uDEE1\uFE0F"} {COUNTRY.regulation.title}
             </h2>
-            {regSubtitle && <p style={{ fontSize: 15, color: "#475569", marginBottom: 20 }}>{regSubtitle}</p>}
+            {regSubtitle && <p style={{ fontSize: 15, color: "#1f2937", marginBottom: 20 }}>{regSubtitle}</p>}
             <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : tab ? "1fr 1fr" : "1fr 1fr 1fr", gap: 12 }}>
               {COUNTRY.regulation.items.map((item, i) => (
                 <div key={i} style={{
@@ -728,7 +728,7 @@ export default function CountryPage() {
                     <Icon name={item.icon} size={20} />
                     <span style={{ fontWeight: 700, fontSize: 15 }}>{item.title}</span>
                   </div>
-                  <p style={{ fontSize: 15, lineHeight: 1.6, color: "#334155", margin: 0 }}>{item.desc}</p>
+                  <p style={{ fontSize: 15, lineHeight: 1.6, color: "#1f2937", margin: 0 }}>{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -746,21 +746,21 @@ export default function CountryPage() {
             <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 20 : 26, marginBottom: 6 }}>
               {"\uD83C\uDFAF"} {COUNTRY.comparisonTable.title}
             </h2>
-            {COUNTRY.comparisonTable.subtitle && <p style={{ fontSize: 15, color: "#475569", marginBottom: 20 }}>{COUNTRY.comparisonTable.subtitle}</p>}
+            {COUNTRY.comparisonTable.subtitle && <p style={{ fontSize: 15, color: "#1f2937", marginBottom: 20 }}>{COUNTRY.comparisonTable.subtitle}</p>}
 
             {mob ? (
               <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                 {COUNTRY.comparisonTable.rows.map((row, i) => (
                   <div key={i} style={{ padding: 14, background: "#f8fafc", borderRadius: 10, border: "1px solid #f1f5f9" }}>
-                    <div style={{ fontWeight: 700, fontSize: 15, color: "#1e293b", marginBottom: 8 }}>{row[0]}</div>
+                    <div style={{ fontWeight: 700, fontSize: 15, color: "#111827", marginBottom: 8 }}>{row[0]}</div>
                     <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
                       <div>
                         <div style={{ fontSize: 11, color: "#059669", fontWeight: 700, marginBottom: 2 }}>{COUNTRY.comparisonTable.headers[1]}</div>
-                        <div style={{ fontSize: 15, color: "#1e293b" }}>{row[1]}</div>
+                        <div style={{ fontSize: 15, color: "#111827" }}>{row[1]}</div>
                       </div>
                       <div>
                         <div style={{ fontSize: 11, color: "#2563eb", fontWeight: 700, marginBottom: 2 }}>{COUNTRY.comparisonTable.headers[2]}</div>
-                        <div style={{ fontSize: 15, color: "#1e293b" }}>{row[2]}</div>
+                        <div style={{ fontSize: 15, color: "#111827" }}>{row[2]}</div>
                       </div>
                     </div>
                   </div>
@@ -778,7 +778,7 @@ export default function CountryPage() {
                     {COUNTRY.comparisonTable.rows.map((row, i) => (
                       <tr key={i} style={{ borderBottom: "1px solid #f1f5f9" }}>
                         {row.map((cell, j) => (
-                          <td key={j} style={{ padding: "10px 16px", fontWeight: j === 0 ? 600 : 400, color: j === 0 ? "#1e293b" : "#334155", background: i % 2 === 0 ? "#fff" : "#f8fafc" }}>{cell}</td>
+                          <td key={j} style={{ padding: "10px 16px", fontWeight: j === 0 ? 600 : 400, color: j === 0 ? "#111827" : "#1f2937", background: i % 2 === 0 ? "#fff" : "#f8fafc" }}>{cell}</td>
                         ))}
                       </tr>
                     ))}
@@ -821,10 +821,10 @@ export default function CountryPage() {
                   <div key={i} style={{ padding: 14, background: "#f8fafc", borderRadius: 10, border: "1px solid #f1f5f9" }}>
                     <div style={{ fontWeight: 700, fontSize: 15, marginBottom: 8 }}>{p.method}</div>
                     <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 6, fontSize: 15 }}>
-                      <div><span style={{ color: "#64748b" }}>Deposit: </span><span style={{ color: "#059669", fontWeight: 600 }}>{p.deposit}</span></div>
-                      <div><span style={{ color: "#64748b" }}>Withdrawal: </span><span style={{ fontWeight: 600 }}>{p.withdrawal}</span></div>
-                      <div><span style={{ color: "#64748b" }}>{t("country.processing")}: </span>{p.time}</div>
-                      <div style={{ color: "#475569", fontSize: 14 }}>{p.note}</div>
+                      <div><span style={{ color: "#1f2937" }}>Deposit: </span><span style={{ color: "#059669", fontWeight: 600 }}>{p.deposit}</span></div>
+                      <div><span style={{ color: "#1f2937" }}>Withdrawal: </span><span style={{ fontWeight: 600 }}>{p.withdrawal}</span></div>
+                      <div><span style={{ color: "#1f2937" }}>{t("country.processing")}: </span>{p.time}</div>
+                      <div style={{ color: "#1f2937", fontSize: 14 }}>{p.note}</div>
                     </div>
                   </div>
                 ))}
@@ -844,7 +844,7 @@ export default function CountryPage() {
                         <td style={{ padding: "10px 14px", color: "#059669", fontWeight: 600, background: i % 2 ? "#f8fafc" : "#fff" }}>{p.deposit}</td>
                         <td style={{ padding: "10px 14px", background: i % 2 ? "#f8fafc" : "#fff" }}>{p.withdrawal}</td>
                         <td style={{ padding: "10px 14px", background: i % 2 ? "#f8fafc" : "#fff" }}>{p.time}</td>
-                        <td style={{ padding: "10px 14px", color: "#475569", fontSize: 15, background: i % 2 ? "#f8fafc" : "#fff" }}>{p.note}</td>
+                        <td style={{ padding: "10px 14px", color: "#1f2937", fontSize: 15, background: i % 2 ? "#f8fafc" : "#fff" }}>{p.note}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -890,12 +890,12 @@ export default function CountryPage() {
               <Link key={i} to={lp(cat.url)} style={{
                 display: "flex", alignItems: "center", gap: 10,
                 padding: mob ? "12px" : "14px 18px", borderRadius: 12,
-                background: "#fff", border: "1px solid #e2e8f0", textDecoration: "none", color: "#1e293b",
+                background: "#fff", border: "1px solid #e2e8f0", textDecoration: "none", color: "#111827",
               }}>
                 <span style={{ fontSize: mob ? 20 : 24 }}>{cat.icon}</span>
                 <div>
                   <div style={{ fontWeight: 700, fontSize: mob ? 14 : 15 }}>{cat.name}</div>
-                  <div style={{ fontSize: mob ? 12 : 14, color: "#475569" }}>{cat.count} brokers</div>
+                  <div style={{ fontSize: mob ? 12 : 14, color: "#1f2937" }}>{cat.count} brokers</div>
                 </div>
               </Link>
             ))}
@@ -907,7 +907,7 @@ export default function CountryPage() {
       <section style={{ ...cn, paddingBottom: 40 }}>
         <div style={{ padding: mob ? "14px" : "18px 24px", borderRadius: 12, background: "#f1f5f9", border: "1px solid #e2e8f0" }}>
           <div style={{ fontWeight: 700, fontSize: 15, marginBottom: 6 }}>{"\uD83D\uDCCB"} {t("footer.affTitle")}</div>
-          <p style={{ fontSize: 14, lineHeight: 1.7, color: "#475569", margin: 0 }}>
+          <p style={{ fontSize: 14, lineHeight: 1.7, color: "#1f2937", margin: 0 }}>
             {t("footer.affText")}
           </p>
         </div>
@@ -939,7 +939,7 @@ export default function CountryPage() {
       {compare.length >= 2 && (
         <div style={{
           position: "fixed", bottom: mob ? 16 : 24, left: "50%", transform: "translateX(-50%)",
-          background: "#1e293b", borderRadius: 14, padding: mob ? "10px 16px" : "12px 24px",
+          background: "#111827", borderRadius: 14, padding: mob ? "10px 16px" : "12px 24px",
           display: "flex", alignItems: "center", gap: mob ? 10 : 16, zIndex: 90,
           boxShadow: "0 8px 32px rgba(0,0,0,0.3)", maxWidth: mob ? "calc(100% - 32px)" : "auto",
         }}>
@@ -950,7 +950,7 @@ export default function CountryPage() {
             })}
           </div>
           <Link to={lp("/compare")} style={{ padding: mob ? "8px 14px" : "8px 18px", borderRadius: 8, background: "linear-gradient(135deg,#059669,#34d399)", color: "#fff", fontWeight: 700, fontSize: 15, textDecoration: "none", whiteSpace: "nowrap" }}>Compare <ArrowRight size={14} style={{ verticalAlign: "middle" }} /></Link>
-          <button onClick={() => setCompare([])} style={{ background: "rgba(255,255,255,0.1)", border: "none", borderRadius: 6, color: "#94a3b8", padding: "6px 10px", cursor: "pointer", fontSize: 14 }}><XIcon size={20} /></button>
+          <button onClick={() => setCompare([])} style={{ background: "rgba(255,255,255,0.1)", border: "none", borderRadius: 6, color: "#64748b", padding: "6px 10px", cursor: "pointer", fontSize: 14 }}><XIcon size={20} /></button>
         </div>
       )}
     </div>

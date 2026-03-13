@@ -211,7 +211,7 @@ export default function CryptoBrokersPage() {
                     onMouseEnter={e => e.currentTarget.style.textDecoration = "underline"}
                     onMouseLeave={e => e.currentTarget.style.textDecoration = "none"}
                   >{b.B.name}</Link>
-                  <div style={{ fontSize: 13, color: "#475569" }}>{b.B.type}</div>
+                  <div style={{ fontSize: 13, color: "#1f2937" }}>{b.B.type}</div>
                 </div>
                 <div style={{
                   marginLeft: "auto",
@@ -221,7 +221,7 @@ export default function CryptoBrokersPage() {
               </div>
               <div style={{
                 display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginBottom: 16,
-                fontSize: 13, color: "#334155",
+                fontSize: 13, color: "#1f2937",
               }}>
                 <div>Spread: <strong>{b.B.spread} pips</strong></div>
                 <div>Min Dep: <strong>{b.B.minDep === 0 ? "$0" : `$${b.B.minDep}`}</strong></div>
@@ -246,7 +246,7 @@ export default function CryptoBrokersPage() {
               {card.title}
             </h2>
             {card.paragraphs.map((p, i) => (
-              <p key={i} style={{ fontSize: 15, lineHeight: 1.8, color: "#334155", marginBottom: i < card.paragraphs.length - 1 ? 14 : 0 }}>
+              <p key={i} style={{ fontSize: 15, lineHeight: 1.8, color: "#1f2937", marginBottom: i < card.paragraphs.length - 1 ? 14 : 0 }}>
                 {p}
               </p>
             ))}
@@ -257,7 +257,7 @@ export default function CryptoBrokersPage() {
       {/* ══════ 4. CFD vs SPOT EXPLAINER ══════ */}
       <section style={{ ...cn, paddingBottom: mob ? 24 : 32 }}>
         <h2 style={secTitle}>{t("pillar.cfdVsSpot")}</h2>
-        <p style={{ fontSize: 15, lineHeight: 1.8, color: "#334155", marginBottom: 20 }}>
+        <p style={{ fontSize: 15, lineHeight: 1.8, color: "#1f2937", marginBottom: 20 }}>
           {CONTENT.cfdVsSpot.intro}
         </p>
         <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "1fr 1fr", gap: 16 }}>
@@ -274,7 +274,7 @@ export default function CryptoBrokersPage() {
               }}>{side.label}</div>
               <ul style={{ padding: "0 0 0 16px", margin: "0 0 14px" }}>
                 {side.points.map((p, i) => (
-                  <li key={i} style={{ fontSize: 14, lineHeight: 1.7, color: "#334155", marginBottom: 6 }}>{p}</li>
+                  <li key={i} style={{ fontSize: 14, lineHeight: 1.7, color: "#1f2937", marginBottom: 6 }}>{p}</li>
                 ))}
               </ul>
               <div style={{
@@ -307,7 +307,7 @@ export default function CryptoBrokersPage() {
                 {["#", "Broker", "Score", "Spread", "Min Deposit", "Leverage", "Platforms", "Regulation"].map((h) => (
                   <th key={h} style={{
                     padding: "12px 14px", textAlign: "left", fontWeight: 700, fontSize: 12,
-                    color: "#64748b", textTransform: "uppercase", letterSpacing: 0.5,
+                    color: "#1f2937", textTransform: "uppercase", letterSpacing: 0.5,
                     borderBottom: "1px solid #e2e8f0",
                   }}>{h}</th>
                 ))}
@@ -320,18 +320,18 @@ export default function CryptoBrokersPage() {
                 const isBestDep = top5.every((o) => b.B.minDep <= o.B.minDep);
                 return (
                   <tr key={b.slug} style={{ borderBottom: "1px solid #f1f5f9" }}>
-                    <td style={{ padding: "12px 14px", fontFamily: "'JetBrains Mono'", fontWeight: 800, color: i === 0 ? "#f59e0b" : "#334155" }}>
+                    <td style={{ padding: "12px 14px", fontFamily: "'JetBrains Mono'", fontWeight: 800, color: i === 0 ? "#f59e0b" : "#1f2937" }}>
                       #{i + 1}
                     </td>
                     <td style={{ padding: "12px 14px" }}>
-                      <Link to={lp(`/review/${b.slug}`)} style={{ fontWeight: 700, color: "#1e293b", textDecoration: "none" }}>
+                      <Link to={lp(`/review/${b.slug}`)} style={{ fontWeight: 700, color: "#111827", textDecoration: "none" }}>
                         {b.B.name}
                       </Link>
                     </td>
                     <td style={{ padding: "12px 14px" }}>
                       <span style={{
                         fontFamily: "'JetBrains Mono'", fontWeight: 800,
-                        color: isBestScore ? "#059669" : "#1e293b",
+                        color: isBestScore ? "#059669" : "#111827",
                         background: isBestScore ? "#ecfdf5" : "transparent",
                         padding: isBestScore ? "2px 6px" : 0, borderRadius: 4,
                       }}>{b.B.score}</span>
@@ -339,14 +339,14 @@ export default function CryptoBrokersPage() {
                     <td style={{ padding: "12px 14px" }}>
                       <span style={{
                         fontFamily: "'JetBrains Mono'", fontWeight: 700,
-                        color: isBestSpread ? "#059669" : "#1e293b",
+                        color: isBestSpread ? "#059669" : "#111827",
                         background: isBestSpread ? "#ecfdf5" : "transparent",
                         padding: isBestSpread ? "2px 6px" : 0, borderRadius: 4,
                       }}>{b.B.spread} pips</span>
                     </td>
                     <td style={{ padding: "12px 14px", fontFamily: "'JetBrains Mono'", fontWeight: 700 }}>
                       <span style={{
-                        color: isBestDep ? "#059669" : "#1e293b",
+                        color: isBestDep ? "#059669" : "#111827",
                         background: isBestDep ? "#ecfdf5" : "transparent",
                         padding: isBestDep ? "2px 6px" : 0, borderRadius: 4,
                       }}>{b.B.minDep === 0 ? "$0" : `$${b.B.minDep}`}</span>
@@ -357,11 +357,11 @@ export default function CryptoBrokersPage() {
                         {b.B.platforms.slice(0, 2).map((p) => (
                           <span key={p} style={{
                             padding: "2px 6px", borderRadius: 4, fontSize: 11, fontWeight: 600,
-                            background: "#f1f5f9", color: "#334155",
+                            background: "#f1f5f9", color: "#1f2937",
                           }}>{p}</span>
                         ))}
                         {b.B.platforms.length > 2 && (
-                          <span style={{ padding: "2px 6px", borderRadius: 4, fontSize: 11, fontWeight: 600, background: "#f1f5f9", color: "#64748b" }}>
+                          <span style={{ padding: "2px 6px", borderRadius: 4, fontSize: 11, fontWeight: 600, background: "#f1f5f9", color: "#1f2937" }}>
                             +{b.B.platforms.length - 2}
                           </span>
                         )}
@@ -373,7 +373,7 @@ export default function CryptoBrokersPage() {
                           <span key={r.name} style={{
                             padding: "2px 6px", borderRadius: 4, fontSize: 11, fontWeight: 700,
                             background: r.tier === 1 ? "#ecfdf5" : "#f1f5f9",
-                            color: r.tier === 1 ? "#059669" : "#475569",
+                            color: r.tier === 1 ? "#059669" : "#374151",
                           }}>{r.name}</span>
                         ))}
                       </div>
@@ -396,7 +396,7 @@ export default function CryptoBrokersPage() {
                 <span style={{ fontSize: 28 }}>{coin.icon}</span>
                 <h3 style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 18, margin: 0 }}>{coin.coin}</h3>
               </div>
-              <p style={{ fontSize: 14, lineHeight: 1.7, color: "#475569", marginBottom: 14 }}>{coin.desc}</p>
+              <p style={{ fontSize: 14, lineHeight: 1.7, color: "#1f2937", marginBottom: 14 }}>{coin.desc}</p>
               <Link to={lp(coin.path)} style={{
                 display: "inline-block", padding: "8px 16px", borderRadius: 8,
                 background: "#f0fdf4", color: "#059669", fontWeight: 700, fontSize: 14,
@@ -424,11 +424,11 @@ export default function CryptoBrokersPage() {
                 {col.items.map((item) => (
                   <Link key={item.path} to={lp(item.path)} style={{
                     display: "block", padding: "8px 10px", borderRadius: 6,
-                    fontSize: 14, fontWeight: 500, color: "#334155", textDecoration: "none",
+                    fontSize: 14, fontWeight: 500, color: "#1f2937", textDecoration: "none",
                     transition: "all 0.15s",
                   }}
                     onMouseEnter={(e) => { e.currentTarget.style.background = "#f0fdf4"; e.currentTarget.style.color = "#059669"; }}
-                    onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#334155"; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#1f2937"; }}
                   >{item.label}</Link>
                 ))}
               </div>
@@ -440,7 +440,7 @@ export default function CryptoBrokersPage() {
       {/* ══════ 9. SECURITY SECTION ══════ */}
       <section style={{ ...cn, paddingBottom: mob ? 24 : 32 }}>
         <h2 style={secTitle}>{t("pillar.security")}</h2>
-        <p style={{ fontSize: 15, lineHeight: 1.8, color: "#334155", marginBottom: 20 }}>
+        <p style={{ fontSize: 15, lineHeight: 1.8, color: "#1f2937", marginBottom: 20 }}>
           {CONTENT.securitySection.intro}
         </p>
         <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : tab ? "1fr 1fr" : "1fr 1fr 1fr 1fr", gap: 16 }}>
@@ -448,7 +448,7 @@ export default function CryptoBrokersPage() {
             <div key={feat.name} style={{ ...cardBg, padding: mob ? "20px" : "24px" }}>
               <div style={{ fontSize: 28, marginBottom: 8 }}>{feat.icon}</div>
               <h3 style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 16, marginBottom: 8 }}>{feat.name}</h3>
-              <p style={{ fontSize: 14, lineHeight: 1.7, color: "#475569", margin: 0 }}>{feat.desc}</p>
+              <p style={{ fontSize: 14, lineHeight: 1.7, color: "#1f2937", margin: 0 }}>{feat.desc}</p>
             </div>
           ))}
         </div>

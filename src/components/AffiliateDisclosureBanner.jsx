@@ -12,7 +12,7 @@ export default function AffiliateDisclosureBanner({ crypto }) {
       background: "#f8fafc", border: "1px solid #f1f5f9",
       display: "flex", flexWrap: "wrap", alignItems: "baseline", gap: 4,
     }}>
-      <p style={{ fontSize: 13, lineHeight: 1.7, color: "#64748b", margin: 0 }}>
+      <p style={{ fontSize: 13, lineHeight: 1.7, color: "#1f2937", margin: 0 }}>
         <strong>{t("disclosure.label")}</strong>{" "}
         {t("disclosure.text")}{crypto ? " " + t("disclosure.crypto") : ""}{" "}
         <Link to={lp("/how-we-make-money")} style={{

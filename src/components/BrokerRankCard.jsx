@@ -32,7 +32,7 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
       <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 14, color: "#111827", marginBottom: 4 }}>
         {thematic.why}
       </div>
-      <p style={{ fontSize: 15, lineHeight: 1.7, color: "#334155", margin: 0 }}>
+      <p style={{ fontSize: 15, lineHeight: 1.7, color: "#1f2937", margin: 0 }}>
         {thematic.text}
       </p>
     </div>
@@ -83,7 +83,7 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
         <div style={{ paddingTop: 8 }}>
           <div style={{ background: "#f8fafc", borderRadius: 8, padding: 14 }}>
             {thematic.analysis.split("\n\n").map((p, i) => (
-              <p key={i} style={{ fontSize: 14, lineHeight: 1.7, color: "#334155", marginBottom: i < thematic.analysis.split("\n\n").length - 1 ? 8 : 0 }}>
+              <p key={i} style={{ fontSize: 14, lineHeight: 1.7, color: "#1f2937", marginBottom: i < thematic.analysis.split("\n\n").length - 1 ? 8 : 0 }}>
                 {p}
               </p>
             ))}
@@ -102,7 +102,7 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
                     {thematic.prosDetail.map((p, i) => (
                       <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 4, marginBottom: 3 }}>
                         <span style={{ color: "#059669", fontWeight: 700, fontSize: 12 }}>✓</span>
-                        <span style={{ fontSize: 13, lineHeight: 1.5, color: "#334155" }}>{p}</span>
+                        <span style={{ fontSize: 13, lineHeight: 1.5, color: "#1f2937" }}>{p}</span>
                       </div>
                     ))}
                   </div>
@@ -115,7 +115,7 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
                     {thematic.consDetail.map((c, i) => (
                       <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 4, marginBottom: 3 }}>
                         <span style={{ color: "#dc2626", fontWeight: 700, fontSize: 12 }}>✗</span>
-                        <span style={{ fontSize: 13, lineHeight: 1.5, color: "#334155" }}>{c}</span>
+                        <span style={{ fontSize: 13, lineHeight: 1.5, color: "#1f2937" }}>{c}</span>
                       </div>
                     ))}
                   </div>
@@ -159,7 +159,7 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
     B.riskWarning ? (
       <div style={{
         padding: mob ? "4px 16px 12px" : "4px 0 0",
-        fontSize: 12, lineHeight: 1.4, color: "#64748b", textAlign: "center",
+        fontSize: 12, lineHeight: 1.4, color: "#1f2937", textAlign: "center",
       }}>
         {B.riskWarning}
       </div>
@@ -199,7 +199,7 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
                 }}>{B.badge}</span>
               )}
             </div>
-            <div style={{ fontSize: 13, color: "#475569", marginTop: 2 }}>{B.type}</div>
+            <div style={{ fontSize: 13, color: "#1f2937", marginTop: 2 }}>{B.type}</div>
           </div>
 
           <ScoreBadge score={B.score} size="md" />
@@ -223,8 +223,8 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
             ["Leverage", B.leverage],
           ].map(([label, val]) => (
             <div key={label} style={{ background: "#f8fafc", padding: "8px 10px", textAlign: "center" }}>
-              <div style={{ fontSize: 11, color: "#64748b", fontWeight: 600, textTransform: "uppercase", whiteSpace: "nowrap" }}>{label}</div>
-              <div style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 15, fontWeight: 700, color: "#1e293b", marginTop: 2, whiteSpace: "nowrap" }}>{val}</div>
+              <div style={{ fontSize: 11, color: "#1f2937", fontWeight: 600, textTransform: "uppercase", whiteSpace: "nowrap" }}>{label}</div>
+              <div style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 15, fontWeight: 700, color: "#111827", marginTop: 2, whiteSpace: "nowrap" }}>{val}</div>
             </div>
           ))}
         </div>
@@ -246,7 +246,7 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
               style={{
                 display: "flex", alignItems: "center", justifyContent: "center", gap: 4,
                 width: "100%", padding: "10px", border: "none", background: "none",
-                cursor: "pointer", fontSize: 13, fontWeight: 600, color: "#64748b",
+                cursor: "pointer", fontSize: 13, fontWeight: 600, color: "#1f2937",
                 fontFamily: "inherit",
               }}
             >
@@ -261,11 +261,11 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
             {expanded && (
               <div style={{ padding: "0 16px 12px" }}>
                 <div style={{ marginBottom: 10 }}>
-                  <div style={{ fontSize: 12, fontWeight: 700, color: "#64748b", textTransform: "uppercase", marginBottom: 4 }}>Platforms</div>
+                  <div style={{ fontSize: 12, fontWeight: 700, color: "#1f2937", textTransform: "uppercase", marginBottom: 4 }}>Platforms</div>
                   <div style={{ display: "flex", gap: 6, flexWrap: "wrap", alignItems: "center" }}>
                     {B.platforms.map((p) => {
                       const pSlug = getPlatformSlugByName(p);
-                      const tagStyle = { display: "inline-flex", alignItems: "center", gap: 4, padding: "3px 8px", borderRadius: 6, fontSize: 11, fontWeight: 600, background: "#f1f5f9", color: "#475569", textDecoration: "none" };
+                      const tagStyle = { display: "inline-flex", alignItems: "center", gap: 4, padding: "3px 8px", borderRadius: 6, fontSize: 11, fontWeight: 600, background: "#f1f5f9", color: "#1f2937", textDecoration: "none" };
                       const logo = pSlug ? <PlatformLogo slug={pSlug} name={p} size={16} shape="icon" /> : null;
                       return pSlug
                         ? <Link key={p} to={lp(`/platform/${pSlug}`)} style={tagStyle}>{logo}{p}</Link>
@@ -274,9 +274,9 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
                   </div>
                 </div>
                 <div>
-                  <div style={{ fontSize: 12, fontWeight: 700, color: "#64748b", textTransform: "uppercase", marginBottom: 4 }}>Key Strengths</div>
+                  <div style={{ fontSize: 12, fontWeight: 700, color: "#1f2937", textTransform: "uppercase", marginBottom: 4 }}>Key Strengths</div>
                   {topPros.map((p, i) => (
-                    <div key={i} style={{ display: "flex", gap: 6, marginBottom: 4, fontSize: 14, color: "#334155", lineHeight: 1.5 }}>
+                    <div key={i} style={{ display: "flex", gap: 6, marginBottom: 4, fontSize: 14, color: "#1f2937", lineHeight: 1.5 }}>
                       <Check size={12} color="#059669" style={{ flexShrink: 0 }} />
                       <span>{p}</span>
                     </div>
@@ -311,13 +311,13 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
             </a>
             <Link to={reviewPath} style={{
               flex: 1, padding: "11px 16px", borderRadius: 10, textAlign: "center",
-              background: "#fff", color: "#475569", fontWeight: 600, fontSize: 15,
+              background: "#fff", color: "#1f2937", fontWeight: 600, fontSize: 15,
               textDecoration: "none", border: "1.5px solid #cbd5e1",
               display: "flex", alignItems: "center", justifyContent: "center",
               transition: "all 0.15s ease",
             }}
               onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#059669"; e.currentTarget.style.color = "#059669"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.borderColor = "#cbd5e1"; e.currentTarget.style.color = "#475569"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.borderColor = "#cbd5e1"; e.currentTarget.style.color = "#1f2937"; }}
             >Read Review</Link>
           </div>
         )}
@@ -353,7 +353,7 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
           background: rank === 1 ? "#059669" : rank <= 3 ? "linear-gradient(135deg,#1e3a5f,#2d5a8e)" : "#f1f5f9",
           display: "flex", alignItems: "center", justifyContent: "center",
           fontFamily: "'JetBrains Mono',monospace", fontWeight: 800,
-          fontSize: 16, color: rank <= 3 ? "#fff" : "#475569",
+          fontSize: 16, color: rank <= 3 ? "#fff" : "#1f2937",
         }}>#{rank}</div>
 
         {/* Logo + Name block */}
@@ -361,7 +361,7 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
           <Link to={reviewPath} style={{ display: "inline-flex", textDecoration: "none" }}>
             <BrokerLogo slug={broker.slug} name={B.name} fallback={B.logo} size={56} shape="brand" />
           </Link>
-          <div style={{ fontSize: 13, color: "#475569", marginTop: 4 }}>{B.type}</div>
+          <div style={{ fontSize: 13, color: "#1f2937", marginTop: 4 }}>{B.type}</div>
           {B.badge && (
             <span style={{
               display: "inline-block", marginTop: 6, padding: "2px 8px", borderRadius: 5,
@@ -388,8 +388,8 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
             ...(!tab ? [["Platforms", B.platforms.length + " platforms"]] : []),
           ].map(([label, val]) => (
             <div key={label}>
-              <div style={{ fontSize: 11, color: "#64748b", fontWeight: 600, textTransform: "uppercase", letterSpacing: 0.5, whiteSpace: "nowrap" }}>{label}</div>
-              <div style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 15, fontWeight: 700, color: "#1e293b", marginTop: 2, whiteSpace: "nowrap" }}>{val}</div>
+              <div style={{ fontSize: 11, color: "#1f2937", fontWeight: 600, textTransform: "uppercase", letterSpacing: 0.5, whiteSpace: "nowrap" }}>{label}</div>
+              <div style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 15, fontWeight: 700, color: "#111827", marginTop: 2, whiteSpace: "nowrap" }}>{val}</div>
             </div>
           ))}
         </div>
@@ -411,12 +411,12 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
             </a>
             <Link to={reviewPath} style={{
               padding: "8px 20px", borderRadius: 8, textAlign: "center",
-              background: "#fff", color: "#475569", fontWeight: 600, fontSize: 14,
+              background: "#fff", color: "#1f2937", fontWeight: 600, fontSize: 14,
               textDecoration: "none", border: "1.5px solid #cbd5e1",
               transition: "all 0.15s ease",
             }}
               onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#059669"; e.currentTarget.style.color = "#059669"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.borderColor = "#cbd5e1"; e.currentTarget.style.color = "#475569"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.borderColor = "#cbd5e1"; e.currentTarget.style.color = "#1f2937"; }}
             >Read Review</Link>
           </div>
         )}

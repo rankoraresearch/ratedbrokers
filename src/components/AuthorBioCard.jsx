@@ -49,7 +49,7 @@ export default function AuthorBioCard({ author }) {
             <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 19, color: "#0f172a" }}>
               {author.name}
             </div>
-            <div style={{ fontSize: 15, color: "#475569" }}>{author.role}</div>
+            <div style={{ fontSize: 15, color: "#1f2937" }}>{author.role}</div>
           </div>
         </div>
 
@@ -74,7 +74,7 @@ export default function AuthorBioCard({ author }) {
         </div>
 
         {/* Bio */}
-        <p style={{ fontSize: 15, lineHeight: 1.8, color: "#334155", margin: "0 0 14px" }}>
+        <p style={{ fontSize: 15, lineHeight: 1.8, color: "#1f2937", margin: "0 0 14px" }}>
           {author.bio}
         </p>
 
@@ -82,10 +82,10 @@ export default function AuthorBioCard({ author }) {
         {author.specialty && (
           <div style={{
             display: "flex", alignItems: "center", gap: 8,
-            fontSize: 14, color: "#475569", marginBottom: 20,
+            fontSize: 14, color: "#1f2937", marginBottom: 20,
           }}>
             <Target size={14} color="#059669" />
-            <span><strong style={{ color: "#1e293b" }}>Specialty:</strong> {author.specialty}</span>
+            <span><strong style={{ color: "#111827" }}>Specialty:</strong> {author.specialty}</span>
           </div>
         )}
 
@@ -95,7 +95,7 @@ export default function AuthorBioCard({ author }) {
           style={{
             display: "block", textAlign: "center", padding: "12px 20px",
             borderRadius: 10, marginBottom: 10,
-            background: "#f1f5f9", color: "#1e293b",
+            background: "#f1f5f9", color: "#111827",
             fontSize: 15, fontWeight: 700, textDecoration: "none",
             transition: "background 0.2s",
           }}

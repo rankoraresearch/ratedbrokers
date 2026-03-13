@@ -11,8 +11,8 @@ export default function AuthorByline({ author, editor, factChecker, reviewer, up
   const onDark = variant === "onDark";
   const centered = variant === "centered";
 
-  const textColor = onDark ? "rgba(255,255,255,0.7)" : "#64748b";
-  const nameColor = onDark ? "#fff" : "#1e293b";
+  const textColor = onDark ? "rgba(255,255,255,0.7)" : "#1f2937";
+  const nameColor = onDark ? "#fff" : "#111827";
 
   return (
     <div style={{

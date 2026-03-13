@@ -22,7 +22,7 @@ export default function RegBadge({ reg }) {
     fontWeight: 700,
     letterSpacing: 0.5,
     background: isFCA ? "#dbeafe" : isTier1 ? "#ecfdf5" : "#f1f5f9",
-    color: isFCA ? "#1e40af" : isTier1 ? "#059669" : "#64748b",
+    color: isFCA ? "#1e40af" : isTier1 ? "#059669" : "#1f2937",
     border: `1px solid ${
       isFCA ? "#93c5fd" : isTier1 ? "#a7f3d0" : "#e2e8f0"
     }`,

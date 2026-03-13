@@ -91,8 +91,8 @@ export default function TrustScorePage() {
     <div style={{ background: "#f8f9fb", minHeight: "100vh" }}>
       {/* ── Breadcrumb ── */}
       <div style={{ ...cn, paddingTop: 16, paddingBottom: 0 }}>
-        <nav style={{ fontSize: 14, color: "#64748b", display: "flex", gap: 6, alignItems: "center" }}>
-          <Link to={lp("/")} style={{ color: "#64748b", textDecoration: "none" }}>{t("ts.breadHome")}</Link>
+        <nav style={{ fontSize: 14, color: "#1f2937", display: "flex", gap: 6, alignItems: "center" }}>
+          <Link to={lp("/")} style={{ color: "#1f2937", textDecoration: "none" }}>{t("ts.breadHome")}</Link>
           <span>/</span>
           <span style={{ color: "#0f172a", fontWeight: 600 }}>{t("ts.breadTrustScore")}</span>
         </nav>
@@ -167,7 +167,7 @@ function HeroSection({ cn, mob, tab, t }) {
         {t("ts.title")}
       </h1>
       <p style={{
-        fontSize: mob ? 15 : 18, color: "#475569", lineHeight: 1.7,
+        fontSize: mob ? 15 : 18, color: "#1f2937", lineHeight: 1.7,
         maxWidth: 680, margin: "0 auto 32px",
       }}>
         {t("ts.subtitle")}
@@ -187,7 +187,7 @@ function HeroSection({ cn, mob, tab, t }) {
             <div style={{ fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 22, color: "#059669" }}>
               {s.val}
             </div>
-            <div style={{ fontSize: 13, color: "#475569", marginTop: 2 }}>{s.label}</div>
+            <div style={{ fontSize: 13, color: "#1f2937", marginTop: 2 }}>{s.label}</div>
           </div>
         ))}
       </div>
@@ -219,13 +219,13 @@ function LookupSection({ cn, mob, tab, t, lp, allBrokers }) {
       <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 28, marginBottom: 6 }}>
         {t("ts.lookupTitle")}
       </h2>
-      <p style={{ fontSize: 16, color: "#475569", marginBottom: 20, maxWidth: 700 }}>
+      <p style={{ fontSize: 16, color: "#1f2937", marginBottom: 20, maxWidth: 700 }}>
         {t("ts.lookupDesc")}
       </p>
 
       {/* Search input */}
       <div style={{ position: "relative", maxWidth: 500, marginBottom: 16 }}>
-        <Search size={18} color="#64748b" style={{ position: "absolute", left: 14, top: 14 }} />
+        <Search size={18} color="#374151" style={{ position: "absolute", left: 14, top: 14 }} />
         <input
           type="text"
           value={query}
@@ -248,7 +248,7 @@ function LookupSection({ cn, mob, tab, t, lp, allBrokers }) {
           boxShadow: "0 4px 16px rgba(0,0,0,0.08)", marginBottom: 16, overflow: "hidden",
         }}>
           {results.length === 0 ? (
-            <div style={{ padding: "16px 20px", color: "#64748b", fontSize: 15 }}>{t("ts.lookupNoResults")}</div>
+            <div style={{ padding: "16px 20px", color: "#1f2937", fontSize: 15 }}>{t("ts.lookupNoResults")}</div>
           ) : results.map((b) => {
             const tier = getTier(b.score);
             return (
@@ -309,7 +309,7 @@ function LookupSection({ cn, mob, tab, t, lp, allBrokers }) {
               <div style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 22, marginBottom: 2 }}>
                 {selectedData.B.name}
               </div>
-              <div style={{ fontSize: 15, color: "#475569" }}>
+              <div style={{ fontSize: 15, color: "#1f2937" }}>
                 {selectedData.B.type} · Est. {selectedData.B.year} · {selectedData.B.hq}
               </div>
             </div>
@@ -329,7 +329,7 @@ function LookupSection({ cn, mob, tab, t, lp, allBrokers }) {
                 <div style={{
                   display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6,
                 }}>
-                  <span style={{ fontSize: 13, fontWeight: 600, color: "#334155" }}>{s.name}</span>
+                  <span style={{ fontSize: 13, fontWeight: 600, color: "#1f2937" }}>{s.name}</span>
                   <span style={{
                     fontFamily: "'JetBrains Mono',monospace", fontWeight: 700, fontSize: 14,
                     color: getTierColor(s.score),
@@ -373,7 +373,7 @@ function WhatIsSection({ cn, mob, t, lp }) {
       <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 28, marginBottom: 12 }}>
         {t("ts.whatIsTitle")}
       </h2>
-      <div style={{ maxWidth: 780, fontSize: 16, color: "#334155", lineHeight: 1.8 }}>
+      <div style={{ maxWidth: 780, fontSize: 16, color: "#1f2937", lineHeight: 1.8 }}>
         <p style={{ marginBottom: 14 }}>{t("ts.whatIsP1")}</p>
         <p style={{ marginBottom: 14 }}>{t("ts.whatIsP2")}</p>
         <p style={{ marginBottom: 14 }}>{t("ts.whatIsP3")}</p>
@@ -398,7 +398,7 @@ function TiersSection({ cn, mob, tab, t, allBrokers }) {
       <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 28, marginBottom: 6 }}>
         {t("ts.tiersTitle")}
       </h2>
-      <p style={{ fontSize: 16, color: "#475569", marginBottom: 20, maxWidth: 700 }}>
+      <p style={{ fontSize: 16, color: "#1f2937", marginBottom: 20, maxWidth: 700 }}>
         {t("ts.tiersDesc")}
       </p>
 
@@ -427,7 +427,7 @@ function TiersSection({ cn, mob, tab, t, allBrokers }) {
               <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 17, marginBottom: 8 }}>
                 {tier.label}
               </div>
-              <div style={{ fontSize: 14, color: "#475569", lineHeight: 1.6, marginBottom: 10 }}>
+              <div style={{ fontSize: 14, color: "#1f2937", lineHeight: 1.6, marginBottom: 10 }}>
                 {tier.desc}
               </div>
               <div style={{
@@ -438,7 +438,7 @@ function TiersSection({ cn, mob, tab, t, allBrokers }) {
                 {count === 1 ? t("ts.tiersBroker", { count }) : t("ts.tiersBrokersCount", { count })}
               </div>
               {examples && (
-                <div style={{ fontSize: 12, color: "#64748b", fontStyle: "italic" }}>
+                <div style={{ fontSize: 12, color: "#1f2937", fontStyle: "italic" }}>
                   {t("ts.tiersExamples", { names: examples })}
                 </div>
               )}
@@ -462,7 +462,7 @@ function CriteriaSection({ cn, mob, tab, t }) {
       <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 28, marginBottom: 6 }}>
         {t("ts.criteriaTitle")}
       </h2>
-      <p style={{ fontSize: 16, color: "#475569", marginBottom: 20, maxWidth: 700 }}>
+      <p style={{ fontSize: 16, color: "#1f2937", marginBottom: 20, maxWidth: 700 }}>
         {t("ts.criteriaDesc")}
       </p>
 
@@ -496,7 +496,7 @@ function CriteriaSection({ cn, mob, tab, t }) {
                     </div>
                   </div>
                 </div>
-                <p style={{ fontSize: 14, color: "#475569", lineHeight: 1.6, marginBottom: 12 }}>
+                <p style={{ fontSize: 14, color: "#1f2937", lineHeight: 1.6, marginBottom: 12 }}>
                   {c.summary}
                 </p>
                 <button
@@ -519,7 +519,7 @@ function CriteriaSection({ cn, mob, tab, t }) {
                   padding: "0 18px 20px", borderTop: "1px solid #f1f5f9",
                   paddingTop: 16,
                 }}>
-                  <p style={{ fontSize: 15, color: "#334155", lineHeight: 1.7, marginBottom: 16 }}>
+                  <p style={{ fontSize: 15, color: "#1f2937", lineHeight: 1.7, marginBottom: 16 }}>
                     {c.details}
                   </p>
 
@@ -536,7 +536,7 @@ function CriteriaSection({ cn, mob, tab, t }) {
                         <div style={{
                           display: "grid", gridTemplateColumns: "1fr 60px",
                           background: "#f8f9fb", padding: "8px 14px", fontSize: 12,
-                          fontWeight: 700, color: "#475569", textTransform: "uppercase",
+                          fontWeight: 700, color: "#1f2937", textTransform: "uppercase",
                         }}>
                           <span>{t("ts.criteriaSubName")}</span>
                           <span style={{ textAlign: "right" }}>{t("ts.criteriaSubWeight")}</span>
@@ -547,7 +547,7 @@ function CriteriaSection({ cn, mob, tab, t }) {
                             padding: "8px 14px", fontSize: 14,
                             borderTop: "1px solid #f1f5f9",
                           }}>
-                            <span style={{ color: "#334155" }}>{sc.name}</span>
+                            <span style={{ color: "#1f2937" }}>{sc.name}</span>
                             <span style={{
                               textAlign: "right", fontWeight: 600, color: c.color,
                             }}>{sc.weight}</span>
@@ -577,7 +577,7 @@ function CriteriaSection({ cn, mob, tab, t }) {
                               fontFamily: "'JetBrains Mono',monospace", fontWeight: 700,
                               fontSize: 13, color: "#059669", whiteSpace: "nowrap", minWidth: 80,
                             }}>{sr.range}</span>
-                            <span style={{ color: "#334155", lineHeight: 1.5 }}>{sr.desc}</span>
+                            <span style={{ color: "#1f2937", lineHeight: 1.5 }}>{sr.desc}</span>
                           </div>
                         ))}
                       </div>
@@ -600,7 +600,7 @@ function CriteriaSection({ cn, mob, tab, t }) {
                             <div style={{
                               fontWeight: 700, fontSize: 14, color: rt.color, marginBottom: 6,
                             }}>{rt.tier}</div>
-                            <div style={{ fontSize: 13, color: "#334155", lineHeight: 1.6 }}>
+                            <div style={{ fontSize: 13, color: "#1f2937", lineHeight: 1.6 }}>
                               {rt.regs.join(" · ")}
                             </div>
                           </div>
@@ -645,7 +645,7 @@ function DistributionSection({ cn, mob, t, allBrokers }) {
       <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 28, marginBottom: 6 }}>
         {t("ts.distTitle")}
       </h2>
-      <p style={{ fontSize: 16, color: "#475569", marginBottom: 20, maxWidth: 700 }}>
+      <p style={{ fontSize: 16, color: "#1f2937", marginBottom: 20, maxWidth: 700 }}>
         {t("ts.distDesc")}
       </p>
 
@@ -662,7 +662,7 @@ function DistributionSection({ cn, mob, t, allBrokers }) {
             <div style={{
               fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 24, color: s.color,
             }}>{s.value}</div>
-            <div style={{ fontSize: 13, color: "#475569" }}>{s.label}</div>
+            <div style={{ fontSize: 13, color: "#1f2937" }}>{s.label}</div>
           </div>
         ))}
       </div>
@@ -678,7 +678,7 @@ function DistributionSection({ cn, mob, t, allBrokers }) {
               display: "flex", alignItems: "center", gap: 10, marginBottom: 6,
             }}>
               <div style={{
-                width: mob ? 90 : 140, fontSize: 13, fontWeight: 500, color: "#334155",
+                width: mob ? 90 : 140, fontSize: 13, fontWeight: 500, color: "#1f2937",
                 textAlign: "right", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis",
               }}>
                 {b.name}
@@ -724,7 +724,7 @@ function LeaderboardSection({ cn, mob, tab, t, lp, allBrokers }) {
       <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 28, marginBottom: 6 }}>
         {t("ts.leaderTitle")}
       </h2>
-      <p style={{ fontSize: 16, color: "#475569", marginBottom: 20, maxWidth: 700 }}>
+      <p style={{ fontSize: 16, color: "#1f2937", marginBottom: 20, maxWidth: 700 }}>
         {t("ts.leaderDesc")}
       </p>
 
@@ -737,7 +737,7 @@ function LeaderboardSection({ cn, mob, tab, t, lp, allBrokers }) {
             display: "grid",
             gridTemplateColumns: tab ? "40px 1fr 70px 80px 90px" : "50px 1fr 80px 100px 140px 90px",
             padding: "12px 20px", background: "#f8f9fb",
-            fontSize: 12, fontWeight: 700, color: "#475569",
+            fontSize: 12, fontWeight: 700, color: "#1f2937",
             textTransform: "uppercase", letterSpacing: 0.5,
           }}>
             <span>{t("ts.leaderRank")}</span>
@@ -760,11 +760,11 @@ function LeaderboardSection({ cn, mob, tab, t, lp, allBrokers }) {
               }}>
                 <div style={{
                   fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 15,
-                  color: "#64748b", width: 24,
+                  color: "#1f2937", width: 24,
                 }}>#{i + 1}</div>
                 <div style={{ flex: 1 }}>
                   <div style={{ fontWeight: 600, fontSize: 15, color: "#0f172a" }}>{b.name}</div>
-                  <div style={{ fontSize: 13, color: "#475569" }}>{b.type}</div>
+                  <div style={{ fontSize: 13, color: "#1f2937" }}>{b.type}</div>
                 </div>
                 <div style={{ textAlign: "right" }}>
                   <div style={{
@@ -786,7 +786,7 @@ function LeaderboardSection({ cn, mob, tab, t, lp, allBrokers }) {
             }}>
               <span style={{
                 fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 15,
-                color: i < 3 ? "#059669" : "#64748b",
+                color: i < 3 ? "#059669" : "#374151",
               }}>#{i + 1}</span>
               <span style={{ fontWeight: 600, fontSize: 15, color: "#0f172a" }}>{b.name}</span>
               <span style={{
@@ -797,7 +797,7 @@ function LeaderboardSection({ cn, mob, tab, t, lp, allBrokers }) {
                 fontSize: 13, fontWeight: 600, color: tier.color,
               }}>{tier.label}</span>
               {!tab && (
-                <span style={{ fontSize: 13, color: "#475569" }}>{b.type}</span>
+                <span style={{ fontSize: 13, color: "#1f2937" }}>{b.type}</span>
               )}
               <span style={{ textAlign: "right" }}>
                 <Link to={lp(`/review/${b.slug}`)} style={{
@@ -842,7 +842,7 @@ function HowToReadSection({ cn, mob, t, lp }) {
       <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 28, marginBottom: 6 }}>
         {t("ts.howToReadTitle")}
       </h2>
-      <p style={{ fontSize: 16, color: "#475569", marginBottom: 24, maxWidth: 700 }}>
+      <p style={{ fontSize: 16, color: "#1f2937", marginBottom: 24, maxWidth: 700 }}>
         {t("ts.howToReadDesc")}
       </p>
 
@@ -881,7 +881,7 @@ function HowToReadSection({ cn, mob, t, lp }) {
               <div style={{
                 fontFamily: "Outfit", fontWeight: 700, fontSize: 18, marginBottom: 8, color: "#0f172a",
               }}>{step.title}</div>
-              <p style={{ fontSize: 15, color: "#334155", lineHeight: 1.7, marginBottom: 10 }}>
+              <p style={{ fontSize: 15, color: "#1f2937", lineHeight: 1.7, marginBottom: 10 }}>
                 {step.desc}
               </p>
               <div style={{
@@ -917,7 +917,7 @@ function CompareSection({ cn, mob, t }) {
       <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 28, marginBottom: 6 }}>
         {t("ts.compareTitle")}
       </h2>
-      <p style={{ fontSize: 16, color: "#475569", marginBottom: 20, maxWidth: 700 }}>
+      <p style={{ fontSize: 16, color: "#1f2937", marginBottom: 20, maxWidth: 700 }}>
         {t("ts.compareDesc")}
       </p>
 
@@ -930,7 +930,7 @@ function CompareSection({ cn, mob, t }) {
           display: "grid",
           gridTemplateColumns: mob ? "120px repeat(4, 90px)" : "180px repeat(4, 1fr)",
           padding: "12px 20px", background: "#f8f9fb",
-          fontSize: 12, fontWeight: 700, color: "#475569",
+          fontSize: 12, fontWeight: 700, color: "#1f2937",
           textTransform: "uppercase", letterSpacing: 0.5,
           minWidth: mob ? 480 : "auto",
         }}>
@@ -956,10 +956,10 @@ function CompareSection({ cn, mob, t }) {
             <span style={{
               fontFamily: "'JetBrains Mono',monospace", fontSize: 14,
               fontWeight: sys.highlight ? 700 : 400,
-              color: sys.highlight ? "#059669" : "#334155",
+              color: sys.highlight ? "#059669" : "#1f2937",
             }}>{sys.scale}</span>
             <span style={{
-              fontSize: 14, color: sys.highlight ? "#059669" : "#334155",
+              fontSize: 14, color: sys.highlight ? "#059669" : "#1f2937",
               fontWeight: sys.highlight ? 700 : 400,
             }}>{sys.variables}</span>
             <span style={{
@@ -969,7 +969,7 @@ function CompareSection({ cn, mob, t }) {
             }}>{sys.formula}</span>
             <span style={{
               fontSize: 14,
-              color: sys.highlight ? "#059669" : "#64748b",
+              color: sys.highlight ? "#059669" : "#374151",
               fontWeight: sys.highlight ? 700 : 400,
             }}>{sys.testing}</span>
           </div>
@@ -1024,12 +1024,12 @@ function FaqSection({ cn, mob, t }) {
                 <span style={{ fontWeight: 600, fontSize: 16, color: "#0f172a", paddingRight: 12 }}>
                   {faq.q}
                 </span>
-                {isOpen ? <ChevronUp size={18} color="#64748b" /> : <ChevronDown size={18} color="#64748b" />}
+                {isOpen ? <ChevronUp size={18} color="#374151" /> : <ChevronDown size={18} color="#374151" />}
               </button>
               {isOpen && (
                 <div style={{
                   padding: "0 20px 16px",
-                  fontSize: 15, color: "#334155", lineHeight: 1.7,
+                  fontSize: 15, color: "#1f2937", lineHeight: 1.7,
                 }}>
                   {faq.a}
                 </div>
@@ -1063,7 +1063,7 @@ function CtaSection({ cn, mob, t, lp }) {
           {t("ts.ctaTitle")}
         </h2>
         <p style={{
-          fontSize: mob ? 15 : 17, color: "#94a3b8", marginBottom: 28,
+          fontSize: mob ? 15 : 17, color: "#64748b", marginBottom: 28,
           maxWidth: 500, margin: "0 auto 28px",
         }}>
           {t("ts.ctaDesc")}

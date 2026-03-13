@@ -228,7 +228,7 @@ export default function RankingPage() {
           <div style={{ ...cardBg, padding: mob ? "24px 20px" : "32px 36px" }}>
             {seo.intro.map((p, i) => (
               <p key={i} style={{
-                fontSize: 15, lineHeight: 1.8, color: "#475569",
+                fontSize: 15, lineHeight: 1.8, color: "#1f2937",
                 marginBottom: i < seo.intro.length - 1 ? 16 : 0,
               }}>
                 {fillVars(p)}
@@ -275,12 +275,12 @@ export default function RankingPage() {
               ...cardBg, padding: mob ? "14px" : "18px 24px",
               textAlign: "center",
             }}>
-              <Icon name={iconName} size={18} color="#64748b" />
+              <Icon name={iconName} size={18} color="#374151" />
               <div style={{
                 fontFamily: "'JetBrains Mono',monospace", fontWeight: 800,
                 fontSize: mob ? 16 : 20, color: "#0f172a", marginTop: 4,
               }}>{val}</div>
-              <div style={{ fontSize: 11, color: "#94a3b8", fontWeight: 600, textTransform: "uppercase" }}>{label}</div>
+              <div style={{ fontSize: 11, color: "#64748b", fontWeight: 600, textTransform: "uppercase" }}>{label}</div>
             </div>
           ))}
         </div>
@@ -305,7 +305,7 @@ export default function RankingPage() {
                   }}>
                     <span style={{ fontSize: mob ? 18 : 22, flexShrink: 0 }}>{v.icon}</span>
                     <div style={{ width: mob ? 80 : tab ? 110 : 150, flexShrink: 0 }}>
-                      <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: mob ? 11 : 13, color: "#64748b", textTransform: "uppercase", letterSpacing: 0.3, lineHeight: 1.3 }}>
+                      <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: mob ? 11 : 13, color: "#1f2937", textTransform: "uppercase", letterSpacing: 0.3, lineHeight: 1.3 }}>
                         {v.label}
                       </div>
                     </div>
@@ -321,7 +321,7 @@ export default function RankingPage() {
                         {mob && v.metric && (
                           <div style={{
                             fontFamily: "'JetBrains Mono',monospace", fontSize: 11,
-                            fontWeight: 600, color: "#64748b", marginTop: 1,
+                            fontWeight: 600, color: "#1f2937", marginTop: 1,
                           }}>{v.metric}</div>
                         )}
                       </div>
@@ -329,7 +329,7 @@ export default function RankingPage() {
                     {!mob && (
                       <div style={{
                         fontFamily: "'JetBrains Mono',monospace", fontSize: 13,
-                        fontWeight: 600, color: "#475569", whiteSpace: "nowrap",
+                        fontWeight: 600, color: "#1f2937", whiteSpace: "nowrap",
                       }}>
                         {v.metric}
                       </div>
@@ -370,11 +370,11 @@ export default function RankingPage() {
                       onMouseLeave={e => e.currentTarget.style.textDecoration = "none"}
                     >{b.B.name}</Link>
                   </div>
-                  <div style={{ display: "flex", gap: 12, fontSize: 13, color: "#475569" }}>
+                  <div style={{ display: "flex", gap: 12, fontSize: 13, color: "#1f2937" }}>
                     <span>Score: <strong style={{ color: "#059669" }}>{b.B.score}</strong></span>
                     <span>Spread: <strong>{b.B.spread} pips</strong></span>
                   </div>
-                  <div style={{ fontSize: 12, color: "#64748b", marginTop: 4 }}>{b.B.type}</div>
+                  <div style={{ fontSize: 12, color: "#1f2937", marginTop: 4 }}>{b.B.type}</div>
                   <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 10 }}>
                     <a href={makeVisitUrl(b.slug, b.B.url)} target="_blank" rel="noopener nofollow sponsored" style={{
                       display: "inline-flex", alignItems: "center", gap: 4,
@@ -383,7 +383,7 @@ export default function RankingPage() {
                       color: "#fff", fontWeight: 700, fontSize: 13, textDecoration: "none",
                     }}><span style={{ display: "inline-flex", alignItems: "center", gap: 4 }}>Visit {b.B.name} <ArrowRight size={12} /></span></a>
                     <Link to={lp(`/review/${b.slug}`)} style={{
-                      fontSize: 13, color: "#64748b", fontWeight: 600, textDecoration: "none",
+                      fontSize: 13, color: "#1f2937", fontWeight: 600, textDecoration: "none",
                     }}>Read Review</Link>
                   </div>
                 </div>
@@ -421,7 +421,7 @@ export default function RankingPage() {
             <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 28, marginBottom: 8 }}>
               {educationData.title}
             </h2>
-            <p style={{ fontSize: 16, lineHeight: 1.75, color: "#475569", marginBottom: 20 }}>
+            <p style={{ fontSize: 16, lineHeight: 1.75, color: "#1f2937", marginBottom: 20 }}>
               {educationData.intro}
             </p>
 
@@ -431,7 +431,7 @@ export default function RankingPage() {
                 {educationData.points.map((pt, i) => (
                   <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 10, marginBottom: 10 }}>
                     <CircleCheck size={16} color="#059669" style={{ flexShrink: 0, marginTop: 4 }} />
-                    <p style={{ fontSize: 15, lineHeight: 1.7, color: "#374151", margin: 0 }}>
+                    <p style={{ fontSize: 15, lineHeight: 1.7, color: "#1f2937", margin: 0 }}>
                       <strong>{pt.bold}</strong> {pt.text}
                     </p>
                   </div>
@@ -446,14 +446,14 @@ export default function RankingPage() {
                   {sec.heading}
                 </h3>
                 {sec.paragraphs?.map((p, pi) => (
-                  <p key={pi} style={{ fontSize: 15, lineHeight: 1.75, color: "#475569", marginBottom: 12 }}>{p}</p>
+                  <p key={pi} style={{ fontSize: 15, lineHeight: 1.75, color: "#1f2937", marginBottom: 12 }}>{p}</p>
                 ))}
                 {sec.points && (
                   <div style={{ marginTop: 8 }}>
                     {sec.points.map((pt, i) => (
                       <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 10, marginBottom: 8 }}>
                         <CircleCheck size={14} color="#059669" style={{ flexShrink: 0, marginTop: 4 }} />
-                        <p style={{ fontSize: 15, lineHeight: 1.7, color: "#374151", margin: 0 }}>
+                        <p style={{ fontSize: 15, lineHeight: 1.7, color: "#1f2937", margin: 0 }}>
                           <strong>{pt.bold}</strong> {pt.text}
                         </p>
                       </div>
@@ -534,8 +534,8 @@ export default function RankingPage() {
                   }}>
                     {compCols.map((col) => (
                       <div key={col}>
-                        <div style={{ fontSize: 11, color: "#94a3b8", fontWeight: 600, textTransform: "uppercase" }}>{col}</div>
-                        <div style={{ fontSize: 14, fontWeight: 600, color: "#475569", marginTop: 1 }}>{getVal(col)}</div>
+                        <div style={{ fontSize: 11, color: "#64748b", fontWeight: 600, textTransform: "uppercase" }}>{col}</div>
+                        <div style={{ fontSize: 14, fontWeight: 600, color: "#1f2937", marginTop: 1 }}>{getVal(col)}</div>
                       </div>
                     ))}
                   </div>
@@ -555,7 +555,7 @@ export default function RankingPage() {
                     {["Broker", "Score", ...compCols].map((h) => (
                       <th key={h} style={{
                         padding: "14px 16px", textAlign: "left", fontFamily: "Outfit", fontWeight: 700,
-                        fontSize: 13, color: "#64748b", textTransform: "uppercase", letterSpacing: "0.05em",
+                        fontSize: 13, color: "#1f2937", textTransform: "uppercase", letterSpacing: "0.05em",
                         borderBottom: "2px solid #e2e8f0", whiteSpace: "nowrap",
                         ...(h === "Broker" ? { position: "sticky", left: 0, background: "#f8fafc", zIndex: 1 } : {}),
                       }}>{h}</th>
@@ -603,7 +603,7 @@ export default function RankingPage() {
                             : lc.includes("platform") ? (b.B.platforms?.length + " platforms" || "—")
                             : "—";
                           return (
-                            <td key={col} style={{ padding: "14px 16px", color: "#475569" }}>
+                            <td key={col} style={{ padding: "14px 16px", color: "#1f2937" }}>
                               {customRow ? (customRow[col] || fallback) : fallback}
                             </td>
                           );
@@ -625,7 +625,7 @@ export default function RankingPage() {
             <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 20 : 28, marginBottom: 6 }}>
               {countryData.name} Broker Reviews — In-Depth Analysis
             </h2>
-            <p style={{ fontSize: 16, color: "#64748b", lineHeight: 1.7, marginBottom: 28 }}>
+            <p style={{ fontSize: 16, color: "#1f2937", lineHeight: 1.7, marginBottom: 28 }}>
               We analyzed each broker's {countryData.currency || "local"} account conditions, regulatory status, and trading costs. Here's what {countryData.name} traders need to know.
             </p>
 
@@ -659,14 +659,14 @@ export default function RankingPage() {
                         display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
                       }}>
                         <span style={{ fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 18, lineHeight: 1, color: b.B.score >= 9.0 ? "#059669" : b.B.score >= 8.0 ? "#2563eb" : "#d97706" }}>{b.B.score}</span>
-                        <span style={{ fontSize: 8, fontWeight: 700, color: "#64748b", textTransform: "uppercase" }}>{b.B.score >= 9.5 ? "Excellent" : b.B.score >= 9.0 ? "Great" : b.B.score >= 8.5 ? "Very Good" : "Good"}</span>
+                        <span style={{ fontSize: 8, fontWeight: 700, color: "#1f2937", textTransform: "uppercase" }}>{b.B.score >= 9.5 ? "Excellent" : b.B.score >= 9.0 ? "Great" : b.B.score >= 8.5 ? "Very Good" : "Good"}</span>
                       </div>
                     </div>
 
                     {/* Review paragraphs */}
                     <div style={{ marginBottom: 16 }}>
                       {review.paragraphs.map((p, pi) => (
-                        <p key={pi} style={{ fontSize: 16, lineHeight: 1.75, color: "#374151", margin: pi < review.paragraphs.length - 1 ? "0 0 12px" : 0 }}>{p}</p>
+                        <p key={pi} style={{ fontSize: 16, lineHeight: 1.75, color: "#1f2937", margin: pi < review.paragraphs.length - 1 ? "0 0 12px" : 0 }}>{p}</p>
                       ))}
                     </div>
 
@@ -682,7 +682,7 @@ export default function RankingPage() {
                         {review.pros.map((pro, pi) => (
                           <div key={pi} style={{ display: "flex", alignItems: "flex-start", gap: 8, marginBottom: 5 }}>
                             <Check size={14} color="#059669" style={{ flexShrink: 0, marginTop: 3 }} />
-                            <span style={{ fontSize: 15, lineHeight: 1.5, color: "#374151" }}>{pro}</span>
+                            <span style={{ fontSize: 15, lineHeight: 1.5, color: "#1f2937" }}>{pro}</span>
                           </div>
                         ))}
                       </div>
@@ -691,7 +691,7 @@ export default function RankingPage() {
                         {review.cons.map((con, ci) => (
                           <div key={ci} style={{ display: "flex", alignItems: "flex-start", gap: 8, marginBottom: 5 }}>
                             <XIcon size={14} color="#dc2626" style={{ flexShrink: 0, marginTop: 3 }} />
-                            <span style={{ fontSize: 15, lineHeight: 1.5, color: "#374151" }}>{con}</span>
+                            <span style={{ fontSize: 15, lineHeight: 1.5, color: "#1f2937" }}>{con}</span>
                           </div>
                         ))}
                       </div>
@@ -708,13 +708,13 @@ export default function RankingPage() {
                       <Link to={lp(`/review/${b.slug}`)} style={{
                         display: "inline-flex", alignItems: "center", gap: 6,
                         padding: mob ? "10px 18px" : "10px 22px", borderRadius: 10,
-                        background: "#f1f5f9", color: "#475569", fontWeight: 600, fontSize: 15, textDecoration: "none",
+                        background: "#f1f5f9", color: "#1f2937", fontWeight: 600, fontSize: 15, textDecoration: "none",
                       }}>Read Full {b.B.name} Review <ArrowRight size={14} /></Link>
                       {i > 0 && (
                         <Link to={lp(`/compare/${canonicalPair(b.slug, brokers[0].slug)}`)} style={{
                           display: "inline-flex", alignItems: "center", gap: 6,
                           padding: mob ? "10px 18px" : "10px 22px", borderRadius: 10,
-                          background: "#f1f5f9", color: "#475569", fontWeight: 600, fontSize: 15, textDecoration: "none",
+                          background: "#f1f5f9", color: "#1f2937", fontWeight: 600, fontSize: 15, textDecoration: "none",
                         }}>Compare vs {brokers[0].B.name} <ArrowRight size={14} /></Link>
                       )}
                     </div>
@@ -733,7 +733,7 @@ export default function RankingPage() {
             <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 18 : 22, marginBottom: 12 }}>
               How We Ranked These Brokers
             </h2>
-            <p style={{ fontSize: 15, lineHeight: 1.8, color: "#475569", margin: 0 }}>
+            <p style={{ fontSize: 15, lineHeight: 1.8, color: "#1f2937", margin: 0 }}>
               {fillVars(seo.howWeRanked)}
             </p>
           </div>
@@ -754,7 +754,7 @@ export default function RankingPage() {
             {related.map((r) => (
               <Link key={r.id} to={lp(r.slug)} style={{
                 ...cardBg, padding: "16px 20px",
-                textDecoration: "none", color: "#1e293b",
+                textDecoration: "none", color: "#111827",
                 display: "flex", alignItems: "center", gap: 12,
                 transition: "all 0.2s",
               }}
@@ -764,7 +764,7 @@ export default function RankingPage() {
                 <Icon name={r.icon} size={20} />
                 <div>
                   <div style={{ fontWeight: 600, fontSize: 15 }}>{r.title}</div>
-                  <div style={{ fontSize: 12, color: "#64748b", marginTop: 2 }}>
+                  <div style={{ fontSize: 12, color: "#1f2937", marginTop: 2 }}>
                     {r.category} / {r.sub}
                   </div>
                 </div>

@@ -86,7 +86,7 @@ export default function PlatformLogo({ slug, name, size = 40, shape = "icon", va
       <span style={{
         fontFamily: "'DM Sans', sans-serif",
         fontWeight: 700, fontSize,
-        color: isLight ? "#334155" : "#1e293b",
+        color: isLight ? "#1f2937" : "#111827",
         whiteSpace: "nowrap", lineHeight: 1.1,
         letterSpacing: "-0.01em",
       }}>

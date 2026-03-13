@@ -137,11 +137,11 @@ export default function AuthorHoverCard({ author, children, onDark = false }) {
           <span style={{ display: "flex", flexDirection: "column" }}>
             <span style={{
               fontFamily: "Outfit", fontWeight: 700, fontSize: 15,
-              color: "#1e293b", lineHeight: 1.2,
+              color: "#111827", lineHeight: 1.2,
             }}>
               {author.name}
             </span>
-            <span style={{ fontSize: 13, color: "#64748b", lineHeight: 1.3 }}>
+            <span style={{ fontSize: 13, color: "#1f2937", lineHeight: 1.3 }}>
               {author.role}
             </span>
           </span>

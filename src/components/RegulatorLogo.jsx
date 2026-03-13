@@ -125,7 +125,7 @@ export default function RegulatorLogo({ slug, name, fullName, size = 36, shape =
       <span style={{
         fontFamily: "'DM Sans', sans-serif",
         fontWeight: 700, fontSize,
-        color: "#1e293b",
+        color: "#111827",
         whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis",
         lineHeight: 1.1, letterSpacing: "-0.01em",
       }}>

@@ -93,7 +93,7 @@ export default function AllGuidesPage() {
   }, [allGuides]);
 
   return (
-    <div style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb", color: "#1e293b", minHeight: "100vh" }}>
+    <div style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb", color: "#111827", minHeight: "100vh" }}>
 
       {/* ═══ BREADCRUMBS ═══ */}
       <div style={{ ...cn, padding: mob ? "12px 16px" : "16px 24px" }}>
@@ -152,7 +152,7 @@ export default function AllGuidesPage() {
         <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 20 : 26, marginBottom: 6 }}>
           {t("guides.featuredTitle")}
         </h2>
-        <p style={{ fontSize: 16, color: "#475569", marginBottom: 16, lineHeight: 1.6 }}>
+        <p style={{ fontSize: 16, color: "#1f2937", marginBottom: 16, lineHeight: 1.6 }}>
           {t("guides.featuredDesc")}
         </p>
         <div style={{
@@ -165,7 +165,7 @@ export default function AllGuidesPage() {
             <Link key={g.slug} to={lp("/guide/" + g.slug)} style={{
               background: "#fff", borderRadius: 16,
               padding: mob ? "20px 16px" : "24px 20px",
-              border: "1px solid #e2e8f0", textDecoration: "none", color: "#1e293b",
+              border: "1px solid #e2e8f0", textDecoration: "none", color: "#111827",
               boxShadow: "0 2px 8px rgba(0,0,0,0.03)",
               transition: "border-color 0.2s, box-shadow 0.2s",
               display: "flex", flexDirection: "column", gap: 10,
@@ -187,13 +187,13 @@ export default function AllGuidesPage() {
                 {g.hero.h1}
               </div>
               <div style={{
-                fontSize: 15, color: "#475569", lineHeight: 1.6,
+                fontSize: 15, color: "#1f2937", lineHeight: 1.6,
                 display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden",
               }}>
                 {g.hero.subtitle}
               </div>
               <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "auto" }}>
-                <span style={{ fontSize: 13, color: "#64748b", fontFamily: "'JetBrains Mono'", fontWeight: 600 }}>{g.readTime}</span>
+                <span style={{ fontSize: 13, color: "#1f2937", fontFamily: "'JetBrains Mono'", fontWeight: 600 }}>{g.readTime}</span>
                 <ArrowRight size={16} color="#059669" />
               </div>
             </Link>
@@ -221,12 +221,12 @@ export default function AllGuidesPage() {
                 </h2>
                 <span style={{
                   fontSize: 13, fontFamily: "'JetBrains Mono'", fontWeight: 700,
-                  color: "#64748b", marginLeft: 4,
+                  color: "#1f2937", marginLeft: 4,
                 }}>
                   {t("guides.guidesCount", { count: guides.length })}
                 </span>
               </div>
-              <p style={{ fontSize: 15, color: "#475569", marginBottom: 14, lineHeight: 1.6, marginLeft: 46 }}>
+              <p style={{ fontSize: 15, color: "#1f2937", marginBottom: 14, lineHeight: 1.6, marginLeft: 46 }}>
                 {t("guides." + cat.descKey)}
               </p>
 
@@ -240,7 +240,7 @@ export default function AllGuidesPage() {
                     display: "flex", alignItems: "center", gap: 12,
                     padding: mob ? "12px 14px" : "14px 18px",
                     background: "#fff", border: "1px solid #e2e8f0", borderRadius: 14,
-                    textDecoration: "none", color: "#1e293b",
+                    textDecoration: "none", color: "#111827",
                     transition: "border-color 0.2s",
                   }}
                     onMouseEnter={(e) => { e.currentTarget.style.borderColor = cat.color; }}
@@ -259,16 +259,16 @@ export default function AllGuidesPage() {
                     <div style={{ minWidth: 0, flex: 1 }}>
                       <div style={{ fontWeight: 700, fontSize: 15, lineHeight: 1.3, marginBottom: 2 }}>{g.hero.h1}</div>
                       <div style={{
-                        fontSize: 14, color: "#475569", lineHeight: 1.5,
+                        fontSize: 14, color: "#1f2937", lineHeight: 1.5,
                         display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden",
                       }}>
                         {g.hero.subtitle}
                       </div>
-                      <div style={{ fontSize: 12, color: "#64748b", fontFamily: "'JetBrains Mono'", fontWeight: 600, marginTop: 4 }}>
+                      <div style={{ fontSize: 12, color: "#1f2937", fontFamily: "'JetBrains Mono'", fontWeight: 600, marginTop: 4 }}>
                         {g.readTime}
                       </div>
                     </div>
-                    <ArrowRight size={16} color="#64748b" style={{ flexShrink: 0 }} />
+                    <ArrowRight size={16} color="#374151" style={{ flexShrink: 0 }} />
                   </Link>
                 ))}
               </div>
@@ -287,7 +287,7 @@ export default function AllGuidesPage() {
           <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 18 : 24, marginBottom: 8 }}>
             {t("guides.ctaTitle")}
           </h2>
-          <p style={{ fontSize: mob ? 14 : 16, color: "#475569", marginBottom: 20, maxWidth: 480, margin: "0 auto 20px" }}>
+          <p style={{ fontSize: mob ? 14 : 16, color: "#1f2937", marginBottom: 20, maxWidth: 480, margin: "0 auto 20px" }}>
             {t("guides.ctaDesc")}
           </p>
           <div style={{ display: "flex", justifyContent: "center", gap: 12, flexWrap: "wrap" }}>
@@ -302,7 +302,7 @@ export default function AllGuidesPage() {
             </Link>
             <Link to={lp("/compare")} style={{
               padding: "12px 24px", borderRadius: 10,
-              background: "#f1f5f9", color: "#1e293b",
+              background: "#f1f5f9", color: "#111827",
               fontWeight: 700, fontSize: 16, textDecoration: "none",
             }}>
               {t("guides.ctaCompare")}

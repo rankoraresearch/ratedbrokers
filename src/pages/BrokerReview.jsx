@@ -22,7 +22,7 @@ import HeroWave, { DotGrid } from "../components/HeroWave";
 
 function Stars({r,size=15}){ return <div style={{display:"flex",gap:2}}>{[1,2,3,4,5].map(i=><div key={i} style={{width:size,height:size,background:i<=Math.floor(r)?"#00B67A":i-0.5<=r?"linear-gradient(90deg,#00B67A 50%,#d1d5db 50%)":"#d1d5db",clipPath:"polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)"}}/>)}</div>; }
 function H2({id,children}){ return <h2 id={id} style={{fontFamily:"Outfit",fontSize:24,fontWeight:800,color:"#0f172a",marginBottom:14,marginTop:32,scrollMarginTop:80}}>{children}</h2>; }
-function P({children}){ return <p style={{fontSize:16,color:"#475569",lineHeight:1.8,marginBottom:14}}>{children}</p>; }
+function P({children}){ return <p style={{fontSize:16,color:"#374151",lineHeight:1.8,marginBottom:14}}>{children}</p>; }
 function Card({children,style={}}){ return <div style={{background:"#fff",border:"1px solid #e8ecf1",borderRadius:12,padding:"22px",marginBottom:16,...style}}>{children}</div>; }
 
 function useMedia() {
@@ -106,7 +106,7 @@ export default function BrokerReview() {
   if (!data) return (
     <div style={{textAlign:"center",padding:"120px 24px",fontFamily:"'DM Sans',system-ui,sans-serif"}}>
       <h1 style={{fontFamily:"Outfit",fontSize:32,fontWeight:800,color:"#0f172a",marginBottom:16}}>{t("review.notFoundTitle")}</h1>
-      <p style={{color:"#64748b",marginBottom:24}}>{t("review.notFoundDesc")}</p>
+      <p style={{color:"#374151",marginBottom:24}}>{t("review.notFoundDesc")}</p>
       <Link to={lp("/")} style={{color:"#059669",fontWeight:600,textDecoration:"none"}}>{t("review.backHome")}</Link>
     </div>
   );
@@ -141,7 +141,7 @@ export default function BrokerReview() {
   ];
 
   return (
-    <div style={{fontFamily:"'DM Sans',system-ui,sans-serif",background:"#f8f9fb",color:"#1e293b"}}>
+    <div style={{fontFamily:"'DM Sans',system-ui,sans-serif",background:"#f8f9fb",color:"#111827"}}>
       {/* Breadcrumbs */}
       <div style={{background:"#fff",borderBottom:"1px solid #e8ecf1",padding:"10px 0"}}>
         <div style={cn}>
@@ -163,7 +163,7 @@ export default function BrokerReview() {
               <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" style={{ display: "flex", flexShrink: 0, textDecoration: "none" }}><BrokerLogo slug={slug} name={B.name} fallback={B.logo} size={mob?56:72} shape="brand" borderRadius={12} /></a>
               <div>
                 <h1 style={{fontFamily:"Outfit",fontSize:mob?22:28,fontWeight:800,color:"#0f172a",letterSpacing:"-0.02em"}}>{t("review.review2026", { name: B.name })}</h1>
-                <p style={{fontSize:mob?13:15,color:"#64748b"}}>{B.type} {t("review.broker")} {"\u00b7"} {t("review.est")} {B.year}{!mob&&` \u00b7 ${B.hq}`}</p>
+                <p style={{fontSize:mob?13:15,color:"#374151"}}>{B.type} {t("review.broker")} {"\u00b7"} {t("review.est")} {B.year}{!mob&&` \u00b7 ${B.hq}`}</p>
               </div>
             </div>
             <div style={{display:"flex",alignItems:"center",gap:mob?8:16,flexWrap:"wrap",marginBottom:14}}>
@@ -172,15 +172,15 @@ export default function BrokerReview() {
                 <span style={{fontSize:mob?12:14,fontWeight:600,color:"#059669"}}>{verdict}</span>
               </div>
               {!mob&&<div style={{width:1,height:20,background:"#e2e8f0"}}/>}
-              <a href={getTrustpilotUrl(slug)} target="_blank" rel="noopener noreferrer" style={{display:"flex",alignItems:"center",gap:6,textDecoration:"none"}}><TrustpilotLogo size="xs"/><Stars r={B.tp} size={14}/><span style={{fontFamily:"'JetBrains Mono'",fontSize:14,fontWeight:700,color:"#1e293b"}}>{B.tp}</span><span style={{fontSize:13,color:"#94a3b8"}}>({B.tpCount.toLocaleString()})</span></a>
+              <a href={getTrustpilotUrl(slug)} target="_blank" rel="noopener noreferrer" style={{display:"flex",alignItems:"center",gap:6,textDecoration:"none"}}><TrustpilotLogo size="xs"/><Stars r={B.tp} size={14}/><span style={{fontFamily:"'JetBrains Mono'",fontSize:14,fontWeight:700,color:"#111827"}}>{B.tp}</span><span style={{fontSize:13,color:"#64748b"}}>({B.tpCount.toLocaleString()})</span></a>
               {!mob&&<><div style={{width:1,height:20,background:"#e2e8f0"}}/>
               <div style={{display:"flex",gap:4}}>{B.regs.filter(r=>r.tier===1).map(r=><RegBadge key={r.name} reg={r.name} />)}</div></>}
               {B.badge&&<span style={{background:"#ecfdf5",color:"#059669",fontSize:mob?10:11,fontWeight:600,padding:"3px 10px",borderRadius:5,border:"1px solid #a7f3d0"}}>{"\ud83c\udfc6"} {B.badge}</span>}
             </div>
             <div style={{display:"grid",gridTemplateColumns:mob?"repeat(3,1fr)":"repeat(5,auto)",gap:mob?8:20}}>
               {[{l:t("review.spread"),v:`${B.spread} pips`},{l:t("review.commission"),v:B.commission},{l:t("review.minDeposit"),v:`$${B.minDep}`},...(!mob?[{l:t("review.leverage"),v:B.leverage},{l:t("review.instruments"),v:B.instruments}]:[])].map((x,i)=><div key={i} style={mob?{textAlign:"center",padding:"6px",background:"#f8fafc",borderRadius:6}:{}}>
-                <div style={{fontSize:mob?10:12,color:"#94a3b8",fontWeight:600,textTransform:"uppercase",letterSpacing:"0.05em",marginBottom:2}}>{x.l}</div>
-                <div style={{fontSize:mob?14:15,color:"#1e293b",fontWeight:700}}>{x.v}</div></div>)}
+                <div style={{fontSize:mob?10:12,color:"#64748b",fontWeight:600,textTransform:"uppercase",letterSpacing:"0.05em",marginBottom:2}}>{x.l}</div>
+                <div style={{fontSize:mob?14:15,color:"#111827",fontWeight:700}}>{x.v}</div></div>)}
             </div>
             {mob&&<a href={visitUrl} target="_blank" rel="nofollow sponsored" style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,background:"linear-gradient(135deg,#059669,#047857)",color:"#fff",fontSize:15,fontWeight:700,textDecoration:"none",padding:"12px",borderRadius:10,marginTop:14}}>{t("review.visit", { name: B.name })} <ArrowRight size={14} /></a>}
           </div>
@@ -190,7 +190,7 @@ export default function BrokerReview() {
             <div style={{fontSize:13,color:"#059669",fontWeight:600,marginBottom:10}}>{verdict}</div>
             {promo&&<div style={{fontSize:12,color:"#065f46",background:"#dcfce7",borderRadius:6,padding:"5px 8px",marginBottom:12,display:"flex",alignItems:"center",gap:4}}><Icon name="lightbulb" size={13} color="#f59e0b" /> {promo}</div>}
             <a href={visitUrl} target="_blank" rel="nofollow sponsored" style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,background:"linear-gradient(135deg,#059669,#047857)",color:"#fff",fontSize:16,fontWeight:700,textDecoration:"none",padding:"13px 24px",borderRadius:10,width:"100%",boxShadow:"0 4px 12px rgba(5,150,105,0.3)"}}>{t("review.visit", { name: B.name })} <svg width="14" height="14" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></a>
-            <div style={{fontSize:11,color:"#94a3b8",marginTop:8}}>{t("review.retailLose")}</div>
+            <div style={{fontSize:11,color:"#64748b",marginTop:8}}>{t("review.retailLose")}</div>
             <Link to={lp("/trust-score")} style={{fontSize:12,color:"#059669",textDecoration:"none",fontWeight:600,marginTop:6,display:"inline-block"}}>What does this score mean? →</Link>
           </div>}
         </div>
@@ -202,8 +202,8 @@ export default function BrokerReview() {
       <div style={{...cn,display:mob?"flex":"grid",flexDirection:"column",gridTemplateColumns:mob?"1fr":tab?"1fr 220px":"200px 1fr 260px",gap:mob?16:24,paddingTop:mob?20:28,paddingBottom:mob?40:64}}>
         {/* LEFT TOC */}
         {!mob&&!tab&&<aside style={{position:"sticky",top:70,alignSelf:"start"}}>
-          <div style={{fontSize:11,fontWeight:600,color:"#94a3b8",textTransform:"uppercase",letterSpacing:"0.06em",marginBottom:10}}>{t("review.contents")}</div>
-          {TOC.map((tocItem,i)=>{const id=tocItem.toLowerCase().replace(/[^a-z0-9]+/g,'-');return <a key={i} href={`#${id}`} style={{display:"block",fontSize:13,color:"#64748b",textDecoration:"none",padding:"5px 10px",borderLeft:"2px solid #e2e8f0",marginBottom:1,lineHeight:1.4}}>{tocItem}</a>;})}
+          <div style={{fontSize:11,fontWeight:600,color:"#64748b",textTransform:"uppercase",letterSpacing:"0.06em",marginBottom:10}}>{t("review.contents")}</div>
+          {TOC.map((tocItem,i)=>{const id=tocItem.toLowerCase().replace(/[^a-z0-9]+/g,'-');return <a key={i} href={`#${id}`} style={{display:"block",fontSize:13,color:"#374151",textDecoration:"none",padding:"5px 10px",borderLeft:"2px solid #e2e8f0",marginBottom:1,lineHeight:1.4}}>{tocItem}</a>;})}
         </aside>}
 
         {/* CENTER CONTENT */}
@@ -226,16 +226,16 @@ export default function BrokerReview() {
               const isTp = s.name.toLowerCase().includes("trustpilot");
               return <div key={i} style={{marginBottom:16}}>
               <div style={{display:"flex",justifyContent:"space-between",marginBottom:3}}>
-                {isTp ? <a href={getTrustpilotUrl(slug)} target="_blank" rel="noopener noreferrer" style={{fontSize:15,fontWeight:600,color:"#1e293b",textDecoration:"none",display:"flex",alignItems:"center",gap:4}}>{s.name}<svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="#00B67A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></a> : <span style={{fontSize:15,fontWeight:600,color:"#1e293b"}}>{s.name}</span>}
+                {isTp ? <a href={getTrustpilotUrl(slug)} target="_blank" rel="noopener noreferrer" style={{fontSize:15,fontWeight:600,color:"#111827",textDecoration:"none",display:"flex",alignItems:"center",gap:4}}>{s.name}<svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="#00B67A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></a> : <span style={{fontSize:15,fontWeight:600,color:"#111827"}}>{s.name}</span>}
                 <div style={{display:"flex",alignItems:"center",gap:8}}>
-                  <span style={{fontSize:11,color:"#94a3b8"}}>{s.weight}%</span>
+                  <span style={{fontSize:11,color:"#64748b"}}>{s.weight}%</span>
                   <span style={{fontFamily:"'JetBrains Mono'",fontSize:15,fontWeight:800,color:s.score>=9.5?"#059669":"#0d9488"}}>{s.score}</span>
                 </div>
               </div>
               <div style={{height:6,borderRadius:3,background:"#e8ecf1",marginBottom:4}}>
                 <div style={{height:"100%",borderRadius:3,background:isTp?"linear-gradient(90deg,#00B67A,#00B67Aaa)":"linear-gradient(90deg,#059669,#059669aa)",width:`${(s.score/10)*100}%`}}/>
               </div>
-              <div style={{fontSize:14,color:"#64748b",lineHeight:1.6}}>{s.detail}</div>
+              <div style={{fontSize:14,color:"#374151",lineHeight:1.6}}>{s.detail}</div>
             </div>})}
             <div style={{borderTop:"1px solid #e8ecf1",paddingTop:12,display:"flex",justifyContent:"space-between",alignItems:"center"}}>
               <span style={{fontFamily:"Outfit",fontSize:16,fontWeight:700}}>{t("review.overallScore")}</span>
@@ -248,11 +248,11 @@ export default function BrokerReview() {
           <div style={{display:"grid",gridTemplateColumns:mob?"1fr":"1fr 1fr",gap:14,marginBottom:16}}>
             <div style={{background:"#f0fdf4",border:"1px solid #bbf7d0",borderRadius:12,padding:"20px"}}>
               <div style={{fontFamily:"Outfit",fontWeight:700,fontSize:15,color:"#059669",marginBottom:12}}>{t("review.pros")}</div>
-              {pros.map((p,i)=><div key={i} style={{fontSize:14,color:"#1e293b",marginBottom:8,paddingLeft:16,position:"relative",lineHeight:1.5}}><span style={{position:"absolute",left:0,color:"#059669"}}>{"\u2022"}</span>{p}</div>)}
+              {pros.map((p,i)=><div key={i} style={{fontSize:14,color:"#111827",marginBottom:8,paddingLeft:16,position:"relative",lineHeight:1.5}}><span style={{position:"absolute",left:0,color:"#059669"}}>{"\u2022"}</span>{p}</div>)}
             </div>
             <div style={{background:"#fef2f2",border:"1px solid #fecaca",borderRadius:12,padding:"20px"}}>
               <div style={{fontFamily:"Outfit",fontWeight:700,fontSize:15,color:"#dc2626",marginBottom:12}}>{t("review.cons")}</div>
-              {cons.map((c,i)=><div key={i} style={{fontSize:14,color:"#1e293b",marginBottom:8,paddingLeft:16,position:"relative",lineHeight:1.5}}><span style={{position:"absolute",left:0,color:"#dc2626"}}>{"\u2022"}</span>{c}</div>)}
+              {cons.map((c,i)=><div key={i} style={{fontSize:14,color:"#111827",marginBottom:8,paddingLeft:16,position:"relative",lineHeight:1.5}}><span style={{position:"absolute",left:0,color:"#dc2626"}}>{"\u2022"}</span>{c}</div>)}
             </div>
           </div>
 
@@ -262,14 +262,14 @@ export default function BrokerReview() {
           <Card style={{padding:0,overflow:"hidden"}}>
             <table style={{width:"100%",borderCollapse:"collapse",fontSize:14}}>
               <thead><tr style={{background:"#f8f9fb",borderBottom:"1px solid #e8ecf1"}}>
-                {[t("table.account"),t("table.spreadFrom"),t("table.commission"),t("table.minDeposit"),t("table.bestFor")].map(h=><th key={h} style={{textAlign:"left",padding:"10px 14px",fontSize:14,fontWeight:600,color:"#94a3b8",textTransform:"uppercase",letterSpacing:"0.04em"}}>{h}</th>)}
+                {[t("table.account"),t("table.spreadFrom"),t("table.commission"),t("table.minDeposit"),t("table.bestFor")].map(h=><th key={h} style={{textAlign:"left",padding:"10px 14px",fontSize:14,fontWeight:600,color:"#64748b",textTransform:"uppercase",letterSpacing:"0.04em"}}>{h}</th>)}
               </tr></thead>
               <tbody>{ACCOUNTS.map((a,i)=><tr key={i} style={{borderBottom:i<ACCOUNTS.length-1?"1px solid #f0f4f8":"none"}}>
-                <td style={{padding:"12px 14px",fontWeight:600,color:"#1e293b"}}>{a.name}</td>
+                <td style={{padding:"12px 14px",fontWeight:600,color:"#111827"}}>{a.name}</td>
                 <td style={{padding:"12px 14px",fontFamily:"'JetBrains Mono'",fontWeight:700,color:"#059669"}}>{a.spread}</td>
                 <td style={{padding:"12px 14px"}}>{a.commission}</td>
                 <td style={{padding:"12px 14px"}}>${a.min}</td>
-                <td style={{padding:"12px 14px",color:"#64748b",fontSize:13}}>{a.best}</td>
+                <td style={{padding:"12px 14px",color:"#374151",fontSize:13}}>{a.best}</td>
               </tr>)}</tbody>
             </table>
           </Card>
@@ -283,10 +283,10 @@ export default function BrokerReview() {
               <div style={{display:"flex",alignItems:"center",gap:10}}>
                 {rSlug && <RegulatorLogo slug={rSlug} name={r.name} size={28} shape="icon" tier={r.tier} />}
                 <span style={{background:r.tier===1?"#ecfdf5":"#fffbeb",color:r.tier===1?"#059669":"#d97706",fontSize:11,fontWeight:600,padding:"3px 8px",borderRadius:4,border:`1px solid ${r.tier===1?"#a7f3d0":"#fde68a"}`}}>Tier {r.tier}</span>
-                {rSlug ? <Link to={lp(`/regulator/${rSlug}`)} style={{fontWeight:600,fontSize:15,color:"#1e293b",textDecoration:"none"}}>{r.name}</Link> : <span style={{fontWeight:600,fontSize:15}}>{r.name}</span>}
-                <span style={{fontSize:13,color:"#94a3b8"}}>{r.country}</span>
+                {rSlug ? <Link to={lp(`/regulator/${rSlug}`)} style={{fontWeight:600,fontSize:15,color:"#111827",textDecoration:"none"}}>{r.name}</Link> : <span style={{fontWeight:600,fontSize:15}}>{r.name}</span>}
+                <span style={{fontSize:13,color:"#64748b"}}>{r.country}</span>
               </div>
-              <span style={{fontFamily:"'JetBrains Mono'",fontSize:13,color:"#64748b"}}>#{r.num}</span>
+              <span style={{fontFamily:"'JetBrains Mono'",fontSize:13,color:"#374151"}}>#{r.num}</span>
             </div>;})}
           </Card>
           <P>{(content.regulation || [])[1]}</P>
@@ -297,9 +297,9 @@ export default function BrokerReview() {
           <Card>
             <div style={{display:"grid",gridTemplateColumns:mob?"1fr 1fr":"1fr 1fr 1fr",gap:16,marginBottom:14}}>
               {costBoxes.map((x,i)=><div key={i} style={{textAlign:"center"}}>
-                <div style={{fontSize:13,color:"#94a3b8",marginBottom:4}}>{x.l}</div>
+                <div style={{fontSize:13,color:"#64748b",marginBottom:4}}>{x.l}</div>
                 <div style={{fontFamily:"'JetBrains Mono'",fontSize:22,fontWeight:800,color:"#059669"}}>{x.v}</div>
-                <div style={{fontSize:13,color:"#94a3b8"}}>{x.n}</div>
+                <div style={{fontSize:13,color:"#64748b"}}>{x.n}</div>
               </div>)}
             </div>
           </Card>
@@ -313,8 +313,8 @@ export default function BrokerReview() {
           <Card style={{padding:0,overflow:"hidden"}}>
             <table style={{width:"100%",borderCollapse:"collapse",fontSize:13}}>
               <thead><tr style={{background:"#f8f9fb",borderBottom:"1px solid #e8ecf1"}}>
-                <th style={{textAlign:"left",padding:"9px 12px",fontSize:13,fontWeight:600,color:"#94a3b8",textTransform:"uppercase"}}>{t("table.pair")}</th>
-                {spreadCompetitors.map(h=><th key={h} style={{textAlign:"left",padding:"9px 12px",fontSize:13,fontWeight:600,color:"#94a3b8",textTransform:"uppercase"}}>{h}</th>)}
+                <th style={{textAlign:"left",padding:"9px 12px",fontSize:13,fontWeight:600,color:"#64748b",textTransform:"uppercase"}}>{t("table.pair")}</th>
+                {spreadCompetitors.map(h=><th key={h} style={{textAlign:"left",padding:"9px 12px",fontSize:13,fontWeight:600,color:"#64748b",textTransform:"uppercase"}}>{h}</th>)}
               </tr></thead>
               <tbody>{SPREADS.map((s,i)=><tr key={i} style={{borderBottom:i<SPREADS.length-1?"1px solid #f0f4f8":"none"}}>
                 <td style={{padding:"9px 12px",fontWeight:600}}>{s.pair}</td>
@@ -330,13 +330,13 @@ export default function BrokerReview() {
           <Card style={{padding:0,overflow:"hidden"}}>
             <table style={{width:"100%",borderCollapse:"collapse",fontSize:14}}>
               <thead><tr style={{background:"#f8f9fb",borderBottom:"1px solid #e8ecf1"}}>
-                {[t("table.method"),t("table.fee"),t("table.minimum"),t("table.processingTime")].map(h=><th key={h} style={{textAlign:"left",padding:"9px 14px",fontSize:13,fontWeight:600,color:"#94a3b8",textTransform:"uppercase"}}>{h}</th>)}
+                {[t("table.method"),t("table.fee"),t("table.minimum"),t("table.processingTime")].map(h=><th key={h} style={{textAlign:"left",padding:"9px 14px",fontSize:13,fontWeight:600,color:"#64748b",textTransform:"uppercase"}}>{h}</th>)}
               </tr></thead>
               <tbody>{DEPOSITS.map((d,i)=><tr key={i} style={{borderBottom:i<DEPOSITS.length-1?"1px solid #f0f4f8":"none"}}>
                 <td style={{padding:"10px 14px",fontWeight:600}}>{d.method}</td>
-                <td style={{padding:"10px 14px",color:d.fee==="Free"?"#059669":"#1e293b",fontWeight:600}}>{d.fee}</td>
+                <td style={{padding:"10px 14px",color:d.fee==="Free"?"#059669":"#111827",fontWeight:600}}>{d.fee}</td>
                 <td style={{padding:"10px 14px"}}>{d.min}</td>
-                <td style={{padding:"10px 14px",color:"#64748b"}}>{d.time}</td>
+                <td style={{padding:"10px 14px",color:"#374151"}}>{d.time}</td>
               </tr>)}</tbody>
             </table>
           </Card>
@@ -346,7 +346,7 @@ export default function BrokerReview() {
           <H2 id="platforms-&-tools">{t("review.platformsTools")}</H2>
           <P>{(content.platforms || [])[0]}</P>
           <div style={{display:"grid",gridTemplateColumns:mob?"1fr 1fr":`repeat(${Math.min(B.platforms.length,4)},1fr)`,gap:10,marginBottom:16}}>
-            {B.platforms.map((p,i)=>{const pSlug=getPlatformSlugByName(p);const inner=<><div style={{display:"flex",justifyContent:"center",marginBottom:8}}><PlatformLogo slug={pSlug} name={p} size={44} shape="icon" /></div><div style={{fontWeight:600,fontSize:14}}>{p}</div></>;return pSlug?<Link key={i} to={lp(`/platform/${pSlug}`)} style={{background:"#fff",border:"1px solid #e8ecf1",borderRadius:10,padding:"16px",textAlign:"center",textDecoration:"none",color:"#1e293b",transition:"border-color 0.2s"}} onMouseEnter={e=>{e.currentTarget.style.borderColor="#059669"}} onMouseLeave={e=>{e.currentTarget.style.borderColor="#e8ecf1"}}>{inner}</Link>:<div key={i} style={{background:"#fff",border:"1px solid #e8ecf1",borderRadius:10,padding:"16px",textAlign:"center"}}>{inner}</div>;})}
+            {B.platforms.map((p,i)=>{const pSlug=getPlatformSlugByName(p);const inner=<><div style={{display:"flex",justifyContent:"center",marginBottom:8}}><PlatformLogo slug={pSlug} name={p} size={44} shape="icon" /></div><div style={{fontWeight:600,fontSize:14}}>{p}</div></>;return pSlug?<Link key={i} to={lp(`/platform/${pSlug}`)} style={{background:"#fff",border:"1px solid #e8ecf1",borderRadius:10,padding:"16px",textAlign:"center",textDecoration:"none",color:"#111827",transition:"border-color 0.2s"}} onMouseEnter={e=>{e.currentTarget.style.borderColor="#059669"}} onMouseLeave={e=>{e.currentTarget.style.borderColor="#e8ecf1"}}>{inner}</Link>:<div key={i} style={{background:"#fff",border:"1px solid #e8ecf1",borderRadius:10,padding:"16px",textAlign:"center"}}>{inner}</div>;})}
           </div>
           {(content.platforms || []).slice(1).map((p,i)=><P key={i}>{p}</P>)}
 
@@ -369,16 +369,16 @@ export default function BrokerReview() {
           <Card style={{display:"flex",alignItems:mob?"flex-start":"center",gap:mob?16:24,flexDirection:mob?"column":"row"}}>
             <a href={getTrustpilotUrl(slug)} target="_blank" rel="noopener noreferrer" style={{textAlign:"center",flexShrink:0,textDecoration:"none",color:"inherit"}}>
               <div style={{marginBottom:6}}><TrustpilotLogo size="md"/></div>
-              <div style={{fontFamily:"'JetBrains Mono'",fontSize:36,fontWeight:800,color:"#1e293b"}}>{B.tp}</div>
+              <div style={{fontFamily:"'JetBrains Mono'",fontSize:36,fontWeight:800,color:"#111827"}}>{B.tp}</div>
               <Stars r={B.tp} size={18}/>
-              <div style={{fontSize:13,color:"#94a3b8",marginTop:4}}>{B.tpCount.toLocaleString()} {t("review.reviews")}</div>
+              <div style={{fontSize:13,color:"#64748b",marginTop:4}}>{B.tpCount.toLocaleString()} {t("review.reviews")}</div>
             </a>
             {!mob&&<div style={{width:1,height:60,background:"#e8ecf1"}}/>}
             <div style={{flex:1,width:mob?"100%":"auto"}}>
               {trustpilotBars.map((x,i)=><div key={i} style={{display:"flex",alignItems:"center",gap:8,marginBottom:3}}>
-                <span style={{fontSize:12,color:"#94a3b8",width:24}}>{x.s}</span>
+                <span style={{fontSize:12,color:"#64748b",width:24}}>{x.s}</span>
                 <div style={{flex:1,height:6,borderRadius:3,background:"#e8ecf1"}}><div style={{height:"100%",borderRadius:3,background:"#00B67A",width:`${x.p}%`}}/></div>
-                <span style={{fontSize:12,color:"#64748b",width:30,textAlign:"right"}}>{x.p}%</span>
+                <span style={{fontSize:12,color:"#374151",width:30,textAlign:"right"}}>{x.p}%</span>
               </div>)}
             </div>
           </Card>
@@ -395,7 +395,7 @@ export default function BrokerReview() {
             {TIMELINE.map((tl,i)=><div key={i} style={{position:"relative",marginBottom:14,paddingLeft:16}}>
               <div style={{position:"absolute",left:-21,top:5,width:10,height:10,borderRadius:"50%",background:i===TIMELINE.length-1?"#059669":"#cbd5e1",border:"2px solid #fff"}}/>
               <span style={{fontFamily:"'JetBrains Mono'",fontSize:14,fontWeight:700,color:"#1e3a5f"}}>{tl.year}</span>
-              <span style={{fontSize:14,color:"#475569",marginLeft:8}}>{tl.event}</span>
+              <span style={{fontSize:14,color:"#374151",marginLeft:8}}>{tl.event}</span>
             </div>)}
           </div>
 
@@ -408,7 +408,7 @@ export default function BrokerReview() {
           <Card style={{background:"#f0fdf4",border:"2px solid #86efac"}}>
             <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:12}}>
               <AuthorAvatar author={author} size={36} />
-              <div><span style={{fontWeight:700,fontSize:15}}>{AUTHOR.name}</span><div style={{fontSize:13,color:"#64748b"}}>{AUTHOR.role}</div></div>
+              <div><span style={{fontWeight:700,fontSize:15}}>{AUTHOR.name}</span><div style={{fontSize:13,color:"#374151"}}>{AUTHOR.role}</div></div>
             </div>
             {(content.verdict || []).map((p,i)=><P key={i}>{p}</P>)}
             <CTA B={B} visitUrl={visitUrl} label={t("review.openAccountWith", { name: B.name })} sub={`${B.type} \u00b7 ${t("review.regulated")}`}/>
@@ -423,7 +423,7 @@ export default function BrokerReview() {
                 onMouseEnter={e=>e.currentTarget.style.textDecoration="underline"}
                 onMouseLeave={e=>e.currentTarget.style.textDecoration="none"}
               >{b.name}</Link>
-              <div style={{fontSize:14,color:"#64748b"}}>{b.type} {"\u00b7"} {t("home.from")} {b.spread} {t("home.pips")} {"\u00b7"} {b.why}</div>
+              <div style={{fontSize:14,color:"#374151"}}>{b.type} {"\u00b7"} {t("home.from")} {b.spread} {t("home.pips")} {"\u00b7"} {b.why}</div>
             </div>
             <div style={{display:"flex",alignItems:"center",gap:10}}>
               <span style={{fontFamily:"'JetBrains Mono'",fontSize:16,fontWeight:800,color:"#059669"}}>{b.score}</span>
@@ -436,10 +436,10 @@ export default function BrokerReview() {
           <H2 id="faq">{t("review.faq")}</H2>
           {faq.map((f,i)=><div key={i} style={{background:"#fff",border:"1px solid #e8ecf1",borderRadius:10,marginBottom:6,overflow:"hidden"}}>
             <button onClick={()=>setOpenFaq(openFaq===i?null:i)} style={{width:"100%",textAlign:"left",background:"none",border:"none",padding:"14px 18px",cursor:"pointer",fontFamily:"DM Sans",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-              <span style={{fontWeight:600,fontSize:16,color:"#1e293b",flex:1,paddingRight:12}}>{f.q}</span>
-              <span style={{color:"#94a3b8",fontSize:18,transform:openFaq===i?"rotate(45deg)":"none",transition:"transform 0.2s",flexShrink:0}}>+</span>
+              <span style={{fontWeight:600,fontSize:16,color:"#111827",flex:1,paddingRight:12}}>{f.q}</span>
+              <span style={{color:"#64748b",fontSize:18,transform:openFaq===i?"rotate(45deg)":"none",transition:"transform 0.2s",flexShrink:0}}>+</span>
             </button>
-            {openFaq===i&&<div style={{padding:"0 18px 14px",fontSize:16,color:"#64748b",lineHeight:1.7}}>{f.a}</div>}
+            {openFaq===i&&<div style={{padding:"0 18px 14px",fontSize:16,color:"#374151",lineHeight:1.7}}>{f.a}</div>}
           </div>)}
 
           {/* Author Bio */}
@@ -455,19 +455,19 @@ export default function BrokerReview() {
               <div style={{fontFamily:"'JetBrains Mono'",fontSize:36,fontWeight:800,color:"#059669",lineHeight:1}}>{B.score}</div>
               <div style={{fontSize:13,color:"#059669",fontWeight:600,marginBottom:10}}>{verdict}</div>
               <a href={visitUrl} target="_blank" rel="nofollow sponsored" style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,background:"linear-gradient(135deg,#059669,#047857)",color:"#fff",fontSize:15,fontWeight:700,textDecoration:"none",padding:"12px 20px",borderRadius:9,width:"100%",boxShadow:"0 4px 12px rgba(5,150,105,0.3)",marginBottom:6}}>{t("review.visit", { name: B.name })} {"\u2197"}</a>
-              <div style={{fontSize:11,color:"#94a3b8"}}>{t("review.retailLose")}</div>
+              <div style={{fontSize:11,color:"#64748b"}}>{t("review.retailLose")}</div>
             </div>
             <Card style={{padding:"16px"}}>
               <div style={{fontFamily:"Outfit",fontWeight:700,fontSize:13,marginBottom:10}}>{t("review.quickFacts")}</div>
               {[{l:t("review.founded"),v:B.year},{l:t("review.hq"),v:B.hq},{l:t("review.deposit"),v:`$${B.minDep}`},{l:t("review.spread"),v:`${B.spread} pips`},{l:t("review.leverage"),v:B.leverage},{l:t("review.type"),v:B.type},{l:t("review.instruments"),v:B.instruments}].map((x,i)=><div key={i} style={{display:"flex",justifyContent:"space-between",padding:"5px 0",borderBottom:i<6?"1px solid #f0f4f8":"none"}}>
-                <span style={{fontSize:13,color:"#94a3b8"}}>{x.l}</span>
-                <span style={{fontSize:13,color:"#1e293b",fontWeight:600}}>{x.v}</span>
+                <span style={{fontSize:13,color:"#64748b"}}>{x.l}</span>
+                <span style={{fontSize:13,color:"#111827",fontWeight:600}}>{x.v}</span>
               </div>)}
             </Card>
             <Card style={{padding:"16px"}}>
               <div style={{fontFamily:"Outfit",fontWeight:700,fontSize:13,marginBottom:10}}>{t("review.alternatives")}</div>
               {SIMILAR.map((b,i)=>{const altData=getBrokerData(b.slug);const altUrl=apiBase?`${apiBase}/go/${b.slug}`:(altData?.B?.url||`https://ratedbrokers.com/go/${b.slug}`);return <div key={i} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"8px 0",borderBottom:i<2?"1px solid #f0f4f8":"none"}}>
-                <div><Link to={lp(`/review/${b.slug}`)} style={{fontWeight:600,fontSize:14,color:"inherit",textDecoration:"none"}}>{b.name}</Link><div style={{fontSize:12,color:"#94a3b8"}}>{b.type}</div></div>
+                <div><Link to={lp(`/review/${b.slug}`)} style={{fontWeight:600,fontSize:14,color:"inherit",textDecoration:"none"}}>{b.name}</Link><div style={{fontSize:12,color:"#64748b"}}>{b.type}</div></div>
                 <div style={{display:"flex",alignItems:"center",gap:6}}>
                   <a href={altUrl} target="_blank" rel="noopener nofollow sponsored" style={{fontSize:12,color:"#059669",fontWeight:600,textDecoration:"none"}}>Visit {"\u2197"}</a>
                   <Link to={lp(`/review/${b.slug}`)} style={{fontSize:12,color:"#1e3a5f",fontWeight:600,textDecoration:"none",display:"inline-flex",alignItems:"center",gap:3}}>{t("home.review")} <ArrowRight size={12} /></Link>

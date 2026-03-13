@@ -53,13 +53,13 @@ function FaqItem({ question, answer }) {
           cursor: "pointer", textAlign: "left", gap: 12,
         }}
       >
-        <span style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 16, color: "#1e293b", flex: 1 }}>
+        <span style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 16, color: "#111827", flex: 1 }}>
           {question}
         </span>
-        <Icon name={open ? "chevron-up" : "chevron-down"} size={18} color="#475569" />
+        <Icon name={open ? "chevron-up" : "chevron-down"} size={18} color="#374151" />
       </button>
       {open && (
-        <div style={{ padding: "0 0 18px", fontSize: 16, lineHeight: 1.7, color: "#334155" }}>
+        <div style={{ padding: "0 0 18px", fontSize: 16, lineHeight: 1.7, color: "#1f2937" }}>
           {answer}
         </div>
       )}
@@ -256,7 +256,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb", color: "#1e293b", minHeight: "100vh" }}>
+    <div style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb", color: "#111827", minHeight: "100vh" }}>
 
       {/* JSON-LD */}
       <script
@@ -286,7 +286,7 @@ export default function ContactPage() {
           }}>
             {t("contact.title")}
           </h1>
-          <p style={{ fontSize: 19, lineHeight: 1.65, color: "#334155", margin: "0 0 24px" }}>
+          <p style={{ fontSize: 19, lineHeight: 1.65, color: "#1f2937", margin: "0 0 24px" }}>
             {t("contact.subtitle")}
           </p>
         </div>
@@ -311,7 +311,7 @@ export default function ContactPage() {
                 <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 19, color: "#0f172a" }}>
                   {t(card.titleKey)}
                 </div>
-                <div style={{ fontSize: 15, color: "#334155", lineHeight: 1.7, flex: 1 }}>
+                <div style={{ fontSize: 15, color: "#1f2937", lineHeight: 1.7, flex: 1 }}>
                   {t(card.descKey)}
                 </div>
                 <a
@@ -351,7 +351,7 @@ export default function ContactPage() {
             <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 17, color: "#0f172a", marginBottom: 4 }}>
               {t("contact.responseTitle")}
             </div>
-            <div style={{ fontSize: 15, color: "#334155", lineHeight: 1.6 }}>
+            <div style={{ fontSize: 15, color: "#1f2937", lineHeight: 1.6 }}>
               {t("contact.responseDesc")}
             </div>
           </div>
@@ -383,7 +383,7 @@ export default function ContactPage() {
           <h3 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 20, color: "#0f172a", margin: "0 0 10px" }}>
             {t("contact.companyTitle")}
           </h3>
-          <p style={{ fontSize: 16, lineHeight: 1.8, color: "#334155", margin: 0 }}>
+          <p style={{ fontSize: 16, lineHeight: 1.8, color: "#1f2937", margin: 0 }}>
             {t("contact.companyDesc")}
           </p>
         </div>
@@ -399,7 +399,7 @@ export default function ContactPage() {
           <div style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 28, color: "#fff", marginBottom: 8 }}>
             {t("contact.ctaTitle")}
           </div>
-          <div style={{ fontSize: 16, color: "#94a3b8", marginBottom: 24, maxWidth: 500, margin: "0 auto 24px" }}>
+          <div style={{ fontSize: 16, color: "#64748b", marginBottom: 24, maxWidth: 500, margin: "0 auto 24px" }}>
             {t("contact.ctaDesc")}
           </div>
           <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>

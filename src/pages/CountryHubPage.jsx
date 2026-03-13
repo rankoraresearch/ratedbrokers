@@ -40,7 +40,7 @@ export default function CountryHubPage() {
   const featured = REGIONS["Featured"].map(s => countryMap[s]).filter(Boolean);
 
   return (
-    <div style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb", color: "#1e293b", minHeight: "100vh" }}>
+    <div style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb", color: "#111827", minHeight: "100vh" }}>
 
       {/* ===== BREADCRUMBS ===== */}
       <div style={{ ...cn, padding: mob ? "12px 16px" : "16px 24px" }}>
@@ -103,7 +103,7 @@ export default function CountryHubPage() {
           {featured.map(c => (
             <Link key={c.slug} to={lp(`/best-forex-brokers-${c.slug}`)} style={{
               background: "#fff", borderRadius: 14, padding: mob ? "16px 14px" : "20px",
-              border: "1px solid #e2e8f0", textDecoration: "none", color: "#1e293b",
+              border: "1px solid #e2e8f0", textDecoration: "none", color: "#111827",
               boxShadow: "0 2px 8px rgba(0,0,0,0.03)",
               transition: "box-shadow 0.2s, transform 0.2s",
             }}>
@@ -111,7 +111,7 @@ export default function CountryHubPage() {
               <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: mob ? 14 : 16, marginBottom: 4, lineHeight: 1.3 }}>
                 Best Forex Brokers in {c.name}
               </div>
-              <div style={{ fontSize: 14, color: "#475569" }}>
+              <div style={{ fontSize: 14, color: "#1f2937" }}>
                 {c.regulator}-regulated {"\u2022"} {c.brokersCount} brokers tested
               </div>
             </Link>
@@ -136,12 +136,12 @@ export default function CountryHubPage() {
                   <Link key={c.slug} to={lp(`/best-forex-brokers-${c.slug}`)} style={{
                     display: "flex", alignItems: "center", gap: 10,
                     padding: mob ? "10px 12px" : "12px 14px", borderRadius: 10,
-                    background: "#fff", border: "1px solid #e2e8f0", textDecoration: "none", color: "#1e293b",
+                    background: "#fff", border: "1px solid #e2e8f0", textDecoration: "none", color: "#111827",
                   }}>
                     <CountryFlag code={c.code} size={mob ? 20 : 24} />
                     <div style={{ minWidth: 0 }}>
                       <div style={{ fontWeight: 600, fontSize: mob ? 13 : 14 }}>Best Forex Brokers in {c.name}</div>
-                      <div style={{ fontSize: 13, color: "#64748b" }}>{c.regulator}-regulated {"\u2022"} {c.brokersCount} brokers</div>
+                      <div style={{ fontSize: 13, color: "#1f2937" }}>{c.regulator}-regulated {"\u2022"} {c.brokersCount} brokers</div>
                     </div>
                   </Link>
                 ))}
@@ -160,7 +160,7 @@ export default function CountryHubPage() {
           <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 18 : 24, marginBottom: 8 }}>
             Can't Find Your Country?
           </h2>
-          <p style={{ fontSize: mob ? 14 : 16, color: "#475569", marginBottom: 20, maxWidth: 480, margin: "0 auto 20px" }}>
+          <p style={{ fontSize: mob ? 14 : 16, color: "#1f2937", marginBottom: 20, maxWidth: 480, margin: "0 auto 20px" }}>
             Check our global broker rankings or compare any of our 54 tested brokers head-to-head.
           </p>
           <div style={{ display: "flex", justifyContent: "center", gap: 12, flexWrap: "wrap" }}>
@@ -171,7 +171,7 @@ export default function CountryHubPage() {
             }}><span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>View All Broker Rankings <ArrowRight size={16} /></span></Link>
             <Link to={lp("/compare")} style={{
               padding: "12px 24px", borderRadius: 10,
-              background: "#f1f5f9", color: "#1e293b",
+              background: "#f1f5f9", color: "#111827",
               fontWeight: 700, fontSize: 16, textDecoration: "none",
             }}>Compare Forex Brokers</Link>
           </div>

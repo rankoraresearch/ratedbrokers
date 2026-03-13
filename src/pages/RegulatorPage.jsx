@@ -73,7 +73,7 @@ export default function RegulatorPage() {
   if (!reg) return (
     <div style={{ textAlign: "center", padding: "120px 24px", fontFamily: "'DM Sans',system-ui,sans-serif" }}>
       <h1 style={{ fontFamily: "Outfit", fontSize: 32, fontWeight: 800, color: "#0f172a", marginBottom: 16 }}>Regulator Not Found</h1>
-      <p style={{ color: "#475569", marginBottom: 24 }}>The regulator you're looking for doesn't exist in our database.</p>
+      <p style={{ color: "#1f2937", marginBottom: 24 }}>The regulator you're looking for doesn't exist in our database.</p>
       <Link to={lp("/")} style={{ color: "#059669", fontWeight: 600, textDecoration: "none" }}>Back to Home</Link>
     </div>
   );
@@ -89,7 +89,7 @@ export default function RegulatorPage() {
   const tierBorder = reg.tier === 1 ? "#a7f3d0" : reg.tier === 2 ? "#fde68a" : "#fecaca";
 
   return (
-    <div style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb", color: "#1e293b", minHeight: "100vh" }}>
+    <div style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb", color: "#111827", minHeight: "100vh" }}>
       {/* Breadcrumbs */}
       <div style={{ background: "#fff", borderBottom: "1px solid #e8ecf1", padding: "10px 0" }}>
         <div style={cn}>
@@ -115,8 +115,8 @@ export default function RegulatorPage() {
                   </h1>
                   <div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 6 }}>
                     <TierBadge tier={reg.tier} />
-                    <span style={{ fontSize: 15, color: "#475569" }}>{reg.country}</span>
-                    <span style={{ fontSize: 15, color: "#64748b" }}>Est. {reg.established}</span>
+                    <span style={{ fontSize: 15, color: "#1f2937" }}>{reg.country}</span>
+                    <span style={{ fontSize: 15, color: "#1f2937" }}>Est. {reg.established}</span>
                   </div>
                 </div>
               </div>
@@ -147,7 +147,7 @@ export default function RegulatorPage() {
             Overview
           </h2>
           {reg.overview.map((p, i) => (
-            <p key={i} style={{ fontSize: 16, color: "#334155", lineHeight: 1.8, marginBottom: 14 }}>{p}</p>
+            <p key={i} style={{ fontSize: 16, color: "#1f2937", lineHeight: 1.8, marginBottom: 14 }}>{p}</p>
           ))}
 
           {/* Key Requirements */}
@@ -158,7 +158,7 @@ export default function RegulatorPage() {
             {reg.requirements.map((req, i) => (
               <div key={i} style={{ display: "flex", gap: 10, padding: "6px 0", borderBottom: i < reg.requirements.length - 1 ? "1px solid #f0f4f8" : "none" }}>
                 <span style={{ color: "#059669", flexShrink: 0 }}><Check size={16} /></span>
-                <span style={{ fontSize: 16, color: "#334155", lineHeight: 1.6 }}>{req}</span>
+                <span style={{ fontSize: 16, color: "#1f2937", lineHeight: 1.6 }}>{req}</span>
               </div>
             ))}
           </Card>
@@ -178,11 +178,11 @@ export default function RegulatorPage() {
                 {reg.tier === 1 ? "Strong Protection" : reg.tier === 2 ? "Moderate Protection" : "Limited Protection"}
               </span>
             </div>
-            <div style={{ fontSize: 16, color: "#334155", lineHeight: 1.7 }}>
+            <div style={{ fontSize: 16, color: "#1f2937", lineHeight: 1.7 }}>
               <strong>Compensation:</strong> {reg.investorProtection}
             </div>
             {reg.leverageLimit && (
-              <div style={{ fontSize: 16, color: "#334155", lineHeight: 1.7, marginTop: 4 }}>
+              <div style={{ fontSize: 16, color: "#1f2937", lineHeight: 1.7, marginTop: 4 }}>
                 <strong>Leverage Limit:</strong> {reg.leverageLimit}
               </div>
             )}
@@ -192,14 +192,14 @@ export default function RegulatorPage() {
           <h2 style={{ fontFamily: "Outfit", fontSize: 24, fontWeight: 800, color: "#0f172a", marginBottom: 14, marginTop: 32 }}>
             History
           </h2>
-          <p style={{ fontSize: 16, color: "#334155", lineHeight: 1.8, marginBottom: 14 }}>{reg.history}</p>
+          <p style={{ fontSize: 16, color: "#1f2937", lineHeight: 1.8, marginBottom: 14 }}>{reg.history}</p>
 
           {/* Brokers Regulated */}
           <h2 style={{ fontFamily: "Outfit", fontSize: 24, fontWeight: 800, color: "#0f172a", marginBottom: 14, marginTop: 32 }}>
             Brokers Regulated by {reg.name}
           </h2>
           {regulatedBrokers.length === 0 ? (
-            <p style={{ fontSize: 16, color: "#475569" }}>No brokers in our database are currently regulated by {reg.name}.</p>
+            <p style={{ fontSize: 16, color: "#1f2937" }}>No brokers in our database are currently regulated by {reg.name}.</p>
           ) : (
             <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
               {regulatedBrokers.map((b, i) => (
@@ -211,7 +211,7 @@ export default function RegulatorPage() {
                         onMouseEnter={e => e.currentTarget.style.textDecoration = "underline"}
                         onMouseLeave={e => e.currentTarget.style.textDecoration = "none"}
                       >{b.B.name}</Link>
-                      <div style={{ fontSize: 14, color: "#475569" }}>{b.B.type} {"\u00b7"} Min. ${b.B.minDep}</div>
+                      <div style={{ fontSize: 14, color: "#1f2937" }}>{b.B.type} {"\u00b7"} Min. ${b.B.minDep}</div>
                     </div>
                   </div>
                   <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
@@ -241,11 +241,11 @@ export default function RegulatorPage() {
                 padding: "14px 18px", cursor: "pointer", fontFamily: "DM Sans",
                 display: "flex", justifyContent: "space-between", alignItems: "center",
               }}>
-                <span style={{ fontWeight: 600, fontSize: 16, color: "#1e293b", flex: 1, paddingRight: 12 }}>{f.q}</span>
-                <span style={{ color: "#64748b", fontSize: 18, transform: openFaq === i ? "rotate(45deg)" : "none", transition: "transform 0.2s", flexShrink: 0 }}>+</span>
+                <span style={{ fontWeight: 600, fontSize: 16, color: "#111827", flex: 1, paddingRight: 12 }}>{f.q}</span>
+                <span style={{ color: "#1f2937", fontSize: 18, transform: openFaq === i ? "rotate(45deg)" : "none", transition: "transform 0.2s", flexShrink: 0 }}>+</span>
               </button>
               {openFaq === i && (
-                <div style={{ padding: "0 18px 14px", fontSize: 16, color: "#475569", lineHeight: 1.7 }}>{f.a}</div>
+                <div style={{ padding: "0 18px 14px", fontSize: 16, color: "#1f2937", lineHeight: 1.7 }}>{f.a}</div>
               )}
             </div>
           ))}
@@ -266,8 +266,8 @@ export default function RegulatorPage() {
                   { l: "Leverage Limit", v: reg.leverageLimit },
                 ].map((x, i) => (
                   <div key={i} style={{ display: "flex", justifyContent: "space-between", padding: "7px 0", borderBottom: i < 5 ? "1px solid #f0f4f8" : "none" }}>
-                    <span style={{ fontSize: 14, color: "#64748b" }}>{x.l}</span>
-                    <span style={{ fontSize: 14, color: "#1e293b", fontWeight: 600, textAlign: "right", maxWidth: "60%" }}>{x.v}</span>
+                    <span style={{ fontSize: 14, color: "#1f2937" }}>{x.l}</span>
+                    <span style={{ fontSize: 14, color: "#111827", fontWeight: 600, textAlign: "right", maxWidth: "60%" }}>{x.v}</span>
                   </div>
                 ))}
                 <a href={reg.licenseCheck} target="_blank" rel="noopener noreferrer" style={{

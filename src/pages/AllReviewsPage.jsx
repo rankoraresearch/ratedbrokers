@@ -126,7 +126,7 @@ export default function AllReviewsPage() {
 
       {/* BROKER GRID */}
       <section style={{ ...cn, padding: mob ? "32px 16px 60px" : "48px 24px 80px" }}>
-        <div style={{ marginBottom: 16, fontSize: 15, color: "#475569" }}>
+        <div style={{ marginBottom: 16, fontSize: 15, color: "#1f2937" }}>
           {filtered.length} broker{filtered.length !== 1 ? "s" : ""}
         </div>
         <div style={{
@@ -144,7 +144,7 @@ export default function AllReviewsPage() {
                   display: "flex", alignItems: "center", gap: 14,
                   padding: "16px 18px", borderRadius: 12,
                   background: "#fff", border: "1px solid #e2e8f0",
-                  textDecoration: "none", color: "#1e293b",
+                  textDecoration: "none", color: "#111827",
                   transition: "all 0.2s",
                 }}
                 onMouseEnter={(e) => {
@@ -160,7 +160,7 @@ export default function AllReviewsPage() {
 
                 {/* Type */}
                 <div style={{ flex: 1, minWidth: 0 }}>
-                  <div style={{ fontSize: 13, color: "#64748b" }}>
+                  <div style={{ fontSize: 13, color: "#1f2937" }}>
                     {b.type}
                   </div>
                 </div>
@@ -174,7 +174,7 @@ export default function AllReviewsPage() {
                   {b.score}
                 </span>
 
-                <ArrowRight size={14} color="#64748b" style={{ flexShrink: 0 }} />
+                <ArrowRight size={14} color="#374151" style={{ flexShrink: 0 }} />
               </Link>
             );
           })}

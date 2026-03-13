@@ -128,7 +128,7 @@ function NavGrid({ mob, tab, lp }) {
         }}>
           Find Your Perfect Broker
         </h2>
-        <p style={{ textAlign: "center", fontSize: 15, color: "#64748b", marginBottom: 28, maxWidth: 500, margin: "0 auto 28px" }}>
+        <p style={{ textAlign: "center", fontSize: 15, color: "#1f2937", marginBottom: 28, maxWidth: 500, margin: "0 auto 28px" }}>
           Explore our expert-curated rankings across {RANKINGS.length} categories.
         </p>
         <div style={{
@@ -141,7 +141,7 @@ function NavGrid({ mob, tab, lp }) {
               display: "flex", alignItems: "center", gap: 12,
               padding: "16px 20px", borderRadius: 12,
               background: "#fff", border: "1px solid #e2e8f0",
-              textDecoration: "none", color: "#1e293b",
+              textDecoration: "none", color: "#111827",
               transition: "all 0.2s",
             }}
               onMouseEnter={(e) => {
@@ -207,7 +207,7 @@ function NavTabs({ mob, tab, lp }) {
             <button key={t.key} onClick={() => setActiveTab(t.key)} style={{
               padding: "8px 18px", borderRadius: 100, border: "none", cursor: "pointer",
               background: activeTab === t.key ? "#059669" : "#f1f5f9",
-              color: activeTab === t.key ? "#fff" : "#64748b",
+              color: activeTab === t.key ? "#fff" : "#374151",
               fontWeight: 700, fontSize: 14, fontFamily: "'DM Sans',sans-serif",
               transition: "all 0.2s",
             }}>
@@ -227,7 +227,7 @@ function NavTabs({ mob, tab, lp }) {
               display: "flex", flexDirection: "column", alignItems: "center", gap: 8,
               padding: "18px 12px", borderRadius: 12,
               background: "#fff", border: "1px solid #e2e8f0",
-              textDecoration: "none", color: "#1e293b",
+              textDecoration: "none", color: "#111827",
               transition: "all 0.2s",
             }}
               onMouseEnter={(e) => {
@@ -272,7 +272,7 @@ function BrokerPodium({ mob, tab, lp, brokers }) {
         }}>
           Best Forex Brokers 2026
         </h2>
-        <p style={{ textAlign: "center", fontSize: 15, color: "#64748b", marginBottom: 28, maxWidth: 500, margin: "0 auto 28px" }}>
+        <p style={{ textAlign: "center", fontSize: 15, color: "#1f2937", marginBottom: 28, maxWidth: 500, margin: "0 auto 28px" }}>
           Ranked by our expert team across 6 scoring categories.
         </p>
 
@@ -322,9 +322,9 @@ function BrokerPodium({ mob, tab, lp, brokers }) {
                     }}>#{rank}</div>
                   )}
                 </div>
-                <div style={{ display: "flex", gap: 16, marginBottom: 14, fontSize: 14, color: "#64748b" }}>
-                  <div><span style={{ fontWeight: 700, color: "#1e293b" }}>{b.spread}</span> pips</div>
-                  <div>Min <span style={{ fontWeight: 700, color: "#1e293b" }}>${b.minDep}</span></div>
+                <div style={{ display: "flex", gap: 16, marginBottom: 14, fontSize: 14, color: "#1f2937" }}>
+                  <div><span style={{ fontWeight: 700, color: "#111827" }}>{b.spread}</span> pips</div>
+                  <div>Min <span style={{ fontWeight: 700, color: "#111827" }}>${b.minDep}</span></div>
                 </div>
                 <div style={{ display: "flex", gap: 4, flexWrap: "wrap", marginBottom: 14 }}>
                   {b.regs.slice(0, 3).map((r, ri) => <RegBadge key={ri} reg={r.name} />)}
@@ -362,7 +362,7 @@ function BrokerPodium({ mob, tab, lp, brokers }) {
               }}>
                 <span style={{
                   fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: 14,
-                  color: "#94a3b8", width: 28, textAlign: "center", flexShrink: 0,
+                  color: "#64748b", width: 28, textAlign: "center", flexShrink: 0,
                 }}>#{rank}</span>
                 <Link to={lp(`/review/${broker.slug}`)} style={{ flexShrink: 0, textDecoration: "none" }}>
                   <BrokerLogo slug={broker.slug} name={b.name} fallback={b.logo} size={44} shape="brand" />
@@ -375,8 +375,8 @@ function BrokerPodium({ mob, tab, lp, brokers }) {
                 </div>
                 {!mob && (
                   <>
-                    <span style={{ fontSize: 13, color: "#64748b", width: 80, textAlign: "center" }}>{b.spread} pips</span>
-                    <span style={{ fontSize: 13, color: "#64748b", width: 60, textAlign: "center" }}>${b.minDep}</span>
+                    <span style={{ fontSize: 13, color: "#1f2937", width: 80, textAlign: "center" }}>{b.spread} pips</span>
+                    <span style={{ fontSize: 13, color: "#1f2937", width: 60, textAlign: "center" }}>${b.minDep}</span>
                   </>
                 )}
                 <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" style={{
@@ -428,7 +428,7 @@ function BrokerCardGrid({ mob, tab, lp, brokers }) {
         }}>
           Top Rated Brokers 2026
         </h2>
-        <p style={{ textAlign: "center", fontSize: 15, color: "#64748b", marginBottom: 28, maxWidth: 500, margin: "0 auto 28px" }}>
+        <p style={{ textAlign: "center", fontSize: 15, color: "#1f2937", marginBottom: 28, maxWidth: 500, margin: "0 auto 28px" }}>
           Our highest-scoring brokers based on independent expert analysis.
         </p>
 
@@ -476,7 +476,7 @@ function BrokerCardGrid({ mob, tab, lp, brokers }) {
                   <span style={{ fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: 22, color: scoreColor(b.score) }}>{b.score}</span>
                   <span style={{ fontSize: 12, fontWeight: 600, color: scoreColor(b.score), marginLeft: 4 }}>{scoreLabel(b.score)}</span>
                 </div>
-                <div style={{ fontSize: 14, color: "#64748b", marginBottom: 14 }}>{b.spread} pips</div>
+                <div style={{ fontSize: 14, color: "#1f2937", marginBottom: 14 }}>{b.spread} pips</div>
                 <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" style={{
                   display: "block", padding: "10px 0", borderRadius: 10,
                   background: "linear-gradient(135deg,#059669,#34d399)",
@@ -508,7 +508,7 @@ function BrokerCardGrid({ mob, tab, lp, brokers }) {
                 background: "#fff", border: "1px solid #e2e8f0", borderRadius: 12,
                 padding: "16px", textAlign: "center",
               }}>
-                <div style={{ fontSize: 11, fontWeight: 800, color: "#94a3b8", marginBottom: 8, fontFamily: "'JetBrains Mono'" }}>#{rank}</div>
+                <div style={{ fontSize: 11, fontWeight: 800, color: "#64748b", marginBottom: 8, fontFamily: "'JetBrains Mono'" }}>#{rank}</div>
                 <div style={{ display: "flex", justifyContent: "center", marginBottom: 8 }}>
                   <BrokerLogo slug={broker.slug} name={b.name} fallback={b.logo} size={40} shape="icon" />
                 </div>
@@ -560,7 +560,7 @@ function BrokerEditorial({ mob, tab, lp, brokers }) {
         }}>
           Our Top Picks &mdash; March 2026
         </h2>
-        <p style={{ textAlign: "center", fontSize: 15, color: "#64748b", marginBottom: 28, maxWidth: 500, margin: "0 auto 28px" }}>
+        <p style={{ textAlign: "center", fontSize: 15, color: "#1f2937", marginBottom: 28, maxWidth: 500, margin: "0 auto 28px" }}>
           Handpicked by our editorial team after exhaustive research and analysis.
         </p>
 
@@ -590,11 +590,11 @@ function BrokerEditorial({ mob, tab, lp, brokers }) {
                   <span style={{ fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: 24, color: scoreColor(fb.score) }}>{fb.score}/10</span>
                   <span style={{ fontSize: 13, fontWeight: 600, color: scoreColor(fb.score) }}>{scoreLabel(fb.score)}</span>
                 </div>
-                <div style={{ fontSize: 14, color: "#64748b", marginBottom: 6 }}>
+                <div style={{ fontSize: 14, color: "#1f2937", marginBottom: 6 }}>
                   {fb.type} &middot; {fb.spread} pips &middot; ${fb.minDep} min &middot; {fb.regs.slice(0, 2).map(r => r.name).join(", ")}
                 </div>
                 {fb.promo && (
-                  <div style={{ fontSize: 14, color: "#1e293b", fontStyle: "italic" }}>
+                  <div style={{ fontSize: 14, color: "#111827", fontStyle: "italic" }}>
                     &ldquo;{fb.promo}&rdquo;
                   </div>
                 )}
@@ -626,7 +626,7 @@ function BrokerEditorial({ mob, tab, lp, brokers }) {
               display: "flex", alignItems: "center", gap: 16,
               padding: "10px 24px", background: "#f8fafc",
               borderBottom: "1px solid #e2e8f0",
-              fontSize: 11, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 0.5,
+              fontSize: 11, fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: 0.5,
             }}>
               <span style={{ width: 40 }}>Rank</span>
               <span style={{ flex: 1 }}>Broker</span>
@@ -648,7 +648,7 @@ function BrokerEditorial({ mob, tab, lp, brokers }) {
               }}>
                 <span style={{
                   fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: 14,
-                  color: "#94a3b8", width: mob ? 24 : 40, textAlign: "center", flexShrink: 0,
+                  color: "#64748b", width: mob ? 24 : 40, textAlign: "center", flexShrink: 0,
                 }}>#{rank}</span>
                 <Link to={lp(`/review/${broker.slug}`)} style={{ flexShrink: 0, textDecoration: "none" }}>
                   <BrokerLogo slug={broker.slug} name={b.name} fallback={b.logo} size={44} shape="brand" />
@@ -661,8 +661,8 @@ function BrokerEditorial({ mob, tab, lp, brokers }) {
                 </div>
                 {!mob && (
                   <>
-                    <span style={{ fontSize: 13, color: "#64748b", width: 80, textAlign: "center" }}>{b.spread} pips</span>
-                    <span style={{ fontSize: 13, color: "#64748b", width: 60, textAlign: "center" }}>${b.minDep}</span>
+                    <span style={{ fontSize: 13, color: "#1f2937", width: 80, textAlign: "center" }}>{b.spread} pips</span>
+                    <span style={{ fontSize: 13, color: "#1f2937", width: 60, textAlign: "center" }}>${b.minDep}</span>
                   </>
                 )}
                 <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" style={{
@@ -877,7 +877,7 @@ export default function Home() {
         <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 30, textAlign: "center", marginBottom: 8 }}>
           {t("home.countryTitle")}
         </h2>
-        <p style={{ textAlign: "center", fontSize: 16, color: "#64748b", marginBottom: 32, maxWidth: 500, margin: "0 auto 32px" }}>
+        <p style={{ textAlign: "center", fontSize: 16, color: "#1f2937", marginBottom: 32, maxWidth: 500, margin: "0 auto 32px" }}>
           {t("home.countryDesc")}
         </p>
         <div style={{
@@ -890,7 +890,7 @@ export default function Home() {
               display: "flex", alignItems: "center", gap: 14,
               padding: mob ? "16px" : "20px 24px", borderRadius: 14,
               background: "#fff", border: c.featured ? "2px solid #059669" : "1px solid #e2e8f0",
-              textDecoration: "none", color: "#1e293b",
+              textDecoration: "none", color: "#111827",
               boxShadow: c.featured ? "0 4px 16px rgba(5,150,105,0.08)" : "0 1px 4px rgba(0,0,0,0.03)",
               transition: "all 0.2s", position: "relative",
             }}>
@@ -911,10 +911,10 @@ export default function Home() {
                     background: "#ecfdf5", color: "#059669",
                     fontSize: 12, fontWeight: 700,
                   }}>{c.reg}</span>
-                  <span style={{ fontSize: 14, color: "#64748b" }}>{c.count} {t("home.brokers")}</span>
+                  <span style={{ fontSize: 14, color: "#1f2937" }}>{c.count} {t("home.brokers")}</span>
                 </div>
               </div>
-              <ArrowRight size={18} color="#94a3b8" />
+              <ArrowRight size={18} color="#64748b" />
             </Link>
           ))}
         </div>
@@ -925,7 +925,7 @@ export default function Home() {
         <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 30, textAlign: "center", marginBottom: 8 }}>
           {t("home.allTitle")}
         </h2>
-        <p style={{ textAlign: "center", fontSize: 16, color: "#64748b", marginBottom: 32, maxWidth: 500, margin: "0 auto 32px" }}>
+        <p style={{ textAlign: "center", fontSize: 16, color: "#1f2937", marginBottom: 32, maxWidth: 500, margin: "0 auto 32px" }}>
           {t("home.allDesc", { count: allBrokersData.length })}
         </p>
         <div style={{
@@ -938,7 +938,7 @@ export default function Home() {
               display: "flex", alignItems: "center", gap: 10,
               padding: "14px 16px", borderRadius: 10,
               background: "#fff", border: "1px solid #e2e8f0",
-              textDecoration: "none", color: "#1e293b", transition: "all 0.2s",
+              textDecoration: "none", color: "#111827", transition: "all 0.2s",
             }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.borderColor = "#a7f3d0";
@@ -953,7 +953,7 @@ export default function Home() {
               <div style={{ flex: 1, minWidth: 0, textAlign: "right" }}>
                 <div style={{ fontFamily: "'JetBrains Mono'", fontSize: 14, fontWeight: 800, color: scoreColor(broker.B.score) }}>{broker.B.score}</div>
               </div>
-              <ArrowRight size={14} color="#94a3b8" style={{ flexShrink: 0 }} />
+              <ArrowRight size={14} color="#64748b" style={{ flexShrink: 0 }} />
             </Link>
           ))}
         </div>
@@ -973,7 +973,7 @@ export default function Home() {
             <Link key={i} to={lp(c.path)} style={{
               padding: mob ? "20px" : "24px", borderRadius: 14,
               background: "#fff", border: "1px solid #e2e8f0",
-              textAlign: "center", textDecoration: "none", color: "#1e293b",
+              textAlign: "center", textDecoration: "none", color: "#111827",
               transition: "all 0.2s",
             }}>
               <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 16, marginBottom: 8 }}>{c.a}</div>
@@ -1004,7 +1004,7 @@ export default function Home() {
             {t("home.aboutTitle")}
           </h2>
           <p style={{
-            fontSize: 15, color: "#475569", lineHeight: 1.7, maxWidth: 680,
+            fontSize: 15, color: "#1f2937", lineHeight: 1.7, maxWidth: 680,
             margin: "0 auto 20px",
           }}>
             {t("home.aboutText")}
@@ -1017,7 +1017,7 @@ export default function Home() {
             }}>{t("home.aboutMethodology")}</Link>
             <Link to={lp("/about")} style={{
               padding: "10px 22px", borderRadius: 10,
-              background: "#f1f5f9", color: "#475569",
+              background: "#f1f5f9", color: "#1f2937",
               fontWeight: 600, fontSize: 15, textDecoration: "none",
             }}>{t("home.aboutLearnMore")}</Link>
           </div>
@@ -1029,7 +1029,7 @@ export default function Home() {
         <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 28, textAlign: "center", marginBottom: 8 }}>
           Our Expert Team
         </h2>
-        <p style={{ textAlign: "center", fontSize: 15, color: "#64748b", marginBottom: 24, maxWidth: 500, margin: "0 auto 24px" }}>
+        <p style={{ textAlign: "center", fontSize: 15, color: "#1f2937", marginBottom: 24, maxWidth: 500, margin: "0 auto 24px" }}>
           Every review is written, peer-reviewed, and fact-checked by certified industry professionals.
         </p>
         <div style={{
@@ -1042,7 +1042,7 @@ export default function Home() {
               display: "flex", flexDirection: "column", alignItems: "center", gap: 10,
               padding: mob ? "20px 12px" : "24px 16px", borderRadius: 14,
               background: "#fff", border: "1px solid #e2e8f0",
-              textDecoration: "none", color: "#1e293b", transition: "all 0.2s",
+              textDecoration: "none", color: "#111827", transition: "all 0.2s",
             }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.borderColor = "#a7f3d0";
@@ -1058,7 +1058,7 @@ export default function Home() {
               <AuthorAvatar author={a} size={mob ? 48 : 56} showVerified />
               <div style={{ textAlign: "center" }}>
                 <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: mob ? 13 : 15 }}>{a.name}</div>
-                <div style={{ fontSize: 13, color: "#64748b", marginTop: 2 }}>{a.role}</div>
+                <div style={{ fontSize: 13, color: "#1f2937", marginTop: 2 }}>{a.role}</div>
               </div>
               <span style={{ fontSize: 13, fontWeight: 600, color: "#059669" }}>View Profile &rarr;</span>
             </Link>

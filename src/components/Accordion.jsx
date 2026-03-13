@@ -31,13 +31,13 @@ export default function Accordion({ items, expanded, setExpanded }) {
             }}
           >
             <span
-              style={{ fontWeight: 700, fontSize: 15, color: "#1e293b", flex: 1 }}
+              style={{ fontWeight: 700, fontSize: 15, color: "#111827", flex: 1 }}
             >
               {item.q}
             </span>
             <span
               style={{
-                color: "#64748b",
+                color: "#1f2937",
                 transform: expanded === i ? "rotate(180deg)" : "none",
                 transition: "transform 0.2s",
                 flexShrink: 0,
@@ -53,7 +53,7 @@ export default function Accordion({ items, expanded, setExpanded }) {
                 style={{
                   fontSize: 15,
                   lineHeight: 1.7,
-                  color: "#334155",
+                  color: "#1f2937",
                   margin: 0,
                 }}
               >

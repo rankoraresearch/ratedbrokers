@@ -111,7 +111,7 @@ export default function PlatformPage() {
     return (
       <div style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb", minHeight: "100vh", padding: "80px 20px", textAlign: "center" }}>
         <h1 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 28, marginBottom: 12 }}>Platform Not Found</h1>
-        <p style={{ color: "#475569", marginBottom: 24 }}>The trading platform you're looking for doesn't exist in our database.</p>
+        <p style={{ color: "#1f2937", marginBottom: 24 }}>The trading platform you're looking for doesn't exist in our database.</p>
         <Link to={lp("/")} style={{ color: "#2563eb", fontWeight: 600, textDecoration: "none" }}>Back to Home</Link>
       </div>
     );
@@ -135,7 +135,7 @@ export default function PlatformPage() {
     .filter(Boolean);
 
   return (
-    <div style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb", color: "#1e293b", minHeight: "100vh" }}>
+    <div style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb", color: "#111827", minHeight: "100vh" }}>
 
       {/* ══════ BREADCRUMBS ══════ */}
       <div style={{ background: "#fff", borderBottom: "1px solid #e8ecf1", padding: "10px 0" }}>
@@ -159,7 +159,7 @@ export default function PlatformPage() {
                 background: platform.hero.badgeColor || "#eff6ff", color: platform.hero.badgeTextColor || "#2563eb",
                 fontSize: 12, fontWeight: 700, letterSpacing: 0.5, textTransform: "uppercase",
               }}>{platform.hero.badge}</span>
-              <span style={{ fontSize: 13, color: "#64748b" }}>{platform.readTime}</span>
+              <span style={{ fontSize: 13, color: "#1f2937" }}>{platform.readTime}</span>
             </div>
             <h1 style={{
               fontFamily: "Outfit", fontWeight: 800,
@@ -167,7 +167,7 @@ export default function PlatformPage() {
               lineHeight: 1.15, color: "#0f172a", margin: "0 0 14px",
             }}>{platform.hero.h1}</h1>
             <p style={{
-              fontSize: mob ? 15 : 17, lineHeight: 1.6, color: "#334155",
+              fontSize: mob ? 15 : 17, lineHeight: 1.6, color: "#1f2937",
               margin: "0 0 20px", maxWidth: 700,
             }}>{platform.hero.subtitle}</p>
             <AuthorByline author={author} editor={editor} factChecker={factChecker} reviewer={reviewer} updatedDate={platform.updatedDate} />
@@ -200,19 +200,19 @@ export default function PlatformPage() {
               )}
 
               {(section.paragraphs || []).map((p, i) => (
-                <p key={i} style={{ fontSize: 16, lineHeight: 1.8, color: "#334155", margin: "0 0 16px" }}>{p}</p>
+                <p key={i} style={{ fontSize: 16, lineHeight: 1.8, color: "#1f2937", margin: "0 0 16px" }}>{p}</p>
               ))}
 
               {section.list && (
                 <ul style={{ margin: "0 0 16px", paddingLeft: 20 }}>
                   {section.list.map((item, i) => (
-                    <li key={i} style={{ fontSize: 16, lineHeight: 1.8, color: "#334155", marginBottom: 6 }}>{item}</li>
+                    <li key={i} style={{ fontSize: 16, lineHeight: 1.8, color: "#1f2937", marginBottom: 6 }}>{item}</li>
                   ))}
                 </ul>
               )}
 
               {(section.paragraphs2 || []).map((p, i) => (
-                <p key={`p2-${i}`} style={{ fontSize: 16, lineHeight: 1.8, color: "#334155", margin: "0 0 16px" }}>{p}</p>
+                <p key={`p2-${i}`} style={{ fontSize: 16, lineHeight: 1.8, color: "#1f2937", margin: "0 0 16px" }}>{p}</p>
               ))}
 
               {section.tip && (
@@ -268,7 +268,7 @@ export default function PlatformPage() {
                         <td key={ci} style={{
                           padding: "10px 14px",
                           borderBottom: "1px solid #f1f5f9",
-                          color: ci === 0 ? "#1e293b" : "#334155",
+                          color: ci === 0 ? "#111827" : "#1f2937",
                           fontWeight: ci === 0 ? 600 : 400,
                         }}>{cell}</td>
                       ))}
@@ -290,7 +290,7 @@ export default function PlatformPage() {
               <div style={{ background: "#f0fdf4", border: "1px solid #bbf7d0", borderRadius: 12, padding: "20px" }}>
                 <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 15, color: "#059669", marginBottom: 12 }}>Pros</div>
                 {platform.pros.map((p, i) => (
-                  <div key={i} style={{ fontSize: 14, color: "#1e293b", marginBottom: 8, paddingLeft: 16, position: "relative", lineHeight: 1.5 }}>
+                  <div key={i} style={{ fontSize: 14, color: "#111827", marginBottom: 8, paddingLeft: 16, position: "relative", lineHeight: 1.5 }}>
                     <span style={{ position: "absolute", left: 0, color: "#059669" }}><Check size={14} /></span>{p}
                   </div>
                 ))}
@@ -298,7 +298,7 @@ export default function PlatformPage() {
               <div style={{ background: "#fef2f2", border: "1px solid #fecaca", borderRadius: 12, padding: "20px" }}>
                 <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 15, color: "#dc2626", marginBottom: 12 }}>Cons</div>
                 {platform.cons.map((c, i) => (
-                  <div key={i} style={{ fontSize: 14, color: "#1e293b", marginBottom: 8, paddingLeft: 16, position: "relative", lineHeight: 1.5 }}>
+                  <div key={i} style={{ fontSize: 14, color: "#111827", marginBottom: 8, paddingLeft: 16, position: "relative", lineHeight: 1.5 }}>
                     <span style={{ position: "absolute", left: 0, color: "#dc2626" }}><XIcon size={14} /></span>{c}
                   </div>
                 ))}
@@ -313,11 +313,11 @@ export default function PlatformPage() {
               fontSize: mob ? 20 : 26, color: "#0f172a",
               margin: "0 0 16px", lineHeight: 1.25,
             }}>Best Brokers Using {platform.platformName}</h2>
-            <p style={{ fontSize: 16, lineHeight: 1.8, color: "#334155", margin: "0 0 20px" }}>
+            <p style={{ fontSize: 16, lineHeight: 1.8, color: "#1f2937", margin: "0 0 20px" }}>
               We analyzed {platformBrokers.length} brokers that offer {platform.platformName}. Here are the top-rated ones, sorted by our expert score. All brokers are independently researched and scored.
             </p>
             {platformBrokers.length === 0 ? (
-              <p style={{ fontSize: 16, color: "#475569" }}>No brokers in our database currently offer {platform.platformName}.</p>
+              <p style={{ fontSize: 16, color: "#1f2937" }}>No brokers in our database currently offer {platform.platformName}.</p>
             ) : (
               <div style={{ display: "flex", flexDirection: "column", gap: mob ? 12 : 14 }}>
                 {platformBrokers.map((b, i) => (
@@ -374,13 +374,13 @@ export default function PlatformPage() {
                     display: "flex", alignItems: "center", gap: 12,
                     padding: mob ? "12px 14px" : "14px 18px",
                     background: "#fff", border: "1px solid #e2e8f0", borderRadius: 12,
-                    textDecoration: "none", color: "#1e293b",
+                    textDecoration: "none", color: "#111827",
                     transition: "box-shadow 0.2s",
                   }}>
                     <PlatformLogo slug={rp.slug} name={rp.platformName} size={36} shape="icon" />
                     <div>
                       <div style={{ fontWeight: 700, fontSize: 15 }}>{rp.platformName}</div>
-                      <div style={{ fontSize: 13, color: "#64748b" }}>{rp.readTime}</div>
+                      <div style={{ fontSize: 13, color: "#1f2937" }}>{rp.readTime}</div>
                     </div>
                   </Link>
                 ))}
@@ -398,10 +398,10 @@ export default function PlatformPage() {
             background: "#fff", borderRadius: 14, border: "1px solid #e2e8f0",
             padding: mob ? 16 : 20, marginBottom: mob ? 28 : 40,
           }}>
-            <div style={{ fontSize: 13, fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: 1, marginBottom: 6 }}>
+            <div style={{ fontSize: 13, fontWeight: 700, color: "#1f2937", textTransform: "uppercase", letterSpacing: 1, marginBottom: 6 }}>
               Risk Disclosure
             </div>
-            <p style={{ fontSize: 13, lineHeight: 1.7, color: "#475569", margin: 0 }}>
+            <p style={{ fontSize: 13, lineHeight: 1.7, color: "#1f2937", margin: 0 }}>
               CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. Between 62% and 82% of retail investor accounts lose money when trading CFDs. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money.
             </p>
           </div>
@@ -424,8 +424,8 @@ export default function PlatformPage() {
                   { l: "OS", v: platform.quickFacts.operatingSystems },
                 ].map((x, i) => (
                   <div key={i} style={{ display: "flex", justifyContent: "space-between", padding: "7px 0", borderBottom: i < 6 ? "1px solid #f0f4f8" : "none" }}>
-                    <span style={{ fontSize: 14, color: "#64748b" }}>{x.l}</span>
-                    <span style={{ fontSize: 14, color: "#1e293b", fontWeight: 600, textAlign: "right", maxWidth: "55%" }}>{x.v}</span>
+                    <span style={{ fontSize: 14, color: "#1f2937" }}>{x.l}</span>
+                    <span style={{ fontSize: 14, color: "#111827", fontWeight: 600, textAlign: "right", maxWidth: "55%" }}>{x.v}</span>
                   </div>
                 ))}
                 <a href={platform.quickFacts.website} target="_blank" rel="noopener noreferrer" style={{

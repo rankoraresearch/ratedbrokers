@@ -176,7 +176,7 @@ export default function Header() {
   /* ── shared styles ── */
 
   const secHead = {
-    fontSize: 12, fontWeight: 700, color: "#64748b",
+    fontSize: 12, fontWeight: 700, color: "#1f2937",
     textTransform: "uppercase", letterSpacing: 1.2,
     marginBottom: 12, paddingBottom: 8,
     borderBottom: "1px solid #f1f5f9",
@@ -185,7 +185,7 @@ export default function Header() {
   const ddLink = {
     display: "flex", alignItems: "center", gap: 10,
     padding: "8px 10px", borderRadius: 8,
-    textDecoration: "none", color: "#1e293b",
+    textDecoration: "none", color: "#111827",
     fontSize: 15, fontWeight: 500, transition: "all 0.15s",
   };
 
@@ -203,30 +203,30 @@ export default function Header() {
   /* compact link style (no icons, no descriptions) */
   const compactLink = {
     display: "block", padding: "5px 8px", borderRadius: 6,
-    textDecoration: "none", color: "#334155",
+    textDecoration: "none", color: "#1f2937",
     fontSize: 14, fontWeight: 500, transition: "all 0.15s",
     lineHeight: 1.4,
   };
   const hovCompact = (e) => { e.currentTarget.style.background = "#f0fdf4"; e.currentTarget.style.color = "#059669"; };
-  const unhovCompact = (e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#334155"; };
+  const unhovCompact = (e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#1f2937"; };
 
   /* ── helper: nav button (desktop) ── */
   const NavBtn = ({ id, label }) => (
     <button
       style={{
         fontSize: 15, fontWeight: 500,
-        color: activeDropdown === id ? "#059669" : "#475569",
+        color: activeDropdown === id ? "#059669" : "#111827",
         background: activeDropdown === id ? "#f0fdf4" : "transparent",
         border: "none", padding: "8px 10px", borderRadius: 8,
         cursor: "pointer", display: "flex", alignItems: "center", gap: 3,
         transition: "all 0.2s", fontFamily: "inherit", whiteSpace: "nowrap",
       }}
       onMouseEnter={(e) => { if (activeDropdown !== id) { e.currentTarget.style.color = "#059669"; e.currentTarget.style.background = "#f0fdf4"; } }}
-      onMouseLeave={(e) => { if (activeDropdown !== id) { e.currentTarget.style.color = "#475569"; e.currentTarget.style.background = "transparent"; } }}
+      onMouseLeave={(e) => { if (activeDropdown !== id) { e.currentTarget.style.color = "#111827"; e.currentTarget.style.background = "transparent"; } }}
     >
       {label}
       <span style={{
-        color: "#94a3b8",
+        color: "#64748b",
         transition: "transform 0.2s",
         transform: activeDropdown === id ? "rotate(180deg)" : "none",
         display: "inline-flex",
@@ -240,12 +240,12 @@ export default function Header() {
       to={to}
       style={{
         fontSize: 15, fontWeight: match ? 700 : 500,
-        color: match ? "#0f172a" : "#475569",
+        color: match ? "#0f172a" : "#111827",
         textDecoration: "none", padding: "8px 10px", borderRadius: 8,
         transition: "all 0.2s", whiteSpace: "nowrap",
       }}
       onMouseEnter={(e) => { e.currentTarget.style.color = "#059669"; e.currentTarget.style.background = "#f0fdf4"; }}
-      onMouseLeave={(e) => { e.currentTarget.style.color = match ? "#059669" : "#475569"; e.currentTarget.style.background = "transparent"; }}
+      onMouseLeave={(e) => { e.currentTarget.style.color = match ? "#059669" : "#1f2937"; e.currentTarget.style.background = "transparent"; }}
     >
       {label}
     </Link>
@@ -259,14 +259,14 @@ export default function Header() {
       onClick={() => setMobileExpanded(mobileExpanded === id ? null : id)}
       style={{
         display: "flex", alignItems: "center", justifyContent: "space-between",
-        width: "100%", fontSize: 16, fontWeight: 500, color: "#1e293b",
+        width: "100%", fontSize: 16, fontWeight: 500, color: "#111827",
         background: "none", border: "none", padding: "12px 0",
         borderBottom: "1px solid #f1f5f9", cursor: "pointer", fontFamily: "inherit",
       }}
     >
       {label}
       <span style={{
-        color: "#94a3b8",
+        color: "#64748b",
         transition: "transform 0.2s",
         transform: mobileExpanded === id ? "rotate(180deg)" : "none",
         display: "inline-flex",
@@ -280,7 +280,7 @@ export default function Header() {
       style={{
         display: "block", fontSize: 16,
         fontWeight: match ? 700 : 500,
-        color: match ? "#059669" : "#1e293b",
+        color: match ? "#059669" : "#111827",
         textDecoration: "none", padding: "12px 0",
         borderBottom: "1px solid #f1f5f9",
       }}
@@ -302,7 +302,7 @@ export default function Header() {
           <IconBox name={item.icon} color={item.color} />
           <div>
             <div style={{ fontWeight: 600, fontSize: 15, lineHeight: 1.2 }}>{t(`mega.${item.key}`)}</div>
-            <div style={{ fontSize: 13, color: "#64748b", marginTop: 1 }}>{t(`mega.${item.key}Desc`)}</div>
+            <div style={{ fontSize: 13, color: "#1f2937", marginTop: 1 }}>{t(`mega.${item.key}Desc`)}</div>
           </div>
         </Link>
       ))}
@@ -318,7 +318,7 @@ export default function Header() {
         style={{
           display: "flex", alignItems: "center", gap: 8,
           padding: "8px 0", fontSize: 14, fontWeight: 500,
-          color: "#475569", textDecoration: "none",
+          color: "#1f2937", textDecoration: "none",
         }}
       >
         <Icon name={item.icon} size={14} color={item.color} />
@@ -362,7 +362,7 @@ export default function Header() {
               <button
                 onClick={() => setSearchOpen(true)}
                 aria-label="Search"
-                style={{ background: "none", border: "none", color: "#475569", padding: "4px 8px", cursor: "pointer", display: "inline-flex", alignItems: "center" }}
+                style={{ background: "none", border: "none", color: "#1f2937", padding: "4px 8px", cursor: "pointer", display: "inline-flex", alignItems: "center" }}
               ><SearchIcon size={20} /></button>
               <button
                 aria-label="Language"
@@ -376,7 +376,7 @@ export default function Header() {
               </button>
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
-                style={{ background: "none", border: "none", color: "#475569", padding: "4px 8px", cursor: "pointer", display: "inline-flex", alignItems: "center" }}
+                style={{ background: "none", border: "none", color: "#1f2937", padding: "4px 8px", cursor: "pointer", display: "inline-flex", alignItems: "center" }}
               >{menuOpen ? <XIcon size={24} /> : <MenuIcon size={24} />}</button>
             </div>
           ) : (
@@ -386,18 +386,18 @@ export default function Header() {
               <div style={{ position: "relative" }} onMouseEnter={() => enter("forex")} onMouseLeave={leave}>
                 <Link to={lp("/best-forex-brokers")} style={{
                   fontSize: 15, fontWeight: 500,
-                  color: activeDropdown === "forex" ? "#059669" : "#475569",
+                  color: activeDropdown === "forex" ? "#059669" : "#1f2937",
                   background: activeDropdown === "forex" ? "#f0fdf4" : "transparent",
                   border: "none", padding: "8px 10px", borderRadius: 8,
                   display: "flex", alignItems: "center", gap: 3,
                   transition: "all 0.2s", whiteSpace: "nowrap", textDecoration: "none",
                 }}
                   onMouseEnter={(e) => { e.currentTarget.style.color = "#059669"; e.currentTarget.style.background = "#f0fdf4"; }}
-                  onMouseLeave={(e) => { if (activeDropdown !== "forex") { e.currentTarget.style.color = "#475569"; e.currentTarget.style.background = "transparent"; } }}
+                  onMouseLeave={(e) => { if (activeDropdown !== "forex") { e.currentTarget.style.color = "#111827"; e.currentTarget.style.background = "transparent"; } }}
                 >
                   {t("nav.forexBrokers")}
                   <span style={{
-                    color: "#94a3b8",
+                    color: "#64748b",
                     transition: "transform 0.2s",
                     transform: activeDropdown === "forex" ? "rotate(180deg)" : "none",
                     display: "inline-flex",
@@ -455,11 +455,11 @@ export default function Header() {
                     }}>Best Forex Brokers 2026 — Full Rankings &amp; Comparison <ArrowRight size={14} style={{ verticalAlign: "middle" }} /></Link>
                     <Link to={lp("/rankings")} style={{
                       display: "block", marginTop: 6, padding: "8px 14px", borderRadius: 8,
-                      background: "transparent", color: "#64748b", fontSize: 13, fontWeight: 600,
+                      background: "transparent", color: "#1f2937", fontSize: 13, fontWeight: 600,
                       textDecoration: "none", textAlign: "center", transition: "color 0.15s",
                     }}
                       onMouseEnter={(e) => { e.currentTarget.style.color = "#059669"; }}
-                      onMouseLeave={(e) => { e.currentTarget.style.color = "#64748b"; }}
+                      onMouseLeave={(e) => { e.currentTarget.style.color = "#1f2937"; }}
                     >{t("mega.browseAllRankings")} <ArrowRight size={12} style={{ verticalAlign: "middle" }} /></Link>
                   </div>
                 )}
@@ -469,18 +469,18 @@ export default function Header() {
               <div style={{ position: "relative" }} onMouseEnter={() => enter("crypto")} onMouseLeave={leave}>
                 <Link to={lp("/best-crypto-brokers")} style={{
                   fontSize: 15, fontWeight: 500,
-                  color: activeDropdown === "crypto" ? "#059669" : "#475569",
+                  color: activeDropdown === "crypto" ? "#059669" : "#1f2937",
                   background: activeDropdown === "crypto" ? "#f0fdf4" : "transparent",
                   border: "none", padding: "8px 10px", borderRadius: 8,
                   display: "flex", alignItems: "center", gap: 3,
                   transition: "all 0.2s", whiteSpace: "nowrap", textDecoration: "none",
                 }}
                   onMouseEnter={(e) => { e.currentTarget.style.color = "#059669"; e.currentTarget.style.background = "#f0fdf4"; }}
-                  onMouseLeave={(e) => { if (activeDropdown !== "crypto") { e.currentTarget.style.color = "#475569"; e.currentTarget.style.background = "transparent"; } }}
+                  onMouseLeave={(e) => { if (activeDropdown !== "crypto") { e.currentTarget.style.color = "#111827"; e.currentTarget.style.background = "transparent"; } }}
                 >
                   {t("nav.cryptoBrokers")}
                   <span style={{
-                    color: "#94a3b8",
+                    color: "#64748b",
                     transition: "transform 0.2s",
                     transform: activeDropdown === "crypto" ? "rotate(180deg)" : "none",
                     display: "inline-flex",
@@ -685,12 +685,12 @@ export default function Header() {
                 aria-label="Search"
                 style={{
                   background: "#f1f5f9", border: "none",
-                  color: "#64748b", padding: "6px 8px", borderRadius: 8,
+                  color: "#1f2937", padding: "6px 8px", borderRadius: 8,
                   cursor: "pointer", display: "inline-flex", alignItems: "center",
                   transition: "all 0.2s",
                 }}
                 onMouseEnter={(e) => { e.currentTarget.style.color = "#059669"; e.currentTarget.style.background = "#f0fdf4"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.color = "#64748b"; e.currentTarget.style.background = "#f1f5f9"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = "#1f2937"; e.currentTarget.style.background = "#f1f5f9"; }}
               ><SearchIcon size={16} /></button>
 
               {/* ─── Language ─── */}
@@ -700,15 +700,15 @@ export default function Header() {
                   background: "#f1f5f9", border: "none", cursor: "pointer",
                   display: "inline-flex", alignItems: "center", gap: 5,
                   padding: "5px 10px", borderRadius: 8,
-                  fontSize: 13, fontWeight: 600, color: "#475569",
+                  fontSize: 13, fontWeight: 600, color: "#1f2937",
                   fontFamily: "inherit", transition: "all 0.2s",
                 }}
                 onMouseEnter={(e) => { e.currentTarget.style.background = "#f0fdf4"; e.currentTarget.style.color = "#059669"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.background = "#f1f5f9"; e.currentTarget.style.color = "#475569"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.background = "#f1f5f9"; e.currentTarget.style.color = "#111827"; }}
               >
                 <CountryFlag code="GB" size={16} />
                 EN
-                <ChevronDown size={11} style={{ color: "#94a3b8" }} />
+                <ChevronDown size={11} style={{ color: "#64748b" }} />
               </button>
 
               {/* ─── CTA: Compare Brokers ─── */}
@@ -746,14 +746,14 @@ export default function Header() {
               borderBottom: "1px solid #f1f5f9",
             }}>
               <Link to={lp("/best-forex-brokers")} style={{
-                flex: 1, fontSize: 16, fontWeight: 500, color: "#1e293b",
+                flex: 1, fontSize: 16, fontWeight: 500, color: "#111827",
                 textDecoration: "none", padding: "12px 0",
               }}>{t("nav.forexBrokers")}</Link>
               <button
                 onClick={() => setMobileExpanded(mobileExpanded === "forex" ? null : "forex")}
                 style={{
                   background: "none", border: "none", cursor: "pointer", padding: "12px 4px",
-                  color: "#94a3b8", fontFamily: "inherit", display: "inline-flex",
+                  color: "#64748b", fontFamily: "inherit", display: "inline-flex",
                   transition: "transform 0.2s",
                   transform: mobileExpanded === "forex" ? "rotate(180deg)" : "none",
                 }}
@@ -761,44 +761,44 @@ export default function Header() {
             </div>
             {mobileExpanded === "forex" && (
               <div style={{ padding: "8px 0 8px 12px" }}>
-                <div style={{ fontSize: 11, fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: 1, marginBottom: 6 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#1f2937", textTransform: "uppercase", letterSpacing: 1, marginBottom: 6 }}>
                   By Trading Style
                 </div>
                 {FOREX_CATEGORIES.map((item) => (
                   <Link key={item.key} to={lp(item.path)} style={{
-                    display: "block", padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#475569", textDecoration: "none",
+                    display: "block", padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#1f2937", textDecoration: "none",
                   }}>{t(`mega.${item.key}`)}</Link>
                 ))}
-                <div style={{ fontSize: 11, fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: 1, marginTop: 10, marginBottom: 6 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#1f2937", textTransform: "uppercase", letterSpacing: 1, marginTop: 10, marginBottom: 6 }}>
                   By Cost
                 </div>
                 {FOREX_COSTS.map((item) => (
                   <Link key={item.key} to={lp(item.path)} style={{
-                    display: "block", padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#475569", textDecoration: "none",
+                    display: "block", padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#1f2937", textDecoration: "none",
                   }}>{t(`mega.${item.key}`)}</Link>
                 ))}
-                <div style={{ fontSize: 11, fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: 1, marginTop: 10, marginBottom: 6 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#1f2937", textTransform: "uppercase", letterSpacing: 1, marginTop: 10, marginBottom: 6 }}>
                   By Platform
                 </div>
                 {FOREX_PLATFORMS.map((p) => (
                   <Link key={p.name} to={lp(p.path)} style={{
-                    display: "block", padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#475569", textDecoration: "none",
+                    display: "block", padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#1f2937", textDecoration: "none",
                   }}>Best {p.name} Brokers</Link>
                 ))}
-                <div style={{ fontSize: 11, fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: 1, marginTop: 10, marginBottom: 6 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#1f2937", textTransform: "uppercase", letterSpacing: 1, marginTop: 10, marginBottom: 6 }}>
                   Platform Guides
                 </div>
                 {FOREX_PLATFORMS.map((p) => (
                   <Link key={`guide-${p.name}`} to={lp(`/platform/${p.name.toLowerCase().replace(/\s+/g, "-")}`)} style={{
-                    display: "block", padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#475569", textDecoration: "none",
+                    display: "block", padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#1f2937", textDecoration: "none",
                   }}>{p.name} Guide</Link>
                 ))}
-                <div style={{ fontSize: 11, fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: 1, marginTop: 10, marginBottom: 6 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#1f2937", textTransform: "uppercase", letterSpacing: 1, marginTop: 10, marginBottom: 6 }}>
                   By Account Type
                 </div>
                 {FOREX_ACCOUNTS.map((item) => (
                   <Link key={item.key} to={lp(item.path)} style={{
-                    display: "block", padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#475569", textDecoration: "none",
+                    display: "block", padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#1f2937", textDecoration: "none",
                   }}>{t(`mega.${item.key}`)}</Link>
                 ))}
                 <Link to={lp("/best-forex-brokers")} style={{
@@ -816,14 +816,14 @@ export default function Header() {
               borderBottom: "1px solid #f1f5f9",
             }}>
               <Link to={lp("/best-crypto-brokers")} style={{
-                flex: 1, fontSize: 16, fontWeight: 500, color: "#1e293b",
+                flex: 1, fontSize: 16, fontWeight: 500, color: "#111827",
                 textDecoration: "none", padding: "12px 0",
               }}>{t("nav.cryptoBrokers")}</Link>
               <button
                 onClick={() => setMobileExpanded(mobileExpanded === "crypto" ? null : "crypto")}
                 style={{
                   background: "none", border: "none", cursor: "pointer", padding: "12px 4px",
-                  color: "#94a3b8", fontFamily: "inherit", display: "inline-flex",
+                  color: "#64748b", fontFamily: "inherit", display: "inline-flex",
                   transition: "transform 0.2s",
                   transform: mobileExpanded === "crypto" ? "rotate(180deg)" : "none",
                 }}
@@ -831,20 +831,20 @@ export default function Header() {
             </div>
             {mobileExpanded === "crypto" && (
               <div style={{ padding: "8px 0 8px 12px" }}>
-                <div style={{ fontSize: 11, fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: 1, marginBottom: 6 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#1f2937", textTransform: "uppercase", letterSpacing: 1, marginBottom: 6 }}>
                   By Cryptocurrency
                 </div>
                 {CRYPTO_BY_COIN.map((item) => (
                   <Link key={item.key} to={lp(item.path)} style={{
-                    display: "block", padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#475569", textDecoration: "none",
+                    display: "block", padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#1f2937", textDecoration: "none",
                   }}>{t(`mega.${item.key}`)}</Link>
                 ))}
-                <div style={{ fontSize: 11, fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: 1, marginTop: 10, marginBottom: 6 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#1f2937", textTransform: "uppercase", letterSpacing: 1, marginTop: 10, marginBottom: 6 }}>
                   By Feature
                 </div>
                 {CRYPTO_BY_FEATURE.map((item) => (
                   <Link key={item.key} to={lp(item.path)} style={{
-                    display: "block", padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#475569", textDecoration: "none",
+                    display: "block", padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#1f2937", textDecoration: "none",
                   }}>{t(`mega.${item.key}`)}</Link>
                 ))}
                 <Link to={lp("/best-crypto-brokers")} style={{
@@ -860,24 +860,24 @@ export default function Header() {
             <MobToggle id="reviews" label={t("nav.reviews")} />
             {mobileExpanded === "reviews" && (
               <div style={{ padding: "8px 0 8px 12px" }}>
-                <div style={{ fontSize: 11, fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: 1, marginBottom: 8 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#1f2937", textTransform: "uppercase", letterSpacing: 1, marginBottom: 8 }}>
                   {t("mega.topRated")}
                 </div>
                 {TOP_REVIEWS.map((b) => (
                   <Link key={b.slug} to={lp(`/review/${b.slug}`)} style={{
                     display: "flex", alignItems: "center", justifyContent: "space-between",
-                    padding: "8px 0", fontSize: 14, fontWeight: 500, color: "#475569", textDecoration: "none",
+                    padding: "8px 0", fontSize: 14, fontWeight: 500, color: "#1f2937", textDecoration: "none",
                   }}>
                     <span>{b.name}</span>
                     <span style={{ fontFamily: "'JetBrains Mono'", fontSize: 12, fontWeight: 700, color: b.score >= 9.5 ? "#059669" : "#2563eb" }}>{b.score}</span>
                   </Link>
                 ))}
-                <div style={{ fontSize: 11, fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: 1, marginTop: 12, marginBottom: 8 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#1f2937", textTransform: "uppercase", letterSpacing: 1, marginTop: 12, marginBottom: 8 }}>
                   {t("mega.popular")}
                 </div>
                 {POPULAR_REVIEWS.map((b) => (
                   <Link key={b.slug} to={lp(`/review/${b.slug}`)} style={{
-                    display: "block", padding: "8px 0", fontSize: 14, fontWeight: 500, color: "#475569", textDecoration: "none",
+                    display: "block", padding: "8px 0", fontSize: 14, fontWeight: 500, color: "#1f2937", textDecoration: "none",
                   }}>{b.name}</Link>
                 ))}
                 <Link to={lp("/best-forex-brokers")} style={{
@@ -893,28 +893,28 @@ export default function Header() {
             <MobToggle id="guides" label={t("nav.guides")} />
             {mobileExpanded === "guides" && (
               <div style={{ padding: "8px 0 8px 12px" }}>
-                <div style={{ fontSize: 11, fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: 1, marginBottom: 8 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#1f2937", textTransform: "uppercase", letterSpacing: 1, marginBottom: 8 }}>
                   {t("mega.guideGettingStarted")}
                 </div>
                 {GUIDE_GETTING_STARTED.map((item) => (
                   <Link key={item.key} to={lp(item.path)} style={{
-                    display: "block", padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#475569", textDecoration: "none",
+                    display: "block", padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#1f2937", textDecoration: "none",
                   }}>{t(`mega.${item.key}`)}</Link>
                 ))}
-                <div style={{ fontSize: 11, fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: 1, marginTop: 12, marginBottom: 8 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#1f2937", textTransform: "uppercase", letterSpacing: 1, marginTop: 12, marginBottom: 8 }}>
                   {t("mega.guideStrategiesHead")}
                 </div>
                 {GUIDE_STRATEGIES.map((item) => (
                   <Link key={item.key} to={lp(item.path)} style={{
-                    display: "block", padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#475569", textDecoration: "none",
+                    display: "block", padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#1f2937", textDecoration: "none",
                   }}>{t(`mega.${item.key}`)}</Link>
                 ))}
-                <div style={{ fontSize: 11, fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: 1, marginTop: 12, marginBottom: 8 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#1f2937", textTransform: "uppercase", letterSpacing: 1, marginTop: 12, marginBottom: 8 }}>
                   {t("mega.guideConceptsHead")}
                 </div>
                 {GUIDE_CONCEPTS.map((item) => (
                   <Link key={item.key} to={lp(item.path)} style={{
-                    display: "block", padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#475569", textDecoration: "none",
+                    display: "block", padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#1f2937", textDecoration: "none",
                   }}>{t(`mega.${item.key}`)}</Link>
                 ))}
                 <Link to={lp("/guides")} style={{
@@ -933,37 +933,37 @@ export default function Header() {
             <MobToggle id="countries" label={t("nav.countries")} />
             {mobileExpanded === "countries" && (
               <div style={{ padding: "8px 0 8px 12px" }}>
-                <div style={{ fontSize: 11, fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: 1, marginBottom: 8 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#1f2937", textTransform: "uppercase", letterSpacing: 1, marginBottom: 8 }}>
                   {t("mega.countryEurope")}
                 </div>
                 {COUNTRIES_EUROPE.map((c) => (
                   <Link key={c.code} to={lp(c.path)} style={{
                     display: "flex", alignItems: "center", gap: 8,
-                    padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#475569", textDecoration: "none",
+                    padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#1f2937", textDecoration: "none",
                   }}>
                     <CountryFlag code={c.code} size={16} />
                     {c.name}
                   </Link>
                 ))}
-                <div style={{ fontSize: 11, fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: 1, marginTop: 12, marginBottom: 8 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#1f2937", textTransform: "uppercase", letterSpacing: 1, marginTop: 12, marginBottom: 8 }}>
                   {t("mega.countryAsiaPacific")}
                 </div>
                 {COUNTRIES_ASIA_PACIFIC.map((c) => (
                   <Link key={c.code} to={lp(c.path)} style={{
                     display: "flex", alignItems: "center", gap: 8,
-                    padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#475569", textDecoration: "none",
+                    padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#1f2937", textDecoration: "none",
                   }}>
                     <CountryFlag code={c.code} size={16} />
                     {c.name}
                   </Link>
                 ))}
-                <div style={{ fontSize: 11, fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: 1, marginTop: 12, marginBottom: 8 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#1f2937", textTransform: "uppercase", letterSpacing: 1, marginTop: 12, marginBottom: 8 }}>
                   {t("mega.countryAmericasMena")}
                 </div>
                 {COUNTRIES_AMERICAS_MENA.map((c) => (
                   <Link key={c.code} to={lp(c.path)} style={{
                     display: "flex", alignItems: "center", gap: 8,
-                    padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#475569", textDecoration: "none",
+                    padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#1f2937", textDecoration: "none",
                   }}>
                     <CountryFlag code={c.code} size={16} />
                     {c.name}

@@ -7,8 +7,8 @@ import AuthorHoverCard from "./AuthorHoverCard";
 
 function CreditColumn({ label, author, onDark }) {
   const lp = useLocalePath();
-  const nameColor = onDark ? "#fff" : "#1e293b";
-  const labelColor = onDark ? "rgba(255,255,255,0.6)" : "#64748b";
+  const nameColor = onDark ? "#fff" : "#111827";
+  const labelColor = onDark ? "rgba(255,255,255,0.6)" : "#1f2937";
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
@@ -56,7 +56,7 @@ export default function AuthorCredits({ author, editor, reviewer, factChecker, u
 
   const onDark = variant === "onDark";
   const centered = variant === "centered";
-  const dateColor = onDark ? "rgba(255,255,255,0.55)" : "#64748b";
+  const dateColor = onDark ? "rgba(255,255,255,0.55)" : "#1f2937";
 
   // 4 cols desktop, 2x2 tablet, 1 col mobile
   const cols = mob ? "1fr" : tab ? "repeat(2, auto)" : "repeat(4, auto)";

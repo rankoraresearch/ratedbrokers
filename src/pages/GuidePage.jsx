@@ -98,7 +98,7 @@ export default function GuidePage() {
     return (
       <div style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb", minHeight: "100vh", padding: "80px 20px", textAlign: "center" }}>
         <h1 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 28, marginBottom: 12 }}>Guide Not Found</h1>
-        <p style={{ color: "#475569", marginBottom: 24 }}>The guide you're looking for doesn't exist.</p>
+        <p style={{ color: "#1f2937", marginBottom: 24 }}>The guide you're looking for doesn't exist.</p>
         <Link to={lp("/")} style={{ color: "#2563eb", fontWeight: 600, textDecoration: "none" }}>Back to Home</Link>
       </div>
     );
@@ -116,7 +116,7 @@ export default function GuidePage() {
   const linkedUrls = new Set();
 
   return (
-    <div style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb", color: "#1e293b", minHeight: "100vh" }}>
+    <div style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb", color: "#111827", minHeight: "100vh" }}>
 
       {/* ══════ BREADCRUMBS ══════ */}
       <div style={{ ...cn, paddingTop: mob ? 12 : 16, paddingBottom: 0 }}>
@@ -135,7 +135,7 @@ export default function GuidePage() {
             background: guide.hero.badgeColor || "#ecfdf5", color: guide.hero.badgeTextColor || "#059669",
             fontSize: 12, fontWeight: 700, letterSpacing: 0.5, textTransform: "uppercase",
           }}>{guide.hero.badge || "GUIDE"}</span>
-          <span style={{ fontSize: 13, color: "#64748b" }}>{guide.readTime}</span>
+          <span style={{ fontSize: 13, color: "#1f2937" }}>{guide.readTime}</span>
         </div>
 
         <h1 style={{
@@ -145,7 +145,7 @@ export default function GuidePage() {
         }}>{guide.hero.h1}</h1>
 
         <p style={{
-          fontSize: mob ? 16 : 18, lineHeight: 1.6, color: "#334155",
+          fontSize: mob ? 16 : 18, lineHeight: 1.6, color: "#1f2937",
           margin: "0 0 20px", maxWidth: 640,
         }}>{guide.hero.subtitle}</p>
 
@@ -158,7 +158,7 @@ export default function GuidePage() {
           background: "#fff", borderRadius: 14, border: "1px solid #e2e8f0",
           padding: mob ? "16px 16px" : "20px 24px", marginBottom: mob ? 24 : 36,
         }}>
-          <div style={{ fontSize: 14, fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: 1, marginBottom: 10 }}>
+          <div style={{ fontSize: 14, fontWeight: 700, color: "#1f2937", textTransform: "uppercase", letterSpacing: 1, marginBottom: 10 }}>
             Contents
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
@@ -172,7 +172,7 @@ export default function GuidePage() {
                   display: "flex", alignItems: "center", gap: 8,
                 }}
               >
-                <span style={{ fontSize: 12, color: "#64748b", fontFamily: "'JetBrains Mono'", fontWeight: 700, width: 20 }}>
+                <span style={{ fontSize: 12, color: "#1f2937", fontFamily: "'JetBrains Mono'", fontWeight: 700, width: 20 }}>
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 {s.title}
@@ -180,7 +180,7 @@ export default function GuidePage() {
             ))}
             {guide.faq && guide.faq.length > 0 && (
               <a href="#faq" style={{ fontSize: 15, color: "#2563eb", textDecoration: "none", padding: "4px 0", fontWeight: 500, display: "flex", alignItems: "center", gap: 8 }}>
-                <span style={{ fontSize: 12, color: "#64748b", fontFamily: "'JetBrains Mono'", fontWeight: 700, width: 20 }}>
+                <span style={{ fontSize: 12, color: "#1f2937", fontFamily: "'JetBrains Mono'", fontWeight: 700, width: 20 }}>
                   {String(guide.sections.filter(s => s.title).length + 1).padStart(2, "0")}
                 </span>
                 Frequently Asked Questions
@@ -203,7 +203,7 @@ export default function GuidePage() {
             )}
 
             {(section.paragraphs || []).map((p, i) => (
-              <p key={i} style={{ fontSize: 16, lineHeight: 1.8, color: "#334155", margin: "0 0 16px" }}>
+              <p key={i} style={{ fontSize: 16, lineHeight: 1.8, color: "#1f2937", margin: "0 0 16px" }}>
                 {renderLinkedText(p, slug, linkedUrls, lp)}
               </p>
             ))}
@@ -211,7 +211,7 @@ export default function GuidePage() {
             {section.list && (
               <ul style={{ margin: "0 0 16px", paddingLeft: 20 }}>
                 {section.list.map((item, i) => (
-                  <li key={i} style={{ fontSize: 16, lineHeight: 1.8, color: "#334155", marginBottom: 6 }}>{item}</li>
+                  <li key={i} style={{ fontSize: 16, lineHeight: 1.8, color: "#1f2937", marginBottom: 6 }}>{item}</li>
                 ))}
               </ul>
             )}
@@ -219,7 +219,7 @@ export default function GuidePage() {
             {section.numberedList && (
               <ol style={{ margin: "0 0 16px", paddingLeft: 20 }}>
                 {section.numberedList.map((item, i) => (
-                  <li key={i} style={{ fontSize: 16, lineHeight: 1.8, color: "#334155", marginBottom: 6 }}>{item}</li>
+                  <li key={i} style={{ fontSize: 16, lineHeight: 1.8, color: "#1f2937", marginBottom: 6 }}>{item}</li>
                 ))}
               </ol>
             )}
@@ -269,7 +269,7 @@ export default function GuidePage() {
                           <td key={ci} style={{
                             padding: "10px 14px",
                             borderBottom: "1px solid #f1f5f9",
-                            color: "#334155",
+                            color: "#1f2937",
                           }}>{cell}</td>
                         ))}
                       </tr>
@@ -292,17 +292,17 @@ export default function GuidePage() {
                     <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 17, color: "#0f172a", marginBottom: 10 }}>
                       {card.title}
                     </div>
-                    {card.description && <p style={{ fontSize: 15, color: "#334155", lineHeight: 1.7, marginBottom: 10 }}>{card.description}</p>}
+                    {card.description && <p style={{ fontSize: 15, color: "#1f2937", lineHeight: 1.7, marginBottom: 10 }}>{card.description}</p>}
                     {card.pros && (
                       <div style={{ marginBottom: 8 }}>
                         <div style={{ fontSize: 13, fontWeight: 700, color: "#059669", marginBottom: 4 }}>PROS</div>
-                        {card.pros.map((p, pi) => <div key={pi} style={{ fontSize: 14, color: "#334155", padding: "2px 0", display: "flex", alignItems: "center", gap: 6 }}><CircleCheck size={14} color="#059669" style={{ flexShrink: 0 }} /> {p}</div>)}
+                        {card.pros.map((p, pi) => <div key={pi} style={{ fontSize: 14, color: "#1f2937", padding: "2px 0", display: "flex", alignItems: "center", gap: 6 }}><CircleCheck size={14} color="#059669" style={{ flexShrink: 0 }} /> {p}</div>)}
                       </div>
                     )}
                     {card.cons && (
                       <div>
                         <div style={{ fontSize: 13, fontWeight: 700, color: "#dc2626", marginBottom: 4 }}>CONS</div>
-                        {card.cons.map((c, ci2) => <div key={ci2} style={{ fontSize: 14, color: "#334155", padding: "2px 0", display: "flex", alignItems: "center", gap: 6 }}><CircleX size={14} color="#dc2626" style={{ flexShrink: 0 }} /> {c}</div>)}
+                        {card.cons.map((c, ci2) => <div key={ci2} style={{ fontSize: 14, color: "#1f2937", padding: "2px 0", display: "flex", alignItems: "center", gap: 6 }}><CircleX size={14} color="#dc2626" style={{ flexShrink: 0 }} /> {c}</div>)}
                       </div>
                     )}
                   </div>
@@ -366,7 +366,7 @@ export default function GuidePage() {
                   display: "flex", alignItems: "center", gap: 12,
                   padding: mob ? "12px 14px" : "14px 18px",
                   background: "#fff", border: "1px solid #e2e8f0", borderRadius: 12,
-                  textDecoration: "none", color: "#1e293b",
+                  textDecoration: "none", color: "#111827",
                   transition: "box-shadow 0.2s",
                 }}>
                   <span style={{
@@ -377,7 +377,7 @@ export default function GuidePage() {
                   }}>{rg.hero?.icon || "\uD83D\uDCDA"}</span>
                   <div>
                     <div style={{ fontWeight: 700, fontSize: 15 }}>{rg.hero?.h1 || rg.slug}</div>
-                    <div style={{ fontSize: 13, color: "#64748b" }}>{rg.readTime}</div>
+                    <div style={{ fontSize: 13, color: "#1f2937" }}>{rg.readTime}</div>
                   </div>
                 </Link>
               ))}
@@ -395,10 +395,10 @@ export default function GuidePage() {
           background: "#fff", borderRadius: 14, border: "1px solid #e2e8f0",
           padding: mob ? 16 : 20, marginBottom: mob ? 28 : 40,
         }}>
-          <div style={{ fontSize: 13, fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: 1, marginBottom: 6 }}>
+          <div style={{ fontSize: 13, fontWeight: 700, color: "#1f2937", textTransform: "uppercase", letterSpacing: 1, marginBottom: 6 }}>
             Risk Disclosure
           </div>
-          <p style={{ fontSize: 13, lineHeight: 1.7, color: "#475569", margin: 0 }}>
+          <p style={{ fontSize: 13, lineHeight: 1.7, color: "#1f2937", margin: 0 }}>
             CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. Between 62% and 82% of retail investor accounts lose money when trading CFDs. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money.
           </p>
         </div>

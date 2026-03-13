@@ -67,7 +67,7 @@ export default function AboutPage() {
   const cn = { maxWidth: 1200, margin: "0 auto", padding: mob ? "0 16px" : "0 24px" };
 
   return (
-    <div style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb", color: "#1e293b", minHeight: "100vh" }}>
+    <div style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb", color: "#111827", minHeight: "100vh" }}>
 
       {/* =================== BREADCRUMBS =================== */}
       <div style={{ paddingTop: 0 }}>
@@ -94,7 +94,7 @@ export default function AboutPage() {
           }}>
             {t("about.title")}
           </h1>
-          <p style={{ fontSize: 19, lineHeight: 1.65, color: "#334155", margin: "0 0 24px" }}>
+          <p style={{ fontSize: 19, lineHeight: 1.65, color: "#1f2937", margin: "0 0 24px" }}>
             {t("about.subtitle")}
           </p>
         </div>
@@ -110,7 +110,7 @@ export default function AboutPage() {
               flex: mob ? "1 1 calc(50% - 8px)" : "0 0 auto",
             }}>
               <div style={{ fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 22, color: "#059669" }}>{s.val}</div>
-              <div style={{ fontSize: 13, color: "#475569", fontWeight: 500 }}>{t(s.key)}</div>
+              <div style={{ fontSize: 13, color: "#1f2937", fontWeight: 500 }}>{t(s.key)}</div>
             </div>
           ))}
         </div>
@@ -125,13 +125,13 @@ export default function AboutPage() {
           padding: "28px 32px", borderRadius: 14, background: "#fff",
           border: "1px solid #e2e8f0", maxWidth: 800,
         }}>
-          <p style={{ fontSize: 16, lineHeight: 1.8, color: "#334155", margin: "0 0 16px" }}>
+          <p style={{ fontSize: 16, lineHeight: 1.8, color: "#1f2937", margin: "0 0 16px" }}>
             {t("about.missionP1")}
           </p>
-          <p style={{ fontSize: 16, lineHeight: 1.8, color: "#334155", margin: "0 0 16px" }}>
+          <p style={{ fontSize: 16, lineHeight: 1.8, color: "#1f2937", margin: "0 0 16px" }}>
             {t("about.missionP2")}
           </p>
-          <p style={{ fontSize: 16, lineHeight: 1.8, color: "#334155", margin: 0 }}>
+          <p style={{ fontSize: 16, lineHeight: 1.8, color: "#1f2937", margin: 0 }}>
             {t("about.missionP3")}
           </p>
         </div>
@@ -170,7 +170,7 @@ export default function AboutPage() {
           </div>
           {/* Bio content */}
           <div style={{ padding: "24px 28px" }}>
-            <p style={{ fontSize: 16, lineHeight: 1.8, color: "#334155", margin: "0 0 16px" }}>
+            <p style={{ fontSize: 16, lineHeight: 1.8, color: "#1f2937", margin: "0 0 16px" }}>
               {t("about.founderBio")}
             </p>
             <a href={FOUNDER.linkedin} target="_blank" rel="noopener noreferrer" style={{
@@ -191,7 +191,7 @@ export default function AboutPage() {
         <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 28, marginBottom: 6 }}>
           {t("about.teamTitle")}
         </h2>
-        <p style={{ fontSize: 16, color: "#475569", marginBottom: 20 }}>
+        <p style={{ fontSize: 16, color: "#1f2937", marginBottom: 20 }}>
           {t("about.teamDesc")}
         </p>
         <div style={{
@@ -212,7 +212,7 @@ export default function AboutPage() {
                 margin: "0 auto 12px",
               }}>{member.initials}</div>
               <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 17 }}>{member.name}</div>
-              <div style={{ fontSize: 13, color: "#475569", marginBottom: 10 }}>{member.role}</div>
+              <div style={{ fontSize: 13, color: "#1f2937", marginBottom: 10 }}>{member.role}</div>
               {member.credentials && (
                 <div style={{ marginBottom: 10 }}>
                   {member.credentials.map((c, ci) => (
@@ -227,14 +227,14 @@ export default function AboutPage() {
               <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "1fr 1fr", gap: 6, marginBottom: 12 }}>
                 <div style={{ padding: "6px", borderRadius: 6, background: "#f8f9fb" }}>
                   <div style={{ fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 16, color: "#059669" }}>{member.reviews}</div>
-                  <div style={{ fontSize: 11, color: "#64748b" }}>{t("about.teamReviews")}</div>
+                  <div style={{ fontSize: 11, color: "#1f2937" }}>{t("about.teamReviews")}</div>
                 </div>
                 <div style={{ padding: "6px", borderRadius: 6, background: "#f8f9fb" }}>
-                  <div style={{ fontWeight: 700, fontSize: 14, color: "#1e293b" }}>{member.exp}</div>
-                  <div style={{ fontSize: 11, color: "#64748b" }}>{t("about.teamExp")}</div>
+                  <div style={{ fontWeight: 700, fontSize: 14, color: "#111827" }}>{member.exp}</div>
+                  <div style={{ fontSize: 11, color: "#1f2937" }}>{t("about.teamExp")}</div>
                 </div>
               </div>
-              <div style={{ fontSize: 12, color: "#475569", marginBottom: 10 }}>{t("about.teamSpecialty")}: {member.specialty}</div>
+              <div style={{ fontSize: 12, color: "#1f2937", marginBottom: 10 }}>{t("about.teamSpecialty")}: {member.specialty}</div>
               <a href={member.linkedin} target="_blank" rel="noopener noreferrer" style={{
                 display: "block", padding: "8px", borderRadius: 6,
                 background: "#eff6ff", color: "#2563eb", fontSize: 13, fontWeight: 600,
@@ -266,7 +266,7 @@ export default function AboutPage() {
               <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 17, marginBottom: 8 }}>
                 {t(p.titleKey)}
               </div>
-              <div style={{ fontSize: 15, color: "#334155", lineHeight: 1.7 }}>
+              <div style={{ fontSize: 15, color: "#1f2937", lineHeight: 1.7 }}>
                 {t(p.descKey)}
               </div>
             </div>
@@ -302,7 +302,7 @@ export default function AboutPage() {
           <div style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 28, color: "#fff", marginBottom: 8 }}>
             {t("about.ctaTitle")}
           </div>
-          <div style={{ fontSize: 16, color: "#94a3b8", marginBottom: 24, maxWidth: 500, margin: "0 auto 24px" }}>
+          <div style={{ fontSize: 16, color: "#64748b", marginBottom: 24, maxWidth: 500, margin: "0 auto 24px" }}>
             {t("about.ctaDesc")}
           </div>
           <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
