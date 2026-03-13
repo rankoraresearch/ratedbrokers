@@ -20,6 +20,7 @@ import HowWeMakeMoneyPage from "./pages/HowWeMakeMoneyPage";
 import TrustScorePage from "./pages/TrustScorePage";
 import ContactPage from "./pages/ContactPage";
 import AllGuidesPage from "./pages/AllGuidesPage";
+import AllRankingsPage from "./pages/AllRankingsPage";
 import AuthorPage from "./pages/AuthorPage";
 import PrototypesPage from "./pages/prototypes/PrototypesPage";
 import { LanguageProvider } from "./i18n/LanguageContext";
@@ -53,7 +54,7 @@ function AppRoutes() {
         <Route path="about" element={<AboutPage />} />
         <Route path="how-we-make-money" element={<HowWeMakeMoneyPage />} />
         <Route path="contact" element={<ContactPage />} />
-        <Route path="rankings" element={<Navigate to="/best-forex-brokers" replace />} />
+        <Route path="rankings" element={<AllRankingsPage />} />
         <Route path="reviews" element={<AllReviewsPage />} />
         <Route path="regulator/:slug" element={<RegulatorPage />} />
         <Route path="best-forex-brokers" element={<ForexBrokersPage />} />
