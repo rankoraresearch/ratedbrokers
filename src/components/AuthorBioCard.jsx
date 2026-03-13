@@ -49,7 +49,7 @@ export default function AuthorBioCard({ author }) {
             <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 19, color: "#0f172a" }}>
               {author.name}
             </div>
-            <div style={{ fontSize: 15, color: "#64748b" }}>{author.role}</div>
+            <div style={{ fontSize: 15, color: "#475569" }}>{author.role}</div>
           </div>
         </div>
 
@@ -74,7 +74,7 @@ export default function AuthorBioCard({ author }) {
         </div>
 
         {/* Bio */}
-        <p style={{ fontSize: 15, lineHeight: 1.8, color: "#475569", margin: "0 0 14px" }}>
+        <p style={{ fontSize: 15, lineHeight: 1.8, color: "#334155", margin: "0 0 14px" }}>
           {author.bio}
         </p>
 
@@ -99,6 +99,8 @@ export default function AuthorBioCard({ author }) {
             fontSize: 15, fontWeight: 700, textDecoration: "none",
             transition: "background 0.2s",
           }}
+          onMouseEnter={(e) => { e.currentTarget.style.background = "#e2e8f0"; }}
+          onMouseLeave={(e) => { e.currentTarget.style.background = "#f1f5f9"; }}
         >
           View Full Profile &rarr;
         </Link>
@@ -115,6 +117,8 @@ export default function AuthorBioCard({ author }) {
             fontSize: 15, fontWeight: 700, textDecoration: "none",
             transition: "background 0.2s",
           }}
+          onMouseEnter={(e) => { e.currentTarget.style.background = "#0856a0"; }}
+          onMouseLeave={(e) => { e.currentTarget.style.background = "#0A66C2"; }}
         >
           <span style={{
             width: 22, height: 22, borderRadius: 4,

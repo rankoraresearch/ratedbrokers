@@ -32,7 +32,7 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
       <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 14, color: "#111827", marginBottom: 4 }}>
         {thematic.why}
       </div>
-      <p style={{ fontSize: 15, lineHeight: 1.7, color: "#475569", margin: 0 }}>
+      <p style={{ fontSize: 15, lineHeight: 1.7, color: "#334155", margin: 0 }}>
         {thematic.text}
       </p>
     </div>
@@ -43,7 +43,7 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
       {thematic.pros.map((p, i) => (
         <span key={`p${i}`} style={{
           display: "inline-flex", alignItems: "center", gap: 4,
-          padding: "2px 8px", borderRadius: 16, fontSize: 11, fontWeight: 500,
+          padding: "2px 8px", borderRadius: 16, fontSize: 12, fontWeight: 500,
           background: "#ecfdf5", color: "#047857",
         }}>
           <Check size={10} /> {p}
@@ -52,7 +52,7 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
       {thematic.cons.map((c, i) => (
         <span key={`c${i}`} style={{
           display: "inline-flex", alignItems: "center", gap: 4,
-          padding: "2px 8px", borderRadius: 16, fontSize: 11, fontWeight: 500,
+          padding: "2px 8px", borderRadius: 16, fontSize: 12, fontWeight: 500,
           background: "#fef2f2", color: "#b91c1c",
         }}>
           <XIcon size={10} /> {c}
@@ -83,7 +83,7 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
         <div style={{ paddingTop: 8 }}>
           <div style={{ background: "#f8fafc", borderRadius: 8, padding: 14 }}>
             {thematic.analysis.split("\n\n").map((p, i) => (
-              <p key={i} style={{ fontSize: 13, lineHeight: 1.7, color: "#374151", marginBottom: i < thematic.analysis.split("\n\n").length - 1 ? 8 : 0 }}>
+              <p key={i} style={{ fontSize: 14, lineHeight: 1.7, color: "#334155", marginBottom: i < thematic.analysis.split("\n\n").length - 1 ? 8 : 0 }}>
                 {p}
               </p>
             ))}
@@ -102,7 +102,7 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
                     {thematic.prosDetail.map((p, i) => (
                       <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 4, marginBottom: 3 }}>
                         <span style={{ color: "#059669", fontWeight: 700, fontSize: 12 }}>✓</span>
-                        <span style={{ fontSize: 12, lineHeight: 1.5, color: "#4b5563" }}>{p}</span>
+                        <span style={{ fontSize: 13, lineHeight: 1.5, color: "#334155" }}>{p}</span>
                       </div>
                     ))}
                   </div>
@@ -115,7 +115,7 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
                     {thematic.consDetail.map((c, i) => (
                       <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 4, marginBottom: 3 }}>
                         <span style={{ color: "#dc2626", fontWeight: 700, fontSize: 12 }}>✗</span>
-                        <span style={{ fontSize: 12, lineHeight: 1.5, color: "#4b5563" }}>{c}</span>
+                        <span style={{ fontSize: 13, lineHeight: 1.5, color: "#334155" }}>{c}</span>
                       </div>
                     ))}
                   </div>
@@ -159,7 +159,7 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
     B.riskWarning ? (
       <div style={{
         padding: mob ? "4px 16px 12px" : "4px 0 0",
-        fontSize: 11, lineHeight: 1.4, color: "#94a3b8", textAlign: "center",
+        fontSize: 12, lineHeight: 1.4, color: "#64748b", textAlign: "center",
       }}>
         {B.riskWarning}
       </div>
@@ -187,7 +187,7 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
           }}>#{rank}</div>
 
           <Link to={reviewPath} style={{ display: "flex", flexShrink: 0, textDecoration: "none" }}>
-            <BrokerLogo slug={broker.slug} name={B.name} fallback={B.logo} size={42} shape="brand" />
+            <BrokerLogo slug={broker.slug} name={B.name} fallback={B.logo} size={52} shape="brand" />
           </Link>
 
           <div style={{ flex: 1, minWidth: 0 }}>
@@ -199,7 +199,7 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
                 }}>{B.badge}</span>
               )}
             </div>
-            <div style={{ fontSize: 13, color: "#64748b", marginTop: 2 }}>{B.type}</div>
+            <div style={{ fontSize: 13, color: "#475569", marginTop: 2 }}>{B.type}</div>
           </div>
 
           <ScoreBadge score={B.score} size="md" />
@@ -223,7 +223,7 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
             ["Leverage", B.leverage],
           ].map(([label, val]) => (
             <div key={label} style={{ background: "#f8fafc", padding: "8px 10px", textAlign: "center" }}>
-              <div style={{ fontSize: 11, color: "#94a3b8", fontWeight: 600, textTransform: "uppercase", whiteSpace: "nowrap" }}>{label}</div>
+              <div style={{ fontSize: 11, color: "#64748b", fontWeight: 600, textTransform: "uppercase", whiteSpace: "nowrap" }}>{label}</div>
               <div style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 15, fontWeight: 700, color: "#1e293b", marginTop: 2, whiteSpace: "nowrap" }}>{val}</div>
             </div>
           ))}
@@ -261,7 +261,7 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
             {expanded && (
               <div style={{ padding: "0 16px 12px" }}>
                 <div style={{ marginBottom: 10 }}>
-                  <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", marginBottom: 4 }}>Platforms</div>
+                  <div style={{ fontSize: 12, fontWeight: 700, color: "#64748b", textTransform: "uppercase", marginBottom: 4 }}>Platforms</div>
                   <div style={{ display: "flex", gap: 6, flexWrap: "wrap", alignItems: "center" }}>
                     {B.platforms.map((p) => {
                       const pSlug = getPlatformSlugByName(p);
@@ -274,9 +274,9 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
                   </div>
                 </div>
                 <div>
-                  <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", marginBottom: 4 }}>Key Strengths</div>
+                  <div style={{ fontSize: 12, fontWeight: 700, color: "#64748b", textTransform: "uppercase", marginBottom: 4 }}>Key Strengths</div>
                   {topPros.map((p, i) => (
-                    <div key={i} style={{ display: "flex", gap: 6, marginBottom: 4, fontSize: 13, color: "#475569", lineHeight: 1.5 }}>
+                    <div key={i} style={{ display: "flex", gap: 6, marginBottom: 4, fontSize: 14, color: "#334155", lineHeight: 1.5 }}>
                       <Check size={12} color="#059669" style={{ flexShrink: 0 }} />
                       <span>{p}</span>
                     </div>
@@ -314,7 +314,11 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
               background: "#fff", color: "#475569", fontWeight: 600, fontSize: 15,
               textDecoration: "none", border: "1.5px solid #cbd5e1",
               display: "flex", alignItems: "center", justifyContent: "center",
-            }}>Read Review</Link>
+              transition: "all 0.15s ease",
+            }}
+              onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#059669"; e.currentTarget.style.color = "#059669"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.borderColor = "#cbd5e1"; e.currentTarget.style.color = "#475569"; }}
+            >Read Review</Link>
           </div>
         )}
 
@@ -353,11 +357,11 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
         }}>#{rank}</div>
 
         {/* Logo + Name block */}
-        <div style={{ minWidth: tab ? 170 : 210, flexShrink: 0 }}>
+        <div style={{ minWidth: tab ? 200 : 220, flexShrink: 0 }}>
           <Link to={reviewPath} style={{ display: "inline-flex", textDecoration: "none" }}>
-            <BrokerLogo slug={broker.slug} name={B.name} fallback={B.logo} size={46} shape="brand" />
+            <BrokerLogo slug={broker.slug} name={B.name} fallback={B.logo} size={56} shape="brand" />
           </Link>
-          <div style={{ fontSize: 13, color: "#64748b", marginTop: 4 }}>{B.type}</div>
+          <div style={{ fontSize: 13, color: "#475569", marginTop: 4 }}>{B.type}</div>
           {B.badge && (
             <span style={{
               display: "inline-block", marginTop: 6, padding: "2px 8px", borderRadius: 5,
@@ -384,7 +388,7 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
             ...(!tab ? [["Platforms", B.platforms.length + " platforms"]] : []),
           ].map(([label, val]) => (
             <div key={label}>
-              <div style={{ fontSize: 11, color: "#94a3b8", fontWeight: 600, textTransform: "uppercase", letterSpacing: 0.5, whiteSpace: "nowrap" }}>{label}</div>
+              <div style={{ fontSize: 11, color: "#64748b", fontWeight: 600, textTransform: "uppercase", letterSpacing: 0.5, whiteSpace: "nowrap" }}>{label}</div>
               <div style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 15, fontWeight: 700, color: "#1e293b", marginTop: 2, whiteSpace: "nowrap" }}>{val}</div>
             </div>
           ))}
@@ -409,7 +413,11 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
               padding: "8px 20px", borderRadius: 8, textAlign: "center",
               background: "#fff", color: "#475569", fontWeight: 600, fontSize: 14,
               textDecoration: "none", border: "1.5px solid #cbd5e1",
-            }}>Read Review</Link>
+              transition: "all 0.15s ease",
+            }}
+              onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#059669"; e.currentTarget.style.color = "#059669"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.borderColor = "#cbd5e1"; e.currentTarget.style.color = "#475569"; }}
+            >Read Review</Link>
           </div>
         )}
       </div>

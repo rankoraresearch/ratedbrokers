@@ -144,7 +144,7 @@ export default function AllRankingsPage() {
             {Object.entries(subs).map(([sub, rankings]) => (
               <div key={sub} style={{ marginBottom: 24 }}>
                 <h3 style={{
-                  fontSize: 15, fontWeight: 700, color: "#64748b",
+                  fontSize: 15, fontWeight: 700, color: "#475569",
                   textTransform: "uppercase", letterSpacing: 0.5,
                   marginBottom: 12,
                 }}>
@@ -181,7 +181,7 @@ export default function AllRankingsPage() {
                           fontWeight: 600, fontSize: 14,
                           whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis",
                         }}>{r.title}</div>
-                        <div style={{ fontSize: 12, color: "#94a3b8", marginTop: 2 }}>
+                        <div style={{ fontSize: 12, color: "#64748b", marginTop: 2 }}>
                           {getBrokerCountForRanking(r.id)} brokers
                         </div>
                       </div>
@@ -189,10 +189,10 @@ export default function AllRankingsPage() {
                         <span style={{
                           padding: "2px 6px", borderRadius: 4,
                           background: "#ecfdf5", color: "#059669",
-                          fontSize: 9, fontWeight: 700, flexShrink: 0,
+                          fontSize: 11, fontWeight: 700, flexShrink: 0,
                         }}>TOP</span>
                       )}
-                      <ArrowRight size={14} color="#94a3b8" style={{ flexShrink: 0 }} />
+                      <ArrowRight size={14} color="#64748b" style={{ flexShrink: 0 }} />
                     </Link>
                   ))}
                 </div>

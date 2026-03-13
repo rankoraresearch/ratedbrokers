@@ -99,6 +99,31 @@
 
 ---
 
+## Дизайн-аудит: контраст, читаемость, hover-стандарт (13 марта 2026)
+
+### Контраст текста — системная переработка (~30 файлов)
+- **Серые цвета повышены**: `#94a3b8` → `#64748b`, `#64748b` → `#475569`, `#475569` → `#334155` на всех светлых фонах
+- **Футер (тёмный фон)**: ссылки `#94a3b8` → `#cbd5e1`, текст `#64748b` → `#94a3b8` — теперь проходит WCAG AA
+- **Мелкие шрифты**: исправлены 8px/9px/10px → минимум 11px; labels 11→12px; ответы FAQ 14→15px
+- **ScoreBadge**: label 10px → 11px (md), 11px → 12px (lg)
+- **AffiliateDisclosureBanner**: 12px `#94a3b8` → 13px `#64748b`
+
+### Hover-состояния — единый стандарт
+- `index.css`: глобальные `transition` на `<a>` и `<button>`
+- Breadcrumb: hover → `#059669`
+- Accordion: hover background на кнопках
+- TOC ссылки (BrokerReview, Methodology): hover color
+- Read Review кнопки: hover border+color → green
+- AuthorBioCard: hover на "View Profile" и LinkedIn CTA
+- Filter tabs (AllReviews): hover состояние
+- Header mega-menu: section headings `#94a3b8` → `#64748b`
+
+### Затронутые файлы
+- `index.css`, 10 компонентов, 21 страница (все основные + вторичные шаблоны)
+- Тёмные секции (hero, CTA) сохранены — rgba/accent цвета не тронуты
+
+---
+
 ## Текущее состояние
 
 | Метрика | Значение |

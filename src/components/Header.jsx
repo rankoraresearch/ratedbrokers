@@ -176,7 +176,7 @@ export default function Header() {
   /* ── shared styles ── */
 
   const secHead = {
-    fontSize: 12, fontWeight: 700, color: "#94a3b8",
+    fontSize: 12, fontWeight: 700, color: "#64748b",
     textTransform: "uppercase", letterSpacing: 1.2,
     marginBottom: 12, paddingBottom: 8,
     borderBottom: "1px solid #f1f5f9",
@@ -302,7 +302,7 @@ export default function Header() {
           <IconBox name={item.icon} color={item.color} />
           <div>
             <div style={{ fontWeight: 600, fontSize: 15, lineHeight: 1.2 }}>{t(`mega.${item.key}`)}</div>
-            <div style={{ fontSize: 13, color: "#94a3b8", marginTop: 1 }}>{t(`mega.${item.key}Desc`)}</div>
+            <div style={{ fontSize: 13, color: "#64748b", marginTop: 1 }}>{t(`mega.${item.key}Desc`)}</div>
           </div>
         </Link>
       ))}
@@ -761,7 +761,7 @@ export default function Header() {
             </div>
             {mobileExpanded === "forex" && (
               <div style={{ padding: "8px 0 8px 12px" }}>
-                <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginBottom: 6 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: 1, marginBottom: 6 }}>
                   By Trading Style
                 </div>
                 {FOREX_CATEGORIES.map((item) => (
@@ -769,7 +769,7 @@ export default function Header() {
                     display: "block", padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#475569", textDecoration: "none",
                   }}>{t(`mega.${item.key}`)}</Link>
                 ))}
-                <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginTop: 10, marginBottom: 6 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: 1, marginTop: 10, marginBottom: 6 }}>
                   By Cost
                 </div>
                 {FOREX_COSTS.map((item) => (
@@ -777,7 +777,7 @@ export default function Header() {
                     display: "block", padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#475569", textDecoration: "none",
                   }}>{t(`mega.${item.key}`)}</Link>
                 ))}
-                <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginTop: 10, marginBottom: 6 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: 1, marginTop: 10, marginBottom: 6 }}>
                   By Platform
                 </div>
                 {FOREX_PLATFORMS.map((p) => (
@@ -785,7 +785,7 @@ export default function Header() {
                     display: "block", padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#475569", textDecoration: "none",
                   }}>Best {p.name} Brokers</Link>
                 ))}
-                <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginTop: 10, marginBottom: 6 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: 1, marginTop: 10, marginBottom: 6 }}>
                   Platform Guides
                 </div>
                 {FOREX_PLATFORMS.map((p) => (
@@ -793,7 +793,7 @@ export default function Header() {
                     display: "block", padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#475569", textDecoration: "none",
                   }}>{p.name} Guide</Link>
                 ))}
-                <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginTop: 10, marginBottom: 6 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: 1, marginTop: 10, marginBottom: 6 }}>
                   By Account Type
                 </div>
                 {FOREX_ACCOUNTS.map((item) => (
@@ -831,7 +831,7 @@ export default function Header() {
             </div>
             {mobileExpanded === "crypto" && (
               <div style={{ padding: "8px 0 8px 12px" }}>
-                <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginBottom: 6 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: 1, marginBottom: 6 }}>
                   By Cryptocurrency
                 </div>
                 {CRYPTO_BY_COIN.map((item) => (
@@ -839,7 +839,7 @@ export default function Header() {
                     display: "block", padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#475569", textDecoration: "none",
                   }}>{t(`mega.${item.key}`)}</Link>
                 ))}
-                <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginTop: 10, marginBottom: 6 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: 1, marginTop: 10, marginBottom: 6 }}>
                   By Feature
                 </div>
                 {CRYPTO_BY_FEATURE.map((item) => (
@@ -860,7 +860,7 @@ export default function Header() {
             <MobToggle id="reviews" label={t("nav.reviews")} />
             {mobileExpanded === "reviews" && (
               <div style={{ padding: "8px 0 8px 12px" }}>
-                <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginBottom: 8 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: 1, marginBottom: 8 }}>
                   {t("mega.topRated")}
                 </div>
                 {TOP_REVIEWS.map((b) => (
@@ -872,7 +872,7 @@ export default function Header() {
                     <span style={{ fontFamily: "'JetBrains Mono'", fontSize: 12, fontWeight: 700, color: b.score >= 9.5 ? "#059669" : "#2563eb" }}>{b.score}</span>
                   </Link>
                 ))}
-                <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginTop: 12, marginBottom: 8 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: 1, marginTop: 12, marginBottom: 8 }}>
                   {t("mega.popular")}
                 </div>
                 {POPULAR_REVIEWS.map((b) => (
@@ -893,7 +893,7 @@ export default function Header() {
             <MobToggle id="guides" label={t("nav.guides")} />
             {mobileExpanded === "guides" && (
               <div style={{ padding: "8px 0 8px 12px" }}>
-                <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginBottom: 8 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: 1, marginBottom: 8 }}>
                   {t("mega.guideGettingStarted")}
                 </div>
                 {GUIDE_GETTING_STARTED.map((item) => (
@@ -901,7 +901,7 @@ export default function Header() {
                     display: "block", padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#475569", textDecoration: "none",
                   }}>{t(`mega.${item.key}`)}</Link>
                 ))}
-                <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginTop: 12, marginBottom: 8 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: 1, marginTop: 12, marginBottom: 8 }}>
                   {t("mega.guideStrategiesHead")}
                 </div>
                 {GUIDE_STRATEGIES.map((item) => (
@@ -909,7 +909,7 @@ export default function Header() {
                     display: "block", padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#475569", textDecoration: "none",
                   }}>{t(`mega.${item.key}`)}</Link>
                 ))}
-                <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginTop: 12, marginBottom: 8 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: 1, marginTop: 12, marginBottom: 8 }}>
                   {t("mega.guideConceptsHead")}
                 </div>
                 {GUIDE_CONCEPTS.map((item) => (
@@ -933,7 +933,7 @@ export default function Header() {
             <MobToggle id="countries" label={t("nav.countries")} />
             {mobileExpanded === "countries" && (
               <div style={{ padding: "8px 0 8px 12px" }}>
-                <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginBottom: 8 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: 1, marginBottom: 8 }}>
                   {t("mega.countryEurope")}
                 </div>
                 {COUNTRIES_EUROPE.map((c) => (
@@ -945,7 +945,7 @@ export default function Header() {
                     {c.name}
                   </Link>
                 ))}
-                <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginTop: 12, marginBottom: 8 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: 1, marginTop: 12, marginBottom: 8 }}>
                   {t("mega.countryAsiaPacific")}
                 </div>
                 {COUNTRIES_ASIA_PACIFIC.map((c) => (
@@ -957,7 +957,7 @@ export default function Header() {
                     {c.name}
                   </Link>
                 ))}
-                <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1, marginTop: 12, marginBottom: 8 }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: 1, marginTop: 12, marginBottom: 8 }}>
                   {t("mega.countryAmericasMena")}
                 </div>
                 {COUNTRIES_AMERICAS_MENA.map((c) => (

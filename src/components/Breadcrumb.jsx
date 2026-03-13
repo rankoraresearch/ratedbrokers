@@ -19,7 +19,7 @@ export default function Breadcrumb({ items, containerStyle }) {
           alignItems: "center",
           gap: 6,
           fontSize: 14,
-          color: "#94a3b8",
+          color: "#64748b",
           flexWrap: "wrap",
           listStyle: "none",
           margin: 0,
@@ -38,12 +38,14 @@ export default function Breadcrumb({ items, containerStyle }) {
               ) : item.path ? (
                 <Link
                   to={lp(item.path)}
-                  style={{ color: "#64748b", textDecoration: "none" }}
+                  style={{ color: "#475569", textDecoration: "none" }}
+                  onMouseEnter={(e) => { e.currentTarget.style.color = "#059669"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.color = "#475569"; }}
                 >
                   {item.label}
                 </Link>
               ) : (
-                <span style={{ color: "#64748b" }}>{item.label}</span>
+                <span style={{ color: "#475569" }}>{item.label}</span>
               )}
             </li>
           );

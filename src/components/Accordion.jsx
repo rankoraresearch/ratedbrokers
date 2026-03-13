@@ -14,6 +14,8 @@ export default function Accordion({ items, expanded, setExpanded }) {
         >
           <button
             onClick={() => setExpanded(expanded === i ? null : i)}
+            onMouseEnter={(e) => { if (expanded !== i) e.currentTarget.style.background = "#f8fafc"; }}
+            onMouseLeave={(e) => { if (expanded !== i) e.currentTarget.style.background = "#fff"; }}
             style={{
               width: "100%",
               padding: "14px 16px",
@@ -25,6 +27,7 @@ export default function Accordion({ items, expanded, setExpanded }) {
               justifyContent: "space-between",
               textAlign: "left",
               gap: 12,
+              transition: "background 0.15s ease",
             }}
           >
             <span
@@ -34,7 +37,7 @@ export default function Accordion({ items, expanded, setExpanded }) {
             </span>
             <span
               style={{
-                color: "#94a3b8",
+                color: "#64748b",
                 transform: expanded === i ? "rotate(180deg)" : "none",
                 transition: "transform 0.2s",
                 flexShrink: 0,
@@ -48,9 +51,9 @@ export default function Accordion({ items, expanded, setExpanded }) {
             <div style={{ padding: "0 16px 16px" }}>
               <p
                 style={{
-                  fontSize: 14,
+                  fontSize: 15,
                   lineHeight: 1.7,
-                  color: "#475569",
+                  color: "#334155",
                   margin: 0,
                 }}
               >

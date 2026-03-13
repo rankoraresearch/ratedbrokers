@@ -70,11 +70,11 @@ function Accordion({ items, expanded, setExpanded }) {
             justifyContent: "space-between", textAlign: "left", gap: 12,
           }}>
             <span style={{ fontWeight: 700, fontSize: 16, color: "#1e293b", flex: 1 }}>{item.q}</span>
-            <span style={{ fontSize: 16, color: "#94a3b8", transform: expanded === i ? "rotate(180deg)" : "none", transition: "transform 0.2s", flexShrink: 0 }}>{"\u25BE"}</span>
+            <span style={{ fontSize: 16, color: "#64748b", transform: expanded === i ? "rotate(180deg)" : "none", transition: "transform 0.2s", flexShrink: 0 }}>{"\u25BE"}</span>
           </button>
           {expanded === i && (
             <div style={{ padding: "0 16px 16px" }}>
-              <p style={{ fontSize: 15, lineHeight: 1.7, color: "#475569", margin: 0 }}>{item.a}</p>
+              <p style={{ fontSize: 15, lineHeight: 1.7, color: "#334155", margin: 0 }}>{item.a}</p>
             </div>
           )}
         </div>
@@ -230,7 +230,7 @@ export default function CountryPage() {
                 </span>
               </div>
             </div>
-            <p style={{ fontSize: mob ? 15 : 16, lineHeight: 1.7, color: "#475569", marginBottom: 16 }}>
+            <p style={{ fontSize: mob ? 15 : 16, lineHeight: 1.7, color: "#334155", marginBottom: 16 }}>
               {t("country.tested", { count: COUNTRY.localBrokersTotal, reg: COUNTRY.regulator, currency: COUNTRY.currency, date: COUNTRY.updatedDate })}
             </p>
 
@@ -251,11 +251,11 @@ export default function CountryPage() {
                 )}
                 <div>
                   <div style={{ fontSize: 15, fontWeight: 700 }}>{COUNTRY.author.name}</div>
-                  <div style={{ fontSize: 13, color: "#64748b" }}>{COUNTRY.author.role}</div>
+                  <div style={{ fontSize: 13, color: "#475569" }}>{COUNTRY.author.role}</div>
                 </div>
               </div>
               {!mob && <div style={{ width: 1, height: 24, background: "#e2e8f0" }} />}
-              <div style={{ fontSize: 14, color: "#64748b" }}>
+              <div style={{ fontSize: 14, color: "#475569" }}>
                 {t("country.lastUpdated")}: {COUNTRY.updatedDate}
               </div>
             </div>
@@ -274,7 +274,7 @@ export default function CountryPage() {
                 display: "flex", justifyContent: "space-between", alignItems: "center",
                 padding: "8px 0", borderBottom: i < quickFacts.length - 1 ? "1px solid #f1f5f9" : "none",
               }}>
-                <span style={{ fontSize: 15, color: "#64748b" }}>{label}</span>
+                <span style={{ fontSize: 15, color: "#475569" }}>{label}</span>
                 <span style={{ fontSize: 15, fontWeight: 600, color: "#1e293b", textAlign: "right", maxWidth: "60%" }}>{val}</span>
               </div>
             ))}
@@ -312,7 +312,7 @@ export default function CountryPage() {
           ].map(([val, label], i) => (
             <div key={i} style={{ textAlign: "center" }}>
               <div style={{ fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: mob ? 20 : 24, color: "#1e3a5f" }}>{val}</div>
-              <div style={{ fontSize: 13, color: "#64748b", fontWeight: 600 }}>{label}</div>
+              <div style={{ fontSize: 13, color: "#475569", fontWeight: 600 }}>{label}</div>
             </div>
           ))}
         </div>
@@ -329,7 +329,7 @@ export default function CountryPage() {
             <button key={tb.key} onClick={() => setActiveTab(tb.key)} style={{
               padding: mob ? "6px 12px" : "8px 16px", borderRadius: 8, whiteSpace: "nowrap",
               background: activeTab === tb.key ? "#1e3a5f" : "#fff",
-              color: activeTab === tb.key ? "#fff" : "#475569",
+              color: activeTab === tb.key ? "#fff" : "#334155",
               border: `1px solid ${activeTab === tb.key ? "#1e3a5f" : "#e2e8f0"}`,
               fontWeight: 600, fontSize: 15, cursor: "pointer",
             }}>
@@ -370,7 +370,7 @@ export default function CountryPage() {
                     {/* Row 1: Logo + Name + Score */}
                     <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 10 }}>
                       <a href={b.url} target="_blank" rel="noopener noreferrer nofollow" style={{ position: "relative", flexShrink: 0, display: "block" }}>
-                        <BrokerLogo slug={b.slug} name={b.name} fallback={b.logo} size={48} shape="brand" />
+                        <BrokerLogo slug={b.slug} name={b.name} fallback={b.logo} size={52} shape="brand" />
                         <div style={{
                           position: "absolute", top: -5, left: -5,
                           width: 20, height: 20, borderRadius: "50%",
@@ -397,7 +397,7 @@ export default function CountryPage() {
                           <TrustpilotLogo size="xs" />
                           <Stars r={b.tp} size={12} />
                           <span style={{ fontSize: 14, fontWeight: 700, color: "#00B67A" }}>{b.tp}</span>
-                          <span style={{ fontSize: 13, color: "#94a3b8" }}>({(b.tpCount/1000).toFixed(1)}K)</span>
+                          <span style={{ fontSize: 13, color: "#64748b" }}>({(b.tpCount/1000).toFixed(1)}K)</span>
                         </a>
                       </div>
                       <ScoreBadge score={b.score} />
@@ -423,14 +423,14 @@ export default function CountryPage() {
                         ["Leverage", b.leverage],
                       ].map(([k, v], i) => (
                         <div key={i} style={{ textAlign: "center", padding: "8px 4px", background: "#f8fafc", borderRadius: 8 }}>
-                          <div style={{ fontSize: 11, color: "#94a3b8", marginBottom: 2 }}>{k}</div>
+                          <div style={{ fontSize: 12, color: "#64748b", marginBottom: 2 }}>{k}</div>
                           <div style={{ fontFamily: "'JetBrains Mono'", fontWeight: 700, fontSize: 15, color: i === 1 ? "#059669" : "#1e293b" }}>{v}</div>
                         </div>
                       ))}
                     </div>
 
                     {/* Verdict */}
-                    <div style={{ fontSize: 15, lineHeight: 1.6, color: "#475569", marginBottom: 12, padding: "10px 12px", background: "#f8fafc", borderRadius: 8 }}>
+                    <div style={{ fontSize: 15, lineHeight: 1.6, color: "#334155", marginBottom: 12, padding: "10px 12px", background: "#f8fafc", borderRadius: 8 }}>
                       <span style={{ fontWeight: 700, color: "#1e293b" }}>{t("country.ourVerdict")}: </span>{b.verdict}
                     </div>
 
@@ -445,12 +445,12 @@ export default function CountryPage() {
                     <div style={{ display: "flex", gap: 8 }}>
                       <Link to={lp(`/review/${b.slug}`)} style={{
                         flex: 1, padding: "8px 0", borderRadius: 8, textAlign: "center",
-                        background: "#f1f5f9", color: "#475569", fontSize: 15, fontWeight: 600, textDecoration: "none",
+                        background: "#f1f5f9", color: "#334155", fontSize: 15, fontWeight: 600, textDecoration: "none",
                       }}>{t("country.readReview")}</Link>
                       <button onClick={() => toggleCompare(b.id)} style={{
                         flex: 1, padding: "8px 0", borderRadius: 8,
                         background: compare.includes(b.id) ? "#1e3a5f" : "#f1f5f9",
-                        color: compare.includes(b.id) ? "#fff" : "#475569",
+                        color: compare.includes(b.id) ? "#fff" : "#334155",
                         fontSize: 15, fontWeight: 600, border: "none", cursor: "pointer",
                       }}>{compare.includes(b.id) ? <><Check size={14} color="#059669" style={{ verticalAlign: "middle" }} /> Added</> : "Compare"}</button>
                       <button onClick={() => setExpandedBroker(expandedBroker === b.id ? null : b.id)} style={{
@@ -471,7 +471,7 @@ export default function CountryPage() {
                     }}>
                       {/* Logo */}
                       <a href={b.url} target="_blank" rel="noopener noreferrer nofollow" style={{ position: "relative", flexShrink: 0, display: "block" }}>
-                        <BrokerLogo slug={b.slug} name={b.name} fallback={b.logo} size={48} shape="brand" />
+                        <BrokerLogo slug={b.slug} name={b.name} fallback={b.logo} size={52} shape="brand" />
                         <div style={{
                           position: "absolute", top: -6, left: -6,
                           width: 22, height: 22, borderRadius: "50%",
@@ -498,16 +498,16 @@ export default function CountryPage() {
                           <TrustpilotLogo size="sm" />
                           <Stars r={b.tp} />
                           <span style={{ fontSize: 15, fontWeight: 700, color: "#00B67A" }}>{b.tp}</span>
-                          <span style={{ fontSize: 14, color: "#94a3b8" }}>({b.tpCount.toLocaleString()})</span>
+                          <span style={{ fontSize: 14, color: "#64748b" }}>({b.tpCount.toLocaleString()})</span>
                         </a>
-                        {b.localRegRef && <span style={{ fontSize: 13, color: "#64748b", marginLeft: 6 }}>{COUNTRY.regulator} #{b.localRegRef}</span>}
+                        {b.localRegRef && <span style={{ fontSize: 13, color: "#475569", marginLeft: 6 }}>{COUNTRY.regulator} #{b.localRegRef}</span>}
                       </div>
 
                       {/* Stats */}
                       <div style={{ textAlign: "center" }}>
-                        <div style={{ fontSize: 13, color: "#64748b", marginBottom: 1 }}>{t("country.minDeposit")}</div>
+                        <div style={{ fontSize: 13, color: "#475569", marginBottom: 1 }}>{t("country.minDeposit")}</div>
                         <div style={{ fontFamily: "'JetBrains Mono'", fontWeight: 700, fontSize: 16 }}>{b.minDepLocal}</div>
-                        <div style={{ fontSize: 13, color: "#64748b", marginTop: 4, marginBottom: 1 }}>{t("country.spread")}</div>
+                        <div style={{ fontSize: 13, color: "#475569", marginTop: 4, marginBottom: 1 }}>{t("country.spread")}</div>
                         <div style={{ fontFamily: "'JetBrains Mono'", fontWeight: 700, fontSize: 15, color: "#059669" }}>{b.spread} pips</div>
                       </div>
 
@@ -523,8 +523,8 @@ export default function CountryPage() {
                             color: "#fff", fontWeight: 700, fontSize: 15, textDecoration: "none",
                           }}>{t("country.visitBroker")} {b.name} <ArrowRight size={14} style={{ verticalAlign: "middle" }} /></a>
                           <div style={{ display: "flex", gap: 6 }}>
-                            <Link to={lp(`/review/${b.slug}`)} style={{ flex: 1, padding: "6px 0", borderRadius: 7, textAlign: "center", background: "#f1f5f9", color: "#475569", fontSize: 14, fontWeight: 600, textDecoration: "none" }}>{t("home.review")}</Link>
-                            <button onClick={() => toggleCompare(b.id)} style={{ flex: 1, padding: "6px 0", borderRadius: 7, background: compare.includes(b.id) ? "#1e3a5f" : "#f1f5f9", color: compare.includes(b.id) ? "#fff" : "#475569", fontSize: 14, fontWeight: 600, border: "none", cursor: "pointer" }}>{compare.includes(b.id) ? <Check size={14} color="#059669" /> : "Compare"}</button>
+                            <Link to={lp(`/review/${b.slug}`)} style={{ flex: 1, padding: "6px 0", borderRadius: 7, textAlign: "center", background: "#f1f5f9", color: "#334155", fontSize: 14, fontWeight: 600, textDecoration: "none" }}>{t("home.review")}</Link>
+                            <button onClick={() => toggleCompare(b.id)} style={{ flex: 1, padding: "6px 0", borderRadius: 7, background: compare.includes(b.id) ? "#1e3a5f" : "#f1f5f9", color: compare.includes(b.id) ? "#fff" : "#334155", fontSize: 14, fontWeight: 600, border: "none", cursor: "pointer" }}>{compare.includes(b.id) ? <Check size={14} color="#059669" /> : "Compare"}</button>
                           </div>
                         </div>
                       )}
@@ -538,14 +538,14 @@ export default function CountryPage() {
                           background: "linear-gradient(135deg,#059669,#34d399)",
                           color: "#fff", fontWeight: 700, fontSize: 15, textDecoration: "none",
                         }}>{t("country.visitBroker")} {b.name} <ArrowRight size={14} style={{ verticalAlign: "middle" }} /></a>
-                        <Link to={lp(`/review/${b.slug}`)} style={{ flex: 1, padding: "10px 0", borderRadius: 8, textAlign: "center", background: "#f1f5f9", color: "#475569", fontSize: 15, fontWeight: 600, textDecoration: "none" }}>{t("home.review")}</Link>
-                        <button onClick={() => toggleCompare(b.id)} style={{ flex: 1, padding: "10px 0", borderRadius: 8, background: compare.includes(b.id) ? "#1e3a5f" : "#f1f5f9", color: compare.includes(b.id) ? "#fff" : "#475569", fontSize: 15, fontWeight: 600, border: "none", cursor: "pointer" }}>{compare.includes(b.id) ? <><Check size={14} color="#059669" style={{ verticalAlign: "middle" }} /> Added</> : "Compare"}</button>
+                        <Link to={lp(`/review/${b.slug}`)} style={{ flex: 1, padding: "10px 0", borderRadius: 8, textAlign: "center", background: "#f1f5f9", color: "#334155", fontSize: 15, fontWeight: 600, textDecoration: "none" }}>{t("home.review")}</Link>
+                        <button onClick={() => toggleCompare(b.id)} style={{ flex: 1, padding: "10px 0", borderRadius: 8, background: compare.includes(b.id) ? "#1e3a5f" : "#f1f5f9", color: compare.includes(b.id) ? "#fff" : "#334155", fontSize: 15, fontWeight: 600, border: "none", cursor: "pointer" }}>{compare.includes(b.id) ? <><Check size={14} color="#059669" style={{ verticalAlign: "middle" }} /> Added</> : "Compare"}</button>
                       </div>
                     )}
 
                     {/* Verdict */}
                     <div style={{ marginTop: 14, padding: "10px 14px", background: "#f8fafc", borderRadius: 8 }}>
-                      <span style={{ fontSize: 15, lineHeight: 1.6, color: "#475569" }}>
+                      <span style={{ fontSize: 15, lineHeight: 1.6, color: "#334155" }}>
                         <span style={{ fontWeight: 700, color: "#1e293b" }}>{t("country.ourVerdict")}: </span>{b.verdict}
                       </span>
                     </div>
@@ -572,7 +572,7 @@ export default function CountryPage() {
                         {b.localAdvantages.map((adv, i) => (
                           <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 8, marginBottom: 6 }}>
                             <Check size={14} color="#059669" style={{ flexShrink: 0, marginTop: 2 }} />
-                            <span style={{ fontSize: 15, lineHeight: "18px", color: "#475569" }}>{adv}</span>
+                            <span style={{ fontSize: 15, lineHeight: "18px", color: "#334155" }}>{adv}</span>
                           </div>
                         ))}
                       </div>
@@ -586,7 +586,7 @@ export default function CountryPage() {
                             ["Execution", b.execution],
                           ].map(([k, v], i) => (
                             <div key={i} style={{ padding: "6px 8px", background: "#f8fafc", borderRadius: 6 }}>
-                              <div style={{ fontSize: 11, color: "#94a3b8", marginBottom: 1 }}>{k}</div>
+                              <div style={{ fontSize: 12, color: "#64748b", marginBottom: 1 }}>{k}</div>
                               <div style={{ fontSize: 14, fontWeight: 600, color: "#1e293b" }}>{v}</div>
                             </div>
                           ))}
@@ -622,7 +622,7 @@ export default function CountryPage() {
             <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 20 : 28, marginBottom: 6 }}>
               {COUNTRY.name} Broker Reviews \u2014 In-Depth Analysis
             </h2>
-            <p style={{ fontSize: 16, color: "#64748b", lineHeight: 1.7, marginBottom: 28 }}>
+            <p style={{ fontSize: 16, color: "#475569", lineHeight: 1.7, marginBottom: 28 }}>
               We analyzed each broker's {COUNTRY.currency} account conditions, regulatory status, and trading costs. Here\u2019s what {COUNTRY.name} traders need to know.
             </p>
 
@@ -635,7 +635,7 @@ export default function CountryPage() {
                   {/* Header: logo + name + score + badge */}
                   <div style={{ display: "flex", alignItems: mob ? "flex-start" : "center", gap: mob ? 12 : 16, marginBottom: 16, flexWrap: "wrap" }}>
                     <a href={b.url} target="_blank" rel="noopener noreferrer nofollow" style={{ flexShrink: 0, display: "block" }}>
-                      <BrokerLogo slug={b.slug} name={b.name} fallback={b.logo} size={mob ? 44 : 52} shape="brand" />
+                      <BrokerLogo slug={b.slug} name={b.name} fallback={b.logo} size={mob ? 52 : 60} shape="brand" />
                     </a>
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <h3 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 18 : 22, margin: 0, lineHeight: 1.2 }}>
@@ -697,7 +697,7 @@ export default function CountryPage() {
                     <Link to={lp(`/review/${b.slug}`)} style={{
                       display: "inline-flex", alignItems: "center", gap: 6,
                       padding: mob ? "10px 18px" : "10px 22px", borderRadius: 10,
-                      background: "#f1f5f9", color: "#475569", fontWeight: 600, fontSize: 15, textDecoration: "none",
+                      background: "#f1f5f9", color: "#334155", fontWeight: 600, fontSize: 15, textDecoration: "none",
                     }}>Read Full {b.name} Review <ArrowRight size={14} /></Link>
                   </div>
                 </div>
@@ -717,7 +717,7 @@ export default function CountryPage() {
             <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 20 : 26, marginBottom: 6 }}>
               {"\uD83D\uDEE1\uFE0F"} {COUNTRY.regulation.title}
             </h2>
-            {regSubtitle && <p style={{ fontSize: 15, color: "#64748b", marginBottom: 20 }}>{regSubtitle}</p>}
+            {regSubtitle && <p style={{ fontSize: 15, color: "#475569", marginBottom: 20 }}>{regSubtitle}</p>}
             <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : tab ? "1fr 1fr" : "1fr 1fr 1fr", gap: 12 }}>
               {COUNTRY.regulation.items.map((item, i) => (
                 <div key={i} style={{
@@ -728,7 +728,7 @@ export default function CountryPage() {
                     <Icon name={item.icon} size={20} />
                     <span style={{ fontWeight: 700, fontSize: 15 }}>{item.title}</span>
                   </div>
-                  <p style={{ fontSize: 15, lineHeight: 1.6, color: "#475569", margin: 0 }}>{item.desc}</p>
+                  <p style={{ fontSize: 15, lineHeight: 1.6, color: "#334155", margin: 0 }}>{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -746,7 +746,7 @@ export default function CountryPage() {
             <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 20 : 26, marginBottom: 6 }}>
               {"\uD83C\uDFAF"} {COUNTRY.comparisonTable.title}
             </h2>
-            {COUNTRY.comparisonTable.subtitle && <p style={{ fontSize: 15, color: "#64748b", marginBottom: 20 }}>{COUNTRY.comparisonTable.subtitle}</p>}
+            {COUNTRY.comparisonTable.subtitle && <p style={{ fontSize: 15, color: "#475569", marginBottom: 20 }}>{COUNTRY.comparisonTable.subtitle}</p>}
 
             {mob ? (
               <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
@@ -778,7 +778,7 @@ export default function CountryPage() {
                     {COUNTRY.comparisonTable.rows.map((row, i) => (
                       <tr key={i} style={{ borderBottom: "1px solid #f1f5f9" }}>
                         {row.map((cell, j) => (
-                          <td key={j} style={{ padding: "10px 16px", fontWeight: j === 0 ? 600 : 400, color: j === 0 ? "#1e293b" : "#475569", background: i % 2 === 0 ? "#fff" : "#f8fafc" }}>{cell}</td>
+                          <td key={j} style={{ padding: "10px 16px", fontWeight: j === 0 ? 600 : 400, color: j === 0 ? "#1e293b" : "#334155", background: i % 2 === 0 ? "#fff" : "#f8fafc" }}>{cell}</td>
                         ))}
                       </tr>
                     ))}
@@ -821,10 +821,10 @@ export default function CountryPage() {
                   <div key={i} style={{ padding: 14, background: "#f8fafc", borderRadius: 10, border: "1px solid #f1f5f9" }}>
                     <div style={{ fontWeight: 700, fontSize: 15, marginBottom: 8 }}>{p.method}</div>
                     <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 6, fontSize: 15 }}>
-                      <div><span style={{ color: "#94a3b8" }}>Deposit: </span><span style={{ color: "#059669", fontWeight: 600 }}>{p.deposit}</span></div>
-                      <div><span style={{ color: "#94a3b8" }}>Withdrawal: </span><span style={{ fontWeight: 600 }}>{p.withdrawal}</span></div>
-                      <div><span style={{ color: "#94a3b8" }}>{t("country.processing")}: </span>{p.time}</div>
-                      <div style={{ color: "#64748b", fontSize: 14 }}>{p.note}</div>
+                      <div><span style={{ color: "#64748b" }}>Deposit: </span><span style={{ color: "#059669", fontWeight: 600 }}>{p.deposit}</span></div>
+                      <div><span style={{ color: "#64748b" }}>Withdrawal: </span><span style={{ fontWeight: 600 }}>{p.withdrawal}</span></div>
+                      <div><span style={{ color: "#64748b" }}>{t("country.processing")}: </span>{p.time}</div>
+                      <div style={{ color: "#475569", fontSize: 14 }}>{p.note}</div>
                     </div>
                   </div>
                 ))}
@@ -844,7 +844,7 @@ export default function CountryPage() {
                         <td style={{ padding: "10px 14px", color: "#059669", fontWeight: 600, background: i % 2 ? "#f8fafc" : "#fff" }}>{p.deposit}</td>
                         <td style={{ padding: "10px 14px", background: i % 2 ? "#f8fafc" : "#fff" }}>{p.withdrawal}</td>
                         <td style={{ padding: "10px 14px", background: i % 2 ? "#f8fafc" : "#fff" }}>{p.time}</td>
-                        <td style={{ padding: "10px 14px", color: "#64748b", fontSize: 15, background: i % 2 ? "#f8fafc" : "#fff" }}>{p.note}</td>
+                        <td style={{ padding: "10px 14px", color: "#475569", fontSize: 15, background: i % 2 ? "#f8fafc" : "#fff" }}>{p.note}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -895,7 +895,7 @@ export default function CountryPage() {
                 <span style={{ fontSize: mob ? 20 : 24 }}>{cat.icon}</span>
                 <div>
                   <div style={{ fontWeight: 700, fontSize: mob ? 14 : 15 }}>{cat.name}</div>
-                  <div style={{ fontSize: mob ? 12 : 14, color: "#64748b" }}>{cat.count} brokers</div>
+                  <div style={{ fontSize: mob ? 12 : 14, color: "#475569" }}>{cat.count} brokers</div>
                 </div>
               </Link>
             ))}
@@ -907,7 +907,7 @@ export default function CountryPage() {
       <section style={{ ...cn, paddingBottom: 40 }}>
         <div style={{ padding: mob ? "14px" : "18px 24px", borderRadius: 12, background: "#f1f5f9", border: "1px solid #e2e8f0" }}>
           <div style={{ fontWeight: 700, fontSize: 15, marginBottom: 6 }}>{"\uD83D\uDCCB"} {t("footer.affTitle")}</div>
-          <p style={{ fontSize: 14, lineHeight: 1.7, color: "#64748b", margin: 0 }}>
+          <p style={{ fontSize: 14, lineHeight: 1.7, color: "#475569", margin: 0 }}>
             {t("footer.affText")}
           </p>
         </div>

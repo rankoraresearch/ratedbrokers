@@ -101,7 +101,7 @@ const sectionHeadingStyle = {
 
 const baseLinkStyle = {
   fontSize: 15,
-  color: "#94a3b8",
+  color: "#cbd5e1",
   textDecoration: "none",
   display: "block",
   padding: "4px 0",
@@ -177,7 +177,7 @@ export default function Footer() {
               <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, fontSize: 18, color: "#34d399", letterSpacing: "-1px" }}>brokers</span>
               <span style={{ display: "inline-block", width: 5, height: 5, borderRadius: "50%", background: "#fbbf24", marginLeft: 2, marginBottom: 1 }} />
             </div>
-            <p style={{ fontSize: 14, color: "#64748b", lineHeight: 1.7, maxWidth: 280, marginBottom: 16 }}>
+            <p style={{ fontSize: 14, color: "#94a3b8", lineHeight: 1.7, maxWidth: 280, marginBottom: 16 }}>
               {t("footer.desc")}
             </p>
 
@@ -190,11 +190,11 @@ export default function Footer() {
               ].map(({ Icon, text }) => (
                 <div key={text} style={{ display: "flex", alignItems: "center", gap: 6 }}>
                   <Icon size={14} color="#34d399" />
-                  <span style={{ fontSize: 13, color: "#94a3b8" }}>{text}</span>
+                  <span style={{ fontSize: 13, color: "#cbd5e1" }}>{text}</span>
                 </div>
               ))}
             </div>
-            <p style={{ fontSize: 13, color: "#64748b", fontStyle: "italic", margin: 0 }}>
+            <p style={{ fontSize: 13, color: "#94a3b8", fontStyle: "italic", margin: 0 }}>
               Independent & Expert-Led Reviews
             </p>
           </div>
@@ -284,7 +284,7 @@ export default function Footer() {
                 {label}
               </HoverLink>
               {i < FOOTER_PLATFORMS.length - 1 && (
-                <span style={{ color: "#334155", margin: "0 8px", fontSize: 14 }}>&middot;</span>
+                <span style={{ color: "#64748b", margin: "0 8px", fontSize: 14 }}>&middot;</span>
               )}
             </span>
           ))}
@@ -314,9 +314,9 @@ export default function Footer() {
                 {t("footer.riskTitle")}
               </span>
             </div>
-            <p style={{ fontSize: 13, color: "#64748b", lineHeight: 1.7, margin: 0 }}>
+            <p style={{ fontSize: 13, color: "#94a3b8", lineHeight: 1.7, margin: 0 }}>
               CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. Between{" "}
-              <strong style={{ color: "#94a3b8" }}>62% and 82%</strong>{" "}
+              <strong style={{ color: "#cbd5e1" }}>62% and 82%</strong>{" "}
               of retail investor accounts lose money when trading CFDs. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money.
             </p>
           </div>
@@ -336,7 +336,7 @@ export default function Footer() {
                 {t("footer.affTitle")}
               </span>
             </div>
-            <p style={{ fontSize: 13, color: "#64748b", lineHeight: 1.7, margin: 0 }}>
+            <p style={{ fontSize: 13, color: "#94a3b8", lineHeight: 1.7, margin: 0 }}>
               {t("footer.affText")}
             </p>
           </div>
@@ -353,10 +353,10 @@ export default function Footer() {
             textAlign: isMobile ? "center" : "left",
           }}
         >
-          <span style={{ fontSize: 13, color: "#475569" }}>
+          <span style={{ fontSize: 13, color: "#94a3b8" }}>
             {t("footer.copy")}
           </span>
-          <span style={{ fontSize: 13, color: "#475569" }}>
+          <span style={{ fontSize: 13, color: "#94a3b8" }}>
             36 brokers independently researched and expert-scored
           </span>
         </div>

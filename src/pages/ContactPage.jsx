@@ -56,10 +56,10 @@ function FaqItem({ question, answer }) {
         <span style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 16, color: "#1e293b", flex: 1 }}>
           {question}
         </span>
-        <Icon name={open ? "chevron-up" : "chevron-down"} size={18} color="#64748b" />
+        <Icon name={open ? "chevron-up" : "chevron-down"} size={18} color="#475569" />
       </button>
       {open && (
-        <div style={{ padding: "0 0 18px", fontSize: 16, lineHeight: 1.7, color: "#475569" }}>
+        <div style={{ padding: "0 0 18px", fontSize: 16, lineHeight: 1.7, color: "#334155" }}>
           {answer}
         </div>
       )}
@@ -116,7 +116,7 @@ function ContactForm({ mob, cn, t }) {
           <div style={{ fontFamily: 'Outfit', fontWeight: 800, fontSize: 22, color: '#059669', marginBottom: 8 }}>
             Message Sent
           </div>
-          <div style={{ fontSize: 16, color: '#475569' }}>
+          <div style={{ fontSize: 16, color: '#334155' }}>
             Thank you! We'll get back to you within 24–48 business hours.
           </div>
         </div>
@@ -136,7 +136,7 @@ function ContactForm({ mob, cn, t }) {
       }}>
         <div style={{ display: 'grid', gridTemplateColumns: mob ? '1fr' : '1fr 1fr', gap: 16 }}>
           <div>
-            <label style={{ display: 'block', fontSize: 14, fontWeight: 600, color: '#475569', marginBottom: 6 }}>Name</label>
+            <label style={{ display: 'block', fontSize: 14, fontWeight: 600, color: '#334155', marginBottom: 6 }}>Name</label>
             <input
               type="text"
               required
@@ -149,7 +149,7 @@ function ContactForm({ mob, cn, t }) {
             />
           </div>
           <div>
-            <label style={{ display: 'block', fontSize: 14, fontWeight: 600, color: '#475569', marginBottom: 6 }}>Email</label>
+            <label style={{ display: 'block', fontSize: 14, fontWeight: 600, color: '#334155', marginBottom: 6 }}>Email</label>
             <input
               type="email"
               required
@@ -286,7 +286,7 @@ export default function ContactPage() {
           }}>
             {t("contact.title")}
           </h1>
-          <p style={{ fontSize: 19, lineHeight: 1.65, color: "#475569", margin: "0 0 24px" }}>
+          <p style={{ fontSize: 19, lineHeight: 1.65, color: "#334155", margin: "0 0 24px" }}>
             {t("contact.subtitle")}
           </p>
         </div>
@@ -311,7 +311,7 @@ export default function ContactPage() {
                 <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 19, color: "#0f172a" }}>
                   {t(card.titleKey)}
                 </div>
-                <div style={{ fontSize: 15, color: "#475569", lineHeight: 1.7, flex: 1 }}>
+                <div style={{ fontSize: 15, color: "#334155", lineHeight: 1.7, flex: 1 }}>
                   {t(card.descKey)}
                 </div>
                 <a
@@ -351,7 +351,7 @@ export default function ContactPage() {
             <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 17, color: "#0f172a", marginBottom: 4 }}>
               {t("contact.responseTitle")}
             </div>
-            <div style={{ fontSize: 15, color: "#475569", lineHeight: 1.6 }}>
+            <div style={{ fontSize: 15, color: "#334155", lineHeight: 1.6 }}>
               {t("contact.responseDesc")}
             </div>
           </div>
@@ -383,7 +383,7 @@ export default function ContactPage() {
           <h3 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 20, color: "#0f172a", margin: "0 0 10px" }}>
             {t("contact.companyTitle")}
           </h3>
-          <p style={{ fontSize: 16, lineHeight: 1.8, color: "#475569", margin: 0 }}>
+          <p style={{ fontSize: 16, lineHeight: 1.8, color: "#334155", margin: 0 }}>
             {t("contact.companyDesc")}
           </p>
         </div>

@@ -217,7 +217,7 @@ export default function ForexBrokersPage() {
                     onMouseEnter={e => e.currentTarget.style.textDecoration = "underline"}
                     onMouseLeave={e => e.currentTarget.style.textDecoration = "none"}
                   >{b.B.name}</Link>
-                  <div style={{ fontSize: 13, color: "#64748b" }}>{b.B.type}</div>
+                  <div style={{ fontSize: 13, color: "#475569" }}>{b.B.type}</div>
                 </div>
                 <div style={{
                   marginLeft: "auto",
@@ -227,7 +227,7 @@ export default function ForexBrokersPage() {
               </div>
               <div style={{
                 display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginBottom: 16,
-                fontSize: 13, color: "#475569",
+                fontSize: 13, color: "#334155",
               }}>
                 <div>Spread: <strong>{b.B.spread} pips</strong></div>
                 <div>Min Dep: <strong>{b.B.minDep === 0 ? "$0" : `$${b.B.minDep}`}</strong></div>
@@ -253,7 +253,7 @@ export default function ForexBrokersPage() {
                 {card.title}
               </h2>
               {card.paragraphs.map((p, i) => (
-                <p key={i} style={{ fontSize: 15, lineHeight: 1.8, color: "#475569", marginBottom: i < card.paragraphs.length - 1 ? 14 : 0 }}>
+                <p key={i} style={{ fontSize: 15, lineHeight: 1.8, color: "#334155", marginBottom: i < card.paragraphs.length - 1 ? 14 : 0 }}>
                   {p}
                 </p>
               ))}
@@ -274,7 +274,7 @@ export default function ForexBrokersPage() {
                 background: "#f0fdf4", color: "#059669", fontSize: 11, fontWeight: 700, marginBottom: 8,
               }}>STEP {step.step}</div>
               <h3 style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 16, marginBottom: 8 }}>{step.title}</h3>
-              <p style={{ fontSize: 14, lineHeight: 1.7, color: "#64748b", margin: 0 }}>{step.desc}</p>
+              <p style={{ fontSize: 14, lineHeight: 1.7, color: "#475569", margin: 0 }}>{step.desc}</p>
             </div>
           ))}
         </div>
@@ -309,7 +309,7 @@ export default function ForexBrokersPage() {
                 {["#", "Broker", "Score", "Spread", "Min Deposit", "Leverage", "Platforms", "Regulation"].map((h) => (
                   <th key={h} style={{
                     padding: "12px 14px", textAlign: "left", fontWeight: 700, fontSize: 12,
-                    color: "#94a3b8", textTransform: "uppercase", letterSpacing: 0.5,
+                    color: "#64748b", textTransform: "uppercase", letterSpacing: 0.5,
                     borderBottom: "1px solid #e2e8f0",
                   }}>{h}</th>
                 ))}
@@ -322,7 +322,7 @@ export default function ForexBrokersPage() {
                 const isBestDep = top5.every((o) => b.B.minDep <= o.B.minDep);
                 return (
                   <tr key={b.slug} style={{ borderBottom: "1px solid #f1f5f9" }}>
-                    <td style={{ padding: "12px 14px", fontFamily: "'JetBrains Mono'", fontWeight: 800, color: i === 0 ? "#059669" : "#475569" }}>
+                    <td style={{ padding: "12px 14px", fontFamily: "'JetBrains Mono'", fontWeight: 800, color: i === 0 ? "#059669" : "#334155" }}>
                       #{i + 1}
                     </td>
                     <td style={{ padding: "12px 14px" }}>
@@ -363,7 +363,7 @@ export default function ForexBrokersPage() {
                             <span key={p} style={{
                               display: "inline-flex", alignItems: "center", gap: 3,
                               padding: "2px 6px", borderRadius: 4, fontSize: 11, fontWeight: 600,
-                              background: "#f1f5f9", color: "#475569",
+                              background: "#f1f5f9", color: "#334155",
                             }}>
                               {pSlug && <PlatformLogo slug={pSlug} name={p} size={14} shape="icon" />}
                               {p}
@@ -371,7 +371,7 @@ export default function ForexBrokersPage() {
                           );
                         })}
                         {b.B.platforms.length > 3 && (
-                          <span style={{ padding: "2px 6px", borderRadius: 4, fontSize: 11, fontWeight: 600, background: "#f1f5f9", color: "#94a3b8" }}>
+                          <span style={{ padding: "2px 6px", borderRadius: 4, fontSize: 11, fontWeight: 600, background: "#f1f5f9", color: "#64748b" }}>
                             +{b.B.platforms.length - 3}
                           </span>
                         )}
@@ -386,7 +386,7 @@ export default function ForexBrokersPage() {
                               display: "inline-flex", alignItems: "center", gap: 3,
                               padding: "2px 6px", borderRadius: 4, fontSize: 11, fontWeight: 700,
                               background: r.tier === 1 ? "#ecfdf5" : "#f1f5f9",
-                              color: r.tier === 1 ? "#059669" : "#64748b",
+                              color: r.tier === 1 ? "#059669" : "#475569",
                             }}>
                               {rd && <RegulatorLogo slug={rd.slug} name={r.name} size={14} shape="icon" tier={r.tier} />}
                               {r.name}
@@ -422,11 +422,11 @@ export default function ForexBrokersPage() {
                 {col.items.map((item) => (
                   <Link key={item.path} to={lp(item.path)} style={{
                     display: "block", padding: "8px 10px", borderRadius: 6,
-                    fontSize: 14, fontWeight: 500, color: "#475569", textDecoration: "none",
+                    fontSize: 14, fontWeight: 500, color: "#334155", textDecoration: "none",
                     transition: "all 0.15s",
                   }}
                     onMouseEnter={(e) => { e.currentTarget.style.background = "#f0fdf4"; e.currentTarget.style.color = "#059669"; }}
-                    onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#475569"; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#334155"; }}
                   >{item.label}</Link>
                 ))}
               </div>
@@ -440,7 +440,7 @@ export default function ForexBrokersPage() {
         <h2 style={secTitle}>{t("pillar.costAnalysis")}</h2>
         <div style={{ ...cardBg, padding: mob ? "24px 20px" : "32px 28px" }}>
           {CONTENT.costAnalysis.paragraphs.map((p, i) => (
-            <p key={i} style={{ fontSize: 15, lineHeight: 1.8, color: "#475569", marginBottom: 14 }}>{p}</p>
+            <p key={i} style={{ fontSize: 15, lineHeight: 1.8, color: "#334155", marginBottom: 14 }}>{p}</p>
           ))}
           {/* Mini cost comparison table */}
           <div style={{ overflow: "auto", marginTop: 8 }}>
@@ -450,7 +450,7 @@ export default function ForexBrokersPage() {
                   {["Broker", "Account", "Avg Spread", "Commission", "Total Cost/Lot"].map((h) => (
                     <th key={h} style={{
                       padding: "10px 14px", textAlign: "left", fontWeight: 700, fontSize: 12,
-                      color: "#94a3b8", textTransform: "uppercase", borderBottom: "1px solid #e2e8f0",
+                      color: "#64748b", textTransform: "uppercase", borderBottom: "1px solid #e2e8f0",
                     }}>{h}</th>
                   ))}
                 </tr>
@@ -459,7 +459,7 @@ export default function ForexBrokersPage() {
                 {CONTENT.costAnalysis.costTable.map((row, i) => (
                   <tr key={i} style={{ borderBottom: "1px solid #f1f5f9" }}>
                     <td style={{ padding: "10px 14px", fontWeight: 700, color: "#1e293b" }}>{row.broker}</td>
-                    <td style={{ padding: "10px 14px", color: "#64748b" }}>{row.account}</td>
+                    <td style={{ padding: "10px 14px", color: "#475569" }}>{row.account}</td>
                     <td style={{ padding: "10px 14px", fontFamily: "'JetBrains Mono'", fontWeight: 700 }}>{row.spread} pips</td>
                     <td style={{ padding: "10px 14px", fontFamily: "'JetBrains Mono'", fontWeight: 700 }}>{row.commission}</td>
                     <td style={{
@@ -477,7 +477,7 @@ export default function ForexBrokersPage() {
       {/* ══════ 9. REGULATION GUIDE ══════ */}
       <section style={{ ...cn, paddingBottom: mob ? 24 : 32 }}>
         <h2 style={secTitle}>{t("pillar.regulation")}</h2>
-        <p style={{ fontSize: 15, lineHeight: 1.8, color: "#475569", marginBottom: 20 }}>
+        <p style={{ fontSize: 15, lineHeight: 1.8, color: "#334155", marginBottom: 20 }}>
           {CONTENT.regulationGuide.intro}
         </p>
         <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : tab ? "1fr 1fr" : "1fr 1fr 1fr", gap: 16 }}>
@@ -489,7 +489,7 @@ export default function ForexBrokersPage() {
                   padding: "4px 10px", borderRadius: 6,
                   background: reg.tier === 1 ? "#ecfdf5" : "#f1f5f9",
                   fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: 15,
-                  color: reg.tier === 1 ? "#059669" : "#64748b",
+                  color: reg.tier === 1 ? "#059669" : "#475569",
                 }}>{reg.name}</div>
                 <span style={{
                   padding: "2px 8px", borderRadius: 10, fontSize: 11, fontWeight: 700,
@@ -497,8 +497,8 @@ export default function ForexBrokersPage() {
                 }}>Tier {reg.tier}</span>
               </div>
               <div style={{ fontSize: 14, fontWeight: 600, color: "#1e293b", marginBottom: 2 }}>{reg.fullName}</div>
-              <div style={{ fontSize: 12, color: "#94a3b8", marginBottom: 8 }}>{reg.country}</div>
-              <p style={{ fontSize: 14, lineHeight: 1.7, color: "#64748b", marginBottom: 8 }}>{reg.desc}</p>
+              <div style={{ fontSize: 12, color: "#64748b", marginBottom: 8 }}>{reg.country}</div>
+              <p style={{ fontSize: 14, lineHeight: 1.7, color: "#475569", marginBottom: 8 }}>{reg.desc}</p>
               {reg.compensation && (
                 <div style={{ fontSize: 12, color: "#059669", fontWeight: 600 }}>
                   Compensation: {reg.compensation}
@@ -512,7 +512,7 @@ export default function ForexBrokersPage() {
       {/* ══════ 10. PLATFORM COMPARISON ══════ */}
       <section style={{ ...cn, paddingBottom: mob ? 24 : 32 }}>
         <h2 style={secTitle}>{t("pillar.platforms")}</h2>
-        <p style={{ fontSize: 15, lineHeight: 1.8, color: "#475569", marginBottom: 20 }}>
+        <p style={{ fontSize: 15, lineHeight: 1.8, color: "#334155", marginBottom: 20 }}>
           {CONTENT.platformComparison.intro}
         </p>
         <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : tab ? "1fr 1fr" : "1fr 1fr 1fr 1fr", gap: 16 }}>
@@ -522,16 +522,16 @@ export default function ForexBrokersPage() {
                 <PlatformLogo slug={getPlatformSlugByName(pl.name)} name={pl.name} size={40} shape="icon" />
                 <div>
                   <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 16 }}>{pl.name}</div>
-                  <div style={{ fontFamily: "'JetBrains Mono'", fontWeight: 700, fontSize: 13, color: "#94a3b8" }}>{pl.abbr}</div>
+                  <div style={{ fontFamily: "'JetBrains Mono'", fontWeight: 700, fontSize: 13, color: "#64748b" }}>{pl.abbr}</div>
                 </div>
               </div>
               <div style={{ marginBottom: 8 }}>
                 <div style={{ fontSize: 11, fontWeight: 700, color: "#059669", textTransform: "uppercase", marginBottom: 4 }}>Strengths</div>
-                <p style={{ fontSize: 13, lineHeight: 1.6, color: "#475569", margin: 0 }}>{pl.strengths}</p>
+                <p style={{ fontSize: 13, lineHeight: 1.6, color: "#334155", margin: 0 }}>{pl.strengths}</p>
               </div>
               <div style={{ marginBottom: 8 }}>
                 <div style={{ fontSize: 11, fontWeight: 700, color: "#ef4444", textTransform: "uppercase", marginBottom: 4 }}>Weakness</div>
-                <p style={{ fontSize: 13, lineHeight: 1.6, color: "#475569", margin: 0 }}>{pl.weakness}</p>
+                <p style={{ fontSize: 13, lineHeight: 1.6, color: "#334155", margin: 0 }}>{pl.weakness}</p>
               </div>
               <div style={{
                 padding: "8px 10px", borderRadius: 8, background: "#f0fdf4",

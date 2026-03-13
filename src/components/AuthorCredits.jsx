@@ -8,12 +8,12 @@ import AuthorHoverCard from "./AuthorHoverCard";
 function CreditColumn({ label, author, onDark }) {
   const lp = useLocalePath();
   const nameColor = onDark ? "#fff" : "#1e293b";
-  const labelColor = onDark ? "rgba(255,255,255,0.5)" : "#94a3b8";
+  const labelColor = onDark ? "rgba(255,255,255,0.6)" : "#64748b";
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
       <span style={{
-        fontSize: 11, fontWeight: 700, textTransform: "uppercase",
+        fontSize: 12, fontWeight: 700, textTransform: "uppercase",
         letterSpacing: "0.06em", color: labelColor,
       }}>{label}</span>
       <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
@@ -23,7 +23,7 @@ function CreditColumn({ label, author, onDark }) {
             <Link
               to={lp(`/author/${author.id}`)}
               style={{
-                fontSize: 13, fontWeight: 700, color: nameColor,
+                fontSize: 14, fontWeight: 700, color: nameColor,
                 textDecoration: "none",
               }}
               onMouseEnter={(e) => { e.currentTarget.style.textDecoration = "underline"; }}
@@ -56,7 +56,7 @@ export default function AuthorCredits({ author, editor, reviewer, factChecker, u
 
   const onDark = variant === "onDark";
   const centered = variant === "centered";
-  const dateColor = onDark ? "rgba(255,255,255,0.4)" : "#94a3b8";
+  const dateColor = onDark ? "rgba(255,255,255,0.55)" : "#64748b";
 
   // 4 cols desktop, 2x2 tablet, 1 col mobile
   const cols = mob ? "1fr" : tab ? "repeat(2, auto)" : "repeat(4, auto)";
@@ -77,7 +77,7 @@ export default function AuthorCredits({ author, editor, reviewer, factChecker, u
         {reviewer && <CreditColumn label="Reviewed By" author={reviewer} onDark={onDark} />}
       </div>
       {updatedDate && (
-        <span style={{ fontSize: 12, color: dateColor }}>
+        <span style={{ fontSize: 13, color: dateColor }}>
           Updated {updatedDate}
         </span>
       )}

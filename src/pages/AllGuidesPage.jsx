@@ -152,7 +152,7 @@ export default function AllGuidesPage() {
         <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 20 : 26, marginBottom: 6 }}>
           {t("guides.featuredTitle")}
         </h2>
-        <p style={{ fontSize: 16, color: "#64748b", marginBottom: 16, lineHeight: 1.6 }}>
+        <p style={{ fontSize: 16, color: "#475569", marginBottom: 16, lineHeight: 1.6 }}>
           {t("guides.featuredDesc")}
         </p>
         <div style={{
@@ -187,13 +187,13 @@ export default function AllGuidesPage() {
                 {g.hero.h1}
               </div>
               <div style={{
-                fontSize: 15, color: "#64748b", lineHeight: 1.6,
+                fontSize: 15, color: "#475569", lineHeight: 1.6,
                 display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden",
               }}>
                 {g.hero.subtitle}
               </div>
               <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "auto" }}>
-                <span style={{ fontSize: 13, color: "#94a3b8", fontFamily: "'JetBrains Mono'", fontWeight: 600 }}>{g.readTime}</span>
+                <span style={{ fontSize: 13, color: "#64748b", fontFamily: "'JetBrains Mono'", fontWeight: 600 }}>{g.readTime}</span>
                 <ArrowRight size={16} color="#059669" />
               </div>
             </Link>
@@ -221,12 +221,12 @@ export default function AllGuidesPage() {
                 </h2>
                 <span style={{
                   fontSize: 13, fontFamily: "'JetBrains Mono'", fontWeight: 700,
-                  color: "#94a3b8", marginLeft: 4,
+                  color: "#64748b", marginLeft: 4,
                 }}>
                   {t("guides.guidesCount", { count: guides.length })}
                 </span>
               </div>
-              <p style={{ fontSize: 15, color: "#64748b", marginBottom: 14, lineHeight: 1.6, marginLeft: 46 }}>
+              <p style={{ fontSize: 15, color: "#475569", marginBottom: 14, lineHeight: 1.6, marginLeft: 46 }}>
                 {t("guides." + cat.descKey)}
               </p>
 
@@ -259,16 +259,16 @@ export default function AllGuidesPage() {
                     <div style={{ minWidth: 0, flex: 1 }}>
                       <div style={{ fontWeight: 700, fontSize: 15, lineHeight: 1.3, marginBottom: 2 }}>{g.hero.h1}</div>
                       <div style={{
-                        fontSize: 14, color: "#64748b", lineHeight: 1.5,
+                        fontSize: 14, color: "#475569", lineHeight: 1.5,
                         display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden",
                       }}>
                         {g.hero.subtitle}
                       </div>
-                      <div style={{ fontSize: 12, color: "#94a3b8", fontFamily: "'JetBrains Mono'", fontWeight: 600, marginTop: 4 }}>
+                      <div style={{ fontSize: 12, color: "#64748b", fontFamily: "'JetBrains Mono'", fontWeight: 600, marginTop: 4 }}>
                         {g.readTime}
                       </div>
                     </div>
-                    <ArrowRight size={16} color="#94a3b8" style={{ flexShrink: 0 }} />
+                    <ArrowRight size={16} color="#64748b" style={{ flexShrink: 0 }} />
                   </Link>
                 ))}
               </div>
@@ -287,7 +287,7 @@ export default function AllGuidesPage() {
           <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 18 : 24, marginBottom: 8 }}>
             {t("guides.ctaTitle")}
           </h2>
-          <p style={{ fontSize: mob ? 14 : 16, color: "#64748b", marginBottom: 20, maxWidth: 480, margin: "0 auto 20px" }}>
+          <p style={{ fontSize: mob ? 14 : 16, color: "#475569", marginBottom: 20, maxWidth: 480, margin: "0 auto 20px" }}>
             {t("guides.ctaDesc")}
           </p>
           <div style={{ display: "flex", justifyContent: "center", gap: 12, flexWrap: "wrap" }}>

@@ -93,6 +93,20 @@ export default function AllReviewsPage() {
               <button
                 key={f.key}
                 onClick={() => setActiveFilter(f.key)}
+                onMouseEnter={(e) => {
+                  if (activeFilter !== f.key) {
+                    e.currentTarget.style.background = "#f0fdf4";
+                    e.currentTarget.style.color = "#059669";
+                    e.currentTarget.style.borderColor = "#059669";
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (activeFilter !== f.key) {
+                    e.currentTarget.style.background = "rgba(255,255,255,0.05)";
+                    e.currentTarget.style.color = "rgba(255,255,255,0.7)";
+                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.15)";
+                  }
+                }}
                 style={{
                   padding: "8px 18px", borderRadius: 100,
                   border: "1px solid",
@@ -112,7 +126,7 @@ export default function AllReviewsPage() {
 
       {/* BROKER GRID */}
       <section style={{ ...cn, padding: mob ? "32px 16px 60px" : "48px 24px 80px" }}>
-        <div style={{ marginBottom: 16, fontSize: 15, color: "#64748b" }}>
+        <div style={{ marginBottom: 16, fontSize: 15, color: "#475569" }}>
           {filtered.length} broker{filtered.length !== 1 ? "s" : ""}
         </div>
         <div style={{
@@ -142,11 +156,11 @@ export default function AllReviewsPage() {
                   e.currentTarget.style.boxShadow = "none";
                 }}
               >
-                <BrokerLogo slug={b.slug} name={b.name} size={44} shape="brand" />
+                <BrokerLogo slug={b.slug} name={b.name} size={52} shape="brand" />
 
                 {/* Type */}
                 <div style={{ flex: 1, minWidth: 0 }}>
-                  <div style={{ fontSize: 12, color: "#94a3b8" }}>
+                  <div style={{ fontSize: 13, color: "#64748b" }}>
                     {b.type}
                   </div>
                 </div>
@@ -160,7 +174,7 @@ export default function AllReviewsPage() {
                   {b.score}
                 </span>
 
-                <ArrowRight size={14} color="#94a3b8" style={{ flexShrink: 0 }} />
+                <ArrowRight size={14} color="#64748b" style={{ flexShrink: 0 }} />
               </Link>
             );
           })}

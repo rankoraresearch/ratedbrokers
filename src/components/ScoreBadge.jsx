@@ -40,7 +40,7 @@ export default function ScoreBadge({ score, size = "md" }) {
           {score}
         </span>
       </div>
-      <span style={{ fontSize: size === "lg" ? 11 : 10, color, fontWeight: 600 }}>
+      <span style={{ fontSize: size === "lg" ? 12 : 11, color, fontWeight: 600 }}>
         {label}
       </span>
     </div>

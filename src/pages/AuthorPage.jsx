@@ -158,11 +158,11 @@ export default function AuthorPage() {
           <h2 style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 20, marginBottom: 12, color: "#0f172a" }}>
             About {author.name}
           </h2>
-          <p style={{ fontSize: 16, lineHeight: 1.8, color: "#475569", margin: "0 0 16px" }}>
+          <p style={{ fontSize: 16, lineHeight: 1.8, color: "#334155", margin: "0 0 16px" }}>
             {author.bio}
           </p>
           {author.specialty && (
-            <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 15, color: "#475569" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 15, color: "#334155" }}>
               <Target size={16} color="#059669" />
               <span><strong style={{ color: "#1e293b" }}>Specialty:</strong> {author.specialty}</span>
             </div>
@@ -182,7 +182,7 @@ export default function AuthorPage() {
             }}>
               <AuthorAvatar author={reviewer} size={40} />
               <div>
-                <div style={{ fontSize: 12, fontWeight: 700, textTransform: "uppercase", color: "#94a3b8", letterSpacing: "0.05em" }}>Reviewed By</div>
+                <div style={{ fontSize: 12, fontWeight: 700, textTransform: "uppercase", color: "#64748b", letterSpacing: "0.05em" }}>Reviewed By</div>
                 <Link to={lp(`/author/${reviewer.id}`)} style={{ fontSize: 15, fontWeight: 700, color: "#1e293b", textDecoration: "none" }}>
                   {reviewer.name}
                 </Link>
@@ -196,7 +196,7 @@ export default function AuthorPage() {
             }}>
               <AuthorAvatar author={factChecker} size={40} />
               <div>
-                <div style={{ fontSize: 12, fontWeight: 700, textTransform: "uppercase", color: "#94a3b8", letterSpacing: "0.05em" }}>Fact Checked By</div>
+                <div style={{ fontSize: 12, fontWeight: 700, textTransform: "uppercase", color: "#64748b", letterSpacing: "0.05em" }}>Fact Checked By</div>
                 <Link to={lp(`/author/${factChecker.id}`)} style={{ fontSize: 15, fontWeight: 700, color: "#1e293b", textDecoration: "none" }}>
                   {factChecker.name}
                 </Link>
@@ -226,7 +226,7 @@ export default function AuthorPage() {
               >
                 <span style={{ fontSize: 18 }}>{r.icon}</span>
                 <span style={{ fontSize: 15, fontWeight: 600, flex: 1 }}>{r.title}</span>
-                <ArrowRight size={14} color="#94a3b8" />
+                <ArrowRight size={14} color="#64748b" />
               </Link>
             ))}
           </div>

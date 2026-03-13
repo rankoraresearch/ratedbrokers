@@ -54,11 +54,11 @@ export default function ComparePage() {
           <h1 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 28 : 42, lineHeight: 1.15, color: "#0f172a", margin: "0 0 12px" }}>
             {t("comp.indexH1")}
           </h1>
-          <p style={{ fontSize: mob ? 15 : 18, color: "#64748b", maxWidth: 600, margin: "0 auto" }}>
+          <p style={{ fontSize: mob ? 15 : 18, color: "#475569", maxWidth: 600, margin: "0 auto" }}>
             {t("comp.indexDesc")}
           </p>
         </div>
-        <p style={{ fontSize: 16, lineHeight: 1.7, color: "#475569", maxWidth: 800, margin: "0 auto 28px", textAlign: "center" }}>
+        <p style={{ fontSize: 16, lineHeight: 1.7, color: "#334155", maxWidth: 800, margin: "0 auto 28px", textAlign: "center" }}>
           Every broker in our database has been independently analyzed across 130+ data points. Select any two from {allBrokers.length} brokers below to see how they stack up on spreads, execution speed, regulatory coverage, and total trading costs. Not sure where to start? Check our <Link to={lp("/best-forex-brokers")} style={{ color: "#059669", fontWeight: 600 }}>best forex brokers</Link> ranking first.
         </p>
 
@@ -69,7 +69,7 @@ export default function ComparePage() {
         }}>
           <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "1fr auto 1fr", gap: 16, alignItems: "end" }}>
             <div>
-              <label style={{ display: "block", fontSize: 13, fontWeight: 700, color: "#64748b", textTransform: "uppercase", marginBottom: 6 }}>
+              <label style={{ display: "block", fontSize: 13, fontWeight: 700, color: "#475569", textTransform: "uppercase", marginBottom: 6 }}>
                 {t("comp.pickA")}
               </label>
               <select
@@ -94,12 +94,12 @@ export default function ComparePage() {
               <div style={{
                 width: 40, height: 40, borderRadius: "50%", background: "#f1f5f9",
                 display: "flex", alignItems: "center", justifyContent: "center",
-                fontFamily: "Outfit", fontWeight: 900, fontSize: 14, color: "#64748b",
+                fontFamily: "Outfit", fontWeight: 900, fontSize: 14, color: "#475569",
               }}>VS</div>
             )}
 
             <div>
-              <label style={{ display: "block", fontSize: 13, fontWeight: 700, color: "#64748b", textTransform: "uppercase", marginBottom: 6 }}>
+              <label style={{ display: "block", fontSize: 13, fontWeight: 700, color: "#475569", textTransform: "uppercase", marginBottom: 6 }}>
                 {t("comp.pickB")}
               </label>
               <select
@@ -145,7 +145,7 @@ export default function ComparePage() {
         <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 28, marginBottom: 8, textAlign: "center" }}>
           {t("comp.featuredTitle")}
         </h2>
-        <p style={{ fontSize: 16, color: "#64748b", textAlign: "center", marginBottom: 20 }}>
+        <p style={{ fontSize: 16, color: "#475569", textAlign: "center", marginBottom: 20 }}>
           The most searched broker matchups — based on real trader interest.
         </p>
         <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "repeat(3, 1fr)", gap: 12 }}>
@@ -163,13 +163,13 @@ export default function ComparePage() {
               }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 8, flex: 1 }}>
                   <BrokerLogo slug={fp.slugA} name={dA.B.name} fallback={dA.B.logo} size={40} shape="wide" variant="gray" />
-                  <span style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 12, color: "#94a3b8" }}>vs</span>
+                  <span style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 12, color: "#64748b" }}>vs</span>
                   <BrokerLogo slug={fp.slugB} name={dB.B.name} fallback={dB.B.logo} size={40} shape="wide" variant="gray" />
                   <div style={{ minWidth: 0 }}>
                     <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 16, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
                       {dA.B.name} vs {dB.B.name}
                     </div>
-                    <div style={{ fontSize: 14, color: "#64748b" }}>
+                    <div style={{ fontSize: 14, color: "#475569" }}>
                       <span style={{ fontFamily: "'JetBrains Mono',monospace", fontWeight: 700, color: "#059669" }}>{dA.B.score}</span>
                       {" vs "}
                       <span style={{ fontFamily: "'JetBrains Mono',monospace", fontWeight: 700, color: "#2563eb" }}>{dB.B.score}</span>
@@ -188,7 +188,7 @@ export default function ComparePage() {
         <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 28, marginBottom: 8, textAlign: "center" }}>
           All Broker Comparisons
         </h2>
-        <p style={{ fontSize: 16, color: "#64748b", textAlign: "center", marginBottom: 20 }}>
+        <p style={{ fontSize: 16, color: "#475569", textAlign: "center", marginBottom: 20 }}>
           {FEATURED_PAIRS.length} side-by-side comparisons across all brokers in our database.
         </p>
         <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr 1fr" : "repeat(4, 1fr)", gap: 10 }}>
@@ -204,9 +204,9 @@ export default function ComparePage() {
                 textDecoration: "none", color: "#1e293b", textAlign: "center",
               }}>
                 <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: mob ? 13 : 14, lineHeight: 1.4 }}>
-                  {dA.B.name} <span style={{ color: "#94a3b8", fontWeight: 400 }}>vs</span> {dB.B.name}
+                  {dA.B.name} <span style={{ color: "#64748b", fontWeight: 400 }}>vs</span> {dB.B.name}
                 </div>
-                <div style={{ fontSize: 13, color: "#64748b", marginTop: 4 }}>
+                <div style={{ fontSize: 13, color: "#475569", marginTop: 4 }}>
                   <span style={{ color: "#059669", fontWeight: 700 }}>{dA.B.score}</span>
                   {" / "}
                   <span style={{ color: "#2563eb", fontWeight: 700 }}>{dB.B.score}</span>
@@ -234,7 +234,7 @@ export default function ComparePage() {
             }}>
               <div style={{ marginBottom: 12 }}><Icon name={card.icon} size={36} color="#059669" /></div>
               <h3 style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 18, marginBottom: 8, marginTop: 0 }}>{card.title}</h3>
-              <p style={{ fontSize: 16, lineHeight: 1.7, color: "#475569", margin: 0 }}>{card.desc}</p>
+              <p style={{ fontSize: 16, lineHeight: 1.7, color: "#334155", margin: 0 }}>{card.desc}</p>
             </div>
           ))}
         </div>
@@ -245,13 +245,13 @@ export default function ComparePage() {
           <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 28, marginBottom: 16, textAlign: "center" }}>
             How We Compare Forex Brokers
           </h2>
-          <p style={{ fontSize: 16, lineHeight: 1.8, color: "#475569", marginBottom: 12 }}>
+          <p style={{ fontSize: 16, lineHeight: 1.8, color: "#334155", marginBottom: 12 }}>
             Our broker comparisons are built on independent research, not marketing claims. For every broker on RatedBrokers, our analyst team collects data from regulatory databases, broker websites, independent sources, and aggregated user reviews. This data powers every comparison on this page.
           </p>
-          <p style={{ fontSize: 16, lineHeight: 1.8, color: "#475569", marginBottom: 12 }}>
+          <p style={{ fontSize: 16, lineHeight: 1.8, color: "#334155", marginBottom: 12 }}>
             Each broker is scored across six weighted categories: Regulation &amp; Safety (30%), Trading Costs (20%), User Reputation (15%), Broker Transparency (15%), Platforms &amp; Tools (15%), and Execution Model (5%). When you compare two brokers, you see exactly where each one wins, loses, or ties — backed by data, not opinion.
           </p>
-          <p style={{ fontSize: 16, lineHeight: 1.8, color: "#475569", margin: 0 }}>
+          <p style={{ fontSize: 16, lineHeight: 1.8, color: "#334155", margin: 0 }}>
             All comparisons are updated quarterly to reflect the latest spreads, regulatory changes, and platform updates. Whether you're choosing between ECN brokers for scalping or looking for the safest regulated broker for long-term investing, our side-by-side tool helps you make an informed decision based on independently verified data. See our full <Link to={lp("/best-forex-brokers")} style={{ color: "#059669", fontWeight: 600 }}>best forex brokers</Link> ranking for 2026.
           </p>
         </div>

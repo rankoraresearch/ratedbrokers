@@ -110,7 +110,7 @@ export default function SearchOverlay({ onClose }) {
   };
 
   const secHead = {
-    fontSize: 12, fontWeight: 700, color: "#94a3b8",
+    fontSize: 12, fontWeight: 700, color: "#64748b",
     textTransform: "uppercase", letterSpacing: 1.2,
     padding: "12px 20px 6px",
   };
@@ -119,14 +119,14 @@ export default function SearchOverlay({ onClose }) {
     display: "flex", alignItems: "center", justifyContent: "center",
     gap: 20, padding: "10px 20px",
     borderTop: "1px solid #e2e8f0", background: "#f8fafc",
-    fontSize: 13, color: "#94a3b8", flexShrink: 0,
+    fontSize: 13, color: "#64748b", flexShrink: 0,
   };
 
   const kbd = {
     display: "inline-flex", alignItems: "center", justifyContent: "center",
     padding: "1px 5px", borderRadius: 4,
     background: "#e2e8f0", fontSize: 12, fontWeight: 600,
-    fontFamily: "'JetBrains Mono', monospace", color: "#64748b",
+    fontFamily: "'JetBrains Mono', monospace", color: "#475569",
     minWidth: 20, lineHeight: 1.5,
   };
 
@@ -152,7 +152,7 @@ export default function SearchOverlay({ onClose }) {
           }}>{item.meta.score}</span>
           {item.meta.badge && (
             <span style={{
-              fontSize: 12, color: "#64748b", fontWeight: 500,
+              fontSize: 12, color: "#475569", fontWeight: 500,
             }}>{item.meta.badge}</span>
           )}
         </div>
@@ -165,7 +165,7 @@ export default function SearchOverlay({ onClose }) {
       return <span style={{ fontSize: 16, flexShrink: 0 }}>{item.meta.icon}</span>;
     }
     if (item.type === "guide" && item.meta.readTime) {
-      return <span style={{ fontSize: 12, color: "#94a3b8", flexShrink: 0 }}>{item.meta.readTime}</span>;
+      return <span style={{ fontSize: 12, color: "#64748b", flexShrink: 0 }}>{item.meta.readTime}</span>;
     }
     return null;
   };
@@ -177,7 +177,7 @@ export default function SearchOverlay({ onClose }) {
       <div style={modal} onKeyDown={handleKey}>
         {/* ── Input ── */}
         <div style={inputWrap}>
-          <Search size={20} color="#94a3b8" style={{ flexShrink: 0 }} />
+          <Search size={20} color="#64748b" style={{ flexShrink: 0 }} />
           <input
             ref={inputRef}
             type="text"
@@ -188,7 +188,7 @@ export default function SearchOverlay({ onClose }) {
           />
           <button onClick={onClose} style={{
             background: "none", border: "none", cursor: "pointer",
-            padding: 4, display: "inline-flex", color: "#94a3b8",
+            padding: 4, display: "inline-flex", color: "#64748b",
           }}><X size={20} /></button>
         </div>
 
@@ -211,7 +211,7 @@ export default function SearchOverlay({ onClose }) {
                   onMouseEnter={(e) => { e.currentTarget.style.background = "#f0fdf4"; }}
                   onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; }}
                 >
-                  <span style={{ color: "#94a3b8", marginRight: 8 }}>{"\u2192"}</span>
+                  <span style={{ color: "#64748b", marginRight: 8 }}>{"\u2192"}</span>
                   {p.label}
                 </button>
               ))}
@@ -220,7 +220,7 @@ export default function SearchOverlay({ onClose }) {
 
           {/* Typing but < 2 chars */}
           {query.length > 0 && query.length < 2 && (
-            <div style={{ padding: "40px 20px", textAlign: "center", color: "#94a3b8", fontSize: 15 }}>
+            <div style={{ padding: "40px 20px", textAlign: "center", color: "#64748b", fontSize: 15 }}>
               {t("search.minChars")}
             </div>
           )}
@@ -273,10 +273,10 @@ export default function SearchOverlay({ onClose }) {
           {/* No results */}
           {query.length >= 2 && results.length === 0 && (
             <div style={{ padding: "40px 20px", textAlign: "center" }}>
-              <div style={{ fontSize: 15, color: "#64748b", fontWeight: 500, marginBottom: 6 }}>
+              <div style={{ fontSize: 15, color: "#475569", fontWeight: 500, marginBottom: 6 }}>
                 {t("search.noResults")} &laquo;{query}&raquo;
               </div>
-              <div style={{ fontSize: 14, color: "#94a3b8" }}>
+              <div style={{ fontSize: 14, color: "#64748b" }}>
                 {t("search.tryQuery")}
               </div>
             </div>

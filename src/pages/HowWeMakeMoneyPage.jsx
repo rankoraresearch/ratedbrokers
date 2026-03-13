@@ -102,7 +102,7 @@ export default function HowWeMakeMoneyPage() {
           <h1 style={{ fontFamily: "Outfit", fontWeight: 900, fontSize: mob ? 26 : 42, lineHeight: 1.15, color: "#0f172a", margin: "0 0 14px" }}>
             {t("hwmm.title")}
           </h1>
-          <p style={{ fontSize: 19, lineHeight: 1.65, color: "#475569", margin: 0 }}>
+          <p style={{ fontSize: 19, lineHeight: 1.65, color: "#334155", margin: 0 }}>
             {t("hwmm.subtitle")}
           </p>
         </div>
@@ -129,7 +129,7 @@ export default function HowWeMakeMoneyPage() {
         <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 28, marginBottom: 6 }}>
           {t("hwmm.howTitle")}
         </h2>
-        <p style={{ fontSize: 16, color: "#64748b", marginBottom: 24, maxWidth: 700 }}>
+        <p style={{ fontSize: 16, color: "#475569", marginBottom: 24, maxWidth: 700 }}>
           {t("hwmm.howDesc")}
         </p>
 
@@ -160,7 +160,7 @@ export default function HowWeMakeMoneyPage() {
                 color: s.color + "20",
               }}>{s.step}</div>
               <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 17, marginBottom: 6 }}>{s.title}</div>
-              <div style={{ fontSize: 15, color: "#64748b", lineHeight: 1.7 }}>{s.desc}</div>
+              <div style={{ fontSize: 15, color: "#475569", lineHeight: 1.7 }}>{s.desc}</div>
             </div>
           ))}
         </div>
@@ -189,7 +189,7 @@ export default function HowWeMakeMoneyPage() {
         <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 28, marginBottom: 6 }}>
           {t("hwmm.partnersTitle")}
         </h2>
-        <p style={{ fontSize: 16, color: "#64748b", marginBottom: 20, maxWidth: 700 }}>
+        <p style={{ fontSize: 16, color: "#475569", marginBottom: 20, maxWidth: 700 }}>
           {t("hwmm.partnersDesc")}
         </p>
 
@@ -199,7 +199,7 @@ export default function HowWeMakeMoneyPage() {
           <div style={{
             display: "grid", gridTemplateColumns: mob ? "1fr 80px" : "1fr 120px 160px",
             padding: "12px 20px", background: "#f8f9fb",
-            fontWeight: 700, fontSize: 13, color: "#64748b", textTransform: "uppercase", letterSpacing: 0.5,
+            fontWeight: 700, fontSize: 13, color: "#475569", textTransform: "uppercase", letterSpacing: 0.5,
           }}>
             <div>{t("hwmm.colBroker")}</div>
             <div style={{ textAlign: "center" }}>{t("hwmm.colScore")}</div>
@@ -219,7 +219,7 @@ export default function HowWeMakeMoneyPage() {
                 textAlign: "center", fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 15,
                 color: b.score >= 9 ? "#059669" : b.score >= 8 ? "#2563eb" : "#f59e0b",
               }}>{b.score}</div>
-              {!mob && <div style={{ textAlign: "center", fontSize: 13, color: "#64748b" }}>{b.type}</div>}
+              {!mob && <div style={{ textAlign: "center", fontSize: 13, color: "#475569" }}>{b.type}</div>}
             </div>
           ))}
         </div>
@@ -258,7 +258,7 @@ export default function HowWeMakeMoneyPage() {
                 <Icon name={card.icon} size={22} color={card.color} />
               </div>
               <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 17, marginBottom: 6 }}>{card.title}</div>
-              <div style={{ fontSize: 15, color: "#64748b", lineHeight: 1.7 }}>{card.desc}</div>
+              <div style={{ fontSize: 15, color: "#475569", lineHeight: 1.7 }}>{card.desc}</div>
             </div>
           ))}
         </div>
@@ -311,7 +311,7 @@ export default function HowWeMakeMoneyPage() {
                 display: "flex", alignItems: "center", justifyContent: "space-between",
               }}>
                 <span style={{ fontWeight: 600, fontSize: 16 }}>{item.q}</span>
-                <span style={{ color: "#64748b", transform: expandedFAQ === i ? "rotate(180deg)" : "none", transition: "transform 0.2s", display: "inline-flex" }}><ChevronDown size={18} /></span>
+                <span style={{ color: "#475569", transform: expandedFAQ === i ? "rotate(180deg)" : "none", transition: "transform 0.2s", display: "inline-flex" }}><ChevronDown size={18} /></span>
               </div>
               {expandedFAQ === i && (
                 <div style={{ padding: "0 20px 18px", fontSize: 15, lineHeight: 1.8, color: "#334155", borderTop: "1px solid #f1f5f9" }}>
