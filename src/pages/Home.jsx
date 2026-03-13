@@ -18,7 +18,7 @@ import HeroWave from "../components/HeroWave";
 // VARIANT CONFIG — change these to preview layouts
 // ══════════════════════════════════════════════════════
 const NAV_VARIANT = "B";      // "A" = Compact Grid | "B" = Hero Pills | "C" = Tabbed
-const BROKER_VARIANT = "A";   // "A" = Podium+List | "B" = Card Grid   | "C" = Editorial
+const BROKER_VARIANT = "E";   // "A" = Podium+List | "B" = Card Grid | "C" = Editorial | "D" = NerdWallet Rows | "E" = Power Cards | "F" = Leaderboard
 
 // ══════════════════════════════════════════════════════
 // DATA
@@ -695,6 +695,524 @@ function BrokerEditorial({ mob, tab, lp, brokers }) {
 }
 
 // ══════════════════════════════════════════════════════
+// BROKER VARIANT D — NerdWallet Rows (Top 5, horizontal)
+// ══════════════════════════════════════════════════════
+function BrokerNerdwallet({ mob, tab, lp, brokers }) {
+  const top5 = brokers.slice(0, 5);
+  return (
+    <section style={{ padding: mob ? "32px 16px" : "48px 24px" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+        <h2 style={{
+          fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 30,
+          textAlign: "center", marginBottom: 8,
+        }}>
+          Best Forex Brokers 2026
+        </h2>
+        <p style={{ textAlign: "center", fontSize: 15, color: "#1f2937", marginBottom: 28, maxWidth: 500, margin: "0 auto 28px" }}>
+          Ranked by our expert team across 6 scoring categories.
+        </p>
+
+        <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
+          {top5.map((broker, idx) => {
+            const b = broker.B;
+            const rank = idx + 1;
+            const isFirst = rank === 1;
+            const visitUrl = getVisitUrl(broker.slug, b.url);
+            return (
+              <div key={broker.slug} style={{
+                position: "relative",
+                display: mob ? "block" : "flex",
+                alignItems: "center", gap: 20,
+                padding: mob ? "20px 16px" : "20px 28px",
+                background: isFirst ? "#f0fdf4" : "#fff",
+                borderLeft: isFirst ? "4px solid #059669" : "4px solid transparent",
+                borderBottom: idx < 4 ? "1px solid #e2e8f0" : "none",
+                borderRadius: idx === 0 ? "16px 16px 0 0" : idx === 4 ? "0 0 16px 16px" : 0,
+                border: isFirst
+                  ? "1px solid #a7f3d0"
+                  : "1px solid #e2e8f0",
+                borderBottomColor: idx < 4 ? "#e2e8f0" : undefined,
+                marginBottom: isFirst ? 0 : 0,
+                transition: "box-shadow 0.2s",
+              }}
+                onMouseEnter={(e) => { e.currentTarget.style.boxShadow = "0 2px 12px rgba(5,150,105,0.08)"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.boxShadow = "none"; }}
+              >
+                {/* Mobile layout */}
+                {mob ? (
+                  <>
+                    {/* Row 1: Rank + Logo + Name + Score */}
+                    <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 12 }}>
+                      <span style={{
+                        width: 32, height: 32, borderRadius: "50%",
+                        background: isFirst ? "#059669" : "#1e3a5f", color: "#fff",
+                        display: "flex", alignItems: "center", justifyContent: "center",
+                        fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: 13, flexShrink: 0,
+                      }}>#{rank}</span>
+                      <Link to={lp(`/review/${broker.slug}`)} style={{ flexShrink: 0, textDecoration: "none" }}>
+                        <BrokerLogo slug={broker.slug} name={b.name} fallback={b.logo} size={44} shape="brand" />
+                      </Link>
+                      <div style={{ flex: 1, minWidth: 0 }}>
+                        {isFirst && (
+                          <span style={{
+                            display: "inline-block", padding: "2px 8px", borderRadius: 4,
+                            background: "#059669", color: "#fff", fontSize: 10, fontWeight: 700, marginBottom: 4,
+                          }}>EDITOR'S CHOICE</span>
+                        )}
+                      </div>
+                      <div style={{ textAlign: "right" }}>
+                        <div style={{ fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: 18, color: scoreColor(b.score) }}>{b.score}</div>
+                        <div style={{ fontSize: 11, fontWeight: 600, color: scoreColor(b.score) }}>{scoreLabel(b.score)}</div>
+                      </div>
+                    </div>
+                    {/* Row 2: Metrics + Regs */}
+                    <div style={{ display: "flex", gap: 12, marginBottom: 12, fontSize: 13, color: "#374151" }}>
+                      <span><strong>{b.spread}</strong> pips</span>
+                      <span>Min <strong>${b.minDep}</strong></span>
+                      <span style={{ marginLeft: "auto", display: "flex", gap: 4 }}>
+                        {b.regs.slice(0, 2).map((r, ri) => <RegBadge key={ri} reg={r.name} />)}
+                      </span>
+                    </div>
+                    {/* Row 3: Full-width CTA */}
+                    <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" style={{
+                      display: "block", padding: "12px 0", borderRadius: 10,
+                      background: "linear-gradient(135deg,#059669,#34d399)",
+                      color: "#fff", fontWeight: 700, fontSize: 15,
+                      textAlign: "center", textDecoration: "none", transition: "opacity 0.2s",
+                    }}
+                      onMouseEnter={(e) => e.currentTarget.style.opacity = "0.9"}
+                      onMouseLeave={(e) => e.currentTarget.style.opacity = "1"}
+                    >
+                      Visit Broker <ArrowRight size={14} style={{ verticalAlign: "middle", marginLeft: 4 }} />
+                    </a>
+                  </>
+                ) : (
+                  /* Desktop layout */
+                  <>
+                    {/* Rank */}
+                    <span style={{
+                      width: 32, height: 32, borderRadius: "50%",
+                      background: isFirst ? "#059669" : "#1e3a5f", color: "#fff",
+                      display: "flex", alignItems: "center", justifyContent: "center",
+                      fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: 13, flexShrink: 0,
+                    }}>#{rank}</span>
+
+                    {/* Logo */}
+                    <Link to={lp(`/review/${broker.slug}`)} style={{ flexShrink: 0, textDecoration: "none" }}>
+                      <BrokerLogo slug={broker.slug} name={b.name} fallback={b.logo} size={48} shape="brand" />
+                    </Link>
+
+                    {/* Name + Review link */}
+                    <div style={{ width: 160, flexShrink: 0 }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                        {isFirst && (
+                          <span style={{
+                            display: "inline-block", padding: "2px 8px", borderRadius: 4,
+                            background: "#059669", color: "#fff", fontSize: 10, fontWeight: 700,
+                          }}>EDITOR'S CHOICE</span>
+                        )}
+                      </div>
+                      <Link to={lp(`/review/${broker.slug}`)} style={{
+                        fontSize: 13, color: "#059669", fontWeight: 600, textDecoration: "none",
+                      }}>
+                        Read Review <ArrowRight size={11} style={{ verticalAlign: "middle" }} />
+                      </Link>
+                    </div>
+
+                    {/* Score */}
+                    <div style={{ width: 70, textAlign: "center", flexShrink: 0 }}>
+                      <div style={{ fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: 18, color: scoreColor(b.score) }}>{b.score}</div>
+                      <div style={{ fontSize: 11, fontWeight: 600, color: scoreColor(b.score) }}>{scoreLabel(b.score)}</div>
+                    </div>
+
+                    {/* Spread */}
+                    <div style={{ width: 80, textAlign: "center", flexShrink: 0, fontSize: 14, color: "#374151" }}>
+                      <div style={{ fontWeight: 700, color: "#111827" }}>{b.spread} pips</div>
+                    </div>
+
+                    {/* Min Deposit */}
+                    <div style={{ width: 70, textAlign: "center", flexShrink: 0, fontSize: 14, color: "#374151" }}>
+                      <div style={{ fontWeight: 700, color: "#111827" }}>${b.minDep}</div>
+                    </div>
+
+                    {/* Regs */}
+                    <div style={{ display: "flex", gap: 4, flexWrap: "wrap", width: 120, flexShrink: 0 }}>
+                      {b.regs.slice(0, 3).map((r, ri) => <RegBadge key={ri} reg={r.name} />)}
+                    </div>
+
+                    {/* CTA */}
+                    <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" style={{
+                      padding: "10px 20px", borderRadius: 10,
+                      background: "linear-gradient(135deg,#059669,#34d399)",
+                      color: "#fff", fontWeight: 700, fontSize: 14,
+                      textDecoration: "none", whiteSpace: "nowrap", flexShrink: 0,
+                      transition: "opacity 0.2s", minWidth: 140, textAlign: "center",
+                    }}
+                      onMouseEnter={(e) => e.currentTarget.style.opacity = "0.9"}
+                      onMouseLeave={(e) => e.currentTarget.style.opacity = "1"}
+                    >
+                      Visit Broker <ArrowRight size={13} style={{ verticalAlign: "middle", marginLeft: 2 }} />
+                    </a>
+                  </>
+                )}
+              </div>
+            );
+          })}
+        </div>
+
+        <div style={{ textAlign: "center", marginTop: 24 }}>
+          <Link to={lp("/best-forex-brokers")} style={{
+            display: "inline-flex", alignItems: "center", gap: 6,
+            padding: "10px 24px", borderRadius: 10,
+            background: "#1e3a5f", color: "#fff", fontWeight: 700, fontSize: 15,
+            textDecoration: "none", transition: "opacity 0.2s",
+          }}
+            onMouseEnter={(e) => e.currentTarget.style.opacity = "0.85"}
+            onMouseLeave={(e) => e.currentTarget.style.opacity = "1"}
+          >
+            See All {brokers.length} Brokers <ArrowRight size={16} />
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ══════════════════════════════════════════════════════
+// BROKER VARIANT E — Compact Power Cards (Top 5, vertical)
+// ══════════════════════════════════════════════════════
+function BrokerPowerCards({ mob, tab, lp, brokers }) {
+  const top5 = brokers.slice(0, 5);
+  return (
+    <section style={{ padding: mob ? "32px 16px" : "48px 24px" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+        <h2 style={{
+          fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 30,
+          textAlign: "center", marginBottom: 8,
+        }}>
+          Best Forex Brokers 2026
+        </h2>
+        <p style={{ textAlign: "center", fontSize: 15, color: "#1f2937", marginBottom: 28, maxWidth: 500, margin: "0 auto 28px" }}>
+          5 highest-scored brokers from our expert research.
+        </p>
+
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: mob ? "1fr 1fr" : tab ? "repeat(3, 1fr)" : "repeat(5, 1fr)",
+          gap: 12,
+        }}>
+          {top5.map((broker, idx) => {
+            const b = broker.B;
+            const rank = idx + 1;
+            const isFirst = rank === 1;
+            const visitUrl = getVisitUrl(broker.slug, b.url);
+            return (
+              <div key={broker.slug} style={{
+                position: "relative", background: "#fff",
+                border: isFirst ? "2px solid #059669" : "1px solid #e2e8f0",
+                borderRadius: 16, padding: "20px 16px", textAlign: "center",
+                boxShadow: isFirst ? "0 4px 20px rgba(5,150,105,0.1)" : "0 1px 4px rgba(0,0,0,0.04)",
+                display: "flex", flexDirection: "column", alignItems: "center",
+                transition: "transform 0.2s, box-shadow 0.2s",
+              }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "translateY(-2px)";
+                  e.currentTarget.style.boxShadow = "0 6px 24px rgba(0,0,0,0.08)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow = isFirst ? "0 4px 20px rgba(5,150,105,0.1)" : "0 1px 4px rgba(0,0,0,0.04)";
+                }}
+              >
+                {/* Editor's Choice ribbon for #1 */}
+                {isFirst && (
+                  <div style={{
+                    position: "absolute", top: -1, left: -1, right: -1,
+                    padding: "5px 0", borderRadius: "16px 16px 0 0",
+                    background: "#059669", color: "#fff",
+                    fontSize: 10, fontWeight: 700, textAlign: "center", letterSpacing: 0.5,
+                  }}>
+                    <Award size={12} style={{ verticalAlign: "middle", marginRight: 4 }} />
+                    EDITOR'S CHOICE
+                  </div>
+                )}
+
+                {/* Rank badge */}
+                <div style={{
+                  position: "absolute", top: isFirst ? 30 : 10, right: 10,
+                  width: 24, height: 24, borderRadius: "50%",
+                  background: "#1e3a5f", color: "#fff",
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: 11,
+                }}>#{rank}</div>
+
+                {/* Logo */}
+                <div style={{ marginTop: isFirst ? 28 : 8, marginBottom: 12 }}>
+                  <Link to={lp(`/review/${broker.slug}`)} style={{ textDecoration: "none" }}>
+                    <BrokerLogo slug={broker.slug} name={b.name} fallback={b.logo} size={48} shape="icon" />
+                  </Link>
+                </div>
+
+                {/* Name */}
+                <Link to={lp(`/review/${broker.slug}`)} style={{
+                  fontSize: 14, fontWeight: 700, color: "#111827",
+                  textDecoration: "none", marginBottom: 6,
+                }}>
+                  {b.name}
+                </Link>
+
+                {/* Score */}
+                <div style={{ fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: 24, color: scoreColor(b.score), lineHeight: 1 }}>
+                  {b.score}
+                </div>
+                <div style={{ fontSize: 11, fontWeight: 600, color: scoreColor(b.score), marginBottom: 12 }}>
+                  {scoreLabel(b.score)}
+                </div>
+
+                {/* Metrics */}
+                <div style={{ fontSize: 13, color: "#374151", marginBottom: 4 }}>
+                  <span style={{ fontWeight: 700, color: "#111827" }}>{b.spread}</span> pips
+                </div>
+                <div style={{ fontSize: 13, color: "#374151", marginBottom: 12 }}>
+                  Min <span style={{ fontWeight: 700, color: "#111827" }}>${b.minDep}</span>
+                </div>
+
+                {/* Regs */}
+                <div style={{ display: "flex", gap: 4, flexWrap: "wrap", justifyContent: "center", marginBottom: 14 }}>
+                  {b.regs.slice(0, 2).map((r, ri) => <RegBadge key={ri} reg={r.name} />)}
+                </div>
+
+                {/* CTA — pushes to bottom via margin-top auto */}
+                <div style={{ marginTop: "auto", width: "100%" }}>
+                  <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" style={{
+                    display: "block", padding: "10px 0", borderRadius: 10,
+                    background: "linear-gradient(135deg,#059669,#34d399)",
+                    color: "#fff", fontWeight: 700, fontSize: 14,
+                    textAlign: "center", textDecoration: "none", transition: "opacity 0.2s",
+                  }}
+                    onMouseEnter={(e) => e.currentTarget.style.opacity = "0.9"}
+                    onMouseLeave={(e) => e.currentTarget.style.opacity = "1"}
+                  >
+                    Visit Broker
+                  </a>
+                  <Link to={lp(`/review/${broker.slug}`)} style={{
+                    display: "block", marginTop: 8, fontSize: 12, fontWeight: 600,
+                    color: "#059669", textDecoration: "none", textAlign: "center",
+                  }}>
+                    Read Review <ArrowRight size={11} style={{ verticalAlign: "middle" }} />
+                  </Link>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        <div style={{ textAlign: "center", marginTop: 24 }}>
+          <Link to={lp("/best-forex-brokers")} style={{
+            display: "inline-flex", alignItems: "center", gap: 6,
+            padding: "10px 24px", borderRadius: 10,
+            background: "#1e3a5f", color: "#fff", fontWeight: 700, fontSize: 15,
+            textDecoration: "none", transition: "opacity 0.2s",
+          }}
+            onMouseEnter={(e) => e.currentTarget.style.opacity = "0.85"}
+            onMouseLeave={(e) => e.currentTarget.style.opacity = "1"}
+          >
+            See All {brokers.length} Brokers <ArrowRight size={16} />
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ══════════════════════════════════════════════════════
+// BROKER VARIANT F — Leaderboard Table (Top 10, dense)
+// ══════════════════════════════════════════════════════
+function BrokerLeaderboard({ mob, tab, lp, brokers }) {
+  const top10 = brokers.slice(0, 10);
+  return (
+    <section style={{ padding: mob ? "32px 16px" : "48px 24px" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+        <h2 style={{
+          fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 30,
+          textAlign: "center", marginBottom: 8,
+        }}>
+          Best Forex Brokers 2026
+        </h2>
+        <p style={{ textAlign: "center", fontSize: 15, color: "#1f2937", marginBottom: 28, maxWidth: 500, margin: "0 auto 28px" }}>
+          10 highest-scored brokers. Updated March 2026.
+        </p>
+
+        <div style={{
+          background: "#fff", borderRadius: 16, border: "1px solid #e2e8f0",
+          overflow: "hidden",
+        }}>
+          {/* Header row — desktop only */}
+          {!mob && (
+            <div style={{
+              display: "grid",
+              gridTemplateColumns: "50px 1fr 70px 80px 70px 80px 110px",
+              alignItems: "center", gap: 8,
+              padding: "10px 20px", background: "#f8fafc",
+              borderBottom: "1px solid #e2e8f0",
+              fontSize: 11, fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: 0.5,
+            }}>
+              <span>#</span>
+              <span>Broker</span>
+              <span style={{ textAlign: "center" }}>Score</span>
+              <span style={{ textAlign: "center" }}>Spread</span>
+              <span style={{ textAlign: "center" }}>Min</span>
+              <span>Regs</span>
+              <span></span>
+            </div>
+          )}
+
+          {top10.map((broker, idx) => {
+            const b = broker.B;
+            const rank = idx + 1;
+            const isFirst = rank === 1;
+            const visitUrl = getVisitUrl(broker.slug, b.url);
+
+            if (mob) {
+              /* Mobile: compact row */
+              return (
+                <div key={broker.slug} style={{
+                  display: "flex", alignItems: "center", gap: 8,
+                  padding: "12px 14px",
+                  background: isFirst ? "#f0fdf4" : "transparent",
+                  borderLeft: isFirst ? "3px solid #059669" : "3px solid transparent",
+                  borderBottom: idx < 9 ? "1px solid #f1f5f9" : "none",
+                }}>
+                  <span style={{
+                    fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: 13,
+                    color: isFirst ? "#059669" : "#64748b", width: 24, textAlign: "center", flexShrink: 0,
+                  }}>
+                    {isFirst ? "★" : rank}
+                  </span>
+                  <Link to={lp(`/review/${broker.slug}`)} style={{ flexShrink: 0, textDecoration: "none" }}>
+                    <BrokerLogo slug={broker.slug} name={b.name} fallback={b.logo} size={28} shape="icon" />
+                  </Link>
+                  <Link to={lp(`/review/${broker.slug}`)} style={{
+                    flex: 1, minWidth: 0, fontSize: 14, fontWeight: 700, color: "#111827",
+                    textDecoration: "none", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
+                  }}>
+                    {b.name}
+                  </Link>
+                  <span style={{
+                    fontFamily: "'JetBrains Mono'", fontWeight: 700, fontSize: 15,
+                    color: scoreColor(b.score), flexShrink: 0,
+                  }}>{b.score}</span>
+                  <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" style={{
+                    padding: "6px 14px", borderRadius: 8,
+                    background: "linear-gradient(135deg,#059669,#34d399)",
+                    color: "#fff", fontWeight: 700, fontSize: 12,
+                    textDecoration: "none", whiteSpace: "nowrap", flexShrink: 0,
+                    transition: "opacity 0.2s",
+                  }}
+                    onMouseEnter={(e) => e.currentTarget.style.opacity = "0.9"}
+                    onMouseLeave={(e) => e.currentTarget.style.opacity = "1"}
+                  >
+                    Visit <ArrowRight size={11} style={{ verticalAlign: "middle" }} />
+                  </a>
+                </div>
+              );
+            }
+
+            /* Desktop: grid row */
+            return (
+              <div key={broker.slug} style={{
+                display: "grid",
+                gridTemplateColumns: "50px 1fr 70px 80px 70px 80px 110px",
+                alignItems: "center", gap: 8,
+                padding: "12px 20px",
+                background: isFirst ? "#f0fdf4" : "transparent",
+                borderLeft: isFirst ? "3px solid #059669" : "3px solid transparent",
+                borderBottom: idx < 9 ? "1px solid #f1f5f9" : "none",
+                transition: "background 0.15s",
+              }}
+                onMouseEnter={(e) => {
+                  if (!isFirst) e.currentTarget.style.background = "#fafffe";
+                }}
+                onMouseLeave={(e) => {
+                  if (!isFirst) e.currentTarget.style.background = "transparent";
+                }}
+              >
+                {/* Rank */}
+                <span style={{
+                  fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: 14,
+                  color: isFirst ? "#059669" : "#64748b",
+                }}>
+                  {isFirst ? "1 ★" : rank}
+                </span>
+
+                {/* Broker: icon + name */}
+                <div style={{ display: "flex", alignItems: "center", gap: 10, minWidth: 0 }}>
+                  <Link to={lp(`/review/${broker.slug}`)} style={{ flexShrink: 0, textDecoration: "none" }}>
+                    <BrokerLogo slug={broker.slug} name={b.name} fallback={b.logo} size={32} shape="icon" />
+                  </Link>
+                  <Link to={lp(`/review/${broker.slug}`)} style={{
+                    fontSize: 14, fontWeight: 700, color: "#111827", textDecoration: "none",
+                    overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
+                  }}>
+                    {b.name}
+                  </Link>
+                </div>
+
+                {/* Score */}
+                <span style={{
+                  fontFamily: "'JetBrains Mono'", fontWeight: 700, fontSize: 15,
+                  color: scoreColor(b.score), textAlign: "center",
+                }}>{b.score}</span>
+
+                {/* Spread */}
+                <span style={{ fontSize: 13, color: "#374151", textAlign: "center" }}>{b.spread} pips</span>
+
+                {/* Min deposit */}
+                <span style={{ fontSize: 13, color: "#374151", textAlign: "center" }}>${b.minDep}</span>
+
+                {/* Regs — main one */}
+                <span style={{ fontSize: 12, color: "#374151", fontWeight: 600 }}>
+                  {b.regs.slice(0, 1).map(r => r.name).join(", ")}
+                </span>
+
+                {/* Visit CTA */}
+                <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" style={{
+                  display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 4,
+                  padding: "8px 16px", borderRadius: 8,
+                  background: "linear-gradient(135deg,#059669,#34d399)",
+                  color: "#fff", fontWeight: 700, fontSize: 13,
+                  textDecoration: "none", whiteSpace: "nowrap",
+                  transition: "opacity 0.2s",
+                }}
+                  onMouseEnter={(e) => e.currentTarget.style.opacity = "0.9"}
+                  onMouseLeave={(e) => e.currentTarget.style.opacity = "1"}
+                >
+                  Visit <ArrowRight size={12} />
+                </a>
+              </div>
+            );
+          })}
+        </div>
+
+        <div style={{ textAlign: "center", marginTop: 24 }}>
+          <Link to={lp("/best-forex-brokers")} style={{
+            display: "inline-flex", alignItems: "center", gap: 6,
+            padding: "10px 24px", borderRadius: 10,
+            background: "#1e3a5f", color: "#fff", fontWeight: 700, fontSize: 15,
+            textDecoration: "none", transition: "opacity 0.2s",
+          }}
+            onMouseEnter={(e) => e.currentTarget.style.opacity = "0.85"}
+            onMouseLeave={(e) => e.currentTarget.style.opacity = "1"}
+          >
+            See Full Ranking — {brokers.length} Brokers <ArrowRight size={16} />
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ══════════════════════════════════════════════════════
 // MAIN COMPONENT
 // ══════════════════════════════════════════════════════
 export default function Home() {
@@ -871,6 +1389,9 @@ export default function Home() {
       {BROKER_VARIANT === "A" && <BrokerPodium mob={mob} tab={tab} lp={lp} brokers={top10} />}
       {BROKER_VARIANT === "B" && <BrokerCardGrid mob={mob} tab={tab} lp={lp} brokers={top10} />}
       {BROKER_VARIANT === "C" && <BrokerEditorial mob={mob} tab={tab} lp={lp} brokers={allBrokersData} />}
+      {BROKER_VARIANT === "D" && <BrokerNerdwallet mob={mob} tab={tab} lp={lp} brokers={allBrokersData} />}
+      {BROKER_VARIANT === "E" && <BrokerPowerCards mob={mob} tab={tab} lp={lp} brokers={allBrokersData} />}
+      {BROKER_VARIANT === "F" && <BrokerLeaderboard mob={mob} tab={tab} lp={lp} brokers={allBrokersData} />}
 
       {/* ===== BROWSE BY COUNTRY ===== */}
       <section style={{ ...cn, padding: mob ? "40px 16px" : "60px 24px" }}>
