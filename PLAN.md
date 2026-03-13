@@ -1,177 +1,107 @@
-# PLAN.md — Архитектура проекта RatedBrokers
+# План: Редизайн Hero-секций — "Визитная карточка RatedBrokers"
 
-## Стек технологий
-
-| Технология | Назначение |
-|-----------|-----------|
-| React 19 + Vite | SPA-фреймворк + сборщик |
-| react-router-dom v7 | Маршрутизация (языковые префиксы + динамические slug) |
-| lucide-react | Иконки (200+ иконок) |
-| fuse.js | Нечёткий поиск по брокерам/гайдам |
-| Inline CSS | Все стили в JSX, без CSS-фреймворков |
-| Custom i18n | Контекст + 10 языков (en активен, 9 готовы) |
-
-**Шрифты:** DM Sans (body), Outfit (заголовки), JetBrains Mono (скоры/числа), Inter (бренд/лейблы)
+## Проблема
+Текущие hero-секции выглядят скучно — простые градиенты + точечный паттерн. Нужно что-то яркое, выразительное, уникальное — настоящая визитная карточка дизайна сайта.
 
 ---
 
-## Архитектура
+## Концепция: "TradingGrid" — Фирменный визуальный язык
 
-```
-src/
-├── App.jsx                  # Роутер (20 route-компонентов)
-├── pages/                   # 20 страниц
-├── components/              # 17 переиспользуемых компонентов
-├── data/                    # 129 файлов статических данных
-│   ├── brokers/             # 38 брокеров + index.js
-│   ├── countries/           # 43 страны + index.js
-│   ├── guides/              # 25 гайдов + index.js
-│   ├── platforms/           # 4 платформы + index.js
-│   ├── rankings.js          # 207 тематических рейтингов
-│   ├── methodologyData.js   # TRUST_SCORE_TIERS, CRITERIA_V2
-│   ├── authors.js           # 26 экспертных авторов
-│   └── ...                  # SEO-контент, шаблоны, генераторы
-├── hooks/                   # useMedia, useSearchIndex
-├── i18n/                    # Мультиязычность (10 языков)
-│   ├── LanguageContext.jsx  # Провайдер + useTranslation()
-│   ├── config.js            # Конфиг языков
-│   └── ui/                  # 673 ключа (en), ~475 (остальные)
-└── assets/                  # Изображения, логотипы
-```
+Создаём **декоративный SVG-компонент** `TradingGrid` — абстрактная визуализация торговых данных в стиле trading terminal:
 
-**Поток данных:** статические JS-файлы → getter-функции (getBrokerData, getAllBrokers) → page-компоненты → inline-рендеринг + JSON-LD schema в useEffect.
+### Элементы SVG:
+1. **Сетка** — тонкие горизонтальные + вертикальные линии (как на торговом графике)
+2. **Ценовая кривая** — плавный SVG path, имитирующий price chart (зелёный, восходящий)
+3. **Свечи** — 5-8 абстрактных candlestick силуэтов разной высоты
+4. **Glow-ноды** — светящиеся круги на ключевых точках кривой
+5. **Data labels** — маленькие прямоугольники (имитация ценовых меток)
+
+Всё полупрозрачное (opacity 0.08–0.20), как фоновая декорация. Это создаёт **"trading analytics"** визуальный язык, уникальный для RatedBrokers.
+
+### Варианты:
+- `variant="full"` — полноразмерный (Home hero, ~500x350)
+- `variant="accent"` — средний (Ranking hero, ~300x200, fade-out вправо)
+- `variant="minimal"` — минимальный (Review/Platform/Regulator, несколько линий)
 
 ---
 
-## Все страницы (365+)
+## Новый компонент: `HeroDivider` (замена HeroWave)
 
-### Статические страницы (15)
-
-| URL | Компонент | Назначение |
-|-----|-----------|-----------|
-| `/` | Home.jsx | Главная: featured брокеры, рейтинги, страны |
-| `/best-forex-brokers` | ForexBrokersPage.jsx | Основной рейтинг форекс-брокеров |
-| `/best-crypto-brokers` | CryptoBrokersPage.jsx | Основной рейтинг крипто-брокеров |
-| `/rankings` | AllRankingsPage.jsx | Каталог всех 207 рейтингов |
-| `/reviews` | AllReviewsPage.jsx | Каталог всех 38 обзоров |
-| `/guides` | AllGuidesPage.jsx | Каталог всех 25 гайдов |
-| `/compare` | ComparePage.jsx | Инструмент сравнения (выбор 2 брокеров) |
-| `/best-forex-brokers-by-country` | CountryHubPage.jsx | Хаб: все 43 страны |
-| `/methodology` | Methodology.jsx | Методология тестирования |
-| `/trust-score` | TrustScorePage.jsx | Trust Score: поиск, тиры, критерии, лидерборд |
-| `/how-we-make-money` | HowWeMakeMoneyPage.jsx | Прозрачность монетизации |
-| `/about` | AboutPage.jsx | О компании, команда |
-| `/contact` | ContactPage.jsx | Контакты |
-
-### Динамические страницы (350+)
-
-| Паттерн | Компонент | Кол-во | Примеры |
-|---------|-----------|--------|---------|
-| `/review/:slug` | BrokerReview.jsx | 38 | /review/ic-markets, /review/pepperstone |
-| `/:slug` | RankingPage.jsx | 207 | /best-forex-brokers-for-beginners, /lowest-spread-forex-brokers |
-| `/best-forex-brokers-:countrySlug` | CountryPage.jsx | 43 | /best-forex-brokers-uk, /best-forex-brokers-australia |
-| `/guide/:slug` | GuidePage.jsx | 25 | /guide/what-is-forex-trading, /guide/scalping-strategy-guide |
-| `/platform/:slug` | PlatformPage.jsx | 4 | /platform/metatrader-4, /platform/ctrader |
-| `/regulator/:slug` | RegulatorPage.jsx | 10+ | /regulator/fca, /regulator/asic |
-| `/compare/:pair` | BrokerComparison.jsx | ∞ | /compare/ic-markets-vs-pepperstone |
+Вместо простой одинарной волны — **многослойный разделитель**:
+- 2-3 SVG-пути разной прозрачности и цвета
+- Цветной акцентный слой (зелёный/синий) + белый основной слой
+- Асимметричная кривая (не симметричная как сейчас)
+- Создаёт ощущение глубины и профессионализма
 
 ---
 
-## Компоненты (17)
+## Дизайн-система по уровням страниц
 
-| Компонент | Назначение |
-|-----------|-----------|
-| Header.jsx | Навигация + мега-меню (5 дропдаунов) + мобильное меню |
-| Footer.jsx | 6-колоночный футер + risk warning + affiliate disclosure |
-| SearchOverlay.jsx | Глобальный поиск (⌘K) через fuse.js |
-| BrokerRankCard.jsx | Карточка брокера в рейтинге (dual CTA, expand, pros/cons) |
-| ScoreBadge.jsx | Бейдж скора с цветом по тиру |
-| AuthorByline.jsx | Автор + fact-checker + дата обновления |
-| AuthorAvatar.jsx | Аватар автора с verified-бейджем |
-| AuthorBioCard.jsx | Полная карточка автора |
-| Breadcrumb.jsx | Хлебные крошки + BreadcrumbList schema |
-| BrokerLogo.jsx | Логотип брокера |
-| CountryFlag.jsx | Флаг страны (PNG) |
-| RegBadge.jsx | Бейдж регулятора (Tier 1/2/3) |
-| Icon.jsx | Обёртка lucide-react + маппинг имён |
-| Stars.jsx | Звёздный рейтинг |
-| TrustpilotLogo.jsx | Логотип Trustpilot |
-| AffiliateDisclosureBanner.jsx | Баннер аффилиатного раскрытия |
-| Accordion.jsx | Раскрывающийся FAQ-блок |
+### Tier 1: HOME — "Command Center"
+- **Фон:** Тёмный (#0c1222) + анимированный mesh gradient (медленное перетекание 15s)
+- **Декор:** Полноразмерный TradingGrid справа (fade к центру)
+- **Контент:** Слева — заголовок, статистика, pills
+- **Переход:** Многослойный HeroDivider (3 слоя)
+- **Акцент:** Изумрудный (#10b981) на тёмном
 
----
+### Tier 2: RANKING TEMPLATE — "Accent Band"
+- **Фон:** Белый/светлый + яркая цветная полоса (6px top border)
+- **Декор:** TradingGrid (accent) справа, fade-out
+- **Цвет полосы:** зелёный (forex), янтарный (crypto), синий (stocks/platform)
+- **Переход:** 2-слойный HeroDivider
 
-## Данные
+### Tier 3: BROKER REVIEW — "Brand Card"
+- **Фон:** Лёгкий тематический градиент
+- **Декор:** TradingGrid (minimal) — несколько линий в правом углу
+- **Переход:** 2-слойный HeroDivider
 
-| Сущность | Кол-во | Файлы |
-|----------|--------|-------|
-| Брокеры | 38 | src/data/brokers/*.js (3000+ слов на ревью) |
-| Страны | 43 | src/data/countries/*.js |
-| Рейтинги | 207 | rankings.js + rankingThematic.js + thematicGenerators.js |
-| Гайды | 25 | src/data/guides/*.js |
-| Платформы | 4 | src/data/platforms/*.js |
-| Авторы | 26 | authors.js (LinkedIn, credentials, фото) |
-| FAQ | 1000+ | Встроены в каждую страницу |
+### Tier 4: PLATFORM / REGULATOR — "Themed Subtle"
+- **Фон:** Тематический лёгкий фон + цветная полоса
+- **Декор:** TradingGrid (minimal) — 2-3 линии
+- **Переход:** Простой HeroDivider
 
 ---
 
-## SEO-система
+## Варианты для HOME PAGE (3 опции)
 
-### Schema markup (JSON-LD на каждой странице)
+### Опция A: "Dashboard" ⭐ рекомендуемая
+- Тёмный фон + анимированный градиент
+- **Левая часть:** Заголовок + 4 stat-карточки (glassmorphism) + badge
+- **Правая часть:** Большой TradingGrid (ценовая кривая + свечи + ноды)
+- **Под hero:** Pill-навигация по категориям (2x4 grid)
+- Многослойный волнистый разделитель с зелёным акцентом
 
-| Тип | Где используется |
-|-----|-----------------|
-| FAQPage | Рейтинги, гайды, ревью, сравнения, контакты, методология, trust score |
-| BreadcrumbList | Все страницы |
-| Article | Рейтинги, гайды, форекс/крипто пиллары |
-| Review + Rating | Ревью брокеров (ratingValue 0–10) |
-| FinancialService | Ревью брокеров |
-| HowTo / HowToStep | Методология |
-| DefinedTerm | Trust Score |
-| ItemList | Лидерборды, списки |
-| Organization | Главная, контакты |
-| WebSite + SearchAction | Главная |
-| Person | Авторские профили |
-| SoftwareApplication | Платформы |
-| GovernmentOrganization | Страницы регуляторов |
-| CollectionPage | Каталог гайдов |
+### Опция B: "Immersive"
+- TradingGrid растянут на **весь фон** hero (full-bleed)
+- Контент по центру поверх TradingGrid
+- Статистика в glassmorphism-карточках (backdrop-filter: blur)
+- Более иммерсивный, как "внутри терминала"
 
-### E-E-A-T сигналы
-- 26 верифицированных авторов с LinkedIn-профилями
-- Fact-checker на каждом ревью
-- Дата обновления (quarterly)
-- Полностью опубликованная формула скоринга
-- Real-money testing disclosure
-- Affiliate transparency page
+### Опция C: "Bold Split"
+- **Левая половина:** Тёмный фон с текстовым контентом
+- **Правая половина:** Яркий изумрудный блок с TradingGrid + ключевые цифры
+- Разделитель: **диагональный clip-path** (не волна)
+- Самый смелый и нестандартный визуально
 
 ---
 
-## i18n
+## Файлы
 
-| Язык | Код | Статус | Ключей |
-|------|-----|--------|--------|
-| English | en | Активен | 673 |
-| Russian | ru | Готов | ~475 |
-| Spanish | es | Готов | ~475 |
-| German | de | Готов | ~475 |
-| French | fr | Готов | ~475 |
-| Portuguese | pt | Готов | ~475 |
-| Arabic | ar | Готов (RTL) | ~475 |
-| Chinese | zh | Готов | ~475 |
-| Japanese | ja | Частично | — |
-| Turkish | tr | Готов | ~475 |
+### Создать:
+1. `src/components/TradingGrid.jsx` — декоративный SVG (сетка + кривая + свечи + ноды)
+2. `src/components/HeroDivider.jsx` — многослойный разделитель (замена HeroWave)
 
----
+### Изменить:
+3. `src/pages/Home.jsx` — новый hero с TradingGrid + анимированный градиент
+4. `src/pages/RankingPage.jsx` — accent band + TradingGrid
+5. `src/pages/BrokerReview.jsx` — brand accent + mini TradingGrid
+6. `src/pages/PlatformPage.jsx` — themed hero + TradingGrid minimal
+7. `src/pages/RegulatorPage.jsx` — themed hero + TradingGrid minimal
 
-## Метрики кодовой базы
+### Удалить/заменить:
+8. `src/components/HeroWave.jsx` → заменяется `HeroDivider.jsx`
 
-| Метрика | Значение |
-|---------|----------|
-| Всего файлов в src/ | 192 (.jsx + .js) |
-| Строк кода | ~44,650 LOC |
-| Страниц (компонентов) | 20 |
-| Компонентов | 17 |
-| Файлов данных | 129 |
-| Самый большой файл | rankingThematic.js (197 KB) |
-| Размер билда (gzip) | ~655 KB (index chunk) |
-| Время билда | ~1.6 сек |
+## Тестирование
+- Breakpoints: 375px, 768px, 1440px
+- `npm run build` — без ошибок
+- Визуальная проверка всех 5 типов страниц

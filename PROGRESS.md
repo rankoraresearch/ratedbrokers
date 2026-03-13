@@ -214,6 +214,42 @@
 
 ---
 
+## Barbara Audit — BrokerReview body harmonization (13 марта 2026)
+
+### Проблема
+Hero band (Gradient Duo) выглядел мощно, а тело страницы — бледно-зелёное (#f0fdf4 + #86efac). Визуальный диссонанс. AuthorCredits на мобильном — хаотичный flex-wrap.
+
+### `016b386` + `359a00f` — Dark navy anchors + AuthorCredits compact
+
+**CTA блоки (3 шт.):** `#f0fdf4` + зелёная кнопка → navy `#0f172a` + оранжевая `#f59e0b`
+**Scoring card:** белая карточка → navy top accent 3px + тёмный footer "Overall Score"
+**Verdict card:** бледно-зелёный → dark gradient `#0f172a → #0f2e24`, белый текст, оранжевая CTA
+**Right sidebar score:** бледно-зелёный → navy `#0f172a`, green score `#34d399`, orange CTA
+**AuthorCredits compact:** новый `compact` prop — строка 1: аватар+автор, строка 2+: остальные с отступом
+
+### Ритм страницы
+Hero (dark) → контент → dark CTA → контент → dark scoring footer → контент → dark CTA → ... → dark verdict → dark sidebar. Navy-элементы echo gradient hero по всей странице.
+
+### Затронутые файлы
+- `src/pages/BrokerReview.jsx` — CTA, scoring, verdict, sidebar
+- `src/components/AuthorCredits.jsx` — compact prop
+
+---
+
+## Breadcrumb standardization (13 марта 2026)
+
+### `016b386` — Унификация padding хлебных крошек
+
+**Проблема:** 5 разных паттернов padding на 17 страницах — прыгали, неодинаковый отступ сверху/снизу.
+
+**Решение:** Стандартизировано в 2 паттерна:
+- **Белый фон** (12 страниц): `mob ? "12px 16px 0" : "16px 24px 0"`
+- **Border-style** (3 страницы: BrokerReview, RegulatorPage, PlatformPage): `mob ? "10px 0" : "12px 0"`
+
+Удалены лишние wrapper-div с `paddingTop: 0`. Визуально проверено на desktop и mobile.
+
+---
+
 ## Что дальше
 
 - [x] Деплой — GitHub Pages + Cloudflare Workers API

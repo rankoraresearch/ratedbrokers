@@ -173,9 +173,11 @@ export default function Footer() {
           {/* A. Brand + Trust Stats */}
           <div style={{ gridColumn: isMobile ? "1 / -1" : tablet ? "1 / -1" : "auto" }}>
             <div style={{ display: "flex", alignItems: "baseline", marginBottom: 12 }}>
-              <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, fontSize: 18, color: "#fff", letterSpacing: "-1px" }}>rated</span>
-              <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, fontSize: 18, color: "#34d399", letterSpacing: "-1px" }}>brokers</span>
-              <span style={{ display: "inline-block", width: 5, height: 5, borderRadius: "50%", background: "#fbbf24", marginLeft: 2, marginBottom: 1 }} />
+              <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, fontSize: 20, color: "#fff", letterSpacing: "-1px" }}>rated</span>
+              <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, fontSize: 20, color: "#34d399", letterSpacing: "-1px" }}>brokers</span>
+              <svg width={10} height={10} viewBox="0 0 18 18" style={{ marginLeft: 2, marginBottom: 2, verticalAlign: "baseline" }}>
+                <polygon points="9,1 17,16 1,16" fill="#fbbf24" />
+              </svg>
             </div>
             <p style={{ fontSize: 14, color: "#94a3b8", lineHeight: 1.7, maxWidth: 280, marginBottom: 16 }}>
               {t("footer.desc")}

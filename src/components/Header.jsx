@@ -351,9 +351,11 @@ export default function Header() {
         }}>
           {/* LOGO */}
           <Link to={lp("/")} style={{ display: "flex", alignItems: "baseline", textDecoration: "none" }}>
-            <span style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 800, fontSize: mob ? 18 : 22, color: "#0f172a", letterSpacing: "-0.5px" }}>Rated</span>
-            <span style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 800, fontSize: mob ? 18 : 22, color: "#059669", letterSpacing: "-0.5px" }}>Brokers</span>
-            <span style={{ display: "inline-block", width: mob ? 5 : 6, height: mob ? 5 : 6, borderRadius: "50%", background: "#f59e0b", marginLeft: 2, marginBottom: 2 }} />
+            <span style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 800, fontSize: mob ? 22 : 28, color: "#0f172a", letterSpacing: "-0.5px" }}>Rated</span>
+            <span style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 800, fontSize: mob ? 22 : 28, color: "#059669", letterSpacing: "-0.5px" }}>Brokers</span>
+            <svg width={mob ? 11 : 14} height={mob ? 11 : 14} viewBox="0 0 18 18" style={{ marginLeft: 2, marginBottom: mob ? 3 : 4, verticalAlign: "baseline" }}>
+              <polygon points="9,1 17,16 1,16" fill="#f59e0b" />
+            </svg>
           </Link>
 
           {/* ══ DESKTOP NAV ══ */}
