@@ -21,6 +21,7 @@ export default function HeroBand({
     <div style={{
       position: "relative",
       overflow: "hidden",
+      borderTop: "3px solid #f59e0b",
       background: "linear-gradient(135deg, #0f172a 0%, #0f2e24 40%, #047857 100%)",
     }}>
       {/* Diagonal line texture */}
@@ -34,11 +35,11 @@ export default function HeroBand({
       {/* Orange glow accent */}
       <div style={{
         position: "absolute",
-        top: "-30%",
-        right: "-10%",
-        width: "50%",
-        height: "160%",
-        background: "radial-gradient(ellipse at center, rgba(245,158,11,0.06) 0%, transparent 70%)",
+        top: "-20%",
+        right: "-5%",
+        width: "55%",
+        height: "140%",
+        background: "radial-gradient(ellipse at center, rgba(245,158,11,0.12) 0%, rgba(245,158,11,0.04) 50%, transparent 75%)",
         pointerEvents: "none",
       }} />
 
