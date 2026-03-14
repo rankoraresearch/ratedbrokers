@@ -99,13 +99,11 @@ export default function RegulatorPage() {
   return (
     <div style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb", color: "#111827", minHeight: "100vh" }}>
       {/* Breadcrumbs */}
-      <div style={{ background: "#fff", borderBottom: "1px solid #e8ecf1", padding: mob ? "10px 0" : "12px 0" }}>
-        <div style={cn}>
-          <Breadcrumb items={[
-            { label: "RatedBrokers", path: "/" },
-            { label: reg.fullName },
-          ]} />
-        </div>
+      <div style={{ ...cn, padding: mob ? "12px 16px 0" : "16px 24px 0" }}>
+        <Breadcrumb items={[
+          { label: "RatedBrokers", path: "/" },
+          { label: reg.fullName },
+        ]} />
       </div>
 
       {/* Hero */}

@@ -143,14 +143,12 @@ export default function BrokerReview() {
   return (
     <div style={{fontFamily:"'DM Sans',system-ui,sans-serif",background:"#f8f9fb",color:"#111827"}}>
       {/* Breadcrumbs */}
-      <div style={{background:"#fff",borderBottom:"1px solid #e8ecf1",padding: mob ? "10px 0" : "12px 0"}}>
-        <div style={cn}>
-          <Breadcrumb items={[
-            { label: "RatedBrokers", path: "/" },
-            { label: "Forex Brokers", path: "/best-forex-brokers" },
-            { label: t("review.review2026", { name: B.name }) },
-          ]} />
-        </div>
+      <div style={{...cn, padding: mob ? "12px 16px 0" : "16px 24px 0"}}>
+        <Breadcrumb items={[
+          { label: "RatedBrokers", path: "/" },
+          { label: "Forex Brokers", path: "/best-forex-brokers" },
+          { label: t("review.review2026", { name: B.name }) },
+        ]} />
       </div>
 
       {/* Hero */}
