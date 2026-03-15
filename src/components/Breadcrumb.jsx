@@ -17,35 +17,36 @@ export default function Breadcrumb({ items, containerStyle }) {
         style={{
           display: "flex",
           alignItems: "center",
-          gap: 6,
-          fontSize: 14,
-          color: "#1f2937",
+          gap: 4,
+          fontSize: 13,
+          color: "#64748b",
           flexWrap: "wrap",
           listStyle: "none",
           margin: 0,
           padding: 0,
+          letterSpacing: "0.01em",
         }}
       >
         {items.map((item, i) => {
           const isLast = i === items.length - 1;
           return (
-            <li key={i} style={{ display: "flex", alignItems: "center", gap: 6 }}>
+            <li key={i} style={{ display: "flex", alignItems: "center", gap: 4 }}>
               {i > 0 && (
-                <span style={{ color: "#cbd5e1", display: "inline-flex", userSelect: "none" }}><ChevronRight size={12} /></span>
+                <span style={{ color: "#94a3b8", display: "inline-flex", userSelect: "none" }}><ChevronRight size={11} /></span>
               )}
               {isLast ? (
-                <span style={{ color: "#111827", fontWeight: 600 }}>{item.label}</span>
+                <span style={{ color: "#0f172a", fontWeight: 600 }}>{item.label}</span>
               ) : item.path ? (
                 <Link
                   to={lp(item.path)}
-                  style={{ color: "#1f2937", textDecoration: "none" }}
+                  style={{ color: "#64748b", textDecoration: "none", fontWeight: 500, transition: "color 0.15s ease" }}
                   onMouseEnter={(e) => { e.currentTarget.style.color = "#059669"; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.color = "#1f2937"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.color = "#64748b"; }}
                 >
                   {item.label}
                 </Link>
               ) : (
-                <span style={{ color: "#1f2937" }}>{item.label}</span>
+                <span style={{ color: "#64748b", fontWeight: 500 }}>{item.label}</span>
               )}
             </li>
           );

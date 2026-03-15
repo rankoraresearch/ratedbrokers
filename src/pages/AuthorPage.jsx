@@ -73,13 +73,17 @@ export default function AuthorPage() {
   return (
     <div style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb", minHeight: "100vh" }}>
 
+      {/* Breadcrumbs */}
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: mob ? "10px 16px" : "14px 24px" }}>
+        <Breadcrumb items={crumbs} />
+      </div>
+
       {/* Hero */}
       <section style={{
         background: "linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%)",
         padding: mob ? "28px 16px 32px" : "40px 24px 48px",
       }}>
         <div style={{ maxWidth: 800, margin: "0 auto" }}>
-          <Breadcrumb items={crumbs} variant="onDark" />
 
           <div style={{
             display: "flex", flexDirection: mob ? "column" : "row",

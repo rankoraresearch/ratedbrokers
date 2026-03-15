@@ -265,7 +265,7 @@ export default function ContactPage() {
       />
 
       {/* =================== BREADCRUMBS =================== */}
-      <div style={{ ...cn, padding: mob ? "12px 16px 0" : "16px 24px 0" }}>
+      <div style={{ ...cn, padding: mob ? "10px 16px" : "14px 24px" }}>
         <Breadcrumb items={breadcrumbItems} />
       </div>
 

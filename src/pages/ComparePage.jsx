@@ -40,7 +40,7 @@ export default function ComparePage() {
     <div style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb", color: "#111827", minHeight: "100vh" }}>
 
       {/* Breadcrumbs */}
-      <div style={{ ...cn, padding: mob ? "12px 16px 0" : "16px 24px 0" }}>
+      <div style={{ ...cn, padding: mob ? "10px 16px" : "14px 24px" }}>
         <Breadcrumb items={[
           { label: "RatedBrokers", path: "/" },
           { label: "Forex Brokers", path: "/best-forex-brokers" },
