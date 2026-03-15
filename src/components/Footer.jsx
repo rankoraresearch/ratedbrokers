@@ -175,8 +175,9 @@ export default function Footer() {
             <div style={{ display: "flex", alignItems: "baseline", marginBottom: 12 }}>
               <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, fontSize: 20, color: "#fff", letterSpacing: "-1px" }}>rated</span>
               <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, fontSize: 20, color: "#34d399", letterSpacing: "-1px" }}>brokers</span>
-              <svg width={10} height={10} viewBox="0 0 18 18" style={{ marginLeft: 2, marginBottom: 2, verticalAlign: "baseline" }}>
-                <polygon points="9,1 17,16 1,16" fill="#fbbf24" />
+              <svg width={11} height={12} viewBox="0 0 20 22" style={{ marginLeft: 2, marginBottom: 2, verticalAlign: "baseline" }}>
+                <path d="M10 0.5L1.5 4.5v6.5c0 5.5 3.6 10.6 8.5 11.5 4.9-0.9 8.5-6 8.5-11.5V4.5L10 0.5z" fill="#fbbf24" />
+                <path d="M7 11.5l2.5 2.5 4.5-5" stroke="#0f172a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
               </svg>
             </div>
             <p style={{ fontSize: 14, color: "#94a3b8", lineHeight: 1.7, maxWidth: 280, marginBottom: 16 }}>
