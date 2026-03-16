@@ -12,6 +12,13 @@ import {
   ExternalLink, CircleCheck, CircleX, Calendar, Newspaper, Bot,
   MonitorSmartphone, Shuffle, FolderOpen, ArrowRightLeft, MapPin,
   FastForward, CheckCircle2, Hash, Users, Timer, Linkedin,
+  // New icons for ranking system
+  ChartCandlestick, ChartLine, ChartArea, ChartBar, ChartNoAxesCombined,
+  ShieldCheck, ShieldAlert, BadgeCheck, BadgePercent, BadgeDollarSign,
+  CircleDollarSign, CircleOff, HandCoins, Vault, Crown, Sparkles,
+  Copy, Signal, Server, Layers, Grid3x3, Target, Activity,
+  Cpu, Code, Apple, Moon, Umbrella, Headphones, ScanLine,
+  Receipt, Fuel, Wheat, Hourglass, ToggleRight,
 } from "lucide-react";
 
 const ICON_MAP = {
@@ -104,8 +111,45 @@ const ICON_MAP = {
   users: Users,
   timer: Timer,
   linkedin: Linkedin,
+  // New icons for ranking system
+  "chart-candlestick": ChartCandlestick,
+  "chart-line": ChartLine,
+  "chart-area": ChartArea,
+  "chart-bar": ChartBar,
+  "chart-no-axes-combined": ChartNoAxesCombined,
+  "shield-check": ShieldCheck,
+  "shield-alert": ShieldAlert,
+  "badge-check": BadgeCheck,
+  "badge-percent": BadgePercent,
+  "badge-dollar-sign": BadgeDollarSign,
+  "circle-dollar-sign": CircleDollarSign,
+  "circle-off": CircleOff,
+  "hand-coins": HandCoins,
+  vault: Vault,
+  crown: Crown,
+  sparkles: Sparkles,
+  copy: Copy,
+  signal: Signal,
+  server: Server,
+  layers: Layers,
+  "grid-3x3": Grid3x3,
+  target: Target,
+  activity: Activity,
+  cpu: Cpu,
+  code: Code,
+  apple: Apple,
+  moon: Moon,
+  umbrella: Umbrella,
+  headphones: Headphones,
+  "scan-line": ScanLine,
+  receipt: Receipt,
+  fuel: Fuel,
+  wheat: Wheat,
+  hourglass: Hourglass,
+  "toggle-right": ToggleRight,
 };
 
+// Legacy EMOJI_MAP — kept for backward compatibility with any remaining emoji references
 const EMOJI_MAP = {
   "\u{1F3C6}": "trophy",
   "\u{1F6E1}\uFE0F": "shield",
@@ -202,7 +246,7 @@ const EMOJI_MAP = {
 export default function Icon({ name, size = 18, color, strokeWidth = 2, style = {}, className }) {
   if (!name) return null;
 
-  // Check EMOJI_MAP first
+  // Check EMOJI_MAP first (legacy support)
   const mapped = EMOJI_MAP[name];
   const iconName = mapped || name;
 

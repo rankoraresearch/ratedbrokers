@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { Linkedin, Target, ArrowRight } from "lucide-react";
+import Icon from "../components/Icon";
 import { useMedia } from "../hooks/useMedia";
 import { useLocalePath } from "../i18n/useLocalePath";
 import { AUTHORS, RANKING_CATEGORY_AUTHORS, getReviewerForAuthor, getFactChecker } from "../data/authors";
@@ -228,7 +229,7 @@ export default function AuthorPage() {
                 onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#a7f3d0"; }}
                 onMouseLeave={(e) => { e.currentTarget.style.borderColor = "#e2e8f0"; }}
               >
-                <span style={{ fontSize: 18 }}>{r.icon}</span>
+                <Icon name={r.icon} size={18} color="#059669" />
                 <span style={{ fontSize: 15, fontWeight: 600, flex: 1 }}>{r.title}</span>
                 <ArrowRight size={14} color="#374151" />
               </Link>
