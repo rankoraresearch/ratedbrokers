@@ -37,22 +37,26 @@
 - Поиск: fuse.js (клиентский)
 - JSON-LD schema через useEffect
 
-## GitHub Pages и деплой
+## Cloudflare Pages и деплой
 
-Сайт: `https://rankoraresearch.github.io/ratedbrokers/`
+Сайт: `https://ratedbrokers.com` (Cloudflare Pages)
 API: `https://ratedbrokers-api.ratedbrokers.workers.dev` (Cloudflare Workers + D1)
+Домен: `ratedbrokers.com`, регистратор NameBright, NS на Cloudflare (`lynn.ns.cloudflare.com`, `sima.ns.cloudflare.com`)
 
-**BASE_URL — критично!** Vite `base: '/ratedbrokers/'`. Все пути к статике из `public/` ОБЯЗАНЫ использовать `import.meta.env.BASE_URL`:
+**Деплой автоматический:** push в `main` → Cloudflare Pages автобилд → live.
+Build command в Cloudflare Pages: `npm run build` (внутри вызывает `brokers:build`).
+
+**BASE_URL:** Vite `base: '/'`. React Router `basename={import.meta.env.BASE_URL}`. Все пути к статике из `public/` используют `import.meta.env.BASE_URL`:
 ```jsx
-// ДА:
 src={`${import.meta.env.BASE_URL}logos/${slug}.png`}
-// НЕТ (404 на GitHub Pages):
-src={`/logos/${slug}.png`}
 ```
+
+**Индексация:** Сайт закрыт от поисковиков (`robots.txt: Disallow: /` + `<meta name="robots" content="noindex, nofollow">`). Открыть когда будет готов.
 
 Env-переменные:
 - `.env` — локальный (в .gitignore, НЕ в git)
-- `.github/workflows/deploy.yml` — `VITE_API_URL` задан там для CI
+- Cloudflare Pages → Settings → Environment Variables: `VITE_API_URL`
+- `.github/workflows/deploy.yml` — бэкапный деплой через wrangler (требует секреты `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`)
 
 ## Affiliate-ссылки
 

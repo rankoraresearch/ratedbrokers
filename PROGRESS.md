@@ -248,11 +248,35 @@ Hero (dark) → контент → dark CTA → контент → dark scoring 
 
 Удалены лишние wrapper-div с `paddingTop: 0`. Визуально проверено на desktop и mobile.
 
+## Миграция на Cloudflare Pages (17 марта 2026)
+
+### `6d06539` — Миграция GitHub Pages → Cloudflare Pages
+- `vite.config.js`: `base: '/ratedbrokers/'` → `base: '/'`
+- `deploy.yml`: заменён GitHub Pages workflow на Cloudflare Pages через wrangler
+- Добавлен шаг `npm run brokers:build` в CI (раньше отсутствовал)
+
+### `999ad47` — SPA-роутинг для Cloudflare Pages
+- Удалён `public/404.html` (GitHub Pages хак)
+- Удалён скрипт-декодер URL из `index.html`
+- Создан `public/_redirects` (`/* /index.html 200`) — нативный SPA fallback
+
+### `f4555c4` — Фикс белого экрана на кастомном домене
+- React Router `basename="/ratedbrokers"` → `basename={import.meta.env.BASE_URL}`
+- Хардкод `/ratedbrokers` ломал роутинг на `ratedbrokers.com` (все пути не матчились)
+
+**Инфраструктура:**
+- Домен `ratedbrokers.com` (регистратор NameBright)
+- NS на Cloudflare (`lynn.ns.cloudflare.com`, `sima.ns.cloudflare.com`)
+- DNS: CNAME `@` и `www` → `ratedbrokers.pages.dev` (Proxied)
+- SSL: Full, сертификат Google Trust Services
+- Индексация закрыта (robots.txt + noindex meta)
+
 ---
 
 ## Что дальше
 
 - [x] Деплой — GitHub Pages + Cloudflare Workers API
+- [x] Миграция на Cloudflare Pages + домен ratedbrokers.com
 - [x] M3 — Идеальный шаблон рейтинга
 - [ ] OG-теги и мета-изображения для соцсетей
 - [ ] Sitemap.xml (robots.txt есть)
