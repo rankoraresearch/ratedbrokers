@@ -21,6 +21,8 @@ import AllGuidesPage from "./pages/AllGuidesPage";
 import AllRankingsPage from "./pages/AllRankingsPage";
 import AuthorPage from "./pages/AuthorPage";
 import PrototypesPage from "./pages/prototypes/PrototypesPage";
+import LogoLab from "./pages/LogoLabDotCom";
+import RankingProto from "./pages/RankingProto";
 import { LanguageProvider } from "./i18n/LanguageContext";
 
 function Layout() {
@@ -39,6 +41,10 @@ function AppRoutes() {
   return (
     <Routes>
       <Route path="prototypes" element={<PrototypesPage />} />
+      <Route path="logo-lab" element={<LogoLab />} />
+      <Route path="proto/ranking" element={<Layout />}>
+        <Route index element={<RankingProto />} />
+      </Route>
       <Route element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="uk" element={<Navigate to="/best-forex-brokers-uk" replace />} />
