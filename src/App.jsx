@@ -67,7 +67,7 @@ function AppRoutes() {
 
 export default function App() {
   return (
-    <BrowserRouter basename="/ratedbrokers">
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <AppRoutes />
     </BrowserRouter>
   );
