@@ -23,6 +23,7 @@ import AuthorPage from "./pages/AuthorPage";
 import PrototypesPage from "./pages/prototypes/PrototypesPage";
 import LogoLab from "./pages/LogoLabDotCom";
 import RankingProto from "./pages/RankingProto";
+import RankingProtoB from "./pages/RankingProtoB";
 import { LanguageProvider } from "./i18n/LanguageContext";
 
 function Layout() {
@@ -44,6 +45,9 @@ function AppRoutes() {
       <Route path="logo-lab" element={<LogoLab />} />
       <Route path="proto/ranking" element={<Layout />}>
         <Route index element={<RankingProto />} />
+      </Route>
+      <Route path="proto/ranking-b" element={<Layout />}>
+        <Route index element={<RankingProtoB />} />
       </Route>
       <Route element={<Layout />}>
         <Route index element={<Home />} />

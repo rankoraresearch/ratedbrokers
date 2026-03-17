@@ -173,12 +173,10 @@ export default function Footer() {
           {/* A. Brand + Trust Stats */}
           <div style={{ gridColumn: isMobile ? "1 / -1" : tablet ? "1 / -1" : "auto" }}>
             <div style={{ display: "flex", alignItems: "baseline", marginBottom: 12 }}>
-              <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, fontSize: 20, color: "#fff", letterSpacing: "-1px" }}>rated</span>
-              <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, fontSize: 20, color: "#34d399", letterSpacing: "-1px" }}>brokers</span>
-              <svg width={11} height={12} viewBox="0 0 20 22" style={{ marginLeft: 2, marginBottom: 2, verticalAlign: "baseline" }}>
-                <path d="M10 0.5L1.5 4.5v6.5c0 5.5 3.6 10.6 8.5 11.5 4.9-0.9 8.5-6 8.5-11.5V4.5L10 0.5z" fill="#fbbf24" />
-                <path d="M7 11.5l2.5 2.5 4.5-5" stroke="#0f172a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-              </svg>
+              <span style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 800, fontSize: 20, color: "#f1f5f9", letterSpacing: "-0.5px" }}>Rated</span>
+              <span style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 800, fontSize: 20, color: "#34d399", letterSpacing: "-0.5px" }}>Brokers</span>
+              <span style={{ display: "inline-block", width: 7, height: 7, borderRadius: "50%", background: "#fbbf24", marginLeft: 3, marginBottom: 1, verticalAlign: "baseline" }} />
+              <span style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 800, fontSize: 10, color: "#f1f5f9", letterSpacing: "-0.3px", marginLeft: 1 }}>com</span>
             </div>
             <p style={{ fontSize: 14, color: "#94a3b8", lineHeight: 1.7, maxWidth: 280, marginBottom: 16 }}>
               {t("footer.desc")}

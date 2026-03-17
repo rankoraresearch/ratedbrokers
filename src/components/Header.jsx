@@ -353,10 +353,8 @@ export default function Header() {
           <Link to={lp("/")} style={{ display: "flex", alignItems: "baseline", textDecoration: "none" }}>
             <span style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 800, fontSize: mob ? 22 : 28, color: "#0f172a", letterSpacing: "-0.5px" }}>Rated</span>
             <span style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 800, fontSize: mob ? 22 : 28, color: "#059669", letterSpacing: "-0.5px" }}>Brokers</span>
-            <svg width={mob ? 12 : 15} height={mob ? 13 : 17} viewBox="0 0 20 22" style={{ marginLeft: 2, marginBottom: mob ? 3 : 4, verticalAlign: "baseline" }}>
-              <path d="M10 0.5L1.5 4.5v6.5c0 5.5 3.6 10.6 8.5 11.5 4.9-0.9 8.5-6 8.5-11.5V4.5L10 0.5z" fill="#f59e0b" />
-              <path d="M7 11.5l2.5 2.5 4.5-5" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-            </svg>
+            <span style={{ display: "inline-block", width: mob ? 8 : 10, height: mob ? 8 : 10, borderRadius: "50%", background: "#f59e0b", marginLeft: 3, marginBottom: mob ? 1 : 1, verticalAlign: "baseline" }} />
+            <span style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 800, fontSize: mob ? 11 : 15, color: "#0f172a", letterSpacing: "-0.3px", marginLeft: 1 }}>com</span>
           </Link>
 
           {/* ══ DESKTOP NAV ══ */}

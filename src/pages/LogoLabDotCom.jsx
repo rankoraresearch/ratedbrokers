@@ -1,287 +1,544 @@
-import { useMedia } from "../hooks/useMedia";
+import { useState } from "react";
 
-/* ── Logo Variants Lab ── */
+/* ═══════════════════════════════════════════════════════════════
+   LOGO LAB v3 — Orange Dot Variations + Favicon Options
+   Focused exploration of the chosen "Orange Dot" concept (W1)
+   ═══════════════════════════════════════════════════════════════ */
 
-const S = {
-  page: { fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f1f5f9", minHeight: "100vh", padding: "32px 16px" },
-  grid: { maxWidth: 900, margin: "0 auto", display: "grid", gap: 24 },
-  card: {
-    background: "#fff", borderRadius: 16, padding: "32px 28px",
-    border: "1px solid #e2e8f0", boxShadow: "0 1px 3px rgba(0,0,0,0.04)",
-  },
-  darkCard: {
-    background: "#0f172a", borderRadius: 16, padding: "32px 28px",
-    border: "1px solid #1e293b",
-  },
-  label: {
-    fontFamily: "JetBrains Mono, monospace", fontSize: 11, fontWeight: 700,
-    color: "#94a3b8", textTransform: "uppercase", letterSpacing: 2,
-    marginBottom: 16,
-  },
-  desc: { fontSize: 14, color: "#64748b", lineHeight: 1.6, marginTop: 14, maxWidth: 500 },
-  darkDesc: { fontSize: 14, color: "#94a3b8", lineHeight: 1.6, marginTop: 14, maxWidth: 500 },
-  tag: {
-    display: "inline-block", padding: "3px 10px", borderRadius: 6,
-    fontSize: 11, fontWeight: 700, marginRight: 6, marginTop: 10,
-  },
-};
+const O = "'Outfit', sans-serif";
 
-/* ── Shield SVG (current) ── */
-const ShieldIcon = ({ size = 17, fill = "#f59e0b", checkColor = "#fff" }) => (
-  <svg width={size} height={size * 1.1} viewBox="0 0 20 22" style={{ verticalAlign: "baseline" }}>
-    <path d="M10 0.5L1.5 4.5v6.5c0 5.5 3.6 10.6 8.5 11.5 4.9-0.9 8.5-6 8.5-11.5V4.5L10 0.5z" fill={fill} />
-    <path d="M7 11.5l2.5 2.5 4.5-5" stroke={checkColor} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-  </svg>
+/* ── Orange Dot function (reusable) ── */
+const Dot = ({ size = 7, color = "#f59e0b", ml = 2, mb = 2 }) => (
+  <span style={{
+    display: "inline-block", width: size, height: size,
+    borderRadius: "50%", background: color, marginLeft: ml, marginBottom: mb,
+    verticalAlign: "baseline", flexShrink: 0,
+  }} />
 );
 
-/* ── Triangle SVG ── */
-const TriangleDot = ({ size = 10, color = "#f59e0b" }) => (
-  <svg width={size} height={size} viewBox="0 0 12 12" style={{ verticalAlign: "baseline", marginBottom: 2 }}>
-    <polygon points="6,0.5 11.5,11 0.5,11" fill={color} />
-  </svg>
-);
+/* ═══ LOGO VARIANTS ═══ */
+const logos = [
+  {
+    id: "A",
+    name: "Original (Current)",
+    desc: "Текущий вариант: Rated (navy) + Brokers (green) + оранжевая точка + com",
+    light: (fs) => (
+      <div style={{ display: "flex", alignItems: "baseline" }}>
+        <span style={{ fontFamily: O, fontWeight: 800, fontSize: fs, color: "#0f172a", letterSpacing: "-0.5px" }}>Rated</span>
+        <span style={{ fontFamily: O, fontWeight: 800, fontSize: fs, color: "#059669", letterSpacing: "-0.5px" }}>Brokers</span>
+        <Dot size={fs * 0.25} mb={fs * 0.06} />
+        <span style={{ fontFamily: O, fontWeight: 800, fontSize: fs * 0.52, color: "#0f172a", letterSpacing: "-0.3px" }}>com</span>
+      </div>
+    ),
+    dark: (fs) => (
+      <div style={{ display: "flex", alignItems: "baseline" }}>
+        <span style={{ fontFamily: O, fontWeight: 800, fontSize: fs, color: "#f1f5f9", letterSpacing: "-0.5px" }}>Rated</span>
+        <span style={{ fontFamily: O, fontWeight: 800, fontSize: fs, color: "#34d399", letterSpacing: "-0.5px" }}>Brokers</span>
+        <Dot size={fs * 0.25} color="#fbbf24" mb={fs * 0.06} />
+        <span style={{ fontFamily: O, fontWeight: 800, fontSize: fs * 0.52, color: "#f1f5f9", letterSpacing: "-0.3px" }}>com</span>
+      </div>
+    ),
+  },
+  {
+    id: "B",
+    name: "Monochrome Navy",
+    desc: "Весь текст одного цвета (navy), только точка — оранжевая. Как Bloomberg — строгость и авторитет.",
+    light: (fs) => (
+      <div style={{ display: "flex", alignItems: "baseline" }}>
+        <span style={{ fontFamily: O, fontWeight: 800, fontSize: fs, color: "#0f172a", letterSpacing: "-0.5px" }}>RatedBrokers</span>
+        <Dot size={fs * 0.25} mb={fs * 0.06} />
+        <span style={{ fontFamily: O, fontWeight: 800, fontSize: fs * 0.52, color: "#0f172a", letterSpacing: "-0.3px" }}>com</span>
+      </div>
+    ),
+    dark: (fs) => (
+      <div style={{ display: "flex", alignItems: "baseline" }}>
+        <span style={{ fontFamily: O, fontWeight: 800, fontSize: fs, color: "#f1f5f9", letterSpacing: "-0.5px" }}>RatedBrokers</span>
+        <Dot size={fs * 0.25} color="#fbbf24" mb={fs * 0.06} />
+        <span style={{ fontFamily: O, fontWeight: 800, fontSize: fs * 0.52, color: "#f1f5f9", letterSpacing: "-0.3px" }}>com</span>
+      </div>
+    ),
+  },
+  {
+    id: "C",
+    name: "Lowercase Modern",
+    desc: "Всё строчными, как investing.com или bloomberg. Современно, дружелюбно, tech-vibe.",
+    light: (fs) => (
+      <div style={{ display: "flex", alignItems: "baseline" }}>
+        <span style={{ fontFamily: O, fontWeight: 800, fontSize: fs, color: "#0f172a", letterSpacing: "-0.5px" }}>rated</span>
+        <span style={{ fontFamily: O, fontWeight: 800, fontSize: fs, color: "#059669", letterSpacing: "-0.5px" }}>brokers</span>
+        <Dot size={fs * 0.25} mb={fs * 0.06} />
+        <span style={{ fontFamily: O, fontWeight: 800, fontSize: fs * 0.52, color: "#0f172a", letterSpacing: "-0.3px" }}>com</span>
+      </div>
+    ),
+    dark: (fs) => (
+      <div style={{ display: "flex", alignItems: "baseline" }}>
+        <span style={{ fontFamily: O, fontWeight: 800, fontSize: fs, color: "#f1f5f9", letterSpacing: "-0.5px" }}>rated</span>
+        <span style={{ fontFamily: O, fontWeight: 800, fontSize: fs, color: "#34d399", letterSpacing: "-0.5px" }}>brokers</span>
+        <Dot size={fs * 0.25} color="#fbbf24" mb={fs * 0.06} />
+        <span style={{ fontFamily: O, fontWeight: 800, fontSize: fs * 0.52, color: "#f1f5f9", letterSpacing: "-0.3px" }}>com</span>
+      </div>
+    ),
+  },
+  {
+    id: "D",
+    name: "Light Weight",
+    desc: "Те же цвета, но font-weight 500 (Medium). Более элегантно, менее агрессивно. Как Wise или Morningstar.",
+    light: (fs) => (
+      <div style={{ display: "flex", alignItems: "baseline" }}>
+        <span style={{ fontFamily: O, fontWeight: 500, fontSize: fs, color: "#0f172a", letterSpacing: "0px" }}>Rated</span>
+        <span style={{ fontFamily: O, fontWeight: 500, fontSize: fs, color: "#059669", letterSpacing: "0px" }}>Brokers</span>
+        <Dot size={fs * 0.22} mb={fs * 0.06} />
+        <span style={{ fontFamily: O, fontWeight: 500, fontSize: fs * 0.52, color: "#0f172a" }}>com</span>
+      </div>
+    ),
+    dark: (fs) => (
+      <div style={{ display: "flex", alignItems: "baseline" }}>
+        <span style={{ fontFamily: O, fontWeight: 500, fontSize: fs, color: "#f1f5f9", letterSpacing: "0px" }}>Rated</span>
+        <span style={{ fontFamily: O, fontWeight: 500, fontSize: fs, color: "#34d399", letterSpacing: "0px" }}>Brokers</span>
+        <Dot size={fs * 0.22} color="#fbbf24" mb={fs * 0.06} />
+        <span style={{ fontFamily: O, fontWeight: 500, fontSize: fs * 0.52, color: "#f1f5f9" }}>com</span>
+      </div>
+    ),
+  },
+  {
+    id: "E",
+    name: "Bold + Light Mix",
+    desc: "\"Rated\" жирный (800), \"Brokers\" лёгкий (400). Контраст веса создаёт иерархию, как S&P Global.",
+    light: (fs) => (
+      <div style={{ display: "flex", alignItems: "baseline" }}>
+        <span style={{ fontFamily: O, fontWeight: 800, fontSize: fs, color: "#0f172a", letterSpacing: "-0.5px" }}>Rated</span>
+        <span style={{ fontFamily: O, fontWeight: 400, fontSize: fs, color: "#059669", letterSpacing: "0px" }}>Brokers</span>
+        <Dot size={fs * 0.25} mb={fs * 0.06} />
+        <span style={{ fontFamily: O, fontWeight: 400, fontSize: fs * 0.52, color: "#64748b", letterSpacing: "-0.3px" }}>com</span>
+      </div>
+    ),
+    dark: (fs) => (
+      <div style={{ display: "flex", alignItems: "baseline" }}>
+        <span style={{ fontFamily: O, fontWeight: 800, fontSize: fs, color: "#f1f5f9", letterSpacing: "-0.5px" }}>Rated</span>
+        <span style={{ fontFamily: O, fontWeight: 400, fontSize: fs, color: "#34d399", letterSpacing: "0px" }}>Brokers</span>
+        <Dot size={fs * 0.25} color="#fbbf24" mb={fs * 0.06} />
+        <span style={{ fontFamily: O, fontWeight: 400, fontSize: fs * 0.52, color: "#94a3b8", letterSpacing: "-0.3px" }}>com</span>
+      </div>
+    ),
+  },
+  {
+    id: "F",
+    name: "Large Dot",
+    desc: "Та же структура, но точка крупнее (35% шрифта). Точка становится полноценным графическим элементом.",
+    light: (fs) => (
+      <div style={{ display: "flex", alignItems: "baseline" }}>
+        <span style={{ fontFamily: O, fontWeight: 800, fontSize: fs, color: "#0f172a", letterSpacing: "-0.5px" }}>Rated</span>
+        <span style={{ fontFamily: O, fontWeight: 800, fontSize: fs, color: "#059669", letterSpacing: "-0.5px" }}>Brokers</span>
+        <Dot size={fs * 0.35} ml={3} mb={fs * 0.04} />
+        <span style={{ fontFamily: O, fontWeight: 800, fontSize: fs * 0.52, color: "#0f172a", letterSpacing: "-0.3px", marginLeft: 1 }}>com</span>
+      </div>
+    ),
+    dark: (fs) => (
+      <div style={{ display: "flex", alignItems: "baseline" }}>
+        <span style={{ fontFamily: O, fontWeight: 800, fontSize: fs, color: "#f1f5f9", letterSpacing: "-0.5px" }}>Rated</span>
+        <span style={{ fontFamily: O, fontWeight: 800, fontSize: fs, color: "#34d399", letterSpacing: "-0.5px" }}>Brokers</span>
+        <Dot size={fs * 0.35} color="#fbbf24" ml={3} mb={fs * 0.04} />
+        <span style={{ fontFamily: O, fontWeight: 800, fontSize: fs * 0.52, color: "#f1f5f9", letterSpacing: "-0.3px", marginLeft: 1 }}>com</span>
+      </div>
+    ),
+  },
+  {
+    id: "G",
+    name: "ALL CAPS Institutional",
+    desc: "Капслок + межбуквенное расстояние. Институциональный стиль, как S&P GLOBAL или MOODY'S.",
+    light: (fs) => (
+      <div style={{ display: "flex", alignItems: "baseline" }}>
+        <span style={{ fontFamily: O, fontWeight: 700, fontSize: fs * 0.85, color: "#0f172a", letterSpacing: "2px", textTransform: "uppercase" }}>Rated</span>
+        <span style={{ fontFamily: O, fontWeight: 700, fontSize: fs * 0.85, color: "#059669", letterSpacing: "2px", textTransform: "uppercase" }}>Brokers</span>
+        <Dot size={fs * 0.22} ml={3} mb={fs * 0.06} />
+        <span style={{ fontFamily: O, fontWeight: 700, fontSize: fs * 0.44, color: "#64748b", letterSpacing: "1px", textTransform: "uppercase" }}>com</span>
+      </div>
+    ),
+    dark: (fs) => (
+      <div style={{ display: "flex", alignItems: "baseline" }}>
+        <span style={{ fontFamily: O, fontWeight: 700, fontSize: fs * 0.85, color: "#f1f5f9", letterSpacing: "2px", textTransform: "uppercase" }}>Rated</span>
+        <span style={{ fontFamily: O, fontWeight: 700, fontSize: fs * 0.85, color: "#34d399", letterSpacing: "2px", textTransform: "uppercase" }}>Brokers</span>
+        <Dot size={fs * 0.22} color="#fbbf24" ml={3} mb={fs * 0.06} />
+        <span style={{ fontFamily: O, fontWeight: 700, fontSize: fs * 0.44, color: "#94a3b8", letterSpacing: "1px", textTransform: "uppercase" }}>com</span>
+      </div>
+    ),
+  },
+  {
+    id: "H",
+    name: "Dot Separator",
+    desc: "Точка между словами: \"Rated ● Brokers\". Точка становится разделителем, а не частью .com.",
+    light: (fs) => (
+      <div style={{ display: "flex", alignItems: "baseline" }}>
+        <span style={{ fontFamily: O, fontWeight: 800, fontSize: fs, color: "#0f172a", letterSpacing: "-0.5px" }}>Rated</span>
+        <Dot size={fs * 0.22} ml={4} mb={fs * 0.08} />
+        <span style={{ fontFamily: O, fontWeight: 800, fontSize: fs, color: "#059669", letterSpacing: "-0.5px", marginLeft: 4 }}>Brokers</span>
+        <span style={{ fontFamily: O, fontWeight: 600, fontSize: fs * 0.48, color: "#94a3b8", marginLeft: 3, letterSpacing: "-0.3px" }}>.com</span>
+      </div>
+    ),
+    dark: (fs) => (
+      <div style={{ display: "flex", alignItems: "baseline" }}>
+        <span style={{ fontFamily: O, fontWeight: 800, fontSize: fs, color: "#f1f5f9", letterSpacing: "-0.5px" }}>Rated</span>
+        <Dot size={fs * 0.22} color="#fbbf24" ml={4} mb={fs * 0.08} />
+        <span style={{ fontFamily: O, fontWeight: 800, fontSize: fs, color: "#34d399", letterSpacing: "-0.5px", marginLeft: 4 }}>Brokers</span>
+        <span style={{ fontFamily: O, fontWeight: 600, fontSize: fs * 0.48, color: "#64748b", marginLeft: 3, letterSpacing: "-0.3px" }}>.com</span>
+      </div>
+    ),
+  },
+  {
+    id: "I",
+    name: "Single Color + Dot",
+    desc: "Одноцветный navy-текст без разделения, только точка оранжевая. Ультра-чистый.",
+    light: (fs) => (
+      <div style={{ display: "flex", alignItems: "baseline" }}>
+        <span style={{ fontFamily: O, fontWeight: 700, fontSize: fs, color: "#0f172a", letterSpacing: "-0.5px" }}>Rated</span>
+        <span style={{ fontFamily: O, fontWeight: 700, fontSize: fs, color: "#0f172a", letterSpacing: "-0.5px" }}>Brokers</span>
+        <Dot size={fs * 0.25} mb={fs * 0.06} />
+        <span style={{ fontFamily: O, fontWeight: 700, fontSize: fs * 0.52, color: "#64748b", letterSpacing: "-0.3px" }}>com</span>
+      </div>
+    ),
+    dark: (fs) => (
+      <div style={{ display: "flex", alignItems: "baseline" }}>
+        <span style={{ fontFamily: O, fontWeight: 700, fontSize: fs, color: "#f1f5f9", letterSpacing: "-0.5px" }}>Rated</span>
+        <span style={{ fontFamily: O, fontWeight: 700, fontSize: fs, color: "#f1f5f9", letterSpacing: "-0.5px" }}>Brokers</span>
+        <Dot size={fs * 0.25} color="#fbbf24" mb={fs * 0.06} />
+        <span style={{ fontFamily: O, fontWeight: 700, fontSize: fs * 0.52, color: "#94a3b8", letterSpacing: "-0.3px" }}>com</span>
+      </div>
+    ),
+  },
+  {
+    id: "J",
+    name: "Lowercase Mono + Dot",
+    desc: "Всё lowercase, один navy-цвет. Точка — единственный акцент. Максимальный минимализм.",
+    light: (fs) => (
+      <div style={{ display: "flex", alignItems: "baseline" }}>
+        <span style={{ fontFamily: O, fontWeight: 700, fontSize: fs, color: "#0f172a", letterSpacing: "-0.5px" }}>ratedbrokers</span>
+        <Dot size={fs * 0.25} mb={fs * 0.06} />
+        <span style={{ fontFamily: O, fontWeight: 700, fontSize: fs * 0.52, color: "#64748b", letterSpacing: "-0.3px" }}>com</span>
+      </div>
+    ),
+    dark: (fs) => (
+      <div style={{ display: "flex", alignItems: "baseline" }}>
+        <span style={{ fontFamily: O, fontWeight: 700, fontSize: fs, color: "#f1f5f9", letterSpacing: "-0.5px" }}>ratedbrokers</span>
+        <Dot size={fs * 0.25} color="#fbbf24" mb={fs * 0.06} />
+        <span style={{ fontFamily: O, fontWeight: 700, fontSize: fs * 0.52, color: "#94a3b8", letterSpacing: "-0.3px" }}>com</span>
+      </div>
+    ),
+  },
+  {
+    id: "K",
+    name: "Без .com",
+    desc: "Просто \"RatedBrokers\" с оранжевой точкой. Без .com — чище, как Bloomberg или Morningstar.",
+    light: (fs) => (
+      <div style={{ display: "flex", alignItems: "baseline" }}>
+        <span style={{ fontFamily: O, fontWeight: 800, fontSize: fs, color: "#0f172a", letterSpacing: "-0.5px" }}>Rated</span>
+        <span style={{ fontFamily: O, fontWeight: 800, fontSize: fs, color: "#059669", letterSpacing: "-0.5px" }}>Brokers</span>
+        <Dot size={fs * 0.25} mb={fs * 0.06} />
+      </div>
+    ),
+    dark: (fs) => (
+      <div style={{ display: "flex", alignItems: "baseline" }}>
+        <span style={{ fontFamily: O, fontWeight: 800, fontSize: fs, color: "#f1f5f9", letterSpacing: "-0.5px" }}>Rated</span>
+        <span style={{ fontFamily: O, fontWeight: 800, fontSize: fs, color: "#34d399", letterSpacing: "-0.5px" }}>Brokers</span>
+        <Dot size={fs * 0.25} color="#fbbf24" mb={fs * 0.06} />
+      </div>
+    ),
+  },
+  {
+    id: "L",
+    name: "Dot + Green .com",
+    desc: "Как Original, но \"com\" зелёным — единая цветовая связь с \"Brokers\".",
+    light: (fs) => (
+      <div style={{ display: "flex", alignItems: "baseline" }}>
+        <span style={{ fontFamily: O, fontWeight: 800, fontSize: fs, color: "#0f172a", letterSpacing: "-0.5px" }}>Rated</span>
+        <span style={{ fontFamily: O, fontWeight: 800, fontSize: fs, color: "#059669", letterSpacing: "-0.5px" }}>Brokers</span>
+        <Dot size={fs * 0.25} mb={fs * 0.06} />
+        <span style={{ fontFamily: O, fontWeight: 800, fontSize: fs * 0.52, color: "#059669", letterSpacing: "-0.3px" }}>com</span>
+      </div>
+    ),
+    dark: (fs) => (
+      <div style={{ display: "flex", alignItems: "baseline" }}>
+        <span style={{ fontFamily: O, fontWeight: 800, fontSize: fs, color: "#f1f5f9", letterSpacing: "-0.5px" }}>Rated</span>
+        <span style={{ fontFamily: O, fontWeight: 800, fontSize: fs, color: "#34d399", letterSpacing: "-0.5px" }}>Brokers</span>
+        <Dot size={fs * 0.25} color="#fbbf24" mb={fs * 0.06} />
+        <span style={{ fontFamily: O, fontWeight: 800, fontSize: fs * 0.52, color: "#34d399", letterSpacing: "-0.3px" }}>com</span>
+      </div>
+    ),
+  },
+];
 
-/* ── "RB" Monogram in shield ── */
-const RBMonogram = ({ size = 36, bg = "#059669", textColor = "#fff" }) => (
-  <svg width={size} height={size * 1.1} viewBox="0 0 36 40" style={{ verticalAlign: "middle" }}>
-    <path d="M18 1L3 7v12c0 10 6.2 19.2 15 21 8.8-1.8 15-11 15-21V7L18 1z" fill={bg} />
-    <text x="18" y="26" textAnchor="middle" fontFamily="Outfit" fontWeight="800" fontSize="16" fill={textColor}>RB</text>
-  </svg>
-);
+/* ═══ FAVICON VARIANTS ═══ */
+const favicons = [
+  {
+    id: "F1",
+    name: "Current — rb + Dot",
+    desc: "Текущий: \"rb\" белым на navy фоне, оранжевая точка в углу.",
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="#0f172a"/><text x="16" y="22" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-weight="900" font-size="16" letter-spacing="-1" fill="#fff">rb</text><circle cx="26" cy="7" r="3" fill="#fbbf24"/></svg>`,
+  },
+  {
+    id: "F2",
+    name: "R + Orange Dot",
+    desc: "Большая \"R\" + оранжевая точка как период. Простой lettermark.",
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="#0f172a"/><text x="10" y="24" font-family="Outfit,sans-serif" font-weight="800" font-size="22" fill="#fff">R</text><circle cx="25" cy="21" r="3.5" fill="#f59e0b"/></svg>`,
+  },
+  {
+    id: "F3",
+    name: "Big Dot Center",
+    desc: "Крупная оранжевая точка по центру navy-квадрата. Ультра-минимализм.",
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="#0f172a"/><circle cx="16" cy="16" r="8" fill="#f59e0b"/></svg>`,
+  },
+  {
+    id: "F4",
+    name: "RB Uppercase + Dot",
+    desc: "\"RB\" заглавными, точка правее и ниже. Более формальный вариант.",
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="#0f172a"/><text x="15" y="22" text-anchor="middle" font-family="Outfit,sans-serif" font-weight="800" font-size="15" letter-spacing="-0.5" fill="#fff">RB</text><circle cx="26.5" cy="23" r="2.5" fill="#f59e0b"/></svg>`,
+  },
+  {
+    id: "F5",
+    name: "Orange Circle + White R",
+    desc: "Инвертированная схема: оранжевый круг, белая \"R\" внутри.",
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="#f59e0b"/><text x="16" y="23" text-anchor="middle" font-family="Outfit,sans-serif" font-weight="800" font-size="22" fill="#fff">R</text></svg>`,
+  },
+  {
+    id: "F6",
+    name: "Navy R + Green B + Dot",
+    desc: "R белым, B зелёным — как основной логотип. Точка оранжевая.",
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="#0f172a"/><text x="6" y="23" font-family="Outfit,sans-serif" font-weight="800" font-size="17" fill="#fff">R</text><text x="17" y="23" font-family="Outfit,sans-serif" font-weight="800" font-size="17" fill="#34d399">B</text><circle cx="27" cy="7" r="3" fill="#f59e0b"/></svg>`,
+  },
+  {
+    id: "F7",
+    name: "Dot + rb стиль Bloomberg",
+    desc: "Lowercase \"rb\" мелким шрифтом, большая точка. Как Bloomberg terminal.",
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="#0f172a"/><text x="16" y="26" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-weight="700" font-size="12" letter-spacing="-0.5" fill="#94a3b8">rb</text><circle cx="16" cy="10" r="5" fill="#f59e0b"/></svg>`,
+  },
+  {
+    id: "F8",
+    name: "Green bg + White rb + Dot",
+    desc: "Зелёный фон вместо navy. Другая энергетика, более свежий.",
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="#059669"/><text x="16" y="22" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-weight="900" font-size="16" letter-spacing="-1" fill="#fff">rb</text><circle cx="26" cy="7" r="3" fill="#f59e0b"/></svg>`,
+  },
+];
 
-/* ── Hexagon badge ── */
-const HexBadge = ({ size = 32, bg = "#f59e0b" }) => (
-  <svg width={size} height={size} viewBox="0 0 32 32" style={{ verticalAlign: "middle" }}>
-    <polygon points="16,1 29,8.5 29,23.5 16,31 3,23.5 3,8.5" fill={bg} rx="2" />
-    <path d="M11 16.5l3.5 3.5 6.5-7" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-  </svg>
-);
+/* ── Render one favicon as inline data:url ── */
+function FavSvg({ svg, size = 64 }) {
+  const encoded = `data:image/svg+xml,${encodeURIComponent(svg)}`;
+  return <img src={encoded} width={size} height={size} alt="" style={{ borderRadius: size * 0.19 }} />;
+}
 
-export default function LogoLab() {
-  const { mob } = useMedia();
-  const fs = mob ? 24 : 32;
-  const fsSm = mob ? 14 : 17;
-  const fsXs = mob ? 11 : 13;
+/* ═══ PAGE COMPONENT ═══ */
+export default function LogoLabDotCom() {
+  const [selected, setSelected] = useState("A");
+  const [favSelected, setFavSelected] = useState("F1");
 
   return (
-    <div style={S.page}>
-      <div style={S.grid}>
-        <div style={{ textAlign: "center", marginBottom: 8 }}>
-          <h1 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 28, color: "#0f172a", marginBottom: 4 }}>
-            Logo Lab — RatedBrokers
-          </h1>
-          <p style={{ fontSize: 15, color: "#64748b" }}>6 вариантов логотипа для финального выбора</p>
-        </div>
+    <div style={{ fontFamily: "'Inter', system-ui, sans-serif", background: "#f8fafc", minHeight: "100vh" }}>
+      {/* ── Header ── */}
+      <div style={{ background: "#0f172a", padding: "48px 20px 40px", textAlign: "center" }}>
+        <h1 style={{ fontFamily: O, fontWeight: 800, fontSize: 32, color: "#fff", margin: 0, letterSpacing: "-0.5px" }}>
+          Orange Dot Lab
+        </h1>
+        <p style={{ color: "#94a3b8", fontSize: 15, marginTop: 8, maxWidth: 500, margin: "8px auto 0" }}>
+          12 вариаций логотипа вокруг концепта Orange Dot + 8 вариантов favicon
+        </p>
+      </div>
 
-        {/* ══════════════ VARIANT A: Investing.com style ══════════════ */}
-        <div style={S.card}>
-          <div style={S.label}>Variant A — Investing.com Style</div>
-          <div style={{ display: "flex", alignItems: "baseline", gap: 0 }}>
-            <span style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: fs, color: "#0f172a", letterSpacing: "-0.5px" }}>Rated</span>
-            <span style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: fs, color: "#059669", letterSpacing: "-0.5px" }}>Brokers</span>
-            <span style={{ fontFamily: "Outfit", fontWeight: 600, fontSize: fsSm, color: "#94a3b8", letterSpacing: "0px", marginLeft: 1 }}>.com</span>
-          </div>
-          <p style={S.desc}>
-            Чистый wordmark без иконки. ".com" в мелком сером — как у Investing.com. Максимальная простота, авторитетность через типографику.
-          </p>
-          <div>
-            <span style={{ ...S.tag, background: "#ecfdf5", color: "#059669" }}>Minimalist</span>
-            <span style={{ ...S.tag, background: "#eff6ff", color: "#2563eb" }}>Investing.com</span>
-          </div>
-        </div>
+      <div style={{ maxWidth: 1100, margin: "0 auto", padding: "40px 20px 80px" }}>
+        {/* ═══ LOGO SECTION ═══ */}
+        <h2 style={{ fontFamily: O, fontWeight: 800, fontSize: 22, color: "#0f172a", marginBottom: 8, letterSpacing: "-0.3px" }}>
+          Варианты логотипа
+        </h2>
+        <p style={{ fontSize: 14, color: "#64748b", marginBottom: 32 }}>
+          Кликни на карточку, чтобы выбрать. Все варианты показаны на светлом и тёмном фоне.
+        </p>
 
-        {/* ══════════════ VARIANT B: Shield + .com ══════════════ */}
-        <div style={S.card}>
-          <div style={S.label}>Variant B — Shield + .com</div>
-          <div style={{ display: "flex", alignItems: "baseline", gap: 0 }}>
-            <span style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: fs, color: "#0f172a", letterSpacing: "-0.5px" }}>Rated</span>
-            <span style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: fs, color: "#059669", letterSpacing: "-0.5px" }}>Brokers</span>
-            <span style={{ marginLeft: 3 }}><ShieldIcon size={mob ? 14 : 17} /></span>
-            <span style={{ fontFamily: "Outfit", fontWeight: 600, fontSize: fsXs, color: "#94a3b8", marginLeft: 2 }}>.com</span>
-          </div>
-          <p style={S.desc}>
-            Эволюция текущего лого. Щит остаётся (доверие), добавлен ".com" мелким серым. Знакомо, но обновлённо.
-          </p>
-          <div>
-            <span style={{ ...S.tag, background: "#fef3c7", color: "#92400e" }}>Trust</span>
-            <span style={{ ...S.tag, background: "#ecfdf5", color: "#059669" }}>Evolution</span>
-          </div>
-        </div>
-
-        {/* ══════════════ VARIANT C: Orange Dot = Period ══════════════ */}
-        <div style={S.card}>
-          <div style={S.label}>Variant C — Orange Dot Accent</div>
-          <div style={{ display: "flex", alignItems: "baseline", gap: 0 }}>
-            <span style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: fs, color: "#0f172a", letterSpacing: "-0.5px" }}>Rated</span>
-            <span style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: fs, color: "#059669", letterSpacing: "-0.5px" }}>Brokers</span>
-            <span style={{
-              display: "inline-block", width: mob ? 7 : 9, height: mob ? 7 : 9,
-              borderRadius: "50%", background: "#f59e0b",
-              marginLeft: 2, marginBottom: mob ? 2 : 3, verticalAlign: "baseline",
-            }} />
-            <span style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: fsSm, color: "#0f172a", letterSpacing: "-0.3px" }}>com</span>
-          </div>
-          <p style={S.desc}>
-            Оранжевая точка выполняет двойную роль: и "точка" перед "com", и брендовый акцент. Чистый, запоминающийся, уникальный.
-          </p>
-          <div>
-            <span style={{ ...S.tag, background: "#fef3c7", color: "#92400e" }}>Orange Accent</span>
-            <span style={{ ...S.tag, background: "#f5f3ff", color: "#7c3aed" }}>Unique</span>
-          </div>
-        </div>
-
-        {/* ══════════════ VARIANT D: Triangle Dot = Period ══════════════ */}
-        <div style={S.card}>
-          <div style={S.label}>Variant D — Triangle Dot</div>
-          <div style={{ display: "flex", alignItems: "baseline", gap: 0 }}>
-            <span style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: fs, color: "#0f172a", letterSpacing: "-0.5px" }}>Rated</span>
-            <span style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: fs, color: "#059669", letterSpacing: "-0.5px" }}>Brokers</span>
-            <span style={{ marginLeft: 2, marginRight: 1 }}><TriangleDot size={mob ? 8 : 10} /></span>
-            <span style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: fsSm, color: "#0f172a", letterSpacing: "-0.3px" }}>com</span>
-          </div>
-          <p style={S.desc}>
-            Треугольник вместо точки — продолжение текущего брендинга (favicon). ".com" интегрирован. Уникальная геометрическая форма, аналогов нет у конкурентов.
-          </p>
-          <div>
-            <span style={{ ...S.tag, background: "#fef3c7", color: "#92400e" }}>Brand Continuity</span>
-            <span style={{ ...S.tag, background: "#ecfdf5", color: "#059669" }}>Geometric</span>
-          </div>
-        </div>
-
-        {/* ══════════════ VARIANT E: Monogram + Wordmark ══════════════ */}
-        <div style={S.card}>
-          <div style={S.label}>Variant E — Monogram System</div>
-          <div style={{ display: "flex", alignItems: "center", gap: mob ? 8 : 12 }}>
-            <RBMonogram size={mob ? 30 : 38} />
-            <div style={{ display: "flex", alignItems: "baseline" }}>
-              <span style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: fs, color: "#0f172a", letterSpacing: "-0.5px" }}>Rated</span>
-              <span style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: fs, color: "#059669", letterSpacing: "-0.5px" }}>Brokers</span>
-              <span style={{ fontFamily: "Outfit", fontWeight: 600, fontSize: fsXs, color: "#94a3b8", marginLeft: 2 }}>.com</span>
-            </div>
-          </div>
-          <p style={S.desc}>
-            Двухчастная система как у NerdWallet: монограмма "RB" в зелёном щите + wordmark. Монограмму можно использовать как favicon и app icon отдельно.
-          </p>
-          <div>
-            <span style={{ ...S.tag, background: "#ecfdf5", color: "#059669" }}>Scalable</span>
-            <span style={{ ...S.tag, background: "#eff6ff", color: "#2563eb" }}>NerdWallet</span>
-          </div>
-        </div>
-
-        {/* ══════════════ VARIANT F: Hexagon Badge Premium ══════════════ */}
-        <div style={S.card}>
-          <div style={S.label}>Variant F — Hex Badge Premium</div>
-          <div style={{ display: "flex", alignItems: "center", gap: mob ? 8 : 10 }}>
-            <HexBadge size={mob ? 28 : 34} />
-            <div style={{ display: "flex", alignItems: "baseline" }}>
-              <span style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: fs, color: "#0f172a", letterSpacing: "-0.5px" }}>Rated</span>
-              <span style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: fs, color: "#059669", letterSpacing: "-0.5px" }}>Brokers</span>
-              <span style={{
-                display: "inline-block", width: mob ? 6 : 8, height: mob ? 6 : 8,
-                borderRadius: "50%", background: "#f59e0b",
-                marginLeft: 2, marginBottom: mob ? 2 : 3, verticalAlign: "baseline",
-              }} />
-              <span style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: fsSm, color: "#0f172a", letterSpacing: "-0.3px" }}>com</span>
-            </div>
-          </div>
-          <p style={S.desc}>
-            Гексагональный бейдж с галочкой (сертификация/верификация) + orange dot ".com". Премиальный, уникальный, финансовый.
-          </p>
-          <div>
-            <span style={{ ...S.tag, background: "#fef3c7", color: "#92400e" }}>Premium</span>
-            <span style={{ ...S.tag, background: "#f5f3ff", color: "#7c3aed" }}>Certification</span>
-          </div>
-        </div>
-
-        {/* ══════════════ DARK MODE PREVIEW ══════════════ */}
-        <div style={{ ...S.darkCard, marginTop: 8 }}>
-          <div style={{ ...S.label, color: "#475569" }}>Dark Variants (Footer / Hero)</div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
-            {/* A dark */}
-            <div>
-              <div style={{ fontSize: 11, color: "#475569", fontWeight: 600, marginBottom: 8 }}>A</div>
-              <div style={{ display: "flex", alignItems: "baseline" }}>
-                <span style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: fs - 4, color: "#fff", letterSpacing: "-0.5px" }}>Rated</span>
-                <span style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: fs - 4, color: "#34d399", letterSpacing: "-0.5px" }}>Brokers</span>
-                <span style={{ fontFamily: "Outfit", fontWeight: 600, fontSize: fsSm - 2, color: "#64748b", marginLeft: 1 }}>.com</span>
-              </div>
-            </div>
-            {/* C dark */}
-            <div>
-              <div style={{ fontSize: 11, color: "#475569", fontWeight: 600, marginBottom: 8 }}>C</div>
-              <div style={{ display: "flex", alignItems: "baseline" }}>
-                <span style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: fs - 4, color: "#fff", letterSpacing: "-0.5px" }}>Rated</span>
-                <span style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: fs - 4, color: "#34d399", letterSpacing: "-0.5px" }}>Brokers</span>
-                <span style={{
-                  display: "inline-block", width: 7, height: 7,
-                  borderRadius: "50%", background: "#f59e0b",
-                  marginLeft: 2, marginBottom: 2, verticalAlign: "baseline",
-                }} />
-                <span style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: fsSm - 2, color: "#e2e8f0", letterSpacing: "-0.3px" }}>com</span>
-              </div>
-            </div>
-            {/* D dark */}
-            <div>
-              <div style={{ fontSize: 11, color: "#475569", fontWeight: 600, marginBottom: 8 }}>D</div>
-              <div style={{ display: "flex", alignItems: "baseline" }}>
-                <span style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: fs - 4, color: "#fff", letterSpacing: "-0.5px" }}>Rated</span>
-                <span style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: fs - 4, color: "#34d399", letterSpacing: "-0.5px" }}>Brokers</span>
-                <span style={{ marginLeft: 2, marginRight: 1 }}><TriangleDot size={8} color="#fbbf24" /></span>
-                <span style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: fsSm - 2, color: "#e2e8f0", letterSpacing: "-0.3px" }}>com</span>
-              </div>
-            </div>
-            {/* F dark */}
-            <div>
-              <div style={{ fontSize: 11, color: "#475569", fontWeight: 600, marginBottom: 8 }}>F</div>
-              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                <HexBadge size={28} bg="#fbbf24" />
-                <div style={{ display: "flex", alignItems: "baseline" }}>
-                  <span style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: fs - 4, color: "#fff", letterSpacing: "-0.5px" }}>Rated</span>
-                  <span style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: fs - 4, color: "#34d399", letterSpacing: "-0.5px" }}>Brokers</span>
-                  <span style={{
-                    display: "inline-block", width: 6, height: 6,
-                    borderRadius: "50%", background: "#fbbf24",
-                    marginLeft: 2, marginBottom: 2, verticalAlign: "baseline",
-                  }} />
-                  <span style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: fsSm - 2, color: "#e2e8f0", letterSpacing: "-0.3px" }}>com</span>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(480, 1fr))", gap: 16 }}>
+          {logos.map((v) => {
+            const active = selected === v.id;
+            return (
+              <div
+                key={v.id}
+                onClick={() => setSelected(v.id)}
+                style={{
+                  background: "#fff", borderRadius: 16, overflow: "hidden", cursor: "pointer",
+                  border: active ? "2px solid #f59e0b" : "1px solid #e2e8f0",
+                  boxShadow: active ? "0 0 0 3px rgba(245,158,11,0.15)" : "0 1px 3px rgba(0,0,0,0.04)",
+                  transition: "all 0.15s",
+                }}
+              >
+                {/* Light preview */}
+                <div style={{
+                  padding: "28px 24px", display: "flex", alignItems: "center", justifyContent: "center",
+                  background: "#fff", minHeight: 56,
+                }}>
+                  {v.light(30)}
+                </div>
+                {/* Dark preview */}
+                <div style={{
+                  padding: "28px 24px", display: "flex", alignItems: "center", justifyContent: "center",
+                  background: "#0f172a", minHeight: 56,
+                }}>
+                  {v.dark(30)}
+                </div>
+                {/* Info */}
+                <div style={{ padding: "16px 20px", borderTop: "1px solid #f1f5f9" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                    <span style={{
+                      fontFamily: "'JetBrains Mono', monospace", fontSize: 11, fontWeight: 700,
+                      color: active ? "#f59e0b" : "#94a3b8", letterSpacing: 1,
+                    }}>{v.id}</span>
+                    <span style={{ fontFamily: O, fontWeight: 700, fontSize: 15, color: "#0f172a" }}>{v.name}</span>
+                    {active && <span style={{
+                      background: "#fef3c7", color: "#92400e", fontSize: 10, fontWeight: 700,
+                      padding: "2px 8px", borderRadius: 4, marginLeft: "auto",
+                    }}>SELECTED</span>}
+                  </div>
+                  <p style={{ fontSize: 13, color: "#64748b", lineHeight: 1.5, marginTop: 6, marginBottom: 0 }}>{v.desc}</p>
                 </div>
               </div>
+            );
+          })}
+        </div>
+
+        {/* ═══ FAVICON SECTION ═══ */}
+        <h2 style={{
+          fontFamily: O, fontWeight: 800, fontSize: 22, color: "#0f172a",
+          marginTop: 64, marginBottom: 8, letterSpacing: "-0.3px",
+        }}>
+          Варианты Favicon
+        </h2>
+        <p style={{ fontSize: 14, color: "#64748b", marginBottom: 32 }}>
+          Иконка для вкладки браузера, закладок и мобильного экрана. Показаны в 3 размерах.
+        </p>
+
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))", gap: 16 }}>
+          {favicons.map((f) => {
+            const active = favSelected === f.id;
+            return (
+              <div
+                key={f.id}
+                onClick={() => setFavSelected(f.id)}
+                style={{
+                  background: "#fff", borderRadius: 16, padding: 24, cursor: "pointer",
+                  border: active ? "2px solid #f59e0b" : "1px solid #e2e8f0",
+                  boxShadow: active ? "0 0 0 3px rgba(245,158,11,0.15)" : "0 1px 3px rgba(0,0,0,0.04)",
+                  transition: "all 0.15s", textAlign: "center",
+                }}
+              >
+                {/* Sizes */}
+                <div style={{ display: "flex", alignItems: "end", justifyContent: "center", gap: 16, marginBottom: 16 }}>
+                  <div>
+                    <FavSvg svg={f.svg} size={16} />
+                    <div style={{ fontSize: 10, color: "#94a3b8", marginTop: 4 }}>16px</div>
+                  </div>
+                  <div>
+                    <FavSvg svg={f.svg} size={32} />
+                    <div style={{ fontSize: 10, color: "#94a3b8", marginTop: 4 }}>32px</div>
+                  </div>
+                  <div>
+                    <FavSvg svg={f.svg} size={64} />
+                    <div style={{ fontSize: 10, color: "#94a3b8", marginTop: 4 }}>64px</div>
+                  </div>
+                </div>
+                {/* Also show on dark bg */}
+                <div style={{
+                  background: "#0f172a", borderRadius: 10, padding: "12px 0", marginBottom: 16,
+                  display: "flex", alignItems: "center", justifyContent: "center", gap: 12,
+                }}>
+                  <FavSvg svg={f.svg} size={32} />
+                  <FavSvg svg={f.svg} size={48} />
+                </div>
+                {/* Info */}
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 6, marginBottom: 6 }}>
+                  <span style={{
+                    fontFamily: "'JetBrains Mono', monospace", fontSize: 11, fontWeight: 700,
+                    color: active ? "#f59e0b" : "#94a3b8", letterSpacing: 1,
+                  }}>{f.id}</span>
+                  <span style={{ fontFamily: O, fontWeight: 700, fontSize: 14, color: "#0f172a" }}>{f.name}</span>
+                  {active && <span style={{
+                    background: "#fef3c7", color: "#92400e", fontSize: 10, fontWeight: 700,
+                    padding: "2px 8px", borderRadius: 4,
+                  }}>SELECTED</span>}
+                </div>
+                <p style={{ fontSize: 12, color: "#64748b", lineHeight: 1.4, margin: 0 }}>{f.desc}</p>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* ═══ BROWSER TAB PREVIEW ═══ */}
+        <h2 style={{
+          fontFamily: O, fontWeight: 800, fontSize: 22, color: "#0f172a",
+          marginTop: 64, marginBottom: 8, letterSpacing: "-0.3px",
+        }}>
+          Превью в браузере
+        </h2>
+        <p style={{ fontSize: 14, color: "#64748b", marginBottom: 24 }}>
+          Как выбранная связка (логотип + favicon) будет выглядеть в контексте.
+        </p>
+
+        {/* Browser mockup */}
+        <div style={{
+          background: "#fff", borderRadius: 12, border: "1px solid #e2e8f0",
+          boxShadow: "0 4px 24px rgba(0,0,0,0.06)", overflow: "hidden",
+        }}>
+          {/* Chrome tab bar */}
+          <div style={{
+            background: "#e8eaed", padding: "8px 12px 0", display: "flex", alignItems: "end", gap: 4,
+          }}>
+            <div style={{
+              background: "#fff", borderRadius: "8px 8px 0 0", padding: "8px 16px",
+              display: "flex", alignItems: "center", gap: 8, fontSize: 12, color: "#5f6368",
+              maxWidth: 200,
+            }}>
+              <FavSvg svg={(favicons.find(f => f.id === favSelected) || favicons[0]).svg} size={16} />
+              <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                RatedBrokers — Forex Bro...
+              </span>
+            </div>
+            <div style={{
+              background: "#dee1e6", borderRadius: "8px 8px 0 0", padding: "8px 16px",
+              fontSize: 12, color: "#80868b", display: "flex", alignItems: "center", gap: 8,
+            }}>
+              <span style={{ width: 12, height: 12, borderRadius: "50%", background: "#94a3b8", display: "inline-block" }} />
+              New Tab
+            </div>
+          </div>
+          {/* Address bar */}
+          <div style={{
+            background: "#fff", padding: "8px 12px", borderBottom: "1px solid #e2e8f0",
+          }}>
+            <div style={{
+              background: "#f1f3f4", borderRadius: 20, padding: "6px 16px",
+              fontSize: 13, color: "#5f6368", display: "flex", alignItems: "center", gap: 6,
+            }}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5f6368" strokeWidth="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+              <span>ratedbrokers.com</span>
+            </div>
+          </div>
+          {/* Page header mock */}
+          <div style={{
+            background: "#fff", padding: "16px 24px", borderBottom: "1px solid #e2e8f0",
+            display: "flex", alignItems: "center", justifyContent: "space-between",
+          }}>
+            {(logos.find(l => l.id === selected) || logos[0]).light(24)}
+            <div style={{ display: "flex", gap: 24, fontSize: 13, color: "#64748b" }}>
+              <span>Rankings</span>
+              <span>Reviews</span>
+              <span>Guides</span>
+            </div>
+          </div>
+          {/* Dark version mockup */}
+          <div style={{
+            background: "#0f172a", padding: "16px 24px", borderTop: "1px solid #1e293b",
+            display: "flex", alignItems: "center", justifyContent: "space-between",
+          }}>
+            {(logos.find(l => l.id === selected) || logos[0]).dark(24)}
+            <div style={{ display: "flex", gap: 24, fontSize: 13, color: "#94a3b8" }}>
+              <span>Rankings</span>
+              <span>Reviews</span>
+              <span>Guides</span>
             </div>
           </div>
         </div>
-
-        {/* ══════════════ COMPARISON TABLE ══════════════ */}
-        <div style={S.card}>
-          <div style={S.label}>Сравнительная матрица</div>
-          <div style={{ overflowX: "auto" }}>
-            <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
-              <thead>
-                <tr style={{ borderBottom: "2px solid #e2e8f0" }}>
-                  {["", "Простота", "Premium", "Уникальность", ".com", "Иконка", "Финансовая ДНК"].map(h => (
-                    <th key={h} style={{ padding: "8px 10px", textAlign: "left", fontWeight: 700, color: "#0f172a", whiteSpace: "nowrap" }}>{h}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {[
-                  ["A", "★★★", "★★★", "★☆☆", "✓", "—", "★★☆"],
-                  ["B", "★★☆", "★★☆", "★★☆", "✓", "Shield", "★★★"],
-                  ["C", "★★★", "★★★", "★★★", "✓", "Dot", "★★☆"],
-                  ["D", "★★★", "★★★", "★★★", "✓", "△", "★★☆"],
-                  ["E", "★★☆", "★★★", "★★☆", "✓", "RB shield", "★★★"],
-                  ["F", "★★☆", "★★★", "★★★", "✓", "Hex badge", "★★★"],
-                ].map(row => (
-                  <tr key={row[0]} style={{ borderBottom: "1px solid #f1f5f9" }}>
-                    {row.map((cell, i) => (
-                      <td key={i} style={{ padding: "8px 10px", fontWeight: i === 0 ? 700 : 400, color: i === 0 ? "#059669" : "#1f2937" }}>{cell}</td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-
       </div>
     </div>
   );
