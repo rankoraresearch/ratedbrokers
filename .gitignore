@@ -41,3 +41,8 @@ research/
 !public/404.html
 risk-warnings.md
 uk-snapshot.md
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
