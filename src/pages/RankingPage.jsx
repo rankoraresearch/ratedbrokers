@@ -448,18 +448,36 @@ export default function RankingPage() {
       {seo.keyFinding && (
         <section style={{ ...cn, paddingBottom: T.sectionGap(mob) }}>
           <div style={{
-            padding: mob ? "20px" : "24px 32px", borderRadius: 16,
-            background: "linear-gradient(135deg, #ecfdf5, #d1fae5)",
-            border: "1px solid #a7f3d0",
+            display: "flex", borderRadius: 16, overflow: "hidden",
+            background: "#fff", border: "1px solid #e2e8f0",
+            boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
           }}>
-            <div style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
-              <CircleCheck size={20} color="#059669" style={{ flexShrink: 0, marginTop: 2 }} />
-              <div>
-                <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 16, color: "#065f46", marginBottom: 6 }}>Key Finding</div>
-                <p style={{ fontSize: 15, lineHeight: 1.7, color: "#065f46", margin: 0 }}>
-                  {fillVars(seo.keyFinding)}
-                </p>
+            {/* Green accent bar */}
+            <div style={{
+              width: mob ? 5 : 6, flexShrink: 0,
+              background: "linear-gradient(180deg, #059669, #34d399)",
+            }} />
+            <div style={{ flex: 1, padding: mob ? "20px 16px" : "28px 32px" }}>
+              {/* Label */}
+              <div style={{
+                display: "inline-flex", alignItems: "center", gap: 6,
+                padding: "4px 12px", borderRadius: 6,
+                background: "#0f172a", marginBottom: 12,
+              }}>
+                <CircleCheck size={13} color="#34d399" />
+                <span style={{
+                  fontFamily: "Outfit", fontWeight: 700, fontSize: 11,
+                  color: "#fff", textTransform: "uppercase", letterSpacing: "0.08em",
+                }}>Key Finding</span>
               </div>
+              {/* Finding text */}
+              <p style={{
+                fontSize: mob ? 16 : 18, lineHeight: 1.65,
+                color: "#0f172a", margin: 0, fontWeight: 500,
+                maxWidth: 900,
+              }}>
+                {fillVars(seo.keyFinding)}
+              </p>
             </div>
           </div>
           {seo.howWeRanked && (
