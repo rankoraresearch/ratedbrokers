@@ -34,7 +34,7 @@ import RegBadge from "../components/RegBadge";
 import HeroBand from "../components/HeroBand";
 import { getCountryData } from "../data/countries/index";
 import { canonicalPair } from "../data/comparisons";
-import { Star, ChevronRight } from "lucide-react";
+import { Star, ChevronRight, Trophy, BarChart3, Layers, BookOpen, HelpCircle, Target, ChevronDown, User } from "lucide-react";
 
 const YEAR = "2026";
 const apiBase = import.meta.env.VITE_API_URL || "";
@@ -74,52 +74,52 @@ function QuickBrokerGrid({ brokers, mob }) {
     const badgeStyle = isMedal
       ? { bg: "linear-gradient(135deg, #059669, #047857)", shadow: "0 2px 6px rgba(5,150,105,0.25)", color: "#fff" }
       : { bg: "#f1f5f9", shadow: "none", color: "#64748b" };
-    const logoSize = mob ? 32 : 40;
-    const nameSize = mob ? 13 : 15;
+    const logoSize = mob ? 40 : 40;
+    const nameSize = mob ? 15 : 15;
     const scoreSize = mob ? 14 : 15;
-    const badgeSize = mob ? 24 : 28;
+    const badgeSize = mob ? 28 : 28;
 
     return (
       <a key={broker.slug} href={visitUrl} target="_blank" rel="noopener nofollow sponsored"
         onMouseEnter={() => setHoveredIdx(i)} onMouseLeave={() => setHoveredIdx(null)}
+        onTouchStart={(e) => { e.currentTarget.style.borderColor = "#059669"; e.currentTarget.style.background = "#f0fdf4"; }}
+        onTouchEnd={(e) => { e.currentTarget.style.borderColor = "#e5e7eb"; e.currentTarget.style.background = "#fff"; }}
         style={{
           display: "flex", alignItems: "center", gap: mob ? 10 : 14,
-          padding: mob ? "10px 12px" : "12px 16px",
-          borderRadius: 12, background: "#fff",
+          padding: mob ? "12px 14px" : "12px 16px",
+          borderRadius: 14, background: "#fff",
           border: `1px solid ${isHovered ? "#059669" : "#e5e7eb"}`,
           boxShadow: isHovered ? "0 4px 16px rgba(0,0,0,0.07)" : "0 1px 3px rgba(0,0,0,0.04)",
-          textDecoration: "none", transition: "box-shadow 0.2s, border-color 0.2s", cursor: "pointer",
+          textDecoration: "none", transition: "box-shadow 0.2s, border-color 0.2s, background 0.15s", cursor: "pointer",
         }}>
         <div style={{
-          width: badgeSize, height: badgeSize, borderRadius: isMedal ? 7 : 6, flexShrink: 0,
+          width: badgeSize, height: mob ? 40 : badgeSize, borderRadius: 8, flexShrink: 0,
           background: badgeStyle.bg, boxShadow: badgeStyle.shadow,
           display: "flex", alignItems: "center", justifyContent: "center",
-          fontSize: mob ? 11 : 12, fontWeight: isMedal ? 800 : 700, color: badgeStyle.color,
+          fontSize: mob ? 12 : 12, fontWeight: isMedal ? 800 : 700, color: badgeStyle.color,
         }}>{i + 1}</div>
         <BrokerLogo slug={broker.slug} name={B.name} fallback={B.logo} size={logoSize} shape="icon" />
         <div style={{ flex: 1, minWidth: 0 }}>
           <div style={{
-            fontWeight: 700, fontSize: nameSize, color: "#0f172a",
+            fontWeight: 600, fontSize: nameSize, color: "#0f172a",
             overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
           }}>{B.name}</div>
           <div style={{ display: "flex", alignItems: "center", gap: 4, marginTop: 3 }}>
-            <Star size={mob ? 11 : 12} color="#059669" fill="#059669" />
+            <Star size={12} color="#059669" fill="#059669" />
             <span style={{ fontSize: scoreSize, fontWeight: 700, color: "#059669", lineHeight: 1 }}>{B.score}</span>
             <span style={{ fontSize: 11, color: "#9ca3af" }}>/10</span>
           </div>
           <div style={{
-            fontSize: mob ? 9 : 10, color: "#b0b8c4", lineHeight: 1.2, marginTop: 2,
+            fontSize: 10, color: "#b0b8c4", lineHeight: 1.2, marginTop: 2,
             height: mob ? "auto" : 13, overflow: "hidden",
             whiteSpace: "nowrap", textOverflow: "ellipsis",
             opacity: mob ? 1 : (isHovered ? 1 : 0), transition: "opacity 0.2s",
           }}>{shortRisk}</div>
         </div>
-        {!mob && (
-          <ChevronRight size={16} color={isHovered ? "#059669" : "#cbd5e1"} style={{
-            flexShrink: 0, transition: "color 0.2s, transform 0.2s",
-            transform: isHovered ? "translateX(2px)" : "none",
-          }} />
-        )}
+        <ChevronRight size={16} color={mob ? "#94a3b8" : (isHovered ? "#059669" : "#cbd5e1")} style={{
+          flexShrink: 0, transition: "color 0.2s, transform 0.2s",
+          transform: isHovered ? "translateX(2px)" : "none",
+        }} />
       </a>
     );
   };
@@ -131,7 +131,7 @@ function QuickBrokerGrid({ brokers, mob }) {
       gridTemplateColumns: mob ? undefined : "1fr 1fr",
       gridAutoFlow: mob ? undefined : "column",
       gridTemplateRows: mob ? undefined : "repeat(5, auto)",
-      gap: mob ? 6 : 8,
+      gap: mob ? 8 : 8,
     }}>
       {top10.map((broker, i) => renderCard(broker, i))}
     </div>
@@ -214,6 +214,119 @@ function SpreadChart({ brokers, mob }) {
         );
       })}
     </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════
+// TABLE OF CONTENTS
+// ═══════════════════════════════════════════════════════════
+function TableOfContents({ items, mob }) {
+  const [open, setOpen] = useState(false);
+
+  const scrollTo = (id) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const y = el.getBoundingClientRect().top + window.scrollY - 80;
+    window.scrollTo({ top: y, behavior: "smooth" });
+    if (mob) setOpen(false);
+  };
+
+  const iconMap = { Trophy, BarChart3, Layers, BookOpen, HelpCircle, Target, User, ChevronRight };
+  const getIcon = (name, size) => {
+    const C = iconMap[name];
+    return C ? <C size={size} /> : null;
+  };
+
+  // Desktop: horizontal pills (sections + brokers, no subsections)
+  if (!mob) {
+    const visible = items.filter(it => it.type !== "subsection");
+    return (
+      <nav aria-label="Table of Contents">
+        <ol style={{
+          listStyle: "none", margin: 0, padding: 0,
+          display: "flex", gap: 6, overflowX: "auto",
+          ...T.cardBg, padding: "12px 16px",
+          scrollbarWidth: "thin",
+        }}>
+          {visible.map((it) => (
+            <li key={it.id}>
+              <a href={`#${it.id}`} onClick={(e) => { e.preventDefault(); scrollTo(it.id); }}
+                style={{
+                  display: "inline-flex", alignItems: "center", gap: 6,
+                  padding: "7px 14px", borderRadius: 20, whiteSpace: "nowrap",
+                  background: "#f8fafc", border: "1px solid #e2e8f0",
+                  color: "#475569", fontSize: 13, fontWeight: 600,
+                  textDecoration: "none", transition: "all 0.15s", cursor: "pointer",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = "#059669";
+                  e.currentTarget.style.color = "#059669";
+                  e.currentTarget.style.background = "#f0fdf4";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = "#e2e8f0";
+                  e.currentTarget.style.color = "#475569";
+                  e.currentTarget.style.background = "#f8fafc";
+                }}
+              >
+                {getIcon(it.icon, 14)}
+                <span>{it.label}</span>
+              </a>
+            </li>
+          ))}
+        </ol>
+      </nav>
+    );
+  }
+
+  // Mobile: collapsible
+  return (
+    <nav aria-label="Table of Contents">
+      <div style={{
+        ...T.cardBg, overflow: "hidden",
+      }}>
+        <button onClick={() => setOpen(!open)} style={{
+          width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between",
+          padding: "14px 16px", background: "none", border: "none", cursor: "pointer",
+          fontFamily: "inherit",
+        }}>
+          <span style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 15, color: "#0f172a" }}>
+            In This Guide
+          </span>
+          <ChevronDown size={18} color="#64748b" style={{
+            transition: "transform 0.2s",
+            transform: open ? "rotate(180deg)" : "rotate(0deg)",
+          }} />
+        </button>
+        {open && (
+          <ol style={{
+            listStyle: "none", margin: 0, padding: "0 16px 14px",
+            display: "flex", flexDirection: "column", gap: 2,
+          }}>
+            {items.map((it) => (
+              <li key={it.id}>
+                <a href={`#${it.id}`} onClick={(e) => { e.preventDefault(); scrollTo(it.id); }}
+                  style={{
+                    display: "flex", alignItems: "center", gap: 8,
+                    padding: "8px 10px", borderRadius: 8,
+                    paddingLeft: it.type === "subsection" ? 32 : 10,
+                    color: it.type === "subsection" ? "#64748b" : "#1f2937",
+                    fontSize: it.type === "subsection" ? 13 : 14,
+                    fontWeight: it.type === "subsection" ? 500 : 600,
+                    textDecoration: "none", transition: "background 0.15s",
+                  }}
+                  onTouchStart={(e) => { e.currentTarget.style.background = "#f0fdf4"; }}
+                  onTouchEnd={(e) => { e.currentTarget.style.background = "transparent"; }}
+                >
+                  {getIcon(it.icon, it.type === "subsection" ? 12 : 14)}
+                  <span>{it.label}</span>
+                </a>
+              </li>
+            ))}
+          </ol>
+        )}
+      </div>
+    </nav>
   );
 }
 
@@ -361,6 +474,23 @@ export default function RankingPage() {
   const compCols = getComparisonCols(ranking.id);
   const compData = thematicData?.comparisonData || null;
 
+  // TOC items
+  const tocItems = [
+    { id: "top-brokers", label: `Top ${Math.min(brokers.length, 10)} ${ranking.title}`, icon: "Trophy", type: "section" },
+    ...brokers.slice(0, 5).map((b, i) => ({
+      id: `broker-${b.slug}`, label: `#${i + 1} ${b.B.name}`, icon: "User", type: "broker",
+    })),
+    ...(seo.keyFinding ? [{ id: "key-finding", label: "Key Finding & How We Ranked", icon: "Target", type: "section" }] : []),
+    { id: "spread-chart", label: "Spread Comparison Chart", icon: "BarChart3", type: "section" },
+    { id: "comparison-table", label: "Side-by-Side Comparison", icon: "Layers", type: "section" },
+    { id: "education", label: educationData?.title || "What to Look For When Choosing a Broker", icon: "BookOpen", type: "section" },
+    ...(educationData?.sections?.map((sec, si) => ({
+      id: `education-${si}`, label: sec.heading, icon: "ChevronRight", type: "subsection",
+    })) || []),
+    ...((educationData?.faq?.length || (seo.faq?.length && !educationData?.faq?.length))
+      ? [{ id: "faq", label: "Frequently Asked Questions", icon: "HelpCircle", type: "section" }] : []),
+  ];
+
   // Filter brokers
   const filteredBrokers = activeFilter === "all" ? brokers : brokers.filter(b => {
     const type = (b.B.type || "").toLowerCase();
@@ -398,7 +528,7 @@ export default function RankingPage() {
             {ranking.title} {YEAR}
           </h1>
           <p style={{
-            fontSize: mob ? 13 : 15, color: "rgba(255,255,255,0.75)",
+            fontSize: mob ? 14 : 15, color: "rgba(255,255,255,0.75)",
             maxWidth: 540, margin: "0 auto 10px", lineHeight: 1.5,
           }}>
             {brokers.length} brokers independently tested across 130+ data points
@@ -414,7 +544,7 @@ export default function RankingPage() {
         <section style={{ ...cn, paddingTop: mob ? 14 : 18, paddingBottom: mob ? 14 : 18 }}>
           {seo.intro.map((p, i) => (
             <p key={i} style={{
-              fontSize: mob ? 14 : 15, lineHeight: 1.7, color: "#374151",
+              fontSize: 15, lineHeight: 1.7, color: "#374151",
               marginBottom: i < seo.intro.length - 1 ? 12 : 0,
             }}>
               {fillVars(p)}
@@ -423,8 +553,13 @@ export default function RankingPage() {
         </section>
       )}
 
+      {/* ═══ TOC: Table of Contents ═══ */}
+      <section style={{ ...cn, paddingBottom: mob ? 8 : 12 }}>
+        <TableOfContents items={tocItems} mob={mob} />
+      </section>
+
       {/* ═══ БЛОК 2: Quick Broker Grid ═══ */}
-      <section style={{ ...cn, paddingBottom: mob ? 16 : 20 }}>
+      <section id="top-brokers" style={{ ...cn, paddingBottom: mob ? 16 : 20 }}>
         <h2 style={{ ...T.h2(mob), marginBottom: mob ? 8 : 10 }}>
           Top 10 at a Glance
         </h2>
@@ -433,7 +568,7 @@ export default function RankingPage() {
 
       {/* ═══ БЛОК 3: Key Finding + text ═══ */}
       {seo.keyFinding && (
-        <section style={{ ...cn, paddingBottom: T.sectionGap(mob) }}>
+        <section id="key-finding" style={{ ...cn, paddingBottom: T.sectionGap(mob) }}>
           <div style={{
             display: "flex", borderRadius: 12, overflow: "hidden",
             background: "linear-gradient(135deg, #0f172a 0%, #1e3a5f 60%, #0a2e3d 100%)",
@@ -489,19 +624,20 @@ export default function RankingPage() {
       <section style={{ ...cn, paddingBottom: T.sectionGap(mob) }}>
         <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
           {filteredBrokers.map((b, i) => (
-            <BrokerRankCard
-              key={b.slug}
-              broker={b}
-              rank={i + 1}
-              thematic={getBrokerBlurb(ranking.id, b.slug, b)}
-              rankingSlug={ranking.slug}
-            />
+            <div key={b.slug} id={`broker-${b.slug}`}>
+              <BrokerRankCard
+                broker={b}
+                rank={i + 1}
+                thematic={getBrokerBlurb(ranking.id, b.slug, b)}
+                rankingSlug={ranking.slug}
+              />
+            </div>
           ))}
         </div>
       </section>
 
       {/* ═══ БЛОК 6: Spread Chart ═══ */}
-      <section style={{ ...cn, paddingBottom: T.sectionGap(mob) }}>
+      <section id="spread-chart" style={{ ...cn, paddingBottom: T.sectionGap(mob) }}>
         <div style={{ ...T.cardBg, padding: T.cardPad(mob) }}>
           <h2 style={{ ...T.h2(mob), marginBottom: 6 }}>
             Spread Comparison: Top Brokers
@@ -514,7 +650,7 @@ export default function RankingPage() {
       </section>
 
       {/* ═══ БЛОК 7: Comparison Table (with CTA) ═══ */}
-      <section style={{ ...cn, paddingBottom: T.sectionGap(mob) }}>
+      <section id="comparison-table" style={{ ...cn, paddingBottom: T.sectionGap(mob) }}>
         <div style={{ ...T.cardBg, padding: T.cardPad(mob) }}>
           <h2 style={{ ...T.h2(mob), marginBottom: 6 }}>
             {countryData ? `${countryData.name} Broker` : ranking.title} Comparison {YEAR}
@@ -590,7 +726,7 @@ export default function RankingPage() {
 
       {/* ═══ БЛОК 8: Education (thematic or fallback) ═══ */}
       {educationData ? (
-        <section style={{ ...cn, paddingBottom: T.sectionGap(mob) }}>
+        <section id="education" style={{ ...cn, paddingBottom: T.sectionGap(mob) }}>
           <div style={{ ...T.cardBg, padding: T.cardPad(mob) }}>
             <h2 style={{ ...T.h2(mob), marginBottom: 8 }}>
               {educationData.title}
@@ -611,7 +747,7 @@ export default function RankingPage() {
               </div>
             )}
             {educationData.sections?.map((sec, si) => (
-              <div key={si} style={{ marginBottom: 28, paddingTop: 20, borderTop: "1px solid #f1f5f9" }}>
+              <div key={si} id={`education-${si}`} style={{ marginBottom: 28, paddingTop: 20, borderTop: "1px solid #f1f5f9" }}>
                 <h3 style={{ ...T.h3(mob), marginBottom: 12 }}>{sec.heading}</h3>
                 {sec.paragraphs?.map((p, pi) => (
                   <p key={pi} style={{ fontSize: 15, lineHeight: 1.75, color: "#1f2937", marginBottom: 12 }}>{p}</p>
@@ -640,7 +776,7 @@ export default function RankingPage() {
               </div>
             ))}
             {educationData.faq && educationData.faq.length > 0 && (
-              <div style={{ paddingTop: 20, borderTop: "1px solid #f1f5f9" }}>
+              <div id="faq" style={{ paddingTop: 20, borderTop: "1px solid #f1f5f9" }}>
                 <h3 style={{ ...T.h3(mob), marginBottom: 16, fontSize: mob ? 18 : 22 }}>
                   Frequently Asked Questions
                 </h3>
@@ -650,7 +786,7 @@ export default function RankingPage() {
           </div>
         </section>
       ) : (
-        <section style={{ ...cn, paddingBottom: T.sectionGap(mob) }}>
+        <section id="education" style={{ ...cn, paddingBottom: T.sectionGap(mob) }}>
           <div style={{ ...T.cardBg, padding: T.cardPad(mob) }}>
             <h2 style={{ ...T.h2(mob), marginBottom: 12 }}>
               What to Look For When Choosing a Broker
@@ -796,7 +932,7 @@ export default function RankingPage() {
 
       {/* FAQ */}
       {seo.faq && seo.faq.length > 0 && !educationData?.faq?.length && (
-        <section style={{ ...cn, paddingBottom: T.sectionGap(mob) }}>
+        <section id="faq" style={{ ...cn, paddingBottom: T.sectionGap(mob) }}>
           <h2 style={{ ...T.h2(mob), marginBottom: 16 }}>Frequently Asked Questions</h2>
           <Accordion
             items={seo.faq.slice(0, 6).map((f) => ({ q: fillVars(f.q), a: fillVars(f.a) }))}
