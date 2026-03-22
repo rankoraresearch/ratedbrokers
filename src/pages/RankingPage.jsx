@@ -218,7 +218,7 @@ function SpreadChart({ brokers, mob }) {
 }
 
 // ═══════════════════════════════════════════════════════════
-// TABLE OF CONTENTS
+// TABLE OF CONTENTS — Dark Navigation Strip
 // ═══════════════════════════════════════════════════════════
 function TableOfContents({ items, mob }) {
   const [open, setOpen] = useState(false);
@@ -232,101 +232,120 @@ function TableOfContents({ items, mob }) {
   };
 
   const iconMap = { Trophy, BarChart3, Layers, BookOpen, HelpCircle, Target, User, ChevronRight };
-  const getIcon = (name, size) => {
+  const getIcon = (name, size, color) => {
     const C = iconMap[name];
-    return C ? <C size={size} /> : null;
+    return C ? <C size={size} color={color} /> : null;
   };
 
-  // Desktop: horizontal pills (sections + brokers, no subsections)
+  const stripBg = "linear-gradient(135deg, #0a1225 0%, #0b2019 50%, #035c43 100%)";
+
+  // Desktop: horizontal pills on dark strip
   if (!mob) {
     const visible = items.filter(it => it.type !== "subsection");
     return (
-      <nav aria-label="Table of Contents">
-        <ol style={{
-          listStyle: "none", margin: 0, padding: 0,
-          display: "flex", gap: 6, overflowX: "auto",
-          ...T.cardBg, padding: "12px 16px",
-          scrollbarWidth: "thin",
+      <div style={{
+        background: stripBg,
+        borderTop: "1px solid rgba(255,255,255,0.06)",
+      }}>
+        <nav aria-label="Table of Contents" style={{
+          maxWidth: 1200, margin: "0 auto", padding: "0 24px",
         }}>
-          {visible.map((it) => (
-            <li key={it.id}>
-              <a href={`#${it.id}`} onClick={(e) => { e.preventDefault(); scrollTo(it.id); }}
-                style={{
-                  display: "inline-flex", alignItems: "center", gap: 6,
-                  padding: "7px 14px", borderRadius: 20, whiteSpace: "nowrap",
-                  background: "#f8fafc", border: "1px solid #e2e8f0",
-                  color: "#475569", fontSize: 13, fontWeight: 600,
-                  textDecoration: "none", transition: "all 0.15s", cursor: "pointer",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = "#059669";
-                  e.currentTarget.style.color = "#059669";
-                  e.currentTarget.style.background = "#f0fdf4";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = "#e2e8f0";
-                  e.currentTarget.style.color = "#475569";
-                  e.currentTarget.style.background = "#f8fafc";
-                }}
-              >
-                {getIcon(it.icon, 14)}
-                <span>{it.label}</span>
-              </a>
-            </li>
-          ))}
-        </ol>
-      </nav>
+          <ol style={{
+            listStyle: "none", margin: 0, padding: "14px 0",
+            display: "flex", gap: 6, overflowX: "auto",
+            scrollbarWidth: "thin",
+            scrollbarColor: "rgba(255,255,255,0.15) transparent",
+          }}>
+            {visible.map((it) => (
+              <li key={it.id}>
+                <a href={`#${it.id}`} onClick={(e) => { e.preventDefault(); scrollTo(it.id); }}
+                  style={{
+                    display: "inline-flex", alignItems: "center", gap: 6,
+                    padding: "7px 14px", borderRadius: 20, whiteSpace: "nowrap",
+                    background: "rgba(255,255,255,0.06)",
+                    border: "1px solid rgba(255,255,255,0.10)",
+                    color: "rgba(255,255,255,0.75)", fontSize: 13, fontWeight: 600,
+                    textDecoration: "none", transition: "all 0.15s", cursor: "pointer",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = "#34d399";
+                    e.currentTarget.style.color = "#34d399";
+                    e.currentTarget.style.background = "rgba(52,211,153,0.10)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.10)";
+                    e.currentTarget.style.color = "rgba(255,255,255,0.75)";
+                    e.currentTarget.style.background = "rgba(255,255,255,0.06)";
+                  }}
+                >
+                  {getIcon(it.icon, 13, "rgba(255,255,255,0.45)")}
+                  <span>{it.label}</span>
+                </a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+      </div>
     );
   }
 
-  // Mobile: collapsible
+  // Mobile: collapsible on dark strip
   return (
-    <nav aria-label="Table of Contents">
-      <div style={{
-        ...T.cardBg, overflow: "hidden",
+    <div style={{
+      background: stripBg,
+      borderTop: "1px solid rgba(255,255,255,0.06)",
+    }}>
+      <nav aria-label="Table of Contents" style={{
+        maxWidth: 1200, margin: "0 auto",
       }}>
         <button onClick={() => setOpen(!open)} style={{
           width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between",
           padding: "14px 16px", background: "none", border: "none", cursor: "pointer",
           fontFamily: "inherit",
         }}>
-          <span style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 15, color: "#0f172a" }}>
+          <span style={{
+            fontFamily: "Outfit", fontWeight: 700, fontSize: 14,
+            color: "rgba(255,255,255,0.8)", letterSpacing: "0.01em",
+          }}>
             In This Guide
           </span>
-          <ChevronDown size={18} color="#64748b" style={{
+          <ChevronDown size={16} color="rgba(255,255,255,0.5)" style={{
             transition: "transform 0.2s",
             transform: open ? "rotate(180deg)" : "rotate(0deg)",
           }} />
         </button>
         {open && (
           <ol style={{
-            listStyle: "none", margin: 0, padding: "0 16px 14px",
-            display: "flex", flexDirection: "column", gap: 2,
+            listStyle: "none", margin: 0, padding: "0 12px 14px",
+            display: "flex", flexDirection: "column", gap: 1,
           }}>
-            {items.map((it) => (
-              <li key={it.id}>
-                <a href={`#${it.id}`} onClick={(e) => { e.preventDefault(); scrollTo(it.id); }}
-                  style={{
-                    display: "flex", alignItems: "center", gap: 8,
-                    padding: "8px 10px", borderRadius: 8,
-                    paddingLeft: it.type === "subsection" ? 32 : 10,
-                    color: it.type === "subsection" ? "#64748b" : "#1f2937",
-                    fontSize: it.type === "subsection" ? 13 : 14,
-                    fontWeight: it.type === "subsection" ? 500 : 600,
-                    textDecoration: "none", transition: "background 0.15s",
-                  }}
-                  onTouchStart={(e) => { e.currentTarget.style.background = "#f0fdf4"; }}
-                  onTouchEnd={(e) => { e.currentTarget.style.background = "transparent"; }}
-                >
-                  {getIcon(it.icon, it.type === "subsection" ? 12 : 14)}
-                  <span>{it.label}</span>
-                </a>
-              </li>
-            ))}
+            {items.map((it) => {
+              const isSub = it.type === "subsection";
+              return (
+                <li key={it.id}>
+                  <a href={`#${it.id}`} onClick={(e) => { e.preventDefault(); scrollTo(it.id); }}
+                    style={{
+                      display: "flex", alignItems: "center", gap: 8,
+                      padding: "9px 12px", borderRadius: 8,
+                      paddingLeft: isSub ? 32 : 12,
+                      color: isSub ? "rgba(255,255,255,0.5)" : "rgba(255,255,255,0.8)",
+                      fontSize: isSub ? 13 : 14,
+                      fontWeight: isSub ? 500 : 600,
+                      textDecoration: "none", transition: "background 0.15s",
+                    }}
+                    onTouchStart={(e) => { e.currentTarget.style.background = "rgba(52,211,153,0.10)"; }}
+                    onTouchEnd={(e) => { e.currentTarget.style.background = "transparent"; }}
+                  >
+                    {getIcon(it.icon, isSub ? 12 : 13, isSub ? "rgba(255,255,255,0.35)" : "rgba(255,255,255,0.45)")}
+                    <span>{it.label}</span>
+                  </a>
+                </li>
+              );
+            })}
           </ol>
         )}
-      </div>
-    </nav>
+      </nav>
+    </div>
   );
 }
 
@@ -539,6 +558,9 @@ export default function RankingPage() {
         </header>
       </HeroBand>
 
+      {/* ═══ TOC: Table of Contents (dark strip, visual continuation of hero) ═══ */}
+      <TableOfContents items={tocItems} mob={mob} />
+
       {/* ═══ БЛОК 1: Intro (compact, from seo.intro) ═══ */}
       {seo.intro && (
         <section style={{ ...cn, paddingTop: mob ? 14 : 18, paddingBottom: mob ? 14 : 18 }}>
@@ -552,11 +574,6 @@ export default function RankingPage() {
           ))}
         </section>
       )}
-
-      {/* ═══ TOC: Table of Contents ═══ */}
-      <section style={{ ...cn, paddingBottom: mob ? 8 : 12 }}>
-        <TableOfContents items={tocItems} mob={mob} />
-      </section>
 
       {/* ═══ БЛОК 2: Quick Broker Grid ═══ */}
       <section id="top-brokers" style={{ ...cn, paddingBottom: mob ? 16 : 20 }}>
