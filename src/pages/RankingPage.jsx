@@ -57,6 +57,7 @@ const T = {
 function QuickBrokerGrid({ brokers, mob }) {
   const top10 = brokers.slice(0, 10);
   const [hoveredIdx, setHoveredIdx] = useState(null);
+  const [touchedIdx, setTouchedIdx] = useState(null);
 
   const getRisk = (B) => {
     const riskText = B.riskWarning
@@ -69,34 +70,36 @@ function QuickBrokerGrid({ brokers, mob }) {
     const B = broker.B;
     const visitUrl = makeVisitUrl(broker.slug, B.url);
     const isHovered = hoveredIdx === i;
+    const isTouched = touchedIdx === i;
+    const showRisk = mob ? isTouched : isHovered;
     const shortRisk = getRisk(B);
     const isMedal = i < 3;
     const badgeStyle = isMedal
       ? { bg: "linear-gradient(135deg, #059669, #047857)", shadow: "0 2px 6px rgba(5,150,105,0.25)", color: "#fff" }
       : { bg: "#f1f5f9", shadow: "none", color: "#64748b" };
-    const logoSize = mob ? 40 : 40;
-    const nameSize = mob ? 15 : 15;
-    const scoreSize = mob ? 14 : 15;
-    const badgeSize = mob ? 28 : 28;
+    const logoSize = mob ? 32 : 40;
+    const nameSize = mob ? 14 : 15;
+    const scoreSize = mob ? 13 : 15;
+    const badgeSize = mob ? 24 : 28;
 
     return (
       <a key={broker.slug} href={visitUrl} target="_blank" rel="noopener nofollow sponsored"
         onMouseEnter={() => setHoveredIdx(i)} onMouseLeave={() => setHoveredIdx(null)}
-        onTouchStart={(e) => { e.currentTarget.style.borderColor = "#059669"; e.currentTarget.style.background = "#f0fdf4"; }}
-        onTouchEnd={(e) => { e.currentTarget.style.borderColor = "#e5e7eb"; e.currentTarget.style.background = "#fff"; }}
+        onTouchStart={() => setTouchedIdx(i)}
+        onTouchEnd={() => setTimeout(() => setTouchedIdx(null), 1500)}
         style={{
-          display: "flex", alignItems: "center", gap: mob ? 10 : 14,
-          padding: mob ? "12px 14px" : "12px 16px",
-          borderRadius: 14, background: "#fff",
-          border: `1px solid ${isHovered ? "#059669" : "#e5e7eb"}`,
+          display: "flex", alignItems: "center", gap: mob ? 8 : 14,
+          padding: mob ? "8px 12px" : "12px 16px",
+          borderRadius: mob ? 10 : 14, background: "#fff",
+          border: `1px solid ${(isHovered || isTouched) ? "#059669" : "#e5e7eb"}`,
           boxShadow: isHovered ? "0 4px 16px rgba(0,0,0,0.07)" : "0 1px 3px rgba(0,0,0,0.04)",
-          textDecoration: "none", transition: "box-shadow 0.2s, border-color 0.2s, background 0.15s", cursor: "pointer",
+          textDecoration: "none", transition: "box-shadow 0.2s, border-color 0.2s", cursor: "pointer",
         }}>
         <div style={{
-          width: badgeSize, height: mob ? 40 : badgeSize, borderRadius: 8, flexShrink: 0,
+          width: badgeSize, height: badgeSize, borderRadius: mob ? 6 : 8, flexShrink: 0,
           background: badgeStyle.bg, boxShadow: badgeStyle.shadow,
           display: "flex", alignItems: "center", justifyContent: "center",
-          fontSize: mob ? 12 : 12, fontWeight: isMedal ? 800 : 700, color: badgeStyle.color,
+          fontSize: mob ? 11 : 12, fontWeight: isMedal ? 800 : 700, color: badgeStyle.color,
         }}>{i + 1}</div>
         <BrokerLogo slug={broker.slug} name={B.name} fallback={B.logo} size={logoSize} shape="icon" />
         <div style={{ flex: 1, minWidth: 0 }}>
@@ -104,19 +107,19 @@ function QuickBrokerGrid({ brokers, mob }) {
             fontWeight: 600, fontSize: nameSize, color: "#0f172a",
             overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
           }}>{B.name}</div>
-          <div style={{ display: "flex", alignItems: "center", gap: 4, marginTop: 3 }}>
-            <Star size={12} color="#059669" fill="#059669" />
+          <div style={{ display: "flex", alignItems: "center", gap: 4, marginTop: 2 }}>
+            <Star size={mob ? 11 : 12} color="#059669" fill="#059669" />
             <span style={{ fontSize: scoreSize, fontWeight: 700, color: "#059669", lineHeight: 1 }}>{B.score}</span>
-            <span style={{ fontSize: 11, color: "#9ca3af" }}>/10</span>
+            <span style={{ fontSize: mob ? 10 : 11, color: "#9ca3af" }}>/10</span>
           </div>
           <div style={{
-            fontSize: 10, color: "#b0b8c4", lineHeight: 1.2, marginTop: 2,
-            height: mob ? "auto" : 13, overflow: "hidden",
+            fontSize: mob ? 9 : 10, color: "#b0b8c4", lineHeight: 1.2, marginTop: 2,
+            height: showRisk ? "auto" : (mob ? 0 : 13), overflow: "hidden",
             whiteSpace: "nowrap", textOverflow: "ellipsis",
-            opacity: mob ? 1 : (isHovered ? 1 : 0), transition: "opacity 0.2s",
+            opacity: showRisk ? 1 : 0, transition: "opacity 0.2s, height 0.2s",
           }}>{shortRisk}</div>
         </div>
-        <ChevronRight size={16} color={mob ? "#94a3b8" : (isHovered ? "#059669" : "#cbd5e1")} style={{
+        <ChevronRight size={mob ? 14 : 16} color={mob ? "#94a3b8" : (isHovered ? "#059669" : "#cbd5e1")} style={{
           flexShrink: 0, transition: "color 0.2s, transform 0.2s",
           transform: isHovered ? "translateX(2px)" : "none",
         }} />
@@ -131,7 +134,7 @@ function QuickBrokerGrid({ brokers, mob }) {
       gridTemplateColumns: mob ? undefined : "1fr 1fr",
       gridAutoFlow: mob ? undefined : "column",
       gridTemplateRows: mob ? undefined : "repeat(5, auto)",
-      gap: mob ? 8 : 8,
+      gap: mob ? 6 : 8,
     }}>
       {top10.map((broker, i) => renderCard(broker, i))}
     </div>
