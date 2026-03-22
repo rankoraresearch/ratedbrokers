@@ -6,7 +6,7 @@ import ScoreBadge from "./ScoreBadge";
 import RegBadge from "./RegBadge";
 import BrokerLogo from "./BrokerLogo";
 import { getTrustpilotUrl } from "../data/trustpilot-links";
-import { ChevronDown, Check, X as XIcon } from "lucide-react";
+import { ChevronDown, Check, X as XIcon, ExternalLink } from "lucide-react";
 
 const formatTpCount = (n) => {
   if (!n) return "";
@@ -218,47 +218,58 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
         overflow: "hidden",
         boxShadow: rank === 1 ? "0 4px 16px rgba(5,150,105,0.08)" : "0 1px 4px rgba(0,0,0,0.03)",
       }}>
-        {/* Top row: rank + logo + name + score */}
-        <div style={{ padding: "16px 16px 12px", display: "flex", alignItems: "center", gap: 12 }}>
+        {/* Header: rank left, score right */}
+        <div style={{
+          display: "flex", justifyContent: "space-between", alignItems: "center",
+          padding: "14px 16px 0",
+        }}>
           <div style={{
-            width: 32, height: 32, borderRadius: 8, flexShrink: 0,
-            background: rank === 1 ? "#059669" : "linear-gradient(135deg,#1e3a5f,#2d5a8e)",
+            width: 32, height: 32, borderRadius: 8,
+            background: rank === 1 ? "#059669" : rank <= 3 ? "linear-gradient(135deg,#1e3a5f,#2d5a8e)" : "#f1f5f9",
             display: "flex", alignItems: "center", justifyContent: "center",
-            fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 14, color: "#fff",
+            fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 14,
+            color: rank <= 3 ? "#fff" : "#111827",
           }}>#{rank}</div>
-
-          <Link to={reviewPath} style={{ display: "flex", flexShrink: 0, textDecoration: "none" }}>
-            <BrokerLogo slug={broker.slug} name={B.name} fallback={B.logo} size={44} shape="icon" />
-          </Link>
-
-          <div style={{ flex: 1, minWidth: 0 }}>
-            <h3 style={{ margin: 0, fontSize: 15, fontWeight: 700, lineHeight: 1.2 }}>
-              <Link to={reviewPath} style={{
-                fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: 15,
-                color: "#111827", textDecoration: "none", lineHeight: 1.2,
-              }}>{B.name}</Link>
-            </h3>
-            <div style={{ fontSize: 12, color: "#64748b", marginTop: 2 }}>{B.type}</div>
-            {B.badge && (
-              <span style={{
-                display: "inline-block", marginTop: 3, padding: "1px 6px", borderRadius: 4,
-                fontSize: 10, fontWeight: 700, background: "#ecfdf5", color: "#059669",
-              }}>{B.badge}</span>
-            )}
-            {hasTp && getTrustpilotUrl(broker.slug) && (
-              <a href={getTrustpilotUrl(broker.slug)} target="_blank" rel="noopener noreferrer"
-                style={{ display: "flex", alignItems: "center", gap: 3, marginTop: 3, textDecoration: "none", overflow: "hidden" }}>
-                <TpStars rating={B.tp} size={11} />
-                <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11, fontWeight: 700, color: "#111827", marginLeft: 1 }}>{B.tp}</span>
-                <span style={{ fontSize: 10, color: "#64748b", whiteSpace: "nowrap" }}>({formatTpCount(B.tpCount)})</span>
-                <span style={{ color: "#cbd5e1", fontSize: 10 }}>·</span>
-                <span style={{ fontSize: 10, fontWeight: 600, color: "#4b5563", borderBottom: "1px dotted #94a3b8", whiteSpace: "nowrap" }}>Trustpilot ↗</span>
-              </a>
-            )}
-          </div>
-
           <ScoreBadge score={B.score} size="lg" />
         </div>
+
+        {/* Centered identity */}
+        <div style={{ textAlign: "center", padding: "12px 16px 0" }}>
+          <Link to={reviewPath} style={{ display: "inline-block", textDecoration: "none" }}>
+            <BrokerLogo slug={broker.slug} name={B.name} fallback={B.logo} size={64} shape="icon" />
+          </Link>
+          <h3 style={{ margin: "8px 0 0", fontSize: 17, fontWeight: 700, lineHeight: 1.2 }}>
+            <Link to={reviewPath} style={{
+              fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: 17,
+              color: "#111827", textDecoration: "none",
+            }}>{B.name}</Link>
+          </h3>
+          <div style={{ fontSize: 13, color: "#64748b", marginTop: 3 }}>{B.type}</div>
+          {B.badge && (
+            <span style={{
+              display: "inline-block", marginTop: 6, padding: "2px 10px", borderRadius: 6,
+              fontSize: 11, fontWeight: 700, background: "#ecfdf5", color: "#059669",
+            }}>{B.badge}</span>
+          )}
+        </div>
+
+        {/* Trustpilot pill button */}
+        {hasTp && getTrustpilotUrl(broker.slug) && (
+          <div style={{ textAlign: "center", padding: "10px 16px 0" }}>
+            <a href={getTrustpilotUrl(broker.slug)} target="_blank" rel="noopener noreferrer" style={{
+              display: "inline-flex", alignItems: "center", gap: 6,
+              padding: "8px 16px", borderRadius: 20,
+              background: "#f8fafc", border: "1px solid #e2e8f0",
+              textDecoration: "none", transition: "border-color 0.15s",
+            }}>
+              <TpStars rating={B.tp} size={13} />
+              <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 13, fontWeight: 700, color: "#111827" }}>{B.tp}</span>
+              <span style={{ fontSize: 11, color: "#64748b" }}>({formatTpCount(B.tpCount)})</span>
+              <span style={{ fontSize: 11, color: "#64748b", marginLeft: 2 }}>Trustpilot</span>
+              <ExternalLink size={11} color="#94a3b8" />
+            </a>
+          </div>
+        )}
 
         {/* CTA — right after identity */}
         <DualCTA />
@@ -267,12 +278,12 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
         <RiskWarning />
 
         {/* Regs */}
-        <div style={{ padding: "0 16px 10px", display: "flex", gap: 4, flexWrap: "wrap", alignItems: "center" }}>
-          {B.regs.slice(0, 2).map((r) => (
+        <div style={{ padding: "0 16px 10px", display: "flex", gap: 4, flexWrap: "wrap", justifyContent: "center" }}>
+          {B.regs.slice(0, 3).map((r) => (
             <RegBadge key={r.name} reg={r.name} />
           ))}
-          {B.regs.length > 2 && (
-            <span style={{ fontSize: 11, color: "#64748b", fontWeight: 500 }}>+{B.regs.length - 2}</span>
+          {B.regs.length > 3 && (
+            <span style={{ fontSize: 11, color: "#64748b", fontWeight: 500 }}>+{B.regs.length - 3}</span>
           )}
         </div>
 

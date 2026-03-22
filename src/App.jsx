@@ -25,6 +25,7 @@ import LogoLab from "./pages/LogoLabDotCom";
 import RankingProto from "./pages/RankingProto";
 import RankingProtoB from "./pages/RankingProtoB";
 import RankingProtoC from "./pages/RankingProtoC";
+import CardProto from "./pages/CardProto";
 import { LanguageProvider } from "./i18n/LanguageContext";
 
 function Layout() {
@@ -52,6 +53,9 @@ function AppRoutes() {
       </Route>
       <Route path="proto/ranking-c" element={<Layout />}>
         <Route index element={<RankingProtoC />} />
+      </Route>
+      <Route path="proto/card" element={<Layout />}>
+        <Route index element={<CardProto />} />
       </Route>
       <Route element={<Layout />}>
         <Route index element={<Home />} />
