@@ -556,13 +556,13 @@ export default function RankingPage() {
   const compCols = getComparisonCols(ranking.id);
   const compData = thematicData?.comparisonData || null;
 
-  // TOC items
+  // TOC items — order matches actual page flow (Block 2→3→5→6→7→8→FAQ)
   const tocItems = [
     { id: "top-brokers", label: `Top ${Math.min(brokers.length, 10)} ${ranking.title}`, icon: "Trophy", type: "section" },
+    ...(seo.keyFinding ? [{ id: "key-finding", label: "Key Finding & How We Ranked", icon: "Target", type: "section" }] : []),
     ...brokers.slice(0, 5).map((b, i) => ({
       id: `broker-${b.slug}`, label: `#${i + 1} ${b.B.name}`, icon: "User", type: "broker",
     })),
-    ...(seo.keyFinding ? [{ id: "key-finding", label: "Key Finding & How We Ranked", icon: "Target", type: "section" }] : []),
     { id: "spread-chart", label: "Spread Comparison Chart", icon: "BarChart3", type: "section" },
     { id: "comparison-table", label: "Side-by-Side Comparison", icon: "Layers", type: "section" },
     { id: "education", label: educationData?.title || "What to Look For When Choosing a Broker", icon: "BookOpen", type: "section" },
