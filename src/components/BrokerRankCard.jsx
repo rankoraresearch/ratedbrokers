@@ -259,26 +259,25 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
           </div>
         </div>
 
-        {/* Trustpilot pill button */}
-        {hasTp && getTrustpilotUrl(broker.slug) && (
-          <div style={{ textAlign: "center", padding: "10px 16px 0" }}>
-            <a href={getTrustpilotUrl(broker.slug)} target="_blank" rel="noopener noreferrer" style={{
-              display: "inline-flex", alignItems: "center", gap: 6,
-              padding: "8px 16px", borderRadius: 20,
-              background: "#f8fafc", border: "1px solid #e2e8f0",
-              textDecoration: "none", transition: "border-color 0.15s",
-            }}>
-              <TpStars rating={B.tp} size={13} />
-              <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 13, fontWeight: 700, color: "#111827" }}>{B.tp}</span>
-              <span style={{ fontSize: 11, color: "#64748b" }}>({formatTpCount(B.tpCount)})</span>
-              <span style={{ fontSize: 11, color: "#64748b", marginLeft: 2 }}>Trustpilot</span>
-              <ExternalLink size={11} color="#94a3b8" />
-            </a>
-          </div>
-        )}
-
         {/* CTA — right after identity */}
         <DualCTA />
+
+        {/* Trustpilot full-width bar (after CTAs) */}
+        {hasTp && getTrustpilotUrl(broker.slug) && (
+          <a href={getTrustpilotUrl(broker.slug)} target="_blank" rel="noopener noreferrer" style={{
+            display: "flex", alignItems: "center", justifyContent: "center", gap: 6,
+            padding: "9px 16px",
+            background: "#f8fafc",
+            borderTop: "1px solid #f1f5f9", borderBottom: "1px solid #f1f5f9",
+            textDecoration: "none", marginTop: 10,
+          }}>
+            <TpStars rating={B.tp} size={12} />
+            <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 12, fontWeight: 700, color: "#111827" }}>{B.tp}</span>
+            <span style={{ fontSize: 10, color: "#64748b" }}>({formatTpCount(B.tpCount)})</span>
+            <span style={{ fontSize: 10, color: "#64748b" }}>Trustpilot</span>
+            <ExternalLink size={10} color="#94a3b8" />
+          </a>
+        )}
 
         {/* Risk warning right under CTA */}
         <RiskWarning />

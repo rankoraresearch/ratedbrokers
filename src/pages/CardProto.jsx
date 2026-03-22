@@ -1,23 +1,23 @@
 /**
- * CardProto — Mobile card identity prototypes (Round 2)
+ * CardProto — Trustpilot positioning prototypes (Round 3)
  *
  * Barbara + Bill consultation:
- * Problem: 64px centered icon looks small and lonely on 343px content area
- * Solution: make identity block more compact and visually weighty
+ * Problem: Trustpilot pill was BEFORE CTA buttons — user wants CTA first
+ * Solution: Move Trustpilot AFTER both CTA buttons, test 3 visual styles
  *
- * Variant A — Centered Horizontal Block
- *   Logo 72px + Name/Type/Badge to the right, whole block centered
- *   Like a business card — premium, fills space naturally
+ * All variants use same identity: Centered Horizontal Block (logo 72px + name)
+ * Order: Identity → CTA (Open Account + Full Review) → Trustpilot → Risk → ...
  *
- * Variant B — Single Identity Row
- *   Rank + Logo 56px + Name/Type + Score all in one padded row
- *   Most compact — industry standard (BestBrokers, BrokerChooser)
+ * Variant A — Pill (current style, repositioned)
+ *   Same rounded pill with stars/rating/count, just moved below CTAs
  *
- * Variant C — Large Centered Logo (96px)
- *   Keep centered but much bigger — fills dead space
- *   Name 19px bold underneath, minimal gap
+ * Variant B — Inline text link
+ *   Minimal: stars + rating + count + "Trustpilot ↗" as dotted underline link
+ *   No background, no border — lightweight social proof
  *
- * UNCHANGED across all: Trustpilot pill, CTA, Risk, Regs, Stats, Thematic
+ * Variant C — Compact pill (rounded-rect)
+ *   Smaller pill, borderRadius 8, condensed spacing
+ *   Professional, less prominent than A
  */
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -87,54 +87,154 @@ const MOCK_THEMATIC = {
   },
 };
 
+// ── Trustpilot variants ──
+const TpPill = ({ tpUrl, B }) => (
+  <div style={{ textAlign: "center", padding: "10px 16px 0" }}>
+    <a href={tpUrl} target="_blank" rel="noopener noreferrer" style={{
+      display: "inline-flex", alignItems: "center", gap: 6,
+      padding: "8px 16px", borderRadius: 20,
+      background: "#f8fafc", border: "1px solid #e2e8f0",
+      textDecoration: "none", transition: "border-color 0.15s",
+    }}>
+      <TpStars rating={B.tp} size={13} />
+      <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 13, fontWeight: 700, color: "#111827" }}>{B.tp}</span>
+      <span style={{ fontSize: 11, color: "#64748b" }}>({formatTpCount(B.tpCount)})</span>
+      <span style={{ fontSize: 11, color: "#64748b", marginLeft: 2 }}>Trustpilot</span>
+      <ExternalLink size={11} color="#94a3b8" />
+    </a>
+  </div>
+);
+
+const TpInline = ({ tpUrl, B }) => (
+  <div style={{ textAlign: "center", padding: "6px 16px 0" }}>
+    <a href={tpUrl} target="_blank" rel="noopener noreferrer" style={{
+      display: "inline-flex", alignItems: "center", gap: 4,
+      textDecoration: "none",
+    }}>
+      <TpStars rating={B.tp} size={11} />
+      <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 12, fontWeight: 700, color: "#111827" }}>{B.tp}</span>
+      <span style={{ fontSize: 10, color: "#64748b" }}>({formatTpCount(B.tpCount)})</span>
+      <span style={{ color: "#cbd5e1", fontSize: 10 }}>·</span>
+      <span style={{ fontSize: 10, fontWeight: 600, color: "#4b5563", borderBottom: "1px dotted #94a3b8" }}>Trustpilot ↗</span>
+    </a>
+  </div>
+);
+
+const TpCompact = ({ tpUrl, B }) => (
+  <div style={{ textAlign: "center", padding: "8px 16px 0" }}>
+    <a href={tpUrl} target="_blank" rel="noopener noreferrer" style={{
+      display: "inline-flex", alignItems: "center", gap: 5,
+      padding: "5px 12px", borderRadius: 8,
+      background: "#f8fafc", border: "1px solid #e2e8f0",
+      textDecoration: "none",
+    }}>
+      <TpStars rating={B.tp} size={11} />
+      <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 12, fontWeight: 700, color: "#111827" }}>{B.tp}</span>
+      <span style={{ fontSize: 10, color: "#64748b" }}>({formatTpCount(B.tpCount)})</span>
+      <span style={{ fontSize: 10, color: "#64748b" }}>Trustpilot</span>
+      <ExternalLink size={10} color="#94a3b8" />
+    </a>
+  </div>
+);
+
+// ── Full-width Trustpilot variants (Round 3b, based on C) ──
+
+// C1 — Full-width bar: stretches edge-to-edge, light bg strip
+const TpFullBar = ({ tpUrl, B }) => (
+  <a href={tpUrl} target="_blank" rel="noopener noreferrer" style={{
+    display: "flex", alignItems: "center", justifyContent: "center", gap: 6,
+    padding: "9px 16px",
+    background: "#f8fafc",
+    borderTop: "1px solid #f1f5f9", borderBottom: "1px solid #f1f5f9",
+    textDecoration: "none", marginTop: 10,
+  }}>
+    <TpStars rating={B.tp} size={12} />
+    <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 12, fontWeight: 700, color: "#111827" }}>{B.tp}</span>
+    <span style={{ fontSize: 10, color: "#64748b" }}>({formatTpCount(B.tpCount)})</span>
+    <span style={{ fontSize: 10, color: "#64748b" }}>Trustpilot</span>
+    <ExternalLink size={10} color="#94a3b8" />
+  </a>
+);
+
+// C2 — Full-width with hairline dividers: minimal horizontal rule style
+const TpFullDivider = ({ tpUrl, B }) => (
+  <div style={{ padding: "0 16px", marginTop: 10 }}>
+    <div style={{ height: 1, background: "#e2e8f0" }} />
+    <a href={tpUrl} target="_blank" rel="noopener noreferrer" style={{
+      display: "flex", alignItems: "center", justifyContent: "center", gap: 6,
+      padding: "8px 0",
+      textDecoration: "none",
+    }}>
+      <TpStars rating={B.tp} size={12} />
+      <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 12, fontWeight: 700, color: "#111827" }}>{B.tp}</span>
+      <span style={{ fontSize: 10, color: "#64748b" }}>({formatTpCount(B.tpCount)})</span>
+      <span style={{ color: "#e2e8f0", fontSize: 10 }}>|</span>
+      <span style={{ fontSize: 10, fontWeight: 600, color: "#64748b" }}>Trustpilot</span>
+      <ExternalLink size={10} color="#94a3b8" />
+    </a>
+    <div style={{ height: 1, background: "#e2e8f0" }} />
+  </div>
+);
+
+// C3 — Full-width green tint: subtle brand-colored bar
+const TpFullGreen = ({ tpUrl, B }) => (
+  <a href={tpUrl} target="_blank" rel="noopener noreferrer" style={{
+    display: "flex", alignItems: "center", justifyContent: "center", gap: 6,
+    padding: "9px 16px",
+    background: "#ecfdf5",
+    borderTop: "1px solid #d1fae5", borderBottom: "1px solid #d1fae5",
+    textDecoration: "none", marginTop: 10,
+  }}>
+    <TpStars rating={B.tp} size={12} />
+    <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 12, fontWeight: 700, color: "#047857" }}>{B.tp}</span>
+    <span style={{ fontSize: 10, color: "#059669" }}>({formatTpCount(B.tpCount)})</span>
+    <span style={{ fontSize: 10, fontWeight: 600, color: "#047857" }}>Trustpilot</span>
+    <ExternalLink size={10} color="#059669" />
+  </a>
+);
+
+// ── Shared CTA block ──
+const CTABlock = ({ visitUrl, reviewPath, B }) => (
+  <div style={{ padding: "14px 16px 6px", display: "flex", flexDirection: "column", gap: 8 }}>
+    <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" style={{
+      padding: "13px 20px", borderRadius: 10, textAlign: "center",
+      background: "linear-gradient(135deg,#059669,#047857)",
+      color: "#fff", fontWeight: 700, fontSize: 15, textDecoration: "none",
+      boxShadow: "0 2px 8px rgba(5,150,105,0.25)",
+    }}>
+      <span>Open {B.name} Account →</span>
+      {B.promo && <span style={{ display: "block", fontSize: 11, fontWeight: 400, opacity: 0.8, marginTop: 2 }}>{B.promo}</span>}
+    </a>
+    <Link to={reviewPath} style={{
+      padding: "12px 16px", borderRadius: 10, textAlign: "center",
+      background: "#ecfdf5", color: "#047857", fontWeight: 700, fontSize: 14,
+      textDecoration: "none", border: "2px solid #059669",
+    }}>
+      <span>Read Full Review</span>
+      <span style={{ display: "block", fontSize: 11, fontWeight: 400, opacity: 0.7, marginTop: 1 }}>
+        {B.score}/10 · Expert tested
+      </span>
+    </Link>
+  </div>
+);
+
 // ── Shared card body (everything below identity) ──
-function CardBody({ broker, rank, visitUrl, reviewPath, tpUrl, hasTp }) {
+// tpPosition: "pill" | "inline" | "compact" — style of Trustpilot after CTAs
+function CardBody({ broker, rank, visitUrl, reviewPath, tpUrl, hasTp, tpStyle = "pill" }) {
   const B = broker.B;
   const thematic = MOCK_THEMATIC[broker.slug];
   const [analysisOpen, setAnalysisOpen] = useState(false);
 
+  const tpMap = { pill: TpPill, inline: TpInline, compact: TpCompact, fullbar: TpFullBar, fulldiv: TpFullDivider, fullgreen: TpFullGreen };
+  const TpComponent = tpMap[tpStyle] || TpPill;
+
   return (
     <>
-      {/* Trustpilot pill button */}
-      {hasTp && (
-        <div style={{ textAlign: "center", padding: "10px 16px 0" }}>
-          <a href={tpUrl} target="_blank" rel="noopener noreferrer" style={{
-            display: "inline-flex", alignItems: "center", gap: 6,
-            padding: "8px 16px", borderRadius: 20,
-            background: "#f8fafc", border: "1px solid #e2e8f0",
-            textDecoration: "none", transition: "border-color 0.15s",
-          }}>
-            <TpStars rating={B.tp} size={13} />
-            <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 13, fontWeight: 700, color: "#111827" }}>{B.tp}</span>
-            <span style={{ fontSize: 11, color: "#64748b" }}>({formatTpCount(B.tpCount)})</span>
-            <span style={{ fontSize: 11, color: "#64748b", marginLeft: 2 }}>Trustpilot</span>
-            <ExternalLink size={11} color="#94a3b8" />
-          </a>
-        </div>
-      )}
+      {/* CTA first */}
+      <CTABlock visitUrl={visitUrl} reviewPath={reviewPath} B={B} />
 
-      {/* CTA */}
-      <div style={{ padding: "14px 16px 6px", display: "flex", flexDirection: "column", gap: 8 }}>
-        <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" style={{
-          padding: "13px 20px", borderRadius: 10, textAlign: "center",
-          background: "linear-gradient(135deg,#059669,#047857)",
-          color: "#fff", fontWeight: 700, fontSize: 15, textDecoration: "none",
-          boxShadow: "0 2px 8px rgba(5,150,105,0.25)",
-        }}>
-          <span>Open {B.name} Account →</span>
-          {B.promo && <span style={{ display: "block", fontSize: 11, fontWeight: 400, opacity: 0.8, marginTop: 2 }}>{B.promo}</span>}
-        </a>
-        <Link to={reviewPath} style={{
-          padding: "12px 16px", borderRadius: 10, textAlign: "center",
-          background: "#ecfdf5", color: "#047857", fontWeight: 700, fontSize: 14,
-          textDecoration: "none", border: "2px solid #059669",
-        }}>
-          <span>Read Full Review</span>
-          <span style={{ display: "block", fontSize: 11, fontWeight: 400, opacity: 0.7, marginTop: 1 }}>
-            {B.score}/10 · Expert tested
-          </span>
-        </Link>
-      </div>
+      {/* Trustpilot AFTER CTAs */}
+      {hasTp && <TpComponent tpUrl={tpUrl} B={B} />}
 
       {/* Risk */}
       {B.riskWarning && (
@@ -334,118 +434,58 @@ function VariantA({ broker, rank }) {
         </div>
       </div>
 
-      <CardBody broker={broker} rank={rank} visitUrl={visitUrl} reviewPath={reviewPath} tpUrl={tpUrl} hasTp={hasTp} />
+      <CardBody broker={broker} rank={rank} visitUrl={visitUrl} reviewPath={reviewPath} tpUrl={tpUrl} hasTp={hasTp} tpStyle="fullbar" />
     </CardShell>
   );
 }
 
-// ═══════════════════════════════════════════
-// VARIANT B — Single Identity Row
-// Rank + Logo 56px + Name/Type + Score, one horizontal strip
-// Most compact — like BestBrokers/BrokerChooser
-// ═══════════════════════════════════════════
-function VariantB({ broker, rank }) {
-  const B = broker.B;
-  const visitUrl = makeVisitUrl(broker.slug, B.url);
-  const reviewPath = `/review/${broker.slug}`;
-  const tpUrl = getTrustpilotUrl(broker.slug);
-  const hasTp = B.tp && B.tp > 0 && tpUrl;
+// VariantB and VariantC share same identity, differ only in tpStyle
+function makeVariant(tpStyle) {
+  return function VariantX({ broker, rank }) {
+    const B = broker.B;
+    const visitUrl = makeVisitUrl(broker.slug, B.url);
+    const reviewPath = `/review/${broker.slug}`;
+    const tpUrl = getTrustpilotUrl(broker.slug);
+    const hasTp = B.tp && B.tp > 0 && tpUrl;
 
-  return (
-    <CardShell rank={rank}>
-      {/* Single identity row: rank + logo + name + score */}
-      <div style={{
-        display: "flex", alignItems: "center", gap: 12,
-        padding: "16px 16px 0",
-      }}>
+    return (
+      <CardShell rank={rank}>
         <div style={{
-          width: 32, height: 32, borderRadius: 8, flexShrink: 0,
-          background: rank === 1 ? "#059669" : rank <= 3 ? "linear-gradient(135deg,#1e3a5f,#2d5a8e)" : "#f1f5f9",
-          display: "flex", alignItems: "center", justifyContent: "center",
-          fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 14,
-          color: rank <= 3 ? "#fff" : "#111827",
-        }}>#{rank}</div>
-
-        <Link to={reviewPath} style={{ display: "flex", flexShrink: 0, textDecoration: "none" }}>
-          <BrokerLogo slug={broker.slug} name={B.name} fallback={B.logo} size={56} shape="icon" />
-        </Link>
-
-        <div style={{ flex: 1, minWidth: 0 }}>
-          <h3 style={{ margin: 0, fontSize: 17, fontWeight: 700, lineHeight: 1.2 }}>
-            <Link to={reviewPath} style={{
-              fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: 17,
-              color: "#111827", textDecoration: "none",
-            }}>{B.name}</Link>
-          </h3>
-          <div style={{ fontSize: 12, color: "#64748b", marginTop: 2 }}>{B.type}</div>
-          {B.badge && (
-            <span style={{
-              display: "inline-block", marginTop: 3, padding: "1px 7px", borderRadius: 4,
-              fontSize: 10, fontWeight: 700, background: "#ecfdf5", color: "#059669",
-            }}>{B.badge}</span>
-          )}
+          display: "flex", justifyContent: "space-between", alignItems: "center",
+          padding: "14px 16px 0",
+        }}>
+          <div style={{
+            width: 32, height: 32, borderRadius: 8,
+            background: rank === 1 ? "#059669" : rank <= 3 ? "linear-gradient(135deg,#1e3a5f,#2d5a8e)" : "#f1f5f9",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 14,
+            color: rank <= 3 ? "#fff" : "#111827",
+          }}>#{rank}</div>
+          <ScoreBadge score={B.score} size="lg" />
         </div>
-
-        <ScoreBadge score={B.score} size="lg" />
-      </div>
-
-      <CardBody broker={broker} rank={rank} visitUrl={visitUrl} reviewPath={reviewPath} tpUrl={tpUrl} hasTp={hasTp} />
-    </CardShell>
-  );
-}
-
-// ═══════════════════════════════════════════
-// VARIANT C — Large Centered Logo (96px)
-// Same as current but logo much bigger
-// ═══════════════════════════════════════════
-function VariantC({ broker, rank }) {
-  const B = broker.B;
-  const visitUrl = makeVisitUrl(broker.slug, B.url);
-  const reviewPath = `/review/${broker.slug}`;
-  const tpUrl = getTrustpilotUrl(broker.slug);
-  const hasTp = B.tp && B.tp > 0 && tpUrl;
-
-  return (
-    <CardShell rank={rank}>
-      {/* Header: rank left, score right */}
-      <div style={{
-        display: "flex", justifyContent: "space-between", alignItems: "center",
-        padding: "14px 16px 0",
-      }}>
         <div style={{
-          width: 32, height: 32, borderRadius: 8,
-          background: rank === 1 ? "#059669" : rank <= 3 ? "linear-gradient(135deg,#1e3a5f,#2d5a8e)" : "#f1f5f9",
-          display: "flex", alignItems: "center", justifyContent: "center",
-          fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 14,
-          color: rank <= 3 ? "#fff" : "#111827",
-        }}>#{rank}</div>
-        <ScoreBadge score={B.score} size="lg" />
-      </div>
-
-      {/* Large centered identity */}
-      <div style={{ textAlign: "center", padding: "8px 16px 0" }}>
-        <Link to={reviewPath} style={{ display: "inline-block", textDecoration: "none" }}>
-          <BrokerLogo slug={broker.slug} name={B.name} fallback={B.logo} size={96} shape="icon" />
-        </Link>
-        <h3 style={{ margin: "6px 0 0", fontSize: 19, fontWeight: 700, lineHeight: 1.2 }}>
-          <Link to={reviewPath} style={{
-            fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: 19,
-            color: "#111827", textDecoration: "none",
-          }}>{B.name}</Link>
-        </h3>
-        <div style={{ fontSize: 13, color: "#64748b", marginTop: 2 }}>{B.type}</div>
-        {B.badge && (
-          <span style={{
-            display: "inline-block", marginTop: 5, padding: "2px 10px", borderRadius: 6,
-            fontSize: 11, fontWeight: 700, background: "#ecfdf5", color: "#059669",
-          }}>{B.badge}</span>
-        )}
-      </div>
-
-      <CardBody broker={broker} rank={rank} visitUrl={visitUrl} reviewPath={reviewPath} tpUrl={tpUrl} hasTp={hasTp} />
-    </CardShell>
-  );
+          display: "flex", alignItems: "center", gap: 14,
+          justifyContent: "center", padding: "14px 16px 0",
+        }}>
+          <Link to={reviewPath} style={{ display: "flex", flexShrink: 0, textDecoration: "none" }}>
+            <BrokerLogo slug={broker.slug} name={B.name} fallback={B.logo} size={72} shape="icon" />
+          </Link>
+          <div>
+            <h3 style={{ margin: 0, fontSize: 18, fontWeight: 700, lineHeight: 1.2 }}>
+              <Link to={reviewPath} style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: 18, color: "#111827", textDecoration: "none" }}>{B.name}</Link>
+            </h3>
+            <div style={{ fontSize: 13, color: "#64748b", marginTop: 3 }}>{B.type}</div>
+            {B.badge && <span style={{ display: "inline-block", marginTop: 5, padding: "2px 10px", borderRadius: 6, fontSize: 11, fontWeight: 700, background: "#ecfdf5", color: "#059669" }}>{B.badge}</span>}
+          </div>
+        </div>
+        <CardBody broker={broker} rank={rank} visitUrl={visitUrl} reviewPath={reviewPath} tpUrl={tpUrl} hasTp={hasTp} tpStyle={tpStyle} />
+      </CardShell>
+    );
+  };
 }
+
+const VariantB = makeVariant("fulldiv");
+const VariantC = makeVariant("fullgreen");
 
 // ═══════════════════════════════════════════
 // PROTO PAGE
@@ -459,18 +499,18 @@ export default function CardProto() {
       minHeight: "100vh", padding: "20px 16px", maxWidth: 400, margin: "0 auto",
     }}>
       <h1 style={{ fontFamily: "Outfit", fontSize: 22, fontWeight: 800, color: "#0f172a", marginBottom: 4 }}>
-        Identity Block — Round 2
+        Trustpilot Full-Width — Round 3b
       </h1>
       <p style={{ fontSize: 13, color: "#64748b", marginBottom: 24 }}>
-        Barbara + Bill: logo feels small and lonely. 3 fixes below. Trustpilot pill stays.
+        Full-width Trustpilot bar below CTAs. 3 styles based on Compact (C).
       </p>
 
       {/* VARIANT A */}
       <h2 style={{ fontFamily: "Outfit", fontSize: 16, fontWeight: 700, color: "#059669", marginBottom: 6 }}>
-        A — Centered Horizontal Block
+        A — Full-width bar (light gray strip)
       </h2>
       <p style={{ fontSize: 12, color: "#64748b", marginBottom: 10, lineHeight: 1.5 }}>
-        Logo 72px + Name to the right. Whole block centered. Business card feel.
+        Edge-to-edge #f8fafc background, subtle hairline borders. Clean info strip.
       </p>
       <div style={{ display: "flex", flexDirection: "column", gap: 16, marginBottom: 32 }}>
         {brokers.map((b, i) => <VariantA key={b.slug} broker={b} rank={i + 1} />)}
@@ -478,10 +518,10 @@ export default function CardProto() {
 
       {/* VARIANT B */}
       <h2 style={{ fontFamily: "Outfit", fontSize: 16, fontWeight: 700, color: "#2563eb", marginBottom: 6 }}>
-        B — Single Identity Row
+        B — Full-width with hairline dividers
       </h2>
       <p style={{ fontSize: 12, color: "#64748b", marginBottom: 10, lineHeight: 1.5 }}>
-        Rank + Logo 56px + Name + Score in one row. Most compact. Industry standard.
+        No background, framed by two thin #e2e8f0 lines. Separator style.
       </p>
       <div style={{ display: "flex", flexDirection: "column", gap: 16, marginBottom: 32 }}>
         {brokers.map((b, i) => <VariantB key={b.slug} broker={b} rank={i + 1} />)}
@@ -489,10 +529,10 @@ export default function CardProto() {
 
       {/* VARIANT C */}
       <h2 style={{ fontFamily: "Outfit", fontSize: 16, fontWeight: 700, color: "#7c3aed", marginBottom: 6 }}>
-        C — Large Centered Logo (96px)
+        C — Full-width green tint strip
       </h2>
       <p style={{ fontSize: 12, color: "#64748b", marginBottom: 10, lineHeight: 1.5 }}>
-        Same centered layout but logo 96px. Fills the space. Name 19px bold.
+        Brand-colored #ecfdf5 background, green text. Ties into CTA color system.
       </p>
       <div style={{ display: "flex", flexDirection: "column", gap: 16, marginBottom: 32 }}>
         {brokers.map((b, i) => <VariantC key={b.slug} broker={b} rank={i + 1} />)}
