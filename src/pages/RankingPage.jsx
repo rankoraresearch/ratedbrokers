@@ -114,9 +114,9 @@ function QuickBrokerGrid({ brokers, mob }) {
           </div>
           <div style={{
             fontSize: mob ? 9 : 10, color: "#b0b8c4", lineHeight: 1.2, marginTop: 2,
-            height: showRisk ? "auto" : (mob ? 0 : 13), overflow: "hidden",
+            height: 13, overflow: "hidden",
             whiteSpace: "nowrap", textOverflow: "ellipsis",
-            opacity: showRisk ? 1 : 0, transition: "opacity 0.2s, height 0.2s",
+            opacity: showRisk ? 1 : 0, transition: "opacity 0.2s",
           }}>{shortRisk}</div>
         </div>
         <ChevronRight size={mob ? 14 : 16} color={mob ? "#94a3b8" : (isHovered ? "#059669" : "#cbd5e1")} style={{
