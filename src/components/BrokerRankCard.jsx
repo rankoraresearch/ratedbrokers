@@ -260,6 +260,12 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
           <ScoreBadge score={B.score} size="lg" />
         </div>
 
+        {/* CTA — right after identity */}
+        <DualCTA />
+
+        {/* Risk warning right under CTA */}
+        <RiskWarning />
+
         {/* Regs */}
         <div style={{ padding: "0 16px 10px", display: "flex", gap: 4, flexWrap: "wrap", alignItems: "center" }}>
           {B.regs.slice(0, 2).map((r) => (
@@ -337,39 +343,6 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
             )}
           </>
         )}
-
-        {/* CTA */}
-        {hasThematic ? <DualCTA /> : (
-          <div style={{
-            display: "flex", gap: 8, padding: "12px 16px 16px",
-            borderTop: "1px solid #f1f5f9", alignItems: "stretch",
-          }}>
-            <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" style={{
-              flex: 1, padding: "11px 16px", borderRadius: 10, textAlign: "center",
-              background: "linear-gradient(135deg,#059669,#047857)",
-              color: "#fff", fontWeight: 700, fontSize: 15, textDecoration: "none",
-              boxShadow: "0 2px 8px rgba(5,150,105,0.25)",
-              display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
-            }}>
-              <span>Visit {B.name}</span>
-              {B.promo && <span style={{ fontSize: 11, fontWeight: 400, opacity: 0.8, marginTop: 2 }}>{B.promo}</span>}
-            </a>
-            <Link to={reviewPath} style={{
-              flex: 1, padding: "11px 16px", borderRadius: 10, textAlign: "center",
-              background: "#ecfdf5", color: "#047857", fontWeight: 700, fontSize: 14,
-              textDecoration: "none", border: "2px solid #059669",
-              display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
-            }}>
-              <span>Read Review</span>
-              <span style={{ fontSize: 11, fontWeight: 400, opacity: 0.7, marginTop: 1 }}>
-                {B.score}/10 · Expert tested
-              </span>
-            </Link>
-          </div>
-        )}
-
-        {/* Risk warning */}
-        <RiskWarning />
       </div>
     );
   }
