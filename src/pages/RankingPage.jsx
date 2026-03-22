@@ -226,7 +226,6 @@ export default function RankingPage() {
   const lp = useLocalePath();
   const [openFaq, setOpenFaq] = useState(null);
   const [openThematicFaq, setOpenThematicFaq] = useState(null);
-  const [showStickyBar, setShowStickyBar] = useState(false);
   const [activeFilter, setActiveFilter] = useState("all");
   const heroRef = useRef(null);
 
@@ -319,18 +318,6 @@ export default function RankingPage() {
       if (el) el.remove();
     };
   }, [ranking]);
-
-  // Sticky CTA bar
-  useEffect(() => {
-    const el = heroRef.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => setShowStickyBar(!entry.isIntersecting),
-      { threshold: 0 }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
 
   if (!ranking) return <Navigate to="/" replace />;
 
@@ -448,32 +435,30 @@ export default function RankingPage() {
       {seo.keyFinding && (
         <section style={{ ...cn, paddingBottom: T.sectionGap(mob) }}>
           <div style={{
-            display: "flex", borderRadius: 16, overflow: "hidden",
-            background: "#fff", border: "1px solid #e2e8f0",
-            boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
+            display: "flex", borderRadius: 12, overflow: "hidden",
+            background: "linear-gradient(135deg, #0f172a 0%, #1e3a5f 60%, #0a2e3d 100%)",
           }}>
-            {/* Green accent bar */}
+            {/* Orange accent bar */}
             <div style={{
-              width: mob ? 5 : 6, flexShrink: 0,
-              background: "linear-gradient(180deg, #059669, #34d399)",
+              width: mob ? 4 : 5, flexShrink: 0,
+              background: "linear-gradient(180deg, #f59e0b, #fbbf24)",
             }} />
             <div style={{ flex: 1, padding: mob ? "20px 16px" : "28px 32px" }}>
               {/* Label */}
               <div style={{
                 display: "inline-flex", alignItems: "center", gap: 6,
-                padding: "4px 12px", borderRadius: 6,
-                background: "#0f172a", marginBottom: 12,
+                marginBottom: 12,
               }}>
-                <CircleCheck size={13} color="#34d399" />
+                <CircleCheck size={14} color="#f59e0b" />
                 <span style={{
                   fontFamily: "Outfit", fontWeight: 700, fontSize: 11,
-                  color: "#fff", textTransform: "uppercase", letterSpacing: "0.08em",
+                  color: "#f59e0b", textTransform: "uppercase", letterSpacing: "0.12em",
                 }}>Key Finding</span>
               </div>
               {/* Finding text */}
               <p style={{
-                fontSize: mob ? 16 : 18, lineHeight: 1.65,
-                color: "#0f172a", margin: 0, fontWeight: 500,
+                fontSize: mob ? 15 : 17, lineHeight: 1.7,
+                color: "#fff", margin: 0, fontWeight: 400,
                 maxWidth: 900,
               }}>
                 {fillVars(seo.keyFinding)}
@@ -855,39 +840,6 @@ export default function RankingPage() {
         <AffiliateDisclosureBanner />
       </section>
 
-      {/* STICKY CTA BAR */}
-      {brokers[0] && (
-        <div style={{
-          position: "fixed", bottom: 0, left: 0, right: 0, zIndex: 999,
-          transform: showStickyBar ? "translateY(0)" : "translateY(100%)",
-          transition: "transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-          background: "rgba(15, 23, 42, 0.97)",
-          backdropFilter: "blur(16px)",
-          borderTop: "1px solid rgba(255,255,255,0.08)",
-          boxShadow: "0 -4px 24px rgba(0,0,0,0.2)",
-        }}>
-          <div style={{
-            maxWidth: 1200, margin: "0 auto",
-            padding: mob ? "10px 16px" : "12px 24px",
-            display: "flex", alignItems: "center", justifyContent: "center",
-            gap: mob ? 10 : 16,
-          }}>
-            <BrokerLogo slug={brokers[0].slug} name={brokers[0].B.name} fallback={brokers[0].B.logo} size={mob ? 32 : 36} shape="icon" />
-            <span style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: mob ? 13 : 15, color: "#fff", whiteSpace: "nowrap" }}>
-              #{1} {brokers[0].B.name}
-            </span>
-            <span style={{ fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: mob ? 14 : 16, color: "#34d399" }}>
-              {brokers[0].B.score}
-            </span>
-            <a href={makeVisitUrl(brokers[0].slug, brokers[0].B.url)} target="_blank" rel="noopener nofollow sponsored" style={{
-              padding: mob ? "8px 16px" : "10px 24px", borderRadius: 8,
-              background: "#f59e0b", color: "#0f172a", fontWeight: 700, fontSize: mob ? 13 : 14,
-              textDecoration: "none", whiteSpace: "nowrap",
-              boxShadow: "0 2px 8px rgba(245,158,11,0.3)",
-            }}>Visit {brokers[0].B.name} <span style={{ marginLeft: 4 }}>&rarr;</span></a>
-          </div>
-        </div>
-      )}
     </main>
   );
 }
