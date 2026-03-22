@@ -1,15 +1,23 @@
 /**
- * CardProto — Mobile card layout prototypes
- * Concept A: Centered Identity Hero
- * Concept B: Centered Identity + Inline Trustpilot Button
+ * CardProto — Mobile card identity prototypes (Round 2)
  *
- * Barbara's design notes:
- * - Logo centered, large (64px) — hero-style identity
- * - Name 17px centered, type underneath
- * - Rank badge top-left, score top-right — balanced
- * - Trustpilot as pill button (not inline text)
- * - CTA buttons full-width stacked
- * - Clean vertical rhythm, generous spacing
+ * Barbara + Bill consultation:
+ * Problem: 64px centered icon looks small and lonely on 343px content area
+ * Solution: make identity block more compact and visually weighty
+ *
+ * Variant A — Centered Horizontal Block
+ *   Logo 72px + Name/Type/Badge to the right, whole block centered
+ *   Like a business card — premium, fills space naturally
+ *
+ * Variant B — Single Identity Row
+ *   Rank + Logo 56px + Name/Type + Score all in one padded row
+ *   Most compact — industry standard (BestBrokers, BrokerChooser)
+ *
+ * Variant C — Large Centered Logo (96px)
+ *   Keep centered but much bigger — fills dead space
+ *   Name 19px bold underneath, minimal gap
+ *
+ * UNCHANGED across all: Trustpilot pill, CTA, Risk, Regs, Stats, Thematic
  */
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -18,7 +26,7 @@ import BrokerLogo from "../components/BrokerLogo";
 import ScoreBadge from "../components/ScoreBadge";
 import RegBadge from "../components/RegBadge";
 import { getTrustpilotUrl } from "../data/trustpilot-links";
-import { Star, ExternalLink, Check, X as XIcon, ChevronDown } from "lucide-react";
+import { ExternalLink, Check, X as XIcon, ChevronDown } from "lucide-react";
 
 const apiBase = import.meta.env.VITE_API_URL || "";
 const makeVisitUrl = (slug, url) => apiBase ? `${apiBase}/go/${slug}` : url;
@@ -54,94 +62,39 @@ const TpStars = ({ rating = 0, size = 14 }) => {
   );
 };
 
-// ── Mock thematic data for prototype ──
+// ── Mock thematic data ──
 const MOCK_THEMATIC = {
   "ic-markets": {
     why: "Why IC Markets Is #1 for Forex Trading",
     text: "IC Markets leads our forex ranking with raw spreads from 0.0 pips on EUR/USD via its Raw Spread account, combined with ultra-fast execution averaging 40ms. The broker supports MT4, MT5, and cTrader — giving traders maximum platform flexibility.",
     pros: ["0.0 pip raw spreads", "40ms execution", "cTrader + MT5"],
     cons: ["No proprietary platform", "$200 minimum"],
-    analysis: "IC Markets has consistently ranked among the top forex brokers globally since 2007. Their True ECN model routes orders directly to liquidity providers, resulting in institutional-grade pricing.\n\nThe Raw Spread account charges a $3.50 per lot commission but delivers spreads as low as 0.0 pips during peak liquidity hours. For high-volume traders, this translates to significant cost savings compared to spread-only brokers.",
+    analysis: "IC Markets has consistently ranked among the top forex brokers globally since 2007. Their True ECN model routes orders directly to liquidity providers, resulting in institutional-grade pricing.\n\nThe Raw Spread account charges a $3.50 per lot commission but delivers spreads as low as 0.0 pips during peak liquidity hours.",
     prosDetail: ["Raw spreads from 0.0 pips on 60+ pairs", "Three platforms: MT4, MT5, cTrader", "Ultra-fast execution with Equinix data centers"],
     consDetail: ["No proprietary trading platform", "$200 minimum deposit required"],
   },
   "fp-markets": {
     why: "Why FP Markets Excels for ECN Trading",
-    text: "FP Markets combines true ECN pricing with DMA access via IRESS, making it ideal for traders who want direct market access alongside standard MT4/MT5 trading. Spreads start from 0.0 pips with a competitive $3 per lot commission.",
+    text: "FP Markets combines true ECN pricing with DMA access via IRESS, making it ideal for traders who want direct market access alongside standard MT4/MT5 trading.",
     pros: ["ECN + DMA access", "IRESS platform", "$100 min deposit"],
     cons: ["IRESS has extra fees", "Limited crypto"],
-    analysis: "FP Markets stands out by offering both retail ECN trading and institutional-grade DMA via the IRESS platform. This dual approach caters to both beginning and advanced traders.\n\nThe broker's ECN account delivers raw spreads with a $3 per lot commission — slightly lower than IC Markets. IRESS DMA provides Level 2 depth of market and direct routing to exchanges.",
-    prosDetail: ["ECN raw spreads from 0.0 pips", "IRESS DMA for direct market access", "Low $100 minimum deposit"],
-    consDetail: ["IRESS platform carries additional monthly fees", "Cryptocurrency offering is limited"],
   },
   "ig": {
     why: "Why IG Is the Most Trusted Broker",
-    text: "With over 50 years of operation and listing on the London Stock Exchange, IG is the most established CFD provider globally. FCA regulation, segregated client funds, and a proprietary platform with advanced charting make IG the benchmark for trust and reliability.",
+    text: "With over 50 years of operation and listing on the London Stock Exchange, IG is the most established CFD provider globally.",
     pros: ["50+ years operation", "LSE-listed", "FCA regulated"],
     cons: ["Higher spreads", "No MT5"],
-    analysis: "IG Group was founded in 1974 and has grown to become the world's largest CFD provider by revenue. Its London Stock Exchange listing (IGG) means the company is subject to rigorous financial reporting requirements.\n\nIG's proprietary platform offers ProRealTime advanced charting at no extra cost and integrates with L2 Dealer for direct market access. The broker serves 313,000+ active clients globally.",
-    prosDetail: ["Established in 1974 — 50+ years of trust", "Listed on London Stock Exchange (IGG)", "FCA, ASIC, NFA — top-tier regulation"],
-    consDetail: ["Spreads slightly higher than pure ECN brokers", "MT5 not available — only MT4 and proprietary"],
   },
 };
 
-// ═══════════════════════════════════════════
-// CONCEPT A — Centered Identity Hero
-// ═══════════════════════════════════════════
-function ConceptA({ broker, rank }) {
+// ── Shared card body (everything below identity) ──
+function CardBody({ broker, rank, visitUrl, reviewPath, tpUrl, hasTp }) {
   const B = broker.B;
-  const visitUrl = makeVisitUrl(broker.slug, B.url);
-  const reviewPath = `/review/${broker.slug}`;
-  const tpUrl = getTrustpilotUrl(broker.slug);
-  const hasTp = B.tp && B.tp > 0 && tpUrl;
+  const thematic = MOCK_THEMATIC[broker.slug];
   const [analysisOpen, setAnalysisOpen] = useState(false);
 
-  const thematic = MOCK_THEMATIC[broker.slug];
-  const pros = B.pros || [];
-  const topPros = pros.slice(0, 3);
-
   return (
-    <div style={{
-      background: "#fff", borderRadius: 16,
-      border: rank === 1 ? "2px solid #059669" : "1px solid #e2e8f0",
-      overflow: "hidden",
-      boxShadow: rank === 1 ? "0 4px 16px rgba(5,150,105,0.08)" : "0 1px 4px rgba(0,0,0,0.03)",
-    }}>
-      {/* Header: rank left, score right */}
-      <div style={{
-        display: "flex", justifyContent: "space-between", alignItems: "center",
-        padding: "14px 16px 0",
-      }}>
-        <div style={{
-          width: 32, height: 32, borderRadius: 8,
-          background: rank === 1 ? "#059669" : rank <= 3 ? "linear-gradient(135deg,#1e3a5f,#2d5a8e)" : "#f1f5f9",
-          display: "flex", alignItems: "center", justifyContent: "center",
-          fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 14,
-          color: rank <= 3 ? "#fff" : "#111827",
-        }}>#{rank}</div>
-        <ScoreBadge score={B.score} size="lg" />
-      </div>
-
-      {/* Centered identity */}
-      <div style={{ textAlign: "center", padding: "12px 16px 0" }}>
-        <Link to={reviewPath} style={{ display: "inline-block", textDecoration: "none" }}>
-          <BrokerLogo slug={broker.slug} name={B.name} fallback={B.logo} size={64} shape="icon" />
-        </Link>
-        <h3 style={{ margin: "8px 0 0", fontSize: 17, fontWeight: 700, lineHeight: 1.2 }}>
-          <Link to={reviewPath} style={{
-            fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: 17,
-            color: "#111827", textDecoration: "none",
-          }}>{B.name}</Link>
-        </h3>
-        <div style={{ fontSize: 13, color: "#64748b", marginTop: 3 }}>{B.type}</div>
-        {B.badge && (
-          <span style={{
-            display: "inline-block", marginTop: 6, padding: "2px 10px", borderRadius: 6,
-            fontSize: 11, fontWeight: 700, background: "#ecfdf5", color: "#059669",
-          }}>{B.badge}</span>
-        )}
-      </div>
-
+    <>
       {/* Trustpilot pill button */}
       {hasTp && (
         <div style={{ textAlign: "center", padding: "10px 16px 0" }}>
@@ -276,15 +229,11 @@ function ConceptA({ broker, rank }) {
                     {p}
                   </p>
                 ))}
-
-                {/* Pros/Cons Detail Grid */}
                 {(thematic.prosDetail || thematic.consDetail) && (
                   <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 10, marginTop: 10 }}>
                     {thematic.prosDetail && (
                       <div>
-                        <h4 style={{ fontSize: 12, fontWeight: 700, color: "#059669", marginBottom: 4 }}>
-                          Pros for forex trading
-                        </h4>
+                        <h4 style={{ fontSize: 12, fontWeight: 700, color: "#059669", marginBottom: 4 }}>Pros for forex trading</h4>
                         {thematic.prosDetail.map((p, i) => (
                           <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 4, marginBottom: 3 }}>
                             <span style={{ color: "#059669", fontWeight: 700, fontSize: 12 }}>✓</span>
@@ -295,9 +244,7 @@ function ConceptA({ broker, rank }) {
                     )}
                     {thematic.consDetail && (
                       <div>
-                        <h4 style={{ fontSize: 12, fontWeight: 700, color: "#dc2626", marginBottom: 4 }}>
-                          Cons for forex trading
-                        </h4>
+                        <h4 style={{ fontSize: 12, fontWeight: 700, color: "#dc2626", marginBottom: 4 }}>Cons for forex trading</h4>
                         {thematic.consDetail.map((c, i) => (
                           <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 4, marginBottom: 3 }}>
                             <span style={{ color: "#dc2626", fontWeight: 700, fontSize: 12 }}>✗</span>
@@ -315,20 +262,12 @@ function ConceptA({ broker, rank }) {
       )}
 
       <div style={{ height: 16 }} />
-    </div>
+    </>
   );
 }
 
-// ═══════════════════════════════════════════
-// CONCEPT B — Compact Centered + Score Row
-// ═══════════════════════════════════════════
-function ConceptB({ broker, rank }) {
-  const B = broker.B;
-  const visitUrl = makeVisitUrl(broker.slug, B.url);
-  const reviewPath = `/review/${broker.slug}`;
-  const tpUrl = getTrustpilotUrl(broker.slug);
-  const hasTp = B.tp && B.tp > 0 && tpUrl;
-
+// ── Card shell ──
+function CardShell({ rank, children }) {
   return (
     <div style={{
       background: "#fff", borderRadius: 16,
@@ -336,111 +275,175 @@ function ConceptB({ broker, rank }) {
       overflow: "hidden",
       boxShadow: rank === 1 ? "0 4px 16px rgba(5,150,105,0.08)" : "0 1px 4px rgba(0,0,0,0.03)",
     }}>
-      {/* Centered identity block */}
-      <div style={{ textAlign: "center", padding: "18px 16px 0" }}>
-        {/* Rank + Logo + Score inline */}
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 14 }}>
-          <div style={{
-            width: 28, height: 28, borderRadius: 7,
-            background: rank === 1 ? "#059669" : rank <= 3 ? "linear-gradient(135deg,#1e3a5f,#2d5a8e)" : "#f1f5f9",
-            display: "flex", alignItems: "center", justifyContent: "center",
-            fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 12,
-            color: rank <= 3 ? "#fff" : "#111827",
-          }}>#{rank}</div>
+      {children}
+    </div>
+  );
+}
 
-          <Link to={reviewPath} style={{ display: "inline-block", textDecoration: "none" }}>
-            <BrokerLogo slug={broker.slug} name={B.name} fallback={B.logo} size={56} shape="icon" />
-          </Link>
+// ═══════════════════════════════════════════
+// VARIANT A — Centered Horizontal Block
+// Logo 72px left + Name/Type/Badge right, centered as a unit
+// ═══════════════════════════════════════════
+function VariantA({ broker, rank }) {
+  const B = broker.B;
+  const visitUrl = makeVisitUrl(broker.slug, B.url);
+  const reviewPath = `/review/${broker.slug}`;
+  const tpUrl = getTrustpilotUrl(broker.slug);
+  const hasTp = B.tp && B.tp > 0 && tpUrl;
 
-          <ScoreBadge score={B.score} size="lg" />
+  return (
+    <CardShell rank={rank}>
+      {/* Header: rank left, score right */}
+      <div style={{
+        display: "flex", justifyContent: "space-between", alignItems: "center",
+        padding: "14px 16px 0",
+      }}>
+        <div style={{
+          width: 32, height: 32, borderRadius: 8,
+          background: rank === 1 ? "#059669" : rank <= 3 ? "linear-gradient(135deg,#1e3a5f,#2d5a8e)" : "#f1f5f9",
+          display: "flex", alignItems: "center", justifyContent: "center",
+          fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 14,
+          color: rank <= 3 ? "#fff" : "#111827",
+        }}>#{rank}</div>
+        <ScoreBadge score={B.score} size="lg" />
+      </div>
+
+      {/* Centered horizontal identity block */}
+      <div style={{
+        display: "flex", alignItems: "center", gap: 14,
+        justifyContent: "center",
+        padding: "14px 16px 0",
+      }}>
+        <Link to={reviewPath} style={{ display: "flex", flexShrink: 0, textDecoration: "none" }}>
+          <BrokerLogo slug={broker.slug} name={B.name} fallback={B.logo} size={72} shape="icon" />
+        </Link>
+        <div>
+          <h3 style={{ margin: 0, fontSize: 18, fontWeight: 700, lineHeight: 1.2 }}>
+            <Link to={reviewPath} style={{
+              fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: 18,
+              color: "#111827", textDecoration: "none",
+            }}>{B.name}</Link>
+          </h3>
+          <div style={{ fontSize: 13, color: "#64748b", marginTop: 3 }}>{B.type}</div>
+          {B.badge && (
+            <span style={{
+              display: "inline-block", marginTop: 5, padding: "2px 10px", borderRadius: 6,
+              fontSize: 11, fontWeight: 700, background: "#ecfdf5", color: "#059669",
+            }}>{B.badge}</span>
+          )}
+        </div>
+      </div>
+
+      <CardBody broker={broker} rank={rank} visitUrl={visitUrl} reviewPath={reviewPath} tpUrl={tpUrl} hasTp={hasTp} />
+    </CardShell>
+  );
+}
+
+// ═══════════════════════════════════════════
+// VARIANT B — Single Identity Row
+// Rank + Logo 56px + Name/Type + Score, one horizontal strip
+// Most compact — like BestBrokers/BrokerChooser
+// ═══════════════════════════════════════════
+function VariantB({ broker, rank }) {
+  const B = broker.B;
+  const visitUrl = makeVisitUrl(broker.slug, B.url);
+  const reviewPath = `/review/${broker.slug}`;
+  const tpUrl = getTrustpilotUrl(broker.slug);
+  const hasTp = B.tp && B.tp > 0 && tpUrl;
+
+  return (
+    <CardShell rank={rank}>
+      {/* Single identity row: rank + logo + name + score */}
+      <div style={{
+        display: "flex", alignItems: "center", gap: 12,
+        padding: "16px 16px 0",
+      }}>
+        <div style={{
+          width: 32, height: 32, borderRadius: 8, flexShrink: 0,
+          background: rank === 1 ? "#059669" : rank <= 3 ? "linear-gradient(135deg,#1e3a5f,#2d5a8e)" : "#f1f5f9",
+          display: "flex", alignItems: "center", justifyContent: "center",
+          fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 14,
+          color: rank <= 3 ? "#fff" : "#111827",
+        }}>#{rank}</div>
+
+        <Link to={reviewPath} style={{ display: "flex", flexShrink: 0, textDecoration: "none" }}>
+          <BrokerLogo slug={broker.slug} name={B.name} fallback={B.logo} size={56} shape="icon" />
+        </Link>
+
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <h3 style={{ margin: 0, fontSize: 17, fontWeight: 700, lineHeight: 1.2 }}>
+            <Link to={reviewPath} style={{
+              fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: 17,
+              color: "#111827", textDecoration: "none",
+            }}>{B.name}</Link>
+          </h3>
+          <div style={{ fontSize: 12, color: "#64748b", marginTop: 2 }}>{B.type}</div>
+          {B.badge && (
+            <span style={{
+              display: "inline-block", marginTop: 3, padding: "1px 7px", borderRadius: 4,
+              fontSize: 10, fontWeight: 700, background: "#ecfdf5", color: "#059669",
+            }}>{B.badge}</span>
+          )}
         </div>
 
-        {/* Name + type */}
-        <h3 style={{ margin: "10px 0 0", fontSize: 18, fontWeight: 700, lineHeight: 1.2 }}>
+        <ScoreBadge score={B.score} size="lg" />
+      </div>
+
+      <CardBody broker={broker} rank={rank} visitUrl={visitUrl} reviewPath={reviewPath} tpUrl={tpUrl} hasTp={hasTp} />
+    </CardShell>
+  );
+}
+
+// ═══════════════════════════════════════════
+// VARIANT C — Large Centered Logo (96px)
+// Same as current but logo much bigger
+// ═══════════════════════════════════════════
+function VariantC({ broker, rank }) {
+  const B = broker.B;
+  const visitUrl = makeVisitUrl(broker.slug, B.url);
+  const reviewPath = `/review/${broker.slug}`;
+  const tpUrl = getTrustpilotUrl(broker.slug);
+  const hasTp = B.tp && B.tp > 0 && tpUrl;
+
+  return (
+    <CardShell rank={rank}>
+      {/* Header: rank left, score right */}
+      <div style={{
+        display: "flex", justifyContent: "space-between", alignItems: "center",
+        padding: "14px 16px 0",
+      }}>
+        <div style={{
+          width: 32, height: 32, borderRadius: 8,
+          background: rank === 1 ? "#059669" : rank <= 3 ? "linear-gradient(135deg,#1e3a5f,#2d5a8e)" : "#f1f5f9",
+          display: "flex", alignItems: "center", justifyContent: "center",
+          fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 14,
+          color: rank <= 3 ? "#fff" : "#111827",
+        }}>#{rank}</div>
+        <ScoreBadge score={B.score} size="lg" />
+      </div>
+
+      {/* Large centered identity */}
+      <div style={{ textAlign: "center", padding: "8px 16px 0" }}>
+        <Link to={reviewPath} style={{ display: "inline-block", textDecoration: "none" }}>
+          <BrokerLogo slug={broker.slug} name={B.name} fallback={B.logo} size={96} shape="icon" />
+        </Link>
+        <h3 style={{ margin: "6px 0 0", fontSize: 19, fontWeight: 700, lineHeight: 1.2 }}>
           <Link to={reviewPath} style={{
-            fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: 18,
+            fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: 19,
             color: "#111827", textDecoration: "none",
           }}>{B.name}</Link>
         </h3>
         <div style={{ fontSize: 13, color: "#64748b", marginTop: 2 }}>{B.type}</div>
         {B.badge && (
           <span style={{
-            display: "inline-block", marginTop: 6, padding: "2px 10px", borderRadius: 6,
+            display: "inline-block", marginTop: 5, padding: "2px 10px", borderRadius: 6,
             fontSize: 11, fontWeight: 700, background: "#ecfdf5", color: "#059669",
           }}>{B.badge}</span>
         )}
       </div>
 
-      {/* Trustpilot pill — styled as a subtle card */}
-      {hasTp && (
-        <div style={{ textAlign: "center", padding: "12px 16px 0" }}>
-          <a href={tpUrl} target="_blank" rel="noopener noreferrer" style={{
-            display: "inline-flex", alignItems: "center", gap: 5,
-            padding: "7px 14px", borderRadius: 10,
-            background: "#fff", border: "1.5px solid #00B67A",
-            textDecoration: "none",
-          }}>
-            <TpStars rating={B.tp} size={12} />
-            <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 13, fontWeight: 700, color: "#111827" }}>{B.tp}</span>
-            <span style={{ fontSize: 11, color: "#64748b" }}>{formatTpCount(B.tpCount)} reviews</span>
-            <ExternalLink size={10} color="#00B67A" />
-          </a>
-        </div>
-      )}
-
-      {/* Regs inline — centered */}
-      <div style={{ textAlign: "center", padding: "10px 16px 0", display: "flex", gap: 4, flexWrap: "wrap", justifyContent: "center" }}>
-        {B.regs.slice(0, 3).map((r) => <RegBadge key={r.name} reg={r.name} />)}
-        {B.regs.length > 3 && <span style={{ fontSize: 11, color: "#64748b" }}>+{B.regs.length - 3}</span>}
-      </div>
-
-      {/* CTA */}
-      <div style={{ padding: "14px 16px 6px", display: "flex", flexDirection: "column", gap: 8 }}>
-        <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" style={{
-          padding: "13px 20px", borderRadius: 10, textAlign: "center",
-          background: "linear-gradient(135deg,#059669,#047857)",
-          color: "#fff", fontWeight: 700, fontSize: 15, textDecoration: "none",
-          boxShadow: "0 2px 8px rgba(5,150,105,0.25)",
-        }}>
-          <span>Open {B.name} Account →</span>
-          {B.promo && <span style={{ display: "block", fontSize: 11, fontWeight: 400, opacity: 0.8, marginTop: 2 }}>{B.promo}</span>}
-        </a>
-        <Link to={reviewPath} style={{
-          padding: "12px 16px", borderRadius: 10, textAlign: "center",
-          background: "#ecfdf5", color: "#047857", fontWeight: 700, fontSize: 14,
-          textDecoration: "none", border: "2px solid #059669",
-        }}>
-          <span>Read Full Review</span>
-          <span style={{ display: "block", fontSize: 11, fontWeight: 400, opacity: 0.7, marginTop: 1 }}>
-            {B.score}/10 · Expert tested
-          </span>
-        </Link>
-      </div>
-
-      {/* Risk */}
-      {B.riskWarning && (
-        <div style={{ padding: "4px 16px 10px", fontSize: 12, lineHeight: 1.4, color: "#374151", textAlign: "center" }}>
-          {B.riskWarning}
-        </div>
-      )}
-
-      {/* Stats */}
-      <div style={{
-        display: "grid", gridTemplateColumns: "1fr 1fr 1fr",
-        gap: 1, background: "#f1f5f9", margin: "0 16px 16px", borderRadius: 10, overflow: "hidden",
-      }}>
-        {[
-          ["Spread", `${B.spread} pips`],
-          ["Min Dep", B.minDep === 0 ? "$0" : `$${B.minDep}`],
-          ["Leverage", B.leverage],
-        ].map(([label, val]) => (
-          <div key={label} style={{ background: "#f8fafc", padding: "8px 10px", textAlign: "center" }}>
-            <div style={{ fontSize: 11, color: "#64748b", fontWeight: 600, textTransform: "uppercase" }}>{label}</div>
-            <div style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 15, fontWeight: 700, color: "#111827", marginTop: 2 }}>{val}</div>
-          </div>
-        ))}
-      </div>
-    </div>
+      <CardBody broker={broker} rank={rank} visitUrl={visitUrl} reviewPath={reviewPath} tpUrl={tpUrl} hasTp={hasTp} />
+    </CardShell>
   );
 }
 
@@ -456,34 +459,43 @@ export default function CardProto() {
       minHeight: "100vh", padding: "20px 16px", maxWidth: 400, margin: "0 auto",
     }}>
       <h1 style={{ fontFamily: "Outfit", fontSize: 22, fontWeight: 800, color: "#0f172a", marginBottom: 4 }}>
-        Mobile Card Prototypes
+        Identity Block — Round 2
       </h1>
-      <p style={{ fontSize: 13, color: "#64748b", marginBottom: 20 }}>
-        Barbara's design review — centered identity, Trustpilot button
+      <p style={{ fontSize: 13, color: "#64748b", marginBottom: 24 }}>
+        Barbara + Bill: logo feels small and lonely. 3 fixes below. Trustpilot pill stays.
       </p>
 
-      {/* CONCEPT A */}
-      <h2 style={{ fontFamily: "Outfit", fontSize: 16, fontWeight: 700, color: "#059669", marginBottom: 12 }}>
-        Concept A — Centered Identity Hero
+      {/* VARIANT A */}
+      <h2 style={{ fontFamily: "Outfit", fontSize: 16, fontWeight: 700, color: "#059669", marginBottom: 6 }}>
+        A — Centered Horizontal Block
       </h2>
       <p style={{ fontSize: 12, color: "#64748b", marginBottom: 10, lineHeight: 1.5 }}>
-        Rank top-left, Score top-right. Large centered logo (64px). Name 17px centered.
-        Trustpilot as pill button. CTA full-width.
+        Logo 72px + Name to the right. Whole block centered. Business card feel.
       </p>
       <div style={{ display: "flex", flexDirection: "column", gap: 16, marginBottom: 32 }}>
-        {brokers.map((b, i) => <ConceptA key={b.slug} broker={b} rank={i + 1} />)}
+        {brokers.map((b, i) => <VariantA key={b.slug} broker={b} rank={i + 1} />)}
       </div>
 
-      {/* CONCEPT B */}
-      <h2 style={{ fontFamily: "Outfit", fontSize: 16, fontWeight: 700, color: "#2563eb", marginBottom: 12 }}>
-        Concept B — Compact Centered + Inline Score
+      {/* VARIANT B */}
+      <h2 style={{ fontFamily: "Outfit", fontSize: 16, fontWeight: 700, color: "#2563eb", marginBottom: 6 }}>
+        B — Single Identity Row
       </h2>
       <p style={{ fontSize: 12, color: "#64748b", marginBottom: 10, lineHeight: 1.5 }}>
-        Rank + Logo (56px) + Score in one centered row. Name 18px below.
-        Trustpilot pill with green border. Regs before CTA.
+        Rank + Logo 56px + Name + Score in one row. Most compact. Industry standard.
       </p>
       <div style={{ display: "flex", flexDirection: "column", gap: 16, marginBottom: 32 }}>
-        {brokers.map((b, i) => <ConceptB key={b.slug} broker={b} rank={i + 1} />)}
+        {brokers.map((b, i) => <VariantB key={b.slug} broker={b} rank={i + 1} />)}
+      </div>
+
+      {/* VARIANT C */}
+      <h2 style={{ fontFamily: "Outfit", fontSize: 16, fontWeight: 700, color: "#7c3aed", marginBottom: 6 }}>
+        C — Large Centered Logo (96px)
+      </h2>
+      <p style={{ fontSize: 12, color: "#64748b", marginBottom: 10, lineHeight: 1.5 }}>
+        Same centered layout but logo 96px. Fills the space. Name 19px bold.
+      </p>
+      <div style={{ display: "flex", flexDirection: "column", gap: 16, marginBottom: 32 }}>
+        {brokers.map((b, i) => <VariantC key={b.slug} broker={b} rank={i + 1} />)}
       </div>
     </div>
   );

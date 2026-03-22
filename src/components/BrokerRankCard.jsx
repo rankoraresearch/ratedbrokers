@@ -233,24 +233,30 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
           <ScoreBadge score={B.score} size="lg" />
         </div>
 
-        {/* Centered identity */}
-        <div style={{ textAlign: "center", padding: "12px 16px 0" }}>
-          <Link to={reviewPath} style={{ display: "inline-block", textDecoration: "none" }}>
-            <BrokerLogo slug={broker.slug} name={B.name} fallback={B.logo} size={64} shape="icon" />
+        {/* Centered horizontal identity block */}
+        <div style={{
+          display: "flex", alignItems: "center", gap: 14,
+          justifyContent: "center",
+          padding: "14px 16px 0",
+        }}>
+          <Link to={reviewPath} style={{ display: "flex", flexShrink: 0, textDecoration: "none" }}>
+            <BrokerLogo slug={broker.slug} name={B.name} fallback={B.logo} size={72} shape="icon" />
           </Link>
-          <h3 style={{ margin: "8px 0 0", fontSize: 17, fontWeight: 700, lineHeight: 1.2 }}>
-            <Link to={reviewPath} style={{
-              fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: 17,
-              color: "#111827", textDecoration: "none",
-            }}>{B.name}</Link>
-          </h3>
-          <div style={{ fontSize: 13, color: "#64748b", marginTop: 3 }}>{B.type}</div>
-          {B.badge && (
-            <span style={{
-              display: "inline-block", marginTop: 6, padding: "2px 10px", borderRadius: 6,
-              fontSize: 11, fontWeight: 700, background: "#ecfdf5", color: "#059669",
-            }}>{B.badge}</span>
-          )}
+          <div>
+            <h3 style={{ margin: 0, fontSize: 18, fontWeight: 700, lineHeight: 1.2 }}>
+              <Link to={reviewPath} style={{
+                fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: 18,
+                color: "#111827", textDecoration: "none",
+              }}>{B.name}</Link>
+            </h3>
+            <div style={{ fontSize: 13, color: "#64748b", marginTop: 3 }}>{B.type}</div>
+            {B.badge && (
+              <span style={{
+                display: "inline-block", marginTop: 5, padding: "2px 10px", borderRadius: 6,
+                fontSize: 11, fontWeight: 700, background: "#ecfdf5", color: "#059669",
+              }}>{B.badge}</span>
+            )}
+          </div>
         </div>
 
         {/* Trustpilot pill button */}
