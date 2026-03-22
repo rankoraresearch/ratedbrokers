@@ -222,6 +222,34 @@ function SpreadChart({ brokers, mob }) {
 // ═══════════════════════════════════════════════════════════
 function TableOfContents({ items, mob }) {
   const [open, setOpen] = useState(false);
+  const scrollRef = useRef(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+
+  const checkScroll = () => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 4);
+    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 4);
+  };
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el || mob) return;
+    checkScroll();
+    el.addEventListener("scroll", checkScroll, { passive: true });
+    window.addEventListener("resize", checkScroll);
+    return () => {
+      el.removeEventListener("scroll", checkScroll);
+      window.removeEventListener("resize", checkScroll);
+    };
+  }, [mob, items]);
+
+  const nudge = (dir) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    el.scrollBy({ left: dir * 200, behavior: "smooth" });
+  };
 
   const scrollTo = (id) => {
     const el = document.getElementById(id);
@@ -239,7 +267,26 @@ function TableOfContents({ items, mob }) {
 
   const stripBg = "linear-gradient(135deg, #0a1225 0%, #0b2019 50%, #035c43 100%)";
 
-  // Desktop: horizontal pills on dark strip
+  const arrowBtn = (dir) => (
+    <button onClick={() => nudge(dir)} aria-label={dir < 0 ? "Scroll left" : "Scroll right"} style={{
+      position: "absolute", top: "50%", transform: "translateY(-50%)",
+      [dir < 0 ? "left" : "right"]: 0, zIndex: 3,
+      width: 32, height: 32, borderRadius: "50%",
+      background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.15)",
+      display: "flex", alignItems: "center", justifyContent: "center",
+      cursor: "pointer", transition: "background 0.15s",
+      backdropFilter: "blur(4px)",
+    }}
+      onMouseEnter={(e) => { e.currentTarget.style.background = "rgba(52,211,153,0.2)"; }}
+      onMouseLeave={(e) => { e.currentTarget.style.background = "rgba(255,255,255,0.12)"; }}
+    >
+      <ChevronRight size={16} color="rgba(255,255,255,0.8)" style={{
+        transform: dir < 0 ? "rotate(180deg)" : "none",
+      }} />
+    </button>
+  );
+
+  // Desktop: horizontal pills on dark strip with scroll arrows
   if (!mob) {
     const visible = items.filter(it => it.type !== "subsection");
     return (
@@ -247,44 +294,60 @@ function TableOfContents({ items, mob }) {
         background: stripBg,
         borderTop: "1px solid rgba(255,255,255,0.06)",
       }}>
-        <nav aria-label="Table of Contents" style={{
-          maxWidth: 1200, margin: "0 auto", padding: "0 24px",
+        <div style={{
+          maxWidth: 1200, margin: "0 auto", padding: "0 24px", position: "relative",
         }}>
-          <ol style={{
-            listStyle: "none", margin: 0, padding: "14px 0",
-            display: "flex", gap: 6, overflowX: "auto",
-            scrollbarWidth: "thin",
-            scrollbarColor: "rgba(255,255,255,0.15) transparent",
-          }}>
-            {visible.map((it) => (
-              <li key={it.id}>
-                <a href={`#${it.id}`} onClick={(e) => { e.preventDefault(); scrollTo(it.id); }}
-                  style={{
-                    display: "inline-flex", alignItems: "center", gap: 6,
-                    padding: "7px 14px", borderRadius: 20, whiteSpace: "nowrap",
-                    background: "rgba(255,255,255,0.06)",
-                    border: "1px solid rgba(255,255,255,0.10)",
-                    color: "rgba(255,255,255,0.75)", fontSize: 13, fontWeight: 600,
-                    textDecoration: "none", transition: "all 0.15s", cursor: "pointer",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = "#34d399";
-                    e.currentTarget.style.color = "#34d399";
-                    e.currentTarget.style.background = "rgba(52,211,153,0.10)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.10)";
-                    e.currentTarget.style.color = "rgba(255,255,255,0.75)";
-                    e.currentTarget.style.background = "rgba(255,255,255,0.06)";
-                  }}
-                >
-                  {getIcon(it.icon, 13, "rgba(255,255,255,0.45)")}
-                  <span>{it.label}</span>
-                </a>
-              </li>
-            ))}
-          </ol>
-        </nav>
+          {canScrollLeft && arrowBtn(-1)}
+          {canScrollRight && arrowBtn(1)}
+          {/* Left fade mask */}
+          {canScrollLeft && <div style={{
+            position: "absolute", left: 24, top: 0, bottom: 0, width: 40, zIndex: 2,
+            background: "linear-gradient(90deg, #0a1225 0%, transparent 100%)",
+            pointerEvents: "none",
+          }} />}
+          {/* Right fade mask */}
+          {canScrollRight && <div style={{
+            position: "absolute", right: 24, top: 0, bottom: 0, width: 40, zIndex: 2,
+            background: "linear-gradient(270deg, #035c43 0%, transparent 100%)",
+            pointerEvents: "none",
+          }} />}
+          <nav aria-label="Table of Contents">
+            <ol ref={scrollRef} style={{
+              listStyle: "none", margin: 0, padding: "14px 0",
+              display: "flex", gap: 6, overflowX: "auto", flexWrap: "nowrap",
+              scrollbarWidth: "none",
+              msOverflowStyle: "none",
+            }}>
+              {visible.map((it) => (
+                <li key={it.id} style={{ flexShrink: 0 }}>
+                  <a href={`#${it.id}`} onClick={(e) => { e.preventDefault(); scrollTo(it.id); }}
+                    style={{
+                      display: "inline-flex", alignItems: "center", gap: 6,
+                      padding: "7px 14px", borderRadius: 20, whiteSpace: "nowrap",
+                      background: "rgba(255,255,255,0.06)",
+                      border: "1px solid rgba(255,255,255,0.10)",
+                      color: "rgba(255,255,255,0.75)", fontSize: 13, fontWeight: 600,
+                      textDecoration: "none", transition: "all 0.15s", cursor: "pointer",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor = "#34d399";
+                      e.currentTarget.style.color = "#34d399";
+                      e.currentTarget.style.background = "rgba(52,211,153,0.10)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = "rgba(255,255,255,0.10)";
+                      e.currentTarget.style.color = "rgba(255,255,255,0.75)";
+                      e.currentTarget.style.background = "rgba(255,255,255,0.06)";
+                    }}
+                  >
+                    {getIcon(it.icon, 13, "rgba(255,255,255,0.45)")}
+                    <span>{it.label}</span>
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </nav>
+        </div>
       </div>
     );
   }
