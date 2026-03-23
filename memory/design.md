@@ -25,6 +25,25 @@
 - Увеличен (Header 22/28px, Footer 20px)
 - Точка -> SVG-треугольник (#f59e0b)
 
+## Логотипы брокеров — Dual Logo System
+
+Каждый брокер имеет **два** типа логотипа:
+1. **Квадратный icon** (`public/logos/{slug}.png`) — 120×120px, для карточек, гридов, навигации
+2. **Wide rectangular wordmark** (`public/logos-wide/{slug}.{svg|png|jpg}`) — для hero review page
+
+### WideLogo компонент (BrokerReview.jsx)
+- Формат: SVG по умолчанию, WIDE_EXT переопределяет на png/jpg для отдельных брокеров
+- LOGO_BG map: цвет фона карточки, совпадает с фоном SVG
+- Размеры: desktop 280×88, mobile 200×64, borderRadius 14
+- border: `2px solid rgba(255,255,255,0.3)` для отделения от тёмного hero band
+- Растровые логотипы (png/jpg) с цветным фоном: objectFit cover 100%, белый фон: contain 90%
+
+### Ключевые особенности LOGO_BG
+- Большинство SVG — тёмный текст на прозрачном фоне → bg "#fff"
+- Trading 212 — единственный SVG с реальным чёрным `<rect>` → bg "#000"
+- FxPro — оригинальный JPG (красный фон + белый серифный текст) → bg "#f31112"
+- Exness → "#ffde02", IC Markets → "#34e834", Tickmill → "#f04", XM → "red"
+
 ## BrokerLogo — правило дедупликации
 - `shape="icon"` (квадратик) + отдельное текстовое имя — стандарт
 - `shape="brand"` (pill icon+name) НЕ использовать рядом с текстовым именем — дублирование
@@ -53,9 +72,20 @@
 - Hover: score всегда виден, risk warning — opacity transition (height: 13 зарезервирован, shift: 0)
 - Logo: shape="icon", 40px desktop / 28px mobile
 
+## Key Finding — Navy Editorial Strip
+- Дизайн: тёмный navy-градиент `linear-gradient(135deg, #0f172a 0%, #1e3a5f 60%, #0a2e3d 100%)`
+- Оранжевый accent bar слева: `linear-gradient(180deg, #f59e0b, #fbbf24)`, width 4-5px
+- Лейбл "KEY FINDING": оранжевый (#f59e0b), uppercase, Outfit 700, 11px, letterSpacing 0.12em
+- Иконка CircleCheck 14px оранжевая
+- Текст: белый #fff, 15-17px, fontWeight 400, lineHeight 1.7
+- borderRadius 12
+- Коммит `c21f817`
+- Отвергнуты: зелёный градиент (шаблонный), белый фон + крупный текст (Wix-стиль)
+
 ## SEO-контент рейтингов
-- **Key Finding**: ОСТАВИТЬ (E-E-A-T сигнал, featured snippet потенциал)
+- **Key Finding**: Navy Editorial Strip (E-E-A-T сигнал, featured snippet потенциал)
 - **Quick Summary: Top 3**: УДАЛЁН (дублирование данных, HCU thin content риск)
+- **Sticky CTA bar**: УДАЛЁН из рейтингов (коммит `c21f817`)
 - **КРИТИЧНО**: Key Finding нуждается в дешаблонизации — 207 уникальных формулировок для продакшена
 
 ## Иконная система рейтингов (207 рейтингов)

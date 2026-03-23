@@ -72,6 +72,14 @@ const visitUrl = apiBase ? `${apiBase}/go/${slug}` : B.url;
 
 **Не использовать** `B.url` напрямую в `href` — это прямая ссылка без трекинга.
 
+## Логотипы брокеров — Dual Logo System
+
+Каждый брокер имеет **два** логотипа:
+- **Квадратный icon** — `public/logos/{slug}.png` (120×120, для карточек, гридов)
+- **Wide wordmark** — `public/logos-wide/{slug}.{svg|png|jpg}` (для review hero)
+
+Wide логотипы: SVG по умолчанию, `WIDE_EXT` в BrokerReview.jsx переопределяет формат. `LOGO_BG` map задаёт цвет фона карточки. При добавлении нового брокера — добавить оба логотипа.
+
 ## Данные брокеров
 
 Source of truth: `content/brokers/*.md` (YAML frontmatter + Markdown body).

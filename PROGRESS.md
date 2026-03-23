@@ -273,6 +273,23 @@ Hero (dark) → контент → dark CTA → контент → dark scoring 
 
 ---
 
+## Wide Logo System — Review Hero Redesign (23 марта 2026)
+
+### WideLogo компонент (BrokerReview.jsx)
+- **Dual Logo System**: каждый брокер — квадратный icon (карточки) + wide wordmark (review hero)
+- **38 wide SVG/PNG/JPG** логотипов в `public/logos-wide/`
+- Формат: SVG по умолчанию, WIDE_EXT для исключений (capital-com: png, eightcap: png, libertex: png, fxpro: jpg)
+- **LOGO_BG map**: фон карточки совпадает с фоном SVG (большинство #fff, цветные: exness #ffde02, ic-markets #34e834, tickmill #f04, xm red, trading-212 #000, fxpro #f31112)
+- border: `2px solid rgba(255,255,255,0.3)` для контраста с тёмным hero band
+- Desktop: 280×88, Mobile: 200×64, borderRadius 14
+
+### Аудит и фиксы
+- 12 брокеров имели цвет текста SVG в качестве LOGO_BG (тёмный текст на тёмном фоне) → все исправлены на #fff
+- FxPro: .webp → оригинальный JPG с PR Newswire (красный фон, белый серифный шрифт)
+- Dukascopy: LOGO_BG исправлен с #ED1C24 на #fff (чёрный текст на красном нечитаемо)
+
+---
+
 ## Что дальше
 
 - [x] Деплой — GitHub Pages + Cloudflare Workers API

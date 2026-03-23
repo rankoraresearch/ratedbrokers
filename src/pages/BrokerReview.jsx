@@ -25,6 +25,49 @@ function H2({id,children}){ return <h2 id={id} style={{fontFamily:"Outfit",fontS
 function P({children}){ return <p style={{fontSize:16,color:"#374151",lineHeight:1.8,marginBottom:14}}>{children}</p>; }
 function Card({children,style={}}){ return <div style={{background:"#fff",border:"1px solid #e8ecf1",borderRadius:12,padding:"22px",marginBottom:16,...style}}>{children}</div>; }
 
+/* Wide rectangular wordmark logo for review hero.
+   Uses logos-wide/ (SVG default, fallback to PNG/WEBP). */
+const WIDE_EXT = { "capital-com":"png","eightcap":"png","libertex":"png","fxpro":"jpg" };
+/* Background colors matching each SVG's <rect> fill so the card bg extends seamlessly */
+const LOGO_BG = {
+  "activtrades":"#fff","admirals":"#fff","avatrade":"#fff","axi":"#fff",
+  "blackbull":"#fff","capital-com":"#fff","city-index":"#fff","cmc-markets":"#fff",
+  "dukascopy":"#fff","eightcap":"#fff","etoro":"#fff","exness":"#ffde02",
+  "forex-com":"#fff","fp-markets":"#fff","fusion-markets":"#fff","fxcm":"#fff",
+  "fxpro":"#f31112","fxtm":"#fff","go-markets":"#fff","hfm":"#fff",
+  "ic-markets":"#34e834","ig":"#fff","interactive-brokers":"#fff","libertex":"#fff",
+  "naga":"#fff","oanda":"#fff","pepperstone":"#fff","plus500":"#fff",
+  "roboforex":"#fff","saxo-bank":"#fff","spreadex":"#fff","swissquote":"#fff",
+  "thinkmarkets":"#fff","tickmill":"#f04","trading-212":"#000","vantage":"#fff",
+  "xm":"red","xtb":"#fff",
+};
+function WideLogo({ slug, name, fallback, mob }) {
+  const [err, setErr] = useState(false);
+  const ext = WIDE_EXT[slug] || "svg";
+  const h = mob ? 64 : 88;
+  const w = mob ? 200 : 280;
+  const bg = LOGO_BG[slug] || "#fff";
+  const isRaster = ext !== "svg";
+  if (err) {
+    return (
+      <div style={{ background: "#fff", borderRadius: 14, padding: 4, display: "inline-flex" }}>
+        <BrokerLogo slug={slug} name={name} fallback={fallback} size={h} shape="brand" borderRadius={10} />
+      </div>
+    );
+  }
+  return (
+    <div style={{ borderRadius: 14, overflow: "hidden", display: "inline-flex", alignItems: "center", justifyContent: "center", height: h, width: w, flexShrink: 0, background: bg, border: "2px solid rgba(255,255,255,0.3)" }}>
+      <img
+        src={`${import.meta.env.BASE_URL}logos-wide/${slug}.${ext}`}
+        alt={`${name} logo`}
+        loading="lazy"
+        onError={() => setErr(true)}
+        style={{ width: bg !== "#fff" && isRaster ? "100%" : isRaster ? "90%" : "70%", height: bg !== "#fff" && isRaster ? "100%" : isRaster ? "90%" : "70%", objectFit: bg !== "#fff" && isRaster ? "cover" : "contain" }}
+      />
+    </div>
+  );
+}
+
 function useMedia() {
   const [w, setW] = useState(typeof window !== "undefined" ? window.innerWidth : 1200);
   useEffect(() => { const fn = () => setW(window.innerWidth); window.addEventListener("resize", fn); return () => window.removeEventListener("resize", fn); }, []);
@@ -157,9 +200,7 @@ export default function BrokerReview() {
           <div style={{flex:1}}>
             <div style={{display:"flex",alignItems:"center",gap:mob?12:16,marginBottom:14}}>
               <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" style={{ display: "flex", flexShrink: 0, textDecoration: "none" }}>
-                <div style={{ background: "#fff", borderRadius: 12, padding: 4, display: "inline-flex" }}>
-                  <BrokerLogo slug={slug} name={B.name} fallback={B.logo} size={mob?52:68} shape="brand" borderRadius={8} />
-                </div>
+                <WideLogo slug={slug} name={B.name} fallback={B.logo} mob={mob} />
               </a>
               <div>
                 <h1 style={{fontFamily:"Outfit",fontSize:mob?22:28,fontWeight:800,color:"#fff",letterSpacing:"-0.02em"}}>{t("review.review2026", { name: B.name })}</h1>
