@@ -9,10 +9,8 @@ import Icon, { IconBox } from "../components/Icon";
 // DATA
 // ============================
 const CONTACT_CARDS = [
-  { icon: "mail", color: "#059669", titleKey: "contact.generalTitle", descKey: "contact.generalDesc", emailKey: "contact.generalEmail" },
-  { icon: "handshake", color: "#2563eb", titleKey: "contact.bizTitle", descKey: "contact.bizDesc", emailKey: "contact.bizEmail" },
-  { icon: "pen-tool", color: "#7c3aed", titleKey: "contact.editorialTitle", descKey: "contact.editorialDesc", emailKey: "contact.editorialEmail" },
-  { icon: "newspaper", color: "#f59e0b", titleKey: "contact.pressTitle", descKey: "contact.pressDesc", emailKey: "contact.pressEmail" },
+  { icon: "mail", color: "#059669", title: "General Inquiries", desc: "Questions about our reviews, methodology, or anything else — we're happy to help.", email: "info@ratedbrokers.com" },
+  { icon: "handshake", color: "#2563eb", title: "Partnerships", desc: "Interested in advertising, affiliate programs, or business collaboration? Let's talk.", email: "partners@ratedbrokers.com" },
 ];
 
 const FAQ_KEYS = [
@@ -68,138 +66,6 @@ function FaqItem({ question, answer }) {
 }
 
 // ============================
-// CONTACT FORM
-// ============================
-const API_BASE = import.meta.env.VITE_API_URL || '';
-
-function ContactForm({ mob, cn, t }) {
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
-  const [status, setStatus] = useState('idle'); // idle | sending | sent | error
-  const [errorMsg, setErrorMsg] = useState('');
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setStatus('sending');
-    setErrorMsg('');
-    try {
-      const res = await fetch(`${API_BASE}/api/contact`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-      });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Something went wrong');
-      setStatus('sent');
-      setForm({ name: '', email: '', message: '' });
-    } catch (err) {
-      setStatus('error');
-      setErrorMsg(err.message);
-    }
-  };
-
-  const inputStyle = {
-    width: '100%', padding: '12px 16px', borderRadius: 10,
-    border: '1px solid #e2e8f0', fontSize: 16, fontFamily: 'inherit',
-    color: '#1e293b', background: '#f8fafc', outline: 'none',
-    transition: 'border-color 0.2s',
-  };
-
-  if (status === 'sent') {
-    return (
-      <section style={{ ...cn, marginBottom: 48 }}>
-        <div style={{
-          padding: '40px 28px', borderRadius: 16,
-          background: '#f0fdf4', border: '2px solid #86efac',
-          textAlign: 'center',
-        }}>
-          <div style={{ fontSize: 40, marginBottom: 12 }}>✓</div>
-          <div style={{ fontFamily: 'Outfit', fontWeight: 800, fontSize: 22, color: '#059669', marginBottom: 8 }}>
-            Message Sent
-          </div>
-          <div style={{ fontSize: 16, color: '#334155' }}>
-            Thank you! We'll get back to you within 24–48 business hours.
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  return (
-    <section style={{ ...cn, marginBottom: 48 }}>
-      <h2 style={{ fontFamily: 'Outfit', fontWeight: 800, fontSize: 28, marginBottom: 16 }}>
-        Send Us a Message
-      </h2>
-      <form onSubmit={handleSubmit} style={{
-        padding: '28px', borderRadius: 16,
-        background: '#fff', border: '1px solid #e2e8f0',
-        display: 'flex', flexDirection: 'column', gap: 16,
-      }}>
-        <div style={{ display: 'grid', gridTemplateColumns: mob ? '1fr' : '1fr 1fr', gap: 16 }}>
-          <div>
-            <label style={{ display: 'block', fontSize: 14, fontWeight: 600, color: '#334155', marginBottom: 6 }}>Name</label>
-            <input
-              type="text"
-              required
-              maxLength={200}
-              value={form.name}
-              onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
-              style={inputStyle}
-              onFocus={e => e.target.style.borderColor = '#059669'}
-              onBlur={e => e.target.style.borderColor = '#e2e8f0'}
-            />
-          </div>
-          <div>
-            <label style={{ display: 'block', fontSize: 14, fontWeight: 600, color: '#334155', marginBottom: 6 }}>Email</label>
-            <input
-              type="email"
-              required
-              maxLength={320}
-              value={form.email}
-              onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
-              style={inputStyle}
-              onFocus={e => e.target.style.borderColor = '#059669'}
-              onBlur={e => e.target.style.borderColor = '#e2e8f0'}
-            />
-          </div>
-        </div>
-        <div>
-          <label style={{ display: 'block', fontSize: 14, fontWeight: 600, color: '#475569', marginBottom: 6 }}>Message</label>
-          <textarea
-            required
-            maxLength={5000}
-            rows={5}
-            value={form.message}
-            onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
-            style={{ ...inputStyle, resize: 'vertical', minHeight: 120 }}
-            onFocus={e => e.target.style.borderColor = '#059669'}
-            onBlur={e => e.target.style.borderColor = '#e2e8f0'}
-          />
-        </div>
-        {status === 'error' && (
-          <div style={{ padding: '10px 16px', borderRadius: 8, background: '#fef2f2', color: '#dc2626', fontSize: 15 }}>
-            {errorMsg || 'Failed to send message. Please try again.'}
-          </div>
-        )}
-        <button
-          type="submit"
-          disabled={status === 'sending'}
-          style={{
-            alignSelf: 'flex-start', padding: '13px 32px', borderRadius: 10,
-            background: status === 'sending' ? '#94a3b8' : 'linear-gradient(135deg,#059669,#047857)',
-            color: '#fff', fontWeight: 700, fontSize: 16,
-            border: 'none', cursor: status === 'sending' ? 'not-allowed' : 'pointer',
-            fontFamily: 'inherit',
-            boxShadow: '0 2px 8px rgba(5,150,105,0.25)',
-          }}
-        >
-          {status === 'sending' ? 'Sending...' : 'Send Message'}
-        </button>
-      </form>
-    </section>
-  );
-}
-
-// ============================
 // MAIN
 // ============================
 export default function ContactPage() {
@@ -236,10 +102,8 @@ export default function ContactPage() {
           foundingDate: "2024",
           description: "Independent forex and CFD broker comparison platform with expert-driven research methodology.",
           contactPoint: [
-            { "@type": "ContactPoint", contactType: "customer service", email: "hello@ratedbrokers.com" },
-            { "@type": "ContactPoint", contactType: "business development", email: "partnerships@ratedbrokers.com" },
-            { "@type": "ContactPoint", contactType: "editorial", email: "editorial@ratedbrokers.com" },
-            { "@type": "ContactPoint", contactType: "press", email: "press@ratedbrokers.com" },
+            { "@type": "ContactPoint", contactType: "customer service", email: "info@ratedbrokers.com" },
+            { "@type": "ContactPoint", contactType: "business development", email: "partners@ratedbrokers.com" },
           ],
         },
       },
@@ -297,9 +161,7 @@ export default function ContactPage() {
           gridTemplateColumns: mob ? "1fr" : tab ? "1fr 1fr" : "1fr 1fr",
           gap: 16,
         }}>
-          {CONTACT_CARDS.map((card, i) => {
-            const email = t(card.emailKey);
-            return (
+          {CONTACT_CARDS.map((card, i) => (
               <div key={i} style={{
                 padding: "28px 24px", borderRadius: 16,
                 background: "#fff", border: "1px solid #e2e8f0",
@@ -307,13 +169,13 @@ export default function ContactPage() {
               }}>
                 <IconBox name={card.icon} color={card.color} size={44} iconSize={22} />
                 <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 19, color: "#0f172a" }}>
-                  {t(card.titleKey)}
+                  {card.title}
                 </div>
                 <div style={{ fontSize: 15, color: "#1f2937", lineHeight: 1.7, flex: 1 }}>
-                  {t(card.descKey)}
+                  {card.desc}
                 </div>
                 <a
-                  href={`mailto:${email}`}
+                  href={`mailto:${card.email}`}
                   style={{
                     display: "inline-flex", alignItems: "center", gap: 8,
                     padding: "10px 18px", borderRadius: 8,
@@ -325,34 +187,10 @@ export default function ContactPage() {
                   }}
                 >
                   <Icon name="mail" size={15} color={card.color} />
-                  {email}
+                  {card.email}
                 </a>
               </div>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* =================== CONTACT FORM =================== */}
-      <ContactForm mob={mob} cn={cn} t={t} />
-
-      {/* =================== RESPONSE TIME =================== */}
-      <section style={{ ...cn, marginBottom: 48 }}>
-        <div style={{
-          padding: "24px 28px", borderRadius: 14,
-          background: "#fff", border: "1px solid #e2e8f0",
-          display: "flex", alignItems: "center", gap: 16,
-          flexWrap: "wrap",
-        }}>
-          <IconBox name="timer" color="#059669" size={44} iconSize={22} />
-          <div>
-            <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 17, color: "#0f172a", marginBottom: 4 }}>
-              {t("contact.responseTitle")}
-            </div>
-            <div style={{ fontSize: 15, color: "#1f2937", lineHeight: 1.6 }}>
-              {t("contact.responseDesc")}
-            </div>
-          </div>
+            ))}
         </div>
       </section>
 
