@@ -27,7 +27,7 @@ function Card({children,style={}}){ return <div style={{background:"#fff",border
 
 /* Wide rectangular wordmark logo for review hero.
    Uses logos-wide/ (SVG default, fallback to PNG/WEBP). */
-const WIDE_EXT = { "capital-com":"png","eightcap":"png","libertex":"png","fxpro":"jpg" };
+const WIDE_EXT = { "capital-com":"png","libertex":"png","fxpro":"jpg" };
 /* Background colors matching each SVG's <rect> fill so the card bg extends seamlessly */
 const LOGO_BG = {
   "activtrades":"#fff","admirals":"#fff","avatrade":"#fff","axi":"#fff",
@@ -35,11 +35,11 @@ const LOGO_BG = {
   "dukascopy":"#fff","eightcap":"#fff","etoro":"#fff","exness":"#ffde02",
   "forex-com":"#fff","fp-markets":"#fff","fusion-markets":"#fff","fxcm":"#fff",
   "fxpro":"#f31112","fxtm":"#fff","go-markets":"#fff","hfm":"#fff",
-  "ic-markets":"#34e834","ig":"#fff","interactive-brokers":"#fff","libertex":"#fff",
+  "ic-markets":"#fff","ig":"#fff","interactive-brokers":"#fff","libertex":"#fff",
   "naga":"#fff","oanda":"#fff","pepperstone":"#fff","plus500":"#fff",
   "roboforex":"#fff","saxo-bank":"#fff","spreadex":"#fff","swissquote":"#fff",
-  "thinkmarkets":"#fff","tickmill":"#f04","trading-212":"#000","vantage":"#fff",
-  "xm":"red","xtb":"#fff",
+  "thinkmarkets":"#fff","tickmill":"#fff","trading-212":"#000","vantage":"#fff",
+  "xm":"#1a1a2e","xtb":"#fff",
 };
 function WideLogo({ slug, name, fallback, mob }) {
   const [err, setErr] = useState(false);
@@ -62,7 +62,7 @@ function WideLogo({ slug, name, fallback, mob }) {
         alt={`${name} logo`}
         loading="lazy"
         onError={() => setErr(true)}
-        style={{ width: bg !== "#fff" && isRaster ? "100%" : isRaster ? "90%" : "70%", height: bg !== "#fff" && isRaster ? "100%" : isRaster ? "90%" : "70%", objectFit: bg !== "#fff" && isRaster ? "cover" : "contain" }}
+        style={{ width: bg !== "#fff" && isRaster ? "100%" : "70%", height: bg !== "#fff" && isRaster ? "100%" : "70%", objectFit: bg !== "#fff" && isRaster ? "cover" : "contain" }}
       />
     </div>
   );

@@ -26,6 +26,7 @@ import RankingProto from "./pages/RankingProto";
 import RankingProtoB from "./pages/RankingProtoB";
 import RankingProtoC from "./pages/RankingProtoC";
 import CardProto from "./pages/CardProto";
+import RankingProtoWide from "./pages/RankingProtoWide";
 import { LanguageProvider } from "./i18n/LanguageContext";
 
 function Layout() {
@@ -56,6 +57,9 @@ function AppRoutes() {
       </Route>
       <Route path="proto/card" element={<Layout />}>
         <Route index element={<CardProto />} />
+      </Route>
+      <Route path="proto/ranking-wide" element={<Layout />}>
+        <Route index element={<RankingProtoWide />} />
       </Route>
       <Route element={<Layout />}>
         <Route index element={<Home />} />
