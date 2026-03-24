@@ -13,13 +13,6 @@ const CONTACT_CARDS = [
   { icon: "handshake", color: "#2563eb", title: "Partnerships", desc: "Interested in advertising, affiliate programs, or business collaboration? Let's talk.", email: "partners@ratedbrokers.com" },
 ];
 
-const FAQ_KEYS = [
-  { q: "contact.faq1q", a: "contact.faq1a" },
-  { q: "contact.faq2q", a: "contact.faq2a" },
-  { q: "contact.faq3q", a: "contact.faq3a" },
-  { q: "contact.faq4q", a: "contact.faq4a" },
-  { q: "contact.faq5q", a: "contact.faq5a" },
-];
 
 // ============================
 // HOOKS
@@ -34,36 +27,6 @@ function useMedia() {
   return { mob: w < 640, tab: w >= 640 && w < 1024, desk: w >= 1024 };
 }
 
-// ============================
-// FAQ ITEM
-// ============================
-function FaqItem({ question, answer }) {
-  const [open, setOpen] = useState(false);
-  return (
-    <div style={{
-      borderBottom: "1px solid #e2e8f0",
-    }}>
-      <button
-        onClick={() => setOpen(!open)}
-        style={{
-          display: "flex", alignItems: "center", justifyContent: "space-between",
-          width: "100%", padding: "18px 0", border: "none", background: "none",
-          cursor: "pointer", textAlign: "left", gap: 12,
-        }}
-      >
-        <span style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 16, color: "#111827", flex: 1 }}>
-          {question}
-        </span>
-        <Icon name={open ? "chevron-up" : "chevron-down"} size={18} color="#374151" />
-      </button>
-      {open && (
-        <div style={{ padding: "0 0 18px", fontSize: 16, lineHeight: 1.7, color: "#1f2937" }}>
-          {answer}
-        </div>
-      )}
-    </div>
-  );
-}
 
 // ============================
 // MAIN
@@ -108,14 +71,6 @@ export default function ContactPage() {
         },
       },
       breadcrumbSchema(breadcrumbItems),
-      {
-        "@type": "FAQPage",
-        mainEntity: FAQ_KEYS.map(({ q, a }) => ({
-          "@type": "Question",
-          name: t(q),
-          acceptedAnswer: { "@type": "Answer", text: t(a) },
-        })),
-      },
     ],
   };
 
@@ -191,21 +146,6 @@ export default function ContactPage() {
                 </a>
               </div>
             ))}
-        </div>
-      </section>
-
-      {/* =================== FAQ =================== */}
-      <section style={{ ...cn, marginBottom: 48 }}>
-        <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 28, marginBottom: 16 }}>
-          {t("contact.faqTitle")}
-        </h2>
-        <div style={{
-          padding: "8px 28px", borderRadius: 14,
-          background: "#fff", border: "1px solid #e2e8f0",
-        }}>
-          {FAQ_KEYS.map((faq, i) => (
-            <FaqItem key={i} question={t(faq.q)} answer={t(faq.a)} />
-          ))}
         </div>
       </section>
 
