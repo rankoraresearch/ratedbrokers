@@ -8,27 +8,15 @@ import BrokerLogo from "./BrokerLogo";
 import { getTrustpilotUrl } from "../data/trustpilot-links";
 import { ChevronDown, Check, X as XIcon, ExternalLink } from "lucide-react";
 
-/* ── Wide logo maps (synced with BrokerReview.jsx) ── */
-const WIDE_EXT = { "capital-com":"png","libertex":"png","fxpro":"jpg" };
-const LOGO_BG = {
-  "activtrades":"#fff","admirals":"#fff","avatrade":"#fff","axi":"#fff",
-  "blackbull":"#fff","capital-com":"#fff","city-index":"#fff","cmc-markets":"#fff",
-  "dukascopy":"#fff","eightcap":"#fff","etoro":"#fff","exness":"#ffde02",
-  "forex-com":"#fff","fp-markets":"#fff","fusion-markets":"#fff","fxcm":"#fff",
-  "fxpro":"#f31112","fxtm":"#fff","go-markets":"#fff","hfm":"#fff",
-  "ic-markets":"#fff","ig":"#fff","interactive-brokers":"#fff","libertex":"#fff",
-  "naga":"#fff","oanda":"#fff","pepperstone":"#fff","plus500":"#fff",
-  "roboforex":"#fff","saxo-bank":"#fff","spreadex":"#fff","swissquote":"#fff",
-  "thinkmarkets":"#fff","tickmill":"#fff","trading-212":"#000","vantage":"#fff",
-  "xm":"#1a1a2e","xtb":"#fff",
-};
+/* ── Wide logo maps — dark variant (white text on navy) ── */
+const WIDE_EXT = {}; /* all dark logos are SVG */
+const LOGO_BG_DEFAULT = "linear-gradient(135deg, #0a2018, #0f172a)";
 
 /* ── Wide wordmark logo ── */
 function WideLogo({ slug, name, fallback, w = 200, h = 64, radius = 12 }) {
   const [err, setErr] = useState(false);
   const ext = WIDE_EXT[slug] || "svg";
-  const bg = LOGO_BG[slug] || "#fff";
-  const isRaster = ext !== "svg";
+  const bg = LOGO_BG_DEFAULT;
   if (err) {
     return (
       <div style={{ background: bg, borderRadius: radius, padding: 4, display: "inline-flex" }}>
@@ -41,18 +29,15 @@ function WideLogo({ slug, name, fallback, w = 200, h = 64, radius = 12 }) {
       borderRadius: radius, overflow: "hidden", display: "inline-flex",
       alignItems: "center", justifyContent: "center",
       height: h, width: w, flexShrink: 0, background: bg,
-      border: "1px solid #e2e8f0",
-      boxShadow: "0 1px 4px rgba(0,0,0,0.06)",
+      border: "1px solid #1a3d30",
     }}>
       <img
-        src={`${import.meta.env.BASE_URL}logos-wide/${slug}.${ext}`}
+        src={`${import.meta.env.BASE_URL}logos-wide-dark/${slug}.${ext}`}
         alt={`${name} logo`}
         loading="lazy"
         onError={() => setErr(true)}
         style={{
-          width: bg !== "#fff" && isRaster ? "100%" : "70%",
-          height: bg !== "#fff" && isRaster ? "100%" : "70%",
-          objectFit: bg !== "#fff" && isRaster ? "cover" : "contain",
+          width: "70%", height: "70%", objectFit: "contain",
         }}
       />
     </div>
@@ -227,17 +212,17 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
     }}>
       <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" style={{
         flex: 1, minWidth: 170, padding: "12px 20px", borderRadius: 10, textAlign: "center",
-        background: "#059669",
-        color: "#fff", fontWeight: 700, fontSize: 15, textDecoration: "none",
-        boxShadow: "0 2px 8px rgba(5,150,105,0.25)",
+        background: "linear-gradient(135deg, #f59e0b, #fbbf24)",
+        color: "#0f172a", fontWeight: 700, fontSize: 15, textDecoration: "none",
+        boxShadow: "0 2px 8px rgba(245,158,11,0.2)",
       }}>
         <span>Open {B.name} Account →</span>
         {B.promo && <span style={{ display: "block", fontSize: 11, fontWeight: 400, opacity: 0.8, marginTop: 2 }}>{B.promo}</span>}
       </a>
       <Link to={reviewPath} style={{
         flex: 1, minWidth: 140, padding: "11px 16px", borderRadius: 10, textAlign: "center",
-        background: "#fff", color: "#0f172a", fontWeight: 700, fontSize: 14,
-        textDecoration: "none", border: "2px solid #0f172a",
+        background: "#fff", color: "#059669", fontWeight: 700, fontSize: 14,
+        textDecoration: "none", border: "2px solid #059669",
       }}>
         <span>Read Full Review</span>
         <span style={{ display: "block", fontSize: 11, fontWeight: 400, opacity: 0.7, marginTop: 1 }}>
@@ -422,11 +407,11 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
       background: "#fff", borderRadius: 16,
       border: rank === 1 ? "2px solid #059669" : "1px solid #e2e8f0",
       boxShadow: rank === 1 ? "0 4px 16px rgba(5,150,105,0.08)" : "0 1px 4px rgba(0,0,0,0.03)",
-      transition: "all 0.2s",
+      transition: "all 0.25s cubic-bezier(0.4,0,0.2,1)",
       overflow: "hidden",
     }}
-      onMouseEnter={(e) => { e.currentTarget.style.boxShadow = rank === 1 ? "0 6px 24px rgba(5,150,105,0.12)" : "0 6px 24px rgba(0,0,0,0.08)"; }}
-      onMouseLeave={(e) => { e.currentTarget.style.boxShadow = rank === 1 ? "0 4px 16px rgba(5,150,105,0.08)" : "0 1px 4px rgba(0,0,0,0.03)"; }}
+      onMouseEnter={(e) => { e.currentTarget.style.boxShadow = rank === 1 ? "0 8px 32px rgba(5,150,105,0.12)" : "0 8px 32px rgba(0,0,0,0.08)"; e.currentTarget.style.transform = "translateY(-2px)"; }}
+      onMouseLeave={(e) => { e.currentTarget.style.boxShadow = rank === 1 ? "0 4px 16px rgba(5,150,105,0.08)" : "0 1px 4px rgba(0,0,0,0.03)"; e.currentTarget.style.transform = "none"; }}
     >
       {/* ── Top row: horizontal summary ── */}
       <div style={{
