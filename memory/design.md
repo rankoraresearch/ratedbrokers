@@ -32,37 +32,37 @@
 2. **Wide rectangular wordmark** (`public/logos-wide/{slug}.{svg|png|jpg}`) — для hero review page
 
 ### WideLogo компонент (BrokerReview.jsx)
-- Формат: SVG по умолчанию, WIDE_EXT переопределяет на png/jpg для отдельных брокеров
+- Формат: SVG по умолчанию, WIDE_EXT переопределяет: `capital-com:png`, `libertex:png`, `fxpro:jpg`
 - LOGO_BG map: цвет фона карточки, совпадает с фоном SVG
 - Размеры: desktop 280×88, mobile 200×64, borderRadius 14
 - border: `2px solid rgba(255,255,255,0.3)` для отделения от тёмного hero band
-- Растровые логотипы (png/jpg) с цветным фоном: objectFit cover 100%, белый фон: contain 90%
+- Все логотипы на белом фоне: `width/height: "70%"`, objectFit contain
+- Растровые (png/jpg) на цветном фоне: objectFit cover 100%
 
 ### Ключевые особенности LOGO_BG
 - Большинство SVG — тёмный текст на прозрачном фоне → bg "#fff"
 - Trading 212 — единственный SVG с реальным чёрным `<rect>` → bg "#000"
 - FxPro — оригинальный JPG (красный фон + белый серифный текст) → bg "#f31112"
-- Exness → "#ffde02", IC Markets → "#34e834", Tickmill → "#f04", XM → "red"
+- Exness → "#ffde02", XM → "#1a1a2e" (белый текст + красный бык)
+- IC Markets, Tickmill, Swissquote, FXTM — все на #fff после фикса коммита `6151f82`
 
 ## BrokerLogo — правило дедупликации
 - `shape="icon"` (квадратик) + отдельное текстовое имя — стандарт
 - `shape="brand"` (pill icon+name) НЕ использовать рядом с текстовым именем — дублирование
 - Применено в: QuickBrokerGrid, BrokerRankCard (desktop+mobile)
 
-## BrokerRankCard — Variant B (Three-Column Grid)
-- Имя брокера обёрнуто в `<h3>` (H1→H2 секции→H3 брокеры)
-- Desktop layout: [Rank] [Identity] [Stats+Regulation+Trustpilot] [ScoreBadge]
-  - Identity: icon 48px + name 16px + badge + type
-  - Stats grid 4 колонки: SPREAD | MIN DEPOSIT | LEVERAGE | REGULATION (RegBadges)
-  - Trustpilot: TpStars (5 SVG-звёзд с partial fill clipPath) + rating + count + link
-  - ScoreBadge: `size="lg"` (52px)
-- Tablet (768px): stats grid 3 колонки, Regulation — отдельная inline строка ниже
-- Mobile: icon 40px + name 15px, TpStars size=11
+## BrokerRankCard — Clean White (25 марта 2026)
+- **Wide wordmark лого** вместо квадратных иконок: WideLogo компонент + WIDE_EXT/LOGO_BG maps
+- Desktop layout: [Rank outlined] [WideLogo 200×60] [Name+Badge+Type] [Stats 3-col] [ScoreBadge]
+  - Ниже разделителя: Regs + Trustpilot → Thematic content → DualCTA → RiskWarning
+  - Stats: 3 items (Spread, Min Dep, Leverage), без Regulation колонки
+  - Tablet: WideLogo 160×52
+- Mobile layout: Rank+Score header → WideLogo 200×64 centered → Name+Type → DualCTA → TP → Risk → Regs → Stats grid
+- Rank badge: outlined green (#ecfdf5 bg, 1px solid #a7f3d0, #059669 text) вместо filled
+- CTA primary: solid #059669 (вместо gradient)
+- CTA secondary: navy outline (#0f172a border, #fff bg) вместо зелёного outline
 - Типография: #111827 primary, #374151 secondary, #64748b tertiary
-- ThematicBlurb heading: DM Sans (не Outfit), fontSize 15
-- CTA unified: borderRadius 10, border 2px solid #059669, bg #ecfdf5
 - Hover rank #1: зелёный glow rgba(5,150,105,0.12)
-- Аудит Барбары применён: отступы, цвета, CTA consistency
 
 ## Quick Broker Grid (Top 10 at a Glance)
 - Прототип в RankingProtoC.jsx

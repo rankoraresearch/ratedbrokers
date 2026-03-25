@@ -278,8 +278,8 @@ Hero (dark) → контент → dark CTA → контент → dark scoring 
 ### WideLogo компонент (BrokerReview.jsx)
 - **Dual Logo System**: каждый брокер — квадратный icon (карточки) + wide wordmark (review hero)
 - **38 wide SVG/PNG/JPG** логотипов в `public/logos-wide/`
-- Формат: SVG по умолчанию, WIDE_EXT для исключений (capital-com: png, eightcap: png, libertex: png, fxpro: jpg)
-- **LOGO_BG map**: фон карточки совпадает с фоном SVG (большинство #fff, цветные: exness #ffde02, ic-markets #34e834, tickmill #f04, xm red, trading-212 #000, fxpro #f31112)
+- Формат: SVG по умолчанию, WIDE_EXT для исключений (capital-com: png, libertex: png, fxpro: jpg)
+- **LOGO_BG map**: фон карточки совпадает с фоном SVG (большинство #fff, цветные: exness #ffde02, xm #1a1a2e, trading-212 #000, fxpro #f31112)
 - border: `2px solid rgba(255,255,255,0.3)` для контраста с тёмным hero band
 - Desktop: 280×88, Mobile: 200×64, borderRadius 14
 
@@ -287,6 +287,42 @@ Hero (dark) → контент → dark CTA → контент → dark scoring 
 - 12 брокеров имели цвет текста SVG в качестве LOGO_BG (тёмный текст на тёмном фоне) → все исправлены на #fff
 - FxPro: .webp → оригинальный JPG с PR Newswire (красный фон, белый серифный шрифт)
 - Dukascopy: LOGO_BG исправлен с #ED1C24 на #fff (чёрный текст на красном нечитаемо)
+
+---
+
+## Wide Logo Fixes — 9 брокеров (24 марта 2026)
+
+### `6151f82` fix: wide broker logos — 9 fixes
+- **eToro**: удалён risk warning текст из SVG, исправлен viewBox (центрирование)
+- **FXTM**: заменён на Wikimedia SVG (глобус: lime #c6d72f + orange #eb5425 + navy текст #151b2a)
+- **ThinkMarkets**: "Think" стал видимым (fill: white → #1a1a2e), "Markets" остался зелёным
+- **XM**: LOGO_BG изменён с "red" на "#1a1a2e" (белый текст SVG)
+- **Swissquote**: заменён SVG (красный эмблем + тёмный текст)
+- **Eightcap**: PNG удалён → чистый SVG wordmark (#24b267)
+- **Tickmill**: LOGO_BG с "#f04" → "#fff" (SVG уже имел тёмный текст + цветную иконку)
+- **Libertex/Capital.com**: нормализован размер растра с 90% до 70% (единый масштаб)
+- WIDE_EXT: удалены eightcap и fxtm (теперь SVG)
+
+---
+
+## Clean White — Ranking Card Redesign (25 марта 2026)
+
+### Прототипы
+- **RankingProtoWide.jsx** — Dark Crown прототип: 3 варианта (A/B/C) wide лого + Orange CTA
+- **LightThemeProto.jsx** — Light Theme прототип: 3 варианта (Clean White, Warm Cream, Navy Authority)
+- Роуты: `/proto/ranking-wide`, `/proto/light-theme`
+
+### BrokerRankCard.jsx — Clean White applied
+- **Wide wordmark лого**: WideLogo компонент с WIDE_EXT/LOGO_BG maps (из `logos-wide/`)
+- **Desktop**: outlined green rank badge → WideLogo 200×60 → Name/Badge/Type → Stats (3 items) → Score
+  - Нижняя секция: Regs + Trustpilot → Thematic → DualCTA → RiskWarning
+- **Mobile**: Rank+Score header → WideLogo 200×64 centered → Name → DualCTA → TP → Risk → Regs → Stats
+- **CTA**: solid green #059669 primary + navy #0f172a outline secondary (вместо gradient + зелёный outline)
+- **Rank badge**: outlined (#ecfdf5 bg, #a7f3d0 border) вместо filled
+
+### Home.jsx — All Brokers grid
+- Wide логотипы в секции "All 38 Brokers" (4 колонки desktop, 3 tablet, 2 mobile)
+- Вертикальные карточки: wide лого + имя + score + arrow
 
 ---
 

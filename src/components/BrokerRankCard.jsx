@@ -8,6 +8,57 @@ import BrokerLogo from "./BrokerLogo";
 import { getTrustpilotUrl } from "../data/trustpilot-links";
 import { ChevronDown, Check, X as XIcon, ExternalLink } from "lucide-react";
 
+/* ── Wide logo maps (synced with BrokerReview.jsx) ── */
+const WIDE_EXT = { "capital-com":"png","libertex":"png","fxpro":"jpg" };
+const LOGO_BG = {
+  "activtrades":"#fff","admirals":"#fff","avatrade":"#fff","axi":"#fff",
+  "blackbull":"#fff","capital-com":"#fff","city-index":"#fff","cmc-markets":"#fff",
+  "dukascopy":"#fff","eightcap":"#fff","etoro":"#fff","exness":"#ffde02",
+  "forex-com":"#fff","fp-markets":"#fff","fusion-markets":"#fff","fxcm":"#fff",
+  "fxpro":"#f31112","fxtm":"#fff","go-markets":"#fff","hfm":"#fff",
+  "ic-markets":"#fff","ig":"#fff","interactive-brokers":"#fff","libertex":"#fff",
+  "naga":"#fff","oanda":"#fff","pepperstone":"#fff","plus500":"#fff",
+  "roboforex":"#fff","saxo-bank":"#fff","spreadex":"#fff","swissquote":"#fff",
+  "thinkmarkets":"#fff","tickmill":"#fff","trading-212":"#000","vantage":"#fff",
+  "xm":"#1a1a2e","xtb":"#fff",
+};
+
+/* ── Wide wordmark logo ── */
+function WideLogo({ slug, name, fallback, w = 200, h = 64, radius = 12 }) {
+  const [err, setErr] = useState(false);
+  const ext = WIDE_EXT[slug] || "svg";
+  const bg = LOGO_BG[slug] || "#fff";
+  const isRaster = ext !== "svg";
+  if (err) {
+    return (
+      <div style={{ background: bg, borderRadius: radius, padding: 4, display: "inline-flex" }}>
+        <BrokerLogo slug={slug} name={name} fallback={fallback} size={h} shape="brand" borderRadius={radius - 4} />
+      </div>
+    );
+  }
+  return (
+    <div style={{
+      borderRadius: radius, overflow: "hidden", display: "inline-flex",
+      alignItems: "center", justifyContent: "center",
+      height: h, width: w, flexShrink: 0, background: bg,
+      border: "1px solid #e2e8f0",
+      boxShadow: "0 1px 4px rgba(0,0,0,0.06)",
+    }}>
+      <img
+        src={`${import.meta.env.BASE_URL}logos-wide/${slug}.${ext}`}
+        alt={`${name} logo`}
+        loading="lazy"
+        onError={() => setErr(true)}
+        style={{
+          width: bg !== "#fff" && isRaster ? "100%" : "70%",
+          height: bg !== "#fff" && isRaster ? "100%" : "70%",
+          objectFit: bg !== "#fff" && isRaster ? "cover" : "contain",
+        }}
+      />
+    </div>
+  );
+}
+
 const formatTpCount = (n) => {
   if (!n) return "";
   if (n >= 1000) return (n / 1000).toFixed(1).replace(/\.0$/, "") + "K";
@@ -175,8 +226,8 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
       flexDirection: mob ? "column" : "row",
     }}>
       <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" style={{
-        flex: 1, minWidth: 170, padding: "11px 20px", borderRadius: 10, textAlign: "center",
-        background: "linear-gradient(135deg,#059669,#047857)",
+        flex: 1, minWidth: 170, padding: "12px 20px", borderRadius: 10, textAlign: "center",
+        background: "#059669",
         color: "#fff", fontWeight: 700, fontSize: 15, textDecoration: "none",
         boxShadow: "0 2px 8px rgba(5,150,105,0.25)",
       }}>
@@ -185,8 +236,8 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
       </a>
       <Link to={reviewPath} style={{
         flex: 1, minWidth: 140, padding: "11px 16px", borderRadius: 10, textAlign: "center",
-        background: "#ecfdf5", color: "#047857", fontWeight: 700, fontSize: 14,
-        textDecoration: "none", border: "2px solid #059669",
+        background: "#fff", color: "#0f172a", fontWeight: 700, fontSize: 14,
+        textDecoration: "none", border: "2px solid #0f172a",
       }}>
         <span>Read Full Review</span>
         <span style={{ display: "block", fontSize: 11, fontWeight: 400, opacity: 0.7, marginTop: 1 }}>
@@ -220,29 +271,28 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
       }}>
         {/* Header: rank left, score right */}
         <div style={{
-          display: "flex", justifyContent: "space-between", alignItems: "center",
-          padding: "14px 16px 0",
+          display: "flex", justifyContent: "space-between", alignItems: "flex-start",
+          padding: "16px 16px 0",
         }}>
           <div style={{
             width: 32, height: 32, borderRadius: 8,
-            background: rank === 1 ? "#059669" : rank <= 3 ? "linear-gradient(135deg,#1e3a5f,#2d5a8e)" : "#f1f5f9",
+            background: "#ecfdf5", border: "1px solid #a7f3d0",
             display: "flex", alignItems: "center", justifyContent: "center",
             fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 14,
-            color: rank <= 3 ? "#fff" : "#111827",
+            color: "#059669",
           }}>#{rank}</div>
           <ScoreBadge score={B.score} size="lg" />
         </div>
 
-        {/* Centered horizontal identity block */}
+        {/* Wide logo + name centered */}
         <div style={{
-          display: "flex", alignItems: "center", gap: 14,
-          justifyContent: "center",
+          display: "flex", flexDirection: "column", alignItems: "center", gap: 10,
           padding: "14px 16px 0",
         }}>
-          <Link to={reviewPath} style={{ display: "flex", flexShrink: 0, textDecoration: "none" }}>
-            <BrokerLogo slug={broker.slug} name={B.name} fallback={B.logo} size={72} shape="icon" />
+          <Link to={reviewPath} style={{ display: "flex", textDecoration: "none" }}>
+            <WideLogo slug={broker.slug} name={B.name} fallback={B.logo} w={200} h={64} radius={12} />
           </Link>
-          <div>
+          <div style={{ textAlign: "center" }}>
             <h3 style={{ margin: 0, fontSize: 18, fontWeight: 700, lineHeight: 1.2 }}>
               <Link to={reviewPath} style={{
                 fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: 18,
@@ -253,7 +303,8 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
             {B.badge && (
               <span style={{
                 display: "inline-block", marginTop: 5, padding: "2px 10px", borderRadius: 6,
-                fontSize: 11, fontWeight: 700, background: "#ecfdf5", color: "#059669",
+                fontSize: 11, fontWeight: 700, background: "#ecfdf5", color: "#047857",
+                border: "1px solid #a7f3d0",
               }}>{B.badge}</span>
             )}
           </div>
@@ -385,138 +436,87 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
         {/* Rank badge */}
         <div style={{
           width: 44, height: 44, borderRadius: 10, flexShrink: 0,
-          background: rank === 1 ? "#059669" : rank <= 3 ? "linear-gradient(135deg,#1e3a5f,#2d5a8e)" : "#f1f5f9",
+          background: "#ecfdf5", border: "1px solid #a7f3d0",
           display: "flex", alignItems: "center", justifyContent: "center",
           fontFamily: "'JetBrains Mono',monospace", fontWeight: 800,
-          fontSize: 16, color: rank <= 3 ? "#fff" : "#111827",
+          fontSize: 16, color: "#059669",
         }}>#{rank}</div>
 
-        {/* Col 1: Identity (logo + name + badge + type) */}
-        <div style={{ minWidth: tab ? 150 : 180, flexShrink: 0 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-            <Link to={reviewPath} style={{ display: "flex", flexShrink: 0, textDecoration: "none" }}>
-              <BrokerLogo slug={broker.slug} name={B.name} fallback={B.logo} size={48} shape="icon" />
-            </Link>
-            <div>
-              <h3 style={{ margin: 0, fontSize: 16, fontWeight: 700, lineHeight: 1.2, display: "flex", alignItems: "center", gap: 8 }}>
-                <Link to={reviewPath} style={{
-                  fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: 16,
-                  color: "#111827", textDecoration: "none", lineHeight: 1.2,
-                }}>{B.name}</Link>
-                {B.badge && (
-                  <span style={{
-                    padding: "1px 6px", borderRadius: 4, fontSize: 10, fontWeight: 700,
-                    background: "#ecfdf5", color: "#059669", whiteSpace: "nowrap",
-                  }}>{B.badge}</span>
-                )}
-              </h3>
-              <div style={{ fontSize: 13, color: "#64748b", marginTop: 2 }}>{B.type}</div>
-            </div>
+        {/* Col 1: Identity (wide logo + name + badge + type) */}
+        <div style={{ display: "flex", alignItems: "center", gap: 14, flex: 1 }}>
+          <Link to={reviewPath} style={{ display: "flex", flexShrink: 0, textDecoration: "none" }}>
+            <WideLogo slug={broker.slug} name={B.name} fallback={B.logo} w={tab ? 160 : 200} h={tab ? 52 : 60} radius={12} />
+          </Link>
+          <div>
+            <h3 style={{ margin: 0, fontSize: 16, fontWeight: 700, lineHeight: 1.2, display: "flex", alignItems: "center", gap: 8 }}>
+              <Link to={reviewPath} style={{
+                fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: 16,
+                color: "#111827", textDecoration: "none", lineHeight: 1.2,
+              }}>{B.name}</Link>
+              {B.badge && (
+                <span style={{
+                  padding: "1px 8px", borderRadius: 4, fontSize: 10, fontWeight: 700,
+                  background: "#ecfdf5", color: "#047857", whiteSpace: "nowrap",
+                  border: "1px solid #a7f3d0",
+                }}>{B.badge}</span>
+              )}
+            </h3>
+            <div style={{ fontSize: 13, color: "#64748b", marginTop: 2 }}>{B.type}</div>
           </div>
         </div>
 
-        {/* Col 2: Stats (Spread, Min Deposit, Leverage, Regulation) + Trustpilot below */}
-        <div style={{ flex: 1, minWidth: 0 }}>
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: tab ? "1fr 1fr 1fr" : "1fr 1fr 1fr auto",
-            gap: tab ? 10 : 12,
-            alignItems: "start",
-          }}>
-            {[
-              ["Spread", `${B.spread} pips`],
-              ["Min Deposit", B.minDep === 0 ? "$0" : `$${B.minDep}`],
-              ["Leverage", B.leverage],
-            ].map(([label, val]) => (
-              <div key={label}>
-                <div style={{ fontSize: 11, color: "#64748b", fontWeight: 600, textTransform: "uppercase", letterSpacing: 0.5, whiteSpace: "nowrap" }}>{label}</div>
-                <div style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 15, fontWeight: 700, color: "#111827", marginTop: 2, whiteSpace: "nowrap" }}>{val}</div>
-              </div>
-            ))}
-            {!tab && (
-              <div>
-                <div style={{ fontSize: 11, color: "#64748b", fontWeight: 600, textTransform: "uppercase", letterSpacing: 0.5, whiteSpace: "nowrap" }}>Regulation</div>
-                <div style={{ display: "flex", gap: 3, marginTop: 4, flexWrap: "wrap" }}>
-                  {B.regs.slice(0, 3).map((r) => (
-                    <RegBadge key={r.name} reg={r.name} />
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-          {/* Tablet: Regulation row below stats */}
-          {tab && (
-            <div style={{ display: "flex", gap: 3, marginTop: 8, flexWrap: "wrap", alignItems: "center" }}>
-              <span style={{ fontSize: 11, color: "#64748b", fontWeight: 600, textTransform: "uppercase", letterSpacing: 0.5, marginRight: 4 }}>Regulation:</span>
-              {B.regs.slice(0, 3).map((r) => (
-                <RegBadge key={r.name} reg={r.name} />
-              ))}
+        {/* Col 2: Stats */}
+        <div style={{ display: "flex", gap: tab ? 14 : 20 }}>
+          {[
+            ["Spread", `${B.spread} pips`],
+            ["Min Dep", B.minDep === 0 ? "$0" : `$${B.minDep}`],
+            ["Leverage", B.leverage],
+          ].map(([label, val]) => (
+            <div key={label}>
+              <div style={{ fontSize: 11, color: "#64748b", fontWeight: 600, textTransform: "uppercase", letterSpacing: 0.5, whiteSpace: "nowrap" }}>{label}</div>
+              <div style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 15, fontWeight: 700, color: "#111827", marginTop: 2, whiteSpace: "nowrap" }}>{val}</div>
             </div>
-          )}
-          {/* Trustpilot — social proof with stars */}
-          {hasTp && getTrustpilotUrl(broker.slug) && (
-            <a href={getTrustpilotUrl(broker.slug)} target="_blank" rel="noopener noreferrer"
-              style={{
-                display: "inline-flex", alignItems: "center", gap: 6,
-                marginTop: 10, paddingTop: 8, textDecoration: "none",
-                borderTop: "1px solid #f1f5f9",
-              }}
-              onMouseEnter={(e) => { const w = e.currentTarget.querySelector("[data-tp]"); if (w) { w.style.color = "#00B67A"; w.style.borderBottomStyle = "solid"; } }}
-              onMouseLeave={(e) => { const w = e.currentTarget.querySelector("[data-tp]"); if (w) { w.style.color = "#4b5563"; w.style.borderBottomStyle = "dotted"; } }}
-            >
-              <TpStars rating={B.tp} size={15} />
-              <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 14, fontWeight: 700, color: "#111827" }}>{B.tp}</span>
-              <span style={{ color: "#cbd5e1", fontSize: 11 }}>·</span>
-              <span style={{ fontSize: 12, color: "#64748b", fontWeight: 500 }}>{formatTpCount(B.tpCount)} reviews on</span>
-              <span data-tp="" style={{ fontSize: 12, fontWeight: 600, color: "#4b5563", borderBottom: "1px dotted #94a3b8", transition: "all 0.15s" }}>Trustpilot</span>
-            </a>
-          )}
+          ))}
         </div>
 
         {/* Col 3: Score */}
         <ScoreBadge score={B.score} size="lg" />
-
-        {/* CTAs (compact, for non-thematic) */}
-        {!hasThematic && (
-          <div style={{ display: "flex", flexDirection: "column", gap: 6, flexShrink: 0, width: 240 }}>
-            <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" style={{
-              padding: "11px 20px", borderRadius: 10, textAlign: "center",
-              background: "linear-gradient(135deg,#059669,#047857)",
-              color: "#fff", fontWeight: 700, fontSize: 15, textDecoration: "none",
-              boxShadow: "0 2px 8px rgba(5,150,105,0.25)",
-            }}>
-              <span style={{ whiteSpace: "nowrap" }}>Visit {B.name}</span>
-              {B.promo && <span style={{ display: "block", fontSize: 11, fontWeight: 400, opacity: 0.8, marginTop: 2, lineHeight: 1.3 }}>{B.promo}</span>}
-            </a>
-            <Link to={reviewPath} style={{
-              padding: "11px 16px", borderRadius: 10, textAlign: "center",
-              background: "#ecfdf5", color: "#047857", fontWeight: 700, fontSize: 14,
-              textDecoration: "none", border: "2px solid #059669",
-            }}>
-              <span>Read Review</span>
-              <span style={{ display: "block", fontSize: 11, fontWeight: 400, opacity: 0.7, marginTop: 1 }}>
-                {B.score}/10 · Expert tested
-              </span>
-            </Link>
-          </div>
-        )}
       </div>
 
-      {/* ── Thematic content area (desktop) ── */}
-      {hasThematic && (
-        <div style={{
-          padding: tab ? "0 20px 16px" : "0 28px 20px",
-          borderTop: "1px solid #f1f5f9",
-        }}>
-          <ThematicBlurb />
-          <ProConPills />
-          {thematic.analysis && <ExpandableAnalysis />}
-          <DualCTA />
+      {/* ── Bottom content area (Regs, TP, Thematic, CTAs) ── */}
+      <div style={{
+        padding: tab ? "0 20px 16px" : "0 28px 20px",
+        borderTop: "1px solid #f1f5f9",
+        paddingTop: 14,
+      }}>
+        {/* Regs + TP */}
+        <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 10, flexWrap: "wrap" }}>
+          <div style={{ display: "flex", gap: 4, alignItems: "center" }}>
+            {B.regs.slice(0, 4).map((r) => (
+              <RegBadge key={r.name} reg={r.name} />
+            ))}
+          </div>
+          {hasTp && getTrustpilotUrl(broker.slug) && (
+            <a href={getTrustpilotUrl(broker.slug)} target="_blank" rel="noopener noreferrer"
+              style={{ display: "inline-flex", alignItems: "center", gap: 6, textDecoration: "none" }}
+            >
+              <TpStars rating={B.tp} size={14} />
+              <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 13, fontWeight: 700, color: "#111827" }}>{B.tp}</span>
+              <span style={{ fontSize: 12, color: "#64748b" }}>({formatTpCount(B.tpCount)} reviews)</span>
+            </a>
+          )}
         </div>
-      )}
 
-      {/* Risk warning — always shown */}
-      <div style={{ padding: tab ? "0 20px 12px" : "0 28px 14px" }}>
+        {/* Thematic content */}
+        {hasThematic && (
+          <>
+            <ThematicBlurb />
+            <ProConPills />
+            {thematic.analysis && <ExpandableAnalysis />}
+          </>
+        )}
+
+        <DualCTA />
         <RiskWarning />
       </div>
     </div>
