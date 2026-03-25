@@ -210,7 +210,7 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
       display: "flex", gap: 8, padding: mob ? "12px 16px 8px" : "12px 0 4px",
       flexDirection: mob ? "column" : "row",
     }}>
-      <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" style={{
+      <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-primary" style={{
         flex: 1, minWidth: 170, padding: "12px 20px", borderRadius: 10, textAlign: "center",
         background: "linear-gradient(135deg, #f59e0b, #fbbf24)",
         color: "#0f172a", fontWeight: 700, fontSize: 15, textDecoration: "none",
@@ -219,7 +219,7 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
         <span>Open {B.name} Account →</span>
         {B.promo && <span style={{ display: "block", fontSize: 11, fontWeight: 400, opacity: 0.8, marginTop: 2 }}>{B.promo}</span>}
       </a>
-      <Link to={reviewPath} style={{
+      <Link to={reviewPath} className="cta-secondary" style={{
         flex: 1, minWidth: 140, padding: "11px 16px", borderRadius: 10, textAlign: "center",
         background: "#fff", color: "#059669", fontWeight: 700, fontSize: 14,
         textDecoration: "none", border: "2px solid #059669",
