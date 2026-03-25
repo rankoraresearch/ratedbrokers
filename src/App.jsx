@@ -28,6 +28,7 @@ import RankingProtoC from "./pages/RankingProtoC";
 import CardProto from "./pages/CardProto";
 import RankingProtoWide from "./pages/RankingProtoWide";
 import LightThemeProto from "./pages/LightThemeProto";
+import ButtonLogoProto from "./pages/ButtonLogoProto";
 import { LanguageProvider } from "./i18n/LanguageContext";
 
 function Layout() {
@@ -65,6 +66,7 @@ function AppRoutes() {
       <Route path="proto/light-theme" element={<Layout />}>
         <Route index element={<LightThemeProto />} />
       </Route>
+      <Route path="proto/buttons" element={<ButtonLogoProto />} />
       <Route element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="uk" element={<Navigate to="/best-forex-brokers-uk" replace />} />

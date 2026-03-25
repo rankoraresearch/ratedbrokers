@@ -19,6 +19,7 @@ import HeroWave from "../components/HeroWave";
 // ══════════════════════════════════════════════════════
 const NAV_VARIANT = "B";      // "A" = Compact Grid | "B" = Hero Pills | "C" = Tabbed
 const BROKER_VARIANT = "E";   // "A" = Podium+List | "B" = Card Grid | "C" = Editorial | "D" = NerdWallet Rows | "E" = Power Cards | "F" = Leaderboard
+// ALL_REVIEWS_VARIANT — now controlled via useState switcher on the page
 
 // ══════════════════════════════════════════════════════
 // DATA
@@ -1222,6 +1223,7 @@ export default function Home() {
   const cn = { maxWidth: 1200, margin: "0 auto", padding: mob ? "0 16px" : "0 24px" };
 
   const allBrokersData = getAllBrokersWithData().sort((a, b) => b.B.score - a.B.score);
+  const [allRevVar, setAllRevVar] = useState("A");
   const top10 = allBrokersData.slice(0, 10);
 
   useEffect(() => {
@@ -1441,74 +1443,182 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== ALL BROKER REVIEWS ===== */}
+      {/* ===== ALL BROKER REVIEWS — VARIANT SWITCHER ===== */}
+      <div style={{ display: "flex", justifyContent: "center", gap: 8, padding: mob ? "24px 16px 0" : "32px 24px 0" }}>
+        {[
+          { id: "A", label: "Dark Cards" },
+          { id: "B", label: "Glass Navy" },
+          { id: "C", label: "Ticker Wall" },
+          { id: "D", label: "Reveal Grid" },
+        ].map((v) => (
+          <button key={v.id} onClick={() => setAllRevVar(v.id)} style={{
+            padding: mob ? "6px 12px" : "8px 16px", borderRadius: 8,
+            border: allRevVar === v.id ? "2px solid #059669" : "2px solid #e2e8f0",
+            background: allRevVar === v.id ? "#059669" : "#fff",
+            color: allRevVar === v.id ? "#fff" : "#334155",
+            fontFamily: "'DM Sans', sans-serif", fontWeight: 700,
+            fontSize: mob ? 12 : 13, cursor: "pointer",
+            transition: "all 0.15s",
+          }}>{v.id}. {v.label}</button>
+        ))}
+      </div>
+
+      {allRevVar === "A" && (
+      /* ─── Variant A: Dark Cards 6-col ─── */
       <section style={{ ...cn, padding: mob ? "40px 16px" : "60px 24px" }}>
-        <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 30, textAlign: "center", marginBottom: 8 }}>
-          {t("home.allTitle")}
-        </h2>
-        <p style={{ textAlign: "center", fontSize: 16, color: "#1f2937", marginBottom: 32, maxWidth: 500, margin: "0 auto 32px" }}>
-          {t("home.allDesc", { count: allBrokersData.length })}
-        </p>
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: mob ? "repeat(2, 1fr)" : tab ? "repeat(3, 1fr)" : "repeat(4, 1fr)",
-          gap: mob ? 8 : 12,
-        }}>
-          {allBrokersData.map((broker) => {
-            const WIDE_EXT_HOME = { "capital-com":"png","libertex":"png","fxpro":"jpg" };
-            const ext = WIDE_EXT_HOME[broker.slug] || "svg";
-            return (
-              <Link key={broker.slug} to={lp(`/review/${broker.slug}`)} style={{
-                display: "flex", alignItems: "center", gap: mob ? 8 : 10,
-                padding: mob ? "10px 10px" : "12px 14px", borderRadius: 10,
-                background: "#fff", border: "1px solid #e8ecf1",
-                textDecoration: "none", color: "#111827", transition: "all 0.2s",
+        <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 30, textAlign: "center", marginBottom: 8 }}>{t("home.allTitle")}</h2>
+        <p style={{ textAlign: "center", fontSize: 16, color: "#1f2937", marginBottom: mob ? 24 : 36, maxWidth: 500, margin: "0 auto" }}>{t("home.allDesc", { count: allBrokersData.length })}</p>
+        <div style={{ display: "grid", gridTemplateColumns: mob ? "repeat(3, 1fr)" : tab ? "repeat(4, 1fr)" : "repeat(6, 1fr)", gap: mob ? 10 : 16 }}>
+          {allBrokersData.map((b) => (
+            <Link key={b.slug} to={lp(`/review/${b.slug}`)} style={{ display: "flex", flexDirection: "column", alignItems: "center", textDecoration: "none", transition: "transform 0.25s ease" }}
+              onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-4px) scale(1.03)"; const c = e.currentTarget.querySelector("[data-lc]"); if (c) { c.style.boxShadow = "0 8px 24px rgba(15,23,42,0.35)"; c.style.borderColor = "#34d399"; } }}
+              onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0) scale(1)"; const c = e.currentTarget.querySelector("[data-lc]"); if (c) { c.style.boxShadow = "0 2px 8px rgba(15,23,42,0.15)"; c.style.borderColor = "transparent"; } }}
+            >
+              <div data-lc style={{ width: "100%", aspectRatio: "16/9", borderRadius: mob ? 8 : 10, overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center", background: "#0f172a", border: "2px solid transparent", boxShadow: "0 2px 8px rgba(15,23,42,0.15)", transition: "box-shadow 0.25s ease, border-color 0.25s ease", marginBottom: mob ? 6 : 8 }}>
+                <img src={`${import.meta.env.BASE_URL}logos-wide-dark/${b.slug}.svg`} alt={b.B.name} loading="lazy" onError={(e) => { e.target.style.display = "none"; e.target.nextSibling.style.display = "flex"; }} style={{ width: "70%", height: "55%", objectFit: "contain" }} />
+                <span style={{ display: "none", alignItems: "center", justifyContent: "center", fontFamily: "Outfit", fontWeight: 700, fontSize: mob ? 9 : 11, color: "#94a3b8" }}>{b.B.name}</span>
+              </div>
+              <span style={{ fontFamily: "'DM Sans'", fontWeight: 600, fontSize: mob ? 10 : 12, color: "#334155", textAlign: "center", lineHeight: 1.2, maxWidth: "100%", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{b.B.name}</span>
+              <span style={{ fontFamily: "'JetBrains Mono'", fontSize: mob ? 10 : 11, fontWeight: 800, color: scoreColor(b.B.score), marginTop: 1 }}>{b.B.score}</span>
+            </Link>
+          ))}
+        </div>
+      </section>
+      )}
+
+      {allRevVar === "B" && (
+      /* ─── Variant B: Glass Navy — полная тёмная секция, glass-карточки, зелёное свечение ─── */
+      <section style={{ background: "linear-gradient(180deg, #0f172a 0%, #1e293b 100%)", padding: mob ? "48px 16px" : "64px 24px" }}>
+        <div style={{ ...cn }}>
+          <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 30, textAlign: "center", marginBottom: 8, color: "#f8fafc" }}>{t("home.allTitle")}</h2>
+          <p style={{ textAlign: "center", fontSize: 15, color: "#94a3b8", marginBottom: mob ? 28 : 40, maxWidth: 500, margin: "0 auto" }}>{t("home.allDesc", { count: allBrokersData.length })}</p>
+          <div style={{ display: "grid", gridTemplateColumns: mob ? "repeat(2, 1fr)" : tab ? "repeat(3, 1fr)" : "repeat(4, 1fr)", gap: mob ? 12 : 16 }}>
+            {allBrokersData.map((b) => (
+              <Link key={b.slug} to={lp(`/review/${b.slug}`)} style={{
+                display: "flex", flexDirection: "column", alignItems: "center",
+                padding: mob ? "16px 10px 12px" : "20px 14px 14px", borderRadius: 14,
+                background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)",
+                backdropFilter: "blur(8px)", textDecoration: "none",
+                transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
               }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = "#a7f3d0";
-                  e.currentTarget.style.transform = "translateY(-1px)";
-                  e.currentTarget.style.boxShadow = "0 2px 8px rgba(5,150,105,0.08)";
+                  e.currentTarget.style.background = "rgba(255,255,255,0.08)";
+                  e.currentTarget.style.borderColor = "rgba(52,211,153,0.4)";
+                  e.currentTarget.style.transform = "translateY(-3px)";
+                  e.currentTarget.style.boxShadow = "0 0 20px rgba(52,211,153,0.12), 0 8px 32px rgba(0,0,0,0.3)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = "#e8ecf1";
+                  e.currentTarget.style.background = "rgba(255,255,255,0.04)";
+                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
                   e.currentTarget.style.transform = "translateY(0)";
                   e.currentTarget.style.boxShadow = "none";
                 }}
               >
-                {/* Wide logo — dark wordmark on white bg */}
-                <div style={{
-                  width: mob ? 80 : 100, height: mob ? 32 : 36, flexShrink: 0,
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                  overflow: "hidden",
-                }}>
-                  <img
-                    src={`${import.meta.env.BASE_URL}logos-wide/${broker.slug}.${ext}`}
-                    alt={`${broker.B.name}`}
-                    loading="lazy"
-                    onError={(e) => { e.target.style.display = "none"; e.target.parentElement.nextSibling.style.flex = "1"; }}
-                    style={{
-                      maxWidth: "100%", maxHeight: "100%",
-                      objectFit: "contain",
-                    }}
-                  />
+                <div style={{ width: "100%", height: mob ? 36 : 44, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: mob ? 10 : 12 }}>
+                  <img src={`${import.meta.env.BASE_URL}logos-wide-dark/${b.slug}.svg`} alt={b.B.name} loading="lazy" onError={(e) => { e.target.style.display = "none"; e.target.nextSibling.style.display = "block"; }} style={{ maxWidth: "75%", maxHeight: "100%", objectFit: "contain" }} />
+                  <span style={{ display: "none", fontFamily: "Outfit", fontWeight: 700, fontSize: mob ? 13 : 15, color: "#e2e8f0" }}>{b.B.name}</span>
                 </div>
-                {/* Name + score */}
-                <div style={{ flex: 1, minWidth: 0, display: "flex", alignItems: "center", justifyContent: "space-between", gap: 4 }}>
-                  <span style={{
-                    fontFamily: "'DM Sans', sans-serif", fontWeight: 600,
-                    fontSize: mob ? 11 : 13, color: "#475569",
-                    whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis",
-                  }}>{broker.B.name}</span>
-                  <span style={{
-                    fontFamily: "'JetBrains Mono'", fontSize: mob ? 12 : 13,
-                    fontWeight: 800, color: scoreColor(broker.B.score), flexShrink: 0,
-                  }}>{broker.B.score}</span>
+                <span style={{ fontFamily: "'DM Sans'", fontWeight: 600, fontSize: mob ? 12 : 13, color: "#cbd5e1", textAlign: "center", marginBottom: 4 }}>{b.B.name}</span>
+                <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                  <span style={{ fontFamily: "'JetBrains Mono'", fontSize: mob ? 13 : 14, fontWeight: 800, color: "#34d399" }}>{b.B.score}</span>
+                  <span style={{ fontSize: 11, color: "#64748b" }}>{scoreLabel(b.B.score)}</span>
                 </div>
               </Link>
-            );
-          })}
+            ))}
+          </div>
         </div>
       </section>
+      )}
+
+      {allRevVar === "C" && (
+      /* ─── Variant C: Ticker Wall — компактные горизонтальные пилы с dark лого, плотный грид ─── */
+      <section style={{ ...cn, padding: mob ? "40px 16px" : "60px 24px" }}>
+        <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 30, textAlign: "center", marginBottom: 8 }}>{t("home.allTitle")}</h2>
+        <p style={{ textAlign: "center", fontSize: 16, color: "#1f2937", marginBottom: mob ? 24 : 36, maxWidth: 500, margin: "0 auto" }}>{t("home.allDesc", { count: allBrokersData.length })}</p>
+        <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr 1fr" : tab ? "repeat(3, 1fr)" : "repeat(4, 1fr)", gap: mob ? 6 : 8 }}>
+          {allBrokersData.map((b) => (
+            <Link key={b.slug} to={lp(`/review/${b.slug}`)} style={{
+              display: "flex", alignItems: "center", gap: mob ? 8 : 10,
+              padding: mob ? "6px 8px" : "8px 12px", borderRadius: 8,
+              background: "#0f172a", textDecoration: "none",
+              transition: "all 0.2s ease",
+              border: "1px solid #1e293b",
+            }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = "#1e293b";
+                e.currentTarget.style.borderColor = "#34d399";
+                e.currentTarget.style.transform = "translateX(3px)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "#0f172a";
+                e.currentTarget.style.borderColor = "#1e293b";
+                e.currentTarget.style.transform = "translateX(0)";
+              }}
+            >
+              <div style={{ width: mob ? 48 : 60, height: mob ? 24 : 28, flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <img src={`${import.meta.env.BASE_URL}logos-wide-dark/${b.slug}.svg`} alt={b.B.name} loading="lazy" onError={(e) => { e.target.style.display = "none"; }} style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }} />
+              </div>
+              <span style={{ fontFamily: "'DM Sans'", fontWeight: 600, fontSize: mob ? 11 : 13, color: "#e2e8f0", flex: 1, minWidth: 0, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{b.B.name}</span>
+              <span style={{ fontFamily: "'JetBrains Mono'", fontSize: mob ? 10 : 11, fontWeight: 800, color: "#34d399", flexShrink: 0 }}>{b.B.score}</span>
+            </Link>
+          ))}
+        </div>
+      </section>
+      )}
+
+      {allRevVar === "D" && (
+      /* ─── Variant D: Reveal Grid — карточки расширяются при hover, показывая скор и стрелку ─── */
+      <section style={{ ...cn, padding: mob ? "40px 16px" : "60px 24px" }}>
+        <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 30, textAlign: "center", marginBottom: 8 }}>{t("home.allTitle")}</h2>
+        <p style={{ textAlign: "center", fontSize: 16, color: "#1f2937", marginBottom: mob ? 24 : 36, maxWidth: 500, margin: "0 auto" }}>{t("home.allDesc", { count: allBrokersData.length })}</p>
+        <div style={{ display: "grid", gridTemplateColumns: mob ? "repeat(3, 1fr)" : tab ? "repeat(4, 1fr)" : "repeat(6, 1fr)", gap: mob ? 8 : 12 }}>
+          {allBrokersData.map((b) => (
+            <Link key={b.slug} to={lp(`/review/${b.slug}`)} style={{ textDecoration: "none", display: "block" }}
+              onMouseEnter={(e) => {
+                const ov = e.currentTarget.querySelector("[data-ov]");
+                if (ov) ov.style.opacity = "1";
+                e.currentTarget.querySelector("[data-lc2]").style.transform = "scale(1.05)";
+                e.currentTarget.querySelector("[data-lc2]").style.boxShadow = "0 8px 24px rgba(15,23,42,0.4)";
+              }}
+              onMouseLeave={(e) => {
+                const ov = e.currentTarget.querySelector("[data-ov]");
+                if (ov) ov.style.opacity = "0";
+                e.currentTarget.querySelector("[data-lc2]").style.transform = "scale(1)";
+                e.currentTarget.querySelector("[data-lc2]").style.boxShadow = "0 2px 8px rgba(15,23,42,0.15)";
+              }}
+            >
+              <div data-lc2 style={{
+                width: "100%", aspectRatio: "16/10", borderRadius: mob ? 8 : 10,
+                overflow: "hidden", position: "relative", background: "#0f172a",
+                boxShadow: "0 2px 8px rgba(15,23,42,0.15)",
+                transition: "transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease",
+                display: "flex", alignItems: "center", justifyContent: "center",
+              }}>
+                <img src={`${import.meta.env.BASE_URL}logos-wide-dark/${b.slug}.svg`} alt={b.B.name} loading="lazy" onError={(e) => { e.target.style.display = "none"; }} style={{ width: "65%", height: "50%", objectFit: "contain", transition: "opacity 0.3s" }} />
+                {/* Hover overlay */}
+                <div data-ov style={{
+                  position: "absolute", inset: 0,
+                  background: "linear-gradient(180deg, rgba(15,23,42,0) 30%, rgba(5,150,105,0.85) 100%)",
+                  display: "flex", flexDirection: "column", justifyContent: "flex-end",
+                  padding: mob ? "6px 8px" : "10px 12px",
+                  opacity: 0, transition: "opacity 0.3s ease",
+                }}>
+                  <span style={{ fontFamily: "'DM Sans'", fontWeight: 700, fontSize: mob ? 10 : 12, color: "#fff", lineHeight: 1.2 }}>{b.B.name}</span>
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: 2 }}>
+                    <span style={{ fontFamily: "'JetBrains Mono'", fontSize: mob ? 11 : 13, fontWeight: 800, color: "#fff" }}>{b.B.score}</span>
+                    <ArrowRight size={mob ? 12 : 14} color="#fff" />
+                  </div>
+                </div>
+              </div>
+              {/* Name below card always visible */}
+              <div style={{ textAlign: "center", marginTop: mob ? 5 : 6 }}>
+                <span style={{ fontFamily: "'DM Sans'", fontWeight: 600, fontSize: mob ? 10 : 11, color: "#475569" }}>{b.B.name}</span>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+      )}
 
       {/* ===== COMPARISONS ===== */}
       <section style={{ ...cn, padding: mob ? "40px 16px" : "60px 24px" }}>
