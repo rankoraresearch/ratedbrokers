@@ -27,9 +27,10 @@
 
 ## Логотипы брокеров — Dual Logo System
 
-Каждый брокер имеет **два** типа логотипа:
+Каждый брокер имеет **три** типа логотипа:
 1. **Квадратный icon** (`public/logos/{slug}.png`) — 120×120px, для карточек, гридов, навигации
-2. **Wide rectangular wordmark** (`public/logos-wide/{slug}.{svg|png|jpg}`) — для hero review page
+2. **Wide light wordmark** (`public/logos-wide/{slug}.{svg|png|jpg}`) — для светлого фона (review hero)
+3. **Wide dark wordmark** (`public/logos-wide-dark/{slug}.svg`) — для тёмного фона (hero band, navy bg)
 
 ### WideLogo компонент (BrokerReview.jsx)
 - Формат: SVG по умолчанию, WIDE_EXT переопределяет: `capital-com:png`, `libertex:png`, `fxpro:jpg`
@@ -38,6 +39,17 @@
 - border: `2px solid rgba(255,255,255,0.3)` для отделения от тёмного hero band
 - Все логотипы на белом фоне: `width/height: "70%"`, objectFit contain
 - Растровые (png/jpg) на цветном фоне: objectFit cover 100%
+
+### Wide Dark (logos-wide-dark/) — для тёмного фона
+- **38/38 SVG** в `public/logos-wide-dark/{slug}.svg`
+- Белые/светлые wordmark для Hero Band navy #0f172a
+- 18 официальных (CDN, companieslogo.com), 18 конвертированных (fill→#fff), 2 as-is
+- **IG**: красная подложка `<rect rx="6" fill="#E01B1C"/>` + белые буквы
+- **Dukascopy**: красный швейцарский крест + белый текст
+- **Exness**: жёлтый фон удалён, белый текст
+- **FxPro**: серифный wordmark, red→#fff
+- **Libertex**: оранжевый icon + белый текст, viewBox обрезан до контента
+- **Logo Showcase**: `public/logo-showcase.html` — 3 вкладки (Square Icons, Wide Light, Wide Dark)
 
 ### Ключевые особенности LOGO_BG
 - Большинство SVG — тёмный текст на прозрачном фоне → bg "#fff"
