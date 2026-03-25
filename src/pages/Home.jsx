@@ -1452,69 +1452,58 @@ export default function Home() {
         <div style={{
           display: "grid",
           gridTemplateColumns: mob ? "repeat(2, 1fr)" : tab ? "repeat(3, 1fr)" : "repeat(4, 1fr)",
-          gap: mob ? 10 : 14,
+          gap: mob ? 8 : 12,
         }}>
           {allBrokersData.map((broker) => {
             const WIDE_EXT_HOME = { "capital-com":"png","libertex":"png","fxpro":"jpg" };
-            const LOGO_BG_HOME = {
-              "exness":"#ffde02","fxpro":"#f31112","trading-212":"#000","xm":"#1a1a2e",
-            };
             const ext = WIDE_EXT_HOME[broker.slug] || "svg";
-            const bg = LOGO_BG_HOME[broker.slug] || "#fff";
-            const isRaster = ext !== "svg";
-            const isDark = ["#000","#1a1a2e","#f31112"].includes(bg);
             return (
               <Link key={broker.slug} to={lp(`/review/${broker.slug}`)} style={{
-                display: "flex", flexDirection: "column", alignItems: "center",
-                padding: mob ? "12px 8px 10px" : "16px 12px 12px", borderRadius: 12,
-                background: "#fff", border: "1px solid #e2e8f0",
+                display: "flex", alignItems: "center", gap: mob ? 8 : 10,
+                padding: mob ? "10px 10px" : "12px 14px", borderRadius: 10,
+                background: "#fff", border: "1px solid #e8ecf1",
                 textDecoration: "none", color: "#111827", transition: "all 0.2s",
-                position: "relative",
               }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.borderColor = "#a7f3d0";
-                  e.currentTarget.style.transform = "translateY(-2px)";
-                  e.currentTarget.style.boxShadow = "0 4px 12px rgba(5,150,105,0.1)";
+                  e.currentTarget.style.transform = "translateY(-1px)";
+                  e.currentTarget.style.boxShadow = "0 2px 8px rgba(5,150,105,0.08)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = "#e2e8f0";
+                  e.currentTarget.style.borderColor = "#e8ecf1";
                   e.currentTarget.style.transform = "translateY(0)";
                   e.currentTarget.style.boxShadow = "none";
                 }}
               >
-                {/* Wide logo container */}
+                {/* Wide logo — dark wordmark on white bg */}
                 <div style={{
-                  width: "100%", height: mob ? 48 : 56, borderRadius: 8,
-                  overflow: "hidden", display: "flex", alignItems: "center",
-                  justifyContent: "center", background: bg,
-                  border: bg !== "#fff" ? "none" : "1px solid #f1f5f9",
-                  marginBottom: mob ? 8 : 10,
+                  width: mob ? 80 : 100, height: mob ? 32 : 36, flexShrink: 0,
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  overflow: "hidden",
                 }}>
                   <img
                     src={`${import.meta.env.BASE_URL}logos-wide/${broker.slug}.${ext}`}
-                    alt={`${broker.B.name} logo`}
+                    alt={`${broker.B.name}`}
                     loading="lazy"
-                    onError={(e) => { e.target.style.display = "none"; e.target.nextSibling.style.display = "flex"; }}
+                    onError={(e) => { e.target.style.display = "none"; e.target.parentElement.nextSibling.style.flex = "1"; }}
                     style={{
-                      maxWidth: bg !== "#fff" && isRaster ? "100%" : "75%",
-                      maxHeight: bg !== "#fff" && isRaster ? "100%" : "70%",
-                      objectFit: bg !== "#fff" && isRaster ? "cover" : "contain",
-                      width: bg !== "#fff" && isRaster ? "100%" : "auto",
-                      height: bg !== "#fff" && isRaster ? "100%" : "auto",
+                      maxWidth: "100%", maxHeight: "100%",
+                      objectFit: "contain",
                     }}
                   />
-                  {/* Fallback: broker name text */}
-                  <span style={{
-                    display: "none", alignItems: "center", justifyContent: "center",
-                    fontFamily: "Outfit", fontWeight: 700, fontSize: mob ? 12 : 14,
-                    color: "#334155",
-                  }}>{broker.B.name}</span>
                 </div>
-                {/* Score badge */}
-                <div style={{
-                  fontFamily: "'JetBrains Mono'", fontSize: mob ? 13 : 14,
-                  fontWeight: 800, color: scoreColor(broker.B.score),
-                }}>{broker.B.score}</div>
+                {/* Name + score */}
+                <div style={{ flex: 1, minWidth: 0, display: "flex", alignItems: "center", justifyContent: "space-between", gap: 4 }}>
+                  <span style={{
+                    fontFamily: "'DM Sans', sans-serif", fontWeight: 600,
+                    fontSize: mob ? 11 : 13, color: "#475569",
+                    whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis",
+                  }}>{broker.B.name}</span>
+                  <span style={{
+                    fontFamily: "'JetBrains Mono'", fontSize: mob ? 12 : 13,
+                    fontWeight: 800, color: scoreColor(broker.B.score), flexShrink: 0,
+                  }}>{broker.B.score}</span>
+                </div>
               </Link>
             );
           })}

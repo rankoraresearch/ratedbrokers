@@ -39,5 +39,6 @@ research/
 *.html
 !index.html
 !public/404.html
+!public/favicon-preview.html
 risk-warnings.md
 uk-snapshot.md
