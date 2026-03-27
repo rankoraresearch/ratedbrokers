@@ -32,17 +32,6 @@ export default function HeroBand({
         pointerEvents: "none",
       }} />
 
-      {/* Orange glow accent */}
-      <div style={{
-        position: "absolute",
-        top: "-20%",
-        right: "-5%",
-        width: "55%",
-        height: "140%",
-        background: "radial-gradient(ellipse at center, rgba(245,158,11,0.12) 0%, rgba(245,158,11,0.04) 50%, transparent 75%)",
-        pointerEvents: "none",
-      }} />
-
       {/* Content */}
       <div style={{
         position: "relative",
