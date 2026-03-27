@@ -14,6 +14,12 @@
 Барбара (аудит конкурентов → дизайн шаблонов → UX/UI ревью)
 ```
 
+## SEO & Affiliate стратегия
+
+```
+Билл (конкурентный анализ → URL-архитектура → on-page SEO → CRO → ссылочное продвижение)
+```
+
 ## Агенты
 
 | Агент | Файл | Роль | Редактирует файлы? |
@@ -22,6 +28,7 @@
 | **Боб** | `bob-fact-checker.md` | Fact Checker — верификация + аппрув данных | Да (last_verified, status) |
 | **Лео** | `leo-rating-calculator.md` | Rating Calculator — расчёт скоров и ранжирование | Да (score, verdict, scores) |
 | **Барбара** | `barbara-designer.md` | Design Agent — дизайн шаблонов, UX/UI, аудит конкурентов | Да (стили, компоненты) |
+| **Билл** | `bill-seo-strategist.md` | SEO & Affiliate Strategist — конкурентный анализ, URL-архитектура, on-page, CRO, ссылочное | Нет (стратегия и рекомендации) |
 
 ## Как запускать
 
@@ -91,6 +98,50 @@ Task tool:
     check-rankings
 ```
 
+### Билл — анализ конкурента
+
+```
+Task tool:
+  subagent_type: general-purpose
+  prompt: |
+    Прочитай свои инструкции из файла agents/bill-seo-strategist.md и выполни задание.
+    Рабочая директория проекта: /Users/yegorbarakovskiy/Desktop/ratedbrokers
+    analyze: BrokerChooser
+```
+
+### Билл — URL-стратегия для категории
+
+```
+Task tool:
+  subagent_type: general-purpose
+  prompt: |
+    Прочитай свои инструкции из файла agents/bill-seo-strategist.md и выполни задание.
+    Рабочая директория проекта: /Users/yegorbarakovskiy/Desktop/ratedbrokers
+    url-strategy: country-rankings
+```
+
+### Билл — SEO-аудит страницы
+
+```
+Task tool:
+  subagent_type: general-purpose
+  prompt: |
+    Прочитай свои инструкции из файла agents/bill-seo-strategist.md и выполни задание.
+    Рабочая директория проекта: /Users/yegorbarakovskiy/Desktop/ratedbrokers
+    onpage: RankingPage
+```
+
+### Билл — аудит конверсии страницы
+
+```
+Task tool:
+  subagent_type: general-purpose
+  prompt: |
+    Прочитай свои инструкции из файла agents/bill-seo-strategist.md и выполни задание.
+    Рабочая директория проекта: /Users/yegorbarakovskiy/Desktop/ratedbrokers
+    cro: RankingPage
+```
+
 ### Барбара — аудит шаблона страницы
 
 ```
@@ -147,21 +198,24 @@ Task tool:
 
 ## Что обновляет каждый агент
 
-| Поле | Джон | Боб | Лео | Барбара |
-|------|------|-----|-----|---------|
-| min_deposit, spread, leverage... | ✓ | — | — | — |
-| regulations | ✓ | — | — | — |
-| tp, tp_count | ✓ | — | — | — |
-| platforms, instruments | ✓ | — | — | — |
-| hq, ceo | ✓ | — | — | — |
-| status | ✓ | ✓ (under-review) | — | — |
-| last_verified | ✓ | ✓ (аппрув) | — | — |
-| score | — | — | ✓ | — |
-| verdict | — | — | ✓ | — |
-| scores (6 критериев) | — | — | ✓ | — |
-| Markdown body | — | — | — | — |
-| JSX шаблоны (стили, layout) | — | — | — | ✓ |
-| Компоненты UI | — | — | — | ✓ |
+| Поле | Джон | Боб | Лео | Барбара | Билл |
+|------|------|-----|-----|---------|------|
+| min_deposit, spread, leverage... | ✓ | — | — | — | — |
+| regulations | ✓ | — | — | — | — |
+| tp, tp_count | ✓ | — | — | — | — |
+| platforms, instruments | ✓ | — | — | — | — |
+| hq, ceo | ✓ | — | — | — | — |
+| status | ✓ | ✓ (under-review) | — | — | — |
+| last_verified | ✓ | ✓ (аппрув) | — | — | — |
+| score | — | — | ✓ | — | — |
+| verdict | — | — | ✓ | — | — |
+| scores (6 критериев) | — | — | ✓ | — | — |
+| Markdown body | — | — | — | — | — |
+| JSX шаблоны (стили, layout) | — | — | — | ✓ | — |
+| Компоненты UI | — | — | — | ✓ | — |
+| SEO-стратегия, URL-архитектура | — | — | — | — | ✓ |
+| CTA/CRO рекомендации | — | — | — | — | ✓ |
+| Конкурентный анализ | — | — | — | — | ✓ |
 
 ## Валидация
 

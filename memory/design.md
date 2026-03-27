@@ -63,7 +63,7 @@
 - `shape="brand"` (pill icon+name) НЕ использовать рядом с текстовым именем — дублирование
 - Применено в: QuickBrokerGrid, BrokerRankCard (desktop+mobile)
 
-## BrokerRankCard — Clean White (25 марта 2026)
+## BrokerRankCard — Combined Variant (25 марта 2026)
 - **Wide wordmark лого** вместо квадратных иконок: WideLogo компонент + WIDE_EXT/LOGO_BG maps
 - Desktop layout: [Rank outlined] [WideLogo 200×60] [Name+Badge+Type] [Stats 3-col] [ScoreBadge]
   - Ниже разделителя: Regs + Trustpilot → Thematic content → DualCTA → RiskWarning
@@ -71,10 +71,33 @@
   - Tablet: WideLogo 160×52
 - Mobile layout: Rank+Score header → WideLogo 200×64 centered → Name+Type → DualCTA → TP → Risk → Regs → Stats grid
 - Rank badge: outlined green (#ecfdf5 bg, 1px solid #a7f3d0, #059669 text) вместо filled
-- CTA primary: solid #059669 (вместо gradient)
-- CTA secondary: navy outline (#0f172a border, #fff bg) вместо зелёного outline
+- **CTA primary** (Bill): orange gradient `linear-gradient(135deg, #f59e0b, #fbbf24)`, color `#0f172a`
+- **CTA secondary** (Bill): green outline `2px solid #059669`, bg `#fff`, color `#059669`
+- **Logo bg** (Bill): `linear-gradient(135deg, #0a2018, #0f172a)`, border `1px solid #1a3d30`
+- Card hover lift: `translateY(-2px)` + shadow усиливается, transition `cubic-bezier(0.4,0,0.2,1)`
 - Типография: #111827 primary, #374151 secondary, #64748b tertiary
 - Hover rank #1: зелёный glow rgba(5,150,105,0.12)
+- Коммит `e9a7767`
+
+## CTA Hover Animations (CSS)
+- Реализованы через CSS-классы в `index.css` (не useState)
+- `.cta-primary:hover` — gradient `#d97706→#f59e0b`, shadow `0 6px 20px rgba(245,158,11,0.4)`, translateY(-2px)
+- `.cta-secondary:hover` — bg `#059669`, color `#fff`, border-color `#059669`
+- `.cta-orange:hover` — gradient `#d97706→#f59e0b`, shadow `0 8px 24px rgba(245,158,11,0.4)`, translateY(-2px)
+- Transition: `all 0.25s cubic-bezier(0.4,0,0.2,1)`
+- Применены: BrokerRankCard (primary + secondary), BrokerReview (6× orange)
+- Коммит `7b7e4f3`
+
+## Review Hero WideLogo — Frosted Glass (Barbara)
+- bg: `rgba(255,255,255,0.08)` вместо solid `#0f172a`
+- border: `1px solid rgba(255,255,255,0.12)` вместо `2px solid rgba(255,255,255,0.3)`
+- Коммит `e9a7767`
+
+## ButtonLogoProto — /proto/buttons
+- 5 вариантов: Current, Barbara, Bill, BarbaraAlt, Combined
+- Combined = утверждённый для продакшена (Bill buttons + Barbara hero logo)
+- Импорт в App.jsx, роут `/proto/buttons`
+- Коммит `550381c`
 
 ## Quick Broker Grid (Top 10 at a Glance)
 - Прототип в RankingProtoC.jsx
