@@ -410,8 +410,8 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
       transition: "all 0.25s cubic-bezier(0.4,0,0.2,1)",
       overflow: "hidden",
     }}
-      onMouseEnter={(e) => { e.currentTarget.style.boxShadow = rank === 1 ? "0 8px 32px rgba(5,150,105,0.12)" : "0 8px 32px rgba(0,0,0,0.08)"; e.currentTarget.style.transform = "translateY(-2px)"; }}
-      onMouseLeave={(e) => { e.currentTarget.style.boxShadow = rank === 1 ? "0 4px 16px rgba(5,150,105,0.08)" : "0 1px 4px rgba(0,0,0,0.03)"; e.currentTarget.style.transform = "none"; }}
+      onMouseEnter={(e) => { e.currentTarget.style.boxShadow = rank === 1 ? "0 8px 32px rgba(5,150,105,0.12)" : "0 8px 32px rgba(0,0,0,0.08)"; }}
+      onMouseLeave={(e) => { e.currentTarget.style.boxShadow = rank === 1 ? "0 4px 16px rgba(5,150,105,0.08)" : "0 1px 4px rgba(0,0,0,0.03)"; }}
     >
       {/* ── Top row: horizontal summary ── */}
       <div style={{
