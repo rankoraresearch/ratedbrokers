@@ -326,11 +326,46 @@ Hero (dark) → контент → dark CTA → контент → dark scoring 
 
 ---
 
+## Sub-Pages — 304 новых страницы (30 марта 2026)
+
+### Архитектура
+- **Новый роут** `/review/:slug/:tab` → `BrokerSubPage.jsx`
+- 8 табов: fees, min-deposit, platforms, regulation, deposit, beginners, alternatives, account
+- **304 страницы**: 38 брокеров × 8 табов — все рендерятся без ошибок
+- Невалидный таб → `<Navigate to="/review/:slug" />` (redirect)
+
+### Компоненты (`src/components/subpage/`)
+- 11 новых файлов: QuickAnswerBox, ProsCons, DataTable, ComparisonBar, CTAInline, FaqSection, VerdictBox, SubPageTabs, SubPageLayout, Typography, index.js
+- Извлечены из SubPagesProto.jsx (1242 строки hardcoded IC Markets) → data-driven
+
+### Tab-рендереры (`src/pages/subpage-tabs/`)
+- 9 файлов: FeesTab, MinDepositTab, PlatformsTab, RegulationTab, DepositTab, BeginnersTab, AlternativesTab, AccountTab, index.js
+- Гибридный подход: 80% данных из YAML (spreads, accounts, deposits, regs, similar), 20% editorial из `SUBPAGES` YAML-секции
+- **Все рендереры работают без `subpages:` YAML** — fallback из существующих данных
+
+### Изменённые файлы
+- `src/App.jsx` — добавлен роут `review/:slug/:tab`
+- `scripts/build-brokers.mjs` — добавлен `SUBPAGES: fm.subpages || {}`
+- `src/pages/BrokerReview.jsx` — секция "Deep Dive" в правом sidebar (8 ссылок на sub-pages)
+
+### QA результаты
+- 304/304 URL → HTTP 200 (curl batch test)
+- Mobile 375px, Tablet 768px, Desktop 1440px — проверены визуально
+- CTA → `/go/{slug}` (affiliate tracking)
+- Sticky tabs, sticky CTA bar, breadcrumbs — всё работает
+- `npm run build` — без ошибок
+
+---
+
 ## Что дальше
 
 - [x] Деплой — GitHub Pages + Cloudflare Workers API
 - [x] Миграция на Cloudflare Pages + домен ratedbrokers.com
 - [x] M3 — Идеальный шаблон рейтинга
+- [x] Sub-Pages инфраструктура (304 страницы)
+- [ ] Sub-Pages: IC Markets пилотный YAML-контент (8 табов)
+- [ ] Sub-Pages: контент для остальных 37 брокеров
+- [ ] Навигация: якоря на review vs sub-page табы (UX гармонизация)
 - [ ] OG-теги и мета-изображения для соцсетей
 - [ ] Sitemap.xml (robots.txt есть)
 - [ ] Google Search Console + Analytics

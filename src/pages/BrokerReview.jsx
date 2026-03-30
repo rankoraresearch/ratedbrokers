@@ -17,7 +17,7 @@ import TrustpilotLogo from "../components/TrustpilotLogo";
 import { getPlatformSlugByName } from "../data/platforms/index";
 import Breadcrumb, { breadcrumbSchema } from "../components/Breadcrumb";
 import Icon from "../components/Icon";
-import { Check, X as XIcon, ArrowRight, ChevronRight } from "lucide-react";
+import { Check, X as XIcon, ArrowRight, ChevronRight, BarChart3, Wallet, MonitorSmartphone, Shield, ArrowUpDown, BookOpen, Users, UserCheck } from "lucide-react";
 import HeroBand from "../components/HeroBand";
 
 function Stars({r,size=15}){ return <div style={{display:"flex",gap:2}}>{[1,2,3,4,5].map(i=><div key={i} style={{width:size,height:size,background:i<=Math.floor(r)?"#00B67A":i-0.5<=r?"linear-gradient(90deg,#00B67A 50%,#d1d5db 50%)":"#d1d5db",clipPath:"polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)"}}/>)}</div>; }
@@ -501,6 +501,14 @@ export default function BrokerReview() {
                   <Link to={lp(`/review/${b.slug}`)} style={{fontSize:12,color:"#1e3a5f",fontWeight:600,textDecoration:"none",display:"inline-flex",alignItems:"center",gap:3}}>{t("home.review")} <ArrowRight size={12} /></Link>
                 </div>
               </div>})}
+            </Card>
+            <Card style={{padding:"16px",background:"#ecfdf5",border:"1px solid #a7f3d0"}}>
+              <div style={{fontSize:12,fontWeight:700,color:"#059669",textTransform:"uppercase",letterSpacing:"0.06em",marginBottom:10}}>Deep Dive</div>
+              {[{id:"fees",label:"Fees & Spreads",Icon:BarChart3},{id:"min-deposit",label:"Minimum Deposit",Icon:Wallet},{id:"platforms",label:"Platforms",Icon:MonitorSmartphone},{id:"regulation",label:"Regulation",Icon:Shield},{id:"deposit",label:"Deposit & Withdrawal",Icon:ArrowUpDown},{id:"beginners",label:"For Beginners",Icon:BookOpen},{id:"alternatives",label:"Alternatives",Icon:Users},{id:"account",label:"Account Opening",Icon:UserCheck}].map((t,i)=>(
+                <Link key={i} to={lp(`/review/${slug}/${t.id}`)} style={{display:"flex",alignItems:"center",gap:8,padding:"7px 8px",borderRadius:6,textDecoration:"none",color:"#0f172a",fontSize:12,fontWeight:500,marginBottom:2}} onMouseEnter={e=>{e.currentTarget.style.background="#059669";e.currentTarget.style.color="#fff"}} onMouseLeave={e=>{e.currentTarget.style.background="transparent";e.currentTarget.style.color="#0f172a"}}>
+                  <t.Icon size={13} color="#059669" />{t.label}
+                </Link>
+              ))}
             </Card>
           </div>
         </aside>}

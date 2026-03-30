@@ -162,6 +162,7 @@ function buildDataObject(fm, content) {
       s: t.s,
       p: t.p,
     })),
+    SUBPAGES: fm.subpages || {},
     content,
   };
 

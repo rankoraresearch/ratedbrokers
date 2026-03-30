@@ -99,6 +99,33 @@
 - Импорт в App.jsx, роут `/proto/buttons`
 - Коммит `550381c`
 
+## SubPagesProto — /proto/subpages
+- 8-tab IC Markets deep-dive: Fees, Min Deposit, Platforms, Regulation, Deposit, Beginners, Alternatives, Account
+- Все эмодзи удалены (33+), заменены на lucide-react иконки и чистый текст
+- ProsCons: Check/XIcon вместо ✓/✗, DataTable: "Yes" зелёным, "No"/"None" серым
+- Account tab: 4 карточки типов аккаунтов (цветные ленты + CTA) + Demo navy блок
+- Progress bar: соединительная линия между шагами, boxShadow для кружков
+- ComparisonBar: "BEST" зелёный бейдж вместо ★
+- Hero badge: Award lucide вместо 🏆
+- Коммит `12898d1`
+
+## SafetyProto — /proto/safety
+- BrokerChooser-style safety score page prototype
+- Коммит `12898d1`
+
+## Sub-Pages Production System (30 марта 2026)
+- **304 страницы**: 38 брокеров × 8 табов (fees, min-deposit, platforms, regulation, deposit, beginners, alternatives, account)
+- Роут: `/review/:slug/:tab` → BrokerSubPage.jsx
+- **Компоненты** (`src/components/subpage/`): QuickAnswerBox, ProsCons, DataTable, ComparisonBar, CTAInline, FaqSection, VerdictBox, SubPageTabs, SubPageLayout, Typography
+- **Tab-рендереры** (`src/pages/subpage-tabs/`): FeesTab, MinDepositTab, PlatformsTab, RegulationTab, DepositTab, BeginnersTab, AlternativesTab, AccountTab
+- Layout: Breadcrumbs + Back to Full Review + HeroBand (WideLogo + score + regs + stats) + Sticky Tabs + Main Content + AuthorCredits + AuthorBioCard + Risk Warning
+- Desktop: sidebar (260px) с broker card + key facts + Deep Dive nav
+- Mobile: sticky CTA bar (broker logo + name + score + Visit CTA)
+- Данные: 80% из существующего YAML, 20% editorial из `SUBPAGES` YAML-секции
+- **Fallback**: все рендереры работают без `subpages:` YAML
+- SEO: динамический `document.title` и meta description для каждого таба
+- Deep Dive ссылки в sidebar BrokerReview.jsx (8 зелёных ссылок с lucide-иконками)
+
 ## Quick Broker Grid (Top 10 at a Glance)
 - Прототип в RankingProtoC.jsx
 - Desktop: CSS Grid 2×5 (`gridAutoFlow: "column"`, `gridTemplateRows: "repeat(5, auto)"`)

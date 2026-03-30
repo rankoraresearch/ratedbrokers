@@ -31,6 +31,7 @@ import LightThemeProto from "./pages/LightThemeProto";
 import ButtonLogoProto from "./pages/ButtonLogoProto";
 import SubPagesProto from "./pages/SubPagesProto";
 import SafetyProto from "./pages/SafetyProto";
+import BrokerSubPage from "./pages/BrokerSubPage";
 import { LanguageProvider } from "./i18n/LanguageContext";
 
 function Layout() {
@@ -81,6 +82,7 @@ function AppRoutes() {
         <Route path="best-forex-brokers-by-country" element={<CountryHubPage />} />
         <Route path="best-forex-brokers-:countrySlug" element={<CountryPage />} />
         <Route path="review/:slug" element={<BrokerReview />} />
+        <Route path="review/:slug/:tab" element={<BrokerSubPage />} />
         <Route path="compare" element={<ComparePage />} />
         <Route path="compare/:pair" element={<BrokerComparison />} />
         <Route path="methodology" element={<Methodology />} />
