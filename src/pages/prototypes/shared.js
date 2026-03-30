@@ -28,7 +28,4 @@ export const COMPARISONS = [
   { a: "Saxo Bank", b: "OANDA", path: "/compare/oanda-vs-saxo-bank" },
 ];
 
-export function visitUrl(slug) {
-  const apiBase = import.meta.env.VITE_API_URL || "";
-  return apiBase ? `${apiBase}/go/${slug}` : "#";
-}
+export { getVisitUrl as visitUrl } from "../../utils/visitUrl";

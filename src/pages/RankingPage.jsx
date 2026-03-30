@@ -37,8 +37,7 @@ import { canonicalPair } from "../data/comparisons";
 import { Star, ChevronRight, Trophy, BarChart3, Layers, BookOpen, HelpCircle, Target, ChevronDown, User } from "lucide-react";
 
 const YEAR = "2026";
-const apiBase = import.meta.env.VITE_API_URL || "";
-const makeVisitUrl = (slug, fallbackUrl) => apiBase ? `${apiBase}/go/${slug}` : fallbackUrl;
+import { getVisitUrl as makeVisitUrl } from "../utils/visitUrl";
 
 // ═══════════════════════════════════════════════════════════
 // Design tokens

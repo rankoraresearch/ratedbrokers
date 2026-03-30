@@ -23,9 +23,8 @@ import ScoreBadge from "../components/ScoreBadge";
 import RegBadge from "../components/RegBadge";
 import RANKINGS, { getRankingsByCategory } from "../data/rankings";
 
+import { getVisitUrl as makeVisitUrl } from "../utils/visitUrl";
 const YEAR = "2026";
-const apiBase = import.meta.env.VITE_API_URL || "";
-const makeVisitUrl = (slug, fallbackUrl) => apiBase ? `${apiBase}/go/${slug}` : fallbackUrl;
 
 // ─── Quick Answer List (replaces ToC pills) ───
 function QuickAnswerList({ brokers, quickVerdict, mob }) {

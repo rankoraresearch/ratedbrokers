@@ -14,6 +14,7 @@ import { Check, X as XIcon, ArrowRight, ChevronRight, ChevronUp, ChevronDown, He
 import CountryFlag from "../components/CountryFlag";
 import AuthorCredits from "../components/AuthorCredits";
 import { TEAM } from "../data/authors";
+import { getVisitUrl } from "../utils/visitUrl";
 
 // ============================
 // RESPONSIVE HOOK
@@ -91,7 +92,7 @@ function Accordion({ items, expanded, setExpanded }) {
 function mergeBrokers(countryBrokers) {
   return countryBrokers.map((cb, idx) => {
     const global = getBrokerData(cb.slug);
-    if (!global) return { id: idx + 1, ...cb, name: cb.slug, score: 0, tp: 0, tpCount: 0, regs: [], type: "N/A", minDep: 0, spread: "N/A", avgSpread: "N/A", commission: "N/A", leverage: "N/A", year: 0, platforms: [], pairs: 0, execution: "N/A", logo: cb.slug.slice(0, 2).toUpperCase(), promo: null, url: `https://ratedbrokers.com/go/${cb.slug}` };
+    if (!global) return { id: idx + 1, ...cb, name: cb.slug, score: 0, tp: 0, tpCount: 0, regs: [], type: "N/A", minDep: 0, spread: "N/A", avgSpread: "N/A", commission: "N/A", leverage: "N/A", year: 0, platforms: [], pairs: 0, execution: "N/A", logo: cb.slug.slice(0, 2).toUpperCase(), promo: null, url: getVisitUrl(cb.slug) };
     const b = global.B;
     return {
       id: idx + 1,
@@ -118,7 +119,7 @@ function mergeBrokers(countryBrokers) {
       localAccount: cb.localAccount,
       badge: cb.badge,
       badgeColor: cb.badgeColor,
-      url: b.url || `https://ratedbrokers.com/go/${cb.slug}`,
+      url: b.url || getVisitUrl(cb.slug),
       promo: b.promo,
       verdict: cb.verdict,
       localAdvantages: cb.localAdvantages,

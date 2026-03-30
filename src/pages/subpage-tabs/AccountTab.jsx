@@ -1,4 +1,5 @@
 import { QuickAnswerBox, ProsCons, DataTable, CTAInline, FaqSection, VerdictBox, H2, P, Card } from "../../components/subpage";
+import { getVisitUrl } from "../../utils/visitUrl";
 import { Zap, BookOpen, MonitorSmartphone, Shield, FileText, Globe, Smartphone, Clock, ExternalLink, Target } from "lucide-react";
 
 const NAVY = "#0f172a";
@@ -64,7 +65,7 @@ export default function AccountTab({ data, slug, mob }) {
                       <div style={{ fontSize: 16, fontWeight: 800, color: NAVY, fontFamily: "'JetBrains Mono',monospace" }}>{acc.commission}</div>
                     </div>
                   </div>
-                  <a href={`${import.meta.env.VITE_API_URL || ''}/go/${slug}`} target="_blank" rel="nofollow sponsored" className={i === 0 ? "cta-orange" : "cta-secondary"} style={{
+                  <a href={getVisitUrl(slug)} target="_blank" rel="nofollow sponsored" className={i === 0 ? "cta-orange" : "cta-secondary"} style={{
                     display: "flex", alignItems: "center", justifyContent: "center", gap: 6,
                     padding: "11px 16px", borderRadius: 8, textDecoration: "none", fontSize: 13, fontWeight: 700,
                     background: i === 0 ? `linear-gradient(135deg, ${ORANGE}, #fbbf24)` : "#fff",
@@ -99,7 +100,7 @@ export default function AccountTab({ data, slug, mob }) {
             Virtual funds · All platforms · Real market conditions · No ID required
           </div>
         </div>
-        <a href={`${import.meta.env.VITE_API_URL || ''}/go/${slug}`} target="_blank" rel="nofollow sponsored" className="cta-secondary" style={{
+        <a href={getVisitUrl(slug)} target="_blank" rel="nofollow sponsored" className="cta-secondary" style={{
           display: "flex", alignItems: "center", justifyContent: "center", gap: 6,
           padding: "12px 24px", borderRadius: 8, textDecoration: "none", fontSize: 14, fontWeight: 700,
           background: "transparent", border: "2px solid #34d399", color: "#34d399",

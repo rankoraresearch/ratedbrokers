@@ -11,6 +11,7 @@ import { getAuthorByName, getFactChecker, getReviewerForAuthor, getEditor } from
 import SubPageTabs, { TABS, TAB_META } from "./SubPageTabs";
 import { Card } from "./Typography";
 import { ArrowRight, ExternalLink, Zap, Award, FileText } from "lucide-react";
+import { getVisitUrl } from "../../utils/visitUrl";
 
 const NAVY = "#0f172a";
 const GREEN = "#059669";
@@ -55,7 +56,7 @@ export default function SubPageLayout({ data, slug, activeTab, children }) {
   const [stickyVisible, setStickyVisible] = useState(false);
   const { B, AUTHOR } = data;
   const cn = { maxWidth: 1200, margin: "0 auto", padding: mob ? "0 16px" : "0 24px" };
-  const visitUrl = `${import.meta.env.VITE_API_URL || ''}/go/${slug}`;
+  const visitUrl = getVisitUrl(slug);
   const meta = TAB_META[activeTab] || {};
   const h1 = `${B.name} ${meta.h1Suffix || activeTab} 2026`;
 
@@ -150,6 +151,18 @@ export default function SubPageLayout({ data, slug, activeTab, children }) {
 
       {/* Tab Navigation */}
       <SubPageTabs activeTab={activeTab} slug={slug} mob={mob} />
+
+      {/* Back to Full Review Banner */}
+      <div style={{...cn, paddingTop: mob ? 12 : 16, paddingBottom: 0}}>
+        <Link to={`/review/${slug}`} style={{display:"flex",alignItems:"center",gap:12,padding: mob ? "12px 14px" : "14px 18px",background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,textDecoration:"none",boxShadow:"0 1px 3px rgba(0,0,0,0.04)"}} onMouseEnter={e=>{e.currentTarget.style.borderColor=GREEN;e.currentTarget.style.boxShadow="0 2px 8px rgba(5,150,105,0.12)"}} onMouseLeave={e=>{e.currentTarget.style.borderColor="#e2e8f0";e.currentTarget.style.boxShadow="0 1px 3px rgba(0,0,0,0.04)"}}>
+          <div style={{width:36,height:36,borderRadius:8,background:GREEN_LIGHT,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}><FileText size={16} color={GREEN} /></div>
+          <div style={{flex:1}}>
+            <div style={{fontSize:10,fontWeight:700,color:GREEN,textTransform:"uppercase",letterSpacing:"0.06em",marginBottom:1}}>Full Review</div>
+            <div style={{fontSize: mob ? 13 : 14,fontWeight:700,color:NAVY}}>{B.name} Review 2026</div>
+          </div>
+          <ArrowRight size={16} color={GREEN} style={{flexShrink:0}} />
+        </Link>
+      </div>
 
       {/* Main Content */}
       <div style={{ ...cn, display: "flex", flexDirection: mob ? "column" : "row", gap: mob ? 16 : 24, paddingTop: mob ? 20 : 28, paddingBottom: mob ? 40 : 64 }}>

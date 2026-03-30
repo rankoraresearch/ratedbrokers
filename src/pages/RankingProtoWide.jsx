@@ -89,10 +89,7 @@ const formatTpCount = (n) => {
   return n.toString();
 };
 
-const makeVisitUrl = (slug, url) => {
-  const apiBase = import.meta.env.VITE_API_URL || "";
-  return apiBase ? `${apiBase}/go/${slug}` : url;
-};
+import { getVisitUrl as makeVisitUrl } from "../utils/visitUrl";
 
 /* ── Dark Crown texture overlay ── */
 const TextureOverlay = () => (

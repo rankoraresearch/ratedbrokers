@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ExternalLink, ArrowRight, HelpCircle } from "lucide-react";
 import { QuickAnswerBox, DataTable, CTAInline, FaqSection, VerdictBox, H2, P, Card } from "../../components/subpage";
+import { getVisitUrl } from "../../utils/visitUrl";
 import BrokerLogo from "../../components/BrokerLogo";
 import ScoreBadge from "../../components/ScoreBadge";
 
@@ -59,7 +60,7 @@ export default function AlternativesTab({ data, slug, mob }) {
               </div>
               <P>{alt.why}</P>
               <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-                <a href={`${import.meta.env.VITE_API_URL || ''}/go/${alt.slug}`} target="_blank" rel="nofollow sponsored" className="cta-primary" style={{ background: `linear-gradient(135deg, ${ORANGE}, #fbbf24)`, color: NAVY, fontSize: 13, fontWeight: 700, textDecoration: "none", padding: "10px 20px", borderRadius: 8, display: "inline-flex", alignItems: "center", gap: 6 }}>Visit {alt.name} <ExternalLink size={12} /></a>
+                <a href={getVisitUrl(alt.slug)} target="_blank" rel="nofollow sponsored" className="cta-primary" style={{ background: `linear-gradient(135deg, ${ORANGE}, #fbbf24)`, color: NAVY, fontSize: 13, fontWeight: 700, textDecoration: "none", padding: "10px 20px", borderRadius: 8, display: "inline-flex", alignItems: "center", gap: 6 }}>Visit {alt.name} <ExternalLink size={12} /></a>
                 <Link to={`/review/${alt.slug}`} className="cta-secondary" style={{ background: "#fff", color: GREEN, border: `2px solid ${GREEN}`, fontSize: 13, fontWeight: 700, textDecoration: "none", padding: "8px 16px", borderRadius: 8, display: "inline-flex", alignItems: "center", gap: 6 }}>Read Review <ArrowRight size={12} /></Link>
               </div>
             </Card>

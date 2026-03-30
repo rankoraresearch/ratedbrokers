@@ -29,6 +29,105 @@ function useMedia() {
 
 
 // ============================
+// CONTACT FORM
+// ============================
+const apiBase = import.meta.env.VITE_API_URL || '';
+
+function ContactForm({ mob }) {
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState("idle"); // idle | sending | success | error
+  const [errorMsg, setErrorMsg] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) return;
+    setStatus("sending");
+    setErrorMsg("");
+    try {
+      const res = await fetch(`${apiBase}/api/contact`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: form.name.trim(), email: form.email.trim(), message: form.message.trim() }),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || "Something went wrong");
+      }
+      setStatus("success");
+      setForm({ name: "", email: "", message: "" });
+    } catch (err) {
+      setStatus("error");
+      setErrorMsg(err.message || "Failed to send message");
+    }
+  };
+
+  const cn = { maxWidth: 1200, margin: "0 auto", padding: mob ? "0 16px" : "0 24px" };
+  const inputStyle = {
+    width: "100%", padding: "12px 16px", borderRadius: 10, border: "1px solid #e2e8f0",
+    fontSize: 15, fontFamily: "'DM Sans',system-ui,sans-serif", color: "#111827",
+    background: "#fff", outline: "none", boxSizing: "border-box",
+  };
+
+  if (status === "success") {
+    return (
+      <section style={{ ...cn, marginBottom: 48 }}>
+        <div style={{ padding: "32px 28px", borderRadius: 16, background: "#ecfdf5", border: "1px solid #a7f3d0", textAlign: "center" }}>
+          <div style={{ fontSize: 32, marginBottom: 8 }}>&#10003;</div>
+          <div style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 22, color: "#059669", marginBottom: 8 }}>Message Sent</div>
+          <div style={{ fontSize: 15, color: "#374151" }}>Thank you! We'll get back to you within 24-48 business hours.</div>
+        </div>
+      </section>
+    );
+  }
+
+  return (
+    <section style={{ ...cn, marginBottom: 48 }}>
+      <div style={{ padding: mob ? "24px 20px" : "32px 28px", borderRadius: 16, background: "#fff", border: "1px solid #e2e8f0" }}>
+        <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 20 : 24, color: "#0f172a", margin: "0 0 6px" }}>
+          Send Us a Message
+        </h2>
+        <p style={{ fontSize: 15, color: "#64748b", margin: "0 0 20px" }}>
+          Fill out the form and we'll respond within 24-48 business hours.
+        </p>
+        <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+          <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "1fr 1fr", gap: 14 }}>
+            <input
+              type="text" placeholder="Your name" value={form.name} maxLength={200}
+              onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
+              required style={inputStyle}
+            />
+            <input
+              type="email" placeholder="Email address" value={form.email} maxLength={320}
+              onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
+              required style={inputStyle}
+            />
+          </div>
+          <textarea
+            placeholder="Your message..." value={form.message} maxLength={5000} rows={5}
+            onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
+            required style={{ ...inputStyle, resize: "vertical", minHeight: 120 }}
+          />
+          {status === "error" && (
+            <div style={{ fontSize: 14, color: "#dc2626", padding: "8px 12px", background: "#fef2f2", borderRadius: 8, border: "1px solid #fecaca" }}>
+              {errorMsg}
+            </div>
+          )}
+          <button type="submit" disabled={status === "sending"} style={{
+            padding: "14px 32px", borderRadius: 10, border: "none", cursor: status === "sending" ? "not-allowed" : "pointer",
+            background: status === "sending" ? "#94a3b8" : "linear-gradient(135deg,#059669,#34d399)",
+            color: "#fff", fontWeight: 800, fontSize: 16, fontFamily: "Outfit",
+            alignSelf: mob ? "stretch" : "flex-start",
+          }}>
+            {status === "sending" ? "Sending..." : "Send Message"}
+          </button>
+        </form>
+      </div>
+    </section>
+  );
+}
+
+
+// ============================
 // MAIN
 // ============================
 export default function ContactPage() {
@@ -148,6 +247,9 @@ export default function ContactPage() {
             ))}
         </div>
       </section>
+
+      {/* =================== CONTACT FORM =================== */}
+      <ContactForm mob={mob} />
 
       {/* =================== COMPANY INFO (E-E-A-T) =================== */}
       <section style={{ ...cn, marginBottom: 48 }}>

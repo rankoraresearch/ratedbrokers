@@ -27,9 +27,7 @@ import ScoreBadge from "../components/ScoreBadge";
 import RegBadge from "../components/RegBadge";
 import { getTrustpilotUrl } from "../data/trustpilot-links";
 import { ExternalLink, Check, X as XIcon, ChevronDown } from "lucide-react";
-
-const apiBase = import.meta.env.VITE_API_URL || "";
-const makeVisitUrl = (slug, url) => apiBase ? `${apiBase}/go/${slug}` : url;
+import { getVisitUrl as makeVisitUrl } from "../utils/visitUrl";
 
 const formatTpCount = (n) => {
   if (!n) return "";

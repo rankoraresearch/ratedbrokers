@@ -36,9 +36,8 @@ import BrokerRankCard from "../components/BrokerRankCard";
 import RegBadge from "../components/RegBadge";
 
 
+import { getVisitUrl as makeVisitUrl } from "../utils/visitUrl";
 const YEAR = "2026";
-const apiBase = import.meta.env.VITE_API_URL || "";
-const makeVisitUrl = (slug, fallbackUrl) => apiBase ? `${apiBase}/go/${slug}` : fallbackUrl;
 
 // ═══════════════════════════════════════════════════════════
 // Design tokens (unified standard from Barbara audit)

@@ -6,6 +6,7 @@ import ScoreBadge from "./ScoreBadge";
 import RegBadge from "./RegBadge";
 import BrokerLogo from "./BrokerLogo";
 import { getTrustpilotUrl } from "../data/trustpilot-links";
+import { getVisitUrl } from "../utils/visitUrl";
 import { ChevronDown, Check, X as XIcon, ExternalLink } from "lucide-react";
 
 /* ── Wide logo maps — dark variant (white text on navy) ── */
@@ -93,8 +94,7 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
   const B = broker.B;
 
   const reviewPath = lp(`/review/${broker.slug}`);
-  const apiBase = import.meta.env.VITE_API_URL || '';
-  const visitUrl = apiBase ? `${apiBase}/go/${broker.slug}` : B.url;
+  const visitUrl = getVisitUrl(broker.slug, B.url);
 
   const pros = B.pros || broker.PROS || [];
   const topPros = pros.slice(0, 3);

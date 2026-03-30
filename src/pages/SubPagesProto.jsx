@@ -9,6 +9,7 @@ import Icon from "../components/Icon";
 import AuthorCredits from "../components/AuthorCredits";
 import AuthorBioCard from "../components/AuthorBioCard";
 import { AUTHORS } from "../data/authors";
+import { getVisitUrl } from "../utils/visitUrl";
 import { Check, X as XIcon, ChevronDown, ChevronUp, ExternalLink, Shield, CreditCard, Smartphone, BookOpen, Users, UserCheck, ArrowRight, Clock, FileText, AlertTriangle, Star, TrendingUp, Zap, Globe, Award, BarChart3, Wallet, ArrowUpDown, MonitorSmartphone, HelpCircle, Linkedin, BadgeCheck, Target } from "lucide-react";
 
 /* ───────── hooks ───────── */
@@ -121,7 +122,7 @@ function ComparisonBar({ label, value, max, best, unit = "pips" }) {
 }
 
 function CTAInline({ label, sub, mob }) {
-  const vUrl = `${import.meta.env.VITE_API_URL || ''}/go/ic-markets`;
+  const vUrl = getVisitUrl("ic-markets");
   return (
     <div style={{ background: NAVY, border: "1px solid rgba(255,255,255,0.08)", borderRadius: 12, padding: mob ? "16px" : "18px 24px", display: "flex", alignItems: mob ? "stretch" : "center", flexDirection: mob ? "column" : "row", justifyContent: "space-between", gap: mob ? 12 : 16, margin: "24px 0" }}>
       <div>
@@ -165,7 +166,7 @@ function VerdictBox({ title, text, bestFor, notFor, mob }) {
       {bestFor && <div style={{ display: "flex", alignItems: "flex-start", gap: 8, marginBottom: 8 }}><Check size={16} color="#34d399" style={{ marginTop: 3, flexShrink: 0 }} /><span style={{ fontSize: 14, color: "#a7f3d0" }}><strong>Best for:</strong> {bestFor}</span></div>}
       {notFor && <div style={{ display: "flex", alignItems: "flex-start", gap: 8, marginBottom: 16 }}><AlertTriangle size={16} color={ORANGE} style={{ marginTop: 3, flexShrink: 0 }} /><span style={{ fontSize: 14, color: "rgba(255,255,255,0.7)" }}><strong>Not ideal for:</strong> {notFor}</span></div>}
       <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 16 }}>
-        <a href={`${import.meta.env.VITE_API_URL || ''}/go/ic-markets`} target="_blank" rel="nofollow sponsored" className="cta-orange" style={{ background: `linear-gradient(135deg, ${ORANGE}, #fbbf24)`, color: NAVY, fontSize: 14, fontWeight: 700, textDecoration: "none", padding: "12px 24px", borderRadius: 8, display: "inline-flex", alignItems: "center", gap: 6 }}>Visit {B.name} <ExternalLink size={14} /></a>
+        <a href={getVisitUrl("ic-markets")} target="_blank" rel="nofollow sponsored" className="cta-orange" style={{ background: `linear-gradient(135deg, ${ORANGE}, #fbbf24)`, color: NAVY, fontSize: 14, fontWeight: 700, textDecoration: "none", padding: "12px 24px", borderRadius: 8, display: "inline-flex", alignItems: "center", gap: 6 }}>Visit {B.name} <ExternalLink size={14} /></a>
         <Link to="/review/ic-markets" className="cta-secondary" style={{ background: "transparent", color: "#fff", border: "2px solid rgba(255,255,255,0.3)", fontSize: 14, fontWeight: 700, textDecoration: "none", padding: "10px 20px", borderRadius: 8, display: "inline-flex", alignItems: "center", gap: 6 }}>Read Full Review <ArrowRight size={14} /></Link>
       </div>
     </Card>
@@ -648,7 +649,7 @@ function BeginnersContent({ mob }) {
           <div style={{ fontSize: 16, fontWeight: 700, color: NAVY, marginTop: 8 }}>{alt.name}</div>
           <div style={{ fontSize: 12, color: GREEN, fontWeight: 600, marginBottom: 8 }}>Score: {alt.score}/10</div>
           <div style={{ fontSize: 13, color: GRAY_TEXT, lineHeight: 1.5, marginBottom: 12 }}>{alt.why}</div>
-          <a href={`${import.meta.env.VITE_API_URL || ''}/go/${alt.slug}`} target="_blank" rel="nofollow sponsored" className="cta-primary" style={{ display: "inline-flex", alignItems: "center", gap: 6, background: `linear-gradient(135deg, ${ORANGE}, #fbbf24)`, color: NAVY, fontSize: 13, fontWeight: 700, textDecoration: "none", padding: "10px 20px", borderRadius: 8 }}>Visit {alt.name} <ExternalLink size={12} /></a>
+          <a href={getVisitUrl(alt.slug)} target="_blank" rel="nofollow sponsored" className="cta-primary" style={{ display: "inline-flex", alignItems: "center", gap: 6, background: `linear-gradient(135deg, ${ORANGE}, #fbbf24)`, color: NAVY, fontSize: 13, fontWeight: 700, textDecoration: "none", padding: "10px 20px", borderRadius: 8 }}>Visit {alt.name} <ExternalLink size={12} /></a>
         </Card>
       ))}
     </div>
@@ -714,7 +715,7 @@ function AlternativesContent({ mob }) {
         </div>
         <P>{alt.why}</P>
         <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-          <a href={`${import.meta.env.VITE_API_URL || ''}/go/${alt.slug}`} target="_blank" rel="nofollow sponsored" className="cta-primary" style={{ background: `linear-gradient(135deg, ${ORANGE}, #fbbf24)`, color: NAVY, fontSize: 13, fontWeight: 700, textDecoration: "none", padding: "10px 20px", borderRadius: 8, display: "inline-flex", alignItems: "center", gap: 6 }}>Visit {alt.name} <ExternalLink size={12} /></a>
+          <a href={getVisitUrl(alt.slug)} target="_blank" rel="nofollow sponsored" className="cta-primary" style={{ background: `linear-gradient(135deg, ${ORANGE}, #fbbf24)`, color: NAVY, fontSize: 13, fontWeight: 700, textDecoration: "none", padding: "10px 20px", borderRadius: 8, display: "inline-flex", alignItems: "center", gap: 6 }}>Visit {alt.name} <ExternalLink size={12} /></a>
           <Link to={`/review/${alt.slug}`} className="cta-secondary" style={{ background: "#fff", color: GREEN, border: `2px solid ${GREEN}`, fontSize: 13, fontWeight: 700, textDecoration: "none", padding: "8px 16px", borderRadius: 8, display: "inline-flex", alignItems: "center", gap: 6 }}>Read Review <ArrowRight size={12} /></Link>
         </div>
       </Card>
@@ -807,7 +808,7 @@ function AccountOpeningContent({ mob }) {
               <Target size={12} color={acc.accent} /> Best for: <span style={{ fontWeight: 600, color: GRAY_TEXT }}>{acc.bestFor}</span>
             </div>
             {/* CTA */}
-            <a href={`${import.meta.env.VITE_API_URL || ''}/go/ic-markets`} target="_blank" rel="nofollow sponsored" className={acc.ctaClass} style={{
+            <a href={getVisitUrl("ic-markets")} target="_blank" rel="nofollow sponsored" className={acc.ctaClass} style={{
               display: "flex", alignItems: "center", justifyContent: "center", gap: 6,
               padding: "11px 16px", borderRadius: 8, textDecoration: "none", fontSize: 13, fontWeight: 700,
               background: acc.ctaBg, color: acc.ctaColor, border: acc.ctaBorder || "none",
@@ -838,7 +839,7 @@ function AccountOpeningContent({ mob }) {
           $100,000 virtual funds · All 4 platforms · Real market conditions · No ID required
         </div>
       </div>
-      <a href={`${import.meta.env.VITE_API_URL || ''}/go/ic-markets`} target="_blank" rel="nofollow sponsored" className="cta-secondary" style={{
+      <a href={getVisitUrl("ic-markets")} target="_blank" rel="nofollow sponsored" className="cta-secondary" style={{
         display: "flex", alignItems: "center", justifyContent: "center", gap: 6,
         padding: "12px 24px", borderRadius: 8, textDecoration: "none", fontSize: 14, fontWeight: 700,
         background: "transparent", border: "2px solid #34d399", color: "#34d399",
@@ -913,7 +914,7 @@ function AccountOpeningContent({ mob }) {
     <P>Don't want to commit yet? Open a free demo account in under 2 minutes — no ID required, no deposit needed. You get $100,000 in virtual funds to practice on all four platforms with real market conditions.</P>
 
     {/* Demo CTA — reinforce after copy section */}
-    <a href={`${import.meta.env.VITE_API_URL || ''}/go/ic-markets`} target="_blank" rel="nofollow sponsored" className="cta-secondary" style={{
+    <a href={getVisitUrl("ic-markets")} target="_blank" rel="nofollow sponsored" className="cta-secondary" style={{
       display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
       padding: "14px 20px", background: GREEN_LIGHT, border: `2px solid ${GREEN}`,
       borderRadius: 10, textDecoration: "none", color: GREEN, fontSize: 14, fontWeight: 700,
@@ -1011,7 +1012,7 @@ export default function SubPagesProto() {
 
   const cn = { maxWidth: 1200, margin: "0 auto", padding: mob ? "0 16px" : "0 24px" };
 
-  const visitUrl = `${import.meta.env.VITE_API_URL || ''}/go/ic-markets`;
+  const visitUrl = getVisitUrl("ic-markets");
 
   return (
     <div style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: GRAY_LIGHT, minHeight: "100vh", color: "#111827" }}>

@@ -2,13 +2,14 @@ import { Link } from "react-router-dom";
 import { ExternalLink, ArrowRight, Check, AlertTriangle } from "lucide-react";
 import ScoreBadge from "../ScoreBadge";
 import { Card } from "./Typography";
+import { getVisitUrl } from "../../utils/visitUrl";
 
 const NAVY = "#0f172a";
 const GREEN = "#059669";
 const ORANGE = "#f59e0b";
 
 export default function VerdictBox({ slug, name, score, title, text, bestFor, notFor, mob }) {
-  const vUrl = `${import.meta.env.VITE_API_URL || ''}/go/${slug}`;
+  const vUrl = getVisitUrl(slug);
   return (
     <Card style={{ background: `linear-gradient(135deg, ${NAVY} 0%, #0f2e24 50%, #047857 100%)`, border: "none", padding: mob ? 20 : 28, color: "#fff" }}>
       <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 16 }}>

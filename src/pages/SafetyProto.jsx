@@ -8,6 +8,7 @@ import RegulatorLogo from "../components/RegulatorLogo";
 import BrokerLogo from "../components/BrokerLogo";
 import Breadcrumb, { breadcrumbSchema } from "../components/Breadcrumb";
 import HeroBand from "../components/HeroBand";
+import { getVisitUrl } from "../utils/visitUrl";
 import Icon from "../components/Icon";
 import TrustpilotLogo from "../components/TrustpilotLogo";
 import { useLocalePath } from "../i18n/useLocalePath";
@@ -250,8 +251,7 @@ export default function SafetyProto() {
   const [openFaq, setOpenFaq] = useState(null);
   const [stickyVisible, setStickyVisible] = useState(false);
 
-  const apiBase = import.meta.env.VITE_API_URL || "";
-  const visitUrl = apiBase ? `${apiBase}/go/${slug}` : data?.B?.url;
+  const visitUrl = getVisitUrl(slug, data?.B?.url);
 
   useEffect(() => { window.scrollTo(0, 0); }, []);
   useEffect(() => {
@@ -703,7 +703,7 @@ export default function SafetyProto() {
 
       <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "repeat(3, 1fr)", gap: 14, marginBottom: 24 }}>
         {alternatives.map((alt) => {
-          const altVisitUrl = apiBase ? `${apiBase}/go/${alt.slug}` : "#";
+          const altVisitUrl = getVisitUrl(alt.slug);
           const altTier1 = alt.regs.filter(r => r.tier === 1);
           const altAge = new Date().getFullYear() - alt.year;
           return (

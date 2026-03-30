@@ -113,8 +113,7 @@ const TAB_DATA = [
 // ── Helpers ──
 const scoreColor = (s) => s >= 9.0 ? "#059669" : s >= 8.0 ? "#2563eb" : "#d97706";
 const scoreLabel = (s) => s >= 9.5 ? "Excellent" : s >= 9.0 ? "Great" : s >= 8.5 ? "Very Good" : "Good";
-const apiBase = import.meta.env.VITE_API_URL || "";
-const getVisitUrl = (slug, fallbackUrl) => apiBase ? `${apiBase}/go/${slug}` : fallbackUrl;
+import { getVisitUrl } from "../utils/visitUrl";
 
 // ══════════════════════════════════════════════════════
 // NAV VARIANT A — Compact Grid (3x3)

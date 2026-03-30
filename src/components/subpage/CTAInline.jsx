@@ -1,10 +1,11 @@
 import { ExternalLink, Zap } from "lucide-react";
+import { getVisitUrl } from "../../utils/visitUrl";
 
 const NAVY = "#0f172a";
 const ORANGE = "#f59e0b";
 
 export default function CTAInline({ slug, name, promo, label, sub, mob }) {
-  const vUrl = `${import.meta.env.VITE_API_URL || ''}/go/${slug}`;
+  const vUrl = getVisitUrl(slug);
   return (
     <div style={{ background: NAVY, border: "1px solid rgba(255,255,255,0.08)", borderRadius: 12, padding: mob ? "16px" : "18px 24px", display: "flex", alignItems: mob ? "stretch" : "center", flexDirection: mob ? "column" : "row", justifyContent: "space-between", gap: mob ? 12 : 16, margin: "24px 0" }}>
       <div>

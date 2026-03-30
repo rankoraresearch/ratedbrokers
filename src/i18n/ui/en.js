@@ -162,6 +162,9 @@ const en = {
   "home.brokers": "brokers",
 
   // ===== HOME: ALL REVIEWS =====
+  "home.review": "Review",
+  "home.from": "from",
+  "home.pips": "pips",
   "home.allTitle": "All Broker Reviews",
   "home.allDesc": "In-depth reviews of {count} brokers, each expert-analyzed and scored across 6 categories.",
 
@@ -272,6 +275,7 @@ const en = {
   "review.alternativesTitle": "{name} Alternatives",
   "review.alternativesDesc": "If {name} doesn't suit your needs, here are our top recommended alternatives:",
   "review.faq": "Frequently Asked Questions",
+  "review.readOnTrustpilot": "Read {name} reviews on Trustpilot",
 
   // ===== BROKER REVIEW: TABLE HEADERS =====
   "table.account": "Account",

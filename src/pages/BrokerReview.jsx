@@ -17,8 +17,9 @@ import TrustpilotLogo from "../components/TrustpilotLogo";
 import { getPlatformSlugByName } from "../data/platforms/index";
 import Breadcrumb, { breadcrumbSchema } from "../components/Breadcrumb";
 import Icon from "../components/Icon";
-import { Check, X as XIcon, ArrowRight, ChevronRight, BarChart3, Wallet, MonitorSmartphone, Shield, ArrowUpDown, BookOpen, Users, UserCheck } from "lucide-react";
+import { Check, X as XIcon, ArrowRight, ChevronRight, ChevronDown, ArrowUpRight, BarChart3, Wallet, MonitorSmartphone, Shield, ArrowUpDown, BookOpen, Users, UserCheck } from "lucide-react";
 import HeroBand from "../components/HeroBand";
+import { getVisitUrl } from "../utils/visitUrl";
 
 function Stars({r,size=15}){ return <div style={{display:"flex",gap:2}}>{[1,2,3,4,5].map(i=><div key={i} style={{width:size,height:size,background:i<=Math.floor(r)?"#00B67A":i-0.5<=r?"linear-gradient(90deg,#00B67A 50%,#d1d5db 50%)":"#d1d5db",clipPath:"polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)"}}/>)}</div>; }
 function H2({id,children}){ return <h2 id={id} style={{fontFamily:"Outfit",fontSize:24,fontWeight:800,color:"#0f172a",marginBottom:14,marginTop:32,scrollMarginTop:80}}>{children}</h2>; }
@@ -61,6 +62,26 @@ function useMedia() {
   return { mob: w < 640, tab: w >= 640 && w < 1024, desk: w >= 1024 };
 }
 
+const DEEP_DIVE_TABS = [
+  {id:"fees",label:"Fees & Spreads",Icon:BarChart3},
+  {id:"min-deposit",label:"Minimum Deposit",Icon:Wallet},
+  {id:"platforms",label:"Platforms",Icon:MonitorSmartphone},
+  {id:"regulation",label:"Regulation",Icon:Shield},
+  {id:"deposit",label:"Deposit & Withdrawal",Icon:ArrowUpDown},
+  {id:"beginners",label:"For Beginners",Icon:BookOpen},
+  {id:"alternatives",label:"Alternatives",Icon:Users},
+  {id:"account",label:"Account Opening",Icon:UserCheck},
+];
+
+const SECTION_TO_TAB = {
+  "trading-costs": { tab: "fees", label: "Fees & Spreads" },
+  "account-types": { tab: "account", label: "Account Opening" },
+  "regulation-&-safety": { tab: "regulation", label: "Regulation & Safety" },
+  "deposit-&-withdrawal": { tab: "deposit", label: "Deposit & Withdrawal" },
+  "platforms-&-tools": { tab: "platforms", label: "Trading Platforms" },
+  "alternatives": { tab: "alternatives", label: "Alternatives" },
+};
+
 function CTA({ B, visitUrl, label, sub, compact }) {
   const href = visitUrl || B.url;
   return <div style={{background:"#0f172a",border:"1px solid rgba(255,255,255,0.08)",borderRadius:compact?10:14,padding:compact?"14px 18px":"20px 24px",display:"flex",alignItems:"center",justifyContent:"space-between",gap:16,margin:"20px 0"}}>
@@ -75,10 +96,10 @@ export default function BrokerReview() {
   const { mob, tab } = useMedia();
   const { t, tc } = useTranslation();
   const lp = useLocalePath();
-  const apiBase = import.meta.env.VITE_API_URL || '';
-  const visitUrl = apiBase ? `${apiBase}/go/${slug}` : data?.B?.url;
+  const visitUrl = getVisitUrl(slug, data?.B?.url);
   const [openFaq, setOpenFaq] = useState(null);
   const [stickyVisible, setStickyVisible] = useState(false);
+  const [tocOpen, setTocOpen] = useState(false);
   const cn = {maxWidth:1200,margin:"0 auto",padding:mob?"0 16px":"0 24px"};
 
   useEffect(()=>{
@@ -223,6 +244,34 @@ export default function BrokerReview() {
         </div>
       </HeroBand>
 
+      {/* COLLAPSIBLE TOC — mobile + tablet */}
+      {(mob || tab) && (
+        <div style={{...cn, paddingTop: 16, paddingBottom: 0}}>
+          <div style={{background:"#f8fafc",border:"1px solid #e2e8f0",borderRadius:12,overflow:"hidden"}}>
+            <button onClick={()=>setTocOpen(!tocOpen)} style={{width:"100%",display:"flex",alignItems:"center",justifyContent:"space-between",padding:"12px 16px",background:"none",border:"none",cursor:"pointer",fontFamily:"'DM Sans',system-ui,sans-serif"}}>
+              <span style={{fontFamily:"Outfit",fontSize:13,fontWeight:600,color:"#0f172a"}}>Contents</span>
+              <ChevronDown size={16} color="#64748b" style={{transform:tocOpen?"rotate(180deg)":"none",transition:"transform 0.2s"}} />
+            </button>
+            {tocOpen && (
+              <div style={{padding:"0 16px 14px"}}>
+                {TOC.map((tocItem,i)=>{
+                  const id=tocItem.toLowerCase().replace(/[^a-z0-9]+/g,'-');
+                  return <a key={i} href={`#${id}`} onClick={(e)=>{e.preventDefault();setTocOpen(false);document.getElementById(id)?.scrollIntoView({behavior:"smooth"})}} style={{display:"block",fontSize:13,color:"#374151",textDecoration:"none",padding:"6px 12px",borderLeft:"2px solid #e2e8f0",lineHeight:1.4}}>{tocItem}</a>;
+                })}
+                <div style={{borderTop:"1px solid #e2e8f0",marginTop:10,paddingTop:10}}>
+                  <div style={{fontSize:11,fontWeight:700,color:"#059669",textTransform:"uppercase",letterSpacing:"0.06em",marginBottom:6,paddingLeft:12}}>Deep Dive</div>
+                  {DEEP_DIVE_TABS.map((dd,i)=>(
+                    <Link key={i} to={lp(`/review/${slug}/${dd.id}`)} style={{display:"flex",alignItems:"center",gap:8,padding:"6px 12px",textDecoration:"none",color:"#059669",fontSize:13,fontWeight:500}}>
+                      <dd.Icon size={13} color="#059669" />{dd.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
       {/* MAIN LAYOUT */}
       <div style={{...cn,display:mob?"flex":"grid",flexDirection:"column",gridTemplateColumns:mob?"1fr":tab?"1fr 220px":"200px 1fr 260px",gap:mob?16:24,paddingTop:mob?20:28,paddingBottom:mob?40:64}}>
         {/* LEFT TOC */}
@@ -285,6 +334,7 @@ export default function BrokerReview() {
 
           {/* ACCOUNT TYPES */}
           <H2 id="account-types">{t("review.accountTypes")}</H2>
+          <Link to={lp(`/review/${slug}/account`)} style={{display:"flex",alignItems:"center",gap:12,padding:"12px 16px",background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,textDecoration:"none",marginBottom:14,boxShadow:"0 1px 3px rgba(0,0,0,0.04)"}} onMouseEnter={e=>{e.currentTarget.style.borderColor="#059669";e.currentTarget.style.boxShadow="0 2px 8px rgba(5,150,105,0.12)"}} onMouseLeave={e=>{e.currentTarget.style.borderColor="#e2e8f0";e.currentTarget.style.boxShadow="0 1px 3px rgba(0,0,0,0.04)"}}><div style={{width:36,height:36,borderRadius:8,background:"#ecfdf5",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}><BookOpen size={16} color="#059669" /></div><div style={{flex:1}}><div style={{fontSize:10,fontWeight:700,color:"#059669",textTransform:"uppercase",letterSpacing:"0.06em",marginBottom:1}}>Deep Dive</div><div style={{fontSize:14,fontWeight:700,color:"#0f172a"}}>{B.name} Account Opening</div></div><ArrowRight size={16} color="#059669" style={{flexShrink:0}} /></Link>
           <P>{content.accountIntro}</P>
           <Card style={{padding:0,overflow:"hidden"}}>
             <table style={{width:"100%",borderCollapse:"collapse",fontSize:14}}>
@@ -304,6 +354,7 @@ export default function BrokerReview() {
 
           {/* REGULATION */}
           <H2 id="regulation-&-safety">{t("review.regulationSafety")}</H2>
+          <Link to={lp(`/review/${slug}/regulation`)} style={{display:"flex",alignItems:"center",gap:12,padding:"12px 16px",background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,textDecoration:"none",marginBottom:14,boxShadow:"0 1px 3px rgba(0,0,0,0.04)"}} onMouseEnter={e=>{e.currentTarget.style.borderColor="#059669";e.currentTarget.style.boxShadow="0 2px 8px rgba(5,150,105,0.12)"}} onMouseLeave={e=>{e.currentTarget.style.borderColor="#e2e8f0";e.currentTarget.style.boxShadow="0 1px 3px rgba(0,0,0,0.04)"}}><div style={{width:36,height:36,borderRadius:8,background:"#ecfdf5",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}><BookOpen size={16} color="#059669" /></div><div style={{flex:1}}><div style={{fontSize:10,fontWeight:700,color:"#059669",textTransform:"uppercase",letterSpacing:"0.06em",marginBottom:1}}>Deep Dive</div><div style={{fontSize:14,fontWeight:700,color:"#0f172a"}}>{B.name} Regulation & Safety</div></div><ArrowRight size={16} color="#059669" style={{flexShrink:0}} /></Link>
           <P>{(content.regulation || [])[0]}</P>
           <Card style={{padding:0,overflow:"hidden"}}>
             {B.regs.map((r,i)=>{const rSlug=getRegulatorSlug(r.name);return <div key={i} style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"12px 18px",borderBottom:i<B.regs.length-1?"1px solid #f0f4f8":"none"}}>
@@ -320,6 +371,7 @@ export default function BrokerReview() {
 
           {/* TRADING COSTS */}
           <H2 id="trading-costs">{t("review.tradingCosts")}</H2>
+          <Link to={lp(`/review/${slug}/fees`)} style={{display:"flex",alignItems:"center",gap:12,padding:"12px 16px",background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,textDecoration:"none",marginBottom:14,boxShadow:"0 1px 3px rgba(0,0,0,0.04)"}} onMouseEnter={e=>{e.currentTarget.style.borderColor="#059669";e.currentTarget.style.boxShadow="0 2px 8px rgba(5,150,105,0.12)"}} onMouseLeave={e=>{e.currentTarget.style.borderColor="#e2e8f0";e.currentTarget.style.boxShadow="0 1px 3px rgba(0,0,0,0.04)"}}><div style={{width:36,height:36,borderRadius:8,background:"#ecfdf5",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}><BookOpen size={16} color="#059669" /></div><div style={{flex:1}}><div style={{fontSize:10,fontWeight:700,color:"#059669",textTransform:"uppercase",letterSpacing:"0.06em",marginBottom:1}}>Deep Dive</div><div style={{fontSize:14,fontWeight:700,color:"#0f172a"}}>{B.name} Fees & Spreads</div></div><ArrowRight size={16} color="#059669" style={{flexShrink:0}} /></Link>
           <P>{(content.costs || [])[0]}</P>
           <Card>
             <div style={{display:"grid",gridTemplateColumns:mob?"1fr 1fr":"1fr 1fr 1fr",gap:16,marginBottom:14}}>
@@ -353,6 +405,7 @@ export default function BrokerReview() {
 
           {/* DEPOSIT & WITHDRAWAL */}
           <H2 id="deposit-&-withdrawal">{t("review.depositWithdrawal")}</H2>
+          <Link to={lp(`/review/${slug}/deposit`)} style={{display:"flex",alignItems:"center",gap:12,padding:"12px 16px",background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,textDecoration:"none",marginBottom:14,boxShadow:"0 1px 3px rgba(0,0,0,0.04)"}} onMouseEnter={e=>{e.currentTarget.style.borderColor="#059669";e.currentTarget.style.boxShadow="0 2px 8px rgba(5,150,105,0.12)"}} onMouseLeave={e=>{e.currentTarget.style.borderColor="#e2e8f0";e.currentTarget.style.boxShadow="0 1px 3px rgba(0,0,0,0.04)"}}><div style={{width:36,height:36,borderRadius:8,background:"#ecfdf5",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}><BookOpen size={16} color="#059669" /></div><div style={{flex:1}}><div style={{fontSize:10,fontWeight:700,color:"#059669",textTransform:"uppercase",letterSpacing:"0.06em",marginBottom:1}}>Deep Dive</div><div style={{fontSize:14,fontWeight:700,color:"#0f172a"}}>{B.name} Deposit & Withdrawal</div></div><ArrowRight size={16} color="#059669" style={{flexShrink:0}} /></Link>
           <P>{(content.deposits || [])[0]}</P>
           <Card style={{padding:0,overflow:"hidden"}}>
             <table style={{width:"100%",borderCollapse:"collapse",fontSize:14}}>
@@ -371,6 +424,7 @@ export default function BrokerReview() {
 
           {/* PLATFORMS */}
           <H2 id="platforms-&-tools">{t("review.platformsTools")}</H2>
+          <Link to={lp(`/review/${slug}/platforms`)} style={{display:"flex",alignItems:"center",gap:12,padding:"12px 16px",background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,textDecoration:"none",marginBottom:14,boxShadow:"0 1px 3px rgba(0,0,0,0.04)"}} onMouseEnter={e=>{e.currentTarget.style.borderColor="#059669";e.currentTarget.style.boxShadow="0 2px 8px rgba(5,150,105,0.12)"}} onMouseLeave={e=>{e.currentTarget.style.borderColor="#e2e8f0";e.currentTarget.style.boxShadow="0 1px 3px rgba(0,0,0,0.04)"}}><div style={{width:36,height:36,borderRadius:8,background:"#ecfdf5",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}><BookOpen size={16} color="#059669" /></div><div style={{flex:1}}><div style={{fontSize:10,fontWeight:700,color:"#059669",textTransform:"uppercase",letterSpacing:"0.06em",marginBottom:1}}>Deep Dive</div><div style={{fontSize:14,fontWeight:700,color:"#0f172a"}}>{B.name} Trading Platforms</div></div><ArrowRight size={16} color="#059669" style={{flexShrink:0}} /></Link>
           <P>{(content.platforms || [])[0]}</P>
           <div style={{display:"grid",gridTemplateColumns:mob?"1fr 1fr":`repeat(${Math.min(B.platforms.length,4)},1fr)`,gap:10,marginBottom:16}}>
             {B.platforms.map((p,i)=>{const pSlug=getPlatformSlugByName(p);const inner=<><div style={{display:"flex",justifyContent:"center",marginBottom:8}}><PlatformLogo slug={pSlug} name={p} size={44} shape="icon" /></div><div style={{fontWeight:600,fontSize:14}}>{p}</div></>;return pSlug?<Link key={i} to={lp(`/platform/${pSlug}`)} style={{background:"#fff",border:"1px solid #e8ecf1",borderRadius:10,padding:"16px",textAlign:"center",textDecoration:"none",color:"#111827",transition:"border-color 0.2s"}} onMouseEnter={e=>{e.currentTarget.style.borderColor="#059669"}} onMouseLeave={e=>{e.currentTarget.style.borderColor="#e8ecf1"}}>{inner}</Link>:<div key={i} style={{background:"#fff",border:"1px solid #e8ecf1",borderRadius:10,padding:"16px",textAlign:"center"}}>{inner}</div>;})}
@@ -410,7 +464,7 @@ export default function BrokerReview() {
             </div>
           </Card>
           <a href={getTrustpilotUrl(slug)} target="_blank" rel="noopener noreferrer" style={{display:"inline-flex",alignItems:"center",gap:6,fontSize:14,fontWeight:600,color:"#00B67A",textDecoration:"none",marginBottom:12}}>
-            {t("review.readOnTrustpilot") || `Read ${B.name} reviews on Trustpilot`}
+            {t("review.readOnTrustpilot", {name: B.name})}
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="#00B67A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
           </a>
           <P>{content.trustpilot}</P>
@@ -444,8 +498,9 @@ export default function BrokerReview() {
 
           {/* ALTERNATIVES */}
           <H2 id="alternatives">{t("review.alternativesTitle", { name: B.name })}</H2>
+          <Link to={lp(`/review/${slug}/alternatives`)} style={{display:"flex",alignItems:"center",gap:12,padding:"12px 16px",background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,textDecoration:"none",marginBottom:14,boxShadow:"0 1px 3px rgba(0,0,0,0.04)"}} onMouseEnter={e=>{e.currentTarget.style.borderColor="#059669";e.currentTarget.style.boxShadow="0 2px 8px rgba(5,150,105,0.12)"}} onMouseLeave={e=>{e.currentTarget.style.borderColor="#e2e8f0";e.currentTarget.style.boxShadow="0 1px 3px rgba(0,0,0,0.04)"}}><div style={{width:36,height:36,borderRadius:8,background:"#ecfdf5",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}><BookOpen size={16} color="#059669" /></div><div style={{flex:1}}><div style={{fontSize:10,fontWeight:700,color:"#059669",textTransform:"uppercase",letterSpacing:"0.06em",marginBottom:1}}>Deep Dive</div><div style={{fontSize:14,fontWeight:700,color:"#0f172a"}}>{B.name} Alternatives</div></div><ArrowRight size={16} color="#059669" style={{flexShrink:0}} /></Link>
           <P>{t("review.alternativesDesc", { name: B.name })}</P>
-          {SIMILAR.map((b,i)=>{const altData=getBrokerData(b.slug);const altUrl=apiBase?`${apiBase}/go/${b.slug}`:(altData?.B?.url||`https://ratedbrokers.com/go/${b.slug}`);return <Card key={i} style={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+          {SIMILAR.map((b,i)=>{const altData=getBrokerData(b.slug);const altUrl=getVisitUrl(b.slug,altData?.B?.url);return <Card key={i} style={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
             <div>
               <Link to={lp(`/review/${b.slug}`)} style={{fontWeight:700,fontSize:16,color:"inherit",textDecoration:"none"}}
                 onMouseEnter={e=>e.currentTarget.style.textDecoration="underline"}
@@ -494,7 +549,7 @@ export default function BrokerReview() {
             </Card>
             <Card style={{padding:"16px"}}>
               <div style={{fontFamily:"Outfit",fontWeight:700,fontSize:13,marginBottom:10}}>{t("review.alternatives")}</div>
-              {SIMILAR.map((b,i)=>{const altData=getBrokerData(b.slug);const altUrl=apiBase?`${apiBase}/go/${b.slug}`:(altData?.B?.url||`https://ratedbrokers.com/go/${b.slug}`);return <div key={i} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"8px 0",borderBottom:i<2?"1px solid #f0f4f8":"none"}}>
+              {SIMILAR.map((b,i)=>{const altData=getBrokerData(b.slug);const altUrl=getVisitUrl(b.slug,altData?.B?.url);return <div key={i} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"8px 0",borderBottom:i<2?"1px solid #f0f4f8":"none"}}>
                 <div><Link to={lp(`/review/${b.slug}`)} style={{fontWeight:600,fontSize:14,color:"inherit",textDecoration:"none"}}>{b.name}</Link><div style={{fontSize:12,color:"#64748b"}}>{b.type}</div></div>
                 <div style={{display:"flex",alignItems:"center",gap:6}}>
                   <a href={altUrl} target="_blank" rel="noopener nofollow sponsored" style={{fontSize:12,color:"#059669",fontWeight:600,textDecoration:"none"}}>Visit {"\u2197"}</a>
@@ -504,9 +559,9 @@ export default function BrokerReview() {
             </Card>
             <Card style={{padding:"16px",background:"#ecfdf5",border:"1px solid #a7f3d0"}}>
               <div style={{fontSize:12,fontWeight:700,color:"#059669",textTransform:"uppercase",letterSpacing:"0.06em",marginBottom:10}}>Deep Dive</div>
-              {[{id:"fees",label:"Fees & Spreads",Icon:BarChart3},{id:"min-deposit",label:"Minimum Deposit",Icon:Wallet},{id:"platforms",label:"Platforms",Icon:MonitorSmartphone},{id:"regulation",label:"Regulation",Icon:Shield},{id:"deposit",label:"Deposit & Withdrawal",Icon:ArrowUpDown},{id:"beginners",label:"For Beginners",Icon:BookOpen},{id:"alternatives",label:"Alternatives",Icon:Users},{id:"account",label:"Account Opening",Icon:UserCheck}].map((t,i)=>(
-                <Link key={i} to={lp(`/review/${slug}/${t.id}`)} style={{display:"flex",alignItems:"center",gap:8,padding:"7px 8px",borderRadius:6,textDecoration:"none",color:"#0f172a",fontSize:12,fontWeight:500,marginBottom:2}} onMouseEnter={e=>{e.currentTarget.style.background="#059669";e.currentTarget.style.color="#fff"}} onMouseLeave={e=>{e.currentTarget.style.background="transparent";e.currentTarget.style.color="#0f172a"}}>
-                  <t.Icon size={13} color="#059669" />{t.label}
+              {DEEP_DIVE_TABS.map((dd,i)=>(
+                <Link key={i} to={lp(`/review/${slug}/${dd.id}`)} style={{display:"flex",alignItems:"center",gap:8,padding:"7px 8px",borderRadius:6,textDecoration:"none",color:"#0f172a",fontSize:12,fontWeight:500,marginBottom:2}} onMouseEnter={e=>{e.currentTarget.style.background="#059669";e.currentTarget.style.color="#fff"}} onMouseLeave={e=>{e.currentTarget.style.background="transparent";e.currentTarget.style.color="#0f172a"}}>
+                  <dd.Icon size={13} color="#059669" />{dd.label}
                 </Link>
               ))}
             </Card>

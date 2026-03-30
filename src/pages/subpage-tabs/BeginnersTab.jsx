@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ExternalLink } from "lucide-react";
 import { QuickAnswerBox, ProsCons, CTAInline, FaqSection, VerdictBox, H2, P, Card } from "../../components/subpage";
+import { getVisitUrl } from "../../utils/visitUrl";
 import BrokerLogo from "../../components/BrokerLogo";
 
 const NAVY = "#0f172a";
@@ -66,7 +67,7 @@ export default function BeginnersTab({ data, slug, mob }) {
                 <div style={{ fontSize: 16, fontWeight: 700, color: NAVY, marginTop: 8 }}>{alt.name}</div>
                 <div style={{ fontSize: 12, color: GREEN, fontWeight: 600, marginBottom: 8 }}>Score: {alt.score}/10</div>
                 <div style={{ fontSize: 13, color: GRAY_TEXT, lineHeight: 1.5, marginBottom: 12 }}>{alt.why}</div>
-                <a href={`${import.meta.env.VITE_API_URL || ''}/go/${alt.slug}`} target="_blank" rel="nofollow sponsored" className="cta-primary" style={{ display: "inline-flex", alignItems: "center", gap: 6, background: `linear-gradient(135deg, ${ORANGE}, #fbbf24)`, color: NAVY, fontSize: 13, fontWeight: 700, textDecoration: "none", padding: "10px 20px", borderRadius: 8 }}>Visit {alt.name} <ExternalLink size={12} /></a>
+                <a href={getVisitUrl(alt.slug)} target="_blank" rel="nofollow sponsored" className="cta-primary" style={{ display: "inline-flex", alignItems: "center", gap: 6, background: `linear-gradient(135deg, ${ORANGE}, #fbbf24)`, color: NAVY, fontSize: 13, fontWeight: 700, textDecoration: "none", padding: "10px 20px", borderRadius: 8 }}>Visit {alt.name} <ExternalLink size={12} /></a>
               </Card>
             ))}
           </div>
