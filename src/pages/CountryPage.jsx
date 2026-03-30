@@ -353,7 +353,7 @@ export default function CountryPage() {
                   <div>
                     {/* Row 1: Logo + Name + Score */}
                     <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 10 }}>
-                      <a href={b.url} target="_blank" rel="noopener noreferrer nofollow" style={{ position: "relative", flexShrink: 0, display: "block" }}>
+                      <a href={getVisitUrl(b.slug, b.url)} target="_blank" rel="noopener nofollow sponsored" style={{ position: "relative", flexShrink: 0, display: "block" }}>
                         <BrokerLogo slug={b.slug} name={b.name} fallback={b.logo} size={52} shape="brand" />
                         <div style={{
                           position: "absolute", top: -5, left: -5,
@@ -419,7 +419,7 @@ export default function CountryPage() {
                     </div>
 
                     {/* CTA */}
-                    <a href={b.url} target="_blank" rel="noopener noreferrer nofollow" style={{
+                    <a href={getVisitUrl(b.slug, b.url)} target="_blank" rel="noopener nofollow sponsored" style={{
                       display: "block", padding: "12px 0", borderRadius: 10, textAlign: "center",
                       background: "linear-gradient(135deg,#059669,#34d399)",
                       color: "#fff", fontWeight: 700, fontSize: 16,
@@ -454,7 +454,7 @@ export default function CountryPage() {
                       gap: tab ? 14 : 20, alignItems: "center",
                     }}>
                       {/* Logo */}
-                      <a href={b.url} target="_blank" rel="noopener noreferrer nofollow" style={{ position: "relative", flexShrink: 0, display: "block" }}>
+                      <a href={getVisitUrl(b.slug, b.url)} target="_blank" rel="noopener nofollow sponsored" style={{ position: "relative", flexShrink: 0, display: "block" }}>
                         <BrokerLogo slug={b.slug} name={b.name} fallback={b.logo} size={52} shape="brand" />
                         <div style={{
                           position: "absolute", top: -6, left: -6,
@@ -501,7 +501,7 @@ export default function CountryPage() {
                       {/* CTA (desktop only) */}
                       {!tab && (
                         <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-                          <a href={b.url} target="_blank" rel="noopener noreferrer nofollow" style={{
+                          <a href={getVisitUrl(b.slug, b.url)} target="_blank" rel="noopener nofollow sponsored" style={{
                             display: "block", padding: "11px 0", borderRadius: 10, textAlign: "center",
                             background: "linear-gradient(135deg,#059669,#34d399)",
                             color: "#fff", fontWeight: 700, fontSize: 15, textDecoration: "none",
@@ -517,7 +517,7 @@ export default function CountryPage() {
                     {/* Tablet CTA row */}
                     {tab && (
                       <div style={{ display: "flex", gap: 8, marginTop: 14 }}>
-                        <a href={b.url} target="_blank" rel="noopener noreferrer nofollow" style={{
+                        <a href={getVisitUrl(b.slug, b.url)} target="_blank" rel="noopener nofollow sponsored" style={{
                           flex: 2, padding: "10px 0", borderRadius: 10, textAlign: "center",
                           background: "linear-gradient(135deg,#059669,#34d399)",
                           color: "#fff", fontWeight: 700, fontSize: 15, textDecoration: "none",
@@ -584,7 +584,7 @@ export default function CountryPage() {
                         fontSize: 15, fontWeight: 600, color: "#92400e",
                       }}>{"\uD83C\uDF81"} {b.promo}</div>
                     )}
-                    <a href={b.url} target="_blank" rel="noopener noreferrer nofollow" style={{
+                    <a href={getVisitUrl(b.slug, b.url)} target="_blank" rel="noopener nofollow sponsored" style={{
                       display: "inline-flex", alignItems: "center", gap: 4,
                       marginTop: 12, fontSize: 15, fontWeight: 600, color: "#059669", textDecoration: "none",
                     }}>Visit {b.name} Official Website <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="#059669" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></a>
@@ -618,7 +618,7 @@ export default function CountryPage() {
                 }}>
                   {/* Header: logo + name + score + badge */}
                   <div style={{ display: "flex", alignItems: mob ? "flex-start" : "center", gap: mob ? 12 : 16, marginBottom: 16, flexWrap: "wrap" }}>
-                    <a href={b.url} target="_blank" rel="noopener noreferrer nofollow" style={{ flexShrink: 0, display: "block" }}>
+                    <a href={getVisitUrl(b.slug, b.url)} target="_blank" rel="noopener nofollow sponsored" style={{ flexShrink: 0, display: "block" }}>
                       <BrokerLogo slug={b.slug} name={b.name} fallback={b.logo} size={mob ? 52 : 60} shape="brand" />
                     </a>
                     <div style={{ flex: 1, minWidth: 0 }}>
@@ -672,7 +672,7 @@ export default function CountryPage() {
 
                   {/* CTA buttons */}
                   <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-                    <a href={b.url} target="_blank" rel="noopener noreferrer nofollow" style={{
+                    <a href={getVisitUrl(b.slug, b.url)} target="_blank" rel="noopener nofollow sponsored" style={{
                       display: "inline-flex", alignItems: "center", gap: 6,
                       padding: mob ? "10px 18px" : "10px 22px", borderRadius: 10,
                       background: "linear-gradient(135deg,#059669,#34d399)",
@@ -911,7 +911,7 @@ export default function CountryPage() {
           <p style={{ fontSize: mob ? 14 : 16, color: "rgba(255,255,255,0.8)", marginBottom: 24, maxWidth: 440, marginLeft: "auto", marginRight: "auto" }}>
             All brokers independently researched and expert-scored. {COUNTRY.compensation ? COUNTRY.compensation + "." : ""}
           </p>
-          <a href={BROKERS[0]?.url} target="_blank" rel="noopener noreferrer nofollow" style={{
+          <a href={getVisitUrl(BROKERS[0]?.slug, BROKERS[0]?.url)} target="_blank" rel="noopener nofollow sponsored" style={{
             display: "inline-block", padding: mob ? "12px 28px" : "14px 36px", borderRadius: 12,
             background: "linear-gradient(135deg,#059669,#34d399)",
             color: "#fff", fontWeight: 700, fontSize: mob ? 15 : 16, textDecoration: "none",

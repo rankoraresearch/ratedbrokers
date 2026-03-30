@@ -355,6 +355,63 @@ Hero (dark) → контент → dark CTA → контент → dark scoring 
 - Sticky tabs, sticky CTA bar, breadcrumbs — всё работает
 - `npm run build` — без ошибок
 
+### `dfe8483` fix: replace sub-page banner with ← Review tab in sticky tab bar
+- **Удалён баннер** "Full Review / {name} Review 2026" — занимал место между табами и контентом
+- **Удалена pill-кнопка** "← Back to Full Review" рядом с breadcrumb
+- **Добавлен таб "← Review"** как первый элемент в sticky tab bar (SubPageTabs.jsx)
+  - ArrowLeft иконка + "Review", borderRight разделитель от обычных табов
+  - Ведёт на `/review/{slug}`, никогда не active
+  - Hover: navy текст + light bg (как остальные табы)
+- Breadcrumb остался (в нём кликабельная ссылка "{B.name} Review")
+- Неиспользуемый импорт `FileText` удалён из SubPageLayout
+
+---
+
+## Admin Panel Sprint — Affiliate Links + Click Dashboard (31 марта 2026)
+
+### Фаза 1: CRUD API для брокеров
+- **Новый файл `backend/src/routes/admin.js`** — полная админ-панель:
+  - GET/PUT/POST/DELETE `/api/admin/brokers` — CRUD для affiliate-ссылок
+  - GET `/api/admin/dashboard` — HTML-интерфейс для управления ссылками
+  - Поиск, фильтры (All/Active/Placeholder), сортировка по колонкам
+  - Inline-редактирование: Test/Copy/Edit кнопки, Enter/Escape keybinds
+  - Bulk Paste: авто-парсинг `slug|url`, preview перед применением
+  - Toast-уведомления об успехе/ошибке
+  - Таблица `broker_changes` — аудит лог всех изменений
+
+### Фаза 2: Click Dashboard (переписан)
+- **`backend/src/routes/stats.js`** — полная переработка:
+  - Period selector: 7d / 30d / 90d
+  - Имена брокеров вместо slug'ов
+  - Горизонтальная bar chart (Chart.js) — топ брокеров по кликам
+  - Inline progress bars в таблице
+  - Doughnut chart — распределение по странам
+  - Clean referrer domains (без протоколов и www)
+  - Live Feed — последние 20 кликов в реальном времени
+
+### Фаза 3: Shared Admin Header
+- **Новый файл `backend/src/utils/adminLayout.js`** — shared layout:
+  - Sticky topbar с лого "Rated.Admin"
+  - Навигация: Click Dashboard ↔ Affiliate Links (с active indicator)
+  - Language switcher с флагами (English, расширяемый)
+  - Responsive (mobile: compact header, скрытый lang label)
+
+### Фаза 4: Починка 21 незатрекаемой ссылки
+- **5 файлов исправлены** — все CTA теперь через `/go/{slug}`:
+  - `BrokerComparison.jsx` — 8 ссылок
+  - `CountryPage.jsx` — 9 ссылок
+  - `ForexBrokersPage.jsx` — 1 ссылка
+  - `RegulatorPage.jsx` — 1 ссылка
+  - `CryptoBrokersPage.jsx` — 1 ссылка
+- `rel` атрибуты: `noopener noreferrer nofollow` → `noopener nofollow sponsored` (SEO)
+
+### Инфраструктура
+- `backend/schema.sql` — таблица `broker_changes` (audit log)
+- `backend/src/utils/cors.js` — добавлены PUT, DELETE в Allow-Methods
+- `backend/src/index.js` — 5 новых маршрутов `/api/admin/*`
+- D1 миграция применена на production
+- Worker задеплоен, всё работает
+
 ---
 
 ## Что дальше
@@ -363,6 +420,7 @@ Hero (dark) → контент → dark CTA → контент → dark scoring 
 - [x] Миграция на Cloudflare Pages + домен ratedbrokers.com
 - [x] M3 — Идеальный шаблон рейтинга
 - [x] Sub-Pages инфраструктура (304 страницы)
+- [x] Admin Panel — affiliate links + click dashboard
 - [ ] Sub-Pages: IC Markets пилотный YAML-контент (8 табов)
 - [ ] Sub-Pages: контент для остальных 37 брокеров
 - [ ] Навигация: якоря на review vs sub-page табы (UX гармонизация)

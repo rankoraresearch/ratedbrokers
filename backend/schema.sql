@@ -17,6 +17,16 @@ CREATE TABLE IF NOT EXISTS clicks (
 CREATE INDEX IF NOT EXISTS idx_clicks_broker ON clicks(broker_slug);
 CREATE INDEX IF NOT EXISTS idx_clicks_date ON clicks(created_at);
 
+-- Broker changes audit log
+CREATE TABLE IF NOT EXISTS broker_changes (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  broker_slug TEXT NOT NULL,
+  field TEXT NOT NULL,
+  old_value TEXT,
+  new_value TEXT NOT NULL,
+  changed_at TEXT DEFAULT (datetime('now'))
+);
+
 -- Contact form submissions
 CREATE TABLE IF NOT EXISTS contacts (
   id INTEGER PRIMARY KEY AUTOINCREMENT,

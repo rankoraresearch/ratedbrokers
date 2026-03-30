@@ -1,5 +1,6 @@
 const ALLOWED_ORIGINS = [
-  'https://rankoraresearch.github.io',
+  'https://ratedbrokers.com',
+  'https://www.ratedbrokers.com',
 ];
 
 function isAllowedOrigin(origin) {
@@ -14,7 +15,7 @@ export function corsHeaders(request) {
 
   return {
     'Access-Control-Allow-Origin': isAllowed ? origin : ALLOWED_ORIGINS[0],
-    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type, X-API-Key',
   };
 }

@@ -1,6 +1,7 @@
 import { handleRedirect } from './routes/redirect.js';
 import { handleStats, handleDashboard } from './routes/stats.js';
 import { handleContact } from './routes/contact.js';
+import { handleAdminList, handleAdminUpdate, handleAdminCreate, handleAdminDelete, handleAdminDashboard } from './routes/admin.js';
 import { handleOptions } from './utils/cors.js';
 
 export default {
@@ -35,6 +36,32 @@ export default {
     // POST /api/contact — contact form
     if (path === '/api/contact' && request.method === 'POST') {
       return handleContact(request, env);
+    }
+
+    // GET /api/admin/dashboard — HTML admin panel
+    if (path === '/api/admin/dashboard' && request.method === 'GET') {
+      return handleAdminDashboard(request, env);
+    }
+
+    // GET /api/admin/brokers — list all brokers
+    if (path === '/api/admin/brokers' && request.method === 'GET') {
+      return handleAdminList(request, env);
+    }
+
+    // POST /api/admin/brokers — create broker
+    if (path === '/api/admin/brokers' && request.method === 'POST') {
+      return handleAdminCreate(request, env);
+    }
+
+    // PUT /api/admin/brokers/:slug — update broker
+    const adminUpdateMatch = path.match(/^\/api\/admin\/brokers\/([a-z0-9-]+)$/);
+    if (adminUpdateMatch && request.method === 'PUT') {
+      return handleAdminUpdate(request, env, adminUpdateMatch[1]);
+    }
+
+    // DELETE /api/admin/brokers/:slug — delete broker
+    if (adminUpdateMatch && request.method === 'DELETE') {
+      return handleAdminDelete(request, env, adminUpdateMatch[1]);
     }
 
     // 404

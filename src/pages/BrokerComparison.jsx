@@ -14,6 +14,7 @@ import TrustpilotLogo from "../components/TrustpilotLogo";
 import Breadcrumb from "../components/Breadcrumb";
 import Icon, { ArrowRight, Check, ChevronDown } from "../components/Icon";
 import { Trophy, Handshake } from "lucide-react";
+import { getVisitUrl } from "../utils/visitUrl";
 
 const CATEGORY_ICONS = {
   "Regulation & Safety": "shield",
@@ -308,7 +309,7 @@ export default function BrokerComparison() {
             <div style={{ display: "flex", gap: 4, justifyContent: "center", flexWrap: "wrap", marginBottom: 16 }}>
               {A.regs.map(r => <RegBadge key={r.name} reg={r.name} />)}
             </div>
-            <a href={A.url} target="_blank" rel="noopener noreferrer nofollow" style={{
+            <a href={getVisitUrl(slugA, A.url)} target="_blank" rel="noopener nofollow sponsored" style={{
               display: "inline-block", padding: "12px 32px", borderRadius: 10,
               background: "linear-gradient(135deg,#059669,#34d399)",
               color: "#fff", fontWeight: 800, fontSize: 16, textDecoration: "none",
@@ -338,7 +339,7 @@ export default function BrokerComparison() {
             <div style={{ display: "flex", gap: 4, justifyContent: "center", flexWrap: "wrap", marginBottom: 16 }}>
               {B.regs.map(r => <RegBadge key={r.name} reg={r.name} />)}
             </div>
-            <a href={B.url} target="_blank" rel="noopener noreferrer nofollow" style={{
+            <a href={getVisitUrl(slugB, B.url)} target="_blank" rel="noopener nofollow sponsored" style={{
               display: "inline-block", padding: "12px 32px", borderRadius: 10,
               background: "linear-gradient(135deg,#2563eb,#60a5fa)",
               color: "#fff", fontWeight: 800, fontSize: 16, textDecoration: "none",
@@ -406,11 +407,11 @@ export default function BrokerComparison() {
             <div style={{ fontSize: 16, opacity: 0.9 }}>Both brokers offer demo accounts — test risk-free.</div>
           </div>
           <div style={{ display: "flex", gap: 12 }}>
-            <a href={A.url} target="_blank" rel="noopener noreferrer nofollow" style={{
+            <a href={getVisitUrl(slugA, A.url)} target="_blank" rel="noopener nofollow sponsored" style={{
               padding: "10px 24px", borderRadius: 8, background: "#fff", color: "#059669",
               fontWeight: 800, fontSize: 16, textDecoration: "none", whiteSpace: "nowrap",
             }}><span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>{A.name} <ArrowRight size={15} /></span></a>
-            <a href={B.url} target="_blank" rel="noopener noreferrer nofollow" style={{
+            <a href={getVisitUrl(slugB, B.url)} target="_blank" rel="noopener nofollow sponsored" style={{
               padding: "10px 24px", borderRadius: 8, background: "rgba(255,255,255,0.2)", color: "#fff",
               fontWeight: 800, fontSize: 16, textDecoration: "none", border: "1px solid rgba(255,255,255,0.4)", whiteSpace: "nowrap",
             }}><span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>{B.name} <ArrowRight size={15} /></span></a>
@@ -734,12 +735,12 @@ export default function BrokerComparison() {
           <div style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 24 : 28, color: "#fff", marginBottom: 8 }}>{t("comp.ctaTitle")}</div>
           <div style={{ fontSize: mob ? 15 : 16, color: "#64748b", marginBottom: 24 }}>{t("comp.ctaDesc")}</div>
           <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-            <a href={A.url} target="_blank" rel="noopener noreferrer nofollow" style={{
+            <a href={getVisitUrl(slugA, A.url)} target="_blank" rel="noopener nofollow sponsored" style={{
               padding: mob ? "12px 24px" : "14px 32px", borderRadius: 10,
               background: "linear-gradient(135deg,#059669,#34d399)",
               color: "#fff", fontWeight: 800, fontSize: mob ? 15 : 16, textDecoration: "none",
             }}><span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>{t("review.visit", { name: A.name })} <ArrowRight size={16} /></span></a>
-            <a href={B.url} target="_blank" rel="noopener noreferrer nofollow" style={{
+            <a href={getVisitUrl(slugB, B.url)} target="_blank" rel="noopener nofollow sponsored" style={{
               padding: mob ? "12px 24px" : "14px 32px", borderRadius: 10,
               background: "linear-gradient(135deg,#2563eb,#60a5fa)",
               color: "#fff", fontWeight: 800, fontSize: mob ? 15 : 16, textDecoration: "none",
@@ -778,7 +779,7 @@ export default function BrokerComparison() {
                 color: "#34d399",
               }}>{A.score}/10</div>
             </div>
-            <a href={A.url} target="_blank" rel="noopener noreferrer nofollow" style={{
+            <a href={getVisitUrl(slugA, A.url)} target="_blank" rel="noopener nofollow sponsored" style={{
               padding: mob ? "8px 12px" : "9px 20px", borderRadius: 8,
               background: "linear-gradient(135deg,#059669,#34d399)",
               color: "#fff", fontWeight: 800, fontSize: mob ? 12 : 14,
@@ -816,7 +817,7 @@ export default function BrokerComparison() {
                 color: "#60a5fa",
               }}>{B.score}/10</div>
             </div>
-            <a href={B.url} target="_blank" rel="noopener noreferrer nofollow" style={{
+            <a href={getVisitUrl(slugB, B.url)} target="_blank" rel="noopener nofollow sponsored" style={{
               padding: mob ? "8px 12px" : "9px 20px", borderRadius: 8,
               background: "linear-gradient(135deg,#2563eb,#60a5fa)",
               color: "#fff", fontWeight: 800, fontSize: mob ? 12 : 14,

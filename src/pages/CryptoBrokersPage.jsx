@@ -13,6 +13,7 @@ import AuthorCredits from "../components/AuthorCredits";
 import AuthorBioCard from "../components/AuthorBioCard";
 import Breadcrumb from "../components/Breadcrumb";
 import HeroWave from "../components/HeroWave";
+import { getVisitUrl } from "../utils/visitUrl";
 
 export default function CryptoBrokersPage() {
   const { mob, tab } = useMedia();
@@ -228,7 +229,7 @@ export default function CryptoBrokersPage() {
                 <div>Leverage: <strong>{b.B.leverage}</strong></div>
                 <div>Platforms: <strong>{b.B.platforms.length}</strong></div>
               </div>
-              <a href={b.B.url} target="_blank" rel="noopener noreferrer nofollow" style={{
+              <a href={getVisitUrl(b.slug, b.B.url)} target="_blank" rel="noopener nofollow sponsored" style={{
                 display: "block", padding: "12px", borderRadius: 10, textAlign: "center",
                 background: "linear-gradient(135deg,#059669,#34d399)",
                 color: "#fff", fontWeight: 700, fontSize: 15, textDecoration: "none",
