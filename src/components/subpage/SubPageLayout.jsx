@@ -10,7 +10,7 @@ import AuthorBioCard from "../AuthorBioCard";
 import { getAuthorByName, getFactChecker, getReviewerForAuthor, getEditor } from "../../data/authors";
 import SubPageTabs, { TABS, TAB_META } from "./SubPageTabs";
 import { Card } from "./Typography";
-import { ArrowRight, ExternalLink, Zap, Award, FileText } from "lucide-react";
+import { ArrowRight, ExternalLink, Zap, Award } from "lucide-react";
 import { getVisitUrl } from "../../utils/visitUrl";
 
 const NAVY = "#0f172a";
@@ -82,26 +82,14 @@ export default function SubPageLayout({ data, slug, activeTab, children }) {
 
   return (
     <div style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb", minHeight: "100vh", color: "#111827" }}>
-      {/* Breadcrumbs + Back link */}
-      <div style={{ ...cn, padding: mob ? "10px 16px" : "14px 24px", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 8 }}>
+      {/* Breadcrumbs */}
+      <div style={{ ...cn, padding: mob ? "10px 16px" : "14px 24px" }}>
         <Breadcrumb items={[
           { label: "Home", path: "/" },
           { label: "Reviews", path: "/reviews" },
           { label: `${B.name} Review`, path: `/review/${slug}` },
           { label: meta.breadcrumb || activeTab },
         ]} />
-        <Link to={`/review/${slug}`} style={{
-          display: "inline-flex", alignItems: "center", gap: 5,
-          fontSize: 12, fontWeight: 600, color: GREEN,
-          textDecoration: "none", padding: "5px 12px",
-          borderRadius: 6, border: `1px solid ${GREEN_BORDER}`,
-          background: GREEN_LIGHT, whiteSpace: "nowrap",
-        }}
-          onMouseEnter={e => { e.currentTarget.style.background = GREEN; e.currentTarget.style.color = "#fff"; e.currentTarget.style.borderColor = GREEN; }}
-          onMouseLeave={e => { e.currentTarget.style.background = GREEN_LIGHT; e.currentTarget.style.color = GREEN; e.currentTarget.style.borderColor = GREEN_BORDER; }}
-        >
-          <ArrowRight size={11} style={{ transform: "rotate(180deg)" }} /> Back to Full Review
-        </Link>
       </div>
 
       {/* Hero Band */}
@@ -151,18 +139,6 @@ export default function SubPageLayout({ data, slug, activeTab, children }) {
 
       {/* Tab Navigation */}
       <SubPageTabs activeTab={activeTab} slug={slug} mob={mob} />
-
-      {/* Back to Full Review Banner */}
-      <div style={{...cn, paddingTop: mob ? 12 : 16, paddingBottom: 0}}>
-        <Link to={`/review/${slug}`} style={{display:"flex",alignItems:"center",gap:12,padding: mob ? "12px 14px" : "14px 18px",background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,textDecoration:"none",boxShadow:"0 1px 3px rgba(0,0,0,0.04)"}} onMouseEnter={e=>{e.currentTarget.style.borderColor=GREEN;e.currentTarget.style.boxShadow="0 2px 8px rgba(5,150,105,0.12)"}} onMouseLeave={e=>{e.currentTarget.style.borderColor="#e2e8f0";e.currentTarget.style.boxShadow="0 1px 3px rgba(0,0,0,0.04)"}}>
-          <div style={{width:36,height:36,borderRadius:8,background:GREEN_LIGHT,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}><FileText size={16} color={GREEN} /></div>
-          <div style={{flex:1}}>
-            <div style={{fontSize:10,fontWeight:700,color:GREEN,textTransform:"uppercase",letterSpacing:"0.06em",marginBottom:1}}>Full Review</div>
-            <div style={{fontSize: mob ? 13 : 14,fontWeight:700,color:NAVY}}>{B.name} Review 2026</div>
-          </div>
-          <ArrowRight size={16} color={GREEN} style={{flexShrink:0}} />
-        </Link>
-      </div>
 
       {/* Main Content */}
       <div style={{ ...cn, display: "flex", flexDirection: mob ? "column" : "row", gap: mob ? 16 : 24, paddingTop: mob ? 20 : 28, paddingBottom: mob ? 40 : 64 }}>

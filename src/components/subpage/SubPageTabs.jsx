@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { BarChart3, Wallet, MonitorSmartphone, Shield, ArrowUpDown, BookOpen, Users, UserCheck } from "lucide-react";
+import { BarChart3, Wallet, MonitorSmartphone, Shield, ArrowUpDown, BookOpen, Users, UserCheck, ArrowLeft } from "lucide-react";
 
 const NAVY = "#0f172a";
 const GREEN = "#059669";
@@ -35,6 +35,25 @@ export default function SubPageTabs({ activeTab, slug, mob }) {
     <div style={{ background: "#fff", borderBottom: `1px solid ${BORDER}`, position: "sticky", top: 64, zIndex: 10 }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: 0, overflowX: "auto", WebkitOverflowScrolling: "touch", scrollbarWidth: "none", msOverflowStyle: "none", position: "relative" }}>
         <div style={{ display: "flex", gap: 0, minWidth: "max-content" }}>
+          <Link
+            to={`/review/${slug}`}
+            style={{
+              display: "flex", alignItems: "center", gap: 5,
+              padding: mob ? "12px 14px" : "14px 20px",
+              background: "transparent",
+              color: GRAY_MUTED,
+              border: "none", borderBottom: "3px solid transparent",
+              borderRight: `1px solid ${BORDER}`,
+              fontSize: mob ? 12 : 13, fontWeight: 700,
+              textDecoration: "none", whiteSpace: "nowrap",
+              transition: "all 0.2s ease",
+            }}
+            onMouseEnter={e => { e.currentTarget.style.color = NAVY; e.currentTarget.style.background = GRAY_LIGHT; }}
+            onMouseLeave={e => { e.currentTarget.style.color = GRAY_MUTED; e.currentTarget.style.background = "transparent"; }}
+          >
+            <ArrowLeft size={mob ? 13 : 14} />
+            Review
+          </Link>
           {TABS.map(t => {
             const active = t.id === activeTab;
             const TabIcon = t.icon;
