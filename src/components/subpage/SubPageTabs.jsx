@@ -14,11 +14,10 @@ export const TABS = [
   { id: "regulation", label: "Regulation", icon: Shield },
   { id: "deposit", label: "Deposit", icon: ArrowUpDown },
   { id: "beginners", label: "Beginners", icon: BookOpen },
-  { id: "alternatives", label: "Alternatives", icon: Users },
   { id: "account", label: "Account", icon: UserCheck },
 ];
 
-export const VALID_TABS = TABS.map(t => t.id);
+export const VALID_TABS = [...TABS.map(t => t.id), "alternatives"];
 
 export const TAB_META = {
   fees: { breadcrumb: "Fees & Spreads", h1Suffix: "Fees & Spreads" },

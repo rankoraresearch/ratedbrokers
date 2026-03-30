@@ -79,7 +79,6 @@ const SECTION_TO_TAB = {
   "regulation-&-safety": { tab: "regulation", label: "Regulation & Safety" },
   "deposit-&-withdrawal": { tab: "deposit", label: "Deposit & Withdrawal" },
   "platforms-&-tools": { tab: "platforms", label: "Trading Platforms" },
-  "alternatives": { tab: "alternatives", label: "Alternatives" },
 };
 
 function CTA({ B, visitUrl, label, sub, compact }) {
@@ -498,7 +497,6 @@ export default function BrokerReview() {
 
           {/* ALTERNATIVES */}
           <H2 id="alternatives">{t("review.alternativesTitle", { name: B.name })}</H2>
-          <Link to={lp(`/review/${slug}/alternatives`)} style={{display:"flex",alignItems:"center",gap:12,padding:"12px 16px",background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,textDecoration:"none",marginBottom:14,boxShadow:"0 1px 3px rgba(0,0,0,0.04)"}} onMouseEnter={e=>{e.currentTarget.style.borderColor="#059669";e.currentTarget.style.boxShadow="0 2px 8px rgba(5,150,105,0.12)"}} onMouseLeave={e=>{e.currentTarget.style.borderColor="#e2e8f0";e.currentTarget.style.boxShadow="0 1px 3px rgba(0,0,0,0.04)"}}><div style={{width:36,height:36,borderRadius:8,background:"#ecfdf5",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}><BookOpen size={16} color="#059669" /></div><div style={{flex:1}}><div style={{fontSize:10,fontWeight:700,color:"#059669",textTransform:"uppercase",letterSpacing:"0.06em",marginBottom:1}}>Deep Dive</div><div style={{fontSize:14,fontWeight:700,color:"#0f172a"}}>{B.name} Alternatives</div></div><ArrowRight size={16} color="#059669" style={{flexShrink:0}} /></Link>
           <P>{t("review.alternativesDesc", { name: B.name })}</P>
           {SIMILAR.map((b,i)=>{const altData=getBrokerData(b.slug);const altUrl=getVisitUrl(b.slug,altData?.B?.url);return <Card key={i} style={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
             <div>
