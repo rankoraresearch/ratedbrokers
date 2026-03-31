@@ -1,4 +1,4 @@
-name: Deploy to Cloudflare Pages
+name: Deploy to Cloudflare
 
 on:
   push:
@@ -9,7 +9,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  deploy:
+  deploy-frontend:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -21,9 +21,24 @@ jobs:
       - run: npm run brokers:build
       - run: npm run build
         env:
-          VITE_API_URL: https://ratedbrokers-api.ratedbrokers.workers.dev
+          VITE_API_URL: https://api.ratedbrokers.com
       - uses: cloudflare/wrangler-action@v3
         with:
           command: pages deploy dist --project-name=ratedbrokers
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+  deploy-backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: cd backend && npm ci
+      - uses: cloudflare/wrangler-action@v3
+        with:
+          command: deploy
+          workingDirectory: backend
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
