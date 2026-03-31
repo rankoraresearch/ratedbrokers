@@ -2,6 +2,7 @@
 slug: naga
 status: active
 last_verified: "2026-03-09"
+verticals: [forex, cfd, copy-trading, crypto]
 
 name: NAGA
 logo: NG

@@ -2,6 +2,7 @@
 slug: trading-212
 status: active
 last_verified: "2026-03-09"
+verticals: [forex, cfd, crypto]
 
 name: Trading 212
 logo: T2

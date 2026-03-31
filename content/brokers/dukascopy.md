@@ -2,6 +2,7 @@
 slug: dukascopy
 status: active
 last_verified: "2026-03-09"
+verticals: [forex, cfd]
 
 name: Dukascopy
 logo: DK

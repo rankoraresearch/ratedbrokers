@@ -102,6 +102,7 @@ function buildDataObject(fm, content) {
       promo: fm.promo,
       badge: fm.badge ?? null,
       riskWarning: fm.risk_warning,
+      verticals: fm.verticals || ["forex", "cfd"],
     },
     SCORES: (fm.scores || []).map((s) => ({
       name: s.name,

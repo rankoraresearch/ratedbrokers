@@ -2,6 +2,7 @@
 slug: pepperstone
 status: active
 last_verified: "2026-03-10"
+verticals: [forex, cfd, copy-trading, spread-betting, crypto]
 
 name: Pepperstone
 logo: PP

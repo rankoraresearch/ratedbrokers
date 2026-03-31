@@ -2,6 +2,7 @@
 slug: swissquote
 status: active
 last_verified: "2026-03-09"
+verticals: [forex, cfd, crypto]
 
 name: Swissquote
 logo: SQ

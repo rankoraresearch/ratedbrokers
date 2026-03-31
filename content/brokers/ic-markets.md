@@ -2,6 +2,7 @@
 slug: ic-markets
 status: active
 last_verified: "2026-03-10"
+verticals: [forex, cfd, copy-trading, crypto]
 
 name: IC Markets
 logo: IC

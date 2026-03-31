@@ -2,6 +2,7 @@
 slug: fxpro
 status: active
 last_verified: "2026-03-09"
+verticals: [forex, cfd, spread-betting, crypto]
 
 name: FxPro
 logo: FP

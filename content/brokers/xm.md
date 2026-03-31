@@ -2,6 +2,7 @@
 slug: xm
 status: active
 last_verified: "2026-03-10"
+verticals: [forex, cfd, crypto]
 
 name: XM
 logo: XM

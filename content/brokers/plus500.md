@@ -2,6 +2,7 @@
 slug: plus500
 status: active
 last_verified: "2026-03-09"
+verticals: [forex, cfd, spread-betting, crypto]
 
 name: Plus500
 logo: P5

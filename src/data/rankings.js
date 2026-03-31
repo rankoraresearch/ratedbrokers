@@ -1,7 +1,7 @@
 /**
  * Master list of all thematic broker rankings for RatedBrokers.com
  * Each entry = one landing page targeting a specific search query cluster.
- * Total: 200 pages (196 original + 4 new)
+ * Total: 253 pages (200 original + 53 M4 umbrella expansion)
  *
  * Fields:
  *   id        — unique identifier
@@ -294,6 +294,86 @@ const RANKINGS = [
   { id: "real-stocks",      slug: "/best-real-stock-brokers",          title: "Best Brokers for Real Stock Trading",    category: "assets", sub: "type",    priority: 2, icon: "chart-no-axes-combined" },
   { id: "multi-asset",      slug: "/best-multi-asset-brokers",         title: "Best Multi-Asset Brokers",               category: "assets", sub: "type",    priority: 2, icon: "layers" },
   { id: "no-kyc",           slug: "/no-kyc-forex-brokers",             title: "No KYC Forex Brokers",                   category: "forex",  sub: "accounts", priority: 3, icon: "user-x" },
+
+  // ═══════════════════════════════════════════════════════════════
+  // U. CFD BROKERS (7) — M4 Umbrella
+  // ═══════════════════════════════════════════════════════════════
+  { id: "cfd-beginners",       slug: "/best-cfd-brokers-for-beginners",       title: "Best CFD Brokers for Beginners",           category: "cfd", sub: "audience",  priority: 1, icon: "graduation-cap", vertical: "cfd" },
+  { id: "cfd-professionals",   slug: "/best-cfd-brokers-for-professionals",   title: "Best CFD Brokers for Professionals",        category: "cfd", sub: "audience",  priority: 2, icon: "briefcase",      vertical: "cfd" },
+  { id: "cfd-low-spread",      slug: "/lowest-spread-cfd-brokers",            title: "Lowest Spread CFD Brokers",                 category: "cfd", sub: "costs",     priority: 1, icon: "trending-down",  vertical: "cfd" },
+  { id: "cfd-low-cost",        slug: "/best-low-cost-cfd-brokers",            title: "Best Low Cost CFD Brokers",                 category: "cfd", sub: "costs",     priority: 2, icon: "piggy-bank",     vertical: "cfd" },
+  { id: "cfd-uk",              slug: "/best-cfd-brokers-uk",                  title: "Best CFD Brokers UK",                       category: "cfd", sub: "country",   priority: 1, icon: "globe",          vertical: "cfd" },
+  { id: "cfd-australia",       slug: "/best-cfd-brokers-australia",           title: "Best CFD Brokers Australia",                category: "cfd", sub: "country",   priority: 2, icon: "globe",          vertical: "cfd" },
+  { id: "cfd-charting",        slug: "/best-cfd-brokers-charting",            title: "Best CFD Brokers with Charting Tools",      category: "cfd", sub: "platform",  priority: 3, icon: "bar-chart-3",    vertical: "cfd" },
+
+  // ═══════════════════════════════════════════════════════════════
+  // V. COPY TRADING (8) — M4 Umbrella
+  // ═══════════════════════════════════════════════════════════════
+  { id: "ct-beginners",        slug: "/best-copy-trading-for-beginners",          title: "Best Copy Trading Platforms for Beginners",   category: "copy-trading", sub: "audience",  priority: 1, icon: "graduation-cap", vertical: "copy-trading" },
+  { id: "ct-apps",             slug: "/best-copy-trading-apps",                   title: "Best Copy Trading Apps",                      category: "copy-trading", sub: "platform",  priority: 1, icon: "smartphone",     vertical: "copy-trading" },
+  { id: "ct-forex",            slug: "/best-forex-copy-trading-platforms",        title: "Best Forex Copy Trading Platforms",            category: "copy-trading", sub: "asset",     priority: 2, icon: "trending-up",    vertical: "copy-trading" },
+  { id: "ct-stocks",           slug: "/best-stock-copy-trading-platforms",        title: "Best Stock Copy Trading Platforms",            category: "copy-trading", sub: "asset",     priority: 2, icon: "building-2",     vertical: "copy-trading" },
+  { id: "ct-free",             slug: "/best-free-copy-trading-platforms",         title: "Best Free Copy Trading Platforms",             category: "copy-trading", sub: "costs",     priority: 2, icon: "circle-check",   vertical: "copy-trading" },
+  { id: "ct-myfxbook",         slug: "/best-myfxbook-autotrade-brokers",         title: "Best Myfxbook AutoTrade Brokers",              category: "copy-trading", sub: "platform",  priority: 3, icon: "bar-chart-3",    vertical: "copy-trading" },
+  { id: "ct-uk",               slug: "/best-copy-trading-uk",                    title: "Best Copy Trading Platforms UK",               category: "copy-trading", sub: "country",   priority: 2, icon: "globe",          vertical: "copy-trading" },
+  { id: "ct-usa",              slug: "/best-copy-trading-usa",                   title: "Best Copy Trading Platforms USA",              category: "copy-trading", sub: "country",   priority: 2, icon: "globe",          vertical: "copy-trading" },
+
+  // ═══════════════════════════════════════════════════════════════
+  // W. SPREAD BETTING (8) — M4 Umbrella
+  // ═══════════════════════════════════════════════════════════════
+  { id: "sb-beginners",        slug: "/best-spread-betting-for-beginners",        title: "Best Spread Betting Platforms for Beginners",  category: "spread-betting", sub: "audience",  priority: 1, icon: "graduation-cap", vertical: "spread-betting" },
+  { id: "sb-apps",             slug: "/best-spread-betting-apps",                 title: "Best Spread Betting Apps",                     category: "spread-betting", sub: "platform",  priority: 1, icon: "smartphone",     vertical: "spread-betting" },
+  { id: "sb-day-trading",      slug: "/best-spread-betting-day-trading",          title: "Best Spread Betting for Day Trading",          category: "spread-betting", sub: "style",     priority: 2, icon: "sun",            vertical: "spread-betting" },
+  { id: "sb-scalping",         slug: "/best-spread-betting-scalping",             title: "Best Spread Betting for Scalping",             category: "spread-betting", sub: "style",     priority: 3, icon: "crosshair",      vertical: "spread-betting" },
+  { id: "sb-forex",            slug: "/best-forex-spread-betting",                title: "Best Forex Spread Betting Platforms",          category: "spread-betting", sub: "asset",     priority: 2, icon: "trending-up",    vertical: "spread-betting" },
+  { id: "sb-shares",           slug: "/best-shares-spread-betting",               title: "Best Shares Spread Betting Platforms",         category: "spread-betting", sub: "asset",     priority: 2, icon: "building-2",     vertical: "spread-betting" },
+  { id: "sb-indices",          slug: "/best-index-spread-betting",                title: "Best Index Spread Betting Platforms",          category: "spread-betting", sub: "asset",     priority: 3, icon: "bar-chart-3",    vertical: "spread-betting" },
+  { id: "sb-uk",               slug: "/best-spread-betting-uk",                   title: "Best Spread Betting Platforms UK",             category: "spread-betting", sub: "country",   priority: 1, icon: "globe",          vertical: "spread-betting" },
+
+  // ═══════════════════════════════════════════════════════════════
+  // X. CRYPTO EXPANSION (14) — M4 Umbrella
+  // ═══════════════════════════════════════════════════════════════
+  { id: "crypto-beginners",    slug: "/best-crypto-brokers-for-beginners",        title: "Best Crypto Brokers for Beginners",            category: "crypto", sub: "audience",  priority: 1, icon: "graduation-cap", vertical: "crypto" },
+  { id: "crypto-regulated",    slug: "/best-regulated-crypto-brokers",            title: "Best Regulated Crypto Brokers",                category: "crypto", sub: "trust",     priority: 1, icon: "shield-check",   vertical: "crypto" },
+  { id: "crypto-cardano",      slug: "/best-cardano-brokers",                     title: "Best Cardano (ADA) Brokers",                   category: "crypto", sub: "coins",     priority: 3, icon: "bitcoin",        vertical: "crypto" },
+  { id: "crypto-usdt",         slug: "/best-usdt-trading-platforms",              title: "Best USDT Trading Platforms",                  category: "crypto", sub: "coins",     priority: 2, icon: "bitcoin",        vertical: "crypto" },
+  { id: "crypto-btc-etf",      slug: "/best-bitcoin-etf-brokers",                title: "Best Bitcoin ETF Brokers",                     category: "crypto", sub: "coins",     priority: 1, icon: "bitcoin",        vertical: "crypto" },
+  { id: "crypto-margin",       slug: "/best-crypto-margin-trading",              title: "Best Crypto Margin Trading Platforms",         category: "crypto", sub: "feature",   priority: 2, icon: "scale",          vertical: "crypto" },
+  { id: "crypto-demo",         slug: "/best-crypto-demo-accounts",               title: "Best Crypto Demo Accounts",                    category: "crypto", sub: "feature",   priority: 3, icon: "test-tube",      vertical: "crypto" },
+  { id: "crypto-uk",           slug: "/best-crypto-brokers-uk",                  title: "Best Crypto Brokers UK",                       category: "crypto", sub: "country",   priority: 1, icon: "globe",          vertical: "crypto" },
+  { id: "crypto-usa",          slug: "/best-crypto-brokers-usa",                 title: "Best Crypto Brokers USA",                      category: "crypto", sub: "country",   priority: 1, icon: "globe",          vertical: "crypto" },
+  { id: "crypto-australia",    slug: "/best-crypto-brokers-australia",           title: "Best Crypto Brokers Australia",                category: "crypto", sub: "country",   priority: 2, icon: "globe",          vertical: "crypto" },
+  { id: "crypto-canada",       slug: "/best-crypto-brokers-canada",              title: "Best Crypto Brokers Canada",                   category: "crypto", sub: "country",   priority: 2, icon: "globe",          vertical: "crypto" },
+  { id: "crypto-germany",      slug: "/best-crypto-brokers-germany",             title: "Best Crypto Brokers Germany",                  category: "crypto", sub: "country",   priority: 3, icon: "globe",          vertical: "crypto" },
+  { id: "crypto-exchanges",    slug: "/best-crypto-exchanges",                   title: "Best Crypto Exchanges",                        category: "crypto", sub: "type",      priority: 1, icon: "repeat",         vertical: "crypto" },
+  { id: "crypto-wallets",      slug: "/best-crypto-wallets",                     title: "Best Crypto Wallets",                          category: "crypto", sub: "type",      priority: 2, icon: "wallet",         vertical: "crypto" },
+
+  // ═══════════════════════════════════════════════════════════════
+  // Y. FOREX GAPS (16) — M4 Umbrella
+  // ═══════════════════════════════════════════════════════════════
+  // Countries
+  { id: "geo-portugal",        slug: "/best-forex-brokers-portugal",              title: "Best Forex Brokers Portugal",                  category: "country", sub: "tier3", priority: 3, icon: "globe" },
+  { id: "geo-denmark",         slug: "/best-forex-brokers-denmark",               title: "Best Forex Brokers Denmark",                   category: "country", sub: "tier3", priority: 3, icon: "globe" },
+  { id: "geo-norway",          slug: "/best-forex-brokers-norway",                title: "Best Forex Brokers Norway",                    category: "country", sub: "tier3", priority: 3, icon: "globe" },
+  { id: "geo-finland",         slug: "/best-forex-brokers-finland",               title: "Best Forex Brokers Finland",                   category: "country", sub: "tier3", priority: 3, icon: "globe" },
+  { id: "geo-greece",          slug: "/best-forex-brokers-greece",                title: "Best Forex Brokers Greece",                    category: "country", sub: "tier3", priority: 3, icon: "globe" },
+  // Regulators
+  { id: "reg-fsa",             slug: "/fsa-regulated-forex-brokers",              title: "FSA Regulated Forex Brokers",                  category: "forex", sub: "regulator", priority: 3, icon: "shield" },
+  { id: "reg-ifsc",            slug: "/ifsc-regulated-forex-brokers",             title: "IFSC Regulated Forex Brokers",                 category: "forex", sub: "regulator", priority: 3, icon: "shield" },
+  { id: "reg-vfsc",            slug: "/vfsc-regulated-forex-brokers",             title: "VFSC Regulated Forex Brokers",                 category: "forex", sub: "regulator", priority: 3, icon: "shield" },
+  // Platform
+  { id: "forex-mac",           slug: "/best-forex-brokers-mac",                   title: "Best Forex Brokers for Mac",                   category: "forex", sub: "platform", priority: 3, icon: "monitor" },
+  // Pairs
+  { id: "pair-usdcny",         slug: "/best-usdcny-brokers",                     title: "Best USD/CNY Brokers",                         category: "forex", sub: "pairs",    priority: 3, icon: "refresh-cw" },
+  // Leverage
+  { id: "leverage-50",         slug: "/1-50-leverage-forex-brokers",              title: "1:50 Leverage Forex Brokers",                  category: "forex", sub: "leverage", priority: 3, icon: "scale" },
+  { id: "leverage-300",        slug: "/1-300-leverage-forex-brokers",             title: "1:300 Leverage Forex Brokers",                 category: "forex", sub: "leverage", priority: 3, icon: "scale" },
+  // Education / Tools
+  { id: "forex-courses",       slug: "/best-forex-trading-courses",               title: "Best Forex Trading Courses",                   category: "forex", sub: "tools",    priority: 2, icon: "book-open" },
+  { id: "forex-charts",        slug: "/best-forex-chart-websites",                title: "Best Forex Chart Websites",                    category: "forex", sub: "tools",    priority: 3, icon: "bar-chart-3" },
+  // Payment
+  { id: "pay-amex",            slug: "/forex-brokers-accepting-amex",             title: "Forex Brokers Accepting Amex",                 category: "forex", sub: "payment",  priority: 3, icon: "credit-card" },
+  { id: "pay-trustly",         slug: "/forex-brokers-accepting-trustly",          title: "Forex Brokers Accepting Trustly",              category: "forex", sub: "payment",  priority: 3, icon: "credit-card" },
 ];
 
 export default RANKINGS;
