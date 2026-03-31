@@ -248,7 +248,7 @@
 
 ## M10. Бэкенд и админ-панель 🔧
 
-**Статус: ЧАСТИЧНО ЗАВЕРШЁН (31 марта 2026)**
+**Статус: ЧАСТИЧНО ЗАВЕРШЁН (1 апреля 2026)**
 
 **Цель:** Полноценная админка для управления контентом и аналитики.
 
@@ -264,12 +264,29 @@
 - [x] Audit log (таблица `broker_changes`)
 - [x] Shared admin header с навигацией и lang switcher
 
-### 10.3 Редактирование контента
+### 10.3 Ranking Manager
+- [x] 207 рейтингов в 19 группах, D1 `ranking_overrides`
+- [x] Manual override позиций, featured labels, Pin Top 5, Copy From
+
+### 10.4 Publication Planner
+- [x] 4-й раздел админки: градуальная публикация 831 страниц
+- [x] D1 таблица `page_publish` (slug, lang, page_type, status, scheduled_at, published_at)
+- [x] Auto-seed: 831 EN-страниц из hardcoded каталога (reviews, subpages, rankings, combinatorial, static)
+- [x] Auto-Schedule: 16-week rollout с рандомизированным временем (anti-detect для SpamBrain)
+- [x] Publish/Unpublish/Batch, Timeline ближайших 7 дней
+- [x] Public API: `/api/publish/active` (Cache 5min) + `/api/sitemap.xml` (dynamic sitemap index + 4 sub-sitemaps)
+- [x] Tick: `/api/admin/publish/tick` для cron-публикации scheduled страниц
+- [ ] Фронтенд-интеграция: `fetchPublishActive()` → noindex/nofollow для неопубликованных
+- [ ] Cron Trigger: авто-tick каждый час
+- [ ] Листинги (AllRankings, AllReviews) — фильтрация по published
+- [ ] Мультиязычные rollout-ы (DE/ES/AR — будущее)
+
+### 10.5 Редактирование контента
 - [ ] Доступ для живых авторов — ручные правки ревью и рейтингов
 - [ ] Система ролей и прав (автор, редактор, админ)
 - [ ] Preview перед публикацией
 
-### 10.4 Аффилиатная инфраструктура
+### 10.6 Аффилиатная инфраструктура
 - [x] Все 21 CTA → через `/go/{slug}` (починены 31.03.2026)
 - [x] `rel="noopener nofollow sponsored"` на всех affiliate-ссылках
 - [ ] Регистрация в партнёрских программах брокеров

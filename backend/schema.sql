@@ -48,3 +48,19 @@ CREATE TABLE IF NOT EXISTS ranking_overrides (
   PRIMARY KEY (ranking_id, broker_slug)
 );
 CREATE INDEX IF NOT EXISTS idx_ro_ranking ON ranking_overrides(ranking_id);
+
+-- Publication planner (gradual rollout for Google indexing)
+CREATE TABLE IF NOT EXISTS page_publish (
+  slug TEXT NOT NULL,
+  lang TEXT NOT NULL DEFAULT 'en',
+  page_type TEXT NOT NULL,
+  status TEXT NOT NULL DEFAULT 'draft',
+  scheduled_at TEXT,
+  published_at TEXT,
+  priority INTEGER DEFAULT 0,
+  notes TEXT,
+  PRIMARY KEY (slug, lang)
+);
+CREATE INDEX IF NOT EXISTS idx_pp_status ON page_publish(status);
+CREATE INDEX IF NOT EXISTS idx_pp_scheduled ON page_publish(scheduled_at);
+CREATE INDEX IF NOT EXISTS idx_pp_type ON page_publish(page_type);

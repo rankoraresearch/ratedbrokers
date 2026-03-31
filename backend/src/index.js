@@ -3,6 +3,7 @@ import { handleStats, handleDashboard } from './routes/stats.js';
 import { handleContact } from './routes/contact.js';
 import { handleAdminList, handleAdminUpdate, handleAdminCreate, handleAdminDelete, handleAdminDashboard } from './routes/admin.js';
 import { handleRankingsDashboard, handleRankingBrokers, handleRankingOrderUpdate, handleRankingOrderReset, handleRankingOrderPublic } from './routes/rankings.js';
+import { handlePublishDashboard, handlePublishPages, handlePublishUpdate, handlePublishBatch, handlePublishAutoSchedule, handlePublishTick, handlePublishActive, handleSitemapIndex, handleSitemapSection } from './routes/publish.js';
 import { handleOptions } from './utils/cors.js';
 
 export default {
@@ -92,6 +93,55 @@ export default {
     const rankingPublicMatch = path.match(/^\/api\/rankings\/([a-z0-9-]+)\/order$/);
     if (rankingPublicMatch && request.method === 'GET') {
       return handleRankingOrderPublic(request, env, rankingPublicMatch[1]);
+    }
+
+    // ─── Publication Planner ───
+
+    // GET /api/admin/publish/dashboard — HTML Publication Planner
+    if (path === '/api/admin/publish/dashboard' && request.method === 'GET') {
+      return handlePublishDashboard(request, env);
+    }
+
+    // GET /api/admin/publish/pages — JSON pages list
+    if (path === '/api/admin/publish/pages' && request.method === 'GET') {
+      return handlePublishPages(request, env);
+    }
+
+    // PUT /api/admin/publish/pages/:slug — update single page
+    const publishUpdateMatch = path.match(/^\/api\/admin\/publish\/pages\/(.+)$/);
+    if (publishUpdateMatch && request.method === 'PUT') {
+      return handlePublishUpdate(request, env, publishUpdateMatch[1]);
+    }
+
+    // POST /api/admin/publish/batch — batch operations
+    if (path === '/api/admin/publish/batch' && request.method === 'POST') {
+      return handlePublishBatch(request, env);
+    }
+
+    // POST /api/admin/publish/auto-schedule — generate 16-week plan
+    if (path === '/api/admin/publish/auto-schedule' && request.method === 'POST') {
+      return handlePublishAutoSchedule(request, env);
+    }
+
+    // POST /api/admin/publish/tick — publish all due pages
+    if (path === '/api/admin/publish/tick' && request.method === 'POST') {
+      return handlePublishTick(request, env);
+    }
+
+    // GET /api/publish/active — PUBLIC: list of published slugs
+    if (path === '/api/publish/active' && request.method === 'GET') {
+      return handlePublishActive(request, env);
+    }
+
+    // GET /api/sitemap.xml — sitemap index
+    if (path === '/api/sitemap.xml' && request.method === 'GET') {
+      return handleSitemapIndex(request, env);
+    }
+
+    // GET /api/sitemap-{section}.xml — individual sitemaps
+    const sitemapMatch = path.match(/^\/api\/sitemap-(reviews|rankings|subpages|static)\.xml$/);
+    if (sitemapMatch && request.method === 'GET') {
+      return handleSitemapSection(request, env, sitemapMatch[1]);
     }
 
     // 404

@@ -169,16 +169,19 @@
 
 | Метрика | Значение |
 |---------|----------|
-| Брокеров | 1 (IC Markets) |
-| Стран | 43 |
-| Рейтингов | 207 |
+| Брокеров | 38 |
+| Стран | 43 + 15 combinatorial |
+| Рейтингов | 440 (200 thematic + 240 combinatorial) |
+| Subpages | 304 (38 × 8 табов) |
 | Гайдов | 25 |
 | Платформ | 4 |
-| Регуляторов | 10+ |
-| Всего страниц | 365+ |
-| LOC | ~44,650 |
-| Языков | 1 активен / 10 готовы |
+| Регуляторов | 22 |
+| Всего страниц | ~831 |
+| Админка | 4 раздела (Clicks, Affiliate, Rankings, Publish) |
+| Языков | 1 активен (EN) |
 | GitHub | rankoraresearch/ratedbrokers (private) |
+| Сайт | ratedbrokers.com (Cloudflare Pages, закрыт от индексации) |
+| API | api.ratedbrokers.com (Cloudflare Workers + D1) |
 
 ---
 
@@ -451,18 +454,65 @@ Hero (dark) → контент → dark CTA → контент → dark scoring 
 
 ---
 
+## Publication Planner — 4-й раздел админки (1 апреля 2026)
+
+### Архитектура
+- **Цель**: градуальная публикация ~831 EN-страниц за 16 недель для защиты от Google SpamBrain/Firefly (March 2026 Spam Update)
+- **Принцип**: все страницы есть в SPA-бандле, неопубликованные → noindex, published → sitemap.xml
+- **D1 таблица `page_publish`**: slug (PK), lang, page_type, status (draft/scheduled/published), scheduled_at, published_at
+
+### Файлы
+- `backend/schema.sql` — +таблица `page_publish` + 3 индекса
+- `backend/src/routes/publish.js` — **НОВЫЙ**: dashboard HTML + 8 API handlers
+- `backend/src/utils/adminLayout.js` — 4-й таб "Publish" в навигации
+- `backend/src/index.js` — +9 роутов для publish
+
+### API (9 эндпоинтов)
+- `GET /api/admin/publish/dashboard` — HTML Publication Planner (auth)
+- `GET /api/admin/publish/pages` — JSON с фильтрами ?type=&status=&q= (auth)
+- `PUT /api/admin/publish/pages/:slug` — publish/schedule/unpublish/notes (auth)
+- `POST /api/admin/publish/batch` — batch операции (auth)
+- `POST /api/admin/publish/auto-schedule` — 16-week план от startDate (auth)
+- `POST /api/admin/publish/tick` — опубликовать все due scheduled (auth)
+- `GET /api/publish/active` — **PUBLIC** Cache 5min: список published slugs
+- `GET /api/sitemap.xml` — **PUBLIC** sitemap index
+- `GET /api/sitemap-{reviews|rankings|subpages|static}.xml` — **PUBLIC** sub-sitemaps
+
+### Auto-Schedule Algorithm (16 недель)
+- **Фаза 1** (дни 0-13): ~45 стр — homepage, top reviews, methodology, static
+- **Фаза 2** (дни 14-41): ~200 thematic rankings (7-8/день)
+- **Фаза 3** (дни 42-83): ~544 subpages + combinatorial (10/день, чередуясь)
+- **Анти-детект**: рандомизированные часы 8-21 UTC, минуты 3-57 (никогда :00)
+
+### QA
+- Auto-seed: 831 страниц создано (38 reviews + 304 subpages + 200 rankings + 240 combi + 49 static)
+- Publish → `/api/publish/active` содержит slug
+- Unpublish → slug исчезает из active
+- Batch: 5 страниц за раз — ok
+- Auto-Schedule: 831 страниц распределены по 95 дням (16 недель)
+- Sitemap: валидный XML index + 4 sub-sitemaps, только published URLs
+- Tick: не публикует будущие страницы
+
+### Deploy
+- D1 миграция: CREATE TABLE page_publish — ok
+- Worker deploy: Version `568a8a96` — ok
+
+---
+
 ## Что дальше
 
 - [x] Деплой — GitHub Pages + Cloudflare Workers API
 - [x] Миграция на Cloudflare Pages + домен ratedbrokers.com
 - [x] M3 — Идеальный шаблон рейтинга
 - [x] Sub-Pages инфраструктура (304 страницы)
-- [x] Admin Panel — affiliate links + click dashboard
+- [x] Admin Panel — affiliate links + click dashboard + ranking manager
+- [x] Publication Planner — градуальная публикация + dynamic sitemap
+- [ ] Фронтенд-интеграция Publication Planner (noindex для неопубликованных, листинги)
+- [ ] Cron Trigger для авто-публикации scheduled страниц
 - [ ] Sub-Pages: IC Markets пилотный YAML-контент (8 табов)
 - [ ] Sub-Pages: контент для остальных 37 брокеров
 - [ ] Навигация: якоря на review vs sub-page табы (UX гармонизация)
 - [ ] OG-теги и мета-изображения для соцсетей
-- [ ] Sitemap.xml (robots.txt есть)
 - [ ] Google Search Console + Analytics
 - [ ] Контентный аудит: уникальность текстов, keyword density
 - [ ] Бэклинк-стратегия
