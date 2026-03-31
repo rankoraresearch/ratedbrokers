@@ -246,121 +246,115 @@ export async function handleAdminDashboard(request, env) {
 
   /* ─── Section Headers ─── */
   .section-head {
-    display: flex; align-items: center; gap: 8px; margin-bottom: 12px;
+    display: flex; align-items: center; gap: 10px; margin-bottom: 14px;
   }
   .section-head h2 {
-    color: var(--text-secondary); font-size: 12px; text-transform: uppercase;
-    letter-spacing: 1px; font-weight: 600; margin: 0;
+    color: var(--text-secondary); font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.8px; font-weight: 700; margin: 0;
   }
   .section-head .section-icon {
-    width: 24px; height: 24px; border-radius: 6px; display: flex;
+    width: 28px; height: 28px; border-radius: 8px; display: flex;
     align-items: center; justify-content: center; flex-shrink: 0;
   }
-  .section-head .section-icon.green { background: var(--green-glow); color: var(--green); }
-  .section-head .section-icon.blue { background: var(--blue-glow); color: var(--blue); }
-  .section-head .section-icon.amber { background: var(--amber-glow); color: var(--amber); }
-  .section-head .section-icon.purple { background: var(--purple-glow); color: var(--purple); }
+  .section-head .section-icon.green { background: var(--green-glow); color: var(--green); box-shadow: 0 0 12px rgba(74,222,128,0.1); }
+  .section-head .section-icon.blue { background: var(--blue-glow); color: var(--blue); box-shadow: 0 0 12px rgba(96,165,250,0.1); }
+  .section-head .section-icon.amber { background: var(--amber-glow); color: var(--amber); box-shadow: 0 0 12px rgba(251,191,36,0.1); }
+  .section-head .section-icon.purple { background: var(--purple-glow); color: var(--purple); box-shadow: 0 0 12px rgba(167,139,250,0.1); }
 
   /* ─── Overview Row ─── */
-  .overview { display: grid; grid-template-columns: 1fr 2fr; gap: 16px; margin-bottom: 24px; }
+  .overview { display: grid; grid-template-columns: 1fr 2fr; gap: 18px; margin-bottom: 28px; }
   .progress-card {
-    background: var(--bg-card); border-radius: 12px; padding: 24px;
-    border: 1px solid var(--border); display: flex; align-items: center;
+    background: var(--glass-bg); backdrop-filter: blur(16px);
+    border-radius: 14px; padding: 28px;
+    border: 1px solid var(--glass-border); display: flex; align-items: center;
     gap: 24px; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .progress-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--green), var(--green-dim));
   }
   .progress-ring { position: relative; width: 100px; height: 100px; flex-shrink: 0; }
   .progress-ring svg { transform: rotate(-90deg); }
-  .progress-ring .ring-bg { stroke: rgba(42,45,55,0.8); }
-  .progress-ring .ring-fill { stroke: var(--green); transition: stroke-dashoffset 1s ease; }
+  .progress-ring .ring-bg { stroke: rgba(255,255,255,0.05); }
+  .progress-ring .ring-fill { stroke: var(--green); transition: stroke-dashoffset 1s ease; filter: drop-shadow(0 0 6px rgba(74,222,128,0.3)); }
   .progress-ring .ring-text {
     position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-    font-size: 22px; font-weight: 800; color: var(--green);
+    font-size: 24px; font-weight: 800; color: var(--green); letter-spacing: -0.5px;
   }
   .progress-ring .ring-sub {
     position: absolute; top: 50%; left: 50%; transform: translate(-50%, calc(-50% + 14px));
     font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px;
   }
-  .progress-details { display: flex; flex-direction: column; gap: 8px; }
-  .progress-stat { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+  .progress-details { display: flex; flex-direction: column; gap: 10px; }
+  .progress-stat { display: flex; align-items: center; gap: 10px; font-size: 14px; }
   .progress-stat .stat-dot { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
-  .progress-stat .stat-dot.green { background: var(--green); }
-  .progress-stat .stat-dot.amber { background: var(--amber); }
+  .progress-stat .stat-dot.green { background: var(--green); box-shadow: 0 0 6px rgba(74,222,128,0.4); }
+  .progress-stat .stat-dot.amber { background: var(--amber); box-shadow: 0 0 6px rgba(251,191,36,0.4); }
   .progress-stat .stat-dot.muted { background: var(--text-muted); }
   .progress-stat .stat-val { font-weight: 700; margin-left: auto; font-variant-numeric: tabular-nums; }
 
-  /* ─── Stats Cards ─── */
-  .stats-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-  .s-card {
-    background: var(--bg-card); border-radius: 12px; padding: 18px;
-    border: 1px solid var(--border); position: relative; overflow: hidden;
-    transition: border-color 0.2s;
-  }
-  .s-card:hover { border-color: var(--border-hover); }
-  .s-card::before {
-    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; border-radius: 12px 0 0 12px;
-  }
-  .s-card.green::before { background: var(--green); }
-  .s-card.blue::before { background: var(--blue); }
-  .s-card.purple::before { background: var(--purple); }
-  .s-card .s-label { font-size: 12px; color: var(--text-secondary); font-weight: 500; margin-bottom: 4px; }
-  .s-card .s-value { font-size: 26px; font-weight: 800; font-variant-numeric: tabular-nums; }
-  .s-card.green .s-value { color: var(--green); }
-  .s-card.blue .s-value { color: var(--blue); }
-  .s-card.purple .s-value { color: var(--purple); }
-  .s-card .s-sub { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+  /* ─── Stats Cards (glassmorphism) ─── */
+  .stats-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
 
   /* ─── Toolbar ─── */
-  .toolbar { display: flex; gap: 8px; margin-bottom: 16px; align-items: center; flex-wrap: wrap; }
+  .toolbar { display: flex; gap: 8px; margin-bottom: 18px; align-items: center; flex-wrap: wrap; }
   .search {
-    background: var(--bg-card); color: var(--text-primary); border: 1px solid var(--border);
-    padding: 8px 14px 8px 36px; border-radius: 8px; font-size: 14px; width: 300px;
-    outline: none; transition: border 0.15s;
-    background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23555' stroke-width='2' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.3-4.3'/%3E%3C/svg%3E");
-    background-repeat: no-repeat; background-position: 10px center;
+    background: rgba(255,255,255,0.03); color: var(--text-primary); border: 1px solid var(--border);
+    padding: 9px 14px 9px 38px; border-radius: 10px; font-size: 14px; width: 300px;
+    outline: none; transition: all 0.2s var(--transition);
+    background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%234a4e63' stroke-width='2' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.3-4.3'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: 12px center;
   }
-  .search:focus { border-color: var(--green); }
+  .search:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(74,222,128,0.08); background-color: rgba(255,255,255,0.05); }
   .filter-btn {
-    background: var(--bg-card); color: var(--text-secondary); border: 1px solid var(--border);
-    padding: 6px 14px; border-radius: 8px; font-size: 13px; font-weight: 600;
-    cursor: pointer; transition: all 0.15s;
+    background: transparent; color: var(--text-muted); border: 1px solid var(--border);
+    padding: 7px 16px; border-radius: 8px; font-size: 13px; font-weight: 600;
+    cursor: pointer; transition: all 0.2s var(--transition);
   }
-  .filter-btn:hover { color: var(--text-primary); border-color: var(--border-hover); }
-  .filter-btn.active { border-color: var(--green); color: var(--green); background: var(--green-glow); }
-  .toolbar-right { margin-left: auto; display: flex; gap: 6px; }
+  .filter-btn:hover { color: var(--text-secondary); border-color: var(--border-hover); background: rgba(255,255,255,0.03); }
+  .filter-btn.active { border-color: rgba(74,222,128,0.3); color: var(--green); background: var(--green-glow); box-shadow: 0 0 12px rgba(74,222,128,0.06); }
+  .toolbar-right { margin-left: auto; display: flex; gap: 8px; }
   .btn-export {
-    background: var(--bg-card); color: var(--text-secondary); border: 1px solid var(--border);
-    padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600;
-    cursor: pointer; transition: all 0.15s; display: flex; align-items: center; gap: 5px;
+    background: transparent; color: var(--text-secondary); border: 1px solid var(--border);
+    padding: 7px 16px; border-radius: 8px; font-size: 12px; font-weight: 600;
+    cursor: pointer; transition: all 0.2s var(--transition); display: flex; align-items: center; gap: 6px;
   }
-  .btn-export:hover { color: var(--text-primary); border-color: var(--border-hover); }
-  .kbd { display: inline-block; font-size: 10px; padding: 1px 5px; background: rgba(42,45,55,0.6); border-radius: 3px; color: var(--text-muted); border: 1px solid var(--border); margin-left: 4px; }
+  .btn-export:hover { color: var(--text-primary); border-color: var(--border-hover); background: rgba(255,255,255,0.03); transform: translateY(-1px); }
+  .kbd { display: inline-block; font-size: 10px; padding: 2px 6px; background: rgba(255,255,255,0.04); border-radius: 4px; color: var(--text-muted); border: 1px solid var(--border); margin-left: 4px; }
 
   /* ─── Table ─── */
   .table-wrap {
-    background: var(--bg-card); border-radius: 12px; padding: 0;
-    margin-bottom: 20px; overflow: hidden; border: 1px solid var(--border);
+    background: var(--glass-bg); backdrop-filter: blur(16px);
+    border-radius: 14px; padding: 0;
+    margin-bottom: 22px; overflow: hidden; border: 1px solid var(--glass-border);
   }
   table { width: 100%; border-collapse: collapse; }
-  th, td { text-align: left; padding: 10px 12px; font-size: 13px; }
+  th, td { text-align: left; padding: 11px 14px; font-size: 13px; }
   th {
-    color: var(--text-muted); font-weight: 600; cursor: pointer; user-select: none;
-    white-space: nowrap; background: rgba(30,33,48,0.5); border-bottom: 1px solid var(--border);
-    transition: color 0.15s;
+    color: var(--text-muted); font-weight: 700; cursor: pointer; user-select: none;
+    white-space: nowrap; background: rgba(255,255,255,0.02);
+    border-bottom: 2px solid rgba(255,255,255,0.06);
+    transition: color 0.15s; font-size: 10px; text-transform: uppercase; letter-spacing: 0.8px;
   }
   th:hover { color: var(--text-secondary); }
-  td { border-bottom: 1px solid rgba(42,45,55,0.4); }
-  tr:hover td { background: rgba(30,33,48,0.3); }
+  td { border-bottom: 1px solid rgba(255,255,255,0.03); transition: all 0.15s; position: relative; }
+  tbody tr:nth-child(even) td { background: rgba(255,255,255,0.015); }
+  tbody tr { transition: all 0.15s; }
+  tbody tr:hover td { background: rgba(74,222,128,0.03); }
+  tbody tr:hover td:first-child::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--green); border-radius: 0 1px 1px 0; }
   th .arrow { font-size: 10px; margin-left: 3px; opacity: 0.3; }
   th.sorted .arrow { opacity: 1; color: var(--green); }
   td.num { text-align: right; font-variant-numeric: tabular-nums; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 12px; }
   .broker-cell { display: flex; align-items: center; gap: 10px; }
   .broker-icon {
-    width: 28px; height: 28px; border-radius: 6px;
-    background: linear-gradient(135deg, rgba(74,222,128,0.15), rgba(5,150,105,0.1));
+    width: 30px; height: 30px; border-radius: 8px;
+    background: linear-gradient(135deg, rgba(74,222,128,0.12), rgba(5,150,105,0.08));
     border: 1px solid rgba(74,222,128,0.1);
     display: flex; align-items: center; justify-content: center;
-    font-size: 12px; font-weight: 700; color: var(--green);
+    font-size: 12px; font-weight: 800; color: var(--green);
     flex-shrink: 0; text-transform: uppercase;
+    box-shadow: 0 0 8px rgba(74,222,128,0.06);
   }
   .broker-info .broker-name { font-weight: 600; color: var(--text-primary); font-size: 13px; }
   .broker-info .broker-slug { color: var(--text-muted); font-size: 11px; font-family: monospace; display: block; margin-top: 1px; }
@@ -371,67 +365,57 @@ export async function handleAdminDashboard(request, env) {
   .param-tag { font-size: 9px; padding: 1px 5px; border-radius: 3px; font-family: monospace; font-weight: 600; }
   .param-tag.track { background: var(--green-glow); color: var(--green); border: 1px solid rgba(74,222,128,0.15); }
   .param-tag.generic { background: rgba(96,165,250,0.08); color: var(--blue); border: 1px solid rgba(96,165,250,0.1); }
-  .click-bar { width: 50px; height: 6px; border-radius: 3px; background: rgba(42,45,55,0.6); overflow: hidden; display: inline-block; vertical-align: middle; margin-right: 6px; }
-  .click-fill { height: 100%; border-radius: 3px; background: var(--green); transition: width 0.5s; }
-  .badge { display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px; border-radius: 6px; font-size: 11px; font-weight: 700; }
-  .badge-green { background: var(--green-glow); color: var(--green); border: 1px solid rgba(74,222,128,0.15); }
-  .badge-yellow { background: var(--amber-glow); color: var(--amber); border: 1px solid rgba(251,191,36,0.15); }
+  .click-bar { width: 50px; height: 6px; border-radius: 3px; background: rgba(255,255,255,0.04); overflow: hidden; display: inline-block; vertical-align: middle; margin-right: 6px; }
+  .click-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--green-dim), var(--green)); transition: width 0.5s var(--transition); }
+  .badge { display: inline-flex; align-items: center; gap: 4px; padding: 4px 12px; border-radius: 8px; font-size: 11px; font-weight: 700; }
+  .badge-green { background: var(--green-glow); color: var(--green); border: 1px solid rgba(74,222,128,0.12); }
+  .badge-yellow { background: var(--amber-glow); color: var(--amber); border: 1px solid rgba(251,191,36,0.12); }
   .last-changed { font-size: 10px; color: var(--text-muted); font-family: monospace; }
   .actions { display: flex; gap: 4px; white-space: nowrap; }
-  .btn { padding: 5px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; border: none; transition: all 0.15s; }
-  .btn-edit { background: rgba(96,165,250,0.1); color: var(--blue); border: 1px solid rgba(96,165,250,0.15); }
-  .btn-edit:hover { background: rgba(96,165,250,0.2); }
-  .btn-test { background: rgba(74,222,128,0.1); color: var(--green); border: 1px solid rgba(74,222,128,0.15); }
-  .btn-test:hover { background: rgba(74,222,128,0.2); }
-  .btn-copy { background: rgba(167,139,250,0.1); color: var(--purple); border: 1px solid rgba(167,139,250,0.15); }
-  .btn-copy:hover { background: rgba(167,139,250,0.2); }
-  .btn-go { background: rgba(251,191,36,0.1); color: var(--amber); border: 1px solid rgba(251,191,36,0.15); }
-  .btn-go:hover { background: rgba(251,191,36,0.2); }
-  .btn-save { background: var(--green-dim); color: #fff; border: 1px solid transparent; }
-  .btn-save:hover { background: #047857; }
-  .btn-cancel { background: var(--bg-card-hover); color: var(--text-secondary); border: 1px solid var(--border); }
+  .btn { padding: 6px 12px; border-radius: 8px; font-size: 12px; font-weight: 600; cursor: pointer; border: none; transition: all 0.2s var(--transition); }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-edit { background: rgba(96,165,250,0.08); color: var(--blue); border: 1px solid rgba(96,165,250,0.12); }
+  .btn-edit:hover { background: rgba(96,165,250,0.15); box-shadow: 0 2px 8px rgba(96,165,250,0.1); }
+  .btn-test { background: rgba(74,222,128,0.08); color: var(--green); border: 1px solid rgba(74,222,128,0.12); }
+  .btn-test:hover { background: rgba(74,222,128,0.15); box-shadow: 0 2px 8px rgba(74,222,128,0.1); }
+  .btn-copy { background: rgba(167,139,250,0.08); color: var(--purple); border: 1px solid rgba(167,139,250,0.12); }
+  .btn-copy:hover { background: rgba(167,139,250,0.15); box-shadow: 0 2px 8px rgba(167,139,250,0.1); }
+  .btn-go { background: rgba(251,191,36,0.08); color: var(--amber); border: 1px solid rgba(251,191,36,0.12); }
+  .btn-go:hover { background: rgba(251,191,36,0.15); box-shadow: 0 2px 8px rgba(251,191,36,0.1); }
+  .btn-save { background: linear-gradient(135deg, var(--green-dim), #047857); color: #fff; border: 1px solid rgba(74,222,128,0.2); box-shadow: 0 2px 8px rgba(5,150,105,0.25); }
+  .btn-save:hover { background: linear-gradient(135deg, #047857, #065f46); box-shadow: 0 4px 16px rgba(5,150,105,0.35); }
+  .btn-cancel { background: rgba(255,255,255,0.04); color: var(--text-secondary); border: 1px solid var(--border); }
 
   /* ─── Edit Row ─── */
-  .edit-row { background: rgba(74,222,128,0.03); }
-  .edit-row td { border-bottom: 1px solid rgba(74,222,128,0.1); }
+  .edit-row { background: rgba(74,222,128,0.02); }
+  .edit-row td { border-bottom: 1px solid rgba(74,222,128,0.08); }
   .edit-input {
-    background: var(--bg-base); color: var(--text-primary);
-    border: 1px solid var(--green); padding: 8px 12px; border-radius: 8px;
+    background: rgba(255,255,255,0.03); color: var(--text-primary);
+    border: 1px solid var(--green); padding: 9px 14px; border-radius: 10px;
     width: 100%; font-size: 13px; font-family: monospace; outline: none;
-    transition: box-shadow 0.15s;
+    transition: all 0.2s var(--transition);
   }
-  .edit-input:focus { box-shadow: 0 0 0 3px rgba(74,222,128,0.15); }
+  .edit-input:focus { box-shadow: 0 0 0 3px rgba(74,222,128,0.1), 0 0 20px rgba(74,222,128,0.05); }
   .edit-bar { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
   .edit-hint { font-size: 11px; color: var(--text-muted); }
 
-  /* ─── Toast ─── */
-  .toast {
-    position: fixed; bottom: 24px; right: 24px;
-    background: var(--bg-card); border: 1px solid var(--green);
-    color: var(--green); padding: 12px 20px; border-radius: 10px;
-    font-size: 13px; font-weight: 600; z-index: 999;
-    display: flex; align-items: center; gap: 8px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-    animation: toastIn 0.25s ease, toastOut 0.3s ease 1.5s forwards;
-  }
-  .toast.error { border-color: var(--red); color: var(--red); }
-  @keyframes toastIn { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-  @keyframes toastOut { to { transform: translateY(20px); opacity: 0; } }
+  /* ─── Toast (uses .toast from layout) ─── */
   .success-flash { animation: flash 1.5s ease; }
-  @keyframes flash { 0% { background: rgba(74,222,128,0.12); } 100% { background: transparent; } }
+  @keyframes flash { 0% { background: rgba(74,222,128,0.08); } 100% { background: transparent; } }
 
   /* ─── Bulk ─── */
   .bulk-wrap {
-    background: var(--bg-card); border-radius: 12px; padding: 20px;
-    margin-bottom: 20px; border: 1px solid var(--border);
+    background: var(--glass-bg); backdrop-filter: blur(16px);
+    border-radius: 14px; padding: 22px;
+    margin-bottom: 22px; border: 1px solid var(--glass-border);
   }
   .bulk-textarea {
-    width: 100%; background: var(--bg-base); color: var(--text-primary);
-    border: 1px solid var(--border); border-radius: 8px; padding: 12px;
+    width: 100%; background: rgba(255,255,255,0.03); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: 10px; padding: 14px;
     font-family: monospace; font-size: 13px; min-height: 90px;
-    resize: vertical; outline: none; transition: border 0.15s;
+    resize: vertical; outline: none; transition: all 0.2s var(--transition);
   }
-  .bulk-textarea:focus { border-color: var(--green); }
+  .bulk-textarea:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(74,222,128,0.08); }
   .bulk-bar { display: flex; gap: 10px; align-items: center; margin-top: 10px; }
   .bulk-count { color: var(--text-secondary); font-size: 13px; }
   .bulk-preview { margin-top: 10px; max-height: 180px; overflow-y: auto; border-radius: 8px; }
@@ -446,23 +430,24 @@ export async function handleAdminDashboard(request, env) {
 
   /* ─── History Timeline ─── */
   .changes-wrap {
-    background: var(--bg-card); border-radius: 12px; padding: 20px;
-    border: 1px solid var(--border);
+    background: var(--glass-bg); backdrop-filter: blur(16px);
+    border-radius: 14px; padding: 22px;
+    border: 1px solid var(--glass-border);
   }
   .timeline { position: relative; padding-left: 24px; }
   .timeline::before {
     content: ''; position: absolute; left: 8px; top: 4px; bottom: 4px;
-    width: 2px; background: linear-gradient(180deg, var(--purple) 0%, var(--border) 100%);
+    width: 2px; background: linear-gradient(180deg, var(--purple) 0%, rgba(255,255,255,0.03) 100%);
     border-radius: 1px;
   }
   .tl-item { position: relative; padding: 8px 0 16px 16px; }
   .tl-item::before {
     content: ''; position: absolute; left: -20px; top: 12px;
     width: 10px; height: 10px; border-radius: 50%;
-    background: var(--purple); border: 2px solid var(--bg-card);
-    box-shadow: 0 0 0 2px rgba(167,139,250,0.2);
+    background: var(--purple); border: 2px solid var(--bg-card-solid);
+    box-shadow: 0 0 6px rgba(167,139,250,0.2);
   }
-  .tl-item:first-child::before { background: var(--green); box-shadow: 0 0 0 2px rgba(74,222,128,0.2); }
+  .tl-item:first-child::before { background: var(--green); box-shadow: 0 0 6px rgba(74,222,128,0.3); }
   .tl-head { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
   .tl-broker { font-weight: 700; font-size: 13px; color: var(--text-primary); }
   .tl-field { font-size: 10px; color: var(--purple); background: var(--purple-glow); padding: 1px 6px; border-radius: 3px; font-weight: 600; }
@@ -521,20 +506,20 @@ ${shellHeader}
     </div>
   </div>
   <div class="stats-cards">
-    <div class="s-card green">
-      <div class="s-label">Active Links</div>
-      <div class="s-value">${configuredCount}</div>
-      <div class="s-sub">configured with real URLs</div>
+    <div class="glass-card c-green">
+      <div class="card-label">Active Links</div>
+      <div class="card-value">${configuredCount}</div>
+      <div class="card-sub">configured with real URLs</div>
     </div>
-    <div class="s-card blue">
-      <div class="s-label">Total Clicks (30d)</div>
-      <div class="s-value">${brokers.reduce((s, b) => s + b.clicks_30d, 0)}</div>
-      <div class="s-sub">across all brokers</div>
+    <div class="glass-card c-blue">
+      <div class="card-label">Total Clicks (30d)</div>
+      <div class="card-value">${brokers.reduce((s, b) => s + b.clicks_30d, 0)}</div>
+      <div class="card-sub">across all brokers</div>
     </div>
-    <div class="s-card purple">
-      <div class="s-label">Total Clicks (All)</div>
-      <div class="s-value">${totalClicks}</div>
-      <div class="s-sub">since tracking started</div>
+    <div class="glass-card c-purple">
+      <div class="card-label">Total Clicks (All)</div>
+      <div class="card-value">${totalClicks}</div>
+      <div class="card-sub">since tracking started</div>
     </div>
   </div>
 </div>
@@ -679,10 +664,10 @@ function render() {
         (b.last_changed ? '<br><span class="last-changed">'+timeAgo(b.last_changed)+'</span>' : '') +
       '</td>' +
       '<td class="actions">' +
-        '<button class="btn btn-edit" onclick="startEdit(\''+b.slug+'\')">Edit</button>' +
-        '<button class="btn btn-test" onclick="testRedirect(\''+b.slug+'\')" title="Test /go/'+b.slug+'">Test</button>' +
-        '<button class="btn btn-copy" onclick="copyUrl(\''+b.slug+'\')" title="Copy affiliate URL">Copy</button>' +
-        '<button class="btn btn-go" onclick="copyGoUrl(\''+b.slug+'\')" title="Copy tracking URL">/go/</button>' +
+        '<button class="btn btn-edit" onclick="startEdit(\\''+b.slug+'\\')">Edit</button>' +
+        '<button class="btn btn-test" onclick="testRedirect(\\''+b.slug+'\\')" title="Test /go/'+b.slug+'">Test</button>' +
+        '<button class="btn btn-copy" onclick="copyUrl(\\''+b.slug+'\\')" title="Copy affiliate URL">Copy</button>' +
+        '<button class="btn btn-go" onclick="copyGoUrl(\\''+b.slug+'\\')" title="Copy tracking URL">/go/</button>' +
       '</td></tr>' +
       (isEditing ? editRowHtml(b) : '');
   }).join('');
@@ -701,8 +686,8 @@ function editRowHtml(b) {
   return '<tr class="edit-row" id="edit-'+b.slug+'">' +
     '<td colspan="7" style="padding:14px 12px">' +
     '<div class="edit-bar">' +
-    '<input class="edit-input" id="editUrl" value="'+esc2(b.url)+'" style="flex:1;min-width:300px" onkeydown="editKeydown(event,\''+b.slug+'\')" placeholder="https://...">' +
-    '<button class="btn btn-save" onclick="saveEdit(\''+b.slug+'\')">Save</button>' +
+    '<input class="edit-input" id="editUrl" value="'+esc2(b.url)+'" style="flex:1;min-width:300px" onkeydown="editKeydown(event,\\''+b.slug+'\\')" placeholder="https://...">' +
+    '<button class="btn btn-save" onclick="saveEdit(\\''+b.slug+'\\')">Save</button>' +
     '<button class="btn btn-cancel" onclick="cancelEdit()">Cancel</button>' +
     '</div>' +
     '<div class="edit-hint" style="margin-top:6px">Press <kbd class="kbd">Enter</kbd> to save, <kbd class="kbd">Esc</kbd> to cancel</div>' +

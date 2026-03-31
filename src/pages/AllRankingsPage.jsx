@@ -3,10 +3,13 @@ import { Link } from "react-router-dom";
 import { useMedia } from "../hooks/useMedia";
 import { useLocalePath } from "../i18n/useLocalePath";
 import RANKINGS from "../data/rankings";
+import { COMBINATORIAL_RANKINGS } from "../data/combinatorialRankings";
 import { getBrokerCountForRanking } from "../data/rankingFilters";
 import Icon, { ArrowRight } from "../components/Icon";
 
 const YEAR = "2026";
+
+const ALL_RANKINGS = [...RANKINGS, ...COMBINATORIAL_RANKINGS];
 
 const CATEGORY_TABS = [
   { key: "all", label: "All" },
@@ -14,6 +17,7 @@ const CATEGORY_TABS = [
   { key: "crypto", label: "Crypto" },
   { key: "assets", label: "Assets" },
   { key: "country", label: "Countries" },
+  { key: "combinatorial", label: "Type × Country" },
 ];
 
 // Group rankings by category > sub
@@ -53,6 +57,22 @@ const SUB_LABELS = {
   tier1: "Tier 1 Countries",
   tier2: "Tier 2 Countries",
   tier3: "Tier 3 Countries",
+  // Combinatorial sub-categories (by country)
+  uk: "United Kingdom",
+  australia: "Australia",
+  usa: "United States",
+  germany: "Germany",
+  singapore: "Singapore",
+  uae: "UAE",
+  canada: "Canada",
+  "south-africa": "South Africa",
+  india: "India",
+  malaysia: "Malaysia",
+  nigeria: "Nigeria",
+  "new-zealand": "New Zealand",
+  philippines: "Philippines",
+  indonesia: "Indonesia",
+  kenya: "Kenya",
 };
 
 export default function AllRankingsPage() {
@@ -61,15 +81,15 @@ export default function AllRankingsPage() {
   const [activeTab, setActiveTab] = useState("all");
 
   useEffect(() => {
-    document.title = `All Broker Rankings ${YEAR} — ${RANKINGS.length} Expert-Tested Lists | RatedBrokers`;
+    document.title = `All Broker Rankings ${YEAR} — ${ALL_RANKINGS.length} Expert-Tested Lists | RatedBrokers`;
     const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", `Browse ${RANKINGS.length} broker rankings for ${YEAR}. Forex, crypto, CFDs — filtered by trading style, platform, costs, regulation, and country. All independently analyzed.`);
+    if (meta) meta.setAttribute("content", `Browse ${ALL_RANKINGS.length} broker rankings for ${YEAR}. Forex, crypto, CFDs — filtered by trading style, platform, costs, regulation, and country. All independently analyzed.`);
     window.scrollTo(0, 0);
   }, []);
 
   const filtered = activeTab === "all"
-    ? RANKINGS
-    : RANKINGS.filter((r) => r.category === activeTab);
+    ? ALL_RANKINGS
+    : ALL_RANKINGS.filter((r) => r.category === activeTab);
 
   const grouped = groupRankings(filtered);
   const cn = { maxWidth: 1200, margin: "0 auto", padding: mob ? "0 16px" : "0 24px" };
@@ -95,7 +115,7 @@ export default function AllRankingsPage() {
             fontSize: mob ? 14 : 16, color: "rgba(255,255,255,0.7)",
             maxWidth: 560, margin: "0 auto 24px", lineHeight: 1.7,
           }}>
-            {RANKINGS.length} thematic ranking pages covering every angle of forex,
+            {ALL_RANKINGS.length} ranking pages covering every angle of forex,
             crypto, and CFD broker selection. Updated quarterly.
           </p>
 
@@ -136,7 +156,7 @@ export default function AllRankingsPage() {
               borderBottom: "2px solid #e2e8f0",
               paddingBottom: 10,
             }}>
-              {`${category} Rankings`}
+              {category === "combinatorial" ? "Type × Country Rankings" : `${category} Rankings`}
             </h2>
 
             {Object.entries(subs).map(([sub, rankings]) => (
