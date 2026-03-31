@@ -691,23 +691,22 @@ export async function handleRankingsDashboard(request, env) {
   .help-tip code { color: var(--blue); font-size: 10px; background: var(--blue-glow); padding: 1px 4px; border-radius: 3px; }
 
   /* ─── Drag & Drop ─── */
-  .ed-table tr[draggable] { user-select: none; -webkit-user-select: none; }
-  .ed-table tr.drag-ghost {
-    position: fixed; pointer-events: none; z-index: 1000;
-    background: var(--bg-card); border: 2px solid var(--blue);
-    border-radius: 8px; box-shadow: 0 8px 32px rgba(0,0,0,0.5);
-    opacity: 0.95; transition: none;
-  }
-  .ed-table tr.drag-source { opacity: 0.15; }
-  .ed-table tr.drag-insert-above { box-shadow: inset 0 2px 0 0 var(--blue); }
-  .ed-table tr.drag-insert-below { box-shadow: inset 0 -2px 0 0 var(--blue); }
+  .ed-table tr[data-slug] { user-select: none; -webkit-user-select: none; }
+  .ed-table tr.drag-source { opacity: 0.25; background: repeating-linear-gradient(45deg, transparent, transparent 4px, rgba(59,130,246,0.08) 4px, rgba(59,130,246,0.08) 8px); }
+  .ed-table tr.drag-insert-above { box-shadow: 0 -3px 0 0 #3b82f6; position: relative; z-index: 1; }
+  .ed-table tr.drag-insert-above td { border-top: 3px solid #3b82f6 !important; }
+  .ed-table tr.drag-insert-below { box-shadow: 0 3px 0 0 #3b82f6; position: relative; z-index: 1; }
+  .ed-table tr.drag-insert-below td { border-bottom: 3px solid #3b82f6 !important; }
   .drag-handle {
-    cursor: grab; color: var(--text-muted); font-size: 14px; padding: 0 4px;
+    cursor: grab; color: var(--text-muted); font-size: 14px; padding: 2px 6px;
     display: inline-flex; align-items: center; user-select: none; -webkit-user-select: none;
+    border-radius: 4px; transition: background 0.15s, color 0.15s;
   }
-  .drag-handle:active { cursor: grabbing; }
-  body.is-dragging { cursor: grabbing !important; }
-  body.is-dragging * { cursor: grabbing !important; }
+  .drag-handle:hover { background: rgba(59,130,246,0.15); color: var(--blue); }
+  .drag-handle:active { cursor: grabbing; background: rgba(59,130,246,0.25); }
+  body.is-dragging { cursor: grabbing !important; user-select: none; -webkit-user-select: none; }
+  body.is-dragging * { cursor: grabbing !important; pointer-events: none !important; }
+  body.is-dragging .ed-table tbody { pointer-events: auto !important; }
 
   /* ─── Top 10 Boundary ─── */
   .ed-table tr.top10-boundary td {
@@ -1090,7 +1089,7 @@ function renderEditor() {
 
   ordered.forEach((b, i) => {
     const isPinned = b.position > 0;
-    html += '<tr data-slug="'+b.slug+'" draggable="true">';
+    html += '<tr data-slug="'+b.slug+'">';
     html += '<td><span class="drag-handle" title="Drag to reorder">&#9776;</span></td>';
     html += '<td class="pos">' + (i + 1) + '</td>';
     html += '<td><span class="broker-name">' + e(b.name) + '</span><br><span class="broker-slug">' + b.slug + '</span></td>';
@@ -1137,10 +1136,10 @@ function initDragDrop() {
   const tbody = document.querySelector('.ed-table tbody');
   if (!tbody) return;
 
-  let dragState = null; // { slug, sourceRow, ghost, startY, scrollInterval }
+  let dragState = null;
 
   function getVisibleRows() {
-    return Array.from(tbody.querySelectorAll('tr[data-slug][draggable]'));
+    return Array.from(tbody.querySelectorAll('tr[data-slug]'));
   }
 
   function cleanup() {
@@ -1153,6 +1152,43 @@ function initDragDrop() {
     dragState = null;
   }
 
+  // Find nearest drop target + position
+  function findDropTarget(clientY) {
+    const rows = getVisibleRows();
+    if (!rows.length) return null;
+
+    // Filter out the dragged row
+    const targets = rows.filter(r => r.dataset.slug !== dragState.slug);
+    if (!targets.length) return null;
+
+    // Above the first target
+    const firstRect = targets[0].getBoundingClientRect();
+    if (clientY < firstRect.top + firstRect.height / 2) {
+      return { row: targets[0], after: false };
+    }
+
+    // Below the last target
+    const lastRect = targets[targets.length - 1].getBoundingClientRect();
+    if (clientY >= lastRect.top + lastRect.height / 2) {
+      return { row: targets[targets.length - 1], after: true };
+    }
+
+    // Between targets — find closest midpoint
+    for (let i = 0; i < targets.length; i++) {
+      const rRect = targets[i].getBoundingClientRect();
+      const midY = rRect.top + rRect.height / 2;
+      if (clientY < midY) {
+        return { row: targets[i], after: false };
+      }
+    }
+    return { row: targets[targets.length - 1], after: true };
+  }
+
+  // Prevent native drag from firing on handles
+  tbody.addEventListener('dragstart', ev => {
+    ev.preventDefault();
+  });
+
   // Mousedown on handle starts drag
   tbody.addEventListener('mousedown', ev => {
     const handle = ev.target.closest('.drag-handle');
@@ -1160,20 +1196,19 @@ function initDragDrop() {
     const row = handle.closest('tr[data-slug]');
     if (!row) return;
     ev.preventDefault();
+    ev.stopPropagation();
 
     const rect = row.getBoundingClientRect();
 
-    // Create ghost — a floating copy of the row
-    const ghost = document.createElement('table');
-    ghost.className = 'ed-table';
-    ghost.style.cssText = 'position:fixed;pointer-events:none;z-index:1000;width:'+rect.width+'px;background:var(--bg-card);border:2px solid var(--blue);border-radius:8px;box-shadow:0 8px 32px rgba(0,0,0,0.5);opacity:0.95;margin:0;';
-    const clonedRow = row.cloneNode(true);
-    const ghostBody = document.createElement('tbody');
-    ghostBody.appendChild(clonedRow);
-    ghost.appendChild(ghostBody);
+    // Create compact ghost — just broker name + position
+    const ghost = document.createElement('div');
+    const posNum = row.querySelector('td:nth-child(2)')?.textContent || '';
+    const brokerName = row.querySelector('td:nth-child(3)')?.childNodes[0]?.textContent?.trim() || row.dataset.slug;
+    ghost.innerHTML = '<span style="color:var(--blue);font-weight:700;margin-right:8px;">#' + posNum + '</span>' + brokerName;
+    ghost.style.cssText = 'position:fixed;pointer-events:none;z-index:10000;padding:10px 18px;background:var(--bg-card);border:2px solid #3b82f6;border-radius:8px;box-shadow:0 12px 40px rgba(0,0,0,0.6);font-size:14px;font-weight:600;color:#e2e8f0;white-space:nowrap;';
     document.body.appendChild(ghost);
-    ghost.style.left = rect.left + 'px';
-    ghost.style.top = rect.top + 'px';
+    ghost.style.left = (ev.clientX + 12) + 'px';
+    ghost.style.top = (ev.clientY - 16) + 'px';
 
     row.classList.add('drag-source');
     document.body.classList.add('is-dragging');
@@ -1182,8 +1217,8 @@ function initDragDrop() {
       slug: row.dataset.slug,
       sourceRow: row,
       ghost: ghost,
-      startY: ev.clientY,
-      ghostOffsetY: ev.clientY - rect.top,
+      ghostOffsetX: 12,
+      ghostOffsetY: 16,
       scrollInterval: null
     };
   });
@@ -1193,33 +1228,23 @@ function initDragDrop() {
     if (!dragState) return;
     ev.preventDefault();
 
-    // Move ghost
+    // Move ghost near cursor
+    dragState.ghost.style.left = (ev.clientX + dragState.ghostOffsetX) + 'px';
     dragState.ghost.style.top = (ev.clientY - dragState.ghostOffsetY) + 'px';
 
-    // Auto-scroll when near viewport edges
+    // Auto-scroll near edges
     const edgeZone = 60;
     if (ev.clientY < edgeZone) {
-      window.scrollBy(0, -8);
+      window.scrollBy(0, -10);
     } else if (ev.clientY > window.innerHeight - edgeZone) {
-      window.scrollBy(0, 8);
+      window.scrollBy(0, 10);
     }
 
-    // Find drop target
-    const rows = getVisibleRows();
-    rows.forEach(r => r.classList.remove('drag-insert-above', 'drag-insert-below'));
-
-    for (const r of rows) {
-      if (r.dataset.slug === dragState.slug) continue;
-      const rRect = r.getBoundingClientRect();
-      if (ev.clientY >= rRect.top && ev.clientY < rRect.bottom) {
-        const midY = rRect.top + rRect.height / 2;
-        if (ev.clientY < midY) {
-          r.classList.add('drag-insert-above');
-        } else {
-          r.classList.add('drag-insert-below');
-        }
-        break;
-      }
+    // Highlight drop target
+    getVisibleRows().forEach(r => r.classList.remove('drag-insert-above', 'drag-insert-below'));
+    const target = findDropTarget(ev.clientY);
+    if (target) {
+      target.row.classList.add(target.after ? 'drag-insert-below' : 'drag-insert-above');
     }
   });
 
@@ -1227,42 +1252,14 @@ function initDragDrop() {
   document.addEventListener('mouseup', ev => {
     if (!dragState) return;
 
-    // Find where to drop
-    const rows = getVisibleRows();
-    let targetSlug = null;
-    let insertAfter = false;
-
-    for (const r of rows) {
-      if (r.dataset.slug === dragState.slug) continue;
-      const rRect = r.getBoundingClientRect();
-      if (ev.clientY >= rRect.top && ev.clientY < rRect.bottom) {
-        targetSlug = r.dataset.slug;
-        insertAfter = ev.clientY >= rRect.top + rRect.height / 2;
-        break;
-      }
-    }
-
-    // If dropped past the last row, append to end
-    if (!targetSlug && rows.length > 0) {
-      const lastRow = rows[rows.length - 1];
-      const lastRect = lastRow.getBoundingClientRect();
-      if (ev.clientY >= lastRect.bottom) {
-        targetSlug = lastRow.dataset.slug;
-        insertAfter = true;
-      }
-      // If above first row
-      const firstRow = rows[0];
-      const firstRect = firstRow.getBoundingClientRect();
-      if (ev.clientY < firstRect.top) {
-        targetSlug = firstRow.dataset.slug;
-        insertAfter = false;
-      }
-    }
-
+    const target = findDropTarget(ev.clientY);
     const movedSlug = dragState.slug;
     cleanup();
 
-    if (!targetSlug || targetSlug === movedSlug) return;
+    if (!target) return;
+    const targetSlug = target.row.dataset.slug;
+    const insertAfter = target.after;
+    if (targetSlug === movedSlug) return;
 
     // Apply reorder to data
     const pinned = editorBrokers.filter(b => b.position > 0 && !b.hidden).sort((a,b) => a.position - b.position);
