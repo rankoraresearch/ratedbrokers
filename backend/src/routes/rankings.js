@@ -691,11 +691,16 @@ export async function handleRankingsDashboard(request, env) {
   .help-tip code { color: var(--blue); font-size: 10px; background: var(--blue-glow); padding: 1px 4px; border-radius: 3px; }
 
   /* ─── Drag & Drop ─── */
-  .ed-table tr[draggable] { cursor: grab; }
-  .ed-table tr[draggable]:active { cursor: grabbing; }
+  .ed-table tr[draggable] { user-select: none; -webkit-user-select: none; }
   .ed-table tr.dragging { opacity: 0.4; }
   .ed-table tr.drag-over-top { box-shadow: inset 0 2px 0 0 var(--blue); }
   .ed-table tr.drag-over-bottom { box-shadow: inset 0 -2px 0 0 var(--blue); }
+  .drag-handle {
+    cursor: grab; color: var(--text-muted); font-size: 14px; padding: 0 4px;
+    display: inline-flex; align-items: center; user-select: none; -webkit-user-select: none;
+  }
+  .drag-handle:active { cursor: grabbing; }
+  tr.dragging .drag-handle { cursor: grabbing; }
 
   /* ─── Top 10 Boundary ─── */
   .ed-table tr.top10-boundary td {
@@ -1066,6 +1071,7 @@ function renderEditor() {
   const ordered = [...pinned, ...rest];
 
   let html = '<table class="ed-table"><thead><tr>';
+  html += '<th style="width:24px"></th>';
   html += '<th style="width:32px">#</th>';
   html += '<th>Broker</th>';
   html += '<th style="text-align:right;width:60px">30d</th>';
@@ -1078,6 +1084,7 @@ function renderEditor() {
   ordered.forEach((b, i) => {
     const isPinned = b.position > 0;
     html += '<tr data-slug="'+b.slug+'" draggable="true">';
+    html += '<td><span class="drag-handle" title="Drag to reorder">&#9776;</span></td>';
     html += '<td class="pos">' + (i + 1) + '</td>';
     html += '<td><span class="broker-name">' + e(b.name) + '</span><br><span class="broker-slug">' + b.slug + '</span></td>';
     html += '<td class="clicks">' + b.clicks_30d + '</td>';
@@ -1091,15 +1098,16 @@ function renderEditor() {
     html += '</td></tr>';
     // Top 10 at a Glance boundary marker
     if (i === 9 && ordered.length > 10) {
-      html += '<tr class="top10-boundary"><td colspan="7">&#9650; Top 10 at a Glance — brokers above appear in the quick grid on live page</td></tr>';
+      html += '<tr class="top10-boundary"><td colspan="8">&#9650; Top 10 at a Glance — brokers above appear in the quick grid on live page</td></tr>';
     }
   });
 
   // Hidden brokers
   if (hidden.length > 0) {
-    html += '<tr><td colspan="7" style="padding:12px 10px;color:var(--text-muted);font-size:12px;font-weight:600;border-top:2px solid var(--border)">HIDDEN (' + hidden.length + ')</td></tr>';
+    html += '<tr><td colspan="8" style="padding:12px 10px;color:var(--text-muted);font-size:12px;font-weight:600;border-top:2px solid var(--border)">HIDDEN (' + hidden.length + ')</td></tr>';
     for (const b of hidden) {
       html += '<tr class="hidden-row" data-slug="'+b.slug+'">';
+      html += '<td></td>';
       html += '<td class="pos" style="color:var(--text-muted)">—</td>';
       html += '<td><span class="broker-name">' + e(b.name) + '</span><br><span class="broker-slug">' + b.slug + '</span></td>';
       html += '<td class="clicks">' + b.clicks_30d + '</td>';
@@ -1117,29 +1125,55 @@ function renderEditor() {
   initDragDrop();
 }
 
-// ─── DRAG & DROP ───
+// ─── DRAG & DROP (mouse-based, handle-only) ───
 function initDragDrop() {
   const rows = document.querySelectorAll('.ed-table tbody tr[draggable]');
   let dragSlug = null;
+  let dragRow = null;
+  let placeholder = null;
 
   rows.forEach(row => {
+    const handle = row.querySelector('.drag-handle');
+    if (!handle) return;
+
+    // Only the handle initiates native drag
+    handle.addEventListener('mousedown', () => {
+      row.setAttribute('draggable', 'true');
+    });
+
+    // Prevent drag from starting on non-handle clicks
+    row.addEventListener('mousedown', ev => {
+      if (!ev.target.closest('.drag-handle')) {
+        row.setAttribute('draggable', 'false');
+      }
+    });
+
     row.addEventListener('dragstart', ev => {
+      if (!ev.target.closest('tr')?.querySelector('.drag-handle')) { ev.preventDefault(); return; }
       dragSlug = row.dataset.slug;
+      dragRow = row;
       row.classList.add('dragging');
       ev.dataTransfer.effectAllowed = 'move';
       ev.dataTransfer.setData('text/plain', dragSlug);
+      // Transparent drag image (row itself is dimmed)
+      const img = document.createElement('div');
+      img.style.cssText = 'position:absolute;top:-9999px';
+      document.body.appendChild(img);
+      ev.dataTransfer.setDragImage(img, 0, 0);
+      setTimeout(() => img.remove(), 0);
     });
 
     row.addEventListener('dragend', () => {
+      if (dragRow) dragRow.classList.remove('dragging');
       dragSlug = null;
-      row.classList.remove('dragging');
-      rows.forEach(r => r.classList.remove('drag-over-top', 'drag-over-bottom'));
+      dragRow = null;
+      rows.forEach(r => { r.classList.remove('drag-over-top', 'drag-over-bottom'); r.setAttribute('draggable', 'true'); });
     });
 
     row.addEventListener('dragover', ev => {
       ev.preventDefault();
       ev.dataTransfer.dropEffect = 'move';
-      if (row.dataset.slug === dragSlug) return;
+      if (!dragSlug || row.dataset.slug === dragSlug) return;
       const rect = row.getBoundingClientRect();
       const midY = rect.top + rect.height / 2;
       rows.forEach(r => r.classList.remove('drag-over-top', 'drag-over-bottom'));
@@ -1159,7 +1193,6 @@ function initDragDrop() {
       rows.forEach(r => r.classList.remove('drag-over-top', 'drag-over-bottom'));
       if (!dragSlug || row.dataset.slug === dragSlug) return;
 
-      // Build current visible order
       const pinned = editorBrokers.filter(b => b.position > 0 && !b.hidden).sort((a,b) => a.position - b.position);
       const rest = editorBrokers.filter(b => !b.position && !b.hidden).sort((a,b) => a.name.localeCompare(b.name));
       const ordered = [...pinned, ...rest];
@@ -1169,20 +1202,15 @@ function initDragDrop() {
       let toIdx = ordered.findIndex(b => b.slug === toRow);
       if (fromIdx < 0 || toIdx < 0) return;
 
-      // Determine insert position based on cursor
       const rect = row.getBoundingClientRect();
       const midY = rect.top + rect.height / 2;
       const insertAfter = ev.clientY >= midY;
 
-      // Remove dragged item
       const [moved] = ordered.splice(fromIdx, 1);
-
-      // Recalculate toIdx after splice
       toIdx = ordered.findIndex(b => b.slug === toRow);
       const insertIdx = insertAfter ? toIdx + 1 : toIdx;
       ordered.splice(insertIdx, 0, moved);
 
-      // Reassign positions for all ordered items
       ordered.forEach((b, i) => { b.position = i + 1; });
 
       markChanged();
