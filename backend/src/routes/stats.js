@@ -65,7 +65,7 @@ export async function handleDashboard(request, env) {
     topBrokers, clicksByDay, clicksByDay7, clicksByDay90,
     topCountries, topReferrers, recentClicks, brokerNames,
     heatmapData, totalBrokers,
-    brokerTrends] =
+    brokerTrends, topSourcePages] =
     await Promise.all([
       env.DB.prepare(`SELECT COUNT(*) as count FROM clicks WHERE created_at >= date('now')`).first(),
       env.DB.prepare(`SELECT COUNT(*) as count FROM clicks WHERE created_at >= date('now', '-1 day') AND created_at < date('now')`).first(),
@@ -80,13 +80,15 @@ export async function handleDashboard(request, env) {
       env.DB.prepare(`SELECT date(created_at) as day, COUNT(*) as clicks FROM clicks WHERE created_at >= date('now', '-90 days') GROUP BY day ORDER BY day`).all(),
       env.DB.prepare(`SELECT country, COUNT(*) as clicks FROM clicks WHERE country IS NOT NULL GROUP BY country ORDER BY clicks DESC LIMIT 15`).all(),
       env.DB.prepare(`SELECT referrer, COUNT(*) as clicks FROM clicks WHERE referrer IS NOT NULL AND referrer != '' GROUP BY referrer ORDER BY clicks DESC LIMIT 20`).all(),
-      env.DB.prepare(`SELECT broker_slug, country, referrer, created_at FROM clicks ORDER BY created_at DESC LIMIT 40`).all(),
+      env.DB.prepare(`SELECT broker_slug, country, referrer, source_page, created_at FROM clicks ORDER BY created_at DESC LIMIT 40`).all(),
       env.DB.prepare(`SELECT slug, name FROM brokers`).all(),
       // Heatmap: hour × weekday
       env.DB.prepare(`SELECT cast(strftime('%w', created_at) as integer) as wd, cast(strftime('%H', created_at) as integer) as hr, COUNT(*) as clicks FROM clicks WHERE created_at >= date('now', '-30 days') GROUP BY wd, hr`).all(),
       env.DB.prepare(`SELECT COUNT(*) as count FROM brokers`).first(),
       // Per-broker daily trend (last 7 days, top 10)
       env.DB.prepare(`SELECT broker_slug, date(created_at) as day, COUNT(*) as clicks FROM clicks WHERE created_at >= date('now', '-7 days') GROUP BY broker_slug, day ORDER BY broker_slug, day`).all(),
+      // Top source pages (sub-ID tracking)
+      env.DB.prepare(`SELECT source_page, COUNT(*) as clicks FROM clicks WHERE source_page IS NOT NULL AND source_page != '' GROUP BY source_page ORDER BY clicks DESC LIMIT 20`).all(),
     ]);
 
   const nameMap = {};
@@ -161,6 +163,7 @@ export async function handleDashboard(request, env) {
     name: nameMap[c.broker_slug] || c.broker_slug,
     country: c.country || '—',
     referrer: (() => { try { return new URL(c.referrer).hostname.replace(/^www\./, ''); } catch { return c.referrer || 'direct'; } })(),
+    source: c.source_page || '',
     time: c.created_at,
   })));
 
@@ -424,6 +427,10 @@ ${zeroBrokers > 0 ? `<div class="alert-bar">&#9888; <span><strong>${zeroBrokers}
       <div class="sec"><h2 style="font-size:10px">Top Referrers</h2></div>
       <table id="referrersTable"></table>
     </div>
+    <div style="margin-top:16px">
+      <div class="sec"><h2 style="font-size:10px">Top Source Pages</h2></div>
+      <table id="sourcePagesTable"></table>
+    </div>
   </div>
   <div class="panel" style="grid-column: span 2">
     <div class="sec">
@@ -446,6 +453,7 @@ const RC = ${recentData};
 const HM = ${heatmapJson};
 const HM_MAX = ${heatmapMax};
 const SOURCES = ${JSON.stringify(sourceCategories)};
+const SP = ${JSON.stringify(topSourcePages.results)};
 
 const FL={US:'🇺🇸',GB:'🇬🇧',DE:'🇩🇪',FR:'🇫🇷',AU:'🇦🇺',CA:'🇨🇦',JP:'🇯🇵',SG:'🇸🇬',AE:'🇦🇪',SA:'🇸🇦',IN:'🇮🇳',BR:'🇧🇷',NL:'🇳🇱',CH:'🇨🇭',SE:'🇸🇪',NO:'🇳🇴',DK:'🇩🇰',FI:'🇫🇮',ES:'🇪🇸',IT:'🇮🇹',PT:'🇵🇹',PL:'🇵🇱',CZ:'🇨🇿',RO:'🇷🇴',HU:'🇭🇺',AT:'🇦🇹',BE:'🇧🇪',IE:'🇮🇪',NZ:'🇳🇿',ZA:'🇿🇦',MX:'🇲🇽',AR:'🇦🇷',CL:'🇨🇱',CO:'🇨🇴',PH:'🇵🇭',TH:'🇹🇭',MY:'🇲🇾',ID:'🇮🇩',VN:'🇻🇳',KR:'🇰🇷',TW:'🇹🇼',HK:'🇭🇰',CN:'🇨🇳',RU:'🇷🇺',UA:'🇺🇦',TR:'🇹🇷',EG:'🇪🇬',NG:'🇳🇬',KE:'🇰🇪',IL:'🇮🇱',QA:'🇶🇦',KW:'🇰🇼',BH:'🇧🇭',CY:'🇨🇾',GR:'🇬🇷',LU:'🇱🇺'};
 function fg(c){return FL[c]||'🌍';}
@@ -591,6 +599,16 @@ function renderReferrers(){
     }).join('')||'<tr><td class="empty" colspan="2">No data</td></tr>')+'</tbody>';
 }
 
+// ─── SOURCE PAGES ───
+function renderSourcePages(){
+  document.getElementById('sourcePagesTable').innerHTML=
+    '<tbody>'+(SP.slice(0,10).map(s=>{
+      const pg=s.source_page||'—';
+      const ic=pg.includes('/review/')?'&#x1F4DD;':pg.includes('forex')||pg.includes('ranking')?'&#x1F3C6;':'&#x1F4C4;';
+      return'<tr><td>'+ic+' '+esc(pg)+'</td><td style="text-align:right;font-variant-numeric:tabular-nums">'+s.clicks+'</td></tr>';
+    }).join('')||'<tr><td class="empty" colspan="2">No sub-ID data yet</td></tr>')+'</tbody>';
+}
+
 // ─── LIVE FEED ───
 function renderLive(){
   document.getElementById('liveTable').innerHTML=
@@ -620,7 +638,7 @@ function tick(){
 }
 
 // ─── INIT ───
-initTC();renderHeatmap();renderBrokers();renderCountries();renderSources();renderReferrers();renderLive();tick();
+initTC();renderHeatmap();renderBrokers();renderCountries();renderSources();renderReferrers();renderSourcePages();renderLive();tick();
 
 ${shellScript}
 </script>

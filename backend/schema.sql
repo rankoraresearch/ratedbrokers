@@ -12,6 +12,7 @@ CREATE TABLE IF NOT EXISTS clicks (
   referrer TEXT,
   country TEXT,
   user_agent TEXT,
+  source_page TEXT,
   created_at TEXT DEFAULT (datetime('now'))
 );
 CREATE INDEX IF NOT EXISTS idx_clicks_broker ON clicks(broker_slug);
