@@ -261,7 +261,7 @@ export default function BrokerReview() {
                   <div style={{fontSize:11,fontWeight:700,color:"#059669",textTransform:"uppercase",letterSpacing:"0.06em",marginBottom:6,paddingLeft:12}}>Deep Dive</div>
                   {DEEP_DIVE_TABS.map((dd,i)=>(
                     <Link key={i} to={lp(`/review/${slug}/${dd.id}`)} style={{display:"flex",alignItems:"center",gap:8,padding:"6px 12px",textDecoration:"none",color:"#059669",fontSize:13,fontWeight:500}}>
-                      <dd.Icon size={13} color="#059669" />{dd.label}
+                      <dd.Icon size={13} color="#059669" />{dd.id === "alternatives" ? `${B.name} Alternatives` : dd.label}
                     </Link>
                   ))}
                 </div>
@@ -512,6 +512,7 @@ export default function BrokerReview() {
               <Link to={lp(`/review/${b.slug}`)} style={{fontSize:13,color:"#1e3a5f",fontWeight:600,textDecoration:"none",padding:"6px 14px",border:"1px solid #cbd5e1",borderRadius:6,display:"inline-flex",alignItems:"center",gap:4}}>{t("home.review")} <ArrowRight size={14} /></Link>
             </div>
           </Card>})}
+          <Link to={lp(`/review/${slug}/alternatives`)} style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,fontSize:14,fontWeight:600,color:"#059669",textDecoration:"none",padding:"12px 20px",border:"2px solid #059669",borderRadius:10,marginTop:8,marginBottom:8}} onMouseEnter={e=>{e.currentTarget.style.background="#059669";e.currentTarget.style.color="#fff"}} onMouseLeave={e=>{e.currentTarget.style.background="transparent";e.currentTarget.style.color="#059669"}}>See All Best {B.name} Alternatives <ArrowRight size={14} /></Link>
 
           {/* FAQ */}
           <H2 id="faq">{t("review.faq")}</H2>
@@ -546,7 +547,7 @@ export default function BrokerReview() {
               </div>)}
             </Card>
             <Card style={{padding:"16px"}}>
-              <div style={{fontFamily:"Outfit",fontWeight:700,fontSize:13,marginBottom:10}}>{t("review.alternatives")}</div>
+              <div style={{fontFamily:"Outfit",fontWeight:700,fontSize:13,marginBottom:10}}>{t("review.alternatives", { name: B.name })}</div>
               {SIMILAR.map((b,i)=>{const altData=getBrokerData(b.slug);const altUrl=getVisitUrl(b.slug,altData?.B?.url);return <div key={i} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"8px 0",borderBottom:i<2?"1px solid #f0f4f8":"none"}}>
                 <div><Link to={lp(`/review/${b.slug}`)} style={{fontWeight:600,fontSize:14,color:"inherit",textDecoration:"none"}}>{b.name}</Link><div style={{fontSize:12,color:"#64748b"}}>{b.type}</div></div>
                 <div style={{display:"flex",alignItems:"center",gap:6}}>
@@ -559,7 +560,7 @@ export default function BrokerReview() {
               <div style={{fontSize:12,fontWeight:700,color:"#059669",textTransform:"uppercase",letterSpacing:"0.06em",marginBottom:10}}>Deep Dive</div>
               {DEEP_DIVE_TABS.map((dd,i)=>(
                 <Link key={i} to={lp(`/review/${slug}/${dd.id}`)} style={{display:"flex",alignItems:"center",gap:8,padding:"7px 8px",borderRadius:6,textDecoration:"none",color:"#0f172a",fontSize:12,fontWeight:500,marginBottom:2}} onMouseEnter={e=>{e.currentTarget.style.background="#059669";e.currentTarget.style.color="#fff"}} onMouseLeave={e=>{e.currentTarget.style.background="transparent";e.currentTarget.style.color="#0f172a"}}>
-                  <dd.Icon size={13} color="#059669" />{dd.label}
+                  <dd.Icon size={13} color="#059669" />{dd.id === "alternatives" ? `${B.name} Alternatives` : dd.label}
                 </Link>
               ))}
             </Card>

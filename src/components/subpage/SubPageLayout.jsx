@@ -233,6 +233,15 @@ export default function SubPageLayout({ data, slug, activeTab, children }) {
                 })}
               </Card>
 
+              <Link to={`/review/${slug}/alternatives`} style={{
+                display: "flex", alignItems: "center", gap: 8, width: "100%",
+                padding: "12px 14px", borderRadius: 8,
+                background: "#fff", border: `1px solid ${BORDER}`,
+                color: GREEN, fontSize: 12, fontWeight: 700, textDecoration: "none",
+              }}>
+                <ArrowRight size={13} /> Best {B.name} Alternatives
+              </Link>
+
               <div style={{ fontSize: 11, color: GRAY_MUTED, lineHeight: 1.5, padding: "12px 14px", background: "#fff8e1", border: "1px solid #fde68a", borderRadius: 8 }}>
                 <strong>Risk Warning:</strong> {B.riskWarning}
               </div>

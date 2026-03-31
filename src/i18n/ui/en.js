@@ -224,7 +224,7 @@ const en = {
   "review.hq": "HQ",
   "review.deposit": "Deposit",
   "review.type": "Type",
-  "review.alternatives": "Alternatives",
+  "review.alternatives": "Best {name} Alternatives",
   "review.overallScore": "Overall Score",
 
   // ===== BROKER REVIEW: TOC =====
@@ -272,7 +272,7 @@ const en = {
   "review.expertVerdict": "Expert Verdict",
   "review.openAccountWith": "Open Account with {name}",
   "review.regulated": "Regulated",
-  "review.alternativesTitle": "{name} Alternatives",
+  "review.alternativesTitle": "Best {name} Alternatives",
   "review.alternativesDesc": "If {name} doesn't suit your needs, here are our top recommended alternatives:",
   "review.faq": "Frequently Asked Questions",
   "review.readOnTrustpilot": "Read {name} reviews on Trustpilot",
