@@ -52,6 +52,13 @@ const hasCopyTrading = (b) =>
 // All brokers pass (used for generic rankings where we just want top-scored)
 const all = () => true;
 
+// ── Vertical filters (M4 Umbrella) ──
+const hasVertical = (v) => (b) => (b.B.verticals || []).includes(v);
+const isCFD = hasVertical("cfd");
+const isCopyTrader = hasVertical("copy-trading");
+const isSpreadBetting = hasVertical("spread-betting");
+const isCrypto = hasVertical("crypto");
+
 // Combine filters with AND logic
 const and = (...fns) => (b) => fns.every((fn) => fn(b));
 const or = (...fns) => (b) => fns.some((fn) => fn(b));
@@ -299,6 +306,79 @@ const FILTERS = {
   "real-stocks": all,
   "multi-asset": all,
   "no-kyc": all,
+
+  // ═══════════════════════════════════════════════════════════════
+  // U. CFD BROKERS (7) — M4 Umbrella
+  // ═══════════════════════════════════════════════════════════════
+  "cfd-beginners":     and(isCFD, scoreAbove(8.0)),
+  "cfd-professionals": and(isCFD, scoreAbove(9.0)),
+  "cfd-low-spread":    and(isCFD, (b) => spreadUnder(0.5)(b) || isECN(b)),
+  "cfd-low-cost":      and(isCFD, (b) => spreadUnder(1.0)(b)),
+  "cfd-uk":            and(isCFD, or(hasReg("FCA"), hasTier1)),
+  "cfd-australia":     and(isCFD, or(hasReg("ASIC"), hasTier1)),
+  "cfd-charting":      and(isCFD, or(hasPlatform("TradingView"), hasPlatform("cTrader"))),
+
+  // ═══════════════════════════════════════════════════════════════
+  // V. COPY TRADING (8) — M4 Umbrella
+  // ═══════════════════════════════════════════════════════════════
+  "ct-beginners":      and(isCopyTrader, scoreAbove(8.0)),
+  "ct-apps":           isCopyTrader,
+  "ct-forex":          isCopyTrader,
+  "ct-stocks":         isCopyTrader,
+  "ct-free":           isCopyTrader,
+  "ct-myfxbook":       isCopyTrader,
+  "ct-uk":             and(isCopyTrader, or(hasReg("FCA"), hasTier1)),
+  "ct-usa":            and(isCopyTrader, or(hasReg("NFA"), hasTier1)),
+
+  // ═══════════════════════════════════════════════════════════════
+  // W. SPREAD BETTING (8) — M4 Umbrella
+  // ═══════════════════════════════════════════════════════════════
+  "sb-beginners":      and(isSpreadBetting, scoreAbove(8.0)),
+  "sb-apps":           isSpreadBetting,
+  "sb-day-trading":    and(isSpreadBetting, (b) => spreadUnder(0.5)(b) || isECN(b)),
+  "sb-scalping":       and(isSpreadBetting, (b) => spreadUnder(0.3)(b) || isECN(b)),
+  "sb-forex":          isSpreadBetting,
+  "sb-shares":         isSpreadBetting,
+  "sb-indices":        isSpreadBetting,
+  "sb-uk":             and(isSpreadBetting, or(hasReg("FCA"), hasTier1)),
+
+  // ═══════════════════════════════════════════════════════════════
+  // X. CRYPTO EXPANSION (14) — M4 Umbrella
+  // ═══════════════════════════════════════════════════════════════
+  "crypto-beginners":  and(isCrypto, scoreAbove(8.0)),
+  "crypto-regulated":  and(isCrypto, hasTier1),
+  "crypto-cardano":    isCrypto,
+  "crypto-usdt":       isCrypto,
+  "crypto-btc-etf":    isCrypto,
+  "crypto-margin":     isCrypto,
+  "crypto-demo":       isCrypto,
+  "crypto-uk":         and(isCrypto, or(hasReg("FCA"), hasTier1)),
+  "crypto-usa":        and(isCrypto, or(hasReg("NFA"), hasTier1)),
+  "crypto-australia":  and(isCrypto, or(hasReg("ASIC"), hasTier1)),
+  "crypto-canada":     and(isCrypto, hasTier1),
+  "crypto-germany":    and(isCrypto, or(hasReg("BaFin"), hasReg("CySEC"), hasReg("FCA"))),
+  "crypto-exchanges":  isCrypto,
+  "crypto-wallets":    isCrypto,
+
+  // ═══════════════════════════════════════════════════════════════
+  // Y. FOREX GAPS (16) — M4 Umbrella
+  // ═══════════════════════════════════════════════════════════════
+  "geo-portugal":      all,
+  "geo-denmark":       all,
+  "geo-norway":        all,
+  "geo-finland":       all,
+  "geo-greece":        all,
+  "reg-fsa":           hasReg("FSA"),
+  "reg-ifsc":          hasReg("IFSC"),
+  "reg-vfsc":          hasReg("VFSC"),
+  "forex-mac":         all,
+  "pair-usdcny":       all,
+  "leverage-50":       and(leverageAtLeast(50), (b) => leverageNum(b) <= 100),
+  "leverage-300":      and(leverageAtLeast(300), (b) => leverageNum(b) <= 500),
+  "forex-courses":     scoreAbove(8.0),
+  "forex-charts":      or(hasPlatform("TradingView"), hasPlatform("cTrader")),
+  "pay-amex":          all,
+  "pay-trustly":       all,
 };
 
 // ── Combinatorial filter builder ─────────────────────────
