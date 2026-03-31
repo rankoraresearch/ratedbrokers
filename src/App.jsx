@@ -33,6 +33,7 @@ import SubPagesProto from "./pages/SubPagesProto";
 import SafetyProto from "./pages/SafetyProto";
 import BrokerSubPage from "./pages/BrokerSubPage";
 import CategoryHubPage from "./pages/CategoryHubPage";
+import OnlineBrokersHub from "./pages/OnlineBrokersHub";
 import WarningPage from "./pages/WarningPage";
 import { LanguageProvider } from "./i18n/LanguageContext";
 
@@ -101,6 +102,7 @@ function AppRoutes() {
         <Route path="platform/:slug" element={<PlatformPage />} />
         <Route path="warnings/:slug" element={<WarningPage />} />
         {/* M4 Category Hubs — must be before catch-all :slug */}
+        <Route path="online-brokers" element={<OnlineBrokersHub />} />
         <Route path="forex-brokers" element={<CategoryHubPage hubSlug="forex" />} />
         <Route path="cfd-trading" element={<CategoryHubPage hubSlug="cfd" />} />
         <Route path="copy-trading" element={<CategoryHubPage hubSlug="copy-trading" />} />
