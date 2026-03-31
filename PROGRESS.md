@@ -414,6 +414,43 @@ Hero (dark) → контент → dark CTA → контент → dark scoring 
 
 ---
 
+## Комбинаторные рейтинги + Cleanup (31 марта 2026)
+
+### Phase 1: Cleanup + 4 новых тематических
+- Удалён `crypto-vs-cfd` (не брокер-тематика)
+- Удалены все 10 `alt-*` (S. Broker Alternatives) — 4 файла
+- Добавлены 4 новых: natural-gas, real-stocks, multi-asset, no-kyc
+- Итого тематических: 207 → 200
+
+### Phase 2: Комбинаторный движок (240 страниц)
+- **Новый файл `src/data/combinatorialRankings.js`** — 16 типов × 15 стран = 240 записей
+- COMBI_TYPES: ecn, low-spread, beginners, scalping, mt4, mt5, high-leverage, copy-trading, islamic, cfd, regulated, zero-spread, demo, day-trading, tradingview, trading-apps
+- COMBI_COUNTRIES: uk, australia, usa, germany, singapore, uae, canada, south-africa, india, malaysia, nigeria, new-zealand, philippines, indonesia, kenya
+- `rankingFilters.js`: TYPE_FILTERS (16) + GEO_FILTERS (15), `getCombiFilter()` = and(type, geo)
+- `rankingSeoContent.js`: `makeCombiRanking()` template + 240 авто-SEO записей
+- `thematicGenerators.js`: COMBI_TYPE_CONFIGS (16), 240 CONFIGS, combinatorial verdict template
+- `educationTemplates.js`: combi- → country education template
+- `RankingPage.jsx`: 4-уровневые breadcrumbs для combinatorial (Home → Forex → Country → Title)
+- URL: `/best-{type}-forex-brokers-in-{country}` — catch-all `:slug` подхватывает
+
+### Phase 3: Oman (+1 страна)
+- **Новый файл `src/data/countries/oman.js`** — 5 брокеров (IC Markets, Exness, XM, Pepperstone, AvaTrade)
+- Зарегистрирован в `countries/index.js` (Middle East & Africa)
+- geo-oman в rankings, filters, SEO, generators
+
+### AllRankingsPage.jsx — все 440 рейтингов
+- Import COMBINATORIAL_RANKINGS + ALL_RANKINGS array
+- Таб "Type × Country" для 240 комбинаторных
+- SUB_LABELS для 15 стран
+- Категория "combinatorial" → "Type × Country Rankings"
+- Каунты в title/meta/subtitle → 440
+
+### Коммиты
+- `4dd073a` feat: combinatorial rankings engine (200 thematic + 240 Type×Country = 440 pages)
+- `fce9c7a` feat: show all 440 rankings on /rankings page
+
+---
+
 ## Что дальше
 
 - [x] Деплой — GitHub Pages + Cloudflare Workers API

@@ -28,10 +28,10 @@
 | P. Payment Methods | 14 | — | 14 | PayPal, Skrill, Bitcoin, UPI |
 | Q. Regulators | 10 | — | 10 | FCA, ASIC, CySEC, NFA |
 | R. Countries | 40 | **+1** | **41** | UK, USA, AU + Oman |
-| S. Alternatives | 10 | — | 10 | eToro, IC Markets alts |
+| ~~S. Alternatives~~ | ~~10~~ | — | **0** | УДАЛЕНО (31.03.2026) |
 | **T. NEW: Extended** | — | **+4** | **4** | natural-gas, real-stocks, multi-asset, no-kyc |
 | **COMBI. Type×Country** | — | **+240** | **240** | 16 типов × 15 стран |
-| **ИТОГО** | **207** | **+245** | **452** | |
+| **ИТОГО** | **207** | **+233** | **440** | 200 тематических + 240 комбинаторных |
 
 ---
 
