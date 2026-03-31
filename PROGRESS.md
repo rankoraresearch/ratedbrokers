@@ -499,6 +499,23 @@ Hero (dark) → контент → dark CTA → контент → dark scoring 
 
 ---
 
+## Sub-ID Click Tracking + Cron Trigger (1 апреля 2026)
+
+### Sub-ID Tracking
+- **`src/utils/visitUrl.js`** — `getVisitUrl()` авто-добавляет `?ref={pathname}` ко всем 62 CTA-ссылкам
+- **`backend/src/routes/redirect.js`** — читает `?ref=` → сохраняет в `source_page`
+- **`backend/schema.sql`** — колонка `source_page TEXT` в таблице `clicks`
+- **`backend/src/routes/stats.js`** — таблица "Top Source Pages" в Click Dashboard
+- Коммит `e8894d4`
+
+### Cron Trigger
+- **`backend/wrangler.toml`** — `[triggers] crons = ["0 * * * *"]` (каждый час в :00)
+- **`backend/src/index.js`** — `scheduled()` handler: `UPDATE page_publish SET status='published' WHERE scheduled_at <= now()`
+- Автоматическая публикация scheduled страниц без ручного вмешательства
+- Deploy: Version `74b94cf3`
+
+---
+
 ## Что дальше
 
 - [x] Деплой — GitHub Pages + Cloudflare Workers API
@@ -508,7 +525,7 @@ Hero (dark) → контент → dark CTA → контент → dark scoring 
 - [x] Admin Panel — affiliate links + click dashboard + ranking manager
 - [x] Publication Planner — градуальная публикация + dynamic sitemap
 - [ ] Фронтенд-интеграция Publication Planner (noindex для неопубликованных, листинги)
-- [ ] Cron Trigger для авто-публикации scheduled страниц
+- [x] Cron Trigger для авто-публикации scheduled страниц (`0 * * * *`)
 - [ ] Sub-Pages: IC Markets пилотный YAML-контент (8 табов)
 - [ ] Sub-Pages: контент для остальных 37 брокеров
 - [ ] Навигация: якоря на review vs sub-page табы (UX гармонизация)

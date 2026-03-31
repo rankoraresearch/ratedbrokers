@@ -7,6 +7,15 @@ import { handlePublishDashboard, handlePublishPages, handlePublishUpdate, handle
 import { handleOptions } from './utils/cors.js';
 
 export default {
+  // Cron Trigger — runs every hour, auto-publishes scheduled pages
+  async scheduled(event, env, ctx) {
+    const now = new Date().toISOString().slice(0, 19).replace('T', ' ');
+    const result = await env.DB.prepare(
+      `UPDATE page_publish SET status = 'published', published_at = ? WHERE status = 'scheduled' AND scheduled_at <= ?`
+    ).bind(now, now).run();
+    console.log(`[CRON] tick at ${now} — published ${result.meta.changes} pages`);
+  },
+
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
     const path = url.pathname;

@@ -13,6 +13,10 @@ FRONTEND_URL = "https://ratedbrokers.com"
 # For local dev, set it here or via .dev.vars file:
 # API_KEY = "dev-test-key"
 
+# Cron Trigger — auto-publish scheduled pages every hour
+[triggers]
+crons = ["0 * * * *"]
+
 [[d1_databases]]
 binding = "DB"
 database_name = "ratedbrokers"
