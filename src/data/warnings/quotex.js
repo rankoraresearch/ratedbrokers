@@ -101,7 +101,7 @@ export default {
     productType: "Binary Options",
   },
 
-  alternatives: ["ic-markets", "pepperstone", "etoro"],
+  alternatives: ["ic-markets", "pepperstone", "etoro", "xm", "exness"],
 
   faq: [
     {

@@ -52,31 +52,33 @@ function WarningHeroBand({ children, mob }) {
   return (
     <div style={{
       position: "relative", overflow: "hidden",
-      background: "linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)",
+      /* Navy with subtle warm undertone — not pure cold navy, slightly warmer = "danger" feel */
+      background: "linear-gradient(135deg, #0f172a 0%, #1a1020 35%, #1e1025 55%, #0f172a 100%)",
     }}>
-      {/* Gradient accent strip — rose to amber, premium danger signal */}
+      {/* Gradient accent strip — rose to amber */}
       <div style={{
         position: "absolute", top: 0, left: 0, right: 0, height: 3,
-        background: "linear-gradient(90deg, #be123c 0%, #e11d48 30%, #f59e0b 70%, #be123c 100%)",
+        background: "linear-gradient(90deg, #be123c 0%, #e11d48 25%, #f59e0b 50%, #e11d48 75%, #be123c 100%)",
         zIndex: 10,
       }} />
       {/* Diagonal texture */}
       <div style={{
         position: "absolute", inset: 0,
-        backgroundImage: "repeating-linear-gradient(135deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 60px)",
+        backgroundImage: "repeating-linear-gradient(135deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 60px)",
         pointerEvents: "none",
       }} />
-      {/* Subtle warm glow — top-left rose, bottom-right amber */}
+      {/* Subtle rose ambient glow — top-left */}
       <div style={{
-        position: "absolute", top: -80, left: -80,
-        width: 280, height: 280,
-        background: "radial-gradient(circle, rgba(190,18,60,0.1) 0%, transparent 70%)",
+        position: "absolute", top: -100, left: -100,
+        width: 350, height: 350,
+        background: "radial-gradient(circle, rgba(190,18,60,0.08) 0%, transparent 65%)",
         pointerEvents: "none",
       }} />
+      {/* Amber ambient — bottom-right */}
       <div style={{
-        position: "absolute", bottom: -60, right: "20%",
-        width: 200, height: 200,
-        background: "radial-gradient(circle, rgba(245,158,11,0.06) 0%, transparent 70%)",
+        position: "absolute", bottom: -80, right: "15%",
+        width: 250, height: 250,
+        background: "radial-gradient(circle, rgba(245,158,11,0.05) 0%, transparent 65%)",
         pointerEvents: "none",
       }} />
       <div style={{
@@ -361,118 +363,147 @@ function RegulatoryWarnings({ warnings, mob }) {
   );
 }
 
-/* ── Safe Alternatives — premium cards ────────────────── */
+/* ── Safe Alternatives — compact rows for 5 brokers ──── */
 function SafeAlternatives({ slugs, mob }) {
   const brokers = slugs.map((s) => getBrokerData(s)).filter(Boolean);
   if (brokers.length === 0) return null;
   return (
     <div id="alternatives" style={{
       background: C.white, border: `1px solid ${C.border}`,
-      borderRadius: 12, padding: mob ? "24px 16px" : "32px 32px", marginBottom: 24,
+      borderRadius: 12, padding: mob ? "20px 16px" : "28px 28px", marginBottom: 24,
     }}>
-      <h2 style={{ fontFamily: "Outfit", fontSize: mob ? 20 : 24, fontWeight: 800, color: C.navy, margin: "0 0 6px" }}>
+      <h2 style={{ fontFamily: "Outfit", fontSize: mob ? 19 : 22, fontWeight: 800, color: C.navy, margin: "0 0 4px" }}>
         Regulated Alternatives
       </h2>
-      <p style={{ fontSize: 15, color: C.grayMuted, marginBottom: 20, marginTop: 6, lineHeight: 1.6 }}>
-        These brokers hold top-tier licenses and offer segregated client funds with investor protection.
+      <p style={{ fontSize: 14, color: C.grayMuted, marginBottom: 16, marginTop: 4, lineHeight: 1.5 }}>
+        Top-tier regulated brokers with investor protection and segregated funds.
       </p>
       {brokers.map((bData, i) => {
         const B = bData.B;
         const slug = B.slug || slugs[i];
         const visitUrl = getVisitUrl(slug, B.url);
-        const tierRegs = (B.regs || []).filter((r) => r.tier === 1).slice(0, 3);
+        const tierRegs = (B.regs || []).filter((r) => r.tier === 1).slice(0, 2);
         const tpLink = TRUSTPILOT_LINKS[slug];
 
+        if (mob) {
+          /* Mobile: stacked compact card */
+          return (
+            <div key={i} style={{
+              background: C.bg, borderRadius: 10,
+              border: `1px solid ${C.border}`,
+              borderLeft: i === 0 ? `3px solid ${C.safe}` : `1px solid ${C.border}`,
+              padding: "14px 14px", marginBottom: 8,
+            }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
+                <img src={`${BASE}logos/${slugs[i]}.png`} alt={B.name}
+                  style={{ height: 32, width: 32, borderRadius: 6, objectFit: "contain" }} />
+                <span style={{ fontSize: 15, fontWeight: 700, color: C.navy, flex: 1 }}>{B.name}</span>
+                <span style={{
+                  fontSize: 13, fontWeight: 800, color: "#34d399",
+                  background: C.navy, padding: "4px 10px", borderRadius: 6,
+                }}>{B.score}</span>
+              </div>
+              <div style={{ display: "flex", gap: 4, marginBottom: 10, flexWrap: "wrap" }}>
+                {tierRegs.map((r, ri) => (
+                  <span key={ri} style={{ fontSize: 10, color: C.grayMuted, background: "#f3f4f6", padding: "2px 6px", borderRadius: 3 }}>{r.name}</span>
+                ))}
+                {B.tp && <span style={{ fontSize: 10, color: C.grayLight, display: "inline-flex", alignItems: "center", gap: 2 }}><Star size={9} fill="#00B67A" color="#00B67A" />{B.tp}</span>}
+                {i === 0 && <span style={{ fontSize: 10, fontWeight: 600, color: C.safe, background: C.safeLight, padding: "2px 6px", borderRadius: 3 }}>TOP PICK</span>}
+              </div>
+              <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-primary"
+                style={{
+                  background: C.ctaGrad, color: C.navy,
+                  padding: "10px 0", borderRadius: 8,
+                  fontSize: 13, fontWeight: 700,
+                  textDecoration: "none", textAlign: "center",
+                  display: "flex", alignItems: "center", justifyContent: "center", gap: 6,
+                  width: "100%",
+                }}>Visit {B.name} <ArrowRight size={13} /></a>
+            </div>
+          );
+        }
+
+        /* Desktop: compact single-row */
         return (
           <div key={i} style={{
-            background: C.bg, borderRadius: 12,
-            border: `1px solid ${C.border}`,
-            borderLeft: `3px solid ${i === 0 ? C.safe : C.border}`,
-            padding: mob ? "18px 16px" : "20px 24px",
-            marginBottom: 12,
-            transition: "box-shadow 0.2s, transform 0.2s",
+            display: "flex", alignItems: "center", gap: 14,
+            padding: "12px 16px",
+            borderBottom: i < brokers.length - 1 ? `1px solid ${C.border}` : "none",
+            transition: "background 0.15s",
+            borderRadius: i === 0 ? "8px 8px 0 0" : i === brokers.length - 1 ? "0 0 8px 8px" : 0,
           }}
-            onMouseEnter={(e) => { if (!mob) { e.currentTarget.style.boxShadow = "0 6px 20px rgba(0,0,0,0.07)"; e.currentTarget.style.transform = "translateY(-1px)"; } }}
-            onMouseLeave={(e) => { if (!mob) { e.currentTarget.style.boxShadow = "none"; e.currentTarget.style.transform = "none"; } }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = "#f9fafb"; }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; }}
           >
-            {/* Top row: Logo + Name + Score + Badge */}
-            <div style={{
-              display: "flex", alignItems: "center", gap: 12,
-              marginBottom: 12,
-            }}>
+            {/* Rank */}
+            <span style={{
+              fontSize: 13, fontWeight: 700, color: C.grayLight,
+              minWidth: 20, textAlign: "center",
+            }}>{i + 1}</span>
+
+            {/* Logo + Name */}
+            <div style={{ display: "flex", alignItems: "center", gap: 8, minWidth: 160 }}>
               <img src={`${BASE}logos/${slugs[i]}.png`} alt={B.name}
-                style={{ height: 42, width: 42, borderRadius: 10, objectFit: "contain" }} />
-              <div style={{ flex: 1 }}>
-                <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
-                  <span style={{ fontSize: 17, fontWeight: 700, color: C.navy }}>{B.name}</span>
-                  <span style={{
-                    display: "inline-flex", alignItems: "center", justifyContent: "center",
-                    minWidth: 36, height: 28, borderRadius: 6, padding: "0 8px",
-                    background: C.navy, color: "#34d399", fontSize: 14, fontWeight: 800,
-                  }}>{B.score}</span>
-                  {i === 0 && (
-                    <span style={{
-                      fontSize: 11, fontWeight: 600, color: C.safe,
-                      background: C.safeLight, padding: "3px 10px", borderRadius: 4,
-                      textTransform: "uppercase", letterSpacing: "0.03em",
-                    }}>Top Pick</span>
-                  )}
-                </div>
-              </div>
+                style={{ height: 30, width: 30, borderRadius: 6, objectFit: "contain" }} />
+              <span style={{ fontSize: 14, fontWeight: 700, color: C.navy }}>{B.name}</span>
+              {i === 0 && (
+                <span style={{
+                  fontSize: 10, fontWeight: 600, color: C.safe,
+                  background: C.safeLight, padding: "2px 8px", borderRadius: 3,
+                  textTransform: "uppercase",
+                }}>Top Pick</span>
+              )}
             </div>
 
-            {/* Middle row: Regs + Trustpilot (compact) */}
-            <div style={{
-              display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap",
-              marginBottom: 14, paddingBottom: 14,
-              borderBottom: `1px solid ${C.border}`,
-            }}>
+            {/* Score */}
+            <span style={{
+              fontSize: 13, fontWeight: 800, color: "#34d399",
+              background: C.navy, padding: "3px 10px", borderRadius: 5,
+              minWidth: 42, textAlign: "center",
+            }}>{B.score}</span>
+
+            {/* Regs */}
+            <div style={{ display: "flex", gap: 4, flex: 1 }}>
               {tierRegs.map((r, ri) => (
                 <span key={ri} style={{
-                  fontSize: 11, fontWeight: 500, color: C.grayMuted,
-                  background: "#f3f4f6", padding: "2px 8px", borderRadius: 4,
+                  fontSize: 11, color: C.grayMuted,
+                  background: "#f3f4f6", padding: "2px 7px", borderRadius: 3,
                 }}>{r.name}</span>
               ))}
               {B.tp && (
                 tpLink ? (
                   <a href={tpLink} target="_blank" rel="noopener noreferrer"
-                    style={{ fontSize: 11, color: C.grayLight, display: "inline-flex", alignItems: "center", gap: 3, textDecoration: "none" }}
-                  >
-                    <Star size={10} fill="#00B67A" color="#00B67A" /> {B.tp}
-                  </a>
+                    style={{ fontSize: 11, color: C.grayLight, display: "inline-flex", alignItems: "center", gap: 2, textDecoration: "none" }}
+                  ><Star size={9} fill="#00B67A" color="#00B67A" />{B.tp}</a>
                 ) : (
-                  <span style={{ fontSize: 11, color: C.grayLight, display: "inline-flex", alignItems: "center", gap: 3 }}>
-                    <Star size={10} fill="#00B67A" color="#00B67A" /> {B.tp}
+                  <span style={{ fontSize: 11, color: C.grayLight, display: "inline-flex", alignItems: "center", gap: 2 }}>
+                    <Star size={9} fill="#00B67A" color="#00B67A" />{B.tp}
                   </span>
                 )
               )}
             </div>
 
-            {/* Bottom row: CTA buttons — EQUAL WIDTH */}
-            <div style={{
-              display: "flex", alignItems: "center", gap: 12,
-            }}>
-              <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-primary"
-                style={{
-                  background: C.ctaGrad, color: C.navy,
-                  padding: "12px 0", borderRadius: 8,
-                  fontSize: 14, fontWeight: 700,
-                  textDecoration: "none", textAlign: "center",
-                  display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 6,
-                  minWidth: 180, width: 180,
-                }}>Visit {B.name} <ArrowRight size={14} /></a>
-              <Link to={`/review/${slugs[i]}`} style={{
-                fontSize: 13, fontWeight: 600, color: C.grayMuted,
-                textDecoration: "none", padding: "12px 0",
-                border: `1px solid ${C.border}`, borderRadius: 8,
-                textAlign: "center", minWidth: 130, width: 130,
-                display: "inline-flex", alignItems: "center", justifyContent: "center",
-                transition: "all 0.15s",
-              }}
-                onMouseEnter={(e) => { e.currentTarget.style.borderColor = C.grayMuted; }}
-                onMouseLeave={(e) => { e.currentTarget.style.borderColor = C.border; }}
-              >Read Review</Link>
-            </div>
+            {/* CTAs — fixed width */}
+            <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-primary"
+              style={{
+                background: C.ctaGrad, color: C.navy,
+                padding: "8px 0", borderRadius: 7,
+                fontSize: 13, fontWeight: 700,
+                textDecoration: "none", textAlign: "center",
+                display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 5,
+                width: 160, flexShrink: 0,
+              }}>Visit {B.name} <ArrowRight size={13} /></a>
+            <Link to={`/review/${slugs[i]}`} style={{
+              fontSize: 12, fontWeight: 600, color: C.grayMuted,
+              textDecoration: "none", padding: "8px 0",
+              border: `1px solid ${C.border}`, borderRadius: 7,
+              textAlign: "center", width: 100, flexShrink: 0,
+              display: "inline-flex", alignItems: "center", justifyContent: "center",
+              transition: "border-color 0.15s",
+            }}
+              onMouseEnter={(e) => { e.currentTarget.style.borderColor = C.grayMuted; }}
+              onMouseLeave={(e) => { e.currentTarget.style.borderColor = C.border; }}
+            >Review</Link>
           </div>
         );
       })}
