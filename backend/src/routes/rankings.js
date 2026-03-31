@@ -697,6 +697,18 @@ export async function handleRankingsDashboard(request, env) {
   .ed-table tr.drag-over-top { box-shadow: inset 0 2px 0 0 var(--blue); }
   .ed-table tr.drag-over-bottom { box-shadow: inset 0 -2px 0 0 var(--blue); }
 
+  /* ─── Top 10 Boundary ─── */
+  .ed-table tr.top10-boundary td {
+    padding: 6px 10px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #60a5fa;
+    border-top: 2px dashed #3b82f6;
+    border-bottom: none;
+    background: rgba(59,130,246,0.06);
+    letter-spacing: 0.3px;
+  }
+
   /* ─── Label Presets ─── */
   .label-select {
     background: var(--bg-base); color: var(--text-primary); border: 1px solid var(--border);
@@ -847,7 +859,7 @@ ${shellHeader}
       <button class="btn btn-export" onclick="exportEditorJSON()">Export JSON</button>
       <button class="btn btn-apply" id="btnApply" onclick="toggleApplyPanel()">Apply to Similar</button>
       <button class="btn btn-apply" onclick="toggleCopyPanel()">Copy From...</button>
-      <button class="help-btn" title="Quick help">?<div class="help-tooltip"><div class="ht-step"><span class="ht-num">1</span><span class="ht-text"><strong>Drag rows</strong> to reorder brokers — grab and drop</span></div><div class="ht-step"><span class="ht-num">2</span><span class="ht-text"><strong>Labels</strong> appear as badges on the live site</span></div><div class="ht-step"><span class="ht-num">3</span><span class="ht-text"><strong>Save</strong> — changes go live within 5 min (cached)</span></div><div class="ht-step"><span class="ht-num">4</span><span class="ht-text"><strong>Pin Top 5</strong> locks first 5 positions, <strong>Copy From</strong> loads another ranking</span></div></div></button>
+      <button class="help-btn" title="Quick help">?<div class="help-tooltip"><div class="ht-step"><span class="ht-num">1</span><span class="ht-text"><strong>Drag rows</strong> to reorder brokers — grab and drop</span></div><div class="ht-step"><span class="ht-num">2</span><span class="ht-text"><strong>Top 10</strong> above the blue line = Quick Grid on the live page</span></div><div class="ht-step"><span class="ht-num">3</span><span class="ht-text"><strong>Labels</strong> appear as badges on the live site</span></div><div class="ht-step"><span class="ht-num">4</span><span class="ht-text"><strong>Save</strong> — changes go live within 5 min (cached)</span></div></div></button>
     </div>
     <div id="editorBody">
       <div class="editor-empty"><div class="icon">&#9776;</div>Loading...</div>
@@ -1077,6 +1089,10 @@ function renderEditor() {
     html += '<button class="move-btn" onclick="moveDown(\\''+b.slug+'\\')" title="Move down">&#9660;</button>';
     html += '<button class="hide-btn" onclick="toggleHide(\\''+b.slug+'\\')" title="Hide from ranking">&#10005;</button>';
     html += '</td></tr>';
+    // Top 10 at a Glance boundary marker
+    if (i === 9 && ordered.length > 10) {
+      html += '<tr class="top10-boundary"><td colspan="7">&#9650; Top 10 at a Glance — brokers above appear in the quick grid on live page</td></tr>';
+    }
   });
 
   // Hidden brokers

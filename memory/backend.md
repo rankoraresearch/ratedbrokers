@@ -83,10 +83,21 @@ id INTEGER PK AUTOINCREMENT, name TEXT, email TEXT, message TEXT, created_at TEX
 
 ## Shared Admin Layout
 
-`adminLayout.js` — единая шапка для обеих HTML-панелей:
+`adminLayout.js` — единая шапка для всех HTML-панелей:
 - Sticky topbar: лого "Rated.Admin", навигация, language switcher
-- NAV_ITEMS: Click Dashboard, Affiliate Links
+- NAV_ITEMS: Click Dashboard, Affiliate Links, Ranking Manager
 - Languages: English (расширяемый)
+
+## Ranking Manager (`rankings.js`)
+
+3-й раздел админки. 207 рейтингов в 19 группах (A-S).
+- D1 таблица `ranking_overrides` (ranking_id, broker_slug, position, featured_label, hidden, notes)
+- Dashboard: категории-пиллы, поиск, карточки рейтингов с badges (configured/not)
+- Editor: drag & drop таблица, Pin Top 5, Copy From, Apply to Similar, View Live
+- **Top 10 boundary**: синий пунктирный разделитель после 10-й видимой строки — показывает какие брокеры попадут в Quick Grid на live странице
+- Help tooltip: 4 шага (Drag, Top 10, Labels, Save)
+- Help panel: 4 шага + tips
+- Frontend integration: `fetchRankingOverrides()` + `applyOverrides()` в `rankingFilters.js`
 
 ## Секреты
 
