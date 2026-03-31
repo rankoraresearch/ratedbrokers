@@ -692,15 +692,22 @@ export async function handleRankingsDashboard(request, env) {
 
   /* ─── Drag & Drop ─── */
   .ed-table tr[draggable] { user-select: none; -webkit-user-select: none; }
-  .ed-table tr.dragging { opacity: 0.4; }
-  .ed-table tr.drag-over-top { box-shadow: inset 0 2px 0 0 var(--blue); }
-  .ed-table tr.drag-over-bottom { box-shadow: inset 0 -2px 0 0 var(--blue); }
+  .ed-table tr.drag-ghost {
+    position: fixed; pointer-events: none; z-index: 1000;
+    background: var(--bg-card); border: 2px solid var(--blue);
+    border-radius: 8px; box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    opacity: 0.95; transition: none;
+  }
+  .ed-table tr.drag-source { opacity: 0.15; }
+  .ed-table tr.drag-insert-above { box-shadow: inset 0 2px 0 0 var(--blue); }
+  .ed-table tr.drag-insert-below { box-shadow: inset 0 -2px 0 0 var(--blue); }
   .drag-handle {
     cursor: grab; color: var(--text-muted); font-size: 14px; padding: 0 4px;
     display: inline-flex; align-items: center; user-select: none; -webkit-user-select: none;
   }
   .drag-handle:active { cursor: grabbing; }
-  tr.dragging .drag-handle { cursor: grabbing; }
+  body.is-dragging { cursor: grabbing !important; }
+  body.is-dragging * { cursor: grabbing !important; }
 
   /* ─── Top 10 Boundary ─── */
   .ed-table tr.top10-boundary td {
@@ -1125,97 +1132,155 @@ function renderEditor() {
   initDragDrop();
 }
 
-// ─── DRAG & DROP (mouse-based, handle-only) ───
+// ─── DRAG & DROP (smooth mouse-based reorder) ───
 function initDragDrop() {
-  const rows = document.querySelectorAll('.ed-table tbody tr[draggable]');
-  let dragSlug = null;
-  let dragRow = null;
-  let placeholder = null;
+  const tbody = document.querySelector('.ed-table tbody');
+  if (!tbody) return;
 
-  rows.forEach(row => {
-    const handle = row.querySelector('.drag-handle');
+  let dragState = null; // { slug, sourceRow, ghost, startY, scrollInterval }
+
+  function getVisibleRows() {
+    return Array.from(tbody.querySelectorAll('tr[data-slug][draggable]'));
+  }
+
+  function cleanup() {
+    if (!dragState) return;
+    if (dragState.ghost) dragState.ghost.remove();
+    if (dragState.scrollInterval) clearInterval(dragState.scrollInterval);
+    if (dragState.sourceRow) dragState.sourceRow.classList.remove('drag-source');
+    document.body.classList.remove('is-dragging');
+    getVisibleRows().forEach(r => r.classList.remove('drag-insert-above', 'drag-insert-below'));
+    dragState = null;
+  }
+
+  // Mousedown on handle starts drag
+  tbody.addEventListener('mousedown', ev => {
+    const handle = ev.target.closest('.drag-handle');
     if (!handle) return;
+    const row = handle.closest('tr[data-slug]');
+    if (!row) return;
+    ev.preventDefault();
 
-    // Only the handle initiates native drag
-    handle.addEventListener('mousedown', () => {
-      row.setAttribute('draggable', 'true');
-    });
+    const rect = row.getBoundingClientRect();
 
-    // Prevent drag from starting on non-handle clicks
-    row.addEventListener('mousedown', ev => {
-      if (!ev.target.closest('.drag-handle')) {
-        row.setAttribute('draggable', 'false');
+    // Create ghost — a floating copy of the row
+    const ghost = document.createElement('table');
+    ghost.className = 'ed-table';
+    ghost.style.cssText = 'position:fixed;pointer-events:none;z-index:1000;width:'+rect.width+'px;background:var(--bg-card);border:2px solid var(--blue);border-radius:8px;box-shadow:0 8px 32px rgba(0,0,0,0.5);opacity:0.95;margin:0;';
+    const clonedRow = row.cloneNode(true);
+    const ghostBody = document.createElement('tbody');
+    ghostBody.appendChild(clonedRow);
+    ghost.appendChild(ghostBody);
+    document.body.appendChild(ghost);
+    ghost.style.left = rect.left + 'px';
+    ghost.style.top = rect.top + 'px';
+
+    row.classList.add('drag-source');
+    document.body.classList.add('is-dragging');
+
+    dragState = {
+      slug: row.dataset.slug,
+      sourceRow: row,
+      ghost: ghost,
+      startY: ev.clientY,
+      ghostOffsetY: ev.clientY - rect.top,
+      scrollInterval: null
+    };
+  });
+
+  // Mousemove — move ghost + highlight drop target
+  document.addEventListener('mousemove', ev => {
+    if (!dragState) return;
+    ev.preventDefault();
+
+    // Move ghost
+    dragState.ghost.style.top = (ev.clientY - dragState.ghostOffsetY) + 'px';
+
+    // Auto-scroll when near viewport edges
+    const edgeZone = 60;
+    if (ev.clientY < edgeZone) {
+      window.scrollBy(0, -8);
+    } else if (ev.clientY > window.innerHeight - edgeZone) {
+      window.scrollBy(0, 8);
+    }
+
+    // Find drop target
+    const rows = getVisibleRows();
+    rows.forEach(r => r.classList.remove('drag-insert-above', 'drag-insert-below'));
+
+    for (const r of rows) {
+      if (r.dataset.slug === dragState.slug) continue;
+      const rRect = r.getBoundingClientRect();
+      if (ev.clientY >= rRect.top && ev.clientY < rRect.bottom) {
+        const midY = rRect.top + rRect.height / 2;
+        if (ev.clientY < midY) {
+          r.classList.add('drag-insert-above');
+        } else {
+          r.classList.add('drag-insert-below');
+        }
+        break;
       }
-    });
+    }
+  });
 
-    row.addEventListener('dragstart', ev => {
-      if (!ev.target.closest('tr')?.querySelector('.drag-handle')) { ev.preventDefault(); return; }
-      dragSlug = row.dataset.slug;
-      dragRow = row;
-      row.classList.add('dragging');
-      ev.dataTransfer.effectAllowed = 'move';
-      ev.dataTransfer.setData('text/plain', dragSlug);
-      // Transparent drag image (row itself is dimmed)
-      const img = document.createElement('div');
-      img.style.cssText = 'position:absolute;top:-9999px';
-      document.body.appendChild(img);
-      ev.dataTransfer.setDragImage(img, 0, 0);
-      setTimeout(() => img.remove(), 0);
-    });
+  // Mouseup — commit reorder
+  document.addEventListener('mouseup', ev => {
+    if (!dragState) return;
 
-    row.addEventListener('dragend', () => {
-      if (dragRow) dragRow.classList.remove('dragging');
-      dragSlug = null;
-      dragRow = null;
-      rows.forEach(r => { r.classList.remove('drag-over-top', 'drag-over-bottom'); r.setAttribute('draggable', 'true'); });
-    });
+    // Find where to drop
+    const rows = getVisibleRows();
+    let targetSlug = null;
+    let insertAfter = false;
 
-    row.addEventListener('dragover', ev => {
-      ev.preventDefault();
-      ev.dataTransfer.dropEffect = 'move';
-      if (!dragSlug || row.dataset.slug === dragSlug) return;
-      const rect = row.getBoundingClientRect();
-      const midY = rect.top + rect.height / 2;
-      rows.forEach(r => r.classList.remove('drag-over-top', 'drag-over-bottom'));
-      if (ev.clientY < midY) {
-        row.classList.add('drag-over-top');
-      } else {
-        row.classList.add('drag-over-bottom');
+    for (const r of rows) {
+      if (r.dataset.slug === dragState.slug) continue;
+      const rRect = r.getBoundingClientRect();
+      if (ev.clientY >= rRect.top && ev.clientY < rRect.bottom) {
+        targetSlug = r.dataset.slug;
+        insertAfter = ev.clientY >= rRect.top + rRect.height / 2;
+        break;
       }
-    });
+    }
 
-    row.addEventListener('dragleave', () => {
-      row.classList.remove('drag-over-top', 'drag-over-bottom');
-    });
+    // If dropped past the last row, append to end
+    if (!targetSlug && rows.length > 0) {
+      const lastRow = rows[rows.length - 1];
+      const lastRect = lastRow.getBoundingClientRect();
+      if (ev.clientY >= lastRect.bottom) {
+        targetSlug = lastRow.dataset.slug;
+        insertAfter = true;
+      }
+      // If above first row
+      const firstRow = rows[0];
+      const firstRect = firstRow.getBoundingClientRect();
+      if (ev.clientY < firstRect.top) {
+        targetSlug = firstRow.dataset.slug;
+        insertAfter = false;
+      }
+    }
 
-    row.addEventListener('drop', ev => {
-      ev.preventDefault();
-      rows.forEach(r => r.classList.remove('drag-over-top', 'drag-over-bottom'));
-      if (!dragSlug || row.dataset.slug === dragSlug) return;
+    const movedSlug = dragState.slug;
+    cleanup();
 
-      const pinned = editorBrokers.filter(b => b.position > 0 && !b.hidden).sort((a,b) => a.position - b.position);
-      const rest = editorBrokers.filter(b => !b.position && !b.hidden).sort((a,b) => a.name.localeCompare(b.name));
-      const ordered = [...pinned, ...rest];
+    if (!targetSlug || targetSlug === movedSlug) return;
 
-      const fromIdx = ordered.findIndex(b => b.slug === dragSlug);
-      const toRow = row.dataset.slug;
-      let toIdx = ordered.findIndex(b => b.slug === toRow);
-      if (fromIdx < 0 || toIdx < 0) return;
+    // Apply reorder to data
+    const pinned = editorBrokers.filter(b => b.position > 0 && !b.hidden).sort((a,b) => a.position - b.position);
+    const rest = editorBrokers.filter(b => !b.position && !b.hidden).sort((a,b) => a.name.localeCompare(b.name));
+    const ordered = [...pinned, ...rest];
 
-      const rect = row.getBoundingClientRect();
-      const midY = rect.top + rect.height / 2;
-      const insertAfter = ev.clientY >= midY;
+    const fromIdx = ordered.findIndex(b => b.slug === movedSlug);
+    let toIdx = ordered.findIndex(b => b.slug === targetSlug);
+    if (fromIdx < 0 || toIdx < 0) return;
 
-      const [moved] = ordered.splice(fromIdx, 1);
-      toIdx = ordered.findIndex(b => b.slug === toRow);
-      const insertIdx = insertAfter ? toIdx + 1 : toIdx;
-      ordered.splice(insertIdx, 0, moved);
+    const [moved] = ordered.splice(fromIdx, 1);
+    toIdx = ordered.findIndex(b => b.slug === targetSlug);
+    const insertIdx = insertAfter ? toIdx + 1 : toIdx;
+    ordered.splice(insertIdx, 0, moved);
 
-      ordered.forEach((b, i) => { b.position = i + 1; });
-
-      markChanged();
-      renderEditor();
-    });
+    ordered.forEach((b, i) => { b.position = i + 1; });
+    markChanged();
+    renderEditor();
   });
 }
 
