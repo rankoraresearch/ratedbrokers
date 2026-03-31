@@ -691,7 +691,7 @@ export async function handleRankingsDashboard(request, env) {
   .help-tip code { color: var(--blue); font-size: 10px; background: var(--blue-glow); padding: 1px 4px; border-radius: 3px; }
 
   /* ─── Drag & Drop ─── */
-  .ed-table tr[data-slug] { user-select: none; -webkit-user-select: none; }
+  .ed-table tr[data-slug] { user-select: none; -webkit-user-select: none; cursor: grab; }
   .ed-table tr.drag-source { opacity: 0.25; background: repeating-linear-gradient(45deg, transparent, transparent 4px, rgba(59,130,246,0.08) 4px, rgba(59,130,246,0.08) 8px); }
   .ed-table tr.drag-insert-above { box-shadow: 0 -3px 0 0 #3b82f6; position: relative; z-index: 1; }
   .ed-table tr.drag-insert-above td { border-top: 3px solid #3b82f6 !important; }
@@ -1189,11 +1189,10 @@ function initDragDrop() {
     ev.preventDefault();
   });
 
-  // Mousedown on handle starts drag
+  // Mousedown anywhere on row starts drag (except interactive elements)
   tbody.addEventListener('mousedown', ev => {
-    const handle = ev.target.closest('.drag-handle');
-    if (!handle) return;
-    const row = handle.closest('tr[data-slug]');
+    if (ev.target.closest('select, input, button, textarea')) return;
+    const row = ev.target.closest('tr[data-slug]');
     if (!row) return;
     ev.preventDefault();
     ev.stopPropagation();
