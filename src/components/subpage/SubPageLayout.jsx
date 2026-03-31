@@ -58,7 +58,8 @@ export default function SubPageLayout({ data, slug, activeTab, children }) {
   const cn = { maxWidth: 1200, margin: "0 auto", padding: mob ? "0 16px" : "0 24px" };
   const visitUrl = getVisitUrl(slug);
   const meta = TAB_META[activeTab] || {};
-  const h1 = `${B.name} ${meta.h1Suffix || activeTab} 2026`;
+  const isRegulation = activeTab === "regulation";
+  const h1 = isRegulation ? `Is ${B.name} Safe?` : `${B.name} ${meta.h1Suffix || activeTab} 2026`;
 
   const author = getAuthorByName(AUTHOR.name);
   const authorEditor = getEditor();
@@ -73,11 +74,36 @@ export default function SubPageLayout({ data, slug, activeTab, children }) {
 
   useEffect(() => { window.scrollTo({ top: 0, behavior: "smooth" }); }, [activeTab]);
 
-  /* SEO: title + meta */
+  /* SEO: title + meta + JSON-LD */
   useEffect(() => {
-    document.title = `${B.name} ${meta.h1Suffix || activeTab} 2026 | RatedBrokers`;
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) metaDesc.setAttribute("content", `${B.name} ${meta.breadcrumb || activeTab} — expert analysis, fees, pros & cons. Score: ${B.score}/10.`);
+    if (isRegulation) {
+      document.title = `Is ${B.name} Safe? Regulation & Trust 2026 | RatedBrokers`;
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.setAttribute("content", `Is ${B.name} safe and legit in 2026? Expert analysis of ${B.regs?.length || 0} regulatory licenses, investor protection, fund segregation. Score: ${B.score}/10.`);
+
+      /* FAQ Schema for safety questions */
+      const tier1 = (B.regs || []).filter(r => r.tier === 1);
+      const regList = (B.regs || []).map(r => r.name).join(", ");
+      const faqSchema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: [
+          { "@type": "Question", name: `Is ${B.name} safe?`, acceptedAnswer: { "@type": "Answer", text: tier1.length > 0 ? `Yes, ${B.name} is safe. It is regulated by ${regList} and holds ${tier1.length} Tier-1 license${tier1.length > 1 ? "s" : ""}.` : `${B.name} is regulated by ${regList}, but does not hold a Tier-1 license. Exercise caution.` } },
+          { "@type": "Question", name: `Is ${B.name} regulated?`, acceptedAnswer: { "@type": "Answer", text: `Yes, ${B.name} is regulated by ${B.regs?.length || 0} financial authorit${(B.regs?.length || 0) > 1 ? "ies" : "y"}: ${regList}.` } },
+          { "@type": "Question", name: `Is ${B.name} a scam?`, acceptedAnswer: { "@type": "Answer", text: `No, ${B.name} is not a scam. It is a regulated broker established in ${B.year}${B.hq ? ` in ${B.hq}` : ""} with ${regList} oversight.` } },
+          { "@type": "Question", name: `Is my money safe with ${B.name}?`, acceptedAnswer: { "@type": "Answer", text: `${B.name} ${tier1.length > 0 ? "is required to hold client funds in segregated accounts under Tier-1 regulation" : "holds client funds according to its regulatory requirements"}. ${tier1.length > 0 ? "Negative balance protection is provided for retail clients." : "Check your specific entity for fund protection details."}` } },
+        ],
+      };
+      let el = document.getElementById("faq-schema-regulation");
+      if (!el) { el = document.createElement("script"); el.id = "faq-schema-regulation"; el.type = "application/ld+json"; document.head.appendChild(el); }
+      el.textContent = JSON.stringify(faqSchema);
+    } else {
+      document.title = `${B.name} ${meta.h1Suffix || activeTab} 2026 | RatedBrokers`;
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.setAttribute("content", `${B.name} ${meta.breadcrumb || activeTab} — expert analysis, fees, pros & cons. Score: ${B.score}/10.`);
+      const el = document.getElementById("faq-schema-regulation");
+      if (el) el.remove();
+    }
   }, [slug, activeTab]);
 
   return (

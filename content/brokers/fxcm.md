@@ -256,6 +256,24 @@ trustpilot_bars:
     p: 11
   - s: "1★"
     p: 33
+
+subpages:
+  regulation:
+    quick_answer: "Yes, FXCM is safe today. It holds triple Tier-1 regulation from FCA (UK, 217689), ASIC (Australia, 309763), and CySEC (Cyprus, 392/20). However, FXCM was banned by the NFA from operating in the US in 2017 for deceptive practices. The broker is now backed by Jefferies Financial Group (NYSE: JEF)."
+    tab_score: 9.8
+    pros:
+      - "Triple Tier-1 regulation — FCA, ASIC, and CySEC — strong current regulatory coverage"
+      - "FCA provides FSCS compensation up to £85,000 for UK clients"
+      - "Backed by Jefferies Financial Group (NYSE: JEF) — institutional financial stability"
+      - "Client funds fully segregated under all entities with negative balance protection"
+    cons:
+      - "Historical NFA ban (2017) for deceptive practices — permanent trust concern"
+      - "No longer accessible to US clients due to NFA expulsion"
+      - "Not publicly listed as a standalone entity — less direct financial transparency than IBKR or IG"
+    verdict_title: "Strong Current Regulation, Troubled Past"
+    verdict_text: "FXCM's current triple Tier-1 framework (FCA + ASIC + CySEC) provides genuine safety for today's clients. The Jefferies Financial Group backing adds institutional-grade financial stability. However, the 2017 NFA ban for taking positions against clients while marketing no-dealing-desk execution is a permanent mark on FXCM's history. The current agency model and triple Tier-1 oversight represent a genuine reformation."
+    best_for: "UK, EU, and Australian traders who value agency-model transparency and can look past the historical NFA controversy"
+    not_for: "US traders (banned by NFA) or those who cannot accept the historical regulatory violation — consider FOREX.com or OANDA for US access"
 ---
 
 ## Overview

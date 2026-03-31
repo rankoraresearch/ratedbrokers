@@ -270,6 +270,23 @@ trustpilot_bars:
     p: 4
   - s: "1★"
     p: 11
+
+subpages:
+  regulation:
+    quick_answer: "Yes, IG is safe. It holds quad Tier-1 regulation from FCA (UK, license 195355), ASIC (Australia, 515106), NFA (US, 0509630), and MAS (Singapore, CMS100917). IG is publicly listed on the London Stock Exchange (LSE: IGG), providing full financial transparency. Founded in 1974, it has the longest operating history of any online broker — 50+ years with no major regulatory sanctions."
+    tab_score: 10.0
+    pros:
+      - "4x Tier-1 regulation (FCA + ASIC + NFA + MAS) — among the strongest regulatory coverage available"
+      - "Publicly listed on the London Stock Exchange (LSE: IGG) — audited financials and full transparency"
+      - "NFA registration allows legal forex trading for US clients — one of only two brokers with this access"
+      - "50+ year operating history with no major regulatory sanctions — unmatched track record"
+    cons:
+      - "No CySEC license — EU clients outside the UK are not directly covered by an EU regulator"
+      - "LSE listing means quarterly earnings pressure, which may influence product decisions"
+    verdict_title: "The Most Trusted Broker in the Industry"
+    verdict_text: "IG's regulatory framework is essentially the gold standard for retail trading. Quad Tier-1 regulation, a 50-year clean track record, and LSE listing make it the safest broker we've reviewed alongside Pepperstone. The NFA license is a rare asset — only IG and OANDA can legally accept US forex clients. The only notable gap is the absence of a CySEC license for dedicated EU-wide coverage, but the FCA license serves most European traders adequately."
+    best_for: "US, UK, Australian, and Singaporean traders who prioritize maximum safety and regulatory trust above all else"
+    not_for: "Traders in regions not covered by FCA/ASIC/NFA/MAS who may need local regulatory protection"
 ---
 
 ## Overview

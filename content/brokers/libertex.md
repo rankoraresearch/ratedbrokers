@@ -252,6 +252,23 @@ trustpilot_bars:
     p: 6
   - s: "1★"
     p: 18
+
+subpages:
+  regulation:
+    quick_answer: "Caution. Libertex holds only one Tier-1 license — CySEC (Cyprus, 164/12). No FCA, ASIC, NFA, or other Tier-1 regulatory coverage. The parent Forex Club Group has operated since 1997, but the Libertex entity itself relies solely on CySEC oversight."
+    tab_score: 7.6
+    pros:
+      - "CySEC Tier-1 regulation — EU/MiFID II standards with negative balance protection"
+      - "ICF (Investor Compensation Fund) coverage up to €20,000 for EU clients"
+      - "Client funds fully segregated under CySEC requirements"
+    cons:
+      - "Only one Tier-1 license — no FCA, ASIC, NFA, MAS, or additional regulatory coverage"
+      - "Clients outside the EU lack dedicated Tier-1 regulatory protection"
+      - "Not publicly listed — less financial transparency than listed competitors like IG, Plus500, or Interactive Brokers"
+    verdict_title: "Single CySEC License — EU-Only Tier-1 Protection"
+    verdict_text: "Libertex's CySEC regulation provides genuine EU-standard safety — fund segregation, negative balance protection, and ICF compensation up to €20,000. However, the single Tier-1 license is a clear weakness compared to multi-licensed competitors. Brokers like eToro (5x Tier-1), Plus500 (FCA + CySEC + ASIC), and Capital.com (FCA + CySEC + ASIC) offer significantly broader regulatory coverage in the same casual-trader segment."
+    best_for: "EU-based casual traders who want CySEC-regulated zero-spread trading with transparent commissions"
+    not_for: "Traders outside the EU or those who want the confidence of multiple Tier-1 licenses — consider eToro or Capital.com for broader regulation"
 ---
 
 ## Overview

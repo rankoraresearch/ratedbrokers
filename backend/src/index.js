@@ -2,6 +2,7 @@ import { handleRedirect } from './routes/redirect.js';
 import { handleStats, handleDashboard } from './routes/stats.js';
 import { handleContact } from './routes/contact.js';
 import { handleAdminList, handleAdminUpdate, handleAdminCreate, handleAdminDelete, handleAdminDashboard } from './routes/admin.js';
+import { handleRankingsDashboard, handleRankingBrokers, handleRankingOrderUpdate, handleRankingOrderReset, handleRankingOrderPublic } from './routes/rankings.js';
 import { handleOptions } from './utils/cors.js';
 
 export default {
@@ -62,6 +63,35 @@ export default {
     // DELETE /api/admin/brokers/:slug — delete broker
     if (adminUpdateMatch && request.method === 'DELETE') {
       return handleAdminDelete(request, env, adminUpdateMatch[1]);
+    }
+
+    // GET /api/admin/rankings/dashboard — HTML Ranking Manager
+    if (path === '/api/admin/rankings/dashboard' && request.method === 'GET') {
+      return handleRankingsDashboard(request, env);
+    }
+
+    // GET /api/admin/rankings/:id/brokers — brokers + overrides for ranking
+    const rankingBrokersMatch = path.match(/^\/api\/admin\/rankings\/([a-z0-9-]+)\/brokers$/);
+    if (rankingBrokersMatch && request.method === 'GET') {
+      return handleRankingBrokers(request, env, rankingBrokersMatch[1]);
+    }
+
+    // PUT /api/admin/rankings/:id/order — save ranking order
+    const rankingOrderMatch = path.match(/^\/api\/admin\/rankings\/([a-z0-9-]+)\/order$/);
+    if (rankingOrderMatch && request.method === 'PUT') {
+      return handleRankingOrderUpdate(request, env, rankingOrderMatch[1]);
+    }
+
+    // DELETE /api/admin/rankings/:id/overrides — reset ranking order
+    const rankingOverridesMatch = path.match(/^\/api\/admin\/rankings\/([a-z0-9-]+)\/overrides$/);
+    if (rankingOverridesMatch && request.method === 'DELETE') {
+      return handleRankingOrderReset(request, env, rankingOverridesMatch[1]);
+    }
+
+    // GET /api/rankings/:id/order — public ranking order
+    const rankingPublicMatch = path.match(/^\/api\/rankings\/([a-z0-9-]+)\/order$/);
+    if (rankingPublicMatch && request.method === 'GET') {
+      return handleRankingOrderPublic(request, env, rankingPublicMatch[1]);
     }
 
     // 404

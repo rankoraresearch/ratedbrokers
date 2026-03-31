@@ -284,6 +284,24 @@ trustpilot_bars:
     p: 5
   - s: "1★"
     p: 16
+
+subpages:
+  regulation:
+    quick_answer: "Yes, eToro is safe. It holds five Tier-1 licenses: FCA (UK, 583263), CySEC (Cyprus, 109/10), ASIC (Australia, 491139), SEC/FINRA (US, 298361), and MAS (Singapore, CMS101824). This is the broadest Tier-1 regulatory coverage of any broker we've reviewed. Client funds are fully segregated, and eToro has operated since 2007 with no major regulatory sanctions."
+    tab_score: 10.0
+    pros:
+      - "5x Tier-1 regulation — FCA, CySEC, ASIC, SEC/FINRA, MAS — the widest Tier-1 coverage in the industry"
+      - "SEC/FINRA registration allows legal operation in the United States — rare among social trading platforms"
+      - "FCA provides FSCS compensation up to £85,000; CySEC provides ICF up to €20,000"
+      - "MAS (Singapore) regulation adds Asia-Pacific Tier-1 coverage"
+    cons:
+      - "Clients outside major jurisdictions default to FSA Seychelles (Tier-3) with weaker protections"
+      - "ADGM FSRA (UAE) is Tier-2 — not as strong as FCA or ASIC"
+      - "Not publicly listed — less financial transparency than listed brokers like IG or CMC Markets"
+    verdict_title: "Unmatched Tier-1 Regulatory Breadth"
+    verdict_text: "eToro's five Tier-1 licenses make it one of the safest brokers globally. The SEC/FINRA registration is particularly notable — very few social trading or CFD-oriented brokers can legally serve US clients. For traders in the UK, EU, Australia, Singapore, and the US, eToro offers top-tier regulatory protection. The gap is the offshore Seychelles entity for countries not covered by these regulators."
+    best_for: "Traders in the US, UK, EU, Australia, and Singapore who want maximum regulatory protection with social trading"
+    not_for: "Traders in regions defaulting to the Seychelles entity — consider locally regulated alternatives for stronger protection"
 ---
 
 ## Overview

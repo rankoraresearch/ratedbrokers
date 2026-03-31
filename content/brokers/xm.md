@@ -291,6 +291,24 @@ trustpilot_bars:
     p: 3
   - s: "1★"
     p: 10
+
+subpages:
+  regulation:
+    quick_answer: "Yes, XM is safe, but with caveats. It holds dual Tier-1 regulation from CySEC (Cyprus, license 120/10) and ASIC (Australia, 443670), plus DFSA (Dubai), FSCA (South Africa), and three offshore licenses (IFSC Belize, FSA Seychelles, FSC Mauritius). However, XM received a cease-and-desist order from the Philippine SEC in 2025 for unlicensed securities offering, which cost it 1.0 point in our scoring."
+    tab_score: 8.6
+    pros:
+      - "CySEC (Tier-1) — EU/MiFID II regulation with negative balance protection and ICF coverage"
+      - "ASIC (Tier-1) — strict Australian regulation with full client fund segregation"
+      - "DFSA and FSCA provide additional regional oversight in Dubai and South Africa"
+      - "15+ years of operation with segregated client funds"
+    cons:
+      - "Philippine SEC cease-and-desist order in 2025 — regulatory incident that reduced trust score"
+      - "No FCA (UK) regulation — UK clients default to offshore entity"
+      - "Three offshore licenses (IFSC, FSA, FSC) serve the majority of international clients with minimal protections"
+    verdict_title: "Solid Tier-1 Core Marred by Regulatory Incident"
+    verdict_text: "XM's CySEC + ASIC dual Tier-1 regulation provides genuine safety for EU and Australian clients. The wide geographic licensing across 7 jurisdictions shows commitment to local compliance. However, the 2025 Philippine SEC incident is a concern — it demonstrates regulatory risk in emerging market expansion. Most international clients are also served through offshore entities with weaker protections. For EU and AU clients, XM is safe; for others, verify which entity you'll be onboarded to."
+    best_for: "EU and Australian traders who benefit from CySEC or ASIC protection and want a low-deposit entry point"
+    not_for: "Traders who prioritize a clean regulatory record — the Philippine SEC incident may concern risk-averse investors"
 ---
 
 ## Overview

@@ -264,6 +264,24 @@ trustpilot_bars:
     p: 5
   - s: "1★"
     p: 15
+
+subpages:
+  regulation:
+    quick_answer: "Yes, ThinkMarkets is safe. It holds two Tier-1 licenses: ASIC (Australia, 424700) and FCA (UK, 629628). Client funds are segregated with negative balance protection under both ASIC and FCA jurisdictions. However, international clients may be assigned to the FSA Seychelles (Tier-3) entity with minimal regulatory oversight."
+    tab_score: 9.6
+    pros:
+      - "ASIC + FCA dual Tier-1 regulation — strong protection for Australian and UK clients"
+      - "FSCS protection up to £85,000 for UK clients under the FCA entity"
+      - "Segregated client funds and negative balance protection under both Tier-1 regulators"
+      - "15 years of operation since 2010 with no major regulatory sanctions"
+    cons:
+      - "International clients may default to FSA Seychelles (Tier-3) — minimal regulatory oversight"
+      - "FSCA South Africa entity (Tier-2) provides intermediate but not top-tier protection"
+      - "Not publicly listed — limited financial transparency compared to listed brokers"
+    verdict_title: "Dual Tier-1 Core with an Offshore Weak Spot"
+    verdict_text: "ThinkMarkets provides strong regulatory coverage through its ASIC and FCA dual Tier-1 licenses, offering robust protection for Australian and UK clients including fund segregation and FSCS coverage. The concern is that international clients outside these jurisdictions may be assigned to the FSA Seychelles entity, which provides minimal regulatory oversight. Traders should verify their entity assignment before depositing to ensure they receive Tier-1 protection."
+    best_for: "Australian and UK traders who benefit from ASIC or FCA Tier-1 regulation with full client protections"
+    not_for: "International traders who would be assigned to the FSA Seychelles entity — consider brokers with broader Tier-1 coverage like Pepperstone or IC Markets"
 ---
 
 ## Overview

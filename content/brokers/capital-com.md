@@ -270,6 +270,24 @@ trustpilot_bars:
     p: 4
   - s: "1★"
     p: 12
+
+subpages:
+  regulation:
+    quick_answer: "Yes, Capital.com is safe. It holds three Tier-1 licenses: FCA (UK, 793714), CySEC (Cyprus, 319/17), and ASIC (Australia, 514907). Client funds are fully segregated in top-tier banks with negative balance protection guaranteed across all entities. Capital.com has maintained a clean regulatory record since its founding in 2016."
+    tab_score: 9.8
+    pros:
+      - "Triple Tier-1 regulation — FCA, CySEC, and ASIC provide comprehensive coverage across UK, EU, and Australia"
+      - "FCA provides FSCS compensation up to £85,000; CySEC provides ICF up to €20,000"
+      - "Negative balance protection guaranteed across all regulated entities"
+      - "Client funds fully segregated in top-tier banks separate from company operating funds"
+    cons:
+      - "SCB Bahamas entity (Tier-3) for clients outside major jurisdictions offers significantly weaker protection"
+      - "Not publicly listed — less financial transparency than LSE-listed brokers like IG or CMC Markets"
+      - "Relatively young company (founded 2016) — shorter track record than heritage brokers with 25+ years"
+    verdict_title: "Triple Tier-1 Safety for a Modern CFD Platform"
+    verdict_text: "Capital.com's three Tier-1 licenses (FCA, CySEC, ASIC) place it among the safest CFD brokers available. UK traders receive FSCS £85,000 protection, EU traders get ICF €20,000 coverage, and Australian clients benefit from ASIC's strict framework. The clean regulatory record and mandatory negative balance protection across all entities reinforce trust. The gap is the Bahamas offshore entity for countries not covered by the three major regulators."
+    best_for: "Traders in the UK, EU, and Australia who want triple Tier-1 protection combined with AI-powered trading and a low $20 minimum deposit"
+    not_for: "Traders in regions defaulting to the SCB Bahamas entity — consider locally regulated alternatives for stronger investor protection"
 ---
 
 ## Overview

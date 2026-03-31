@@ -266,6 +266,24 @@ trustpilot_bars:
     p: 4
   - s: "1★"
     p: 10
+
+subpages:
+  regulation:
+    quick_answer: "Yes, AvaTrade is safe. It holds triple Tier-1 regulation from CBI (Ireland, license C53877), ASIC (Australia, 406684), and FSA Japan (license 1662), plus FSCA (South Africa) and licenses in 9 total jurisdictions. Operating since 2006 with zero regulatory incidents, AvaTrade is among the most widely regulated brokers in the industry."
+    tab_score: 9.8
+    pros:
+      - "CBI Ireland (Tier-1) — EU/MiFID II regulation with full ESMA protections and ICF coverage"
+      - "ASIC (Tier-1) — strict Australian regulation with client fund segregation requirements"
+      - "FSA Japan (Tier-1) — one of the world's strictest financial regulators, extremely high compliance bar"
+      - "Licensed in 9 jurisdictions — one of the widest regulatory footprints in the industry"
+    cons:
+      - "No FCA (UK) regulation — UK clients are served under the CBI Ireland license"
+      - "FSCA (South Africa) is Tier-2 — adequate but not as protective as Tier-1 regulators"
+      - "Some international clients may be assigned to less-regulated entities"
+    verdict_title: "Triple Tier-1 With Exceptional Global Coverage"
+    verdict_text: "AvaTrade's regulatory framework is among the strongest in the industry. Three Tier-1 licenses (CBI Ireland, ASIC, FSA Japan) across three continents provide robust safety for a wide range of traders. The FSA Japan license is particularly noteworthy — Japan's financial regulator is one of the most demanding in the world, with strict leverage caps and capital requirements. The 20-year clean regulatory record reinforces trust. The main gap is the absence of an FCA license for dedicated UK coverage."
+    best_for: "Traders in the EU, Australia, and Japan who benefit from triple Tier-1 protection and value a clean regulatory track record"
+    not_for: "UK traders who specifically require FCA regulation — consider Pepperstone or IG instead"
 ---
 
 ## Overview

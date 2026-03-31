@@ -265,6 +265,24 @@ trustpilot_bars:
     p: 4
   - s: "1★"
     p: 12
+
+subpages:
+  regulation:
+    quick_answer: "Yes, Eightcap is safe. It holds three Tier-1 licenses: ASIC (Australia, 391441), FCA (UK, 921296), and CySEC (Cyprus, 246/14). Client funds are held in segregated accounts at National Australia Bank (NAB) for Australian clients and top-tier European banks for FCA/CySEC clients. Eightcap has maintained a clean regulatory record since 2009."
+    tab_score: 9.8
+    pros:
+      - "Triple Tier-1 regulation — ASIC, FCA, and CySEC provide strong coverage across Australia, UK, and EU"
+      - "Client funds segregated at National Australia Bank (NAB) and top-tier European banks"
+      - "Clean regulatory history since 2009 with no significant regulatory actions or sanctions"
+      - "Negative balance protection across all regulated entities"
+    cons:
+      - "SCB Bahamas entity (Tier-3) for clients outside AU/UK/EU offers minimal regulatory protection"
+      - "Not publicly listed — less financial transparency than LSE or NASDAQ-listed competitors"
+      - "Relatively young brand (founded 2009) — shorter operating history than heritage brokers with 25+ years"
+    verdict_title: "Triple Tier-1 ECN With Rapid Regulatory Expansion"
+    verdict_text: "Eightcap's three Tier-1 licenses (ASIC, FCA, CySEC) provide strong regulatory coverage for traders in Australia, the UK, and the EU. The rapid expansion from ASIC-only (2014) to triple Tier-1 (2023) demonstrates commitment to regulatory compliance. Fund segregation at NAB and top-tier European banks adds practical safety. The gap remains the Bahamas offshore entity for international clients."
+    best_for: "Australian, UK, and EU traders who want triple Tier-1 safety combined with competitive ECN pricing and TradingView integration"
+    not_for: "Traders in regions defaulting to the SCB Bahamas entity — consider ASIC or FCA-regulated ECN alternatives for stronger protection"
 ---
 
 ## Overview

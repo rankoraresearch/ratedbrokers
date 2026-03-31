@@ -265,6 +265,24 @@ trustpilot_bars:
     p: 9
   - s: "1★"
     p: 24
+
+subpages:
+  regulation:
+    quick_answer: "Yes, Vantage is safe for Australian and UK clients. It holds two Tier-1 licenses: ASIC (Australia, 428901) and FCA (UK, 590299). However, international clients outside these jurisdictions may be assigned to the CIMA Cayman Islands entity (Tier-3), which provides significantly weaker regulatory protection."
+    tab_score: 9.5
+    pros:
+      - "ASIC + FCA dual Tier-1 regulation — strong protection for Australian and UK clients"
+      - "Segregated client funds and negative balance protection under both ASIC and FCA"
+      - "15 years of operation since 2009 with 900,000+ clients globally"
+      - "Equinix NY4/LD5 infrastructure demonstrates institutional-grade commitment"
+    cons:
+      - "CIMA Cayman Islands entity (Tier-3) for most international clients — weaker regulatory oversight"
+      - "Not publicly listed — limited financial transparency compared to listed brokers"
+      - "No CySEC or other EU Tier-1 license — EU traders may default to the CIMA entity"
+    verdict_title: "Strong Tier-1 Core, but International Coverage Falls Short"
+    verdict_text: "Vantage provides robust regulatory protection through its ASIC and FCA dual Tier-1 licenses, with segregated funds and negative balance protection for Australian and UK clients. The concern is that the majority of international clients are onboarded under the CIMA (Cayman Islands) entity, which operates under a lighter regulatory framework. Traders should verify their entity assignment before depositing — the difference in protection between ASIC/FCA and CIMA is substantial."
+    best_for: "Australian and UK traders who benefit directly from ASIC or FCA Tier-1 regulation with full client protections"
+    not_for: "International traders who would default to the CIMA Cayman Islands entity — consider IC Markets or Pepperstone for broader Tier-1 coverage"
 ---
 
 ## Overview

@@ -265,6 +265,24 @@ trustpilot_bars:
     p: 4
   - s: "1★"
     p: 12
+
+subpages:
+  regulation:
+    quick_answer: "Yes, FXTM is safe. It holds dual Tier-1 regulation from CySEC (Cyprus, 185/12) and FCA (UK, 600475), plus FSCA (South Africa, Tier-2). EU clients receive ICF compensation up to €20,000, and UK clients receive FSCS protection up to £85,000. FXTM has operated since 2011 with a clean regulatory record."
+    tab_score: 9.5
+    pros:
+      - "CySEC + FCA dual Tier-1 regulation — strong EU and UK client protection"
+      - "FCA provides FSCS compensation up to £85,000; CySEC provides ICF up to €20,000"
+      - "Client funds fully segregated with negative balance protection under both Tier-1 entities"
+      - "14 years of clean regulatory history since 2011 — no sanctions or enforcement actions"
+    cons:
+      - "No ASIC, NFA, or MAS licenses — limited coverage outside EU/UK"
+      - "FSCA South Africa (Tier-2) serves African clients with less comprehensive protections"
+      - "Non-EU/UK clients may be assigned to offshore entities with 1:2000 leverage and weaker regulation"
+    verdict_title: "Solid CySEC + FCA Dual Tier-1 for EU and UK"
+    verdict_text: "FXTM's CySEC and FCA dual Tier-1 regulation provides genuine safety for EU and UK traders, with established compensation schemes and fund segregation. The 14-year clean track record reinforces trust. The limitation is the lack of ASIC or broader global Tier-1 coverage — non-EU/UK clients may face offshore entities with significantly less protection and extremely high leverage (up to 1:2000)."
+    best_for: "EU and UK traders who want CySEC/FCA-regulated access to the industry's lowest ECN commission ($2/lot)"
+    not_for: "Traders outside the EU/UK who may default to offshore entities — consider Pepperstone or IC Markets for broader Tier-1 coverage"
 ---
 
 ## Overview

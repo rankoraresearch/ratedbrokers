@@ -268,6 +268,24 @@ trustpilot_bars:
     p: 2
   - s: "1★"
     p: 4
+
+subpages:
+  regulation:
+    quick_answer: "Yes, Tickmill is safe. It holds two Tier-1 licenses: FCA (UK, 717270) and CySEC (Cyprus, 278/15). Headquartered in London, Tickmill keeps client funds at Barclays under FCA segregation requirements. UK clients have FSCS protection up to £85,000, and EU clients have ICF coverage up to €20,000."
+    tab_score: 9.5
+    pros:
+      - "FCA + CySEC dual Tier-1 regulation with London headquarters — strong regulatory credibility"
+      - "Client funds held at Barclays under FCA segregation requirements"
+      - "FSCS protection up to £85,000 (UK) and ICF coverage up to €20,000 (EU)"
+      - "No restrictions on trading style — scalping, EAs, and news trading all permitted"
+    cons:
+      - "FSA Seychelles entity (Tier-3) serves most non-EU/UK clients with weaker protections"
+      - "Not publicly listed — less financial transparency than listed competitors like IG"
+      - "No ASIC or MAS license — limited Tier-1 coverage outside Europe"
+    verdict_title: "FCA-Headquartered ECN with Solid European Coverage"
+    verdict_text: "Tickmill's London headquarters and FCA regulation provide a strong regulatory foundation, reinforced by CySEC for EU coverage. Client funds at Barclays and FSCS/ICF compensation schemes offer meaningful protection. The weakness is that most traders outside Europe are assigned to the FSA Seychelles entity with Tier-3 regulation. For UK and EU traders, Tickmill's regulatory profile is strong. For international traders, the Seychelles entity is a consideration."
+    best_for: "UK and EU traders seeking FCA/CySEC-regulated ECN trading with the industry's lowest commissions"
+    not_for: "International traders defaulting to the Seychelles entity — consider FCA/ASIC-regulated alternatives like Pepperstone for broader Tier-1 protection"
 ---
 
 ## Overview

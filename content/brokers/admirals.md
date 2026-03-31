@@ -269,6 +269,24 @@ trustpilot_bars:
     p: 4
   - s: "1★"
     p: 12
+
+subpages:
+  regulation:
+    quick_answer: "Yes, Admirals is safe. It holds three Tier-1 licenses: FCA (UK, 595450), CySEC (Cyprus, 201/13), and ASIC (Australia, 410681). Client funds are fully segregated under all entities with negative balance protection and investor compensation schemes. Admirals has operated since 2001 with 24 years of clean regulatory history."
+    tab_score: 9.8
+    pros:
+      - "Triple Tier-1 regulation — FCA, CySEC, and ASIC cover the UK, EU, and Australia"
+      - "FCA provides FSCS compensation up to £85,000; CySEC provides ICF up to €20,000"
+      - "24 years of continuous operation with no major regulatory sanctions or incidents"
+      - "Segregated client funds with negative balance protection across all entities"
+    cons:
+      - "EFSA Estonia (Tier-2) serves as the home jurisdiction — weaker than FCA or ASIC for international clients"
+      - "Not publicly listed — less financial transparency than LSE-listed brokers like IG or CMC Markets"
+      - "Instrument availability varies by entity — not all products available under every license"
+    verdict_title: "Triple Tier-1 With a 24-Year Clean Record"
+    verdict_text: "Admirals' three Tier-1 licenses (FCA, CySEC, ASIC) place it among the safest mid-tier brokers globally. UK traders get FSCS £85,000 protection, EU traders get ICF €20,000 coverage, and Australian clients benefit from ASIC's strict framework. The 24-year track record without significant regulatory action is a strong trust signal. The Estonian home base is Tier-2, but the major jurisdiction licenses fully compensate."
+    best_for: "Traders in the UK, EU, and Australia who want triple Tier-1 safety combined with a low $25 minimum deposit"
+    not_for: "Traders seeking publicly listed broker transparency or those in jurisdictions served only by the EFSA Estonian entity"
 ---
 
 ## Overview

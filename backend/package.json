@@ -9,6 +9,6 @@
     "db:seed": "wrangler d1 execute ratedbrokers --local --file=seed.sql"
   },
   "devDependencies": {
-    "wrangler": "^3.99.0"
+    "wrangler": "^4.78.0"
   }
 }

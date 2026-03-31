@@ -252,6 +252,24 @@ trustpilot_bars:
     p: 12
   - s: "1★"
     p: 31
+
+subpages:
+  regulation:
+    quick_answer: "Yes, Dukascopy is safe. It holds a FINMA Swiss banking license — the highest regulatory standard in the financial industry. Client deposits are protected under Swiss banking law up to CHF 100,000 per depositor through the esisuisse depositor protection scheme. While Dukascopy holds only one Tier-1 license, the Swiss banking status provides safety that exceeds standard broker regulation."
+    tab_score: 8.5
+    pros:
+      - "FINMA Swiss banking license — operates under the same regulatory framework as UBS and other major Swiss banks"
+      - "Client deposits protected up to CHF 100,000 under Swiss banking law via esisuisse scheme"
+      - "Subject to mandatory capital adequacy requirements, regular FINMA audits, and stress testing"
+      - "SWFX marketplace provides published execution statistics and full order book transparency"
+    cons:
+      - "Only one Tier-1 license (FINMA) — no FCA, ASIC, or CySEC for broader jurisdictional coverage"
+      - "Not publicly listed — less corporate transparency than LSE or NASDAQ-listed competitors"
+      - "$1,000 minimum deposit reflects banking positioning but limits accessibility"
+    verdict_title: "Swiss Banking-Grade Safety in a Unique Regulatory Class"
+    verdict_text: "Dukascopy's FINMA Swiss banking license places it in a unique regulatory class above standard broker regulation. The CHF 100,000 depositor protection under Swiss banking law exceeds the FSCS £85,000 limit. However, the single jurisdiction means clients outside Switzerland don't benefit from local Tier-1 regulators like FCA or ASIC. For traders who value Swiss banking safety above all else, Dukascopy is unmatched among ECN brokers."
+    best_for: "Traders who prioritize Swiss banking-level fund protection and institutional-grade ECN transparency above all other considerations"
+    not_for: "Traders who want multi-jurisdictional Tier-1 coverage or those who need a low minimum deposit — the $1,000 entry and single-jurisdiction model are limiting"
 ---
 
 ## Overview

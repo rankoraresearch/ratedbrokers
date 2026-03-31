@@ -268,6 +268,24 @@ trustpilot_bars:
     p: 3
   - s: "1★"
     p: 11
+
+subpages:
+  regulation:
+    quick_answer: "Yes, Axi is safe. It holds two Tier-1 licenses: ASIC (Australia, 318232) and FCA (UK, 509746). Client funds are segregated in top-tier banks including National Australia Bank. Axi has operated since 2007 with an 18-year clean regulatory record and no significant regulatory actions."
+    tab_score: 9.6
+    pros:
+      - "Dual Tier-1 regulation — ASIC and FCA provide two of the world's strongest regulatory frameworks"
+      - "FSCS compensation up to £85,000 for UK clients; AFCA dispute resolution for Australian clients"
+      - "18 years of continuous operation with a clean regulatory history since founding in 2007"
+      - "FMA New Zealand (Tier-2) and DFSA UAE (Tier-2) extend regional coverage to Asia-Pacific and Middle East"
+    cons:
+      - "Offshore entities for clients outside major jurisdictions offer significantly weaker protection"
+      - "Not publicly listed — less financial transparency compared to LSE or NASDAQ-listed competitors"
+      - "Only two Tier-1 licenses — fewer than triple-Tier-1 brokers like Pepperstone or Admirals"
+    verdict_title: "Battle-Tested Dual Tier-1 ECN Safety"
+    verdict_text: "Axi's ASIC + FCA dual Tier-1 regulation provides robust protection for Australian and UK traders — the two most important retail forex jurisdictions. The 18-year track record without regulatory incidents adds credibility. Additional FMA and DFSA licenses extend coverage to New Zealand and the UAE. The main gap is the offshore entities for clients outside these regulated jurisdictions."
+    best_for: "Australian and UK traders who want ASIC + FCA dual protection with genuine ECN execution and $0 minimum deposit"
+    not_for: "Traders in regions served only by offshore entities — consider locally regulated ECN brokers for stronger protection"
 ---
 
 ## Overview

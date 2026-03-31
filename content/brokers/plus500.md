@@ -263,6 +263,23 @@ trustpilot_bars:
     p: 5
   - s: "1★"
     p: 17
+
+subpages:
+  regulation:
+    quick_answer: "Yes, Plus500 is safe. It holds quad Tier-1 regulation from FCA (UK, license 509909), CySEC (Cyprus, 250/14), ASIC (Australia, 417727), and MAS (Singapore, CMS100648). Plus500 is publicly listed on the London Stock Exchange (LSE: PLUS), providing audited financial transparency. Operating since 2008 with no major regulatory sanctions."
+    tab_score: 10.0
+    pros:
+      - "4x Tier-1 regulation (FCA + CySEC + ASIC + MAS) — among the strongest regulatory coverage available"
+      - "Publicly listed on the London Stock Exchange (LSE: PLUS) — audited financials, maximum transparency"
+      - "FCA provides FSCS compensation up to £85,000; CySEC provides ICF up to €20,000"
+      - "Clean regulatory record since 2008 — no major sanctions or enforcement actions"
+    cons:
+      - "No NFA registration — US clients cannot trade with Plus500"
+      - "CFD-only model means no real stocks or options — limited product scope despite strong regulation"
+    verdict_title: "Quad Tier-1 With Full LSE Transparency"
+    verdict_text: "Plus500's regulatory framework is among the strongest in the CFD industry. Quad Tier-1 regulation covering the UK, EU, Australia, and Singapore — combined with LSE listing — makes it one of the safest brokers for CFD trading. The financial transparency required by the LSE listing (quarterly reports, annual audits, institutional investor oversight) provides an additional safety layer that private brokers cannot match. The limitation is the CFD-only product range and absence of US market access."
+    best_for: "UK, EU, Australian, and Singaporean traders who prioritize safety and want a transparent, LSE-listed CFD broker"
+    not_for: "US traders (not NFA-registered) or those seeking real stock trading — Plus500 is CFD-only"
 ---
 
 ## Overview

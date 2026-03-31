@@ -291,6 +291,23 @@ trustpilot_bars:
     p: 1
   - s: "1★"
     p: 4
+
+subpages:
+  regulation:
+    quick_answer: "Yes, Pepperstone is safe. It holds quad Tier-1 regulation from FCA (UK, license 684312), ASIC (Australia, 414530), CySEC (Cyprus, 388/20), and BaFin (Germany, 151148) — plus DFSA (Dubai), CMA (Kenya), and SCB (Bahamas). Client funds are segregated at Barclays and NAB. No regulatory incidents since founding in 2010."
+    tab_score: 10.0
+    pros:
+      - "4x Tier-1 regulation (FCA + ASIC + CySEC + BaFin) — the strongest regulatory coverage of any retail forex broker"
+      - "FCA regulation provides access to the FSCS compensation scheme (up to £85,000 per client)"
+      - "Client funds segregated at Barclays (UK) and NAB (Australia) — both top-tier global banks"
+      - "Zero regulatory incidents or fines across 16 years of operation"
+    cons:
+      - "Non-EU/UK/AU clients default to SCB Bahamas (Tier-3) with weaker investor protections"
+      - "Not SEC-registered — US traders cannot open accounts"
+    verdict_title: "The Gold Standard in Retail Forex Regulation"
+    verdict_text: "Pepperstone's quad Tier-1 regulatory framework is the strongest we've encountered among retail forex brokers. FCA + ASIC + CySEC + BaFin means traders in the UK, Australia, EU, and Germany are covered by the world's most demanding financial regulators. The 16-year clean record and segregation at Barclays and NAB add further confidence. The only gap is the offshore SCB entity for non-covered jurisdictions."
+    best_for: "Traders in the UK, Australia, EU, and Germany who want the highest possible regulatory protection"
+    not_for: "US-based traders — Pepperstone does not accept US clients; consider OANDA or IG (NFA-regulated) instead"
 ---
 
 ## Overview

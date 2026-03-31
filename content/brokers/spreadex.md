@@ -258,6 +258,24 @@ trustpilot_bars:
     p: 4
   - s: "1★"
     p: 9
+
+subpages:
+  regulation:
+    quick_answer: "Yes, Spreadex is safe. It holds FCA regulation (UK, 190941) and has operated exclusively under full FCA oversight since 1999. As a UK-only broker with no offshore entities, every client interaction falls under FCA jurisdiction. Client funds are segregated at Barclays and Lloyds with FSCS protection up to £85,000."
+    tab_score: 8.1
+    pros:
+      - "FCA Tier-1 regulation since 1999 — 25+ years of continuous UK regulatory oversight"
+      - "UK-only operations with no offshore entities — no ambiguity about regulatory jurisdiction"
+      - "FSCS protection up to £85,000 with client funds segregated at Barclays and Lloyds"
+      - "Negative balance protection for all retail clients under FCA rules"
+    cons:
+      - "Single Tier-1 license (FCA only) — no ASIC, CySEC, or other international coverage"
+      - "Not publicly listed — less financial transparency than LSE-listed competitors like IG or CMC Markets"
+      - "UK-only availability limits access for international traders"
+    verdict_title: "Pure FCA Regulation with 25+ Years of UK Heritage"
+    verdict_text: "Spreadex offers a clean, unambiguous regulatory picture: one entity, one regulator, one jurisdiction. The 25+ years of continuous FCA regulation with no offshore entities means every client is fully protected under UK financial services law. FSCS coverage up to £85,000 and fund segregation at major UK banks (Barclays, Lloyds) provide robust safety. The limitation is geographic — Spreadex serves only UK residents, so international traders must look elsewhere."
+    best_for: "UK residents who want a domestically regulated broker with no offshore entity risk and full FSCS protection"
+    not_for: "International traders — Spreadex is UK-only. Consider IG, Pepperstone, or CMC Markets for global FCA-regulated alternatives"
 ---
 
 ## Overview

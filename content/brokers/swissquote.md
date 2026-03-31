@@ -261,6 +261,24 @@ trustpilot_bars:
     p: 10
   - s: "1★"
     p: 28
+
+subpages:
+  regulation:
+    quick_answer: "Yes, Swissquote is safe. It holds three Tier-1 licenses: FINMA (Switzerland, Banking License), FCA (UK, 562170), and MAS (Singapore, CMS100502). As a fully licensed Swiss bank listed on the SIX Swiss Exchange (SQN), Swissquote provides banking-level deposit protection up to CHF 100,000 under Swiss law — exceeding standard broker protections."
+    tab_score: 9.7
+    pros:
+      - "FINMA Swiss banking license — the gold standard of financial regulation with deposit protection up to CHF 100,000"
+      - "Listed on SIX Swiss Exchange (SQN) — maximum corporate and financial transparency"
+      - "Triple Tier-1 regulation (FINMA + FCA + MAS) — comprehensive global coverage"
+      - "Client assets protected under Swiss banking law — stricter than standard broker-level regulation"
+    cons:
+      - "DFSA Dubai entity (Tier-2) provides weaker protection than the Swiss, UK, or Singapore entities"
+      - "$1,000 minimum deposit creates a high entry barrier compared to most brokers"
+      - "Limited deposit methods on the Swiss entity — no card or e-wallet deposits"
+    verdict_title: "Swiss Banking License — The Ultimate Regulatory Standard"
+    verdict_text: "Swissquote's FINMA Swiss banking license places it in a regulatory class above virtually all retail brokers. Swiss banking law mandates deposit protection up to CHF 100,000 per depositor, mandatory capital adequacy requirements, and regular stress testing. The SIX Swiss Exchange listing adds public market transparency. Combined with FCA and MAS Tier-1 licenses, Swissquote offers arguably the strongest regulatory framework available in retail trading. The trade-off is accessibility — premium pricing and limited deposit methods reflect the banking heritage."
+    best_for: "High-net-worth traders and investors who prioritize maximum safety under Swiss banking law with global Tier-1 coverage"
+    not_for: "Cost-sensitive traders or beginners — the $1,000 minimum and wider spreads make Swissquote a poor fit for small accounts"
 ---
 
 ## Overview

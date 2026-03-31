@@ -271,6 +271,23 @@ trustpilot_bars:
     p: 3
   - s: "1★"
     p: 9
+
+subpages:
+  regulation:
+    quick_answer: "Caution. RoboForex's international entity operates under FSC Belize (Tier-3) with weaker regulatory protections. Only EU clients via RoboMarkets have access to CySEC Tier-1 regulation (191/13). International traders face higher regulatory risk under the Belize entity."
+    tab_score: 7.5
+    pros:
+      - "CySEC Tier-1 regulation (191/13) available for EU clients via the RoboMarkets brand"
+      - "EU clients benefit from ICF protection up to €20,000 and segregated funds"
+      - "16-year operating history since 2009 with no major regulatory sanctions"
+    cons:
+      - "International clients default to FSC Belize (Tier-3) — minimal regulatory oversight"
+      - "No FCA, ASIC, or other major Tier-1 license beyond CySEC"
+      - "Not publicly listed — limited financial transparency for the Belize entity"
+    verdict_title: "Split Regulatory Reality — Strong for EU, Weak for International"
+    verdict_text: "RoboForex presents a bifurcated regulatory picture. EU clients via RoboMarkets enjoy CySEC Tier-1 protection with segregated funds and ICF coverage — a solid regulatory framework. However, international clients fall under FSC Belize, a Tier-3 jurisdiction with significantly less oversight and weaker client protections. The 16-year track record and high Trustpilot score partially mitigate concerns, but the Belize entity remains a notable weakness."
+    best_for: "EU traders who can access the CySEC-regulated RoboMarkets entity with full Tier-1 protections"
+    not_for: "International traders who would default to the FSC Belize entity — consider ASIC/FCA-regulated alternatives like IC Markets or Pepperstone"
 ---
 
 ## Overview

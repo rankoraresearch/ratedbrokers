@@ -261,6 +261,23 @@ trustpilot_bars:
     p: 3
   - s: "1★"
     p: 8
+
+subpages:
+  regulation:
+    quick_answer: "Caution. Fusion Markets holds only one Tier-1 license — ASIC (Australia, 385620). International clients are assigned to VFSC Vanuatu (Tier-3) or FSA Seychelles (Tier-3) entities with significantly weaker protections. No FCA, CySEC, or other Tier-1 regulatory coverage."
+    tab_score: 7.9
+    pros:
+      - "ASIC Tier-1 regulation — Australia's strict financial regulator with mandatory fund segregation"
+      - "Client funds held in segregated accounts at National Australia Bank (NAB)"
+      - "AFCA (Australian Financial Complaints Authority) dispute resolution for AU clients"
+    cons:
+      - "Only one Tier-1 license — no FCA, CySEC, NFA, or MAS coverage"
+      - "International clients default to VFSC Vanuatu or FSA Seychelles — both Tier-3 with minimal protections"
+      - "Relatively short operating history since 2017 — less proven than established competitors"
+    verdict_title: "Single Tier-1 ASIC License — Strong for Australia Only"
+    verdict_text: "Fusion Markets' ASIC regulation provides genuine safety for Australian residents — fund segregation at NAB and AFCA access are meaningful protections. However, the lack of additional Tier-1 licenses means non-Australian clients face Tier-3 regulation under VFSC or Seychelles entities. Compared to IC Markets (ASIC+CySEC) or Pepperstone (FCA+ASIC+CySEC+DFSA), Fusion Markets' regulatory breadth is limited."
+    best_for: "Australian residents who benefit from full ASIC protection and want the lowest-cost ECN trading"
+    not_for: "International traders outside Australia — Tier-3 regulation under VFSC/Seychelles offers weak protections compared to multi-Tier-1 alternatives"
 ---
 
 ## Overview

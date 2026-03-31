@@ -265,6 +265,24 @@ trustpilot_bars:
     p: 4
   - s: "1★"
     p: 11
+
+subpages:
+  regulation:
+    quick_answer: "Yes, GO Markets is safe. It holds dual Tier-1 regulation from ASIC (Australia, 254963) and CySEC (Cyprus, 322/17), plus FSA Mauritius (Tier-3). With 19 years of continuous operation since 2006, GO Markets is one of Australia's longest-running ASIC-regulated forex brokers."
+    tab_score: 9.6
+    pros:
+      - "ASIC + CySEC dual Tier-1 regulation — strong protection for Australian and EU clients"
+      - "19 years of continuous ASIC-regulated operation since 2006 — one of the longest track records in Australian retail forex"
+      - "Client funds segregated in top-tier Australian banks with AFCA dispute resolution for AU clients"
+      - "CySEC provides ICF investor compensation up to €20,000 for EU clients"
+    cons:
+      - "FSA Mauritius (Tier-3) serves international clients with significantly weaker protections"
+      - "No FCA license — UK clients lack dedicated UK regulatory coverage and FSCS compensation"
+      - "Not publicly listed — less financial transparency than listed brokers like IG or Interactive Brokers"
+    verdict_title: "Proven ASIC + CySEC Dual Tier-1 with 19-Year Track Record"
+    verdict_text: "GO Markets' dual Tier-1 regulation (ASIC + CySEC) combined with a 19-year clean operating record makes it one of the most trustworthy mid-tier ECN brokers. The longevity through multiple market crises — including the 2008 financial crisis and 2015 CHF event — demonstrates genuine operational resilience. The gap is the absence of FCA regulation for UK traders and the Tier-3 Mauritius entity for international clients."
+    best_for: "Australian and EU traders who prioritize a long-established, dual Tier-1 regulated broker with proven stability"
+    not_for: "UK traders needing FCA regulation or international clients who would default to the Mauritius Tier-3 entity"
 ---
 
 ## Overview

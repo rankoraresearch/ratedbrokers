@@ -270,6 +270,24 @@ trustpilot_bars:
     p: 6
   - s: "1★"
     p: 17
+
+subpages:
+  regulation:
+    quick_answer: "Yes, FxPro is safe. It holds dual Tier-1 regulation from FCA (UK, license 509956) and CySEC (Cyprus, license 078/07), plus FSCA (South Africa) and SCB (Bahamas). Operating since 2006, FxPro has maintained a clean regulatory record for nearly 20 years with client funds fully segregated."
+    tab_score: 9.0
+    pros:
+      - "FCA (Tier-1) — UK's Financial Conduct Authority with FSCS compensation up to £85,000"
+      - "CySEC (Tier-1) — EU/MiFID II regulation with ESMA protections and ICF coverage up to €20,000"
+      - "Nearly 20-year clean regulatory record since 2006 with no major sanctions"
+      - "FSCA (South Africa) provides additional regional Tier-2 oversight"
+    cons:
+      - "No ASIC regulation — Australian clients are not covered"
+      - "SCB Bahamas (Tier-3) serves many international clients with weaker protections"
+      - "Not publicly listed — less financial transparency than IG, Plus500, or XTB"
+    verdict_title: "Solid FCA + CySEC Dual Regulation"
+    verdict_text: "FxPro's FCA + CySEC dual Tier-1 regulation provides strong safety for UK and EU clients. The near-20-year operating history without regulatory incidents adds confidence. However, FxPro lacks the breadth of brokers like Pepperstone (quad Tier-1) or eToro (five Tier-1). Clients outside the UK and EU may be assigned to the SCB Bahamas entity, which offers significantly weaker investor protection."
+    best_for: "UK and EU traders who benefit from FCA or CySEC protection and value NDD execution"
+    not_for: "Traders outside the UK/EU who may default to the Bahamas offshore entity — consider Pepperstone for broader Tier-1 coverage"
 ---
 
 ## Overview

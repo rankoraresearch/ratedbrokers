@@ -266,6 +266,24 @@ trustpilot_bars:
     p: 3
   - s: "1★"
     p: 9
+
+subpages:
+  regulation:
+    quick_answer: "Yes, ActivTrades is safe. It holds two Tier-1 licenses: FCA (UK, 434413) and CSSF (Luxembourg, B-186284). Client funds are segregated and protected by a free £1,000,000 insurance policy from Lloyd's of London — far exceeding the standard £85,000 FSCS limit. ActivTrades has operated since 2001 with a clean 25+ year regulatory record."
+    tab_score: 9.6
+    pros:
+      - "Dual Tier-1 regulation — FCA (UK) and CSSF (Luxembourg) provide strong European oversight"
+      - "Free £1,000,000 insurance per client via Lloyd's of London — 12x the standard FSCS £85,000 limit"
+      - "25+ years of continuous FCA-regulated operation with no major regulatory sanctions"
+      - "CMVM Portugal (Tier-2) adds additional EU passporting coverage"
+    cons:
+      - "SCB Bahamas entity (Tier-3) for non-EU/UK clients offers significantly weaker protection"
+      - "Not publicly listed — less financial transparency than LSE or NASDAQ-listed brokers like IG or CMC Markets"
+      - "Only two Tier-1 licenses — fewer than triple-Tier-1 competitors like Pepperstone or IC Markets"
+    verdict_title: "Fortress-Level Fund Protection via £1M Insurance"
+    verdict_text: "ActivTrades' regulatory setup is anchored by dual Tier-1 licenses (FCA + CSSF) and elevated by the unique £1,000,000 Lloyd's insurance — the highest voluntary client fund protection in the industry. For UK and EU traders, this creates a safety net far beyond regulatory minimums. The 25-year clean record reinforces trust. The gap is the Bahamas offshore entity for international clients."
+    best_for: "UK and EU traders who want maximum fund protection — the £1M insurance is unmatched in the retail broker space"
+    not_for: "International traders defaulting to the SCB Bahamas entity — consider FCA or ASIC-regulated alternatives for stronger protection"
 ---
 
 ## Overview

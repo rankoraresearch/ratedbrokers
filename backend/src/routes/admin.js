@@ -1,5 +1,5 @@
 import { corsHeaders } from '../utils/cors.js';
-import { adminHeaderCSS, adminHeaderHTML, adminHeaderScript } from '../utils/adminLayout.js';
+import { adminHeaderCSS, adminHeaderHTML, adminFooterHTML, adminHeaderScript } from '../utils/adminLayout.js';
 
 function checkKey(url, env) {
   const key = url.searchParams.get('key');
@@ -174,12 +174,13 @@ export async function handleAdminDashboard(request, env) {
     env.DB.prepare(`
       SELECT b.slug, b.name, b.affiliate_url,
         (SELECT COUNT(*) FROM clicks c WHERE c.broker_slug = b.slug) as clicks_total,
-        (SELECT COUNT(*) FROM clicks c WHERE c.broker_slug = b.slug AND c.created_at >= date('now', '-30 days')) as clicks_30d
+        (SELECT COUNT(*) FROM clicks c WHERE c.broker_slug = b.slug AND c.created_at >= date('now', '-30 days')) as clicks_30d,
+        (SELECT MAX(changed_at) FROM broker_changes bc WHERE bc.broker_slug = b.slug) as last_changed
       FROM brokers b ORDER BY b.name
     `).all(),
     env.DB.prepare(`
       SELECT broker_slug, field, old_value, new_value, changed_at
-      FROM broker_changes ORDER BY changed_at DESC LIMIT 30
+      FROM broker_changes ORDER BY changed_at DESC LIMIT 50
     `).all(),
   ]);
 
@@ -190,6 +191,19 @@ export async function handleAdminDashboard(request, env) {
   const placeholderCount = brokers.filter(b => isPlaceholder(b.affiliate_url)).length;
   const configuredCount = totalBrokers - placeholderCount;
   const totalClicks = brokers.reduce((s, b) => s + b.clicks_total, 0);
+  const configuredPct = totalBrokers > 0 ? Math.round((configuredCount / totalBrokers) * 100) : 0;
+
+  // Extract tracking params from URL
+  function extractParams(urlStr) {
+    try {
+      const u = new URL(urlStr);
+      const params = [];
+      for (const [k] of u.searchParams) {
+        params.push(k);
+      }
+      return params.slice(0, 5); // max 5 params
+    } catch { return []; }
+  }
 
   // JSON data for client-side rendering
   const brokersJson = JSON.stringify(brokers.map(b => ({
@@ -199,13 +213,25 @@ export async function handleAdminDashboard(request, env) {
     clicks_total: b.clicks_total,
     clicks_30d: b.clicks_30d,
     placeholder: isPlaceholder(b.affiliate_url),
+    last_changed: b.last_changed,
+    domain: (() => { try { return new URL(b.affiliate_url).hostname.replace(/^www\./, ''); } catch { return ''; } })(),
+    params: extractParams(b.affiliate_url),
   })));
 
   const changesJson = JSON.stringify(changes);
 
+  // Max clicks for mini bars
+  const maxClicks30d = Math.max(...brokers.map(b => b.clicks_30d), 1);
+
   const shellCSS = adminHeaderCSS();
   const shellHeader = adminHeaderHTML('affiliate', encodedKey);
+  const shellFooter = adminFooterHTML();
   const shellScript = adminHeaderScript();
+
+  // SVG progress ring
+  const radius = 40;
+  const circumference = 2 * Math.PI * radius;
+  const dashOffset = circumference - (configuredPct / 100) * circumference;
 
   const html = `<!DOCTYPE html>
 <html lang="en">
@@ -215,78 +241,247 @@ export async function handleAdminDashboard(request, env) {
 <title>RatedBrokers — Affiliate Admin</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f1117; color: #e0e0e0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg-base); color: var(--text-primary); }
   ${shellCSS}
-  h2 { color: #888; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
-  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 24px; }
-  .card { background: #1a1d27; border-radius: 10px; padding: 16px; }
-  .card .value { font-size: 28px; font-weight: 700; color: #4ade80; font-variant-numeric: tabular-nums; }
-  .card .label { font-size: 12px; color: #666; margin-top: 2px; }
-  .card .value.yellow { color: #fbbf24; }
-  .card .value.blue { color: #60a5fa; }
-  .toolbar { display: flex; gap: 10px; margin-bottom: 16px; align-items: center; flex-wrap: wrap; }
-  .search { background: #1a1d27; color: #e0e0e0; border: 1px solid #2a2d37; padding: 8px 14px; border-radius: 8px; font-size: 14px; width: 280px; outline: none; transition: border 0.15s; }
-  .search:focus { border-color: #4ade80; }
-  .filter-btn { background: #1a1d27; color: #888; border: 1px solid #2a2d37; padding: 6px 14px; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.15s; }
-  .filter-btn:hover, .filter-btn.active { background: #2a2d37; color: #e0e0e0; }
-  .filter-btn.active { border-color: #4ade80; color: #4ade80; }
-  .sort-label { color: #666; font-size: 12px; margin-left: auto; }
-  .table-wrap { background: #1a1d27; border-radius: 10px; padding: 16px; margin-bottom: 24px; overflow-x: auto; }
+
+  /* ─── Section Headers ─── */
+  .section-head {
+    display: flex; align-items: center; gap: 8px; margin-bottom: 12px;
+  }
+  .section-head h2 {
+    color: var(--text-secondary); font-size: 12px; text-transform: uppercase;
+    letter-spacing: 1px; font-weight: 600; margin: 0;
+  }
+  .section-head .section-icon {
+    width: 24px; height: 24px; border-radius: 6px; display: flex;
+    align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .section-head .section-icon.green { background: var(--green-glow); color: var(--green); }
+  .section-head .section-icon.blue { background: var(--blue-glow); color: var(--blue); }
+  .section-head .section-icon.amber { background: var(--amber-glow); color: var(--amber); }
+  .section-head .section-icon.purple { background: var(--purple-glow); color: var(--purple); }
+
+  /* ─── Overview Row ─── */
+  .overview { display: grid; grid-template-columns: 1fr 2fr; gap: 16px; margin-bottom: 24px; }
+  .progress-card {
+    background: var(--bg-card); border-radius: 12px; padding: 24px;
+    border: 1px solid var(--border); display: flex; align-items: center;
+    gap: 24px; justify-content: center;
+  }
+  .progress-ring { position: relative; width: 100px; height: 100px; flex-shrink: 0; }
+  .progress-ring svg { transform: rotate(-90deg); }
+  .progress-ring .ring-bg { stroke: rgba(42,45,55,0.8); }
+  .progress-ring .ring-fill { stroke: var(--green); transition: stroke-dashoffset 1s ease; }
+  .progress-ring .ring-text {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    font-size: 22px; font-weight: 800; color: var(--green);
+  }
+  .progress-ring .ring-sub {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, calc(-50% + 14px));
+    font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .progress-details { display: flex; flex-direction: column; gap: 8px; }
+  .progress-stat { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+  .progress-stat .stat-dot { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
+  .progress-stat .stat-dot.green { background: var(--green); }
+  .progress-stat .stat-dot.amber { background: var(--amber); }
+  .progress-stat .stat-dot.muted { background: var(--text-muted); }
+  .progress-stat .stat-val { font-weight: 700; margin-left: auto; font-variant-numeric: tabular-nums; }
+
+  /* ─── Stats Cards ─── */
+  .stats-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .s-card {
+    background: var(--bg-card); border-radius: 12px; padding: 18px;
+    border: 1px solid var(--border); position: relative; overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .s-card:hover { border-color: var(--border-hover); }
+  .s-card::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; border-radius: 12px 0 0 12px;
+  }
+  .s-card.green::before { background: var(--green); }
+  .s-card.blue::before { background: var(--blue); }
+  .s-card.purple::before { background: var(--purple); }
+  .s-card .s-label { font-size: 12px; color: var(--text-secondary); font-weight: 500; margin-bottom: 4px; }
+  .s-card .s-value { font-size: 26px; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .s-card.green .s-value { color: var(--green); }
+  .s-card.blue .s-value { color: var(--blue); }
+  .s-card.purple .s-value { color: var(--purple); }
+  .s-card .s-sub { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+  /* ─── Toolbar ─── */
+  .toolbar { display: flex; gap: 8px; margin-bottom: 16px; align-items: center; flex-wrap: wrap; }
+  .search {
+    background: var(--bg-card); color: var(--text-primary); border: 1px solid var(--border);
+    padding: 8px 14px 8px 36px; border-radius: 8px; font-size: 14px; width: 300px;
+    outline: none; transition: border 0.15s;
+    background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23555' stroke-width='2' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.3-4.3'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: 10px center;
+  }
+  .search:focus { border-color: var(--green); }
+  .filter-btn {
+    background: var(--bg-card); color: var(--text-secondary); border: 1px solid var(--border);
+    padding: 6px 14px; border-radius: 8px; font-size: 13px; font-weight: 600;
+    cursor: pointer; transition: all 0.15s;
+  }
+  .filter-btn:hover { color: var(--text-primary); border-color: var(--border-hover); }
+  .filter-btn.active { border-color: var(--green); color: var(--green); background: var(--green-glow); }
+  .toolbar-right { margin-left: auto; display: flex; gap: 6px; }
+  .btn-export {
+    background: var(--bg-card); color: var(--text-secondary); border: 1px solid var(--border);
+    padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600;
+    cursor: pointer; transition: all 0.15s; display: flex; align-items: center; gap: 5px;
+  }
+  .btn-export:hover { color: var(--text-primary); border-color: var(--border-hover); }
+  .kbd { display: inline-block; font-size: 10px; padding: 1px 5px; background: rgba(42,45,55,0.6); border-radius: 3px; color: var(--text-muted); border: 1px solid var(--border); margin-left: 4px; }
+
+  /* ─── Table ─── */
+  .table-wrap {
+    background: var(--bg-card); border-radius: 12px; padding: 0;
+    margin-bottom: 20px; overflow: hidden; border: 1px solid var(--border);
+  }
   table { width: 100%; border-collapse: collapse; }
-  th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid #22252f; font-size: 13px; }
-  th { color: #666; font-weight: 600; cursor: pointer; user-select: none; white-space: nowrap; }
-  th:hover { color: #aaa; }
-  th .arrow { font-size: 10px; margin-left: 3px; opacity: 0.4; }
-  th.sorted .arrow { opacity: 1; color: #4ade80; }
-  td.num { text-align: right; font-variant-numeric: tabular-nums; font-family: 'SF Mono', 'Fira Code', monospace; }
-  .slug { color: #555; font-size: 11px; font-family: monospace; }
-  .url-cell { max-width: 260px; word-break: break-all; color: #777; font-size: 12px; font-family: monospace; }
-  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; }
-  .badge-green { background: rgba(74,222,128,0.12); color: #4ade80; }
-  .badge-yellow { background: rgba(251,191,36,0.12); color: #fbbf24; }
+  th, td { text-align: left; padding: 10px 12px; font-size: 13px; }
+  th {
+    color: var(--text-muted); font-weight: 600; cursor: pointer; user-select: none;
+    white-space: nowrap; background: rgba(30,33,48,0.5); border-bottom: 1px solid var(--border);
+    transition: color 0.15s;
+  }
+  th:hover { color: var(--text-secondary); }
+  td { border-bottom: 1px solid rgba(42,45,55,0.4); }
+  tr:hover td { background: rgba(30,33,48,0.3); }
+  th .arrow { font-size: 10px; margin-left: 3px; opacity: 0.3; }
+  th.sorted .arrow { opacity: 1; color: var(--green); }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 12px; }
+  .broker-cell { display: flex; align-items: center; gap: 10px; }
+  .broker-icon {
+    width: 28px; height: 28px; border-radius: 6px;
+    background: linear-gradient(135deg, rgba(74,222,128,0.15), rgba(5,150,105,0.1));
+    border: 1px solid rgba(74,222,128,0.1);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700; color: var(--green);
+    flex-shrink: 0; text-transform: uppercase;
+  }
+  .broker-info .broker-name { font-weight: 600; color: var(--text-primary); font-size: 13px; }
+  .broker-info .broker-slug { color: var(--text-muted); font-size: 11px; font-family: monospace; display: block; margin-top: 1px; }
+  .url-cell { max-width: 240px; }
+  .url-domain { color: var(--text-secondary); font-size: 12px; font-weight: 500; }
+  .url-path { color: var(--text-muted); font-size: 11px; font-family: monospace; display: block; max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .url-params { display: flex; gap: 3px; margin-top: 3px; flex-wrap: wrap; }
+  .param-tag { font-size: 9px; padding: 1px 5px; border-radius: 3px; font-family: monospace; font-weight: 600; }
+  .param-tag.track { background: var(--green-glow); color: var(--green); border: 1px solid rgba(74,222,128,0.15); }
+  .param-tag.generic { background: rgba(96,165,250,0.08); color: var(--blue); border: 1px solid rgba(96,165,250,0.1); }
+  .click-bar { width: 50px; height: 6px; border-radius: 3px; background: rgba(42,45,55,0.6); overflow: hidden; display: inline-block; vertical-align: middle; margin-right: 6px; }
+  .click-fill { height: 100%; border-radius: 3px; background: var(--green); transition: width 0.5s; }
+  .badge { display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px; border-radius: 6px; font-size: 11px; font-weight: 700; }
+  .badge-green { background: var(--green-glow); color: var(--green); border: 1px solid rgba(74,222,128,0.15); }
+  .badge-yellow { background: var(--amber-glow); color: var(--amber); border: 1px solid rgba(251,191,36,0.15); }
+  .last-changed { font-size: 10px; color: var(--text-muted); font-family: monospace; }
   .actions { display: flex; gap: 4px; white-space: nowrap; }
-  .btn { padding: 5px 10px; border-radius: 5px; font-size: 12px; font-weight: 600; cursor: pointer; border: none; transition: all 0.15s; }
-  .btn-edit { background: #2a2d37; color: #e0e0e0; border: 1px solid #3a3d47; }
-  .btn-edit:hover { background: #3a3d47; }
-  .btn-test { background: rgba(96,165,250,0.12); color: #60a5fa; }
-  .btn-test:hover { background: rgba(96,165,250,0.2); }
-  .btn-copy { background: rgba(168,85,247,0.12); color: #a855f7; }
-  .btn-copy:hover { background: rgba(168,85,247,0.2); }
-  .btn-save { background: #059669; color: #fff; }
+  .btn { padding: 5px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; border: none; transition: all 0.15s; }
+  .btn-edit { background: rgba(96,165,250,0.1); color: var(--blue); border: 1px solid rgba(96,165,250,0.15); }
+  .btn-edit:hover { background: rgba(96,165,250,0.2); }
+  .btn-test { background: rgba(74,222,128,0.1); color: var(--green); border: 1px solid rgba(74,222,128,0.15); }
+  .btn-test:hover { background: rgba(74,222,128,0.2); }
+  .btn-copy { background: rgba(167,139,250,0.1); color: var(--purple); border: 1px solid rgba(167,139,250,0.15); }
+  .btn-copy:hover { background: rgba(167,139,250,0.2); }
+  .btn-go { background: rgba(251,191,36,0.1); color: var(--amber); border: 1px solid rgba(251,191,36,0.15); }
+  .btn-go:hover { background: rgba(251,191,36,0.2); }
+  .btn-save { background: var(--green-dim); color: #fff; border: 1px solid transparent; }
   .btn-save:hover { background: #047857; }
-  .btn-cancel { background: #3a3d47; color: #ccc; }
-  .edit-row { background: #12141e; }
-  .edit-input { background: #0f1117; color: #e0e0e0; border: 1px solid #4ade80; padding: 8px 10px; border-radius: 6px; width: 100%; font-size: 13px; font-family: monospace; outline: none; }
-  .edit-input:focus { box-shadow: 0 0 0 2px rgba(74,222,128,0.2); }
-  .success-flash { animation: flash 1.5s ease; }
-  @keyframes flash { 0% { background: rgba(74,222,128,0.2); } 100% { background: transparent; } }
-  .copied-toast { position: fixed; bottom: 24px; right: 24px; background: #1a1d27; border: 1px solid #4ade80; color: #4ade80; padding: 10px 20px; border-radius: 8px; font-size: 13px; font-weight: 600; z-index: 999; animation: toastIn 0.2s ease, toastOut 0.3s ease 1.2s forwards; }
+  .btn-cancel { background: var(--bg-card-hover); color: var(--text-secondary); border: 1px solid var(--border); }
+
+  /* ─── Edit Row ─── */
+  .edit-row { background: rgba(74,222,128,0.03); }
+  .edit-row td { border-bottom: 1px solid rgba(74,222,128,0.1); }
+  .edit-input {
+    background: var(--bg-base); color: var(--text-primary);
+    border: 1px solid var(--green); padding: 8px 12px; border-radius: 8px;
+    width: 100%; font-size: 13px; font-family: monospace; outline: none;
+    transition: box-shadow 0.15s;
+  }
+  .edit-input:focus { box-shadow: 0 0 0 3px rgba(74,222,128,0.15); }
+  .edit-bar { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .edit-hint { font-size: 11px; color: var(--text-muted); }
+
+  /* ─── Toast ─── */
+  .toast {
+    position: fixed; bottom: 24px; right: 24px;
+    background: var(--bg-card); border: 1px solid var(--green);
+    color: var(--green); padding: 12px 20px; border-radius: 10px;
+    font-size: 13px; font-weight: 600; z-index: 999;
+    display: flex; align-items: center; gap: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    animation: toastIn 0.25s ease, toastOut 0.3s ease 1.5s forwards;
+  }
+  .toast.error { border-color: var(--red); color: var(--red); }
   @keyframes toastIn { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
   @keyframes toastOut { to { transform: translateY(20px); opacity: 0; } }
-  .bulk-wrap { background: #1a1d27; border-radius: 10px; padding: 16px; margin-bottom: 24px; }
-  .bulk-textarea { width: 100%; background: #0f1117; color: #e0e0e0; border: 1px solid #2a2d37; border-radius: 8px; padding: 10px; font-family: monospace; font-size: 13px; min-height: 100px; resize: vertical; outline: none; transition: border 0.15s; }
-  .bulk-textarea:focus { border-color: #4ade80; }
+  .success-flash { animation: flash 1.5s ease; }
+  @keyframes flash { 0% { background: rgba(74,222,128,0.12); } 100% { background: transparent; } }
+
+  /* ─── Bulk ─── */
+  .bulk-wrap {
+    background: var(--bg-card); border-radius: 12px; padding: 20px;
+    margin-bottom: 20px; border: 1px solid var(--border);
+  }
+  .bulk-textarea {
+    width: 100%; background: var(--bg-base); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: 8px; padding: 12px;
+    font-family: monospace; font-size: 13px; min-height: 90px;
+    resize: vertical; outline: none; transition: border 0.15s;
+  }
+  .bulk-textarea:focus { border-color: var(--green); }
   .bulk-bar { display: flex; gap: 10px; align-items: center; margin-top: 10px; }
-  .bulk-count { color: #888; font-size: 13px; }
-  .bulk-preview { margin-top: 10px; max-height: 180px; overflow-y: auto; }
-  .bp-item { padding: 5px 0; border-bottom: 1px solid #1e2130; font-size: 12px; display: flex; gap: 12px; }
-  .bp-item .bp-slug { color: #4ade80; font-weight: 600; min-width: 140px; font-family: monospace; }
-  .bp-item .bp-url { color: #777; word-break: break-all; font-family: monospace; }
-  .bp-item .bp-err { color: #f87171; }
+  .bulk-count { color: var(--text-secondary); font-size: 13px; }
+  .bulk-preview { margin-top: 10px; max-height: 180px; overflow-y: auto; border-radius: 8px; }
+  .bp-item { padding: 6px 10px; font-size: 12px; display: flex; gap: 12px; border-bottom: 1px solid rgba(42,45,55,0.3); }
+  .bp-item:last-child { border: none; }
+  .bp-item .bp-slug { color: var(--green); font-weight: 600; min-width: 150px; font-family: monospace; }
+  .bp-item .bp-url { color: var(--text-muted); word-break: break-all; font-family: monospace; }
+  .bp-item .bp-err { color: var(--red); }
   .status-msg { font-size: 13px; }
-  .status-msg.ok { color: #4ade80; }
-  .status-msg.err { color: #f87171; }
-  .changes-wrap { background: #1a1d27; border-radius: 10px; padding: 16px; }
-  .changes-wrap td { font-size: 12px; }
-  .changes-wrap .old { color: #f87171; text-decoration: line-through; }
-  .changes-wrap .new { color: #4ade80; }
-  .changes-wrap .ts { color: #555; font-size: 11px; white-space: nowrap; }
-  .empty { color: #444; font-style: italic; padding: 20px; text-align: center; }
+  .status-msg.ok { color: var(--green); }
+  .status-msg.err { color: var(--red); }
+
+  /* ─── History Timeline ─── */
+  .changes-wrap {
+    background: var(--bg-card); border-radius: 12px; padding: 20px;
+    border: 1px solid var(--border);
+  }
+  .timeline { position: relative; padding-left: 24px; }
+  .timeline::before {
+    content: ''; position: absolute; left: 8px; top: 4px; bottom: 4px;
+    width: 2px; background: linear-gradient(180deg, var(--purple) 0%, var(--border) 100%);
+    border-radius: 1px;
+  }
+  .tl-item { position: relative; padding: 8px 0 16px 16px; }
+  .tl-item::before {
+    content: ''; position: absolute; left: -20px; top: 12px;
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--purple); border: 2px solid var(--bg-card);
+    box-shadow: 0 0 0 2px rgba(167,139,250,0.2);
+  }
+  .tl-item:first-child::before { background: var(--green); box-shadow: 0 0 0 2px rgba(74,222,128,0.2); }
+  .tl-head { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+  .tl-broker { font-weight: 700; font-size: 13px; color: var(--text-primary); }
+  .tl-field { font-size: 10px; color: var(--purple); background: var(--purple-glow); padding: 1px 6px; border-radius: 3px; font-weight: 600; }
+  .tl-time { font-size: 10px; color: var(--text-muted); font-family: monospace; margin-left: auto; }
+  .tl-diff { display: flex; gap: 8px; align-items: baseline; font-size: 12px; flex-wrap: wrap; }
+  .tl-old { color: var(--red); text-decoration: line-through; max-width: 280px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: monospace; font-size: 11px; }
+  .tl-arrow { color: var(--text-muted); font-size: 10px; }
+  .tl-new { color: var(--green); max-width: 280px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: monospace; font-size: 11px; }
+
+  .empty { color: var(--text-muted); font-style: italic; padding: 24px; text-align: center; }
+
+  @media (max-width: 1100px) {
+    .overview { grid-template-columns: 1fr; }
+  }
   @media (max-width: 768px) {
-    .cards { grid-template-columns: repeat(2, 1fr); }
+    .stats-cards { grid-template-columns: 1fr; }
     .search { width: 100%; }
     .toolbar { flex-direction: column; align-items: stretch; }
-    .sort-label { margin-left: 0; }
+    .toolbar-right { margin-left: 0; }
   }
 </style>
 </head>
@@ -295,40 +490,97 @@ export async function handleAdminDashboard(request, env) {
 ${shellHeader}
 <div class="admin-body">
 
-<div class="cards">
-  <div class="card"><div class="value">${totalBrokers}</div><div class="label">Total Brokers</div></div>
-  <div class="card"><div class="value">${configuredCount}</div><div class="label">Active Links</div></div>
-  <div class="card"><div class="value yellow">${placeholderCount}</div><div class="label">Placeholders</div></div>
-  <div class="card"><div class="value blue">${totalClicks}</div><div class="label">Total Clicks</div></div>
+<!-- Overview: Progress Ring + Stats Cards -->
+<div class="overview">
+  <div class="progress-card">
+    <div class="progress-ring">
+      <svg width="100" height="100" viewBox="0 0 100 100">
+        <circle class="ring-bg" cx="50" cy="50" r="${radius}" fill="none" stroke-width="8"/>
+        <circle class="ring-fill" cx="50" cy="50" r="${radius}" fill="none" stroke-width="8"
+          stroke-linecap="round" stroke-dasharray="${circumference}" stroke-dashoffset="${dashOffset}"/>
+      </svg>
+      <span class="ring-text">${configuredPct}%</span>
+      <span class="ring-sub">configured</span>
+    </div>
+    <div class="progress-details">
+      <div class="progress-stat">
+        <span class="stat-dot green"></span>
+        <span>Active links</span>
+        <span class="stat-val" style="color:var(--green)">${configuredCount}</span>
+      </div>
+      <div class="progress-stat">
+        <span class="stat-dot amber"></span>
+        <span>Placeholders</span>
+        <span class="stat-val" style="color:var(--amber)">${placeholderCount}</span>
+      </div>
+      <div class="progress-stat">
+        <span class="stat-dot muted"></span>
+        <span>Total brokers</span>
+        <span class="stat-val">${totalBrokers}</span>
+      </div>
+    </div>
+  </div>
+  <div class="stats-cards">
+    <div class="s-card green">
+      <div class="s-label">Active Links</div>
+      <div class="s-value">${configuredCount}</div>
+      <div class="s-sub">configured with real URLs</div>
+    </div>
+    <div class="s-card blue">
+      <div class="s-label">Total Clicks (30d)</div>
+      <div class="s-value">${brokers.reduce((s, b) => s + b.clicks_30d, 0)}</div>
+      <div class="s-sub">across all brokers</div>
+    </div>
+    <div class="s-card purple">
+      <div class="s-label">Total Clicks (All)</div>
+      <div class="s-value">${totalClicks}</div>
+      <div class="s-sub">since tracking started</div>
+    </div>
+  </div>
 </div>
 
+<!-- Toolbar -->
 <div class="toolbar">
   <input class="search" id="search" type="text" placeholder="Search broker name or slug..." autofocus>
   <button class="filter-btn" data-filter="all" onclick="setFilter('all')">All (${totalBrokers})</button>
   <button class="filter-btn" data-filter="active" onclick="setFilter('active')">Active (${configuredCount})</button>
   <button class="filter-btn" data-filter="placeholder" onclick="setFilter('placeholder')">Placeholder (${placeholderCount})</button>
+  <div class="toolbar-right">
+    <button class="btn-export" onclick="exportJSON()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Export
+    </button>
+    <span style="font-size:11px;color:var(--text-muted);display:flex;align-items:center;gap:4px">
+      <kbd class="kbd">&#8984;K</kbd> search
+    </span>
+  </div>
 </div>
 
+<!-- Broker Table -->
 <div class="table-wrap">
   <table>
     <thead><tr>
       <th style="width:36px">#</th>
-      <th data-sort="name" onclick="setSort('name')">Broker <span class="arrow">▲</span></th>
-      <th>Current URL</th>
-      <th data-sort="clicks_30d" onclick="setSort('clicks_30d')" style="text-align:right">30d <span class="arrow">▼</span></th>
-      <th data-sort="clicks_total" onclick="setSort('clicks_total')" style="text-align:right">All <span class="arrow">▼</span></th>
+      <th data-sort="name" onclick="setSort('name')">Broker <span class="arrow">&#9650;</span></th>
+      <th>Affiliate URL</th>
+      <th data-sort="clicks_30d" onclick="setSort('clicks_30d')" style="text-align:right">30d <span class="arrow">&#9660;</span></th>
+      <th data-sort="clicks_total" onclick="setSort('clicks_total')" style="text-align:right">All <span class="arrow">&#9660;</span></th>
       <th>Status</th>
-      <th style="width:140px">Actions</th>
+      <th style="width:180px">Actions</th>
     </tr></thead>
     <tbody id="tbody"></tbody>
   </table>
   <div id="noResults" class="empty" style="display:none">No brokers match your search</div>
 </div>
 
+<!-- Bulk Update -->
 <div class="bulk-wrap">
-  <h2>Bulk Update</h2>
-  <p style="color:#666;font-size:12px;margin-bottom:8px">Paste lines: <code style="color:#4ade80;background:#1e2130;padding:2px 6px;border-radius:3px">slug|https://url</code></p>
-  <textarea class="bulk-textarea" id="bulkInput" placeholder="ic-markets|https://go.icmarkets.com/visit/?bta=12345&#10;pepperstone|https://track.pepperstone.com/?ref=67890" oninput="parseBulk()"></textarea>
+  <div class="section-head">
+    <div class="section-icon amber"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg></div>
+    <h2>Bulk Update</h2>
+  </div>
+  <p style="color:var(--text-muted);font-size:12px;margin-bottom:8px">Paste lines: <code style="color:var(--green);background:rgba(30,33,48,0.8);padding:2px 8px;border-radius:4px;font-size:12px">slug|https://affiliate-url</code> &mdash; one per line. Tab separator also works.</p>
+  <textarea class="bulk-textarea" id="bulkInput" placeholder="ic-markets|https://go.icmarkets.com/visit/?bta=12345&#10;pepperstone|https://track.pepperstone.com/?ref=67890&#10;etoro|https://med.etoro.com/B12345_A67890.aspx" oninput="parseBulk()"></textarea>
   <div class="bulk-preview" id="bulkPreview"></div>
   <div class="bulk-bar">
     <span class="bulk-count" id="bulkCount"></span>
@@ -337,19 +589,24 @@ ${shellHeader}
   </div>
 </div>
 
+<!-- Change History (Timeline) -->
 <div class="changes-wrap">
-  <h2>Change History</h2>
-  <table>
-    <thead><tr><th>Broker</th><th>Old URL</th><th>New URL</th><th>When</th></tr></thead>
-    <tbody id="changesTbody"></tbody>
-  </table>
+  <div class="section-head">
+    <div class="section-icon purple"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+    <h2>Change History</h2>
+    <span style="font-size:10px;color:var(--text-muted);margin-left:auto">Last 50 changes</span>
+  </div>
+  <div id="timeline" class="timeline"></div>
 </div>
+
+${shellFooter}
 
 <script>
 const API_KEY = '${esc(key)}';
 const ENC_KEY = '${encodedKey}';
 let BROKERS = ${brokersJson};
 const CHANGES = ${changesJson};
+const MAX_CLICKS = ${maxClicks30d};
 let currentSort = { field: 'name', dir: 'asc' };
 let currentFilter = 'all';
 let editingSlug = null;
@@ -360,7 +617,7 @@ function render() {
   let list = BROKERS.filter(b => {
     if (currentFilter === 'active' && b.placeholder) return false;
     if (currentFilter === 'placeholder' && !b.placeholder) return false;
-    if (q && !b.name.toLowerCase().includes(q) && !b.slug.includes(q)) return false;
+    if (q && !b.name.toLowerCase().includes(q) && !b.slug.includes(q) && !b.domain.includes(q)) return false;
     return true;
   });
 
@@ -384,19 +641,48 @@ function render() {
   noRes.style.display = 'none';
 
   tbody.innerHTML = list.map((b, i) => {
-    const truncUrl = b.url.length > 55 ? b.url.slice(0, 55) + '...' : b.url;
     const isEditing = editingSlug === b.slug;
+    const initial = b.name.charAt(0);
+
+    // Parse URL for display
+    let urlDomain = b.domain || '—';
+    let urlPath = '';
+    try {
+      const u = new URL(b.url);
+      urlPath = u.pathname + u.search;
+      if (urlPath.length > 45) urlPath = urlPath.slice(0, 45) + '...';
+    } catch {}
+
+    // Tracking params badges
+    const trackKeys = ['bta','nci','ref','aff','camp','utm_source','utm_medium','pid','partner','affiliate','clickid','subid','sub_id','a_aid','a_bid'];
+    let paramsHtml = '';
+    if (b.params && b.params.length > 0) {
+      paramsHtml = '<div class="url-params">' + b.params.map(p => {
+        const isTrack = trackKeys.some(k => p.toLowerCase().includes(k));
+        return '<span class="param-tag '+(isTrack?'track':'generic')+'">'+esc2(p)+'</span>';
+      }).join('') + '</div>';
+    }
+
+    // Click bar (mini bar chart per broker)
+    const clickPct = MAX_CLICKS > 0 ? Math.round((b.clicks_30d / MAX_CLICKS) * 100) : 0;
+
     return '<tr id="row-'+b.slug+'" data-slug="'+b.slug+'">' +
-      '<td style="color:#555">'+(i+1)+'</td>' +
-      '<td><strong>'+esc2(b.name)+'</strong><br><span class="slug">'+b.slug+'</span></td>' +
-      '<td class="url-cell" title="'+esc2(b.url)+'">'+esc2(truncUrl)+'</td>' +
-      '<td class="num">'+b.clicks_30d+'</td>' +
+      '<td style="color:var(--text-muted);font-size:11px">'+(i+1)+'</td>' +
+      '<td><div class="broker-cell">' +
+        '<div class="broker-icon">' + esc2(initial) + '</div>' +
+        '<div class="broker-info"><span class="broker-name">'+esc2(b.name)+'</span><span class="broker-slug">'+b.slug+'</span></div>' +
+      '</div></td>' +
+      '<td class="url-cell" title="'+esc2(b.url)+'"><span class="url-domain">'+esc2(urlDomain)+'</span><span class="url-path">'+esc2(urlPath)+'</span>' + paramsHtml + '</td>' +
+      '<td class="num"><div class="click-bar"><div class="click-fill" style="width:'+clickPct+'%"></div></div>'+b.clicks_30d+'</td>' +
       '<td class="num">'+b.clicks_total+'</td>' +
-      '<td><span class="badge '+(b.placeholder?'badge-yellow':'badge-green')+'">'+(b.placeholder?'Placeholder':'Active')+'</span></td>' +
+      '<td><span class="badge '+(b.placeholder?'badge-yellow':'badge-green')+'">'+(b.placeholder?'Placeholder':'Active')+'</span>' +
+        (b.last_changed ? '<br><span class="last-changed">'+timeAgo(b.last_changed)+'</span>' : '') +
+      '</td>' +
       '<td class="actions">' +
         '<button class="btn btn-edit" onclick="startEdit(\''+b.slug+'\')">Edit</button>' +
         '<button class="btn btn-test" onclick="testRedirect(\''+b.slug+'\')" title="Test /go/'+b.slug+'">Test</button>' +
-        '<button class="btn btn-copy" onclick="copyUrl(\''+b.slug+'\')" title="Copy URL">Copy</button>' +
+        '<button class="btn btn-copy" onclick="copyUrl(\''+b.slug+'\')" title="Copy affiliate URL">Copy</button>' +
+        '<button class="btn btn-go" onclick="copyGoUrl(\''+b.slug+'\')" title="Copy tracking URL">/go/</button>' +
       '</td></tr>' +
       (isEditing ? editRowHtml(b) : '');
   }).join('');
@@ -406,23 +692,39 @@ function render() {
     th.classList.toggle('sorted', th.dataset.sort === currentSort.field);
     const arrow = th.querySelector('.arrow');
     if (th.dataset.sort === currentSort.field) {
-      arrow.textContent = currentSort.dir === 'asc' ? '▲' : '▼';
+      arrow.innerHTML = currentSort.dir === 'asc' ? '&#9650;' : '&#9660;';
     }
   });
 }
 
 function editRowHtml(b) {
   return '<tr class="edit-row" id="edit-'+b.slug+'">' +
-    '<td colspan="7" style="padding:12px 10px">' +
-    '<div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">' +
-    '<span style="color:#666;font-size:12px;flex-shrink:0">New URL:</span>' +
-    '<input class="edit-input" id="editUrl" value="'+esc2(b.url)+'" style="flex:1;min-width:300px" onkeydown="editKeydown(event,\''+b.slug+'\')">' +
+    '<td colspan="7" style="padding:14px 12px">' +
+    '<div class="edit-bar">' +
+    '<input class="edit-input" id="editUrl" value="'+esc2(b.url)+'" style="flex:1;min-width:300px" onkeydown="editKeydown(event,\''+b.slug+'\')" placeholder="https://...">' +
     '<button class="btn btn-save" onclick="saveEdit(\''+b.slug+'\')">Save</button>' +
     '<button class="btn btn-cancel" onclick="cancelEdit()">Cancel</button>' +
-    '</div></td></tr>';
+    '</div>' +
+    '<div class="edit-hint" style="margin-top:6px">Press <kbd class="kbd">Enter</kbd> to save, <kbd class="kbd">Esc</kbd> to cancel</div>' +
+    '</td></tr>';
 }
 
 function esc2(s) { return s ? s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;') : ''; }
+
+function timeAgo(dateStr) {
+  if (!dateStr) return '';
+  const now = new Date();
+  const then = new Date(dateStr + (dateStr.includes('Z') ? '' : 'Z'));
+  const diffMs = now - then;
+  const mins = Math.floor(diffMs / 60000);
+  if (mins < 1) return 'just now';
+  if (mins < 60) return mins + 'm ago';
+  const hours = Math.floor(mins / 60);
+  if (hours < 24) return hours + 'h ago';
+  const days = Math.floor(hours / 24);
+  if (days < 30) return days + 'd ago';
+  return dateStr.slice(0, 10);
+}
 
 // ─── SEARCH ───
 document.getElementById('search').addEventListener('input', render);
@@ -467,8 +769,9 @@ async function saveEdit(slug) {
   const newUrl = input.value.trim();
 
   if (!newUrl.startsWith('https://')) {
-    input.style.borderColor = '#f87171';
-    input.style.boxShadow = '0 0 0 2px rgba(248,113,113,0.2)';
+    input.style.borderColor = 'var(--red)';
+    input.style.boxShadow = '0 0 0 3px var(--red-glow)';
+    showToast('URL must start with https://', true);
     return;
   }
 
@@ -485,8 +788,9 @@ async function saveEdit(slug) {
     const data = await res.json();
 
     if (!res.ok) {
-      input.style.borderColor = '#f87171';
-      btn.textContent = data.error || 'Error';
+      input.style.borderColor = 'var(--red)';
+      showToast(data.error || 'Error saving', true);
+      btn.textContent = 'Save';
       btn.disabled = false;
       return;
     }
@@ -496,43 +800,56 @@ async function saveEdit(slug) {
     if (b) {
       b.url = newUrl;
       b.placeholder = newUrl.includes('camp=RATEDBROKERS');
+      try { b.domain = new URL(newUrl).hostname.replace(/^www\\./, ''); } catch { b.domain = ''; }
+      b.last_changed = new Date().toISOString();
     }
 
     editingSlug = null;
     render();
 
-    // Flash success
     const row = document.getElementById('row-' + slug);
     if (row) row.classList.add('success-flash');
 
     showToast('Saved: ' + slug);
   } catch (e) {
-    btn.textContent = 'Error';
+    showToast('Network error', true);
+    btn.textContent = 'Save';
     btn.disabled = false;
   }
 }
 
-// ─── TEST REDIRECT ───
-function testRedirect(slug) {
-  window.open('/go/' + slug, '_blank');
-}
-
-// ─── COPY URL ───
+// ─── TEST / COPY ───
+function testRedirect(slug) { window.open('/go/' + slug, '_blank'); }
 function copyUrl(slug) {
   const b = BROKERS.find(x => x.slug === slug);
   if (!b) return;
-  navigator.clipboard.writeText(b.url).then(() => showToast('Copied: ' + slug));
+  navigator.clipboard.writeText(b.url).then(() => showToast('Copied URL: ' + slug));
+}
+function copyGoUrl(slug) {
+  const goUrl = location.origin + '/go/' + slug;
+  navigator.clipboard.writeText(goUrl).then(() => showToast('Copied: /go/' + slug));
 }
 
-function showToast(msg) {
+function showToast(msg, isError) {
   const t = document.createElement('div');
-  t.className = 'copied-toast';
-  t.textContent = msg;
+  t.className = 'toast' + (isError ? ' error' : '');
+  t.innerHTML = (isError ? '&#10006; ' : '&#10003; ') + esc2(msg);
   document.body.appendChild(t);
-  setTimeout(() => t.remove(), 1600);
+  setTimeout(() => t.remove(), 2000);
 }
 
-// ─── BULK PASTE (auto-parse on input) ───
+// ─── EXPORT JSON ───
+function exportJSON() {
+  const data = BROKERS.map(b => ({ slug: b.slug, name: b.name, affiliate_url: b.url, status: b.placeholder ? 'placeholder' : 'active' }));
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'ratedbrokers-affiliates-' + new Date().toISOString().slice(0,10) + '.json';
+  a.click();
+  showToast('Exported ' + data.length + ' brokers');
+}
+
+// ─── BULK PASTE ───
 let bulkItems = [];
 
 function parseBulk() {
@@ -556,24 +873,24 @@ function parseBulk() {
 
   for (const line of lines) {
     const sep = line.includes('|') ? '|' : line.includes('\\t') ? '\\t' : null;
-    if (!sep) { html += '<div class="bp-item"><span class="bp-err">Invalid format: '+esc2(line.slice(0,60))+'</span></div>'; errors++; continue; }
+    if (!sep) { html += '<div class="bp-item"><span class="bp-err">&#10006; Invalid format: '+esc2(line.slice(0,60))+'</span></div>'; errors++; continue; }
     const parts = line.split(sep);
     const slug = parts[0].trim().toLowerCase();
     const url = parts.slice(1).join(sep).trim();
 
     if (!slug || !url.startsWith('https://')) {
-      html += '<div class="bp-item"><span class="bp-err">Invalid: '+esc2(slug)+' — URL must start with https://</span></div>';
+      html += '<div class="bp-item"><span class="bp-err">&#10006; '+esc2(slug)+' — URL must start with https://</span></div>';
       errors++;
       continue;
     }
     if (!slugSet.has(slug)) {
-      html += '<div class="bp-item"><span class="bp-err">Unknown slug: '+esc2(slug)+'</span></div>';
+      html += '<div class="bp-item"><span class="bp-err">&#10006; Unknown slug: '+esc2(slug)+'</span></div>';
       errors++;
       continue;
     }
 
     bulkItems.push({ slug, url });
-    html += '<div class="bp-item"><span class="bp-slug">'+slug+'</span><span class="bp-url">'+esc2(url.length>70?url.slice(0,70)+'...':url)+'</span></div>';
+    html += '<div class="bp-item"><span class="bp-slug">&#10003; '+slug+'</span><span class="bp-url">'+esc2(url.length>60?url.slice(0,60)+'...':url)+'</span></div>';
   }
 
   preview.innerHTML = html;
@@ -607,7 +924,11 @@ async function applyBulk() {
       if (res.ok) {
         ok++;
         const b = BROKERS.find(b => b.slug === item.slug);
-        if (b) { b.url = item.url; b.placeholder = item.url.includes('camp=RATEDBROKERS'); }
+        if (b) {
+          b.url = item.url;
+          b.placeholder = item.url.includes('camp=RATEDBROKERS');
+          try { b.domain = new URL(item.url).hostname.replace(/^www\\./, ''); } catch { b.domain = ''; }
+        }
       } else { fail++; }
     } catch { fail++; }
   }
@@ -624,21 +945,34 @@ async function applyBulk() {
   showToast(ok + ' URLs updated');
 }
 
-// ─── RENDER CHANGES ───
+// ─── RENDER CHANGES (Timeline) ───
 function renderChanges() {
-  const tbody = document.getElementById('changesTbody');
+  const container = document.getElementById('timeline');
+
   if (CHANGES.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="4" class="empty">No changes yet</td></tr>';
+    container.innerHTML = '<div class="empty">No changes yet</div>';
     return;
   }
-  tbody.innerHTML = CHANGES.filter(c => c.field === 'affiliate_url').map(c => {
-    const oldDomain = c.old_value ? new URL(c.old_value).hostname : '—';
-    const newDomain = new URL(c.new_value).hostname;
-    return '<tr>' +
-      '<td><strong>'+esc2(c.broker_slug)+'</strong></td>' +
-      '<td class="old" title="'+esc2(c.old_value||'')+'">'+esc2(oldDomain)+'</td>' +
-      '<td class="new" title="'+esc2(c.new_value)+'">'+esc2(newDomain)+'</td>' +
-      '<td class="ts">'+esc2(c.changed_at)+'</td></tr>';
+  container.innerHTML = CHANGES.map(c => {
+    let oldDisplay = c.old_value || '—';
+    let newDisplay = c.new_value || '—';
+    // Shorten URLs to domain for readability
+    if (c.field === 'affiliate_url') {
+      try { oldDisplay = new URL(c.old_value).hostname.replace(/^www\\./, '') + new URL(c.old_value).pathname.slice(0, 20); } catch {}
+      try { newDisplay = new URL(c.new_value).hostname.replace(/^www\\./, '') + new URL(c.new_value).pathname.slice(0, 20); } catch {}
+    }
+    return '<div class="tl-item">' +
+      '<div class="tl-head">' +
+        '<span class="tl-broker">'+esc2(c.broker_slug)+'</span>' +
+        '<span class="tl-field">'+esc2(c.field)+'</span>' +
+        '<span class="tl-time">'+timeAgo(c.changed_at)+'</span>' +
+      '</div>' +
+      '<div class="tl-diff">' +
+        '<span class="tl-old" title="'+esc2(c.old_value||'')+'">'+esc2(oldDisplay)+'</span>' +
+        '<span class="tl-arrow">&#10142;</span>' +
+        '<span class="tl-new" title="'+esc2(c.new_value)+'">'+esc2(newDisplay)+'</span>' +
+      '</div>' +
+    '</div>';
   }).join('');
 }
 
@@ -647,7 +981,7 @@ setFilter('all');
 render();
 renderChanges();
 
-// Global keyboard shortcut: Cmd/Ctrl+K → focus search
+// Global keyboard shortcuts
 document.addEventListener('keydown', e => {
   if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); document.getElementById('search').focus(); }
   if (e.key === 'Escape' && editingSlug) cancelEdit();

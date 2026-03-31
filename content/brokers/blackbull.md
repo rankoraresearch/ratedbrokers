@@ -263,6 +263,24 @@ trustpilot_bars:
     p: 3
   - s: "1★"
     p: 9
+
+subpages:
+  regulation:
+    quick_answer: "Caution. BlackBull Markets is regulated by FMA New Zealand (FSP403326) and FSA Seychelles (SD045) only. No Tier-1 regulatory license (FCA, ASIC, CySEC) is held. FMA is classified as Tier-2, and FSA Seychelles is Tier-3 — neither provides the investor compensation schemes offered by Tier-1 regulators."
+    tab_score: 6.6
+    pros:
+      - "FMA New Zealand (Tier-2) provides meaningful oversight with segregated funds requirements"
+      - "Voluntary fund segregation maintained across both FMA and Seychelles entities"
+      - "11-year operating history with no major regulatory incidents since 2014"
+    cons:
+      - "No Tier-1 regulation — no FCA, ASIC, or CySEC license means weaker client protection"
+      - "FSA Seychelles (Tier-3) for international clients provides minimal regulatory safeguards"
+      - "No investor compensation scheme — unlike FCA (FSCS £85,000) or CySEC (ICF €20,000)"
+      - "Not publicly listed — no external financial transparency through stock exchange reporting"
+    verdict_title: "Strong Execution, But Regulation Is the Weak Spot"
+    verdict_text: "BlackBull Markets' Tier-2 FMA New Zealand regulation provides reasonable oversight, but the absence of any Tier-1 license is a significant gap compared to competitors like IC Markets (ASIC) or Pepperstone (FCA + ASIC). International clients default to the Seychelles entity with minimal protection. The voluntary fund segregation and clean 11-year track record partially compensate, but traders prioritizing safety should weigh this carefully."
+    best_for: "New Zealand residents who benefit from FMA oversight and traders who prioritize execution and instruments over regulatory depth"
+    not_for: "Risk-averse traders who require Tier-1 regulatory protection and investor compensation schemes — choose ASIC or FCA-regulated ECN alternatives instead"
 ---
 
 ## Overview

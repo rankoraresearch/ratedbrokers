@@ -35,3 +35,16 @@ CREATE TABLE IF NOT EXISTS contacts (
   message TEXT NOT NULL,
   created_at TEXT DEFAULT (datetime('now'))
 );
+
+-- Ranking order overrides (manual positioning of brokers in 207 rankings)
+CREATE TABLE IF NOT EXISTS ranking_overrides (
+  ranking_id TEXT NOT NULL,
+  broker_slug TEXT NOT NULL,
+  position INTEGER NOT NULL,
+  featured_label TEXT,
+  hidden INTEGER DEFAULT 0,
+  notes TEXT,
+  updated_at TEXT DEFAULT (datetime('now')),
+  PRIMARY KEY (ranking_id, broker_slug)
+);
+CREATE INDEX IF NOT EXISTS idx_ro_ranking ON ranking_overrides(ranking_id);

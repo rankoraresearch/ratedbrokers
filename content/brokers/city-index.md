@@ -275,6 +275,24 @@ trustpilot_bars:
     p: 5
   - s: "1★"
     p: 12
+
+subpages:
+  regulation:
+    quick_answer: "Yes, City Index is very safe. It holds three Tier-1 licenses: FCA (UK, 446717), ASIC (Australia, 345646), and CySEC (Cyprus, 400/21), plus MAS (Singapore, 200400922K). The parent company StoneX Group is listed on NASDAQ (SNEX) with $60B+ annual revenue. City Index has operated since 1983 — a 40+ year track record."
+    tab_score: 9.8
+    pros:
+      - "Triple Tier-1 regulation — FCA, ASIC, and CySEC with MAS Singapore adding Asia-Pacific coverage"
+      - "NASDAQ-listed parent company StoneX Group (SNEX) provides maximum financial stability and transparency"
+      - "FSCS £85,000 protection for UK clients with mandatory segregated funds and negative balance protection"
+      - "40+ years of continuous FCA-regulated operation — one of the longest track records in the industry"
+    cons:
+      - "MAS Singapore is Tier-2 — not as strong as FCA or ASIC for investor compensation"
+      - "Not independently listed — financial transparency comes via parent StoneX rather than City Index itself"
+      - "Limited geographic coverage compared to brokers with 5+ regulatory licenses across more jurisdictions"
+    verdict_title: "Heritage Regulation Backed by a NASDAQ-Listed Parent"
+    verdict_text: "City Index's regulatory profile is exceptional — three Tier-1 licenses (FCA, ASIC, CySEC) combined with a 40-year operating history and the financial backing of NASDAQ-listed StoneX Group. For UK traders, the FCA regulation since 1983 provides unmatched heritage trust. The StoneX parentage adds SEC reporting transparency that few standalone brokers can match. MAS Singapore adds regional coverage for Asia-Pacific clients."
+    best_for: "UK traders who want a heritage FCA-regulated broker backed by the financial strength of a NASDAQ-listed Fortune 500 parent company"
+    not_for: "Traders in regions not covered by FCA, ASIC, CySEC, or MAS — City Index's geographic coverage is narrower than some global competitors"
 ---
 
 ## Overview

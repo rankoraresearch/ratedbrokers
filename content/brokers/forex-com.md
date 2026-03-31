@@ -274,6 +274,23 @@ trustpilot_bars:
     p: 5
   - s: "1★"
     p: 13
+
+subpages:
+  regulation:
+    quick_answer: "Yes, FOREX.com is safe. It holds quad Tier-1 regulation from NFA (US, license 0339826), FCA (UK, 446717), IIROC (Canada, #2456), and ASIC (Australia, 345646), plus CIMA (Cayman Islands). FOREX.com is part of StoneX Group (NASDAQ: SNEX), a Fortune 100 financial services company — providing institutional-grade financial backing."
+    tab_score: 10.0
+    pros:
+      - "4x Tier-1 regulation (NFA + FCA + IIROC + ASIC) — among the strongest regulatory coverage available"
+      - "Part of StoneX Group (NASDAQ: SNEX) — Fortune 100 company with $60B+ revenue, maximum financial stability"
+      - "NFA/CFTC registration for US traders + IIROC for Canadian traders — rare dual North American coverage"
+      - "FCA provides FSCS compensation up to £85,000 for UK clients"
+    cons:
+      - "No CySEC license — EU clients outside the UK lack dedicated EU regulatory coverage"
+      - "CIMA Cayman Islands (Tier-2) serves some international clients with weaker protections"
+    verdict_title: "Institutional-Grade Regulation Backed by Fortune 100"
+    verdict_text: "FOREX.com's regulatory framework is among the strongest in the industry. Quad Tier-1 regulation across the US, UK, Canada, and Australia — backed by the financial strength of NASDAQ-listed StoneX Group — provides maximum confidence. The rare combination of NFA + IIROC makes FOREX.com one of the best options for North American forex traders. The gap is the absence of CySEC for dedicated EU coverage."
+    best_for: "US and Canadian traders who need NFA/IIROC-regulated forex access, plus UK and Australian traders"
+    not_for: "EU traders seeking CySEC/MiFID II protection — consider Pepperstone, XTB, or IG instead"
 ---
 
 ## Overview

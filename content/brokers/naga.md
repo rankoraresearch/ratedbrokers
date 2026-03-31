@@ -270,6 +270,24 @@ trustpilot_bars:
     p: 4
   - s: "1★"
     p: 12
+
+subpages:
+  regulation:
+    quick_answer: "Yes, NAGA is safe. It holds two Tier-1 licenses: CySEC (Cyprus, 204/13) and BaFin (Germany, 135203). NAGA Group AG is publicly listed on the Frankfurt Stock Exchange (N4G), providing audited financials and corporate governance transparency. Client funds are segregated in European banks, and EU clients have ICF protection up to €20,000."
+    tab_score: 9.6
+    pros:
+      - "CySEC + BaFin dual Tier-1 regulation — strong European regulatory coverage"
+      - "Publicly listed on Frankfurt Stock Exchange (N4G) — audited financials and transparent governance"
+      - "Client funds segregated in European banks with ICF protection up to €20,000 for EU clients"
+      - "Negative balance protection for all retail clients under EU regulation"
+    cons:
+      - "FSCA South Africa entity (Tier-2) provides weaker protection than EU regulation"
+      - "Smaller broker compared to major players — less institutional track record"
+      - "Founded in 2015 — shorter operating history than established brokers like IG or Saxo Bank"
+    verdict_title: "Publicly Listed with Dual Tier-1 European Regulation"
+    verdict_text: "NAGA's combination of CySEC and BaFin dual Tier-1 regulation with a public listing on the Frankfurt Stock Exchange creates a strong safety profile for a social trading platform. The public listing adds transparency rare among brokers — audited financial reports and German corporate governance obligations provide additional confidence. EU clients benefit from segregated funds and ICF coverage. The gap is the FSCA entity for African clients, which provides less protection."
+    best_for: "EU traders who want a regulated social trading platform backed by dual Tier-1 oversight and public company transparency"
+    not_for: "Traders outside the EU defaulting to the FSCA entity — consider locally regulated alternatives for stronger protection"
 ---
 
 ## Overview

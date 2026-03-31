@@ -1,9 +1,14 @@
 name = "ratedbrokers-api"
 main = "src/index.js"
 compatibility_date = "2024-01-01"
+workers_dev = true
+
+routes = [
+  { pattern = "api.ratedbrokers.com/*", zone_name = "ratedbrokers.com" }
+]
 
 [vars]
-FRONTEND_URL = "https://rankoraresearch.github.io"
+FRONTEND_URL = "https://ratedbrokers.com"
 # API_KEY is set via `wrangler secret put API_KEY` in production.
 # For local dev, set it here or via .dev.vars file:
 # API_KEY = "dev-test-key"

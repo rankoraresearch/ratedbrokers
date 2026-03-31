@@ -21,6 +21,11 @@
 - Separator: #94a3b8, ChevronRight 11px
 - Gap: 4, letterSpacing: 0.01em
 
+## Sub-Page Navigation
+- **Sticky tab bar** (SubPageTabs.jsx): первый таб "← Review" → `/review/{slug}` (никогда не active, borderRight разделитель)
+- Баннер "Full Review" и pill-кнопка "← Back to Full Review" удалены (коммит `dfe8483`)
+- Breadcrumb содержит кликабельную ссылку "{B.name} Review"
+
 ## Логотип
 - Увеличен (Header 22/28px, Footer 20px)
 - Точка -> SVG-треугольник (#f59e0b)

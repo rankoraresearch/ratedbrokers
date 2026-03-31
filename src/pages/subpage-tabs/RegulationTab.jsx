@@ -16,7 +16,10 @@ export default function RegulationTab({ data, slug, mob }) {
   const regs = B.regs || [];
   const tier1Regs = regs.filter(r => r.tier === 1);
 
-  const quickAnswer = sp.quick_answer || `${B.name} is regulated by ${regs.map(r => `${r.name} (${r.country})`).join(", ")}. ${tier1Regs.length > 0 ? `${tier1Regs.length} Tier-1 regulator${tier1Regs.length > 1 ? "s" : ""}.` : ""}`;
+  const safetyVerdict = tier1Regs.length > 0 ? "Yes" : "Caution";
+  const quickAnswer = sp.quick_answer || (tier1Regs.length > 0
+    ? `Yes, ${B.name} is safe. Regulated by ${regs.length} financial authorit${regs.length > 1 ? "ies" : "y"} including ${tier1Regs.map(r => `${r.name} (${r.country})`).join(" and ")}. Client funds are held in segregated accounts with negative balance protection.`
+    : `Caution. ${B.name} is regulated by ${regs.map(r => `${r.name} (${r.country})`).join(", ")} only. No Tier-1 regulatory license (FCA, ASIC, CySEC, or equivalent).`);
   const tabScore = sp.tab_score || null;
   const pros = sp.pros || [
     ...tier1Regs.map(r => `${r.name} (${r.country}) — Tier-1 regulation`),
@@ -29,7 +32,7 @@ export default function RegulationTab({ data, slug, mob }) {
       <QuickAnswerBox text={quickAnswer} score={tabScore} />
       {pros.length > 0 && cons.length > 0 && <ProsCons pros={pros.slice(0, 4)} cons={cons.length > 0 ? cons.slice(0, 4) : ["No significant regulatory concerns"]} mob={mob} />}
 
-      <H2>Regulatory Licenses</H2>
+      <H2>{B.name} Regulatory Licenses</H2>
       <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : regs.length >= 3 ? "1fr 1fr 1fr" : `repeat(${regs.length}, 1fr)`, gap: 14, marginBottom: 20 }}>
         {regs.map((r, i) => {
           const color = r.tier === 1 ? GREEN : r.tier === 2 ? ORANGE : GRAY_MUTED;
@@ -49,8 +52,8 @@ export default function RegulationTab({ data, slug, mob }) {
 
       <CTAInline slug={slug} name={B.name} promo={B.promo} label="Trade with Regulated Broker" sub={`${tier1Regs.map(r => r.name).join(" + ")} regulation`} mob={mob} />
 
-      <H2>Company Background</H2>
-      <P>{B.name} was founded in {B.year}{B.hq ? ` in ${B.hq}` : ""}. {B.type} execution with {B.instruments} instruments available for trading.</P>
+      <H2>Investor Protection & Fund Safety</H2>
+      <P>{B.name} {tier1Regs.length > 0 ? "is required to hold client funds in segregated accounts, separate from company operating funds." : "holds client funds according to the requirements of its regulatory jurisdictions."} {B.name} was founded in {B.year}{B.hq ? ` in ${B.hq}` : ""}, offering {B.type} execution with {B.instruments} instruments.</P>
 
       {(sp.faq || FAQ.filter(f => f.q.toLowerCase().includes("regulated") || f.q.toLowerCase().includes("safe") || f.q.toLowerCase().includes("regulation") || f.q.toLowerCase().includes("license")).slice(0, 4)).length > 0 && (
         <FaqSection faqs={sp.faq || FAQ.filter(f => f.q.toLowerCase().includes("regulated") || f.q.toLowerCase().includes("safe") || f.q.toLowerCase().includes("regulation") || f.q.toLowerCase().includes("license")).slice(0, 4)} mob={mob} />
@@ -58,7 +61,7 @@ export default function RegulationTab({ data, slug, mob }) {
 
       <VerdictBox
         slug={slug} name={B.name} score={B.score}
-        title={sp.verdict_title || `${B.name} Regulation Verdict`}
+        title={sp.verdict_title || `Is ${B.name} Safe? Our Verdict`}
         text={sp.verdict_text || `${B.name} holds ${regs.length} regulatory license${regs.length > 1 ? "s" : ""}${tier1Regs.length > 0 ? ` including ${tier1Regs.length} Tier-1 regulator${tier1Regs.length > 1 ? "s" : ""} (${tier1Regs.map(r => r.name).join(", ")})` : ""}. Client fund segregation provides additional safety.`}
         bestFor={sp.best_for}
         notFor={sp.not_for}

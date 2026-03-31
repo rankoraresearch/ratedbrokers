@@ -4,8 +4,8 @@ export async function handleRedirect(request, env, slug) {
   ).bind(slug).first();
 
   if (!broker) {
-    const frontendUrl = env.FRONTEND_URL || 'https://rankoraresearch.github.io';
-    return Response.redirect(`${frontendUrl}/ratedbrokers/`, 302);
+    const frontendUrl = env.FRONTEND_URL || 'https://ratedbrokers.com';
+    return Response.redirect(`${frontendUrl}/`, 302);
   }
 
   // Track click asynchronously — don't block the redirect

@@ -261,6 +261,24 @@ trustpilot_bars:
     p: 2
   - s: "1★"
     p: 7
+
+subpages:
+  regulation:
+    quick_answer: "Yes, Trading 212 is safe. It holds two Tier-1 licenses: FCA (UK, 609146) and CySEC (Cyprus, 398/21). Client funds are held in segregated accounts with FSCS protection up to £85,000 for UK clients. With 4M+ users and a 4.6/5 Trustpilot rating from 81,000+ reviews, Trading 212 has a strong trust track record."
+    tab_score: 9.6
+    pros:
+      - "FCA + CySEC dual Tier-1 regulation — strong protection for UK and EU clients"
+      - "FSCS compensation up to £85,000 for UK clients in case of insolvency"
+      - "Client funds held in segregated accounts separate from company funds"
+      - "4M+ users and 20+ years of operation since 2004 — proven track record"
+    cons:
+      - "No ASIC, MAS, or other international Tier-1 licenses — coverage limited to UK and EU"
+      - "Not publicly listed — less financial transparency than listed brokers like IG or CMC Markets"
+      - "No offshore entities, which limits availability but also means no regulatory ambiguity"
+    verdict_title: "Dual Tier-1 Regulation for Europe's Largest Free Trading Platform"
+    verdict_text: "Trading 212's FCA and CySEC dual Tier-1 regulation provides solid protection for its 4M+ user base across the UK and EU. FSCS coverage up to £85,000, segregated client funds, and negative balance protection ensure meaningful safety for retail investors. The regulatory profile is clean with no offshore entities — every client falls under either FCA or CySEC oversight. The limitation is geographic scope, with no Tier-1 licenses outside Europe."
+    best_for: "UK and EU investors seeking a regulated, commission-free stock trading platform with FSCS/ICF protection"
+    not_for: "Traders outside the UK/EU who need international Tier-1 regulation — Trading 212 is not available in most non-European markets"
 ---
 
 ## Overview

@@ -263,6 +263,24 @@ trustpilot_bars:
     p: 8
   - s: "1★"
     p: 22
+
+subpages:
+  regulation:
+    quick_answer: "Yes, XTB is safe. It holds triple Tier-1 regulation from FCA (UK, license 522157), KNF (Poland, DDM-M-4021-57-1/2005), and CySEC (Cyprus, license 169/12), plus DFSA (Dubai). XTB is publicly listed on the Warsaw Stock Exchange (WSE: XTB), providing full financial transparency through audited quarterly reports."
+    tab_score: 9.6
+    pros:
+      - "Triple Tier-1 regulation: FCA + KNF + CySEC — covering the UK, Poland, and the EU"
+      - "Publicly listed on the Warsaw Stock Exchange (WSE: XTB) — audited financials and full transparency"
+      - "KNF (Poland) — one of Europe's strictest financial regulators, home regulator oversight"
+      - "FCA provides FSCS compensation up to £85,000 for UK clients"
+    cons:
+      - "No ASIC, NFA, or MAS licenses — limited coverage outside Europe"
+      - "DFSA (Dubai, Tier-2) is the only non-European license"
+      - "XTB's geographic focus on Europe means non-European clients may lack strong local regulation"
+    verdict_title: "Europe's Most Transparent Broker"
+    verdict_text: "XTB's combination of triple Tier-1 regulation and WSE listing makes it one of the safest brokers for European traders. The KNF home-regulator oversight, FCA UK coverage, and CySEC EU-wide passporting create a comprehensive European regulatory framework. The WSE listing adds a layer of financial transparency that most private brokers cannot match. The gap is limited non-European coverage — no ASIC, NFA, or MAS means traders outside Europe may be underserved."
+    best_for: "European traders who value regulatory transparency and a publicly listed, triple Tier-1 regulated broker"
+    not_for: "Traders in Australia, the US, or Asia who need local Tier-1 regulatory coverage"
 ---
 
 ## Overview

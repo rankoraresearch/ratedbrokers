@@ -274,6 +274,24 @@ trustpilot_bars:
     p: 2
   - s: "1★"
     p: 7
+
+subpages:
+  regulation:
+    quick_answer: "Yes, Exness is safe. It holds dual Tier-1 regulation from CySEC (Cyprus, license 178/12) and FCA (UK, license 730729), plus an offshore FSA Seychelles license (SD025). Client funds are fully segregated, and Exness publishes Deloitte-audited quarterly financial reports — a level of transparency rare among forex brokers."
+    tab_score: 9.6
+    pros:
+      - "CySEC (Tier-1) — EU/MiFID II regulation with ESMA leverage caps and negative balance protection"
+      - "FCA (Tier-1) — UK's Financial Conduct Authority with FSCS compensation up to £85,000"
+      - "Publishes Deloitte-audited financial reports quarterly — exceptional transparency"
+      - "Processes $13B+ monthly volume — financial stability demonstrated by scale"
+    cons:
+      - "Many international clients default to FSA Seychelles (Tier-3) with significantly weaker protections"
+      - "Unlimited leverage available on Seychelles entity — potentially dangerous for inexperienced traders"
+      - "No ASIC regulation — Australian clients are served through the offshore entity"
+    verdict_title: "Strong Tier-1 Core With Offshore Expansion"
+    verdict_text: "Exness' CySEC + FCA dual regulation provides a solid safety foundation for EU and UK clients. The Deloitte-audited financial reports set it apart from most competitors in transparency. However, the majority of Exness clients worldwide are onboarded through the FSA Seychelles entity, where protections are minimal and unlimited leverage is available. Choose the CySEC or FCA entity when possible for maximum safety."
+    best_for: "EU and UK traders who benefit from CySEC or FCA protection, and those who value financial transparency"
+    not_for: "Traders assigned to the Seychelles entity who need strong regulatory protection — consider Pepperstone or IG for broader Tier-1 coverage"
 ---
 
 ## Overview

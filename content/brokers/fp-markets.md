@@ -270,6 +270,24 @@ trustpilot_bars:
     p: 1
   - s: "1★"
     p: 3
+
+subpages:
+  regulation:
+    quick_answer: "Yes, FP Markets is safe. It holds dual Tier-1 regulation from ASIC (Australia, license 286354) and CySEC (Cyprus, license 371/18), plus FSCA (South Africa, Tier-2). Operating since 2005 with a clean 20-year regulatory record, FP Markets segregates client funds at AA-rated Australian banks."
+    tab_score: 9.2
+    pros:
+      - "ASIC (Tier-1) — one of the world's strictest financial regulators with full client fund segregation"
+      - "CySEC (Tier-1) — EU/MiFID II regulation with ESMA protections and ICF coverage up to €20,000"
+      - "20-year clean regulatory record since 2005 — no sanctions or enforcement actions"
+      - "Client funds held at AA-rated Australian banks in segregated trust accounts"
+    cons:
+      - "No FCA (UK) regulation — UK clients lack dedicated UK regulatory protection"
+      - "No NFA or MAS licenses — limited coverage outside Australia and the EU"
+      - "FSCA (South Africa) is Tier-2 — adequate but not as protective as ASIC or CySEC"
+    verdict_title: "Solid ASIC + CySEC Dual Tier-1 Regulation"
+    verdict_text: "FP Markets' ASIC + CySEC dual regulation provides genuine safety for Australian and EU clients. The 20-year clean record and AA-rated bank segregation reinforce trust. However, FP Markets lacks the regulatory breadth of Pepperstone (quad Tier-1) or IG (quad Tier-1). UK traders in particular miss the FCA's FSCS compensation scheme. For Australian and EU-based ECN traders, the regulatory framework is strong."
+    best_for: "Australian and EU traders who want ASIC or CySEC protection combined with premium ECN execution"
+    not_for: "UK traders who require FCA regulation — consider Pepperstone or IG for FCA coverage"
 ---
 
 ## Overview

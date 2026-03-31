@@ -269,6 +269,24 @@ trustpilot_bars:
     p: 5
   - s: "1★"
     p: 12
+
+subpages:
+  regulation:
+    quick_answer: "Yes, HFM is safe. It holds dual Tier-1 regulation from CySEC (Cyprus, 183/12) and FCA (UK, 801701), plus DFSA (Dubai, Tier-2) and FSCA (South Africa, Tier-2). Previously known as HotForex, HFM has operated since 2010 with segregated client funds and negative balance protection."
+    tab_score: 9.6
+    pros:
+      - "CySEC + FCA dual Tier-1 regulation — strong EU and UK client protection"
+      - "FCA provides FSCS compensation up to £85,000; CySEC provides ICF up to €20,000"
+      - "DFSA (Dubai) and FSCA (South Africa) Tier-2 licenses extend regional coverage"
+      - "Client funds fully segregated with negative balance protection across all Tier-1 entities"
+    cons:
+      - "Non-EU/UK clients under DFSA or FSCA have less comprehensive Tier-2 protections"
+      - "1:2000 leverage available under certain entities — extreme risk for inexperienced traders"
+      - "Previous HotForex brand had mixed reputation in some markets before the 2022 rebrand"
+    verdict_title: "Dual Tier-1 CySEC + FCA with Regional Tier-2 Coverage"
+    verdict_text: "HFM's CySEC and FCA dual Tier-1 regulation provides genuine safety for EU and UK clients, backed by established compensation schemes. The DFSA and FSCA Tier-2 licenses add Middle Eastern and African regional coverage that most competitors lack. The 14-year operating history supports trust, though the 1:2000 leverage offered under certain entities is a risk concern for inexperienced traders."
+    best_for: "EU, UK, and Middle Eastern traders who want dual Tier-1 regulation with copy trading and $0 minimum deposit"
+    not_for: "Traders in regions defaulting to offshore entities with 1:2000 leverage — the extreme leverage amplifies risk without adequate regulatory guardrails"
 ---
 
 ## Overview

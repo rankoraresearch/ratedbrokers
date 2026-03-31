@@ -261,6 +261,24 @@ trustpilot_bars:
     p: 7
   - s: "1★"
     p: 23
+
+subpages:
+  regulation:
+    quick_answer: "Yes, Saxo Bank is safe. It holds quad Tier-1 regulation from DFSA Denmark (license 1149), FCA (UK, 551422), ASIC (Australia, 280372), and MAS (Singapore, CMS080736). As a fully licensed Danish bank, Saxo holds a banking license — providing stricter capital requirements and depositor protections than typical forex brokers. Operating since 1992 with 30+ years of clean regulatory history."
+    tab_score: 10.0
+    pros:
+      - "Full Danish banking license (DFSA, Tier-1) — subject to banking-level capital requirements and oversight"
+      - "4x Tier-1 regulation (DFSA + FCA + ASIC + MAS) — comprehensive global coverage"
+      - "Banking-level client fund protection — stricter requirements than standard broker licenses"
+      - "30+ years of clean operation since 1992 — among the longest regulatory track records"
+    cons:
+      - "No NFA registration — US traders cannot open accounts"
+      - "$2,000 minimum deposit creates a high entry barrier"
+      - "Not publicly listed — though subject to banking-level regulatory disclosure"
+    verdict_title: "Banking-Level Regulation Sets the Highest Standard"
+    verdict_text: "Saxo Bank's full Danish banking license elevates it above typical broker regulation. Banks face stricter capital requirements, more rigorous auditing, and higher compliance standards than investment firms. Combined with FCA, ASIC, and MAS Tier-1 licenses, Saxo offers arguably the strongest regulatory framework in the retail trading space. The 30+ year clean record reinforces this. The trade-off is accessibility — the $2,000 minimum deposit and premium positioning are not for beginners."
+    best_for: "Affluent traders and investors who prioritize banking-level safety and want a multi-asset platform under premium regulation"
+    not_for: "US traders (no NFA) or beginners looking for a low entry barrier — consider OANDA or Pepperstone"
 ---
 
 ## Overview

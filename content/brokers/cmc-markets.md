@@ -264,6 +264,24 @@ trustpilot_bars:
     p: 5
   - s: "1★"
     p: 14
+
+subpages:
+  regulation:
+    quick_answer: "Yes, CMC Markets is exceptionally safe. It holds four Tier-1 licenses: FCA (UK, 173730), ASIC (Australia, 238054), MAS (Singapore, CMS100456), and BaFin (Germany, 154814). CMC Markets is also listed on the London Stock Exchange (CMCX), providing the highest level of corporate transparency. The company has operated since 1989 — a 36-year regulatory track record."
+    tab_score: 9.9
+    pros:
+      - "Four Tier-1 licenses — FCA, ASIC, MAS, and BaFin — the broadest Tier-1 coverage among market maker brokers"
+      - "Listed on the London Stock Exchange (CMCX) — audited financials, SEC-equivalent reporting, maximum transparency"
+      - "36 years of continuous operation since 1989 with no major regulatory incidents"
+      - "FSCS £85,000 protection for UK clients with mandatory segregated funds and negative balance protection"
+    cons:
+      - "Market maker model — no ECN or DMA execution transparency for those who want order flow visibility"
+      - "Not listed on a US exchange — less accessible for US-focused regulatory scrutiny"
+      - "International entity for clients outside major jurisdictions may offer reduced protections"
+    verdict_title: "Gold Standard — LSE-Listed With Four Tier-1 Licenses"
+    verdict_text: "CMC Markets' regulatory profile is among the strongest in the retail broker industry. Four Tier-1 licenses (FCA, ASIC, MAS, BaFin) combined with a London Stock Exchange listing create institutional-grade safety. The LSE listing mandates quarterly financial reporting, independent auditing, and corporate governance standards that exceed any private broker's transparency. The 36-year track record since 1989 is one of the longest in online trading."
+    best_for: "Traders who prioritize maximum regulatory safety and corporate transparency — the LSE listing and four Tier-1 licenses are unmatched among spread betting providers"
+    not_for: "Traders who require ECN execution transparency — CMC's market maker model means less visibility into order flow despite excellent corporate transparency"
 ---
 
 ## Overview

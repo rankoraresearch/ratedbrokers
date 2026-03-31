@@ -269,6 +269,23 @@ trustpilot_bars:
     p: 5
   - s: "1★"
     p: 13
+
+subpages:
+  regulation:
+    quick_answer: "Yes, OANDA is safe. It holds quad Tier-1 regulation from NFA (US, license 0325821), FCA (UK, 542574), ASIC (Australia, 412981), and MAS (Singapore, CMS100578). Operating since 1996 — nearly 30 years — OANDA is one of the longest-running online forex brokers. It is one of only two brokers legally accepting US forex traders through NFA registration."
+    tab_score: 10.0
+    pros:
+      - "4x Tier-1 regulation (NFA + FCA + ASIC + MAS) — matching IG for the strongest regulatory framework"
+      - "NFA registration — one of only two brokers legally offering forex to US residents"
+      - "Nearly 30 years of operation (founded 1996) — among the oldest online forex brokers"
+      - "FCA provides FSCS compensation up to £85,000 for UK clients"
+    cons:
+      - "No CySEC license — EU clients outside the UK lack dedicated EU regulatory coverage"
+      - "Not publicly listed — less financial transparency than IG (LSE-listed) or Plus500 (LSE-listed)"
+    verdict_title: "Quad Tier-1 With Nearly Three Decades of Trust"
+    verdict_text: "OANDA's regulatory framework is among the strongest in the industry — on par with IG. Four Tier-1 licenses across the US, UK, Australia, and Singapore provide robust protection for traders in these major markets. The NFA license is particularly valuable: OANDA and IG are the only brokers legally serving US forex traders. The 30-year operating history without major sanctions adds significant credibility. The gap is the lack of CySEC for EU clients."
+    best_for: "US-based forex traders (one of only two NFA-regulated options), plus UK, Australian, and Singaporean traders"
+    not_for: "EU traders seeking CySEC or MiFID II protection — consider Pepperstone or XTB instead"
 ---
 
 ## Overview

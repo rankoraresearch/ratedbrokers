@@ -274,6 +274,24 @@ trustpilot_bars:
     p: 7
   - s: "1★"
     p: 29
+
+subpages:
+  regulation:
+    quick_answer: "Yes, Interactive Brokers is one of the safest brokers in the world. It holds five Tier-1 licenses: SEC/FINRA (US, CRD# 36418), FCA (UK, 208159), ASIC (Australia, 453554), MAS (Singapore, CMS100917), and IIROC (Canada, #3352). IBKR is publicly listed on NASDAQ (IBKR) with $15T+ in client equity and 47 years of operation since 1978."
+    tab_score: 10.0
+    pros:
+      - "5x Tier-1 regulation — SEC/FINRA, FCA, ASIC, MAS, IIROC — the most comprehensive regulatory coverage of any retail broker"
+      - "NASDAQ-listed (IBKR) with $15T+ in client equity and $50B+ market cap — unrivaled financial strength"
+      - "SIPC protection up to $500,000 per US account + Lloyd's excess insurance up to $30M per account"
+      - "47 years of continuous operation since 1978 — the longest track record in electronic trading"
+    cons:
+      - "Not primarily a forex-focused broker — forex is a subset of the broader multi-asset offering"
+      - "Platform complexity and institutional orientation can feel impersonal for retail traders"
+      - "Credit/debit card deposits not supported — bank/wire only, which reduces convenience"
+    verdict_title: "The Gold Standard of Broker Regulation and Financial Safety"
+    verdict_text: "Interactive Brokers sets the benchmark for regulatory safety in the brokerage industry. Five Tier-1 licenses, a NASDAQ listing, $15T+ in client equity, and SIPC + Lloyd's excess insurance provide protection that no other retail-accessible broker can match. The 47-year track record through every major market crisis since 1978 demonstrates unparalleled institutional resilience. The trade-off is an institutional focus that prioritizes serious traders over casual beginners."
+    best_for: "Serious multi-asset traders and investors in the US, UK, Australia, Canada, and Singapore who want the maximum possible regulatory protection"
+    not_for: "Casual forex beginners who find the platform overwhelming — consider IG or Pepperstone for a more retail-friendly experience with strong regulation"
 ---
 
 ## Overview

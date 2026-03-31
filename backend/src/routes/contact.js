@@ -1,7 +1,34 @@
 import { corsHeaders } from '../utils/cors.js';
 
+// Simple in-memory rate limiter: 10 messages per hour per IP
+// Map resets on Worker restart (cold start), which is acceptable for basic protection.
+const rateLimitMap = new Map();
+const RATE_LIMIT = 10;
+const RATE_WINDOW_MS = 60 * 60 * 1000; // 1 hour
+
+function isRateLimited(ip) {
+  const now = Date.now();
+  const entry = rateLimitMap.get(ip);
+  if (!entry || now - entry.start > RATE_WINDOW_MS) {
+    rateLimitMap.set(ip, { start: now, count: 1 });
+    return false;
+  }
+  entry.count++;
+  if (entry.count > RATE_LIMIT) return true;
+  return false;
+}
+
 export async function handleContact(request, env) {
   const headers = corsHeaders(request);
+
+  // Rate limit check
+  const ip = request.headers.get('cf-connecting-ip') || request.headers.get('x-forwarded-for') || 'unknown';
+  if (isRateLimited(ip)) {
+    return Response.json(
+      { error: 'Too many requests. Please try again later.' },
+      { status: 429, headers }
+    );
+  }
 
   let body;
   try {
