@@ -32,6 +32,8 @@ import ButtonLogoProto from "./pages/ButtonLogoProto";
 import SubPagesProto from "./pages/SubPagesProto";
 import SafetyProto from "./pages/SafetyProto";
 import BrokerSubPage from "./pages/BrokerSubPage";
+import CategoryHubPage from "./pages/CategoryHubPage";
+import WarningPage from "./pages/WarningPage";
 import { LanguageProvider } from "./i18n/LanguageContext";
 
 function Layout() {
@@ -97,6 +99,13 @@ function AppRoutes() {
         <Route path="guide/:slug" element={<GuidePage />} />
         <Route path="author/:slug" element={<AuthorPage />} />
         <Route path="platform/:slug" element={<PlatformPage />} />
+        <Route path="warnings/:slug" element={<WarningPage />} />
+        {/* M4 Category Hubs — must be before catch-all :slug */}
+        <Route path="forex-brokers" element={<CategoryHubPage hubSlug="forex" />} />
+        <Route path="cfd-trading" element={<CategoryHubPage hubSlug="cfd" />} />
+        <Route path="copy-trading" element={<CategoryHubPage hubSlug="copy-trading" />} />
+        <Route path="spread-betting" element={<CategoryHubPage hubSlug="spread-betting" />} />
+        <Route path="crypto-trading" element={<CategoryHubPage hubSlug="crypto" />} />
         <Route path=":slug" element={<RankingPage />} />
       </Route>
     </Routes>
