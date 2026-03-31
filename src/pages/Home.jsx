@@ -1226,11 +1226,11 @@ export default function Home() {
   const top10 = allBrokersData.slice(0, 10);
 
   useEffect(() => {
-    document.title = "RatedBrokers \u2014 Forex Broker Reviews & Rankings (2026)";
+    document.title = "Best Online Brokers 2026 \u2014 Reviews & Rankings | RatedBrokers";
     const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", `RatedBrokers is an independent broker comparison platform. We analyze ${allBrokersData.length} forex brokers across 130+ data points. Expert reviews, rankings by category, and side-by-side comparisons.`);
+    if (meta) meta.setAttribute("content", `Compare ${allBrokersData.length}+ online brokers across forex, CFD, crypto, copy trading and more. Independent reviews, expert rankings by category, and side-by-side comparisons. Updated 2026.`);
     const schemas = [
-      { "@context": "https://schema.org", "@type": "WebSite", name: "RatedBrokers", url: "https://ratedbrokers.com" },
+      { "@context": "https://schema.org", "@type": "WebSite", name: "RatedBrokers", url: "https://ratedbrokers.com", description: "Independent online broker comparison platform. Expert reviews and rankings across forex, CFD, crypto, copy trading, and spread betting." },
       { "@context": "https://schema.org", "@type": "Organization", name: "RatedBrokers", url: "https://ratedbrokers.com", logo: "https://ratedbrokers.com/logo.png" },
       { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "RatedBrokers", item: "https://ratedbrokers.com/" }] },
     ];
@@ -1261,40 +1261,46 @@ export default function Home() {
   return (
     <div style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb", minHeight: "100vh" }}>
 
-      {/* ===== DEV: UMBRELLA STRUCTURE BLUEPRINT ===== */}
+      {/* ===== CATEGORY NAVIGATION ===== */}
       <section style={{
-        background: "linear-gradient(135deg, #fef3c7, #fde68a)",
-        border: "3px dashed #f59e0b",
-        padding: mob ? "16px 12px" : "20px 24px",
-        margin: 0,
+        background: "#fff",
+        borderBottom: "1px solid #e2e8f0",
+        padding: mob ? "14px 0" : "16px 0",
+        overflowX: "auto",
       }}>
-        <div style={{ ...cn }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12 }}>
-            <span style={{ fontSize: 14, fontWeight: 800, color: "#92400e", textTransform: "uppercase", letterSpacing: 1 }}>
-              DEV ONLY — Online Brokers Umbrella Structure (M4)
-            </span>
-          </div>
-          <div style={{
-            display: "flex", flexWrap: "wrap", gap: 8,
+        <div style={{ ...cn, display: "flex", gap: mob ? 8 : 10, minWidth: "min-content" }}>
+          {UMBRELLA_CATEGORIES.filter(c => c.phase <= 1).map(cat => (
+            <Link key={cat.slug} to={
+              cat.slug === "forex-brokers" ? "/forex-brokers" :
+              cat.slug === "cfd-brokers" ? "/cfd-trading" :
+              cat.slug === "copy-trading" ? "/copy-trading" :
+              cat.slug === "spread-betting" ? "/spread-betting" :
+              cat.slug === "crypto-brokers" ? "/crypto-trading" : "/online-brokers"
+            } style={{
+              display: "inline-flex", alignItems: "center", gap: 6,
+              padding: mob ? "8px 12px" : "9px 16px", borderRadius: 8,
+              background: "#f8f9fb", border: "1px solid #e2e8f0",
+              color: "#111827", fontSize: 13, fontWeight: 700,
+              textDecoration: "none", whiteSpace: "nowrap",
+              transition: "border-color 0.15s, background 0.15s",
+            }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = "#059669"; e.currentTarget.style.background = "#f0fdf4"; }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = "#e2e8f0"; e.currentTarget.style.background = "#f8f9fb"; }}
+            >
+              <Icon name={cat.icon} size={14} style={{ color: "#059669" }} />
+              {cat.name}
+              <span style={{ fontSize: 11, color: "#64748b", fontWeight: 600 }}>({cat.count})</span>
+            </Link>
+          ))}
+          <Link to="/online-brokers" style={{
+            display: "inline-flex", alignItems: "center", gap: 4,
+            padding: mob ? "8px 12px" : "9px 16px", borderRadius: 8,
+            background: "transparent", border: "1px solid transparent",
+            color: "#059669", fontSize: 13, fontWeight: 700,
+            textDecoration: "none", whiteSpace: "nowrap",
           }}>
-            {UMBRELLA_CATEGORIES.map(cat => (
-              <div key={cat.slug} style={{
-                display: "inline-flex", alignItems: "center", gap: 6,
-                padding: "8px 14px", borderRadius: 8,
-                background: cat.status === "done" ? "#059669" : cat.status === "partial" ? "#2563eb" : cat.status === "new" ? "#f59e0b" : "#94a3b8",
-                color: "#fff", fontSize: 13, fontWeight: 700,
-                opacity: cat.status === "future" ? 0.6 : 1,
-              }}>
-                <Icon name={cat.icon} size={14} />
-                <span>{cat.name}</span>
-                <span style={{ fontSize: 11, opacity: 0.8 }}>({cat.count})</span>
-                {cat.status === "future" && <span style={{ fontSize: 10, opacity: 0.7 }}>P{cat.phase}</span>}
-              </div>
-            ))}
-          </div>
-          <div style={{ fontSize: 11, color: "#92400e", marginTop: 8, opacity: 0.8 }}>
-            Green = done | Blue = partial | Orange = Phase 1 new | Gray = Phase 2-3 (need new brokers)
-          </div>
+            All Categories →
+          </Link>
         </div>
       </section>
 
@@ -1333,7 +1339,7 @@ export default function Home() {
                 {t("home.heroTitle1")}
               </h1>
               <p style={{ fontSize: mob ? 15 : 17, color: "rgba(255,255,255,0.7)", fontWeight: 600, marginBottom: 20, lineHeight: 1.5 }}>
-                Independently researched. {allBrokersData.length} brokers ranked.
+                Compare {allBrokersData.length}+ brokers across forex, CFD, crypto, and more.
               </p>
               <div style={{ display: "flex", gap: mob ? 16 : 28, flexWrap: "wrap" }}>
                 {[

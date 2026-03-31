@@ -126,7 +126,7 @@ const en = {
 
   // ===== HOME: HERO =====
   "home.updated": "UPDATED MARCH 2026",
-  "home.heroTitle1": "Independent Broker Reviews",
+  "home.heroTitle1": "Best Online Brokers 2026",
   "home.heroSubtitle": "Independently Researched",
   "home.heroDesc": "We analyze forex, crypto, and CFD brokers across 130+ data points — verifying regulations, comparing costs, and cross-checking conditions. Data-driven rankings you can trust.",
   "home.stat.brokers": "Brokers Analyzed",
