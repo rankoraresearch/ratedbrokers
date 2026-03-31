@@ -14,6 +14,9 @@ const ALL_RANKINGS = [...RANKINGS, ...COMBINATORIAL_RANKINGS];
 const CATEGORY_TABS = [
   { key: "all", label: "All" },
   { key: "forex", label: "Forex" },
+  { key: "cfd", label: "CFD" },
+  { key: "copy-trading", label: "Copy Trading" },
+  { key: "spread-betting", label: "Spread Betting" },
   { key: "crypto", label: "Crypto" },
   { key: "assets", label: "Assets" },
   { key: "country", label: "Countries" },
@@ -48,6 +51,8 @@ const SUB_LABELS = {
   tools: "Tools & Features",
   coins: "By Coin",
   feature: "By Feature",
+  audience: "By Audience",
+  asset: "By Asset",
   guide: "Guides",
   type: "By Asset Type",
   pairs: "By Currency Pair",
@@ -138,6 +143,9 @@ export default function AllRankingsPage() {
                 }}
               >
                 {t.label}
+                <span style={{ marginLeft: 4, opacity: 0.6, fontSize: 12 }}>
+                  ({t.key === "all" ? ALL_RANKINGS.length : ALL_RANKINGS.filter(r => r.category === t.key).length})
+                </span>
               </button>
             ))}
           </div>

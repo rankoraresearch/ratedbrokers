@@ -28,6 +28,7 @@ import { getAuthorForRanking, getFactChecker, getReviewerForAuthor, getEditor } 
 import AuthorCredits from "../components/AuthorCredits";
 import AuthorBioCard from "../components/AuthorBioCard";
 import Breadcrumb, { breadcrumbSchema } from "../components/Breadcrumb";
+import HUBS from "../data/categoryHubs";
 import Icon, { ArrowRight, CircleCheck, Check, X as XIcon } from "../components/Icon";
 import BrokerLogo from "../components/BrokerLogo";
 import RegBadge from "../components/RegBadge";
@@ -472,20 +473,22 @@ export default function RankingPage() {
             url: "https://ratedbrokers.com",
           },
         },
-        breadcrumbSchema(
-          ranking.category === "combinatorial"
-            ? [
-                { label: "RatedBrokers", path: "/" },
-                { label: "Forex Brokers", path: "/best-forex-brokers" },
-                { label: `Best Forex Brokers ${ranking._countryName}`, path: `/best-forex-brokers-${ranking._geoId}` },
-                { label: `${ranking.title} ${YEAR}`, path: fullSlug },
-              ]
-            : [
-                { label: "RatedBrokers", path: "/" },
-                { label: "Forex Brokers", path: "/best-forex-brokers" },
-                { label: `${ranking.title} ${YEAR}`, path: fullSlug },
-              ]
-        ),
+        breadcrumbSchema((() => {
+          const hub = HUBS.find(h => h.category === ranking.category || h.verticalKey === ranking.vertical) || HUBS[0];
+          if (ranking.category === "combinatorial") {
+            return [
+              { label: "RatedBrokers", path: "/" },
+              { label: hub.name, path: hub.path },
+              { label: `Best Forex Brokers ${ranking._countryName}`, path: `/best-forex-brokers-${ranking._geoId}` },
+              { label: `${ranking.title} ${YEAR}`, path: fullSlug },
+            ];
+          }
+          return [
+            { label: "RatedBrokers", path: "/" },
+            { label: hub.name, path: hub.path },
+            { label: `${ranking.title} ${YEAR}`, path: fullSlug },
+          ];
+        })()),
         ...(seo?.faq?.length ? [{
           "@context": "https://schema.org",
           "@type": "FAQPage",
@@ -609,19 +612,22 @@ export default function RankingPage() {
 
       {/* BREADCRUMBS */}
       <div style={{ ...cn, padding: mob ? "10px 16px" : "14px 24px" }}>
-        <Breadcrumb items={
-          ranking.category === "combinatorial"
-            ? [
-                { label: "RatedBrokers", path: "/" },
-                { label: "Forex Brokers", path: "/best-forex-brokers" },
-                { label: `${ranking._countryName}`, path: `/best-forex-brokers-${ranking._geoId}` },
-                { label: ranking.title },
-              ]
-            : [
-                { label: "RatedBrokers", path: "/" },
-                { label: "Forex Brokers", path: "/best-forex-brokers" },
-                { label: ranking.title },
-              ]
+        <Breadcrumb items={(() => {
+          const hub = HUBS.find(h => h.category === ranking.category || h.verticalKey === ranking.vertical) || HUBS[0];
+          if (ranking.category === "combinatorial") {
+            return [
+              { label: "RatedBrokers", path: "/" },
+              { label: hub.name, path: hub.path },
+              { label: `${ranking._countryName}`, path: `/best-forex-brokers-${ranking._geoId}` },
+              { label: ranking.title },
+            ];
+          }
+          return [
+            { label: "RatedBrokers", path: "/" },
+            { label: hub.name, path: hub.path },
+            { label: ranking.title },
+          ];
+        })()
         } />
       </div>
 
