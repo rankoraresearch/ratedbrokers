@@ -1245,8 +1245,58 @@ export default function Home() {
     return () => { const el = document.querySelector('script[data-jsonld="home"]'); if (el) el.remove(); };
   }, []);
 
+  // ── Umbrella Categories (dev-only blueprint) ──
+  const UMBRELLA_CATEGORIES = [
+    { name: "Forex Brokers", slug: "forex-brokers", icon: "trending-up", count: 205, phase: 1, status: "done" },
+    { name: "CFD Brokers", slug: "cfd-brokers", icon: "bar-chart-3", count: 25, phase: 1, status: "new" },
+    { name: "Copy Trading", slug: "copy-trading", icon: "handshake", count: 12, phase: 1, status: "new" },
+    { name: "Spread Betting", slug: "spread-betting", icon: "target", count: 9, phase: 1, status: "new" },
+    { name: "Crypto Brokers", slug: "crypto-brokers", icon: "bitcoin", count: 26, phase: 1, status: "partial" },
+    { name: "Stock Brokers", slug: "stock-brokers", icon: "building-2", count: 18, phase: 2, status: "future" },
+    { name: "Options Brokers", slug: "options-brokers", icon: "layers", count: 9, phase: 2, status: "future" },
+    { name: "Futures Brokers", slug: "futures-brokers", icon: "clock", count: 9, phase: 2, status: "future" },
+    { name: "Prop Firms", slug: "prop-firms", icon: "rocket", count: 17, phase: 3, status: "future" },
+  ];
+
   return (
     <div style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb", minHeight: "100vh" }}>
+
+      {/* ===== DEV: UMBRELLA STRUCTURE BLUEPRINT ===== */}
+      <section style={{
+        background: "linear-gradient(135deg, #fef3c7, #fde68a)",
+        border: "3px dashed #f59e0b",
+        padding: mob ? "16px 12px" : "20px 24px",
+        margin: 0,
+      }}>
+        <div style={{ ...cn }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12 }}>
+            <span style={{ fontSize: 14, fontWeight: 800, color: "#92400e", textTransform: "uppercase", letterSpacing: 1 }}>
+              DEV ONLY — Online Brokers Umbrella Structure (M4)
+            </span>
+          </div>
+          <div style={{
+            display: "flex", flexWrap: "wrap", gap: 8,
+          }}>
+            {UMBRELLA_CATEGORIES.map(cat => (
+              <div key={cat.slug} style={{
+                display: "inline-flex", alignItems: "center", gap: 6,
+                padding: "8px 14px", borderRadius: 8,
+                background: cat.status === "done" ? "#059669" : cat.status === "partial" ? "#2563eb" : cat.status === "new" ? "#f59e0b" : "#94a3b8",
+                color: "#fff", fontSize: 13, fontWeight: 700,
+                opacity: cat.status === "future" ? 0.6 : 1,
+              }}>
+                <Icon name={cat.icon} size={14} />
+                <span>{cat.name}</span>
+                <span style={{ fontSize: 11, opacity: 0.8 }}>({cat.count})</span>
+                {cat.status === "future" && <span style={{ fontSize: 10, opacity: 0.7 }}>P{cat.phase}</span>}
+              </div>
+            ))}
+          </div>
+          <div style={{ fontSize: 11, color: "#92400e", marginTop: 8, opacity: 0.8 }}>
+            Green = done | Blue = partial | Orange = Phase 1 new | Gray = Phase 2-3 (need new brokers)
+          </div>
+        </div>
+      </section>
 
       {/* ===== HERO ===== */}
       {NAV_VARIANT === "B" ? (
