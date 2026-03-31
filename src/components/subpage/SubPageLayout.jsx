@@ -138,7 +138,7 @@ export default function SubPageLayout({ data, slug, activeTab, children }) {
       </HeroBand>
 
       {/* Tab Navigation */}
-      <SubPageTabs activeTab={activeTab} slug={slug} mob={mob} />
+      <SubPageTabs activeTab={activeTab} slug={slug} mob={mob} brokerName={B.name} />
 
       {/* Main Content */}
       <div style={{ ...cn, display: "flex", flexDirection: mob ? "column" : "row", gap: mob ? 16 : 24, paddingTop: mob ? 20 : 28, paddingBottom: mob ? 40 : 64 }}>

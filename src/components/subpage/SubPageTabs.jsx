@@ -30,7 +30,7 @@ export const TAB_META = {
   account: { breadcrumb: "Account Opening", h1Suffix: "Account Opening" },
 };
 
-export default function SubPageTabs({ activeTab, slug, mob }) {
+export default function SubPageTabs({ activeTab, slug, mob, brokerName }) {
   return (
     <div style={{ background: "#fff", borderBottom: `1px solid ${BORDER}`, position: "sticky", top: 64, zIndex: 10 }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: 0, overflowX: "auto", WebkitOverflowScrolling: "touch", scrollbarWidth: "none", msOverflowStyle: "none", position: "relative" }}>
@@ -52,7 +52,7 @@ export default function SubPageTabs({ activeTab, slug, mob }) {
             onMouseLeave={e => { e.currentTarget.style.color = GRAY_MUTED; e.currentTarget.style.background = "transparent"; }}
           >
             <ArrowLeft size={mob ? 13 : 14} />
-            Review
+            {mob ? "Review" : `${brokerName} Review`}
           </Link>
           {TABS.map(t => {
             const active = t.id === activeTab;
