@@ -87,7 +87,85 @@ function generateCombinatorialRankings() {
   return rankings;
 }
 
-export const COMBINATORIAL_RANKINGS = generateCombinatorialRankings();
+// ═══════════════════════════════════════════════════════════════
+// M4: NEW VERTICAL COMBINATORIAL (CFD × 15, Copy Trading × 8, Spread Betting × 3)
+// ═══════════════════════════════════════════════════════════════
+
+const CFD_COMBI_COUNTRIES = COMBI_COUNTRIES; // same 15 countries
+const CT_COMBI_COUNTRIES = COMBI_COUNTRIES.slice(0, 8); // top 8 countries
+const SB_COMBI_COUNTRIES = [
+  { id: "uk", name: "UK", slug: "uk", regulator: "FCA", currency: "GBP" },
+  { id: "ireland", name: "Ireland", slug: "ireland", regulator: "CBI", currency: "EUR" },
+  { id: "australia", name: "Australia", slug: "australia", regulator: "ASIC", currency: "AUD" },
+];
+
+function generateNewVerticalCombis() {
+  const rankings = [];
+
+  // CFD × 15 countries
+  for (const country of CFD_COMBI_COUNTRIES) {
+    rankings.push({
+      id: `combi-cfd-${country.id}`,
+      slug: `/best-cfd-brokers-in-${country.slug}`,
+      title: `Best CFD Brokers in ${country.name}`,
+      category: "combinatorial",
+      sub: "cfd",
+      priority: 3,
+      icon: "bar-chart-3",
+      vertical: "cfd",
+      _typeId: "cfd",
+      _typeLabel: "CFD",
+      _geoId: country.id,
+      _countryName: country.name,
+      _regulator: country.regulator,
+      _currency: country.currency,
+    });
+  }
+
+  // Copy Trading × 8 countries
+  for (const country of CT_COMBI_COUNTRIES) {
+    rankings.push({
+      id: `combi-ct-${country.id}`,
+      slug: `/best-copy-trading-platforms-in-${country.slug}`,
+      title: `Best Copy Trading Platforms in ${country.name}`,
+      category: "combinatorial",
+      sub: "copy-trading",
+      priority: 3,
+      icon: "handshake",
+      vertical: "copy-trading",
+      _typeId: "copy-trading",
+      _typeLabel: "Copy Trading",
+      _geoId: country.id,
+      _countryName: country.name,
+      _regulator: country.regulator,
+      _currency: country.currency,
+    });
+  }
+
+  // Spread Betting × 3 countries
+  for (const country of SB_COMBI_COUNTRIES) {
+    rankings.push({
+      id: `combi-sb-${country.id}`,
+      slug: `/best-spread-betting-in-${country.slug}`,
+      title: `Best Spread Betting Platforms in ${country.name}`,
+      category: "combinatorial",
+      sub: "spread-betting",
+      priority: 3,
+      icon: "target",
+      vertical: "spread-betting",
+      _typeId: "spread-betting",
+      _typeLabel: "Spread Betting",
+      _geoId: country.id,
+      _countryName: country.name,
+      _regulator: country.regulator,
+      _currency: country.currency,
+    });
+  }
+
+  return rankings;
+}
+
+export const COMBINATORIAL_RANKINGS = [...generateCombinatorialRankings(), ...generateNewVerticalCombis()];
 
 // ── Lookup helpers ──
 

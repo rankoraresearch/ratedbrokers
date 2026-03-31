@@ -26,6 +26,8 @@ const FOOTER_RANKINGS = [
   { label: "Best Copy Trading Platforms", path: "/best-copy-trading-platforms" },
   { label: "Best Forex Trading Apps", path: "/best-forex-trading-apps" },
   { label: "Best CFD Brokers", path: "/best-cfd-brokers" },
+  { label: "Spread Betting Platforms", path: "/best-spread-betting-brokers" },
+  { label: "Best Crypto Brokers", path: "/best-crypto-brokers" },
 ];
 
 const FOOTER_REVIEWS = [

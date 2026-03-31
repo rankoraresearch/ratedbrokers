@@ -61,7 +61,7 @@ export default function AboutPage() {
   useEffect(() => {
     document.title = "About Us — RatedBrokers | Independent Broker Reviews";
     const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", "Meet the team behind RatedBrokers. We independently research forex, crypto, and CFD brokers across 130+ data points. Learn about our mission, methodology, and commitment to transparency.");
+    if (meta) meta.setAttribute("content", "Meet the team behind RatedBrokers. We independently research online brokers across forex, CFD, crypto, copy trading, and spread betting — 130+ data points per broker. Learn about our mission and methodology.");
   }, []);
 
   const cn = { maxWidth: 1200, margin: "0 auto", padding: mob ? "0 16px" : "0 24px" };

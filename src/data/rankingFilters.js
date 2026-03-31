@@ -401,6 +401,8 @@ const TYPE_FILTERS = {
   "day-trading": (b) => spreadUnder(0.5)(b) || isECN(b),
   "tradingview": hasPlatform("TradingView"),
   "trading-apps": all,
+  // M4 new vertical combi types
+  "spread-betting": isSpreadBetting,
 };
 
 const GEO_FILTERS = {
@@ -419,6 +421,7 @@ const GEO_FILTERS = {
   "philippines": all,
   "indonesia": all,
   "kenya": all,
+  "ireland": (b) => hasReg("FCA")(b) || hasReg("CySEC")(b) || hasTier1(b),
 };
 
 function getCombiFilter(rankingId) {
