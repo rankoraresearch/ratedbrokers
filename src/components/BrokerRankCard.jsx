@@ -86,7 +86,7 @@ const TpStars = ({ rating = 0, size = 14 }) => {
   );
 };
 
-export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) {
+export default function BrokerRankCard({ broker, rank, thematic, rankingSlug, featuredLabel }) {
   const { mob, tab } = useMedia();
   const lp = useLocalePath();
   const [expanded, setExpanded] = useState(false);
@@ -98,6 +98,7 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
 
   const pros = B.pros || broker.PROS || [];
   const topPros = pros.slice(0, 3);
+  const _featuredLabel = featuredLabel || broker._featuredLabel;
 
   const hasThematic = !!thematic;
   const hasTp = B.tp && B.tp > 0;
@@ -292,6 +293,13 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
                 border: "1px solid #a7f3d0",
               }}>{B.badge}</span>
             )}
+            {_featuredLabel && (
+              <span style={{
+                display: "inline-block", marginTop: 5, padding: "2px 10px", borderRadius: 6,
+                fontSize: 11, fontWeight: 700, background: "#fef3c7", color: "#92400e",
+                border: "1px solid #fcd34d",
+              }}>{_featuredLabel}</span>
+            )}
           </div>
         </div>
 
@@ -444,6 +452,13 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug }) 
                   background: "#ecfdf5", color: "#047857", whiteSpace: "nowrap",
                   border: "1px solid #a7f3d0",
                 }}>{B.badge}</span>
+              )}
+              {_featuredLabel && (
+                <span style={{
+                  padding: "1px 8px", borderRadius: 4, fontSize: 10, fontWeight: 700,
+                  background: "#fef3c7", color: "#92400e", whiteSpace: "nowrap",
+                  border: "1px solid #fcd34d",
+                }}>{_featuredLabel}</span>
               )}
             </h3>
             <div style={{ fontSize: 13, color: "#64748b", marginTop: 2 }}>{B.type}</div>

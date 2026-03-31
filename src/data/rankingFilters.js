@@ -340,3 +340,47 @@ export function getBrokersForRanking(rankingId) {
 export function getBrokerCountForRanking(rankingId) {
   return getBrokersForRanking(rankingId).length;
 }
+
+// ── Admin override integration ─────────────────────────
+
+export async function fetchRankingOverrides(rankingId) {
+  const apiBase = import.meta.env.VITE_API_URL || '';
+  if (!apiBase) return null;
+  try {
+    const res = await fetch(`${apiBase}/api/rankings/${rankingId}/order`);
+    if (!res.ok) return null;
+    const data = await res.json();
+    return data.brokers || null;
+  } catch {
+    return null;
+  }
+}
+
+export function applyOverrides(brokers, overrides) {
+  if (!overrides || !overrides.length) return brokers;
+
+  const overrideMap = {};
+  for (const o of overrides) overrideMap[o.slug] = o;
+
+  // Remove hidden brokers
+  let result = brokers.filter((b) => !overrideMap[b.slug]?.hidden);
+
+  // Attach featured_label + override position
+  result = result.map((b) => {
+    const o = overrideMap[b.slug];
+    if (!o) return b;
+    const copy = { ...b, _featuredLabel: o.featured_label || null };
+    if (o.position > 0) copy._overridePos = o.position;
+    return copy;
+  });
+
+  // Sort: overridden positions first (by position), then rest by score
+  result.sort((a, b) => {
+    const pa = a._overridePos || Infinity;
+    const pb = b._overridePos || Infinity;
+    if (pa !== pb) return pa - pb;
+    return b.B.score - a.B.score;
+  });
+
+  return result;
+}

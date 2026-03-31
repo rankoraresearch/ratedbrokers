@@ -17,7 +17,7 @@ import { Link, useParams, Navigate } from "react-router-dom";
 import { useMedia } from "../hooks/useMedia";
 import { useLocalePath } from "../i18n/useLocalePath";
 import RANKINGS, { getRankingBySlug, getRankingsByCategory, getRankingsBySub } from "../data/rankings";
-import { getBrokersForRanking } from "../data/rankingFilters";
+import { getBrokersForRanking, fetchRankingOverrides, applyOverrides } from "../data/rankingFilters";
 import SEO_CONTENT from "../data/rankingSeoContent";
 import { getThematicData, getBrokerBlurb, getComparisonCols, getEducation } from "../data/rankingThematic";
 import BrokerRankCard from "../components/BrokerRankCard";
@@ -425,6 +425,7 @@ export default function RankingPage() {
   const [openThematicFaq, setOpenThematicFaq] = useState(null);
   const [activeFilter, setActiveFilter] = useState("all");
   const heroRef = useRef(null);
+  const [overrides, setOverrides] = useState(null);
 
   const fullSlug = "/" + slug;
   const ranking = getRankingBySlug(fullSlug);
@@ -516,9 +517,17 @@ export default function RankingPage() {
     };
   }, [ranking]);
 
+  // Fetch admin overrides
+  useEffect(() => {
+    if (ranking) {
+      fetchRankingOverrides(ranking.id).then(setOverrides);
+    }
+  }, [ranking?.id]);
+
   if (!ranking) return <Navigate to="/" replace />;
 
-  const brokers = getBrokersForRanking(ranking.id);
+  const baseBrokers = getBrokersForRanking(ranking.id);
+  const brokers = applyOverrides(baseBrokers, overrides);
   const seo = SEO_CONTENT[ranking.id] || {};
   const topBroker = brokers[0]?.B?.name || "IC Markets";
   const author = getAuthorForRanking(ranking.category);
