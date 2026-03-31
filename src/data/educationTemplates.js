@@ -9,20 +9,20 @@
 // ═══════════════════════════════════════════════════════════════
 
 function getCat(id) {
+  if (id.startsWith("combi-")) return "country"; // combinatorial pages use country education template
   if (id.startsWith("geo-")) return "country";
-  if (id.startsWith("alt-")) return "alternatives";
   if (id.startsWith("crypto")) return "crypto";
   if (id.startsWith("pay-")) return "payment";
   if (id.startsWith("reg-")) return "regulator";
   if (id.startsWith("apps-") || id === "trading-apps" || id === "crypto-apps" || id === "stock-apps") return "mobile";
   if (["sp500","nasdaq","dow","ftse","dax","nikkei"].includes(id)) return "index";
   if (["eurusd","gbpusd","usdjpy","audusd","usdcad","eurgbp","usdchf","nzdusd","exotic","minor"].includes(id)) return "pairs";
-  if (["cfd","stocks","gold","silver","oil","commodities","indices","options","futures","etf","spread-betting","bonds"].includes(id)) return "assets";
+  if (["cfd","stocks","gold","silver","oil","commodities","indices","options","futures","etf","spread-betting","bonds","natural-gas","real-stocks","multi-asset"].includes(id)) return "assets";
   if (["ecn","stp","ndd","market-maker","dma","a-book","fast-execution"].includes(id)) return "execution";
   if (["safest","regulated","negative-balance","guaranteed-stop-loss","segregated-accounts"].includes(id)) return "trust";
   if (["education","research","trading-central","autochartist","economic-calendar","charting","24-7-support"].includes(id)) return "tools";
   if (["mt4","mt5","ctrader","tradingview","ninjatrader","zulutrade","prorealtime","proprietary","trading-api","free-vps"].includes(id)) return "platform";
-  if (["micro-accounts","cent-accounts","standard-accounts","demo-accounts","pamm-accounts","mam-accounts","managed-accounts","large-accounts","small-accounts","islamic-accounts"].includes(id)) return "accounts";
+  if (["micro-accounts","cent-accounts","standard-accounts","demo-accounts","pamm-accounts","mam-accounts","managed-accounts","large-accounts","small-accounts","islamic-accounts","no-kyc"].includes(id)) return "accounts";
   if (["no-min-deposit","1-dollar-deposit","5-dollar-deposit","10-dollar-deposit","50-dollar-deposit","100-dollar-deposit","500-dollar-deposit"].includes(id)) return "deposit";
   if (["high-leverage","leverage-30","leverage-100","leverage-200","leverage-500","leverage-1000","unlimited-leverage"].includes(id)) return "leverage";
   if (["bonus","no-deposit-bonus","deposit-bonus","welcome-bonus","loyalty-program"].includes(id)) return "bonus";
@@ -105,11 +105,6 @@ const COUNTRY_NAMES = {
   "geo-south-korea": "South Korea",
 };
 
-const ALT_NAMES = {
-  "alt-etoro": "eToro", "alt-ic-markets": "IC Markets", "alt-pepperstone": "Pepperstone",
-  "alt-xm": "XM", "alt-exness": "Exness", "alt-ig": "IG", "alt-plus500": "Plus500",
-  "alt-oanda": "OANDA", "alt-avatrade": "AvaTrade", "alt-robinhood": "Robinhood",
-};
 
 const REG_NAMES = {
   "reg-fca": "FCA", "reg-asic": "ASIC", "reg-cysec": "CySEC", "reg-nfa": "NFA/CFTC",
@@ -951,50 +946,6 @@ const TEMPLATES = {
     };
   },
 
-  // ─── ALTERNATIVES ───────────────────────────────────────────
-  alternatives(id) {
-    const brokerName = ALT_NAMES[id] || id.replace("alt-", "");
-    return {
-      title: `Best ${brokerName} Alternatives in 2026`,
-      intro: `Looking for alternatives to ${brokerName}? Whether you're seeking lower costs, different features, better regulation, or simply a change — there are several brokers that match or exceed ${brokerName}'s offering in specific areas. This guide compares the best alternatives based on real testing data.`,
-      points: [
-        { bold: "Cost comparison", text: `— compare total trading costs (spread + commission) against ${brokerName}. Some alternatives offer significantly lower costs on the same instruments.` },
-        { bold: "Platform and features", text: `— alternatives may offer different or additional platforms that better suit your trading style compared to ${brokerName}'s offerings.` },
-        { bold: "Regulation and safety", text: `— verify that alternatives match or exceed ${brokerName}'s regulatory status. Don't downgrade regulation for minor improvements in other areas.` },
-        { bold: "Instrument range", text: `— some alternatives offer wider instrument coverage than ${brokerName}, particularly in crypto, stocks, or exotic forex pairs.` },
-      ],
-      sections: [
-        {
-          heading: `Why Traders Switch from ${brokerName}`,
-          paragraphs: [
-            `Common reasons traders look for ${brokerName} alternatives include: dissatisfaction with spreads or execution, platform limitations, customer support issues, desire for different account types, or simply wanting to diversify across multiple brokers.`,
-            "Whatever your reason, the key is finding an alternative that genuinely improves your specific pain point without creating new problems in other areas.",
-          ],
-        },
-        {
-          heading: "How to Switch Brokers Effectively",
-          paragraphs: [
-            "When migrating from one broker to another, follow these steps:",
-          ],
-          points: [
-            { bold: "Test before migrating", text: "— open a small live account with the alternative and trade for 2–4 weeks before moving significant capital." },
-            { bold: "Compare during the same conditions", text: "— test both brokers simultaneously during the same market sessions for accurate spread and execution comparisons." },
-            { bold: "Migrate gradually", text: "— move capital in stages rather than transferring everything at once. This reduces risk if the new broker doesn't meet expectations." },
-            { bold: "Keep your old account open", text: "— maintain your original account with a minimal balance as a backup. Closing accounts and reopening is more difficult than keeping one dormant." },
-          ],
-          tip: `Pro Tip: Export your trade history from ${brokerName} before migrating. This data is valuable for performance analysis and tax reporting.`,
-        },
-      ],
-      faq: [
-        { q: `What is the best alternative to ${brokerName}?`, a: `The best alternative depends on what you want to improve. For lower costs, look at ECN brokers like IC Markets. For better regulation, consider FCA-regulated alternatives. See our ranking above for specific recommendations.` },
-        { q: `Is it easy to switch from ${brokerName}?`, a: `Yes. Opening a new broker account takes 5–15 minutes. You can run both accounts simultaneously and migrate capital gradually as you verify the new broker meets your needs.` },
-        { q: `Will I get the same instruments as ${brokerName}?`, a: `Instrument availability varies between brokers. Popular forex pairs and major assets are available everywhere, but niche instruments, specific stocks, or certain crypto pairs may differ. Verify before switching.` },
-        { q: "Can I keep accounts at multiple brokers?", a: "Absolutely. Many experienced traders maintain 2–3 broker accounts for diversification, to access different platforms, or to take advantage of each broker's strengths in different markets." },
-        { q: "How do I transfer money between brokers?", a: "Withdraw from your current broker to your bank account or e-wallet, then deposit into the new broker. Direct broker-to-broker transfers are not typically possible." },
-        { q: `Are ${brokerName} alternatives cheaper?`, a: `Some alternatives offer lower total trading costs, especially ECN brokers with raw spreads. However, 'cheaper' should include all costs: spreads, commissions, swaps, and withdrawal fees. Compare total cost, not just headlines.` },
-      ],
-    };
-  },
 };
 
 

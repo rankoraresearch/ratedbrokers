@@ -41,6 +41,7 @@ import greece from "./greece";
 import romania from "./romania";
 import czechRepublic from "./czech-republic";
 import israel from "./israel";
+import oman from "./oman";
 
 const COUNTRIES = {
   "uk": uk,
@@ -86,6 +87,7 @@ const COUNTRIES = {
   "romania": romania,
   "czech-republic": czechRepublic,
   "israel": israel,
+  "oman": oman,
 };
 
 export function getCountryData(slug) {
@@ -113,7 +115,7 @@ export function getCountriesByRegion() {
     "Featured": ["uk", "australia", "usa", "germany", "singapore", "uae", "canada", "south-africa"],
     "Europe": ["uk", "germany", "france", "netherlands", "italy", "spain", "sweden", "switzerland", "poland", "cyprus", "ireland", "austria", "greece", "romania", "czech-republic"],
     "Asia-Pacific": ["australia", "singapore", "new-zealand", "japan", "india", "indonesia", "malaysia", "thailand", "philippines", "hong-kong"],
-    "Middle East & Africa": ["uae", "saudi-arabia", "bahrain", "israel", "south-africa", "kenya", "nigeria", "ghana"],
+    "Middle East & Africa": ["uae", "saudi-arabia", "bahrain", "oman", "israel", "south-africa", "kenya", "nigeria", "ghana"],
     "Americas": ["usa", "canada", "brazil", "mexico", "argentina", "colombia", "chile"],
     "Eastern Europe": ["turkey", "russia", "ukraine"],
   };

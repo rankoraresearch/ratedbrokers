@@ -1174,13 +1174,6 @@ const CONFIGS = {
     compCols: ["BTC Spread", "ETH Spread", "Pairs", "Min Dep"],
     goodSpread: 0.5,
   },
-  "crypto-vs-cfd": {
-    whyTemplate: "crypto CFD trading",
-    focus: ["instruments", "regulation", "spread", "leverage"],
-    prosOrder: ["instruments", "regulation", "spread", "leverage"],
-    compCols: ["Crypto CFDs", "Regulation", "Spread", "Leverage"],
-    goodSpread: 1.0,
-  },
 
   // ─── M. ASSETS (12) ───────────────────────────────────────
 
@@ -1566,18 +1559,12 @@ const CONFIGS = {
 
   ...buildCountryConfigs(),
 
-  // ─── S. ALTERNATIVES (10) ─────────────────────────────────
+  // ─── T. NEW THEMATIC (4) ──────────────────────────────────
 
-  "alt-etoro": { whyTemplate: "an eToro alternative", focus: ["spread", "regulation", "platforms", "instruments"], prosOrder: ["spread", "regulation", "platforms", "instruments"], compCols: ["Spread", "Commission", "Platforms", "Min Dep"], goodSpread: 0.8 },
-  "alt-ic-markets": { whyTemplate: "an IC Markets alternative", focus: ["spread", "execution", "commission", "regulation"], prosOrder: ["spread", "execution", "commission", "regulation"], compCols: ["Spread", "Commission", "Execution", "Regulation"], goodSpread: 0.3 },
-  "alt-pepperstone": { whyTemplate: "a Pepperstone alternative", focus: ["spread", "execution", "regulation", "platforms"], prosOrder: ["spread", "execution", "regulation", "platforms"], compCols: ["Spread", "Commission", "Execution", "Min Dep"], goodSpread: 0.3 },
-  "alt-xm": { whyTemplate: "an XM alternative", focus: ["deposit", "regulation", "spread", "leverage"], prosOrder: ["deposit", "regulation", "spread", "leverage"], compCols: ["Min Dep", "Spread", "Leverage", "Regulation"], goodSpread: 0.8 },
-  "alt-exness": { whyTemplate: "an Exness alternative", focus: ["execution", "spread", "leverage", "deposit"], prosOrder: ["execution", "spread", "leverage", "deposit"], compCols: ["Spread", "Execution", "Leverage", "Min Dep"], goodSpread: 0.5 },
-  "alt-ig": { whyTemplate: "an IG alternative", focus: ["instruments", "regulation", "spread", "platforms"], prosOrder: ["instruments", "regulation", "spread", "platforms"], compCols: ["Instruments", "Spread", "Regulation", "Platforms"], goodSpread: 0.5 },
-  "alt-plus500": { whyTemplate: "a Plus500 alternative", focus: ["regulation", "platforms", "spread", "instruments"], prosOrder: ["regulation", "platforms", "spread", "instruments"], compCols: ["Spread", "Platforms", "Regulation", "Min Dep"], goodSpread: 0.8 },
-  "alt-oanda": { whyTemplate: "an OANDA alternative", focus: ["spread", "regulation", "platforms", "instruments"], prosOrder: ["spread", "regulation", "platforms", "instruments"], compCols: ["Spread", "Regulation", "Platforms", "Min Dep"], goodSpread: 0.5 },
-  "alt-avatrade": { whyTemplate: "an AvaTrade alternative", focus: ["regulation", "platforms", "spread", "deposit"], prosOrder: ["regulation", "platforms", "spread", "deposit"], compCols: ["Regulation", "Platforms", "Spread", "Min Dep"], goodSpread: 0.5 },
-  "alt-robinhood": { whyTemplate: "a Robinhood alternative for forex", focus: ["instruments", "regulation", "spread", "platforms"], prosOrder: ["instruments", "regulation", "spread", "platforms"], compCols: ["Forex Pairs", "Spread", "Regulation", "Platforms"], goodSpread: 0.8 },
+  "natural-gas": { whyTemplate: "natural gas trading", focus: ["instruments", "spread", "regulation", "platforms"], prosOrder: ["instruments", "spread", "regulation", "platforms"], compCols: ["Nat Gas Spread", "Regulation", "Platforms", "Min Dep"], goodSpread: 1.0 },
+  "real-stocks": { whyTemplate: "real stock trading", focus: ["instruments", "regulation", "commission", "platforms"], prosOrder: ["instruments", "regulation", "commission", "platforms"], compCols: ["Stocks", "Commission", "Regulation", "Platforms"], goodSpread: 1.0 },
+  "multi-asset": { whyTemplate: "multi-asset trading", focus: ["instruments", "regulation", "spread", "platforms"], prosOrder: ["instruments", "regulation", "spread", "platforms"], compCols: ["Asset Classes", "Instruments", "Spread", "Regulation"], goodSpread: 0.5 },
+  "no-kyc": { whyTemplate: "no-KYC forex trading", focus: ["deposit", "regulation", "spread", "leverage"], prosOrder: ["deposit", "regulation", "spread", "leverage"], compCols: ["Verification", "Min Dep", "Spread", "Leverage"], goodSpread: 1.0 },
 };
 
 // Country config builder
@@ -1597,6 +1584,7 @@ function buildCountryConfigs() {
     "geo-vietnam": "Vietnamese", "geo-bangladesh": "Bangladeshi", "geo-colombia": "Colombian",
     "geo-egypt": "Egyptian", "geo-poland": "Polish", "geo-romania": "Romanian",
     "geo-south-korea": "South Korean",
+    "geo-oman": "Omani",
   };
   const cfgs = {};
   for (const [id, adj] of Object.entries(countries)) {
@@ -1611,6 +1599,39 @@ function buildCountryConfigs() {
   return cfgs;
 }
 
+
+// ─── COMBINATORIAL (240) — inherit from base type ──────────
+import { COMBINATORIAL_RANKINGS } from "./combinatorialRankings";
+
+const COMBI_TYPE_CONFIGS = {
+  "ecn":           { focus: ["spread", "execution", "regulation", "platforms"], goodSpread: 0.2 },
+  "low-spread":    { focus: ["spread", "execution", "regulation", "commission"], goodSpread: 0.3 },
+  "beginners":     { focus: ["regulation", "deposit", "spread", "platforms"], goodSpread: 0.8 },
+  "scalping":      { focus: ["spread", "execution", "regulation", "platforms"], goodSpread: 0.2 },
+  "mt4":           { focus: ["platforms", "spread", "regulation", "execution"], goodSpread: 0.5 },
+  "mt5":           { focus: ["platforms", "spread", "regulation", "execution"], goodSpread: 0.5 },
+  "high-leverage": { focus: ["leverage", "regulation", "spread", "platforms"], goodSpread: 0.5 },
+  "copy-trading":  { focus: ["instruments", "regulation", "spread", "platforms"], goodSpread: 0.8 },
+  "islamic":       { focus: ["regulation", "spread", "deposit", "platforms"], goodSpread: 0.8 },
+  "cfd":           { focus: ["instruments", "spread", "regulation", "platforms"], goodSpread: 0.5 },
+  "regulated":     { focus: ["regulation", "spread", "deposit", "platforms"], goodSpread: 0.5 },
+  "zero-spread":   { focus: ["spread", "commission", "regulation", "execution"], goodSpread: 0 },
+  "demo":          { focus: ["deposit", "regulation", "platforms", "spread"], goodSpread: 0.8 },
+  "day-trading":   { focus: ["spread", "execution", "regulation", "platforms"], goodSpread: 0.3 },
+  "tradingview":   { focus: ["platforms", "spread", "regulation", "instruments"], goodSpread: 0.5 },
+  "trading-apps":  { focus: ["platforms", "regulation", "spread", "deposit"], goodSpread: 0.5 },
+};
+
+for (const r of COMBINATORIAL_RANKINGS) {
+  const base = COMBI_TYPE_CONFIGS[r._typeId] || { focus: ["regulation", "spread", "deposit", "platforms"], goodSpread: 0.5 };
+  CONFIGS[r.id] = {
+    whyTemplate: `${r._typeLabel.toLowerCase()} trading in ${r._countryName}`,
+    focus: base.focus,
+    prosOrder: base.focus,
+    compCols: ["Spread", "Regulation", "Min Dep", "Platforms"],
+    goodSpread: base.goodSpread,
+  };
+}
 
 // ═══════════════════════════════════════════════════════════════
 // QUICK VERDICT AUTO-SELECTION
@@ -1635,7 +1656,7 @@ const VERDICT_TEMPLATES = {
   assets:    [{ label: "Best Overall", icon: "🏆" }, { label: "Most Markets", icon: "📊" }, { label: "Best Value", icon: "💰" }],
   index:     [{ label: "Best Overall", icon: "🏆" }, { label: "Tightest Spread", icon: "📉" }, { label: "Best Platform", icon: "💻" }],
   country:   [{ label: "Best Overall", icon: "🏆" }, { label: "Best Value", icon: "💰" }, { label: "Most Trusted", icon: "🛡️" }],
-  alternatives: [{ label: "Best Alternative", icon: "🔄" }, { label: "Best Value", icon: "💰" }, { label: "Best Spread", icon: "📉" }],
+  combinatorial: [{ label: "Best Overall", icon: "🏆" }, { label: "Tightest Spread", icon: "📉" }, { label: "Most Trusted", icon: "🛡️" }],
 };
 
 function autoQuickVerdict(brokers, rankingId) {
@@ -1676,8 +1697,8 @@ function autoQuickVerdict(brokers, rankingId) {
 }
 
 function getCategoryForRanking(rankingId) {
+  if (rankingId.startsWith("combi-")) return "combinatorial";
   if (rankingId.startsWith("geo-")) return "country";
-  if (rankingId.startsWith("alt-")) return "alternatives";
   if (rankingId.startsWith("crypto")) return "crypto";
   if (rankingId.startsWith("pay-")) return "payment";
   if (rankingId.startsWith("reg-")) return "regulator";

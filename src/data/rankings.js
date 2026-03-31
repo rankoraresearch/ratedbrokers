@@ -1,7 +1,7 @@
 /**
  * Master list of all thematic broker rankings for RatedBrokers.com
  * Each entry = one landing page targeting a specific search query cluster.
- * Total: 207 pages
+ * Total: 200 pages (196 original + 4 new)
  *
  * Fields:
  *   id        — unique identifier
@@ -166,7 +166,6 @@ const RANKINGS = [
   { id: "crypto-copy",        slug: "/best-crypto-copy-trading",              title: "Best Crypto Copy Trading Platforms",           category: "crypto", sub: "feature", priority: 3, icon: "copy" },
   { id: "crypto-high-lev",    slug: "/best-high-leverage-crypto-brokers",     title: "Best High Leverage Crypto Brokers",            category: "crypto", sub: "feature", priority: 2, icon: "trending-up" },
   { id: "crypto-low-spread",  slug: "/best-low-spread-crypto-brokers",        title: "Best Low Spread Crypto Brokers",               category: "crypto", sub: "feature", priority: 3, icon: "trending-down" },
-  { id: "crypto-vs-cfd",      slug: "/crypto-exchanges-vs-cfd-brokers",       title: "Crypto Exchanges vs CFD Brokers",              category: "crypto", sub: "guide",   priority: 3, icon: "scale" },
 
   // ═══════════════════════════════════════════════════════════════
   // M. OTHER ASSET CLASSES (12)
@@ -286,28 +285,26 @@ const RANKINGS = [
   { id: "geo-poland",       slug: "/best-forex-brokers-poland",          title: "Best Forex Brokers Poland",            category: "country", sub: "tier3", priority: 3, icon: "globe" },
   { id: "geo-romania",      slug: "/best-forex-brokers-romania",         title: "Best Forex Brokers Romania",           category: "country", sub: "tier3", priority: 3, icon: "globe" },
   { id: "geo-south-korea",  slug: "/best-forex-brokers-south-korea",     title: "Best Forex Brokers South Korea",       category: "country", sub: "tier3", priority: 3, icon: "globe" },
+  { id: "geo-oman",         slug: "/best-forex-brokers-oman",            title: "Best Forex Brokers Oman",              category: "country", sub: "tier3", priority: 3, icon: "globe" },
 
   // ═══════════════════════════════════════════════════════════════
-  // S. BROKER ALTERNATIVES (10)
+  // T. NEW THEMATIC (4)
   // ═══════════════════════════════════════════════════════════════
-  { id: "alt-etoro",       slug: "/etoro-alternatives",              title: "Best eToro Alternatives",               category: "alternatives", sub: "broker", priority: 2, icon: "arrow-right-left" },
-  { id: "alt-ic-markets",  slug: "/ic-markets-alternatives",         title: "Best IC Markets Alternatives",          category: "alternatives", sub: "broker", priority: 3, icon: "arrow-right-left" },
-  { id: "alt-pepperstone", slug: "/pepperstone-alternatives",        title: "Best Pepperstone Alternatives",         category: "alternatives", sub: "broker", priority: 3, icon: "arrow-right-left" },
-  { id: "alt-xm",          slug: "/xm-alternatives",                 title: "Best XM Alternatives",                  category: "alternatives", sub: "broker", priority: 3, icon: "arrow-right-left" },
-  { id: "alt-exness",      slug: "/exness-alternatives",             title: "Best Exness Alternatives",              category: "alternatives", sub: "broker", priority: 3, icon: "arrow-right-left" },
-  { id: "alt-ig",           slug: "/ig-alternatives",                 title: "Best IG Alternatives",                  category: "alternatives", sub: "broker", priority: 3, icon: "arrow-right-left" },
-  { id: "alt-plus500",     slug: "/plus500-alternatives",            title: "Best Plus500 Alternatives",             category: "alternatives", sub: "broker", priority: 3, icon: "arrow-right-left" },
-  { id: "alt-oanda",       slug: "/oanda-alternatives",              title: "Best OANDA Alternatives",               category: "alternatives", sub: "broker", priority: 3, icon: "arrow-right-left" },
-  { id: "alt-avatrade",    slug: "/avatrade-alternatives",           title: "Best AvaTrade Alternatives",            category: "alternatives", sub: "broker", priority: 3, icon: "arrow-right-left" },
-  { id: "alt-robinhood",   slug: "/robinhood-alternatives-forex",    title: "Best Robinhood Alternatives for Forex", category: "alternatives", sub: "broker", priority: 3, icon: "arrow-right-left" },
+  { id: "natural-gas",      slug: "/best-natural-gas-brokers",         title: "Best Natural Gas Trading Brokers",       category: "assets", sub: "type",    priority: 3, icon: "flame" },
+  { id: "real-stocks",      slug: "/best-real-stock-brokers",          title: "Best Brokers for Real Stock Trading",    category: "assets", sub: "type",    priority: 2, icon: "chart-no-axes-combined" },
+  { id: "multi-asset",      slug: "/best-multi-asset-brokers",         title: "Best Multi-Asset Brokers",               category: "assets", sub: "type",    priority: 2, icon: "layers" },
+  { id: "no-kyc",           slug: "/no-kyc-forex-brokers",             title: "No KYC Forex Brokers",                   category: "forex",  sub: "accounts", priority: 3, icon: "user-x" },
 ];
 
 export default RANKINGS;
 
+// ── Combinatorial rankings integration ──
+import { getCombiRankingBySlug, COMBINATORIAL_RANKINGS } from "./combinatorialRankings";
+
 // ── Helper functions ──
 
 export function getRankingBySlug(slug) {
-  return RANKINGS.find((r) => r.slug === slug);
+  return RANKINGS.find((r) => r.slug === slug) || getCombiRankingBySlug(slug);
 }
 
 export function getRankingsByCategory(category) {
@@ -323,7 +320,7 @@ export function getRankingsByPriority(priority) {
 }
 
 export function getAllRankingSlugs() {
-  return RANKINGS.map((r) => r.slug);
+  return [...RANKINGS.map((r) => r.slug), ...COMBINATORIAL_RANKINGS.map((r) => r.slug)];
 }
 
 // Stats

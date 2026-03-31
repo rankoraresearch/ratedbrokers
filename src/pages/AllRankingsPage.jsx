@@ -14,7 +14,6 @@ const CATEGORY_TABS = [
   { key: "crypto", label: "Crypto" },
   { key: "assets", label: "Assets" },
   { key: "country", label: "Countries" },
-  { key: "alternatives", label: "Alternatives" },
 ];
 
 // Group rankings by category > sub
@@ -54,7 +53,6 @@ const SUB_LABELS = {
   tier1: "Tier 1 Countries",
   tier2: "Tier 2 Countries",
   tier3: "Tier 3 Countries",
-  broker: "Broker Alternatives",
 };
 
 export default function AllRankingsPage() {
@@ -63,9 +61,9 @@ export default function AllRankingsPage() {
   const [activeTab, setActiveTab] = useState("all");
 
   useEffect(() => {
-    document.title = `All Broker Rankings ${YEAR} — 207 Expert-Tested Lists | RatedBrokers`;
+    document.title = `All Broker Rankings ${YEAR} — ${RANKINGS.length} Expert-Tested Lists | RatedBrokers`;
     const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", `Browse 207 broker rankings for ${YEAR}. Forex, crypto, CFDs — filtered by trading style, platform, costs, regulation, and country. All independently analyzed.`);
+    if (meta) meta.setAttribute("content", `Browse ${RANKINGS.length} broker rankings for ${YEAR}. Forex, crypto, CFDs — filtered by trading style, platform, costs, regulation, and country. All independently analyzed.`);
     window.scrollTo(0, 0);
   }, []);
 
@@ -138,7 +136,7 @@ export default function AllRankingsPage() {
               borderBottom: "2px solid #e2e8f0",
               paddingBottom: 10,
             }}>
-              {category === "alternatives" ? "Broker Alternatives" : `${category} Rankings`}
+              {`${category} Rankings`}
             </h2>
 
             {Object.entries(subs).map(([sub, rankings]) => (

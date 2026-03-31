@@ -5,6 +5,7 @@
  * Fallback: if filter returns <5 brokers, pad with top-scored brokers.
  */
 import { getAllBrokersWithData } from "./brokers/index";
+import { getCombiRankingById } from "./combinatorialRankings";
 
 // ── Filter primitives ──────────────────────────────────
 
@@ -187,7 +188,6 @@ const FILTERS = {
   "crypto-copy": hasCopyTrading,
   "crypto-high-lev": leverageAtLeast(100),
   "crypto-low-spread": (b) => spreadUnder(0.5)(b) || isECN(b),
-  "crypto-vs-cfd": all,
 
   // M. ASSETS (12)
   "cfd": all,
@@ -292,19 +292,62 @@ const FILTERS = {
   "geo-poland": (b) => hasReg("CySEC")(b) || hasReg("FCA")(b),
   "geo-romania": (b) => hasReg("CySEC")(b) || hasReg("FCA")(b),
   "geo-south-korea": hasTier1,
+  "geo-oman": all,
 
-  // S. ALTERNATIVES (10)
-  "alt-etoro": (b) => b.B.name !== "eToro",
-  "alt-ic-markets": (b) => b.B.name !== "IC Markets",
-  "alt-pepperstone": (b) => b.B.name !== "Pepperstone",
-  "alt-xm": (b) => b.B.name !== "XM",
-  "alt-exness": (b) => b.B.name !== "Exness",
-  "alt-ig": (b) => b.B.name !== "IG",
-  "alt-plus500": (b) => b.B.name !== "Plus500",
-  "alt-oanda": (b) => b.B.name !== "OANDA",
-  "alt-avatrade": (b) => b.B.name !== "AvaTrade",
-  "alt-robinhood": all,
+  // T. NEW THEMATIC (4)
+  "natural-gas": all,
+  "real-stocks": all,
+  "multi-asset": all,
+  "no-kyc": all,
 };
+
+// ── Combinatorial filter builder ─────────────────────────
+// Intersect type filter + geo filter for combi-{type}-{country} IDs
+
+const TYPE_FILTERS = {
+  "ecn": isECN,
+  "low-spread": (b) => spreadUnder(0.5)(b) || isECN(b),
+  "beginners": (b) => b.B.score >= 8.0,
+  "scalping": (b) => isECN(b) || isSTP(b) || spreadZero(b),
+  "mt4": hasPlatform("MetaTrader 4"),
+  "mt5": hasPlatform("MetaTrader 5"),
+  "high-leverage": leverageAtLeast(200),
+  "copy-trading": hasCopyTrading,
+  "islamic": all,
+  "cfd": all,
+  "regulated": hasTier1,
+  "zero-spread": spreadZero,
+  "demo": all,
+  "day-trading": (b) => spreadUnder(0.5)(b) || isECN(b),
+  "tradingview": hasPlatform("TradingView"),
+  "trading-apps": all,
+};
+
+const GEO_FILTERS = {
+  "uk": (b) => hasReg("FCA")(b) || hasTier1(b),
+  "australia": (b) => hasReg("ASIC")(b) || hasTier1(b),
+  "usa": (b) => hasReg("NFA")(b) || hasReg("CFTC")(b) || hasTier1(b),
+  "germany": (b) => hasReg("BaFin")(b) || hasReg("CySEC")(b) || hasReg("FCA")(b),
+  "singapore": (b) => hasReg("MAS")(b) || hasTier1(b),
+  "uae": (b) => hasReg("DFSA")(b) || hasTier1(b),
+  "canada": hasTier1,
+  "south-africa": (b) => hasReg("FSCA")(b) || hasTier1(b),
+  "india": all,
+  "malaysia": all,
+  "nigeria": all,
+  "new-zealand": (b) => hasReg("ASIC")(b) || hasTier1(b),
+  "philippines": all,
+  "indonesia": all,
+  "kenya": all,
+};
+
+function getCombiFilter(rankingId) {
+  const combi = getCombiRankingById(rankingId);
+  if (!combi) return null;
+  const typeFn = TYPE_FILTERS[combi._typeId] || all;
+  const geoFn = GEO_FILTERS[combi._geoId] || all;
+  return and(typeFn, geoFn);
+}
 
 // ── Main API ───────────────────────────────────────────
 
@@ -316,7 +359,7 @@ function loadBrokers() {
 
 export function getBrokersForRanking(rankingId) {
   const brokers = loadBrokers();
-  const filterFn = FILTERS[rankingId] || all;
+  const filterFn = FILTERS[rankingId] || getCombiFilter(rankingId) || all;
 
   let filtered = brokers.filter(filterFn);
   filtered.sort((a, b) => b.B.score - a.B.score);

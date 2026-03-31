@@ -472,11 +472,20 @@ export default function RankingPage() {
             url: "https://ratedbrokers.com",
           },
         },
-        breadcrumbSchema([
-          { label: "RatedBrokers", path: "/" },
-          { label: "Forex Brokers", path: "/best-forex-brokers" },
-          { label: `${ranking.title} ${YEAR}`, path: fullSlug },
-        ]),
+        breadcrumbSchema(
+          ranking.category === "combinatorial"
+            ? [
+                { label: "RatedBrokers", path: "/" },
+                { label: "Forex Brokers", path: "/best-forex-brokers" },
+                { label: `Best Forex Brokers ${ranking._countryName}`, path: `/best-forex-brokers-${ranking._geoId}` },
+                { label: `${ranking.title} ${YEAR}`, path: fullSlug },
+              ]
+            : [
+                { label: "RatedBrokers", path: "/" },
+                { label: "Forex Brokers", path: "/best-forex-brokers" },
+                { label: `${ranking.title} ${YEAR}`, path: fullSlug },
+              ]
+        ),
         ...(seo?.faq?.length ? [{
           "@context": "https://schema.org",
           "@type": "FAQPage",
@@ -600,11 +609,20 @@ export default function RankingPage() {
 
       {/* BREADCRUMBS */}
       <div style={{ ...cn, padding: mob ? "10px 16px" : "14px 24px" }}>
-        <Breadcrumb items={[
-          { label: "RatedBrokers", path: "/" },
-          { label: "Forex Brokers", path: "/best-forex-brokers" },
-          { label: ranking.title },
-        ]} />
+        <Breadcrumb items={
+          ranking.category === "combinatorial"
+            ? [
+                { label: "RatedBrokers", path: "/" },
+                { label: "Forex Brokers", path: "/best-forex-brokers" },
+                { label: `${ranking._countryName}`, path: `/best-forex-brokers-${ranking._geoId}` },
+                { label: ranking.title },
+              ]
+            : [
+                { label: "RatedBrokers", path: "/" },
+                { label: "Forex Brokers", path: "/best-forex-brokers" },
+                { label: ranking.title },
+              ]
+        } />
       </div>
 
       {/* HERO */}

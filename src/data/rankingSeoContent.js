@@ -375,25 +375,6 @@ function makeCountry({ title, shortTitle, country, regulator, currency, specific
   };
 }
 
-function makeAlternative({ title, shortTitle, broker, brokerStrength, brokerWeakness, alternatives }) {
-  return {
-    metaTitle: `${title} ${YEAR} - Top 10 | RatedBrokers`,
-    metaDesc: `Looking for ${shortTitle.toLowerCase()}? We compared 10 brokers on spreads, platforms & regulation. Find a better fit for your trading needs.`,
-    intro: [
-      `${broker} is a popular choice among forex traders, known for ${brokerStrength}. However, it may not suit every trader, particularly those who prioritize ${brokerWeakness}. We analyzed the top alternatives to help you find a better match.`,
-      `${alternatives} Each alternative was compared head-to-head with ${broker} across key metrics including spreads, execution, platforms, regulation, and customer support.`,
-      `This ${YEAR} comparison is based on independent research and reflects current broker conditions and offerings.`
-    ],
-    keyFinding: `${TOP_BROKER} emerges as the strongest alternative to ${broker}, offering ${brokerWeakness} while matching or exceeding ${broker}'s performance in most other areas. The best alternative depends on what specific features matter most to you.`,
-    howWeRanked: `We compared each alternative to ${broker} across 8 key categories: spreads, execution speed, platform quality, regulation, deposit/withdrawal, customer support, educational resources, and instrument selection. Brokers that specifically addressed ${broker}'s weaknesses ranked higher.`,
-    faq: [
-      { q: `What is the best alternative to ${broker}?`, a: `${TOP_BROKER} is our top-ranked alternative based on overall trading conditions. However, the best choice depends on why you are looking to switch. Our detailed comparison covers specific strengths of each alternative.` },
-      { q: `Is ${broker} a good broker?`, a: `${broker} is ${brokerStrength.toLowerCase()}, making it suitable for many traders. However, ${brokerWeakness.toLowerCase()} may be drawbacks for some. Our comparison helps you decide if an alternative better fits your needs.` },
-      { q: `Can I transfer my account from ${broker}?`, a: `Most brokers do not support direct account transfers. You will need to withdraw funds from ${broker} and deposit them with your new broker. The process typically takes 1-5 business days depending on withdrawal method.` },
-      { q: `Do ${broker} alternatives offer the same features?`, a: `Feature sets vary between brokers. Some alternatives offer additional platforms, more instruments, or lower costs. Our detailed comparison table shows exactly how each alternative compares feature by feature.` }
-    ]
-  };
-}
 
 // ═══════════════════════════════════════════════════════════════
 // BUILD THE CONTENT MAP
@@ -894,7 +875,6 @@ const cryptoPages = [
   { id: "crypto-copy", title: "Best Crypto Copy Trading", shortTitle: "crypto copy trading platforms", coin: "cryptocurrency", description: "Crypto copy trading lets you automatically mirror the trades of experienced crypto traders.", useCase: "Copy trading removes the need for deep crypto market knowledge while still participating in the market." },
   { id: "crypto-high-lev", title: "High Leverage Crypto Brokers", shortTitle: "high leverage crypto brokers", coin: "cryptocurrency", description: "High leverage crypto trading amplifies exposure to the already volatile cryptocurrency market.", useCase: "Leveraged crypto trading is suited for experienced traders who understand the compounding risks of volatility and leverage." },
   { id: "crypto-low-spread", title: "Low Spread Crypto Brokers", shortTitle: "low spread crypto brokers", coin: "cryptocurrency", description: "Crypto spreads vary enormously between platforms, significantly impacting profitability for active traders.", useCase: "Low-spread crypto trading is essential for day traders and scalpers who need tight pricing to maintain edge." },
-  { id: "crypto-vs-cfd", title: "Crypto Exchanges vs CFD Brokers", shortTitle: "crypto exchange vs CFD comparison", coin: "cryptocurrency", description: "Understanding the difference between trading actual crypto on exchanges and trading crypto CFDs at brokers is fundamental to choosing the right platform.", useCase: "This comparison helps traders decide between crypto ownership (exchanges) and leveraged speculation (CFD brokers)." }
 ];
 cryptoPages.forEach(p => { SEO_CONTENT[p.id] = makeCrypto(p); });
 
@@ -1013,27 +993,54 @@ const countryData = {
   "geo-egypt": { country: "Egypt", regulator: "FRA", currency: "EGP", specificInfo: "Egypt is the MENA region's most populous country with growing online trading adoption.", restrictions: "Forex trading is legal in Egypt under FRA regulation. The market is developing rapidly with improving infrastructure." },
   "geo-poland": { country: "Poland", regulator: "KNF", currency: "PLN", specificInfo: "Poland has a mature forex market within the EU framework, with KNF providing strong local oversight and PLN accounts widely available.", restrictions: "Forex trading is legal in Poland under KNF and EU regulation with standard ESMA leverage limits and consumer protections." },
   "geo-romania": { country: "Romania", regulator: "ASF", currency: "RON", specificInfo: "Romania's growing forex market benefits from EU regulation with ASF providing local oversight.", restrictions: "Forex trading is legal in Romania under ASF and EU regulation with standard ESMA leverage limits." },
-  "geo-south-korea": { country: "South Korea", regulator: "FSC/FSS", currency: "KRW", specificInfo: "South Korea has strict forex trading regulations with limited broker options but strong investor protections.", restrictions: "Forex trading is legal but strictly regulated in South Korea under FSC/FSS. Broker options are limited compared to other major markets." }
+  "geo-south-korea": { country: "South Korea", regulator: "FSC/FSS", currency: "KRW", specificInfo: "South Korea has strict forex trading regulations with limited broker options but strong investor protections.", restrictions: "Forex trading is legal but strictly regulated in South Korea under FSC/FSS. Broker options are limited compared to other major markets." },
+  "geo-oman": { country: "Oman", regulator: "CMA", currency: "OMR", specificInfo: "Oman's Capital Market Authority oversees financial markets, though forex broker regulation is limited. Omani traders benefit from zero personal income tax on trading profits.", restrictions: "Forex trading is legal in Oman. The CMA provides market oversight, but most Omani traders access international brokers regulated by FCA, ASIC, or CySEC for stronger fund protections." }
 };
 Object.entries(countryData).forEach(([id, c]) => {
   SEO_CONTENT[id] = makeCountry({ title: `Best Forex Brokers ${c.country}`, shortTitle: `${c.country} brokers`, country: c.country, regulator: c.regulator, currency: c.currency, specificInfo: c.specificInfo, restrictions: c.restrictions });
 });
 
-// S. ALTERNATIVES (10)
-const altData = {
-  "alt-etoro": { broker: "eToro", brokerStrength: "its pioneering social and copy trading features with CopyTrader", brokerWeakness: "lower spreads, MT4/MT5 support, and ECN execution", alternatives: "Whether you want tighter spreads, more platforms, or better regulation, several brokers offer compelling alternatives to eToro's social trading model." },
-  "alt-ic-markets": { broker: "IC Markets", brokerStrength: "ultra-tight ECN spreads and industry-leading execution speed", brokerWeakness: "education, FCA regulation, and beginner-friendly features", alternatives: "IC Markets excels for experienced traders, but beginners and those wanting FCA regulation may find better options elsewhere." },
-  "alt-pepperstone": { broker: "Pepperstone", brokerStrength: "triple Tier-1 regulation, competitive spreads, and $0 minimum deposit", brokerWeakness: "a wider instrument range and proprietary trading tools", alternatives: "Pepperstone is an excellent all-rounder, but specialists in certain areas may better serve specific trading needs." },
-  "alt-xm": { broker: "XM", brokerStrength: "extensive education, loyalty programs, and a $5 minimum deposit", brokerWeakness: "tighter spreads, ECN execution, and more advanced platform options", alternatives: "XM is ideal for beginners, but traders seeking tighter pricing or professional-grade tools may benefit from switching." },
-  "alt-exness": { broker: "Exness", brokerStrength: "instant withdrawals, unlimited leverage options, and competitive pricing", brokerWeakness: "stronger Tier-1 regulation and a wider range of trading platforms", alternatives: "Exness excels in withdrawals and leverage, but traders prioritizing regulation or platform diversity have strong alternatives." },
-  "alt-ig": { broker: "IG", brokerStrength: "the widest instrument range (17,000+), IG Academy education, and a 50-year track record", brokerWeakness: "lower minimum deposit requirements and tighter ECN-style spreads", alternatives: "IG is unmatched for instrument range, but cost-focused traders and those with smaller accounts have competitive options." },
-  "alt-plus500": { broker: "Plus500", brokerStrength: "a simple, user-friendly CFD platform backed by LSE listing", brokerWeakness: "advanced platform features, MT4/MT5 access, and lower spreads", alternatives: "Plus500 keeps things simple, but traders outgrowing its platform will find more capable alternatives." },
-  "alt-oanda": { broker: "OANDA", brokerStrength: "NFA/CFTC regulation, no minimum deposit, and strong historical data tools", brokerWeakness: "a wider instrument range and more competitive pricing", alternatives: "OANDA is a solid US-regulated choice, but global traders with more broker options may find better value elsewhere." },
-  "alt-avatrade": { broker: "AvaTrade", brokerStrength: "multiple platform support including AvaOptions and AvaProtect risk management", brokerWeakness: "tighter spreads and more advanced ECN execution", alternatives: "AvaTrade offers unique features like AvaProtect, but traders focused on costs or execution have worthy alternatives." },
-  "alt-robinhood": { broker: "Robinhood", brokerStrength: "zero-commission US stock and crypto trading with a clean mobile app", brokerWeakness: "forex trading access, advanced analysis tools, and professional features", alternatives: "Robinhood does not offer forex trading, so forex-interested users need to consider dedicated forex brokers." }
-};
-Object.entries(altData).forEach(([id, a]) => {
-  SEO_CONTENT[id] = makeAlternative({ title: `Best ${a.broker} Alternatives`, shortTitle: `${a.broker} alternatives`, broker: a.broker, brokerStrength: a.brokerStrength, brokerWeakness: a.brokerWeakness, alternatives: a.alternatives });
-});
+// T. NEW THEMATIC (4)
+SEO_CONTENT["natural-gas"] = makeAsset({ title: "Best Natural Gas Trading Brokers", shortTitle: "natural gas brokers", asset: "natural gas", description: "Natural gas is one of the most volatile energy commodities, offering significant trading opportunities driven by weather, supply, and geopolitical factors.", tradingHours: "Natural gas CFDs trade nearly 24/5 following NYMEX hours with highest volatility during US sessions.", keyFactors: "competitive natural gas spreads, reliable execution during volatile periods, and real-time energy market data" });
+SEO_CONTENT["real-stocks"] = makeAsset({ title: "Best Real Stock Trading Brokers", shortTitle: "real stock brokers", asset: "real stocks (non-CFD)", description: "Real stock trading means buying actual shares with ownership rights, dividends, and voting privileges — unlike CFDs which are leveraged derivatives.", tradingHours: "Stock trading follows exchange hours — NYSE/NASDAQ (14:30-21:00 UTC), LSE (08:00-16:30 UTC). Some brokers offer extended hours.", keyFactors: "direct stock ownership, competitive commissions, access to global exchanges, and dividend pass-through" });
+SEO_CONTENT["multi-asset"] = makeAsset({ title: "Best Multi-Asset Brokers", shortTitle: "multi-asset brokers", asset: "multiple asset classes", description: "Multi-asset brokers offer forex, stocks, commodities, indices, and crypto from a single account, simplifying portfolio diversification.", tradingHours: "Trading hours vary by asset class — forex and crypto trade 24/5-7, while stocks and indices follow exchange schedules.", keyFactors: "the widest instrument range across forex, stocks, crypto, commodities, and indices from a single account" });
+SEO_CONTENT["no-kyc"] = makeAccount({ title: "No KYC Forex Brokers", shortTitle: "no KYC brokers", accountType: "no-KYC or minimal verification", description: "Some traders prefer brokers with minimal identity verification requirements for faster onboarding and privacy.", ideal: "No-KYC options suit traders who want quick account setup, though they often come with restrictions on deposit/withdrawal limits and available leverage.", minDeposit: "as low as $1 at some platforms" });
+
+// ═══════════════════════════════════════════════════════════════
+// COMBINATORIAL RANKINGS (16 types × 15 countries = 240 pages)
+// ═══════════════════════════════════════════════════════════════
+
+import { COMBINATORIAL_RANKINGS } from "./combinatorialRankings";
+
+function makeCombiRanking({ title, typeLabel, countryName, regulator, currency }) {
+  return {
+    metaTitle: `${title} ${YEAR} - Tested & Ranked | RatedBrokers`,
+    metaDesc: `Compare the best ${typeLabel.toLowerCase()} forex brokers available in ${countryName} for ${YEAR}. We tested spreads, regulation, platforms & local conditions. Independent rankings.`,
+    intro: [
+      `Traders in ${countryName} looking for ${typeLabel.toLowerCase()} forex brokers face unique regulatory requirements and market conditions. We analyzed brokers accessible to ${countryName}-based traders, verifying ${regulator} compliance and testing real trading conditions with ${currency}-denominated accounts where available.`,
+      `Our research team evaluated each broker's ${typeLabel.toLowerCase()} credentials alongside their ${countryName}-specific offerings — including local payment methods, customer support availability, and regulatory protections. Not every global broker serves ${countryName} traders equally.`,
+      `This ${YEAR} ranking is updated quarterly to reflect changes in broker accessibility, regulation, and pricing for the ${countryName} market.`
+    ],
+    keyFinding: `Among ${typeLabel.toLowerCase()} forex brokers accessible in ${countryName}, ${TOP_BROKER} ranks first for ${YEAR} based on our independent analysis. Local regulation by ${regulator} and ${currency} account availability were key factors in our evaluation.`,
+    howWeRanked: `We scored brokers on ${typeLabel.toLowerCase()} criteria combined with ${countryName}-specific factors: ${regulator} regulation status, ${currency} account support, local payment methods, and customer service in local time zones. Each broker was tested with real accounts.`,
+    faq: [
+      { q: `What is the best ${typeLabel.toLowerCase()} forex broker in ${countryName}?`, a: `Based on our ${YEAR} analysis, ${TOP_BROKER} is our top pick for ${typeLabel.toLowerCase()} trading in ${countryName}. We evaluate regulation, costs, and ${countryName}-specific features quarterly.` },
+      { q: `Is forex trading legal in ${countryName}?`, a: `Yes, forex trading is legal in ${countryName}. The market is regulated by ${regulator}. Always verify your broker holds the appropriate license before depositing funds.` },
+      { q: `Can I trade forex with ${currency}?`, a: `Several brokers offer ${currency}-denominated accounts, which avoids conversion fees. Check our detailed reviews for ${currency} account availability at each broker.` },
+      { q: `What leverage is available in ${countryName}?`, a: `Maximum leverage depends on ${regulator} regulations. Retail traders may face leverage caps (e.g., 1:30 in EU/UK). Some brokers offer higher leverage under offshore entities, but this reduces regulatory protection.` },
+      { q: `Do these brokers accept deposits from ${countryName}?`, a: `All brokers in our ranking accept traders from ${countryName}. We verified registration eligibility, local payment methods, and withdrawal capabilities for ${countryName}-based clients.` }
+    ]
+  };
+}
+
+for (const r of COMBINATORIAL_RANKINGS) {
+  SEO_CONTENT[r.id] = makeCombiRanking({
+    title: r.title,
+    typeLabel: r._typeLabel,
+    countryName: r._countryName,
+    regulator: r._regulator,
+    currency: r._currency,
+  });
+}
 
 export default SEO_CONTENT;
