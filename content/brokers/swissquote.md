@@ -2,7 +2,20 @@
 slug: swissquote
 status: active
 last_verified: "2026-03-09"
-verticals: [forex, cfd, crypto]
+verticals: [forex, cfd, crypto, stocks, options, futures]
+
+# Stock-specific
+commission_per_trade: "CHF 9 flat (Swiss stocks), $5 (US stocks)"
+fractional_shares: false
+real_stocks: true
+exchanges: "SIX, NYSE, NASDAQ, LSE, Euronext, HKEX"
+
+# Options-specific
+options_contract_fee: "From CHF 2/contract"
+multi_leg_orders: true
+
+# Futures-specific
+futures_commission: "From CHF 5/contract"
 
 name: Swissquote
 logo: SQ

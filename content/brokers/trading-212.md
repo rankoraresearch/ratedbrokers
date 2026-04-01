@@ -2,7 +2,16 @@
 slug: trading-212
 status: active
 last_verified: "2026-03-09"
-verticals: [forex, cfd, crypto]
+verticals: [forex, cfd, crypto, stocks]
+
+# Stock-specific
+commission_per_trade: "$0 (Invest account)"
+fractional_shares: true
+real_stocks: true
+exchanges: "NYSE, NASDAQ, LSE, Euronext, Xetra — 10,000+ stocks"
+isa_available: true
+extended_hours: false
+dividend_reinvestment: true
 
 name: Trading 212
 logo: T2

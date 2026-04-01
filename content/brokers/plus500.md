@@ -2,7 +2,12 @@
 slug: plus500
 status: active
 last_verified: "2026-03-09"
-verticals: [forex, cfd, spread-betting, crypto]
+verticals: [forex, cfd, spread-betting, crypto, futures]
+
+# Futures-specific (Plus500 Futures — US)
+futures_commission: "$0.49/micro, $0.89/standard"
+micro_futures: true
+day_trade_margins: "Available"
 
 name: Plus500
 logo: P5

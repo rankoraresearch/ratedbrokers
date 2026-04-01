@@ -2,7 +2,15 @@
 slug: etoro
 status: active
 last_verified: "2026-03-10"
-verticals: [forex, cfd, copy-trading, spread-betting, crypto]
+verticals: [forex, cfd, copy-trading, spread-betting, crypto, stocks]
+
+# Stock-specific
+commission_per_trade: "$0 (real stocks)"
+fractional_shares: true
+real_stocks: true
+exchanges: "NYSE, NASDAQ, LSE, Euronext, HKEX"
+extended_hours: false
+dividend_reinvestment: false
 
 name: eToro
 logo: eT

@@ -2,7 +2,20 @@
 slug: ig
 status: active
 last_verified: "2026-03-09"
-verticals: [forex, cfd, spread-betting, crypto]
+verticals: [forex, cfd, spread-betting, crypto, stocks, options]
+
+# Stock-specific
+commission_per_trade: "£8/trade (share dealing)"
+fractional_shares: false
+real_stocks: true
+exchanges: "NYSE, NASDAQ, LSE, ASX, Euronext — 16,000+ shares"
+isa_available: true
+extended_hours: false
+
+# Options-specific
+options_contract_fee: "From £1/contract"
+multi_leg_orders: false
+options_analytics: true
 
 name: IG
 logo: IG

@@ -2,7 +2,24 @@
 slug: saxo-bank
 status: active
 last_verified: "2026-03-09"
-verticals: [forex, cfd, spread-betting, crypto]
+verticals: [forex, cfd, spread-betting, crypto, stocks, options, futures]
+
+# Stock-specific
+commission_per_trade: "From $1/trade (US stocks)"
+fractional_shares: false
+real_stocks: true
+exchanges: "50+ exchanges (NYSE, NASDAQ, LSE, Euronext, HKEX...)"
+extended_hours: false
+dividend_reinvestment: false
+
+# Options-specific
+options_contract_fee: "From $0.75/contract"
+multi_leg_orders: true
+options_analytics: true
+
+# Futures-specific
+futures_commission: "From $1/contract"
+micro_futures: true
 
 name: Saxo Bank
 logo: SX

@@ -2,7 +2,31 @@
 slug: interactive-brokers
 status: active
 last_verified: "2026-03-09"
-verticals: [forex, cfd, crypto]
+verticals: [forex, cfd, crypto, stocks, options, futures]
+
+# Stock-specific
+commission_per_trade: "$0.005/share (min $1)"
+fractional_shares: true
+real_stocks: true
+exchanges: "150+ exchanges globally (NYSE, NASDAQ, LSE, TSE, HKEX, Xetra...)"
+isa_available: false
+extended_hours: true
+ipo_access: true
+dividend_reinvestment: true
+
+# Options-specific
+options_contract_fee: "$0.65/contract"
+multi_leg_orders: true
+options_level: 4
+paper_trading: true
+options_analytics: true
+
+# Futures-specific
+futures_commission: "$0.85/contract"
+micro_futures: true
+day_trade_margins: "25% intraday"
+dom_trading: true
+futures_platforms: ["TWS", "IBKR Mobile", "Client Portal"]
 
 name: Interactive Brokers
 logo: IB
