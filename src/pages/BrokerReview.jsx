@@ -194,11 +194,20 @@ export default function BrokerReview() {
     <div style={{fontFamily:"'DM Sans',system-ui,sans-serif",background:"#f8f9fb",color:"#111827"}}>
       {/* Breadcrumbs */}
       <div style={{...cn, padding: mob ? "10px 16px" : "14px 24px"}}>
-        <Breadcrumb items={[
-          { label: "RatedBrokers", path: "/" },
-          { label: "Forex Brokers", path: "/best-forex-brokers" },
-          { label: t("review.review2026", { name: B.name }) },
-        ]} />
+        <Breadcrumb items={(() => {
+          const HUB_MAP = {
+            stocks: { label: "Stock Brokers", path: "/stock-trading" },
+            options: { label: "Options Brokers", path: "/options-trading" },
+            futures: { label: "Futures Brokers", path: "/futures-trading" },
+          };
+          const verts = B.verticals || [];
+          const hub = HUB_MAP[verts.find(v => HUB_MAP[v])] || { label: "Forex Brokers", path: "/forex-brokers" };
+          return [
+            { label: "RatedBrokers", path: "/" },
+            { label: hub.label, path: hub.path },
+            { label: t("review.review2026", { name: B.name }) },
+          ];
+        })()} />
       </div>
 
       {/* Hero */}
@@ -372,7 +381,7 @@ export default function BrokerReview() {
           <H2 id="trading-costs">{t("review.tradingCosts")}</H2>
           <Link to={lp(`/review/${slug}/fees`)} style={{display:"flex",alignItems:"center",gap:12,padding:"12px 16px",background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,textDecoration:"none",marginBottom:14,boxShadow:"0 1px 3px rgba(0,0,0,0.04)"}} onMouseEnter={e=>{e.currentTarget.style.borderColor="#059669";e.currentTarget.style.boxShadow="0 2px 8px rgba(5,150,105,0.12)"}} onMouseLeave={e=>{e.currentTarget.style.borderColor="#e2e8f0";e.currentTarget.style.boxShadow="0 1px 3px rgba(0,0,0,0.04)"}}><div style={{width:36,height:36,borderRadius:8,background:"#ecfdf5",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}><BookOpen size={16} color="#059669" /></div><div style={{flex:1}}><div style={{fontSize:10,fontWeight:700,color:"#059669",textTransform:"uppercase",letterSpacing:"0.06em",marginBottom:1}}>Deep Dive</div><div style={{fontSize:14,fontWeight:700,color:"#0f172a"}}>{B.name} Fees & Spreads</div></div><ArrowRight size={16} color="#059669" style={{flexShrink:0}} /></Link>
           <P>{(content.costs || [])[0]}</P>
-          <Card>
+          {costBoxes.length > 0 && <Card>
             <div style={{display:"grid",gridTemplateColumns:mob?"1fr 1fr":"1fr 1fr 1fr",gap:16,marginBottom:14}}>
               {costBoxes.map((x,i)=><div key={i} style={{textAlign:"center"}}>
                 <div style={{fontSize:13,color:"#64748b",marginBottom:4}}>{x.l}</div>
@@ -380,12 +389,13 @@ export default function BrokerReview() {
                 <div style={{fontSize:13,color:"#64748b"}}>{x.n}</div>
               </div>)}
             </div>
-          </Card>
+          </Card>}
           {(content.costs || []).slice(1).map((p,i)=><P key={i}>{p}</P>)}
 
-          <CTA B={B} visitUrl={visitUrl} label={t("review.startTrading", { name: B.name })} sub={t("review.fromPips", { spread: B.spread })} compact />
+          <CTA B={B} visitUrl={visitUrl} label={t("review.startTrading", { name: B.name })} sub={B.spread && B.spread !== "N/A" ? t("review.fromPips", { spread: B.spread }) : `${B.commission}`} compact />
 
-          {/* LIVE SPREAD COMPARISON */}
+          {/* LIVE SPREAD COMPARISON — only show if broker has spread data */}
+          {SPREADS.length > 0 && <>
           <H2 id="live-spread-comparison">{t("review.liveSpread")}</H2>
           <P>{(content.spreads || [])[0]}</P>
           <Card style={{padding:0,overflow:"hidden"}}>
@@ -401,6 +411,7 @@ export default function BrokerReview() {
             </table>
           </Card>
           <P>{(content.spreads || [])[1]}</P>
+          </>}
 
           {/* DEPOSIT & WITHDRAWAL */}
           <H2 id="deposit-&-withdrawal">{t("review.depositWithdrawal")}</H2>
@@ -430,17 +441,23 @@ export default function BrokerReview() {
           </div>
           {(content.platforms || []).slice(1).map((p,i)=><P key={i}>{p}</P>)}
 
-          {/* MOBILE TRADING */}
+          {/* MOBILE TRADING — hide if no content */}
+          {(content.mobile || []).length > 0 && <>
           <H2 id="mobile-trading">{t("review.mobileTrading")}</H2>
-          {(content.mobile || []).map((p,i)=><P key={i}>{p}</P>)}
+          {content.mobile.map((p,i)=><P key={i}>{p}</P>)}
+          </>}
 
-          {/* CUSTOMER SUPPORT */}
+          {/* CUSTOMER SUPPORT — hide if no content */}
+          {(content.support || []).length > 0 && <>
           <H2 id="customer-support">{t("review.customerSupport")}</H2>
-          {(content.support || []).map((p,i)=><P key={i}>{p}</P>)}
+          {content.support.map((p,i)=><P key={i}>{p}</P>)}
+          </>}
 
-          {/* EDUCATION */}
+          {/* EDUCATION — hide if no content */}
+          {(content.education || []).length > 0 && <>
           <H2 id="education-&-research">{t("review.educationResearch")}</H2>
-          {(content.education || []).map((p,i)=><P key={i}>{p}</P>)}
+          {content.education.map((p,i)=><P key={i}>{p}</P>)}
+          </>}
 
           <CTA B={B} visitUrl={visitUrl} label={t("review.visit", { name: B.name })} sub={t("review.openAccount")} />
 
@@ -454,21 +471,22 @@ export default function BrokerReview() {
               <div style={{fontSize:13,color:"#64748b",marginTop:4}}>{B.tpCount.toLocaleString()} {t("review.reviews")}</div>
             </a>
             {!mob&&<div style={{width:1,height:60,background:"#e8ecf1"}}/>}
-            <div style={{flex:1,width:mob?"100%":"auto"}}>
+            {trustpilotBars.length > 0 && <div style={{flex:1,width:mob?"100%":"auto"}}>
               {trustpilotBars.map((x,i)=><div key={i} style={{display:"flex",alignItems:"center",gap:8,marginBottom:3}}>
                 <span style={{fontSize:12,color:"#64748b",width:24}}>{x.s}</span>
                 <div style={{flex:1,height:6,borderRadius:3,background:"#e8ecf1"}}><div style={{height:"100%",borderRadius:3,background:"#00B67A",width:`${x.p}%`}}/></div>
                 <span style={{fontSize:12,color:"#374151",width:30,textAlign:"right"}}>{x.p}%</span>
               </div>)}
-            </div>
+            </div>}
           </Card>
           <a href={getTrustpilotUrl(slug)} target="_blank" rel="noopener noreferrer" style={{display:"inline-flex",alignItems:"center",gap:6,fontSize:14,fontWeight:600,color:"#00B67A",textDecoration:"none",marginBottom:12}}>
             {t("review.readOnTrustpilot", {name: B.name})}
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="#00B67A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
           </a>
-          <P>{content.trustpilot}</P>
+          {content.trustpilot && <P>{content.trustpilot}</P>}
 
-          {/* HISTORY */}
+          {/* HISTORY — hide if no timeline */}
+          {TIMELINE.length > 0 && <>
           <H2 id="company-history">{t("review.companyHistory")}</H2>
           <div style={{position:"relative",paddingLeft:24,marginBottom:16}}>
             <div style={{position:"absolute",left:7,top:4,bottom:4,width:2,background:"#e2e8f0"}}/>
@@ -478,10 +496,13 @@ export default function BrokerReview() {
               <span style={{fontSize:14,color:"#374151",marginLeft:8}}>{tl.event}</span>
             </div>)}
           </div>
+          </>}
 
-          {/* COUNTRY */}
+          {/* COUNTRY — hide if no content */}
+          {content.country && <>
           <H2 id="country-availability">{t("review.countryAvailability")}</H2>
           <P>{content.country}</P>
+          </>}
 
           {/* VERDICT */}
           <H2 id="expert-verdict">{t("review.expertVerdict")}</H2>
