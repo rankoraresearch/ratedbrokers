@@ -112,7 +112,14 @@ export default function BrokerReview() {
     if (data) {
       document.title = `${data.B.name} Review 2026: Fees, Pros & Cons | RatedBrokers`;
       const metaDesc = document.querySelector('meta[name="description"]');
-      if (metaDesc) metaDesc.setAttribute("content", `Is ${data.B.name} any good? Expert-analyzed across 6 categories. Score: ${data.B.score}/10. Spreads from ${data.B.spread} pips, ${data.B.type} execution, ${data.B.regs.filter(r=>r.tier===1).map(r=>r.name).join(" & ")||"regulated"} broker. Full expert review.`);
+      if (metaDesc) {
+        const hasSpread = data.B.spread && data.B.spread !== "N/A";
+        const regs = data.B.regs.filter(r=>r.tier===1).map(r=>r.name).join(" + ") || "regulated";
+        metaDesc.setAttribute("content", hasSpread
+          ? `Is ${data.B.name} any good? Score: ${data.B.score}/10. Spreads from ${data.B.spread} pips, ${data.B.type} execution, ${regs} broker. Full expert review 2026.`
+          : `Is ${data.B.name} any good? Score: ${data.B.score}/10. ${data.B.commission}. ${regs} regulated. Full expert review 2026.`
+        );
+      }
       const a = getAuthorByName(data.AUTHOR.name);
       const jsonLd = [
         {
@@ -140,11 +147,12 @@ export default function BrokerReview() {
           datePublished: "2026-01-15",
           dateModified: "2026-02-28",
         },
-        breadcrumbSchema([
-          { label: "RatedBrokers", path: "/" },
-          { label: "Forex Brokers", path: "/best-forex-brokers" },
-          { label: `${data.B.name} Review`, path: `/review/${slug}` },
-        ]),
+        breadcrumbSchema((() => {
+          const HUB_MAP_LD = { stocks: { l: "Stock Brokers", p: "/stock-trading" }, options: { l: "Options Brokers", p: "/options-trading" }, futures: { l: "Futures Brokers", p: "/futures-trading" } };
+          const v = data.B.verticals || [];
+          const h = HUB_MAP_LD[v.find(x => HUB_MAP_LD[x])] || { l: "Forex Brokers", p: "/forex-brokers" };
+          return [{ label: "RatedBrokers", path: "/" }, { label: h.l, path: h.p }, { label: `${data.B.name} Review`, path: `/review/${slug}` }];
+        })()),
       ];
       let el = document.querySelector('script[data-jsonld="review"]');
       if (!el) { el = document.createElement("script"); el.type = "application/ld+json"; el.setAttribute("data-jsonld","review"); document.head.appendChild(el); }
@@ -195,11 +203,19 @@ export default function BrokerReview() {
   const verdict = translated?.verdict ?? B.verdict;
   const promo = translated?.promo ?? B.promo;
 
+  const isStockBroker = (B.verticals || []).some(v => ["stocks", "options", "futures"].includes(v)) && !(B.verticals || []).includes("forex");
   const TOC = [
     t("toc.overview"), t("toc.scoring"), t("toc.proscons"), t("toc.accounts"), t("toc.regulation"),
-    t("toc.costs"), t("toc.spreads"), t("toc.deposits"), t("toc.platforms"),
-    t("toc.mobile"), t("toc.support"), t("toc.education"), t("toc.trustpilot"),
-    t("toc.history"), t("toc.country"), t("toc.verdict"), t("toc.alternatives"), t("toc.faq")
+    t("toc.costs"),
+    ...(SPREADS.length > 0 ? [t("toc.spreads")] : []),
+    t("toc.deposits"), t("toc.platforms"),
+    ...(content.mobile.length > 0 ? [t("toc.mobile")] : []),
+    ...(content.support.length > 0 ? [t("toc.support")] : []),
+    ...(content.education.length > 0 ? [t("toc.education")] : []),
+    t("toc.trustpilot"),
+    ...(TIMELINE.length > 0 ? [t("toc.history")] : []),
+    ...(content.country ? [t("toc.country")] : []),
+    t("toc.verdict"), t("toc.alternatives"), t("toc.faq")
   ];
 
   return (
@@ -247,9 +263,16 @@ export default function BrokerReview() {
               {B.badge&&<span style={{background:"rgba(52,211,153,0.15)",color:"#34d399",fontSize:mob?10:11,fontWeight:600,padding:"3px 10px",borderRadius:5,border:"1px solid rgba(110,231,183,0.3)"}}>{"\ud83c\udfc6"} {B.badge}</span>}
             </div>
             <div style={{display:"grid",gridTemplateColumns:mob?"repeat(3,1fr)":"repeat(5,auto)",gap:mob?8:20}}>
-              {[{l:t("review.spread"),v:`${B.spread} pips`},{l:t("review.commission"),v:B.commission},{l:t("review.minDeposit"),v:`$${B.minDep}`},...(!mob?[{l:t("review.leverage"),v:B.leverage},{l:t("review.instruments"),v:B.instruments}]:[])].map((x,i)=><div key={i} style={mob?{textAlign:"center",padding:"6px",background:"rgba(255,255,255,0.06)",borderRadius:6}:{}}>
+              {(()=>{
+                const isForex = !B.verticals || B.verticals.includes("forex");
+                const hasSpread = B.spread && B.spread !== "N/A";
+                const stats = hasSpread
+                  ? [{l:t("review.spread"),v:`${B.spread} pips`},{l:t("review.commission"),v:B.commission},{l:t("review.minDeposit"),v:`$${B.minDep}`},...(!mob?[{l:t("review.leverage"),v:B.leverage},{l:t("review.instruments"),v:B.instruments}]:[])]
+                  : [{l:"Commission",v:B.commission},{l:t("review.minDeposit"),v:B.minDep===0?"$0":`$${B.minDep}`},...(!mob?[{l:"Regulation",v:B.regs.filter(r=>r.tier===1).map(r=>r.name).join(" + ")||"Regulated"},{l:t("review.instruments"),v:B.instruments}]:[])];
+                return stats.map((x,i)=><div key={i} style={mob?{textAlign:"center",padding:"6px",background:"rgba(255,255,255,0.06)",borderRadius:6}:{}}>
                 <div style={{fontSize:mob?10:12,color:"rgba(255,255,255,0.5)",fontWeight:600,textTransform:"uppercase",letterSpacing:"0.05em",marginBottom:2}}>{x.l}</div>
-                <div style={{fontSize:mob?14:15,color:"#fff",fontWeight:700}}>{x.v}</div></div>)}
+                <div style={{fontSize:mob?14:15,color:"#fff",fontWeight:700}}>{x.v}</div></div>);
+              })()}
             </div>
             {mob&&<a href={visitUrl} target="_blank" rel="nofollow sponsored" className="cta-orange" style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,background:"linear-gradient(135deg, #f59e0b, #fbbf24)",color:"#0f172a",fontSize:15,fontWeight:700,textDecoration:"none",padding:"12px",borderRadius:10,marginTop:14,boxShadow:"0 4px 12px rgba(245,158,11,0.3)"}}>{t("review.visit", { name: B.name })} <ArrowRight size={14} /></a>}
           </div>
@@ -259,7 +282,7 @@ export default function BrokerReview() {
             <div style={{fontSize:13,color:"#34d399",fontWeight:600,marginBottom:10}}>{verdict}</div>
             {promo&&<div style={{fontSize:12,color:"rgba(255,255,255,0.7)",background:"rgba(255,255,255,0.08)",borderRadius:6,padding:"5px 8px",marginBottom:12,display:"flex",alignItems:"center",gap:4}}><Icon name="lightbulb" size={13} color="#f59e0b" /> {promo}</div>}
             <a href={visitUrl} target="_blank" rel="nofollow sponsored" className="cta-orange" style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,background:"linear-gradient(135deg, #f59e0b, #fbbf24)",color:"#0f172a",fontSize:16,fontWeight:700,textDecoration:"none",padding:"13px 24px",borderRadius:10,width:"100%",boxShadow:"0 4px 12px rgba(245,158,11,0.3)"}}>{t("review.visit", { name: B.name })} <svg width="14" height="14" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="#0f172a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></a>
-            <div style={{fontSize:11,color:"rgba(255,255,255,0.4)",marginTop:8}}>{t("review.retailLose")}</div>
+            <div style={{fontSize:11,color:"rgba(255,255,255,0.4)",marginTop:8}}>{B.riskWarning || t("review.retailLose")}</div>
           </div>}
         </div>
       </HeroBand>
@@ -359,15 +382,21 @@ export default function BrokerReview() {
           <Card style={{padding:0,overflow:"hidden"}}>
             <table style={{width:"100%",borderCollapse:"collapse",fontSize:14}}>
               <thead><tr style={{background:"#f8f9fb",borderBottom:"1px solid #e8ecf1"}}>
-                {[t("table.account"),t("table.spreadFrom"),t("table.commission"),t("table.minDeposit"),t("table.bestFor")].map(h=><th key={h} style={{textAlign:"left",padding:"10px 14px",fontSize:14,fontWeight:600,color:"#64748b",textTransform:"uppercase",letterSpacing:"0.04em"}}>{h}</th>)}
+                {(()=>{
+                  const showSpread = ACCOUNTS.some(a => a.spread && a.spread !== "N/A");
+                  const cols = [t("table.account"), ...(showSpread ? [t("table.spreadFrom")] : []), t("table.commission"), t("table.minDeposit"), t("table.bestFor")];
+                  return cols.map(h=><th key={h} style={{textAlign:"left",padding:"10px 14px",fontSize:14,fontWeight:600,color:"#64748b",textTransform:"uppercase",letterSpacing:"0.04em"}}>{h}</th>);
+                })()}
               </tr></thead>
-              <tbody>{ACCOUNTS.map((a,i)=><tr key={i} style={{borderBottom:i<ACCOUNTS.length-1?"1px solid #f0f4f8":"none"}}>
+              <tbody>{ACCOUNTS.map((a,i)=>{
+                const showSpread = ACCOUNTS.some(x => x.spread && x.spread !== "N/A");
+                return <tr key={i} style={{borderBottom:i<ACCOUNTS.length-1?"1px solid #f0f4f8":"none"}}>
                 <td style={{padding:"12px 14px",fontWeight:600,color:"#111827"}}>{a.name}</td>
-                <td style={{padding:"12px 14px",fontFamily:"'JetBrains Mono'",fontWeight:700,color:"#059669"}}>{a.spread}</td>
+                {showSpread && <td style={{padding:"12px 14px",fontFamily:"'JetBrains Mono'",fontWeight:700,color:"#059669"}}>{a.spread}</td>}
                 <td style={{padding:"12px 14px"}}>{a.commission}</td>
                 <td style={{padding:"12px 14px"}}>${a.min}</td>
                 <td style={{padding:"12px 14px",color:"#374151",fontSize:13}}>{a.best}</td>
-              </tr>)}</tbody>
+              </tr>})}</tbody>
             </table>
           </Card>
           <P>{content.accountOutro}</P>
@@ -570,7 +599,7 @@ export default function BrokerReview() {
               <div style={{fontFamily:"'JetBrains Mono'",fontSize:36,fontWeight:800,color:"#34d399",lineHeight:1}}>{B.score}</div>
               <div style={{fontSize:13,color:"#34d399",fontWeight:600,marginBottom:10}}>{verdict}</div>
               <a href={visitUrl} target="_blank" rel="nofollow sponsored" className="cta-orange" style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,background:"linear-gradient(135deg, #f59e0b, #fbbf24)",color:"#0f172a",fontSize:15,fontWeight:700,textDecoration:"none",padding:"12px 20px",borderRadius:9,width:"100%",boxShadow:"0 4px 12px rgba(245,158,11,0.3)",marginBottom:6}}>{t("review.visit", { name: B.name })} {"\u2197"}</a>
-              <div style={{fontSize:11,color:"rgba(255,255,255,0.4)"}}>{t("review.retailLose")}</div>
+              <div style={{fontSize:11,color:"rgba(255,255,255,0.4)"}}>{B.riskWarning || t("review.retailLose")}</div>
             </div>
             <Card style={{padding:"16px"}}>
               <div style={{fontFamily:"Outfit",fontWeight:700,fontSize:13,marginBottom:10}}>{t("review.quickFacts")}</div>
