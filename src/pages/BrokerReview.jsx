@@ -110,7 +110,9 @@ export default function BrokerReview() {
   useEffect(()=>{
     window.scrollTo(0,0);
     if (data) {
-      document.title = `${data.B.name} Review 2026: Fees, Pros & Cons | RatedBrokers`;
+      const verts = data.B.verticals || [];
+      const titleSuffix = verts.includes("stocks") && !verts.includes("forex") ? "Commissions, Pros & Cons" : "Fees, Pros & Cons";
+      document.title = `${data.B.name} Review 2026: ${titleSuffix} | RatedBrokers`;
       const metaDesc = document.querySelector('meta[name="description"]');
       if (metaDesc) {
         const hasSpread = data.B.spread && data.B.spread !== "N/A";
@@ -264,11 +266,23 @@ export default function BrokerReview() {
             </div>
             <div style={{display:"grid",gridTemplateColumns:mob?"repeat(3,1fr)":"repeat(5,auto)",gap:mob?8:20}}>
               {(()=>{
-                const isForex = !B.verticals || B.verticals.includes("forex");
+                const v = B.verticals || [];
                 const hasSpread = B.spread && B.spread !== "N/A";
-                const stats = hasSpread
-                  ? [{l:t("review.spread"),v:`${B.spread} pips`},{l:t("review.commission"),v:B.commission},{l:t("review.minDeposit"),v:`$${B.minDep}`},...(!mob?[{l:t("review.leverage"),v:B.leverage},{l:t("review.instruments"),v:B.instruments}]:[])]
-                  : [{l:"Commission",v:B.commission},{l:t("review.minDeposit"),v:B.minDep===0?"$0":`$${B.minDep}`},...(!mob?[{l:"Regulation",v:B.regs.filter(r=>r.tier===1).map(r=>r.name).join(" + ")||"Regulated"},{l:t("review.instruments"),v:B.instruments}]:[])];
+                const regs = B.regs.filter(r=>r.tier===1).map(r=>r.name).join(" + ")||"Regulated";
+                let stats;
+                if (hasSpread) {
+                  // Forex/CFD
+                  stats = [{l:t("review.spread"),v:`${B.spread} pips`},{l:t("review.commission"),v:B.commission},{l:t("review.minDeposit"),v:`$${B.minDep}`},...(!mob?[{l:t("review.leverage"),v:B.leverage},{l:t("review.instruments"),v:B.instruments}]:[])];
+                } else if (v.includes("futures") && !v.includes("stocks")) {
+                  // Futures specialist
+                  stats = [{l:"Commission",v:B.futuresCommission||B.commission},{l:"Day Margins",v:B.dayTradeMargins||"Exchange standard"},{l:t("review.minDeposit"),v:B.minDep===0?"$0":`$${B.minDep}`},...(!mob?[{l:"Regulation",v:regs}]:[])];
+                } else if (v.includes("options") && !v.includes("stocks") && !v.includes("forex")) {
+                  // Options specialist
+                  stats = [{l:"Contract Fee",v:B.optionsContractFee||B.commission},{l:t("review.commission"),v:B.commission},{l:t("review.minDeposit"),v:B.minDep===0?"$0":`$${B.minDep}`},...(!mob?[{l:"Regulation",v:regs}]:[])];
+                } else {
+                  // Stocks / multi-type
+                  stats = [{l:"Commission",v:B.commissionPerTrade||B.commission},{l:t("review.minDeposit"),v:B.minDep===0?"$0":`$${B.minDep}`},...(!mob?[{l:"Regulation",v:regs},{l:t("review.instruments"),v:B.instruments}]:[])];
+                }
                 return stats.map((x,i)=><div key={i} style={mob?{textAlign:"center",padding:"6px",background:"rgba(255,255,255,0.06)",borderRadius:6}:{}}>
                 <div style={{fontSize:mob?10:12,color:"rgba(255,255,255,0.5)",fontWeight:600,textTransform:"uppercase",letterSpacing:"0.05em",marginBottom:2}}>{x.l}</div>
                 <div style={{fontSize:mob?14:15,color:"#fff",fontWeight:700}}>{x.v}</div></div>);
@@ -433,7 +447,13 @@ export default function BrokerReview() {
           </Card>}
           {(content.costs || []).slice(1).map((p,i)=><P key={i}>{p}</P>)}
 
-          <CTA B={B} visitUrl={visitUrl} label={t("review.startTrading", { name: B.name })} sub={B.spread && B.spread !== "N/A" ? t("review.fromPips", { spread: B.spread }) : `${B.commission}`} compact />
+          <CTA B={B} visitUrl={visitUrl} label={(() => {
+            const v = B.verticals || [];
+            if (v.includes("futures") && !v.includes("stocks") && !v.includes("forex")) return `Trade Futures with ${B.name}`;
+            if (v.includes("options") && !v.includes("forex") && !v.includes("stocks")) return `Trade Options with ${B.name}`;
+            if (v.includes("stocks") && !v.includes("forex")) return `Start Investing with ${B.name}`;
+            return t("review.startTrading", { name: B.name });
+          })()} sub={B.spread && B.spread !== "N/A" ? t("review.fromPips", { spread: B.spread }) : `${B.commission}`} compact />
 
           {/* LIVE SPREAD COMPARISON — only show if broker has spread data */}
           {SPREADS.length > 0 && <>
@@ -566,7 +586,7 @@ export default function BrokerReview() {
                 onMouseEnter={e=>e.currentTarget.style.textDecoration="underline"}
                 onMouseLeave={e=>e.currentTarget.style.textDecoration="none"}
               >{b.name}</Link>
-              <div style={{fontSize:14,color:"#374151"}}>{b.type} {"\u00b7"} {t("home.from")} {b.spread} {t("home.pips")} {"\u00b7"} {b.why}</div>
+              <div style={{fontSize:14,color:"#374151"}}>{b.type} {"\u00b7"} {b.spread && b.spread !== "N/A" && !b.spread.includes("$") && !b.spread.includes("€") ? `${t("home.from")} ${b.spread} ${t("home.pips")}` : b.spread && b.spread !== "N/A" ? b.spread : ""} {"\u00b7"} {b.why}</div>
             </div>
             <div style={{display:"flex",alignItems:"center",gap:10}}>
               <span style={{fontFamily:"'JetBrains Mono'",fontSize:16,fontWeight:800,color:"#059669"}}>{b.score}</span>
@@ -603,7 +623,7 @@ export default function BrokerReview() {
             </div>
             <Card style={{padding:"16px"}}>
               <div style={{fontFamily:"Outfit",fontWeight:700,fontSize:13,marginBottom:10}}>{t("review.quickFacts")}</div>
-              {[{l:t("review.founded"),v:B.year},{l:t("review.hq"),v:B.hq},{l:t("review.deposit"),v:`$${B.minDep}`},{l:t("review.spread"),v:`${B.spread} pips`},{l:t("review.leverage"),v:B.leverage},{l:t("review.type"),v:B.type},{l:t("review.instruments"),v:B.instruments}].map((x,i)=><div key={i} style={{display:"flex",justifyContent:"space-between",padding:"5px 0",borderBottom:i<6?"1px solid #f0f4f8":"none"}}>
+              {[{l:t("review.founded"),v:B.year},{l:t("review.hq"),v:B.hq},{l:t("review.deposit"),v:B.minDep===0?"$0":`$${B.minDep}`},...(B.spread&&B.spread!=="N/A"?[{l:t("review.spread"),v:`${B.spread} pips`}]:[{l:"Commission",v:B.commission}]),...(B.leverage&&B.leverage!=="N/A"?[{l:t("review.leverage"),v:B.leverage}]:[]),{l:t("review.type"),v:B.type},{l:t("review.instruments"),v:B.instruments}].map((x,i,arr)=><div key={i} style={{display:"flex",justifyContent:"space-between",padding:"5px 0",borderBottom:i<arr.length-1?"1px solid #f0f4f8":"none"}}>
                 <span style={{fontSize:13,color:"#64748b"}}>{x.l}</span>
                 <span style={{fontSize:13,color:"#111827",fontWeight:600}}>{x.v}</span>
               </div>)}

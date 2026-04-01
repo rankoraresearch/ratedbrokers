@@ -177,37 +177,37 @@ author:
 ---
 ## Overview
 
-Robinhood pioneered commission-free trading
+Robinhood pioneered commission-free trading and remains the simplest way for US beginners to start investing. Now offers stocks, options, crypto, and futures — all at $0 commission.
 
 ## Scoring
 
-Our overall score of 8.0 reflects Robinhood's unbeatable cost structure (9.8) balanced against limited research tools (7.5) and PFOF execution concerns (7.5). Best for cost-conscious beginners, not for advanced traders. and remains the simplest way for US beginners to start investing. Now offers stocks, options, crypto, and futures — all at $0 commission.
+Our overall score of 8.0 reflects Robinhood's unbeatable cost structure (9.8) balanced against limited research tools (7.5) and PFOF execution concerns (7.5). Best for cost-conscious beginners, not for advanced traders.
 
 ## Account Intro
 
-Account setup is straightforward and fully online. Most accounts are approved within 1-2 business days.
+Robinhood offers Individual Brokerage, IRA (with 1% match on Gold), and Robinhood Gold ($5/mo subscription for margin, research, and lower futures fees). Account opening is fully digital — most approved within minutes.
 
 ## Account Outro
 
-All accounts include access to research, screeners, and portfolio analysis tools.
+All accounts include fractional shares from $1, automatic DRIP, and access to IPO offerings. Robinhood Gold adds Morningstar research, Level II data, and higher instant deposit limits.
 
 ## Regulation
 
-The broker maintains registration with all required US financial regulators, providing SIPC coverage up to $500,000 per account. Excess SIPC insurance may provide additional protection.
+Robinhood Financial LLC is registered with SEC and FINRA. Securities are protected by SIPC up to $500,000 per customer. Robinhood was fined $70M by FINRA in 2021 for misleading customers and outages — issues that have since been addressed. The company is publicly traded on NASDAQ (HOOD).
 
 ## Costs
 
-Commission-free stock and ETF trading is the standard. Options carry a per-contract fee, and margin interest rates vary by balance tier. There are no account maintenance or inactivity fees.
+Everything is $0 — stocks, ETFs, options (including per-contract fee), and crypto. Futures: $0.50/contract with Gold, $0.75 standard. No account maintenance or inactivity fees. Robinhood earns revenue primarily through payment for order flow (PFOF) and margin interest.
 
 ## Platforms
 
-Trading is available through web, desktop, and mobile platforms with real-time quotes, charting, and order management.
+Robinhood's mobile app is the primary platform — clean, intuitive, and designed for beginners. The web platform mirrors mobile functionality. Robinhood Legend (launched 2025) is the new desktop platform with advanced charting and customizable layouts for active traders.
 
 ## Deposits
 
-Multiple funding methods are supported including ACH bank transfers (free, 1-3 days), wire transfers, and checks.
+ACH bank transfer (free, 1-5 business days with up to $1,000 instant deposit), wire transfer (free with Gold), and debit card (1.5% fee, instant). No minimum deposit.
 
 ## Verdict
 
-A solid choice for stock and ETF investors seeking regulated, commission-free trading with quality research tools.
+Robinhood is the best choice for US beginners who want the simplest, cheapest way to start investing in stocks, crypto, and options. For serious research and advanced tools, look at Schwab or Fidelity.
 

@@ -184,29 +184,29 @@ tastytrade is the leading options-first broker, purpose-built for derivatives tr
 
 ## Account Intro
 
-Account setup is straightforward and fully online. Most accounts are approved within 1-2 business days.
+tastytrade offers Cash, Margin, and IRA accounts. Margin accounts require $2,000 minimum (Reg-T). Account approval is typically same-day for US residents.
 
 ## Account Outro
 
-All accounts include access to research, screeners, and portfolio analysis tools.
+All accounts include access to the tastytrade platform with real-time options chains, follow feed, and curve analysis tools.
 
 ## Regulation
 
-The broker maintains registration with all required US financial regulators, providing SIPC coverage up to $500,000 per account. Excess SIPC insurance may provide additional protection.
+tastytrade is registered with the SEC, FINRA, and NFA as a self-clearing broker-dealer. SIPC coverage protects customer accounts up to $500,000 ($250,000 cash). As a self-clearing firm, tastytrade handles its own trade settlement without third-party intermediaries.
 
 ## Costs
 
-Commission-free stock and ETF trading is the standard. Options carry a per-contract fee, and margin interest rates vary by balance tier. There are no account maintenance or inactivity fees.
+Options: $1.00/contract to open, $0.00 to close, capped at $10/leg — the most cost-effective pricing for large options blocks. Stocks/ETFs: $0 commission. Futures: $1.25/contract per side. Options on futures: $2.50/contract per side. No account maintenance, inactivity, or platform fees.
 
 ## Platforms
 
-Trading is available through web, desktop, and mobile platforms with real-time quotes, charting, and order management.
+tastytrade Desktop is the flagship — purpose-built for options with real-time Greeks, probability analysis, curve view, and the follow feed for trade ideas. The web platform offers similar functionality in a browser. Mobile apps (iOS/Android) provide full trading capability on the go.
 
 ## Deposits
 
-Multiple funding methods are supported including ACH bank transfers (free, 1-3 days), wire transfers, and checks.
+ACH bank transfer (free, 1-4 business days), wire transfer (free incoming, same day), and check deposit are supported. No minimum deposit required.
 
 ## Verdict
 
-A solid choice for stock and ETF investors seeking regulated, commission-free trading with quality research tools.
+tastytrade is the #1 choice for dedicated options traders. The capped pricing ($10/leg max), purpose-built platform, and $0 closing fees make it unmatched for derivatives-focused strategies.
 
