@@ -177,7 +177,7 @@ export default function BrokerReview() {
   const toArr = (v) => Array.isArray(v) ? v : (v ? [v] : []);
   const content = { ...rawContent };
   // These keys are rendered with .map() — ensure they're arrays
-  for (const k of ["overview", "costs", "spreads", "deposits", "platforms", "mobile", "support", "education"]) {
+  for (const k of ["overview", "regulation", "costs", "spreads", "deposits", "platforms", "mobile", "support", "education", "verdict"]) {
     content[k] = toArr(rawContent[k]);
   }
   // These keys are used as strings — keep as-is (or first element if array)
