@@ -516,6 +516,39 @@ Hero (dark) → контент → dark CTA → контент → dark scoring 
 
 ---
 
+## AlternativesTab UX Fixes (1 апреля 2026)
+
+### Проблемы (выявлены визуальным аудитом)
+- Таблица CompactRow: кнопки и RegBadge'ы наезжали друг на друга (flex без фиксированных колонок)
+- VerdictBox: показывал CTA текущего брокера вместо топ-альтернативы
+- Comparison Table ("vs Top Alternatives"): 7 колонок → Commission + Regs + CTA слишком узкие
+- Sidebar (sticky right panel): показывал текущего брокера на странице альтернатив
+- Кнопки "Visit {broker}" разной ширины (имена брокеров разной длины)
+
+### Исправления
+
+**Семантика (Билл CRO):**
+- VerdictBox → передаёт `featured[0]` (топ-альтернативу) вместо текущего брокера
+- Sidebar на `/alternatives` → показывает "#1 Alternative" с CTA на топ-альтернативу
+- Mid-page баннер: "Our Top Pick: {name}" вместо "Compare all brokers"
+- CompactRow: RegBadges удалены (Score/Spread/Deposit критичнее для scan speed)
+
+**Layout (Барбара UX):**
+- CompactRow: flex → CSS Grid (`1fr 56px 68px 62px 88px` desktop, `1fr 50px 64px 56px 82px` tablet)
+- Header перенесён внутрь Card (pixel-perfect alignment с rows)
+- Comparison Table: Commission удалён (7→6 колонок), Regs 100px, CTA 80px, `table-layout: fixed`
+- Mobile: 2-row layout (logo+name+score / CTA), кнопки фиксированные 120px
+- Desktop CTA: `width: 100%` (заполняет grid-ячейку)
+- `BrokerSubPage.jsx`: передаёт `tab` (isTab) prop в TabRenderer
+
+### Коммиты
+- `55ce5c7` fix: alternatives tab — clean grid, sidebar shows top alternative
+- `5f413fc` fix: comparison table overlap — drop Commission col, widen Regs + CTA
+- `d15cc5a` fix: alternatives tab grid alignment — responsive tablet/desktop columns, pass tab prop
+- `91dc9d0` fix: uniform CTA button sizes — width:100% desktop, fixed 120px mobile
+
+---
+
 ## Что дальше
 
 - [x] Деплой — GitHub Pages + Cloudflare Workers API

@@ -1,6 +1,8 @@
-# AI-агенты для работы с данными брокеров
+# AI-агенты для работы с данными онлайн-брокеров
 
 Агенты запускаются через Claude Code Task tool. Каждый агент — промпт-файл с ролью, инструкциями и воркфлоу.
+
+**Покрываемые вертикали:** Forex/CFD, Stocks/ETF, Options, Futures, Prop Firms, Copy Trading, Spread Betting, Crypto.
 
 ## Цепочка данных
 
@@ -24,11 +26,11 @@
 
 | Агент | Файл | Роль | Редактирует файлы? |
 |-------|------|------|-------------------|
-| **Джон** | `john-data-collector.md` | Research Agent — сбор сырых данных с интернета | Да (данные) |
-| **Боб** | `bob-fact-checker.md` | Fact Checker — верификация + аппрув данных | Да (last_verified, status) |
-| **Лео** | `leo-rating-calculator.md` | Rating Calculator — расчёт скоров и ранжирование | Да (score, verdict, scores) |
+| **Джон** | `john-data-collector.md` | Research Agent — сбор данных об онлайн-брокерах всех типов | Да (данные) |
+| **Боб** | `bob-fact-checker.md` | Fact Checker — мультивертикальная верификация + аппрув | Да (last_verified, status) |
+| **Лео** | `leo-rating-calculator.md` | Rating Calculator — мультивертикальный скоринг и ранжирование | Да (score, verdict, scores) |
 | **Барбара** | `barbara-designer.md` | Design Agent — дизайн шаблонов, UX/UI, аудит конкурентов | Да (стили, компоненты) |
-| **Билл** | `bill-seo-strategist.md` | SEO & Affiliate Strategist — конкурентный анализ, URL-архитектура, on-page, CRO, ссылочное | Нет (стратегия и рекомендации) |
+| **Билл** | `bill-seo-strategist.md` | SEO & Affiliate Strategist — эксперт по всем типам онлайн-брокеров, конкурентный анализ, URL-архитектура, on-page, CRO, ссылочное | Нет (стратегия и рекомендации) |
 
 ## Как запускать
 
@@ -191,7 +193,7 @@ Task tool:
 4. **Лео** → пересчитывает скоры если данные изменились
 
 ### Массовый пересчёт рейтингов
-1. **Лео** с командой `all` → пересчитывает все 38 брокеров
+1. **Лео** с командой `all` → пересчитывает все брокеры (определяет вертикаль каждого автоматически)
 2. **Лео** с командой `check-rankings` → проверяет порядок в рейтингах
 3. `npm run brokers:validate` → валидация
 4. `npm run brokers:build` → пересборка JS
