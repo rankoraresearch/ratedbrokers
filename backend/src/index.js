@@ -4,7 +4,8 @@ import { handleContact } from './routes/contact.js';
 import { handleAdminList, handleAdminUpdate, handleAdminCreate, handleAdminDelete, handleAdminDashboard } from './routes/admin.js';
 import { handleRankingsDashboard, handleRankingBrokers, handleRankingOrderUpdate, handleRankingOrderReset, handleRankingOrderPublic } from './routes/rankings.js';
 import { handlePublishDashboard, handlePublishPages, handlePublishUpdate, handlePublishBatch, handlePublishAutoSchedule, handlePublishTick, handlePublishActive, handleSitemapIndex, handleSitemapSection } from './routes/publish.js';
-import { handleMessagesDashboard, handleMessageDelete, handleLinkRecheck } from './routes/messages.js';
+import { handleMessagesDashboard, handleMessageDelete } from './routes/messages.js';
+import { handleLinkHealthDashboard, handleLinkRecheck } from './routes/linkhealth.js';
 import { handleOptions } from './utils/cors.js';
 
 export default {
@@ -153,8 +154,15 @@ export default {
       return handleMessageDelete(request, env, msgDeleteMatch[1]);
     }
 
-    // POST /api/admin/messages/recheck/:slug — re-check single link
-    const recheckMatch = path.match(/^\/api\/admin\/messages\/recheck\/([a-z0-9-]+)$/);
+    // ─── Link Health ───
+
+    // GET /api/admin/linkhealth/dashboard — HTML Link Health dashboard
+    if (path === '/api/admin/linkhealth/dashboard' && request.method === 'GET') {
+      return handleLinkHealthDashboard(request, env);
+    }
+
+    // POST /api/admin/linkhealth/recheck/:slug — re-check single link
+    const recheckMatch = path.match(/^\/api\/admin\/linkhealth\/recheck\/([a-z0-9-]+)$/);
     if (recheckMatch && request.method === 'POST') {
       return handleLinkRecheck(request, env, recheckMatch[1]);
     }
