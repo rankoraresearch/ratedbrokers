@@ -144,7 +144,7 @@ export default function CategoryHubPage({ hubSlug }) {
               gap: mob ? 10 : 14,
             }}>
               {topBrokers.map((b, i) => (
-                <Link key={b.B.name} to={`/review/${b.B.name.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "")}`}
+                <Link key={b.slug} to={`/review/${b.slug}`}
                   style={{
                     background: "#fff", borderRadius: 12, padding: mob ? "14px" : "16px",
                     border: "1px solid #e2e8f0", textDecoration: "none", color: "#111827",
