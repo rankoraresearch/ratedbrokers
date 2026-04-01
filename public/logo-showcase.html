@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logo Showcase — RatedBrokers</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'DM Sans', sans-serif; background: #f1f5f9; padding: 32px; }
+  h1 { font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 32px; color: #0f172a; text-align: center; margin-bottom: 8px; }
+  .subtitle { text-align: center; color: #64748b; font-size: 15px; margin-bottom: 32px; }
+  .grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .grid.icons { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+  .card {
+    background: #fff; border-radius: 12px; padding: 24px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    min-height: 120px; box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    position: relative; transition: box-shadow 0.2s;
+  }
+  .card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+  .card.dark-bg { background: #0f172a; }
+  .card.hero-bg { background: linear-gradient(135deg, #0f172a 0%, #0f2e24 40%, #047857 100%); }
+  .card.hero-bg .card-label { color: rgba(255,255,255,0.45); }
+  .card.hero-bg .card-meta { color: rgba(255,255,255,0.5); }
+  .card img, .card object { max-width: 200px; max-height: 60px; object-fit: contain; }
+  .card.icon-card img { max-width: 80px; max-height: 80px; }
+  .card-label {
+    position: absolute; top: 8px; left: 12px;
+    font-size: 10px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; color: #94a3b8;
+  }
+  .card.dark-bg .card-label { color: rgba(255,255,255,0.4); }
+  .card-meta { margin-top: 12px; font-size: 11px; color: #94a3b8; text-align: center; }
+  .status-ok { color: #059669; }
+  .status-missing { color: #ef4444; }
+  .status-warn { color: #f59e0b; }
+  .missing-card { background: #1e293b; border: 2px dashed #334155; }
+  .missing-card .card-label { color: #64748b; }
+  .tabs { display: flex; gap: 8px; justify-content: center; margin-bottom: 24px; flex-wrap: wrap; }
+  .tab-btn {
+    padding: 10px 24px; border-radius: 8px; border: 2px solid #e2e8f0;
+    background: #fff; font-family: 'Outfit', sans-serif; font-size: 14px;
+    font-weight: 700; color: #475569; cursor: pointer; transition: all 0.2s;
+  }
+  .tab-btn.active { background: #0f172a; color: #fff; border-color: #0f172a; }
+  .tab-btn:hover { border-color: #0f172a; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+  .tab-desc { color: #64748b; font-size: 14px; margin-bottom: 16px; line-height: 1.5; }
+  .tab-desc code { background: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-size: 12px; }
+  .section-title { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 20px; color: #0f172a; margin-bottom: 16px; }
+</style>
+</head>
+<body>
+
+<h1>Broker Logo Collection</h1>
+<p class="subtitle">All logo assets for RatedBrokers.com — 38 brokers</p>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="switchTab('icons')">Square Icons (38)</button>
+  <button class="tab-btn" onclick="switchTab('wide-light')">Wide Light (38)</button>
+  <button class="tab-btn" onclick="switchTab('wide-dark')">Wide Dark (38)</button>
+  <button class="tab-btn" onclick="switchTab('hero-preview')">Hero Gradient (38)</button>
+</div>
+
+<!-- TAB 1: Square Icons -->
+<div id="tab-icons" class="tab-panel active">
+  <h2 class="section-title">Square Icons — 120×120 PNG</h2>
+  <p class="tab-desc">
+    Квадратные иконки для карточек, гридов, Quick Broker Grid.<br>
+    Директория: <code>public/logos/{slug}.png</code>
+  </p>
+  <div class="grid icons" id="grid-icons"></div>
+</div>
+
+<!-- TAB 2: Wide Light -->
+<div id="tab-wide-light" class="tab-panel">
+  <h2 class="section-title">Wide Wordmarks — Light Background</h2>
+  <p class="tab-desc">
+    Прямоугольные wordmark-логотипы для светлого фона (Review Hero, сравнительные таблицы).<br>
+    Директория: <code>public/logos-wide/{slug}.svg</code> · Формат: SVG (3 исключения: capital-com.png, libertex.png, fxpro.jpg)
+  </p>
+  <div class="grid" id="grid-wide-light"></div>
+</div>
+
+<!-- TAB 3: Wide Dark -->
+<div id="tab-wide-dark" class="tab-panel">
+  <h2 class="section-title">Wide Wordmarks — Dark Background</h2>
+  <p class="tab-desc">
+    Белые/светлые wordmark-логотипы для тёмного фона (Hero Band navy #0f172a).<br>
+    Директория: <code>public/logos-wide-dark/{slug}.svg</code> · 18 официальных + 18 конвертированных + 2 as-is
+  </p>
+  <div class="grid" id="grid-wide-dark"></div>
+</div>
+
+<!-- TAB 4: Hero Gradient Preview -->
+<div id="tab-hero-preview" class="tab-panel">
+  <h2 class="section-title">Hero Gradient Preview — As On Site</h2>
+  <p class="tab-desc">
+    Логотипы на реальном hero-градиенте сайта: <code>linear-gradient(135deg, #0f172a → #0f2e24 → #047857)</code><br>
+    Так логотипы выглядят на Hero Band рейтингов и обзоров. Менее тёмный фон, emerald-green тон справа.
+  </p>
+  <div class="grid" id="grid-hero-preview"></div>
+</div>
+
+<script>
+// === DATA ===
+const brokers = [
+  { slug: 'activtrades', name: 'ActivTrades' },
+  { slug: 'admirals', name: 'Admirals' },
+  { slug: 'avatrade', name: 'AvaTrade' },
+  { slug: 'axi', name: 'Axi' },
+  { slug: 'blackbull', name: 'BlackBull Markets' },
+  { slug: 'capital-com', name: 'Capital.com' },
+  { slug: 'city-index', name: 'City Index' },
+  { slug: 'cmc-markets', name: 'CMC Markets' },
+  { slug: 'dukascopy', name: 'Dukascopy' },
+  { slug: 'eightcap', name: 'Eightcap' },
+  { slug: 'etoro', name: 'eToro' },
+  { slug: 'exness', name: 'Exness' },
+  { slug: 'forex-com', name: 'FOREX.com' },
+  { slug: 'fp-markets', name: 'FP Markets' },
+  { slug: 'fusion-markets', name: 'Fusion Markets' },
+  { slug: 'fxcm', name: 'FXCM' },
+  { slug: 'fxpro', name: 'FxPro' },
+  { slug: 'fxtm', name: 'FXTM' },
+  { slug: 'go-markets', name: 'GO Markets' },
+  { slug: 'hfm', name: 'HFM' },
+  { slug: 'ic-markets', name: 'IC Markets' },
+  { slug: 'ig', name: 'IG' },
+  { slug: 'interactive-brokers', name: 'Interactive Brokers' },
+  { slug: 'libertex', name: 'Libertex' },
+  { slug: 'naga', name: 'NAGA' },
+  { slug: 'oanda', name: 'OANDA' },
+  { slug: 'pepperstone', name: 'Pepperstone' },
+  { slug: 'plus500', name: 'Plus500' },
+  { slug: 'roboforex', name: 'RoboForex' },
+  { slug: 'saxo-bank', name: 'Saxo Bank' },
+  { slug: 'spreadex', name: 'Spreadex' },
+  { slug: 'swissquote', name: 'Swissquote' },
+  { slug: 'thinkmarkets', name: 'ThinkMarkets' },
+  { slug: 'tickmill', name: 'Tickmill' },
+  { slug: 'trading-212', name: 'Trading 212' },
+  { slug: 'vantage', name: 'Vantage' },
+  { slug: 'xm', name: 'XM' },
+  { slug: 'xtb', name: 'XTB' },
+  // ─── M4 Phase 2: Stock / Options / Futures brokers ───
+  { slug: 'charles-schwab', name: 'Charles Schwab' },
+  { slug: 'fidelity', name: 'Fidelity Investments' },
+  { slug: 'robinhood', name: 'Robinhood' },
+  { slug: 'degiro', name: 'DEGIRO' },
+  { slug: 'etrade', name: 'E*TRADE' },
+  { slug: 'webull', name: 'Webull' },
+  { slug: 'trade-republic', name: 'Trade Republic' },
+  { slug: 'moomoo', name: 'Moomoo' },
+  { slug: 'tastytrade', name: 'tastytrade' },
+  { slug: 'ninjatrader', name: 'NinjaTrader' },
+  { slug: 'tradestation', name: 'TradeStation' },
+  { slug: 'amp-futures', name: 'AMP Futures' },
+  { slug: 'optimus-futures', name: 'Optimus Futures' },
+];
+
+// Wide light: file overrides (non-SVG)
+const wideExt = { 'capital-com': 'png', 'libertex': 'png', 'fxpro': 'jpg' };
+// Wide light: custom background colors
+const wideBg = { 'exness': '#ffde02', 'fxpro': '#f31112', 'trading-212': '#000', 'xm': '#1a1a2e' };
+
+// Wide dark: which slugs are missing (no SVG available)
+const darkMissing = new Set([]);
+// Wide dark: source notes
+const darkNotes = {
+  'axi': 'Official (axi.com CDN)',
+  'blackbull': 'Official (blackbull.com)',
+  'capital-com': 'Official (static.capital.com)',
+  'etoro': 'Official (companieslogo.com)',
+  'go-markets': 'Official (GO Markets CDN)',
+  'ic-markets': 'Official (icmarkets.eu)',
+  'ig': 'Official (a.c-dn.net), red→#fff',
+  'interactive-brokers': 'Official (companieslogo.com)',
+  'naga': 'Official (swipestox CDN)',
+  'oanda': 'Official (oanda.com)',
+  'plus500': 'Official (companieslogo.com)',
+  'roboforex': 'Official (roboforex.com)',
+  'saxo-bank': 'Official (home.saxo)',
+  'spreadex': 'Official (spreadex.com)',
+  'swissquote': 'Official (companieslogo.com)',
+  'thinkmarkets': 'Official (thinkmarkets.com)',
+  'xm': 'Official (companieslogo.com)',
+  'xtb': 'Official (xtb.com CDN)',
+  'eightcap': 'As-is (green visible on dark)',
+  'trading-212': 'As-is (blue+white visible on dark)',
+  'activtrades': 'Converted: #002857→#fff',
+  'admirals': 'Converted: navy→#fff, kept blue',
+  'avatrade': 'Converted: #101820→#fff, kept blue',
+  'city-index': 'Converted: #000→#fff',
+  'cmc-markets': 'Converted: #000→#fff',
+  'dukascopy': 'Fixed: text→#fff, kept red Swiss cross icon',
+  'exness': 'Fixed: removed yellow rects, text already white',
+  'forex-com': 'Converted: navy→#fff, kept green',
+  'fp-markets': 'Converted: navy→#fff, kept blue',
+  'fusion-markets': 'Converted: purple→#fff, kept gradients',
+  'fxcm': 'Converted: #1254A3→#fff',
+  'fxtm': 'Converted: dark→#fff, kept lime+orange',
+  'hfm': 'Converted: #000→#fff, kept red',
+  'pepperstone': 'Converted: dark→#fff, kept blue icon',
+  'tickmill': 'Converted: #303030→#fff, kept green+red',
+  'vantage': 'Converted: teal→#fff, kept orange',
+  'fxpro': 'New: worldvectorlogo serif wordmark, red→#fff',
+  'libertex': 'New: iconape SVG, orange icon + #222→#fff text',
+};
+
+// === TAB 1: Square Icons ===
+const gridIcons = document.getElementById('grid-icons');
+brokers.forEach(b => {
+  gridIcons.innerHTML += `
+    <div class="card icon-card">
+      <div class="card-label">${b.name}</div>
+      <img src="logos/${b.slug}.png" alt="${b.name}">
+      <div class="card-meta"><span class="status-ok">PNG</span></div>
+    </div>`;
+});
+
+// === TAB 2: Wide Light ===
+const gridWideLight = document.getElementById('grid-wide-light');
+brokers.forEach(b => {
+  const ext = wideExt[b.slug] || 'svg';
+  const file = `${b.slug}.${ext}`;
+  const isSvg = ext === 'svg';
+  const bg = wideBg[b.slug];
+  const bgStyle = bg ? `background:${bg};` : '';
+  const labelStyle = bg ? 'style="color:rgba(255,255,255,0.5)"' : '';
+  const imgTag = isSvg
+    ? `<object data="logos-wide/${file}" type="image/svg+xml" style="max-width:200px;max-height:60px;">${b.name}</object>`
+    : `<img src="logos-wide/${file}" alt="${b.name}">`;
+  const fmtLabel = ext.toUpperCase();
+
+  gridWideLight.innerHTML += `
+    <div class="card" style="${bgStyle}">
+      <div class="card-label" ${labelStyle}>${b.name}</div>
+      ${imgTag}
+      <div class="card-meta"><span class="status-ok">${fmtLabel}</span></div>
+    </div>`;
+});
+
+// === TAB 3: Wide Dark ===
+const gridWideDark = document.getElementById('grid-wide-dark');
+brokers.forEach(b => {
+  if (darkMissing.has(b.slug)) {
+    gridWideDark.innerHTML += `
+      <div class="card missing-card" style="background:#1e293b;border-color:#334155;">
+        <div class="card-label" style="color:#64748b">${b.name}</div>
+        <div style="color:#475569;font-size:13px;font-weight:600;">N/A</div>
+        <div class="card-meta"><span class="status-missing">No SVG source</span></div>
+      </div>`;
+    return;
+  }
+  const note = darkNotes[b.slug] || '';
+  const noteHtml = note ? `<br><span class="status-warn">${note}</span>` : '';
+  gridWideDark.innerHTML += `
+    <div class="card dark-bg">
+      <div class="card-label">${b.name}</div>
+      <object data="logos-wide-dark/${b.slug}.svg" type="image/svg+xml" style="max-width:200px;max-height:60px;">${b.name}</object>
+      <div class="card-meta"><span class="status-ok">SVG</span>${noteHtml}</div>
+    </div>`;
+});
+
+// === TAB 4: Hero Gradient Preview ===
+const gridHero = document.getElementById('grid-hero-preview');
+brokers.forEach(b => {
+  gridHero.innerHTML += `
+    <div class="card hero-bg">
+      <div class="card-label">${b.name}</div>
+      <object data="logos-wide-dark/${b.slug}.svg" type="image/svg+xml" style="max-width:200px;max-height:60px;">${b.name}</object>
+    </div>`;
+});
+
+// === Tab switching ===
+const tabMap = {
+  'icons': 'Square',
+  'wide-light': 'Wide Light',
+  'wide-dark': 'Wide Dark',
+  'hero-preview': 'Hero Gradient'
+};
+function switchTab(id) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  const keyword = tabMap[id];
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    if (btn.textContent.includes(keyword)) btn.classList.add('active');
+  });
+}
+</script>
+
+</body>
+</html>

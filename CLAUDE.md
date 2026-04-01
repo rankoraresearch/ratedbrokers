@@ -68,6 +68,7 @@ HH:MM — действие — результат
 | `logs/YYYY-MM.md` | Детальный лог действий (текущий месяц) |
 | `content/README.md` | Формат MD-файлов брокеров |
 | `BROKER-TYPES.md` | Различия типов брокеров: секции, скоринг, CTA, risk warning |
+| `/logo-showcase.html` | Библиотека логотипов всех брокеров (square, wide light, wide dark, hero) |
 | `THEMATIC-RANKINGS-TREE.md` | Дерево 330 рейтингов по 9 категориям |
 
 ## Стек и правила кода
