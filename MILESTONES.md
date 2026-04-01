@@ -702,6 +702,103 @@ P2.7 (stock rankings) + P2.8 (options) + P2.9 (futures) → P2.10 (hubs) → P2.
 
 ---
 
+### Phase 2.5: Дополнение новых брокеров — логотипы, платформы, регуляторы (6 спринтов)
+
+**Статус: ПЛАНИРУЕТСЯ**
+
+**Проблема:** 13 новых брокеров из Phase 2 не имеют wide-логотипов, страниц платформ и регуляторов.
+
+#### Sprint P2.5.1: Wide-логотипы для 13 брокеров `[M, 1.5 дня]`
+
+- [ ] **P2.5.1.1** Скачать/создать `logos-wide-dark/{slug}.svg` для каждого из 13:
+  - charles-schwab, fidelity, robinhood, degiro, etrade, webull
+  - trade-republic, moomoo, tastytrade, ninjatrader, tradestation
+  - amp-futures, optimus-futures
+- [ ] **P2.5.1.2** Скачать/создать `logos-wide/{slug}.svg` (light версии)
+- [ ] **P2.5.1.3** Проверить рендеринг в hero-секции BrokerReview (WideLogo fallback)
+- [ ] **P2.5.1.4** Обновить `LOGO_BG` map если нужны кастомные фоны
+
+**Файлы:** `public/logos-wide-dark/` (13 SVG), `public/logos-wide/` (13 SVG)
+
+#### Sprint P2.5.2: Новые страницы платформ `[M, 2 дня]`
+
+Существующие: MT4, MT5, cTrader, TradingView. Нужны новые.
+
+- [ ] **P2.5.2.1** thinkorswim (`src/data/platforms/thinkorswim.js`):
+  - Используется: Charles Schwab, E*TRADE
+  - Контент: Desktop/Web/Mobile, paperMoney, advanced options chain
+- [ ] **P2.5.2.2** NinjaTrader Platform (`src/data/platforms/ninjatrader.js`):
+  - Используется: NinjaTrader (брокер), AMP Futures, Optimus Futures, TradeStation
+  - Контент: SuperDOM, C# indicators, Market Replay, backtesting
+- [ ] **P2.5.2.3** Power E*TRADE (`src/data/platforms/power-etrade.js`):
+  - Используется: E*TRADE
+  - Контент: Options chain, risk/reward analysis, snapshots
+- [ ] **P2.5.2.4** Обновить `src/data/platforms/index.js` — добавить 3 новые платформы
+- [ ] **P2.5.2.5** Обновить `NAME_TO_SLUG` маппинг для новых платформ
+- [ ] **P2.5.2.6** Проверить ссылки из Header мега-меню (Platform Guides)
+
+**Файлы:** `src/data/platforms/` (3 новых JS), `src/data/platforms/index.js`
+
+#### Sprint P2.5.3: Новые страницы регуляторов `[M, 2 дня]`
+
+Существующие: FCA, ASIC, NFA, BaFin, MAS, CySEC, DFSA, FSCA, и 10+ других. Нужны:
+
+- [ ] **P2.5.3.1** SEC (`regulators.js` — добавить запись):
+  - Securities and Exchange Commission, USA
+  - Регулирует: Schwab, Fidelity, Robinhood, E*TRADE, Webull, Moomoo, tastytrade, TradeStation
+- [ ] **P2.5.3.2** FINRA (добавить запись):
+  - Financial Industry Regulatory Authority, USA
+  - Self-regulatory org для broker-dealers
+- [ ] **P2.5.3.3** CFTC (добавить запись):
+  - Commodity Futures Trading Commission, USA
+  - Регулирует: NinjaTrader, TradeStation, AMP, Optimus
+- [ ] **P2.5.3.4** AFM (добавить запись):
+  - Authority for the Financial Markets, Netherlands
+  - Регулирует: DEGIRO
+- [ ] **P2.5.3.5** ECB (добавить запись):
+  - European Central Bank — banking supervision
+  - Регулирует: Trade Republic
+- [ ] **P2.5.3.6** SFC (добавить запись):
+  - Securities and Futures Commission, Hong Kong
+  - Регулирует: Moomoo
+- [ ] **P2.5.3.7** CIRO (добавить запись):
+  - Canadian Investment Regulatory Organization
+  - Регулирует: Moomoo
+
+**Файлы:** `src/data/regulators.js`
+
+#### Sprint P2.5.4: Обновить ranking фильтры для новых регуляторов `[S, 0.5 дня]`
+
+- [ ] **P2.5.4.1** Добавить в `rankingFilters.js`:
+  - `hasReg("SEC")`, `hasReg("CFTC")` — для US stock/futures rankings
+  - `hasReg("AFM")` — для EU rankings
+  - `hasReg("SFC")` — для HK rankings
+- [ ] **P2.5.4.2** Проверить что фильтры `stocks-usa`, `options-usa`, `futures-usa` работают с SEC/FINRA
+
+**Файлы:** `src/data/rankingFilters.js`
+
+#### Sprint P2.5.5: Subpages для новых брокеров `[M, 2 дня]`
+
+Новые брокеры не имеют subpages (8 табов deep dive). Добавить минимальные данные.
+
+- [ ] **P2.5.5.1** Добавить `subpages:` YAML блок для каждого из 13 брокеров
+  - Минимум: fees, platforms, regulation табы
+  - Данные для stock/options/futures-специфичных полей
+- [ ] **P2.5.5.2** Проверить что `/review/{slug}/fees`, `/review/{slug}/platforms` работают
+
+**Файлы:** `content/brokers/*.md` (13 файлов)
+
+#### Sprint P2.5.6: QA и regression `[S, 1 день]`
+
+- [ ] **P2.5.6.1** Все 13 review страниц — визуальная проверка (hero logo, scoring, sections)
+- [ ] **P2.5.6.2** Все 3 новые платформенные страницы — рендерятся
+- [ ] **P2.5.6.3** Все 7 новых регуляторных страниц — рендерятся
+- [ ] **P2.5.6.4** Wide logo отображается в hero (не fallback)
+- [ ] **P2.5.6.5** Regression: старые брокеры не сломаны
+- [ ] **P2.5.6.6** `npm run build` — 0 ошибок
+
+---
+
 ### Phase 3: Prop Firms — новая вертикаль (высокий уровень)
 
 **Предусловие:** Phase 2 завершена. Prop Firms = другой тип контента (challenges, payouts, profit split).
