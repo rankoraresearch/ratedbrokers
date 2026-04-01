@@ -16,9 +16,10 @@ const GRAY_TEXT = "#374151";
 const GRAY_MUTED = "#64748b";
 const BORDER = "#e8ecf1";
 
-/* Grid template for uniform column alignment (header + rows) — no regs column for cleaner scan */
-const GRID_COLS = "1fr 60px 70px 64px 100px";
-const GRID_GAP = 14;
+/* Grid templates per breakpoint — uniform column alignment (header + rows) */
+const GRID_DESK = "1fr 56px 68px 62px 88px";   /* desktop: 5 cols with comfortable CTA */
+const GRID_TAB  = "1fr 50px 64px 56px 82px";    /* tablet: slightly tighter */
+const GRID_GAP = 12;
 
 /* ─── helpers ─── */
 function getAllAlternatives(currentSlug) {
@@ -163,15 +164,16 @@ function FeaturedCard({ alt, rank, currentScore, mob, why }) {
 }
 
 /* ─── Compact Row (CSS Grid aligned, no regs for clean scan) ─── */
-function CompactRow({ alt, i, mob }) {
+function CompactRow({ alt, i, mob, tab }) {
   const visitUrl = getVisitUrl(alt.slug);
+  const gridCols = tab ? GRID_TAB : GRID_DESK;
 
   if (mob) {
     return (
       <div style={{ padding: "14px 0", borderBottom: `1px solid ${BORDER}` }}>
         {/* Row 1: rank + logo + name ... score */}
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <span style={{ fontSize: 12, fontWeight: 700, color: GRAY_MUTED, width: 24, textAlign: "center", flexShrink: 0 }}>{i + 4}</span>
+          <span style={{ fontSize: 12, fontWeight: 700, color: GRAY_MUTED, width: 22, textAlign: "center", flexShrink: 0 }}>{i + 4}</span>
           <BrokerLogo slug={alt.slug} name={alt.name} fallback={alt.name.slice(0, 2)} size={32} shape="icon" borderRadius={8} />
           <div style={{ flex: 1, minWidth: 0 }}>
             <div style={{ fontSize: 14, fontWeight: 700, color: NAVY, fontFamily: "Outfit" }}>{alt.name}</div>
@@ -180,7 +182,7 @@ function CompactRow({ alt, i, mob }) {
           <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 15, fontWeight: 700, color: GREEN, flexShrink: 0 }}>{alt.score}</span>
         </div>
         {/* Row 2: CTA */}
-        <div style={{ paddingLeft: 42, marginTop: 10 }}>
+        <div style={{ paddingLeft: 40, marginTop: 10 }}>
           <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{
             background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: NAVY,
             fontSize: 13, fontWeight: 700, textDecoration: "none",
@@ -194,53 +196,53 @@ function CompactRow({ alt, i, mob }) {
     );
   }
 
-  /* Desktop: CSS Grid row — 5 columns, no regs */
+  /* Desktop/Tablet: CSS Grid row — 5 columns, no regs */
   return (
     <div style={{
       display: "grid",
-      gridTemplateColumns: GRID_COLS,
+      gridTemplateColumns: gridCols,
       columnGap: GRID_GAP,
       alignItems: "center",
-      padding: "12px 0",
+      padding: "11px 0",
       borderBottom: `1px solid ${BORDER}`,
     }}>
       {/* Broker */}
-      <div style={{ display: "flex", alignItems: "center", gap: 10, minWidth: 0 }}>
-        <span style={{ fontSize: 12, fontWeight: 700, color: GRAY_MUTED, width: 24, textAlign: "center", flexShrink: 0 }}>{i + 4}</span>
-        <BrokerLogo slug={alt.slug} name={alt.name} fallback={alt.name.slice(0, 2)} size={32} shape="icon" borderRadius={8} />
-        <div style={{ minWidth: 0 }}>
-          <div style={{ fontSize: 14, fontWeight: 700, color: NAVY, fontFamily: "Outfit", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{alt.name}</div>
+      <div style={{ display: "flex", alignItems: "center", gap: 8, minWidth: 0, overflow: "hidden" }}>
+        <span style={{ fontSize: 12, fontWeight: 700, color: GRAY_MUTED, width: 22, textAlign: "center", flexShrink: 0 }}>{i + 4}</span>
+        <BrokerLogo slug={alt.slug} name={alt.name} fallback={alt.name.slice(0, 2)} size={30} shape="icon" borderRadius={8} />
+        <div style={{ minWidth: 0, overflow: "hidden" }}>
+          <div style={{ fontSize: 13, fontWeight: 700, color: NAVY, fontFamily: "Outfit", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{alt.name}</div>
           <div style={{ fontSize: 11, color: GRAY_MUTED, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{alt.type}</div>
         </div>
       </div>
       {/* Score */}
       <div style={{ textAlign: "center" }}>
-        <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 14, fontWeight: 700, color: GREEN }}>{alt.score}</span>
+        <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 13, fontWeight: 700, color: GREEN }}>{alt.score}</span>
       </div>
       {/* Spread */}
       <div style={{ textAlign: "center" }}>
-        <span style={{ fontSize: 12, fontWeight: 600, color: NAVY }}>{alt.spread} pips</span>
+        <span style={{ fontSize: 12, fontWeight: 600, color: NAVY }}>{alt.spread}</span>
       </div>
       {/* Deposit */}
       <div style={{ textAlign: "center" }}>
         <span style={{ fontSize: 12, fontWeight: 600, color: NAVY }}>${alt.minDep}</span>
       </div>
-      {/* CTA — fixed width, uniform */}
+      {/* CTA — fixed grid cell, button fills it */}
       <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{
         background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: NAVY,
-        fontSize: 12, fontWeight: 700, textDecoration: "none",
-        padding: "8px 0", borderRadius: 8, height: 34, boxSizing: "border-box",
-        display: "flex", alignItems: "center", justifyContent: "center", gap: 4,
+        fontSize: 11, fontWeight: 700, textDecoration: "none",
+        borderRadius: 7, height: 32, boxSizing: "border-box",
+        display: "flex", alignItems: "center", justifyContent: "center", gap: 3,
         whiteSpace: "nowrap",
       }}>
-        Visit <ExternalLink size={11} />
+        Visit <ExternalLink size={10} />
       </a>
     </div>
   );
 }
 
 /* ═══════════════════════════════════════════════════════ */
-export default function AlternativesTab({ data, slug, mob }) {
+export default function AlternativesTab({ data, slug, mob, tab }) {
   const { B, SIMILAR, FAQ, SUBPAGES } = data;
   const sp = SUBPAGES?.alternatives || {};
   const [showAll, setShowAll] = useState(false);
@@ -405,7 +407,7 @@ export default function AlternativesTab({ data, slug, mob }) {
         {!mob && (
           <div style={{
             display: "grid",
-            gridTemplateColumns: GRID_COLS,
+            gridTemplateColumns: tab ? GRID_TAB : GRID_DESK,
             columnGap: GRID_GAP,
             alignItems: "center",
             padding: "8px 0",
@@ -421,7 +423,7 @@ export default function AlternativesTab({ data, slug, mob }) {
         )}
 
         {visibleRemaining.map((alt, i) => (
-          <CompactRow key={alt.slug} alt={alt} i={i} mob={mob} />
+          <CompactRow key={alt.slug} alt={alt} i={i} mob={mob} tab={tab} />
         ))}
 
         {!showAll && remaining.length > 7 && (

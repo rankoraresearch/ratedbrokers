@@ -33,10 +33,11 @@ export default function BrokerSubPage() {
   const [w, setW] = useState(typeof window !== "undefined" ? window.innerWidth : 1200);
   useEffect(() => { const fn = () => setW(window.innerWidth); window.addEventListener("resize", fn); return () => window.removeEventListener("resize", fn); }, []);
   const mob = w < 640;
+  const isTab = w >= 640 && w < 1024;
 
   return (
     <SubPageLayout data={data} slug={slug} activeTab={tab}>
-      <TabRenderer data={data} slug={slug} mob={mob} />
+      <TabRenderer data={data} slug={slug} mob={mob} tab={isTab} />
     </SubPageLayout>
   );
 }
