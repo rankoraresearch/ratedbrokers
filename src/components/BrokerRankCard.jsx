@@ -10,7 +10,7 @@ import { getVisitUrl } from "../utils/visitUrl";
 import { ChevronDown, Check, X as XIcon, ExternalLink } from "lucide-react";
 
 /* ── Wide logo maps — dark variant (white text on navy) ── */
-const WIDE_EXT = {}; /* all dark logos are SVG */
+const WIDE_EXT = { "charles-schwab": "png" }; /* override for brokers without vector SVG */
 const LOGO_BG_DEFAULT = "linear-gradient(135deg, #0a2018, #0f172a)";
 
 /* ── Wide wordmark logo ── */

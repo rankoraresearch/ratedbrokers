@@ -28,7 +28,7 @@ function Card({children,style={}}){ return <div style={{background:"#fff",border
 
 /* Wide rectangular wordmark logo for review hero.
    Uses logos-wide-dark/ (white text SVGs on navy bg). */
-const WIDE_EXT = {}; /* all dark logos are SVG */
+const WIDE_EXT = { "charles-schwab": "png" }; /* override for brokers without vector SVG */
 const LOGO_BG_DEFAULT = "#0f172a";
 function WideLogo({ slug, name, fallback, mob }) {
   const [err, setErr] = useState(false);
