@@ -186,10 +186,10 @@ function CompactRow({ alt, i, mob, tab }) {
           <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{
             background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: NAVY,
             fontSize: 13, fontWeight: 700, textDecoration: "none",
-            padding: "10px 16px", borderRadius: 8, height: 40, boxSizing: "border-box",
-            display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 5,
+            padding: "10px 0", borderRadius: 8, height: 40, width: 120, boxSizing: "border-box",
+            display: "flex", alignItems: "center", justifyContent: "center", gap: 5,
           }}>
-            Visit {alt.name} <ExternalLink size={12} />
+            Visit Site <ExternalLink size={12} />
           </a>
         </div>
       </div>
@@ -227,11 +227,11 @@ function CompactRow({ alt, i, mob, tab }) {
       <div style={{ textAlign: "center" }}>
         <span style={{ fontSize: 12, fontWeight: 600, color: NAVY }}>${alt.minDep}</span>
       </div>
-      {/* CTA — fixed grid cell, button fills it */}
+      {/* CTA — fixed grid cell, button stretches to fill */}
       <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{
         background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: NAVY,
         fontSize: 11, fontWeight: 700, textDecoration: "none",
-        borderRadius: 7, height: 32, boxSizing: "border-box",
+        borderRadius: 7, height: 32, width: "100%", boxSizing: "border-box",
         display: "flex", alignItems: "center", justifyContent: "center", gap: 3,
         whiteSpace: "nowrap",
       }}>
