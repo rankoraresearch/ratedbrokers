@@ -32,11 +32,47 @@ function useMedia() {
 // CONTACT FORM
 // ============================
 const apiBase = import.meta.env.VITE_API_URL || '';
+const TURNSTILE_SITE_KEY = '0x4AAAAAABfMqnQ3YL_KSvxg'; // Public site key — replace after creating widget in CF Dashboard
 
 function ContactForm({ mob }) {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState("idle"); // idle | sending | success | error
   const [errorMsg, setErrorMsg] = useState("");
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const turnstileRef = useState(null);
+
+  // Load Turnstile script
+  useEffect(() => {
+    if (document.querySelector('script[src*="turnstile"]')) return;
+    const script = document.createElement("script");
+    script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+    script.async = true;
+    script.onload = () => {
+      if (window.turnstile && document.getElementById("turnstile-container")) {
+        const widgetId = window.turnstile.render("#turnstile-container", {
+          sitekey: TURNSTILE_SITE_KEY,
+          callback: (token) => setTurnstileToken(token),
+          "expired-callback": () => setTurnstileToken(""),
+          theme: "light",
+        });
+        turnstileRef[1](widgetId);
+      }
+    };
+    document.head.appendChild(script);
+  }, []);
+
+  // Render widget if script already loaded (e.g. re-mount)
+  useEffect(() => {
+    if (window.turnstile && document.getElementById("turnstile-container") && !turnstileRef[0]) {
+      const widgetId = window.turnstile.render("#turnstile-container", {
+        sitekey: TURNSTILE_SITE_KEY,
+        callback: (token) => setTurnstileToken(token),
+        "expired-callback": () => setTurnstileToken(""),
+        theme: "light",
+      });
+      turnstileRef[1](widgetId);
+    }
+  }, [status]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -47,7 +83,10 @@ function ContactForm({ mob }) {
       const res = await fetch(`${apiBase}/api/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: form.name.trim(), email: form.email.trim(), message: form.message.trim() }),
+        body: JSON.stringify({
+          name: form.name.trim(), email: form.email.trim(), message: form.message.trim(),
+          token: turnstileToken,
+        }),
       });
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
@@ -55,6 +94,11 @@ function ContactForm({ mob }) {
       }
       setStatus("success");
       setForm({ name: "", email: "", message: "" });
+      setTurnstileToken("");
+      // Reset Turnstile widget
+      if (window.turnstile && turnstileRef[0] != null) {
+        window.turnstile.reset(turnstileRef[0]);
+      }
     } catch (err) {
       setStatus("error");
       setErrorMsg(err.message || "Failed to send message");
@@ -107,6 +151,7 @@ function ContactForm({ mob }) {
             onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
             required style={{ ...inputStyle, resize: "vertical", minHeight: 120 }}
           />
+          <div id="turnstile-container" style={{ minHeight: 65 }} />
           {status === "error" && (
             <div style={{ fontSize: 14, color: "#dc2626", padding: "8px 12px", background: "#fef2f2", borderRadius: 8, border: "1px solid #fecaca" }}>
               {errorMsg}

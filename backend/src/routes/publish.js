@@ -348,6 +348,13 @@ export async function handlePublishUpdate(request, env, slug) {
     return Response.json({ error: 'Invalid action' }, { status: 400, headers });
   }
 
+  // Log to publish_log
+  if (action === 'publish' || action === 'unpublish') {
+    await env.DB.prepare(
+      'INSERT INTO publish_log (action, count, slugs, triggered_by) VALUES (?, ?, ?, ?)'
+    ).bind(action, 1, JSON.stringify([decodedSlug]), 'manual').run();
+  }
+
   return Response.json({ ok: true, slug: decodedSlug, action }, { headers });
 }
 
@@ -447,7 +454,13 @@ export async function handlePublishTick(request, env) {
     await env.DB.batch(stmts.slice(i, i + 50));
   }
 
-  return Response.json({ ok: true, published: due.results.length, slugs: due.results.map(r => r.slug) }, { headers });
+  // Log to publish_log
+  const slugList = due.results.map(r => r.slug);
+  await env.DB.prepare(
+    'INSERT INTO publish_log (action, count, slugs, triggered_by) VALUES (?, ?, ?, ?)'
+  ).bind('publish', slugList.length, JSON.stringify(slugList), 'manual-tick').run();
+
+  return Response.json({ ok: true, published: due.results.length, slugs: slugList }, { headers });
 }
 
 // GET /api/publish/active — PUBLIC (no auth, cached 5min)
@@ -579,6 +592,15 @@ export async function handlePublishDashboard(request, env) {
     typeMap[row.page_type][row.status] = row.c;
     typeMap[row.page_type].total += row.c;
   }
+
+  // Recent activity from publish_log
+  let recentActivity = [];
+  try {
+    const actResult = await env.DB.prepare(
+      'SELECT action, count, slugs, triggered_by, created_at FROM publish_log ORDER BY created_at DESC LIMIT 20'
+    ).all();
+    recentActivity = actResult.results;
+  } catch (e) { /* table may not exist yet */ }
 
   // Build sitemap display
   const smMap = {};
@@ -805,6 +827,34 @@ export async function handlePublishDashboard(request, env) {
         }).join('')}
       </div>
     </div>
+
+    <!-- Recent Activity -->
+    ${recentActivity.length > 0 ? `
+    <div style="margin-top:28px">
+      <div class="section-hdr sh-purple"><div class="sh-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><h2>Recent Activity</h2></div>
+      <div style="overflow-x:auto">
+        <table class="premium-table">
+          <thead><tr><th>Time</th><th>Action</th><th>Count</th><th>Triggered By</th><th>Details</th></tr></thead>
+          <tbody>
+            ${recentActivity.map(a => {
+              const slugs = a.slugs ? JSON.parse(a.slugs) : [];
+              const preview = slugs.length <= 3 ? slugs.join(', ') : slugs.slice(0, 3).join(', ') + ' +' + (slugs.length - 3) + ' more';
+              const actionColor = a.action === 'publish' || a.action === 'auto-publish' ? 'var(--green)' : a.action === 'unpublish' ? 'var(--red)' : 'var(--text-secondary)';
+              const triggerBadge = a.triggered_by === 'cron'
+                ? '<span style="font-size:10px;padding:2px 6px;border-radius:4px;background:var(--blue-glow);color:var(--blue);font-weight:700">CRON</span>'
+                : '<span style="font-size:10px;padding:2px 6px;border-radius:4px;background:var(--amber-glow);color:var(--amber);font-weight:700">MANUAL</span>';
+              return '<tr>' +
+                '<td style="white-space:nowrap;font-size:12px">' + esc(a.created_at || '') + '</td>' +
+                '<td style="color:' + actionColor + ';font-weight:600;font-size:12px">' + esc(a.action) + '</td>' +
+                '<td style="text-align:center;font-weight:700">' + a.count + '</td>' +
+                '<td>' + triggerBadge + '</td>' +
+                '<td style="font-size:11px;color:var(--text-muted);max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="' + esc(preview) + '">' + esc(preview) + '</td>' +
+                '</tr>';
+            }).join('')}
+          </tbody>
+        </table>
+      </div>
+    </div>` : ''}
 
   </div>
   ${adminFooterHTML()}

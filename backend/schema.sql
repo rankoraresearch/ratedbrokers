@@ -65,3 +65,25 @@ CREATE TABLE IF NOT EXISTS page_publish (
 CREATE INDEX IF NOT EXISTS idx_pp_status ON page_publish(status);
 CREATE INDEX IF NOT EXISTS idx_pp_scheduled ON page_publish(scheduled_at);
 CREATE INDEX IF NOT EXISTS idx_pp_type ON page_publish(page_type);
+
+-- Link health checks (affiliate URL monitoring)
+CREATE TABLE IF NOT EXISTS link_checks (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  broker_slug TEXT NOT NULL,
+  status_code INTEGER,
+  ok INTEGER NOT NULL DEFAULT 1,
+  error TEXT,
+  checked_at TEXT DEFAULT (datetime('now'))
+);
+CREATE INDEX IF NOT EXISTS idx_lc_broker ON link_checks(broker_slug);
+CREATE INDEX IF NOT EXISTS idx_lc_date ON link_checks(checked_at);
+
+-- Publication activity log
+CREATE TABLE IF NOT EXISTS publish_log (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  action TEXT NOT NULL,
+  count INTEGER NOT NULL DEFAULT 0,
+  slugs TEXT,
+  triggered_by TEXT NOT NULL DEFAULT 'cron',
+  created_at TEXT DEFAULT (datetime('now'))
+);

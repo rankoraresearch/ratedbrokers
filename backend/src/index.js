@@ -4,16 +4,52 @@ import { handleContact } from './routes/contact.js';
 import { handleAdminList, handleAdminUpdate, handleAdminCreate, handleAdminDelete, handleAdminDashboard } from './routes/admin.js';
 import { handleRankingsDashboard, handleRankingBrokers, handleRankingOrderUpdate, handleRankingOrderReset, handleRankingOrderPublic } from './routes/rankings.js';
 import { handlePublishDashboard, handlePublishPages, handlePublishUpdate, handlePublishBatch, handlePublishAutoSchedule, handlePublishTick, handlePublishActive, handleSitemapIndex, handleSitemapSection } from './routes/publish.js';
+import { handleMessagesDashboard, handleMessageDelete, handleLinkRecheck } from './routes/messages.js';
 import { handleOptions } from './utils/cors.js';
 
 export default {
-  // Cron Trigger — runs every hour, auto-publishes scheduled pages
+  // Cron Trigger — runs every hour
   async scheduled(event, env, ctx) {
-    const now = new Date().toISOString().slice(0, 19).replace('T', ' ');
-    const result = await env.DB.prepare(
+    const now = new Date();
+    const nowStr = now.toISOString().slice(0, 19).replace('T', ' ');
+
+    // 1. Auto-publish scheduled pages
+    const pubResult = await env.DB.prepare(
       `UPDATE page_publish SET status = 'published', published_at = ? WHERE status = 'scheduled' AND scheduled_at <= ?`
-    ).bind(now, now).run();
-    console.log(`[CRON] tick at ${now} — published ${result.meta.changes} pages`);
+    ).bind(nowStr, nowStr).run();
+
+    if (pubResult.meta.changes > 0) {
+      // Log to publish_log
+      const published = await env.DB.prepare(
+        `SELECT slug FROM page_publish WHERE published_at = ?`
+      ).bind(nowStr).all();
+      const slugList = published.results.map(p => p.slug);
+      await env.DB.prepare(
+        `INSERT INTO publish_log (action, count, slugs, triggered_by) VALUES (?, ?, ?, ?)`
+      ).bind('auto-publish', pubResult.meta.changes, JSON.stringify(slugList), 'cron').run();
+    }
+    console.log(`[CRON] tick at ${nowStr} — published ${pubResult.meta.changes} pages`);
+
+    // 2. Link Health check (once daily at 06:00 UTC)
+    if (now.getUTCHours() === 6) {
+      const brokers = await env.DB.prepare('SELECT slug, affiliate_url FROM brokers').all();
+      for (const b of brokers.results) {
+        try {
+          const res = await fetch(b.affiliate_url, {
+            method: 'HEAD', redirect: 'follow',
+            headers: { 'User-Agent': 'RatedBrokers-LinkChecker/1.0' },
+          });
+          await env.DB.prepare(
+            'INSERT INTO link_checks (broker_slug, status_code, ok) VALUES (?, ?, ?)'
+          ).bind(b.slug, res.status, res.ok ? 1 : 0).run();
+        } catch (err) {
+          await env.DB.prepare(
+            'INSERT INTO link_checks (broker_slug, status_code, ok, error) VALUES (?, ?, ?, ?)'
+          ).bind(b.slug, 0, 0, err.message.slice(0, 200)).run();
+        }
+      }
+      console.log(`[CRON] link check complete — ${brokers.results.length} brokers checked`);
+    }
   },
 
   async fetch(request, env, ctx) {
@@ -102,6 +138,25 @@ export default {
     const rankingPublicMatch = path.match(/^\/api\/rankings\/([a-z0-9-]+)\/order$/);
     if (rankingPublicMatch && request.method === 'GET') {
       return handleRankingOrderPublic(request, env, rankingPublicMatch[1]);
+    }
+
+    // ─── Messages & Link Health ───
+
+    // GET /api/admin/messages/dashboard — HTML Messages dashboard
+    if (path === '/api/admin/messages/dashboard' && request.method === 'GET') {
+      return handleMessagesDashboard(request, env);
+    }
+
+    // DELETE /api/admin/messages/:id — delete a message
+    const msgDeleteMatch = path.match(/^\/api\/admin\/messages\/(\d+)$/);
+    if (msgDeleteMatch && request.method === 'DELETE') {
+      return handleMessageDelete(request, env, msgDeleteMatch[1]);
+    }
+
+    // POST /api/admin/messages/recheck/:slug — re-check single link
+    const recheckMatch = path.match(/^\/api\/admin\/messages\/recheck\/([a-z0-9-]+)$/);
+    if (recheckMatch && request.method === 'POST') {
+      return handleLinkRecheck(request, env, recheckMatch[1]);
     }
 
     // ─── Publication Planner ───

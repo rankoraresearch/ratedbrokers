@@ -103,6 +103,27 @@ function buildDataObject(fm, content) {
       badge: fm.badge ?? null,
       riskWarning: fm.risk_warning,
       verticals: fm.verticals || ["forex", "cfd"],
+      // Stock-specific fields
+      commissionPerTrade: fm.commission_per_trade ?? null,
+      fractionalShares: fm.fractional_shares ?? null,
+      realStocks: fm.real_stocks ?? null,
+      exchanges: fm.exchanges || null,
+      isaAvailable: fm.isa_available ?? null,
+      extendedHours: fm.extended_hours ?? null,
+      ipoAccess: fm.ipo_access ?? null,
+      dividendReinvestment: fm.dividend_reinvestment ?? null,
+      // Options-specific fields
+      optionsContractFee: fm.options_contract_fee ?? null,
+      multiLegOrders: fm.multi_leg_orders ?? null,
+      optionsLevel: fm.options_level ?? null,
+      paperTrading: fm.paper_trading ?? null,
+      optionsAnalytics: fm.options_analytics ?? null,
+      // Futures-specific fields
+      futuresCommission: fm.futures_commission ?? null,
+      microFutures: fm.micro_futures ?? null,
+      dayTradeMargins: fm.day_trade_margins ?? null,
+      domTrading: fm.dom_trading ?? null,
+      futuresPlatforms: fm.futures_platforms || null,
     },
     SCORES: (fm.scores || []).map((s) => ({
       name: s.name,

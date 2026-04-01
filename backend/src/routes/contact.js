@@ -40,6 +40,30 @@ export async function handleContact(request, env) {
     );
   }
 
+  // Verify Turnstile CAPTCHA (graceful: skip if secret not configured)
+  const turnstileSecret = env.TURNSTILE_SECRET;
+  if (turnstileSecret) {
+    const token = body.token;
+    if (!token) {
+      return Response.json(
+        { error: 'CAPTCHA required' },
+        { status: 400, headers }
+      );
+    }
+    const verifyRes = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ secret: turnstileSecret, response: token }),
+    });
+    const verifyData = await verifyRes.json();
+    if (!verifyData.success) {
+      return Response.json(
+        { error: 'CAPTCHA verification failed' },
+        { status: 400, headers }
+      );
+    }
+  }
+
   const { name, email, message } = body;
 
   if (!name || !email || !message) {
