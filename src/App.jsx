@@ -108,6 +108,9 @@ function AppRoutes() {
         <Route path="copy-trading" element={<CategoryHubPage hubSlug="copy-trading" />} />
         <Route path="spread-betting" element={<CategoryHubPage hubSlug="spread-betting" />} />
         <Route path="crypto-trading" element={<CategoryHubPage hubSlug="crypto" />} />
+        <Route path="stock-trading" element={<CategoryHubPage hubSlug="stocks" />} />
+        <Route path="options-trading" element={<CategoryHubPage hubSlug="options" />} />
+        <Route path="futures-trading" element={<CategoryHubPage hubSlug="futures" />} />
         <Route path=":slug" element={<RankingPage />} />
       </Route>
     </Routes>

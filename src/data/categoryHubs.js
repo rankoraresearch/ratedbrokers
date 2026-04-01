@@ -93,4 +93,44 @@ export function getFeaturedRankings(hub) {
     .filter(Boolean);
 }
 
+// Phase 2 hubs
+HUBS.push(
+  {
+    slug: "stocks",
+    path: "/stock-trading",
+    name: "Stock Brokers",
+    title: "Stock Brokers",
+    subtitle: "Compare stock brokers for commission-free investing, fractional shares, and retirement accounts.",
+    icon: "building-2",
+    color: "#0ea5e9",
+    category: "stocks",
+    verticalKey: "stocks",
+    featuredIds: ["stocks-overall", "stocks-beginners", "stocks-commission-free", "stocks-fractional", "stocks-usa"],
+  },
+  {
+    slug: "options",
+    path: "/options-trading",
+    name: "Options Brokers",
+    title: "Options Brokers",
+    subtitle: "Find the best options trading platforms with advanced chains, Greeks, and multi-leg support.",
+    icon: "layers",
+    color: "#8b5cf6",
+    category: "options",
+    verticalKey: "options",
+    featuredIds: ["options", "options-beginners", "options-platforms", "options-zero-fee", "options-usa"],
+  },
+  {
+    slug: "futures",
+    path: "/futures-trading",
+    name: "Futures Brokers",
+    title: "Futures Brokers",
+    subtitle: "Compare futures brokers for micro contracts, low margins, and professional DOM tools.",
+    icon: "clock",
+    color: "#ea580c",
+    category: "futures",
+    verticalKey: "futures",
+    featuredIds: ["futures", "futures-beginners", "futures-micro", "futures-low-fee", "futures-usa"],
+  }
+);
+
 export default HUBS;

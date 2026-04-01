@@ -1252,9 +1252,9 @@ export default function Home() {
     { name: "Copy Trading", slug: "copy-trading", icon: "handshake", count: 12, phase: 1, status: "new" },
     { name: "Spread Betting", slug: "spread-betting", icon: "target", count: 9, phase: 1, status: "new" },
     { name: "Crypto Brokers", slug: "crypto-brokers", icon: "bitcoin", count: 26, phase: 1, status: "partial" },
-    { name: "Stock Brokers", slug: "stock-brokers", icon: "building-2", count: 18, phase: 2, status: "future" },
-    { name: "Options Brokers", slug: "options-brokers", icon: "layers", count: 9, phase: 2, status: "future" },
-    { name: "Futures Brokers", slug: "futures-brokers", icon: "clock", count: 9, phase: 2, status: "future" },
+    { name: "Stock Brokers", slug: "stock-brokers", icon: "building-2", count: 15, phase: 2, status: "new" },
+    { name: "Options Brokers", slug: "options-brokers", icon: "layers", count: 9, phase: 2, status: "new" },
+    { name: "Futures Brokers", slug: "futures-brokers", icon: "clock", count: 10, phase: 2, status: "new" },
     { name: "Prop Firms", slug: "prop-firms", icon: "rocket", count: 17, phase: 3, status: "future" },
   ];
 
@@ -1269,13 +1269,16 @@ export default function Home() {
         overflowX: "auto",
       }}>
         <div style={{ ...cn, display: "flex", gap: mob ? 8 : 10, minWidth: "min-content" }}>
-          {UMBRELLA_CATEGORIES.filter(c => c.phase <= 1).map(cat => (
+          {UMBRELLA_CATEGORIES.filter(c => c.phase <= 2).map(cat => (
             <Link key={cat.slug} to={
               cat.slug === "forex-brokers" ? "/forex-brokers" :
               cat.slug === "cfd-brokers" ? "/cfd-trading" :
               cat.slug === "copy-trading" ? "/copy-trading" :
               cat.slug === "spread-betting" ? "/spread-betting" :
-              cat.slug === "crypto-brokers" ? "/crypto-trading" : "/online-brokers"
+              cat.slug === "crypto-brokers" ? "/crypto-trading" :
+              cat.slug === "stock-brokers" ? "/stock-trading" :
+              cat.slug === "options-brokers" ? "/options-trading" :
+              cat.slug === "futures-brokers" ? "/futures-trading" : "/online-brokers"
             } style={{
               display: "inline-flex", alignItems: "center", gap: 6,
               padding: mob ? "8px 12px" : "9px 16px", borderRadius: 8,
