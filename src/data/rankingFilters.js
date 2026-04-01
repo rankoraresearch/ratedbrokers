@@ -58,6 +58,9 @@ const isCFD = hasVertical("cfd");
 const isCopyTrader = hasVertical("copy-trading");
 const isSpreadBetting = hasVertical("spread-betting");
 const isCrypto = hasVertical("crypto");
+const isStocks = hasVertical("stocks");
+const isOptions = hasVertical("options");
+const isFutures = hasVertical("futures");
 
 // Combine filters with AND logic
 const and = (...fns) => (b) => fns.every((fn) => fn(b));
@@ -379,6 +382,52 @@ const FILTERS = {
   "forex-charts":      or(hasPlatform("TradingView"), hasPlatform("cTrader")),
   "pay-amex":          all,
   "pay-trustly":       all,
+
+  // ═══════════════════════════════════════════════════════════════
+  // Z. STOCK BROKERS (15) — M4 Phase 2
+  // ═══════════════════════════════════════════════════════════════
+  "stocks-beginners":       and(isStocks, scoreAbove(8.0)),
+  "stocks-day-trading":     and(isStocks, (b) => spreadUnder(0.5)(b) || isECN(b) || b.B.commissionPerTrade === "$0"),
+  "stocks-professionals":   and(isStocks, scoreAbove(8.5)),
+  "stocks-fractional":      and(isStocks, (b) => b.B.fractionalShares === true),
+  "stocks-dividend":        and(isStocks, (b) => b.B.dividendReinvestment === true),
+  "stocks-penny":           isStocks,
+  "stocks-commission-free": and(isStocks, (b) => b.B.commissionPerTrade === "$0"),
+  "stocks-low-fee":         isStocks,
+  "stocks-usa":             and(isStocks, or(hasReg("SEC"), hasReg("FINRA"))),
+  "stocks-uk":              and(isStocks, or(hasReg("FCA"), (b) => b.B.isaAvailable === true)),
+  "stocks-europe":          and(isStocks, or(hasReg("BaFin"), hasReg("AFM"), hasReg("CySEC"))),
+  "stocks-platforms":       isStocks,
+  "stocks-isa":             and(isStocks, (b) => b.B.isaAvailable === true),
+  "stocks-robo":            isStocks,
+  "stocks-tv":              and(isStocks, hasPlatform("TradingView")),
+
+  // ═══════════════════════════════════════════════════════════════
+  // AA. OPTIONS BROKERS (9) — M4 Phase 2
+  // ═══════════════════════════════════════════════════════════════
+  "options-beginners":      and(isOptions, scoreAbove(8.0)),
+  "options-platforms":      isOptions,
+  "options-forex":          isOptions,
+  "options-low-fee":        isOptions,
+  "options-usa":            and(isOptions, or(hasReg("SEC"), hasReg("FINRA"))),
+  "options-paper":          and(isOptions, (b) => b.B.paperTrading === true),
+  "options-spreads":        and(isOptions, (b) => b.B.multiLegOrders === true),
+  "options-zero-fee":       and(isOptions, (b) => b.B.optionsContractFee && b.B.optionsContractFee.includes("$0")),
+  "options-day-trading":    isOptions,
+
+  // ═══════════════════════════════════════════════════════════════
+  // AB. FUTURES BROKERS (10) — M4 Phase 2
+  // ═══════════════════════════════════════════════════════════════
+  "futures-beginners":      and(isFutures, scoreAbove(7.5)),
+  "futures-platforms":      isFutures,
+  "futures-micro":          and(isFutures, (b) => b.B.microFutures === true),
+  "futures-usa":            and(isFutures, or(hasReg("CFTC"), hasReg("NFA"), hasReg("SEC"))),
+  "futures-low-fee":        isFutures,
+  "futures-day-trading":    isFutures,
+  "futures-tv":             and(isFutures, hasPlatform("TradingView")),
+  "futures-nt":             and(isFutures, hasPlatform("NinjaTrader")),
+  "futures-commodity":      isFutures,
+  "futures-index":          isFutures,
 };
 
 // ── Combinatorial filter builder ─────────────────────────

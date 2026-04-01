@@ -374,6 +374,52 @@ const RANKINGS = [
   // Payment
   { id: "pay-amex",            slug: "/forex-brokers-accepting-amex",             title: "Forex Brokers Accepting Amex",                 category: "forex", sub: "payment",  priority: 3, icon: "credit-card" },
   { id: "pay-trustly",         slug: "/forex-brokers-accepting-trustly",          title: "Forex Brokers Accepting Trustly",              category: "forex", sub: "payment",  priority: 3, icon: "credit-card" },
+
+  // ═══════════════════════════════════════════════════════════════
+  // Z. STOCK BROKERS (15) — M4 Phase 2
+  // ═══════════════════════════════════════════════════════════════
+  { id: "stocks-beginners",       slug: "/best-stock-brokers-for-beginners",       title: "Best Stock Brokers for Beginners",           category: "stocks", sub: "audience",   priority: 1, icon: "graduation-cap", vertical: "stocks" },
+  { id: "stocks-day-trading",     slug: "/best-stock-brokers-for-day-trading",     title: "Best Stock Brokers for Day Trading",          category: "stocks", sub: "style",      priority: 1, icon: "sun",            vertical: "stocks" },
+  { id: "stocks-professionals",   slug: "/best-stock-brokers-for-professionals",   title: "Best Stock Brokers for Professionals",        category: "stocks", sub: "audience",   priority: 2, icon: "briefcase",      vertical: "stocks" },
+  { id: "stocks-fractional",      slug: "/best-fractional-shares-brokers",         title: "Best Brokers for Fractional Shares",          category: "stocks", sub: "feature",    priority: 1, icon: "scissors",       vertical: "stocks" },
+  { id: "stocks-dividend",        slug: "/best-dividend-investing-brokers",        title: "Best Brokers for Dividend Investing",         category: "stocks", sub: "feature",    priority: 2, icon: "coins",          vertical: "stocks" },
+  { id: "stocks-penny",           slug: "/best-penny-stock-brokers",              title: "Best Penny Stock Brokers",                    category: "stocks", sub: "feature",    priority: 2, icon: "piggy-bank",     vertical: "stocks" },
+  { id: "stocks-commission-free", slug: "/best-commission-free-stock-brokers",     title: "Best Commission-Free Stock Brokers",          category: "stocks", sub: "costs",      priority: 1, icon: "circle-check",   vertical: "stocks" },
+  { id: "stocks-low-fee",         slug: "/best-low-fee-stock-brokers",            title: "Best Low Fee Stock Brokers",                  category: "stocks", sub: "costs",      priority: 2, icon: "piggy-bank",     vertical: "stocks" },
+  { id: "stocks-usa",             slug: "/best-stock-brokers-usa",                title: "Best Stock Brokers USA",                      category: "stocks", sub: "country",    priority: 1, icon: "globe",          vertical: "stocks" },
+  { id: "stocks-uk",              slug: "/best-stock-brokers-uk",                 title: "Best Stock Brokers UK",                       category: "stocks", sub: "country",    priority: 1, icon: "globe",          vertical: "stocks" },
+  { id: "stocks-europe",          slug: "/best-stock-brokers-europe",             title: "Best Stock Brokers Europe",                   category: "stocks", sub: "country",    priority: 2, icon: "globe",          vertical: "stocks" },
+  { id: "stocks-platforms",       slug: "/best-stock-trading-platforms",          title: "Best Stock Trading Platforms",                category: "stocks", sub: "platform",   priority: 1, icon: "monitor",        vertical: "stocks" },
+  { id: "stocks-isa",             slug: "/best-stocks-and-shares-isa",            title: "Best Stocks and Shares ISA",                  category: "stocks", sub: "account",    priority: 2, icon: "shield",         vertical: "stocks" },
+  { id: "stocks-robo",            slug: "/best-robo-advisors",                    title: "Best Robo-Advisors",                          category: "stocks", sub: "account",    priority: 2, icon: "bot",            vertical: "stocks" },
+  { id: "stocks-tv",              slug: "/best-tradingview-stock-brokers",        title: "Best TradingView Stock Brokers",              category: "stocks", sub: "platform",   priority: 3, icon: "bar-chart-3",    vertical: "stocks" },
+
+  // ═══════════════════════════════════════════════════════════════
+  // AA. OPTIONS BROKERS (9) — M4 Phase 2
+  // ═══════════════════════════════════════════════════════════════
+  { id: "options-beginners",      slug: "/best-options-brokers-for-beginners",     title: "Best Options Brokers for Beginners",          category: "options", sub: "audience",  priority: 1, icon: "graduation-cap", vertical: "options" },
+  { id: "options-platforms",      slug: "/best-options-trading-platforms",         title: "Best Options Trading Platforms",               category: "options", sub: "platform",  priority: 1, icon: "monitor",        vertical: "options" },
+  { id: "options-forex",          slug: "/best-forex-options-brokers",            title: "Best Forex Options Brokers",                   category: "options", sub: "asset",     priority: 2, icon: "trending-up",    vertical: "options" },
+  { id: "options-low-fee",        slug: "/best-low-fee-options-brokers",          title: "Best Low Fee Options Brokers",                 category: "options", sub: "costs",     priority: 2, icon: "piggy-bank",     vertical: "options" },
+  { id: "options-usa",            slug: "/best-options-brokers-usa",              title: "Best Options Brokers USA",                     category: "options", sub: "country",   priority: 1, icon: "globe",          vertical: "options" },
+  { id: "options-paper",          slug: "/best-options-paper-trading",            title: "Best Options Paper Trading Platforms",          category: "options", sub: "feature",   priority: 3, icon: "test-tube",      vertical: "options" },
+  { id: "options-spreads",        slug: "/best-options-brokers-for-spreads",      title: "Best Options Brokers for Spreads",             category: "options", sub: "style",     priority: 2, icon: "layers",         vertical: "options" },
+  { id: "options-zero-fee",       slug: "/best-zero-fee-options-brokers",         title: "Best Zero-Fee Options Brokers",                category: "options", sub: "costs",     priority: 1, icon: "circle-check",   vertical: "options" },
+  { id: "options-day-trading",    slug: "/best-options-brokers-day-trading",      title: "Best Options Brokers for Day Trading",         category: "options", sub: "style",     priority: 2, icon: "sun",            vertical: "options" },
+
+  // ═══════════════════════════════════════════════════════════════
+  // AB. FUTURES BROKERS (10) — M4 Phase 2
+  // ═══════════════════════════════════════════════════════════════
+  { id: "futures-beginners",      slug: "/best-futures-brokers-for-beginners",     title: "Best Futures Brokers for Beginners",          category: "futures", sub: "audience",  priority: 1, icon: "graduation-cap", vertical: "futures" },
+  { id: "futures-platforms",      slug: "/best-futures-trading-platforms",         title: "Best Futures Trading Platforms",               category: "futures", sub: "platform",  priority: 1, icon: "monitor",        vertical: "futures" },
+  { id: "futures-micro",          slug: "/best-micro-futures-brokers",            title: "Best Micro Futures Brokers",                   category: "futures", sub: "feature",   priority: 1, icon: "minimize",       vertical: "futures" },
+  { id: "futures-usa",            slug: "/best-futures-brokers-usa",              title: "Best Futures Brokers USA",                     category: "futures", sub: "country",   priority: 1, icon: "globe",          vertical: "futures" },
+  { id: "futures-low-fee",        slug: "/best-low-fee-futures-brokers",          title: "Best Low Fee Futures Brokers",                 category: "futures", sub: "costs",     priority: 1, icon: "piggy-bank",     vertical: "futures" },
+  { id: "futures-day-trading",    slug: "/best-day-trading-futures-brokers",      title: "Best Day Trading Futures Brokers",             category: "futures", sub: "style",     priority: 1, icon: "sun",            vertical: "futures" },
+  { id: "futures-tv",             slug: "/best-futures-brokers-tradingview",      title: "Best Futures Brokers with TradingView",        category: "futures", sub: "platform",  priority: 2, icon: "bar-chart-3",    vertical: "futures" },
+  { id: "futures-nt",             slug: "/best-futures-brokers-ninjatrader",      title: "Best Futures Brokers with NinjaTrader",        category: "futures", sub: "platform",  priority: 2, icon: "bar-chart-3",    vertical: "futures" },
+  { id: "futures-commodity",      slug: "/best-commodity-futures-brokers",        title: "Best Commodity Futures Brokers",               category: "futures", sub: "asset",     priority: 2, icon: "wheat",          vertical: "futures" },
+  { id: "futures-index",          slug: "/best-index-futures-brokers",            title: "Best Index Futures Brokers",                   category: "futures", sub: "asset",     priority: 2, icon: "bar-chart-3",    vertical: "futures" },
 ];
 
 export default RANKINGS;
