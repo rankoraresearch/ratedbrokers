@@ -1,3 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 80">
-  <text x="140" y="48" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700" fill="#ffffff" letter-spacing="1">Fidelity</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80">
+  <!-- Fidelity pyramid mark -->
+  <path d="M28 58 L38 20 L48 58 Z" fill="#6db33f"/>
+  <path d="M32 46 L38 26 L44 46 Z" fill="#8dc63f"/>
+  <!-- Wordmark -->
+  <text x="62" y="51" font-family="'Helvetica Neue', Arial, sans-serif" font-size="28" font-weight="400" fill="#ffffff" letter-spacing="0.8">Fidelity</text>
 </svg>

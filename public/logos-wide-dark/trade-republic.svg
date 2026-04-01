@@ -1,3 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 80">
-  <text x="140" y="48" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#ffffff" letter-spacing="0.5">Trade Republic</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80">
+  <!-- Trade Republic chevron/arrow mark -->
+  <path d="M16 52 L28 28 L40 52" stroke="#ffffff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Wordmark -->
+  <text x="54" y="46" font-family="'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="700" fill="#ffffff" letter-spacing="0.3">Trade Republic</text>
 </svg>

@@ -1,3 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 80">
-  <text x="140" y="48" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#0f172a" letter-spacing="1">Webull</text>
+  <!-- Webull crescent/bull mark -->
+  <path d="M18 50 C18 32, 30 22, 42 22 C36 26, 32 34, 32 42 C32 48, 36 52, 40 50" stroke="#0078ff" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <circle cx="43" cy="28" r="2.5" fill="#0078ff"/>
+  <!-- Wordmark -->
+  <text x="58" y="51" font-family="'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" fill="#0078ff" letter-spacing="0.8">Webull</text>
 </svg>

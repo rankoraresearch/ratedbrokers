@@ -1,3 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 80">
-  <text x="140" y="48" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#ffffff" letter-spacing="1">moomoo</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80">
+  <!-- moomoo bull icon -->
+  <g transform="translate(14, 20)">
+    <ellipse cx="18" cy="22" rx="16" ry="14" fill="#ff6600"/>
+    <path d="M6 14 C2 6, 6 2, 10 8" stroke="#ff6600" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M30 14 C34 6, 30 2, 26 8" stroke="#ff6600" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <circle cx="12" cy="20" r="2.5" fill="white"/>
+    <circle cx="24" cy="20" r="2.5" fill="white"/>
+    <ellipse cx="18" cy="28" rx="5" ry="3" fill="#e05500"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="60" y="52" font-family="'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" fill="#ffffff" letter-spacing="0.5">moomoo</text>
 </svg>

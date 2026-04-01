@@ -1,3 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 80">
-  <text x="140" y="48" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#0f172a" letter-spacing="0.5">Charles Schwab</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80">
+  <!-- Schwab swoosh mark -->
+  <path d="M18 55 C22 30, 38 20, 52 28 C58 32, 55 42, 48 42 C42 42, 40 36, 44 33" stroke="#00a0df" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <!-- Schwab wordmark -->
+  <text x="68" y="52" font-family="'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" fill="#0f172a" letter-spacing="0.3">Schwab</text>
 </svg>

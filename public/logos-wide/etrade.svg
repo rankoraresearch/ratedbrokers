@@ -1,3 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 80">
-  <text x="140" y="48" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700" fill="#0f172a" letter-spacing="1">E*TRADE</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80">
+  <!-- E*TRADE star/arrow mark -->
+  <polygon points="22,28 26,38 18,32 26,32 18,38" fill="#6633cc" transform="scale(1.4) translate(2,6)"/>
+  <!-- Wordmark -->
+  <text x="62" y="52" font-family="'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="700" fill="#6633cc" letter-spacing="1">E*TRADE</text>
 </svg>

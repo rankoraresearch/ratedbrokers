@@ -1,3 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 80">
-  <text x="140" y="48" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#0f172a" letter-spacing="2">AMP Futures</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80">
+  <!-- AMP figure/person mark -->
+  <g transform="translate(12, 16)">
+    <circle cx="18" cy="8" r="6" fill="#003366"/>
+    <path d="M18 14 L18 34" stroke="#003366" stroke-width="4" stroke-linecap="round"/>
+    <path d="M8 22 L18 18 L28 22" stroke="#003366" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    <path d="M18 34 L10 46" stroke="#003366" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    <path d="M18 34 L26 46" stroke="#003366" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="52" y="42" font-family="'Helvetica Neue', Arial, sans-serif" font-size="28" font-weight="800" fill="#003366" letter-spacing="2">AMP</text>
+  <text x="52" y="62" font-family="'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="400" fill="#003366" letter-spacing="1.5" opacity="0.7">FUTURES</text>
 </svg>
