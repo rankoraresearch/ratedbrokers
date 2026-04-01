@@ -8,9 +8,10 @@ import ScoreBadge from "../ScoreBadge";
 import AuthorCredits from "../AuthorCredits";
 import AuthorBioCard from "../AuthorBioCard";
 import { getAuthorByName, getFactChecker, getReviewerForAuthor, getEditor } from "../../data/authors";
+import { getBrokerData, getAllBrokerSlugs } from "../../data/brokers/index";
 import SubPageTabs, { TABS, TAB_META } from "./SubPageTabs";
 import { Card } from "./Typography";
-import { ArrowRight, ExternalLink, Zap, Award } from "lucide-react";
+import { ArrowRight, ExternalLink, Zap, Award, Trophy } from "lucide-react";
 import { getVisitUrl } from "../../utils/visitUrl";
 
 const NAVY = "#0f172a";
@@ -65,6 +66,22 @@ export default function SubPageLayout({ data, slug, activeTab, children }) {
   const authorEditor = getEditor();
   const authorReviewer = getReviewerForAuthor(author?.id);
   const authorFactChecker = getFactChecker(author?.id);
+  const isAlternatives = activeTab === "alternatives";
+
+  /* On alternatives tab, sidebar promotes top alternative instead of current broker */
+  const topAlt = isAlternatives ? (() => {
+    const similar = data.SIMILAR;
+    if (similar?.length > 0) {
+      const d = getBrokerData(similar[0].slug);
+      if (d) return { slug: similar[0].slug, name: d.B.name, score: d.B.score, type: d.B.type };
+    }
+    const best = getAllBrokerSlugs().filter(s => s !== slug).map(s => { const d = getBrokerData(s); return d ? { slug: s, name: d.B.name, score: d.B.score, type: d.B.type } : null; }).filter(Boolean).sort((a, b) => b.score - a.score);
+    return best[0] || null;
+  })() : null;
+  const sidebarSlug = isAlternatives && topAlt ? topAlt.slug : slug;
+  const sidebarName = isAlternatives && topAlt ? topAlt.name : B.name;
+  const sidebarScore = isAlternatives && topAlt ? topAlt.score : B.score;
+  const sidebarVisitUrl = getVisitUrl(sidebarSlug);
 
   useEffect(() => {
     const fn = () => setStickyVisible(window.scrollY > 400);
@@ -184,15 +201,23 @@ export default function SubPageLayout({ data, slug, activeTab, children }) {
           <aside style={{ width: 260, flexShrink: 0 }}>
             <div style={{ position: "sticky", top: 130 }}>
               <Card style={{ textAlign: "center", padding: 20 }}>
-                <BrokerLogo slug={slug} name={B.name} fallback={B.name?.slice(0, 2)} size={56} shape="icon" borderRadius={12} />
-                <div style={{ fontFamily: "Outfit", fontSize: 18, fontWeight: 800, color: NAVY, marginTop: 8 }}>{B.name}</div>
-                <div style={{ display: "flex", justifyContent: "center", marginTop: 8, marginBottom: 12 }}><ScoreBadge score={B.score} size="md" /></div>
-                <div style={{ fontSize: 12, color: GRAY_MUTED, marginBottom: 4 }}>{B.type} · Est. {B.year}</div>
-                <div style={{ display: "flex", justifyContent: "center", gap: 4, marginBottom: 14, flexWrap: "wrap" }}>
-                  {B.regs.filter(r => r.tier === 1).map((r, i) => <RegBadge key={i} reg={r.name} />)}
-                </div>
-                <a href={visitUrl} target="_blank" rel="nofollow sponsored" className="cta-orange" style={{ display: "block", background: `linear-gradient(135deg, ${ORANGE}, #fbbf24)`, color: NAVY, fontSize: 14, fontWeight: 700, textDecoration: "none", padding: "12px 0", borderRadius: 8, textAlign: "center", marginBottom: 8 }}>Visit {B.name}</a>
-                <Link to={`/review/${slug}`} style={{ display: "block", fontSize: 13, color: GREEN, fontWeight: 600, textDecoration: "none" }}>Read Full Review →</Link>
+                {isAlternatives && topAlt && (
+                  <div style={{ fontSize: 10, fontWeight: 700, color: GREEN, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 8, display: "flex", alignItems: "center", justifyContent: "center", gap: 4 }}>
+                    <Trophy size={11} /> #1 {B.name} Alternative
+                  </div>
+                )}
+                <BrokerLogo slug={sidebarSlug} name={sidebarName} fallback={sidebarName?.slice(0, 2)} size={56} shape="icon" borderRadius={12} />
+                <div style={{ fontFamily: "Outfit", fontSize: 18, fontWeight: 800, color: NAVY, marginTop: 8 }}>{sidebarName}</div>
+                <div style={{ display: "flex", justifyContent: "center", marginTop: 8, marginBottom: 12 }}><ScoreBadge score={sidebarScore} size="md" /></div>
+                {!isAlternatives && <div style={{ fontSize: 12, color: GRAY_MUTED, marginBottom: 4 }}>{B.type} · Est. {B.year}</div>}
+                {!isAlternatives && (
+                  <div style={{ display: "flex", justifyContent: "center", gap: 4, marginBottom: 14, flexWrap: "wrap" }}>
+                    {B.regs.filter(r => r.tier === 1).map((r, i) => <RegBadge key={i} reg={r.name} />)}
+                  </div>
+                )}
+                {isAlternatives && <div style={{ fontSize: 12, color: GRAY_MUTED, marginBottom: 14 }}>{topAlt?.type}</div>}
+                <a href={sidebarVisitUrl} target="_blank" rel="nofollow sponsored" className="cta-orange" style={{ display: "block", background: `linear-gradient(135deg, ${ORANGE}, #fbbf24)`, color: NAVY, fontSize: 14, fontWeight: 700, textDecoration: "none", padding: "12px 0", borderRadius: 8, textAlign: "center", marginBottom: 8 }}>Visit {sidebarName}</a>
+                <Link to={isAlternatives ? `/review/${sidebarSlug}` : `/review/${slug}`} style={{ display: "block", fontSize: 13, color: GREEN, fontWeight: 600, textDecoration: "none" }}>{isAlternatives ? `${sidebarName} Review →` : "Read Full Review →"}</Link>
               </Card>
 
               <Card>
@@ -261,13 +286,13 @@ export default function SubPageLayout({ data, slug, activeTab, children }) {
           transition: "transform 0.3s ease",
         }}>
           <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-            <BrokerLogo slug={slug} name={B.name} fallback={B.name?.slice(0, 2)} size={28} shape="icon" borderRadius={6} />
+            <BrokerLogo slug={sidebarSlug} name={sidebarName} fallback={sidebarName?.slice(0, 2)} size={28} shape="icon" borderRadius={6} />
             <div>
-              <div style={{ fontSize: 13, fontWeight: 700, color: "#fff" }}>{B.name}</div>
-              <div style={{ fontSize: 11, color: "rgba(255,255,255,0.5)" }}>Score: {B.score}/10</div>
+              <div style={{ fontSize: 13, fontWeight: 700, color: "#fff" }}>{sidebarName}</div>
+              <div style={{ fontSize: 11, color: "rgba(255,255,255,0.5)" }}>{isAlternatives ? `#1 ${B.name} Alternative` : `Score: ${B.score}/10`}</div>
             </div>
           </div>
-          <a href={visitUrl} target="_blank" rel="nofollow sponsored" className="cta-orange" style={{ background: `linear-gradient(135deg, ${ORANGE}, #fbbf24)`, color: NAVY, fontSize: 13, fontWeight: 700, textDecoration: "none", padding: "10px 20px", borderRadius: 8, display: "inline-flex", alignItems: "center", gap: 4 }}>Visit Broker <ExternalLink size={12} /></a>
+          <a href={sidebarVisitUrl} target="_blank" rel="nofollow sponsored" className="cta-orange" style={{ background: `linear-gradient(135deg, ${ORANGE}, #fbbf24)`, color: NAVY, fontSize: 13, fontWeight: 700, textDecoration: "none", padding: "10px 20px", borderRadius: 8, display: "inline-flex", alignItems: "center", gap: 4 }}>Visit {sidebarName.length > 12 ? "Broker" : sidebarName} <ExternalLink size={12} /></a>
         </div>
       )}
     </div>

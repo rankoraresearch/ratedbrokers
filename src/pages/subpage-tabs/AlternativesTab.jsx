@@ -16,9 +16,9 @@ const GRAY_TEXT = "#374151";
 const GRAY_MUTED = "#64748b";
 const BORDER = "#e8ecf1";
 
-/* Grid template for uniform column alignment (header + rows) */
-const GRID_COLS = "1fr 60px 70px 64px 80px 86px";
-const GRID_GAP = 12;
+/* Grid template for uniform column alignment (header + rows) — no regs column for cleaner scan */
+const GRID_COLS = "1fr 60px 70px 64px 100px";
+const GRID_GAP = 14;
 
 /* ─── helpers ─── */
 function getAllAlternatives(currentSlug) {
@@ -162,10 +162,9 @@ function FeaturedCard({ alt, rank, currentScore, mob, why }) {
   );
 }
 
-/* ─── Compact Row (CSS Grid aligned) ─── */
+/* ─── Compact Row (CSS Grid aligned, no regs for clean scan) ─── */
 function CompactRow({ alt, i, mob }) {
   const visitUrl = getVisitUrl(alt.slug);
-  const tier1 = alt.regs.filter(r => r.tier === 1);
 
   if (mob) {
     return (
@@ -176,17 +175,11 @@ function CompactRow({ alt, i, mob }) {
           <BrokerLogo slug={alt.slug} name={alt.name} fallback={alt.name.slice(0, 2)} size={32} shape="icon" borderRadius={8} />
           <div style={{ flex: 1, minWidth: 0 }}>
             <div style={{ fontSize: 14, fontWeight: 700, color: NAVY, fontFamily: "Outfit" }}>{alt.name}</div>
-            <div style={{ fontSize: 11, color: GRAY_MUTED, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{alt.type}</div>
+            <div style={{ fontSize: 11, color: GRAY_MUTED }}>{alt.spread} pips · ${alt.minDep} min</div>
           </div>
           <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 15, fontWeight: 700, color: GREEN, flexShrink: 0 }}>{alt.score}</span>
         </div>
-        {/* Row 2: stats */}
-        <div style={{ display: "flex", gap: 8, paddingLeft: 42, marginTop: 6, flexWrap: "wrap", alignItems: "center" }}>
-          <span style={{ fontSize: 11, color: GRAY_MUTED }}>{alt.spread} pips</span>
-          <span style={{ fontSize: 11, color: GRAY_MUTED }}>${alt.minDep} min</span>
-          {tier1.slice(0, 2).map((r, j) => <RegBadge key={j} reg={r.name} />)}
-        </div>
-        {/* Row 3: full-width CTA */}
+        {/* Row 2: CTA */}
         <div style={{ paddingLeft: 42, marginTop: 10 }}>
           <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{
             background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: NAVY,
@@ -201,7 +194,7 @@ function CompactRow({ alt, i, mob }) {
     );
   }
 
-  /* Desktop: CSS Grid row */
+  /* Desktop: CSS Grid row — 5 columns, no regs */
   return (
     <div style={{
       display: "grid",
@@ -231,10 +224,6 @@ function CompactRow({ alt, i, mob }) {
       {/* Deposit */}
       <div style={{ textAlign: "center" }}>
         <span style={{ fontSize: 12, fontWeight: 600, color: NAVY }}>${alt.minDep}</span>
-      </div>
-      {/* Regs */}
-      <div style={{ display: "flex", gap: 3, overflow: "hidden" }}>
-        {tier1.slice(0, 2).map((r, j) => <RegBadge key={j} reg={r.name} />)}
       </div>
       {/* CTA — fixed width, uniform */}
       <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{
@@ -431,7 +420,6 @@ export default function AlternativesTab({ data, slug, mob }) {
             <div style={{ textAlign: "center", fontSize: 11, fontWeight: 700, color: GRAY_MUTED, textTransform: "uppercase" }}>Score</div>
             <div style={{ textAlign: "center", fontSize: 11, fontWeight: 700, color: GRAY_MUTED, textTransform: "uppercase" }}>Spread</div>
             <div style={{ textAlign: "center", fontSize: 11, fontWeight: 700, color: GRAY_MUTED, textTransform: "uppercase" }}>Deposit</div>
-            <div style={{ fontSize: 11, fontWeight: 700, color: GRAY_MUTED, textTransform: "uppercase" }}>Regs</div>
             <div />
           </div>
         )}
