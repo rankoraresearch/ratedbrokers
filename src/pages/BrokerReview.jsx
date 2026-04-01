@@ -167,12 +167,24 @@ export default function BrokerReview() {
   const authorReviewer = getReviewerForAuthor(author?.id);
   const authorFactChecker = getFactChecker(author?.id);
 
-  // Merge translated content
+  // Merge translated content + normalize array fields
   const translated = tc(slug);
-  const content = {
+  const rawContent = {
     ...enContent,
     ...(translated?.content || {}),
   };
+  // Some fields are used with .map() and must be arrays; others are strings
+  const toArr = (v) => Array.isArray(v) ? v : (v ? [v] : []);
+  const content = { ...rawContent };
+  // These keys are rendered with .map() — ensure they're arrays
+  for (const k of ["overview", "costs", "spreads", "deposits", "platforms", "mobile", "support", "education"]) {
+    content[k] = toArr(rawContent[k]);
+  }
+  // These keys are used as strings — keep as-is (or first element if array)
+  for (const k of ["scoring", "accountIntro", "accountOutro", "trustpilot", "country"]) {
+    const v = rawContent[k];
+    content[k] = Array.isArray(v) ? v[0] || "" : (v || "");
+  }
   const pros = translated?.PROS || PROS;
   const cons = translated?.CONS || CONS;
   const faq = translated?.FAQ || FAQ;
