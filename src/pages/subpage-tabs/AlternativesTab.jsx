@@ -307,15 +307,14 @@ export default function AlternativesTab({ data, slug, mob }) {
       {/* ─── Quick Comparison Table ─── */}
       <H2>{B.name} vs Top Alternatives</H2>
       <div style={{ overflowX: "auto", marginBottom: 24, WebkitOverflowScrolling: "touch" }}>
-        <table style={{ width: "100%", borderCollapse: "collapse", minWidth: mob ? 520 : "auto", fontSize: 13, tableLayout: "fixed" }}>
+        <table style={{ width: "100%", borderCollapse: "collapse", minWidth: mob ? 480 : "auto", fontSize: 13, tableLayout: "fixed" }}>
           <colgroup>
             <col style={{ width: "auto" }} />
-            <col style={{ width: 60 }} />
-            <col style={{ width: 75 }} />
-            <col style={{ width: 80 }} />
-            <col style={{ width: 85 }} />
-            <col style={{ width: 80 }} />
+            <col style={{ width: 56 }} />
             <col style={{ width: 72 }} />
+            <col style={{ width: 72 }} />
+            <col style={{ width: 100 }} />
+            <col style={{ width: 80 }} />
           </colgroup>
           <thead>
             <tr style={{ borderBottom: `2px solid ${BORDER}` }}>
@@ -323,9 +322,8 @@ export default function AlternativesTab({ data, slug, mob }) {
               <th style={{ padding: "10px 6px", textAlign: "center", fontSize: 11, fontWeight: 700, color: GRAY_MUTED, textTransform: "uppercase", letterSpacing: "0.05em" }}>Score</th>
               <th style={{ padding: "10px 6px", textAlign: "center", fontSize: 11, fontWeight: 700, color: GRAY_MUTED, textTransform: "uppercase", letterSpacing: "0.05em" }}>Spread</th>
               <th style={{ padding: "10px 6px", textAlign: "center", fontSize: 11, fontWeight: 700, color: GRAY_MUTED, textTransform: "uppercase", letterSpacing: "0.05em" }}>Deposit</th>
-              <th style={{ padding: "10px 6px", textAlign: "center", fontSize: 11, fontWeight: 700, color: GRAY_MUTED, textTransform: "uppercase", letterSpacing: "0.05em" }}>Commission</th>
-              <th style={{ padding: "10px 6px", textAlign: "left", fontSize: 11, fontWeight: 700, color: GRAY_MUTED, textTransform: "uppercase", letterSpacing: "0.05em" }}>Regs</th>
-              <th style={{ padding: "10px 4px", textAlign: "center", fontSize: 11, fontWeight: 700, color: GRAY_MUTED, textTransform: "uppercase", letterSpacing: "0.05em" }}></th>
+              <th style={{ padding: "10px 6px", textAlign: "left", fontSize: 11, fontWeight: 700, color: GRAY_MUTED, textTransform: "uppercase", letterSpacing: "0.05em" }}>Regulation</th>
+              <th style={{ padding: "10px 6px", textAlign: "center", fontSize: 11, fontWeight: 700, color: GRAY_MUTED, textTransform: "uppercase", letterSpacing: "0.05em" }}></th>
             </tr>
           </thead>
           <tbody>
@@ -341,11 +339,10 @@ export default function AlternativesTab({ data, slug, mob }) {
               <td style={{ padding: "10px 6px", textAlign: "center", fontFamily: "'JetBrains Mono',monospace", fontWeight: 700, color: NAVY }}>{B.score}</td>
               <td style={{ padding: "10px 6px", textAlign: "center" }}>{B.spread} pips</td>
               <td style={{ padding: "10px 6px", textAlign: "center" }}>${B.minDep}</td>
-              <td style={{ padding: "10px 6px", textAlign: "center" }}>{B.commission}</td>
               <td style={{ padding: "10px 6px" }}>
-                <div style={{ display: "flex", gap: 3 }}>{(B.regs || []).filter(r => r.tier === 1).slice(0, 2).map((r, i) => <RegBadge key={i} reg={r.name} />)}</div>
+                <div style={{ display: "flex", gap: 3, flexWrap: "wrap" }}>{(B.regs || []).filter(r => r.tier === 1).slice(0, 2).map((r, i) => <RegBadge key={i} reg={r.name} />)}</div>
               </td>
-              <td style={{ padding: "10px 4px" }} />
+              <td style={{ padding: "10px 6px" }} />
             </tr>
             {/* Alternatives rows */}
             {featured.map((alt, i) => (
@@ -360,11 +357,10 @@ export default function AlternativesTab({ data, slug, mob }) {
                 <td style={{ padding: "10px 6px", textAlign: "center", fontFamily: "'JetBrains Mono',monospace", fontWeight: 700, color: GREEN }}>{alt.score}</td>
                 <td style={{ padding: "10px 6px", textAlign: "center" }}>{alt.spread} pips</td>
                 <td style={{ padding: "10px 6px", textAlign: "center" }}>${alt.minDep}</td>
-                <td style={{ padding: "10px 6px", textAlign: "center" }}>{alt.commission}</td>
                 <td style={{ padding: "10px 6px" }}>
-                  <div style={{ display: "flex", gap: 3 }}>{alt.regs.filter(r => r.tier === 1).slice(0, 2).map((r, j) => <RegBadge key={j} reg={r.name} />)}</div>
+                  <div style={{ display: "flex", gap: 3, flexWrap: "wrap" }}>{alt.regs.filter(r => r.tier === 1).slice(0, 2).map((r, j) => <RegBadge key={j} reg={r.name} />)}</div>
                 </td>
-                <td style={{ padding: "10px 4px", textAlign: "center" }}>
+                <td style={{ padding: "10px 6px", textAlign: "center" }}>
                   <a href={getVisitUrl(alt.slug)} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{
                     background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: NAVY,
                     fontSize: 11, fontWeight: 700, textDecoration: "none",
