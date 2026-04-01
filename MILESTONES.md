@@ -799,17 +799,158 @@ P2.7 (stock rankings) + P2.8 (options) + P2.9 (futures) → P2.10 (hubs) → P2.
 
 ---
 
-### Phase 3: Prop Firms — новая вертикаль (высокий уровень)
+### Phase 3: Prop Firms — новая вертикаль (10 спринтов)
 
-**Предусловие:** Phase 2 завершена. Prop Firms = другой тип контента (challenges, payouts, profit split).
+**Статус: ПЛАНИРУЕТСЯ**
 
-- [ ] **P3.1** Исследование: 15-25 prop firms (FTMO, FundedNext, TopStep, The5ers...)
-- [ ] **P3.2** Новая модель данных + PropFirmReview.jsx (отдельный шаблон)
-- [ ] **P3.3** 15-20 рейтингов, хаб `/prop-trading-firms`
-- [ ] **P3.4** QA и SEO-аудит
+**Исследование:** `memory/prop-firms-research.md`
 
-**Оценка Phase 3:** ~10 рабочих дней (2 недели)
-**Результат:** ~35-45 рейтингов, 1 хаб, ~20 prop firms
+**Масштаб:** 18 prop firms (6 Tier A + 6 Tier B + 6 Tier C). Новая модель данных, отдельный шаблон PropFirmReview.jsx. ~33 рейтинга + 18 "Is X Legit?" + 15 VS = ~66 новых URL.
+
+**Ключевое отличие:** Prop firms ≠ брокеры. Другая модель: challenges, profit split, payouts. Нерегулируемые. Высокий risk of closure (80+ закрылись в 2024-2025).
+
+#### Sprint P3.1: Модель данных + build pipeline `[M, 2 дня]`
+
+- [ ] **P3.1.1** Создать директорию `content/propfirms/`
+- [ ] **P3.1.2** Определить YAML-схему для prop firms:
+  - Базовые: `slug`, `name`, `url`, `score`, `verdict`, `year`, `hq`, `ceo`
+  - Trustpilot: `tp`, `tp_count`
+  - Challenges: массив `challenges[]` с полями: `name`, `price`, `account_size`, `profit_target`, `max_drawdown`, `daily_drawdown`, `time_limit`, `min_trading_days`, `steps`
+  - Payouts: `profit_split`, `payout_frequency`, `payout_method`, `first_payout_after`
+  - Trading Rules: `news_trading`, `weekend_holding`, `ea_allowed`, `copy_trading_allowed`, `max_lots`, `instruments`
+  - Platforms: `platforms[]`
+  - Scaling: `scaling_plan`, `max_allocation`
+  - Affiliate: `affiliate_cpa`, `affiliate_rev_share`
+- [ ] **P3.1.3** Создать `scripts/build-propfirms.mjs` (по аналогии с build-brokers.mjs)
+- [ ] **P3.1.4** Создать `scripts/validate-propfirms.mjs`
+- [ ] **P3.1.5** Создать `src/data/propfirms/index.js` (auto-generated)
+- [ ] **P3.1.6** Обновить `package.json` — скрипт `propfirms:build`
+
+**Файлы:** `content/propfirms/`, `scripts/build-propfirms.mjs`, `scripts/validate-propfirms.mjs`, `src/data/propfirms/`
+
+#### Sprint P3.2: PropFirmReview.jsx — новый шаблон `[L, 3 дня]`
+
+Отдельный компонент review (не BrokerReview.jsx) — другие секции, другой скоринг.
+
+- [ ] **P3.2.1** Создать `src/pages/PropFirmReview.jsx`:
+  - Hero: logo + score + profit split badge + challenge price range
+  - Quick Stats: Profit Split, Cheapest Challenge, Max Drawdown, Payout Speed
+  - Overview + Scoring (6 новых категорий)
+  - Challenge Breakdown: таблица всех challenges с ценами, targets, drawdown
+  - Trading Rules Matrix: news/weekends/EA/copy — grid с ✅/❌
+  - Payout Info: profit split, frequency, methods, proof
+  - Platforms section
+  - Pros & Cons
+  - Trustpilot
+  - Verdict
+  - Alternatives (similar prop firms)
+  - FAQ
+  - JSON-LD, breadcrumbs
+- [ ] **P3.2.2** Scoring компонент — 6 категорий:
+  - Legitimacy & Trust (25%): track record, payouts, Trustpilot, transparency
+  - Challenge Fairness (20%): realistic targets, reasonable drawdown, no hidden rules
+  - Payout Reliability (20%): speed, consistency, methods, denied payout reports
+  - Trading Conditions (15%): instruments, leverage, spreads, execution
+  - User Reputation (10%): Trustpilot, Reddit, community sentiment
+  - Value for Money (10%): challenge price vs account size, refundable fees
+- [ ] **P3.2.3** Адаптивность: 375px, 768px, 1440px
+- [ ] **P3.2.4** Risk warning по умолчанию: "Most traders fail funded account challenges. Only risk capital you can afford to lose."
+
+**Файлы:** `src/pages/PropFirmReview.jsx`
+
+#### Sprint P3.3: Роутинг + App.jsx `[S, 0.5 дня]`
+
+- [ ] **P3.3.1** Route: `/propfirm/:slug` → PropFirmReview
+- [ ] **P3.3.2** Импорт PropFirmReview в App.jsx
+- [ ] **P3.3.3** Убедиться что не конфликтует с `/review/:slug`
+
+**Файлы:** `src/App.jsx`
+
+#### Sprint P3.4: Tier A — 6 prop firm profiles `[L, 3 дня]`
+
+- [ ] **P3.4.1** FTMO (`content/propfirms/ftmo.md`): $155-1080, 80-90% split, 4.8 TP
+- [ ] **P3.4.2** FundedNext (`funded-next.md`): $32-999, 80-95%, 4.6 TP, $158M+ payouts
+- [ ] **P3.4.3** The5ers (`the5ers.md`): $39-875, 50-100%, scaling to $4M
+- [ ] **P3.4.4** Topstep (`topstep.md`): $49-149/mo, 100% first $10K, futures-only
+- [ ] **P3.4.5** Goat Funded Trader (`goat-funded-trader.md`): $15-398, cheapest challenges
+- [ ] **P3.4.6** Apex Trader Funding (`apex-trader-funding.md`): $147-657, futures, 100% first $25K
+- [ ] **P3.4.7** Логотипы: square 512px + wide dark SVG + wide light SVG
+- [ ] **P3.4.8** `npm run propfirms:build` — 6/6 OK
+
+**Файлы:** `content/propfirms/` (6 файлов), `public/logos/`, `public/logos-wide*/`
+
+#### Sprint P3.5: Tier B — 6 prop firm profiles `[L, 2.5 дня]`
+
+- [ ] **P3.5.1** Funding Pips (`funding-pips.md`)
+- [ ] **P3.5.2** SabioTrade (`sabiotrade.md`)
+- [ ] **P3.5.3** Lux Trading Firm (`lux-trading-firm.md`)
+- [ ] **P3.5.4** FunderPro (`funderpro.md`)
+- [ ] **P3.5.5** ThinkCapital (`thinkcapital.md`)
+- [ ] **P3.5.6** E8 Markets (`e8-markets.md`)
+- [ ] **P3.5.7** Логотипы + build
+
+#### Sprint P3.6: Tier C — 6 prop firm profiles `[M, 2 дня]`
+
+- [ ] **P3.6.1** DNA Funded, Maven Trading, OneFunded, Blue Guardian, Ultimate Traders, Bulenox
+- [ ] **P3.6.2** Логотипы + build
+
+#### Sprint P3.7: Rankings — определения + фильтры + SEO `[M, 2 дня]`
+
+- [ ] **P3.7.1** Добавить ~20 рейтингов в `rankings.js` (category: "prop-firms"):
+  - Core: `best-prop-trading-firms`, `best-prop-firms-for-beginners`, `cheapest-prop-firms`, `best-prop-firms-for-forex`, `best-prop-firms-for-futures`
+  - Challenge type: `best-1-step-prop-firms`, `best-2-step-prop-firms`, `best-instant-funding-prop-firms`, `best-no-time-limit-prop-firms`
+  - Payout: `best-prop-firms-highest-payout`, `fastest-payout-prop-firms`, `best-prop-firms-90-profit-split`
+  - Style: `best-prop-firms-for-scalping`, `best-prop-firms-for-swing-trading`, `best-prop-firms-for-ea-trading`
+  - Platform: `best-prop-firms-mt4-mt5`, `best-prop-firms-ctrader`, `best-prop-firms-ninjatrader`
+  - Size: `best-prop-firms-100k`, `best-prop-firms-200k`, `best-prop-firms-50k`
+- [ ] **P3.7.2** Фильтры в `rankingFilters.js`
+- [ ] **P3.7.3** Минимальный SEO-контент (title/desc/intro)
+- [ ] **P3.7.4** Обновить `AllRankingsPage.jsx` — таб "Prop Firms"
+
+**Файлы:** `src/data/rankings.js`, `src/data/rankingFilters.js`, `src/data/rankingSeoContent.js`
+
+#### Sprint P3.8: Hub + Navigation `[M, 1.5 дня]`
+
+- [ ] **P3.8.1** Добавить хаб в `categoryHubs.js`: `{ slug: "prop-firms", path: "/prop-trading-firms", ... }`
+- [ ] **P3.8.2** Route `/prop-trading-firms` → CategoryHubPage
+- [ ] **P3.8.3** Обновить Homepage — 9-я категория (Prop Firms)
+- [ ] **P3.8.4** Обновить Header — ссылка "Prop Firms"
+- [ ] **P3.8.5** Обновить Footer
+- [ ] **P3.8.6** Обновить OnlineBrokersHub — 9 карточек
+- [ ] **P3.8.7** seed.sql — 18 prop firms для `/go/{slug}`
+
+**Файлы:** `src/data/categoryHubs.js`, `src/App.jsx`, `src/pages/Home.jsx`, `src/components/Header.jsx`, `src/components/Footer.jsx`, `backend/seed.sql`
+
+#### Sprint P3.9: Logo showcase + логотипы `[S, 1 день]`
+
+- [ ] **P3.9.1** Скачать 18 × 3 логотипа (square + wide dark + wide light)
+- [ ] **P3.9.2** Добавить в `logo-showcase.html`
+- [ ] **P3.9.3** Проверить рендеринг на review и ranking страницах
+
+**Файлы:** `public/logos/`, `public/logos-wide*/`, `public/logo-showcase.html`
+
+#### Sprint P3.10: QA + SEO-аудит `[M, 1.5 дня]`
+
+- [ ] **P3.10.1** Все 18 prop firm review страниц — рендерятся
+- [ ] **P3.10.2** ~20 rankings — все breakpoints
+- [ ] **P3.10.3** Hub `/prop-trading-firms` — карточки, ссылки
+- [ ] **P3.10.4** Regression — брокеры не сломаны
+- [ ] **P3.10.5** `npm run build` — 0 ошибок
+- [ ] **P3.10.6** Slug uniqueness
+- [ ] **P3.10.7** Publication Planner: seed новые URL
+
+---
+
+### Phase 3 — Критический путь
+
+```
+P3.1 (data model) → P3.2 (PropFirmReview.jsx) → P3.3 (routing) → P3.4 (Tier A) → P3.5 (Tier B) → P3.6 (Tier C)
+                                                                          ↓
+P3.7 (rankings) → P3.8 (hub + nav) → P3.9 (logos) → P3.10 (QA)
+```
+
+**Оценка Phase 3:** ~18 рабочих дней
+**Результат:** 18 prop firms, ~20 рейтингов, 1 хаб, PropFirmReview.jsx (новый шаблон), 9 вертикалей на сайте
 
 ---
 
