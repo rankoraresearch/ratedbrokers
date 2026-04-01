@@ -321,3 +321,40 @@ Score = Regulation×0.30 + Costs×0.20 + Reputation×0.15 + Transparency×0.15 +
 | Деплой | Статика на CDN | Node.js сервер | $0, нет cold starts |
 | Данные брокеров | MD (YAML + Markdown) | JS напрямую, JSON, CMS | Человекочитаемо, AI-friendly |
 | Актуализация | AI-агенты (Джон + Боб) | Cron-скрипты, ручное | Масштабируется, разделение ответственности |
+
+---
+
+## 14. Online Brokers Umbrella — URL Structure (M4)
+
+**Выбор:** Hybrid (Option C) — хаб-страницы на отдельных URL + flat ranking URL-ы.
+
+**Почему:** 0 редиректов существующих 441 URL. Keywords в URL сохранены (/best-ecn-forex-brokers). Хабы создают topical authority через internal links + breadcrumbs. Google не наказывает flat — наказывает thin content.
+
+**Альтернативы:**
+- Option A (всё flat) — нет silos, /rankings превращается в свалку
+- Option B (вложенные /forex-brokers/ecn) — 441 редирект, потеря "best" из slug
+- Option D (BrokerChooser-style /best-brokers/) — redundant URLs, ассоциация с наказанным BC
+
+**Решение:** C даёт 80% преимуществ B при 0% рисков. Дверь к B открыта для миграции через 6-12 мес.
+
+---
+
+## 15. Один review template для всех типов брокеров (M4)
+
+**Выбор:** Единый BrokerReview.jsx с conditional rendering для пустых секций.
+
+**Почему:** Индустриальный стандарт (BrokerChooser, Investopedia, NerdWallet, ForexBrokers.com — все используют один template). Один брокер = один canonical review. Google ожидает comprehensive review.
+
+**Адаптация:** Секции без данных (Spreads, CostBoxes, Mobile, Support, Education, Country) скрываются автоматически. Breadcrumbs динамические по вертикали. CTA показывает commission вместо pips для non-forex.
+
+**Критический баг:** content fields (overview, verdict, regulation) — build script преобразует один параграф в строку вместо массива. BrokerReview вызывал .map() → TypeError → белый экран. Фикс: нормализация при рендеринге (toArr для array-полей, toString для string-полей).
+
+---
+
+## 16. 9 категорий (вертикалей) брокеров (M4)
+
+**Выбор:** Forex, CFD, Copy Trading, Spread Betting, Crypto (Phase 1) + Stocks, Options, Futures (Phase 2) + Prop Firms (Phase 3).
+
+**Почему:** Конкуренты (BrokerChooser, BestBrokers) используют зонтичный подход "online brokers". Homepage таргетирует "Best Online Brokers 2026" вместо "Best Forex Brokers".
+
+**Реализация:** 8 хабов + master hub (/online-brokers). 51 брокер. 288 тематических + 266 комбинаторных рейтингов. Homepage показывает 8 категорий в navigation bar.

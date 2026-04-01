@@ -38,4 +38,17 @@ INSERT OR REPLACE INTO brokers (slug, name, affiliate_url) VALUES
   ('trading-212', 'Trading 212', 'https://www.trading212.com/?camp=RATEDBROKERS'),
   ('vantage', 'Vantage', 'https://www.vantagemarkets.com/?camp=RATEDBROKERS'),
   ('xm', 'XM', 'https://www.xm.com/?camp=RATEDBROKERS'),
-  ('xtb', 'XTB', 'https://www.xtb.com/?camp=RATEDBROKERS');
+  ('xtb', 'XTB', 'https://www.xtb.com/?camp=RATEDBROKERS'),
+  ('charles-schwab', 'Charles Schwab', 'https://www.schwab.com/'),
+  ('fidelity', 'Fidelity Investments', 'https://www.fidelity.com/'),
+  ('robinhood', 'Robinhood', 'https://robinhood.com/'),
+  ('degiro', 'DEGIRO', 'https://www.degiro.com/'),
+  ('etrade', 'E*TRADE', 'https://us.etrade.com/'),
+  ('webull', 'Webull', 'https://www.webull.com/'),
+  ('trade-republic', 'Trade Republic', 'https://traderepublic.com/'),
+  ('moomoo', 'Moomoo', 'https://www.moomoo.com/'),
+  ('tastytrade', 'tastytrade', 'https://tastytrade.com/'),
+  ('ninjatrader', 'NinjaTrader', 'https://ninjatrader.com/'),
+  ('tradestation', 'TradeStation', 'https://www.tradestation.com/'),
+  ('amp-futures', 'AMP Futures', 'https://www.ampfutures.com/'),
+  ('optimus-futures', 'Optimus Futures', 'https://www.optimusfutures.com/');
