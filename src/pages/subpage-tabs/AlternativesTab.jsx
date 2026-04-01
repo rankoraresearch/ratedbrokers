@@ -16,6 +16,10 @@ const GRAY_TEXT = "#374151";
 const GRAY_MUTED = "#64748b";
 const BORDER = "#e8ecf1";
 
+/* Grid template for uniform column alignment (header + rows) */
+const GRID_COLS = "1fr 60px 70px 64px 80px 86px";
+const GRID_GAP = 12;
+
 /* ─── helpers ─── */
 function getAllAlternatives(currentSlug) {
   return getAllBrokerSlugs()
@@ -89,7 +93,7 @@ function FeaturedCard({ alt, rank, currentScore, mob, why }) {
             <BrokerLogo slug={alt.slug} name={alt.name} fallback={alt.name.slice(0, 2)} size={mob ? 44 : 52} shape="icon" borderRadius={12} />
             <div>
               <div style={{ fontFamily: "Outfit", fontSize: mob ? 18 : 22, fontWeight: 800, color: isWinner ? "#fff" : NAVY }}>{alt.name}</div>
-              <div style={{ fontSize: 12, color: isWinner ? "rgba(255,255,255,0.6)" : GRAY_MUTED }}>{alt.type}</div>
+              <div style={{ fontSize: 12, color: isWinner ? "rgba(255,255,255,0.65)" : GRAY_MUTED }}>{alt.type}</div>
             </div>
           </div>
 
@@ -107,7 +111,7 @@ function FeaturedCard({ alt, rank, currentScore, mob, why }) {
                 background: isWinner ? "rgba(255,255,255,0.08)" : "#f8f9fb",
                 borderRadius: 8, padding: "8px 10px", textAlign: "center",
               }}>
-                <div style={{ fontSize: 10, fontWeight: 600, color: isWinner ? "rgba(255,255,255,0.5)" : GRAY_MUTED, textTransform: "uppercase", letterSpacing: "0.05em" }}>{s.l}</div>
+                <div style={{ fontSize: 10, fontWeight: 600, color: isWinner ? "rgba(255,255,255,0.6)" : GRAY_MUTED, textTransform: "uppercase", letterSpacing: "0.05em" }}>{s.l}</div>
                 <div style={{ fontSize: 13, fontWeight: 700, color: isWinner ? "#fff" : NAVY, fontFamily: "'JetBrains Mono',monospace", marginTop: 2 }}>{s.v}</div>
               </div>
             ))}
@@ -125,7 +129,7 @@ function FeaturedCard({ alt, rank, currentScore, mob, why }) {
           minWidth: mob ? "auto" : 160, gap: 10,
           ...(mob ? {} : { borderLeft: `1px solid ${isWinner ? "rgba(255,255,255,0.1)" : BORDER}`, paddingLeft: 20 }),
         }}>
-          <div style={{ fontSize: 11, fontWeight: 600, color: isWinner ? "rgba(255,255,255,0.5)" : GRAY_MUTED, textTransform: "uppercase" }}>Score</div>
+          <div style={{ fontSize: 11, fontWeight: 600, color: isWinner ? "rgba(255,255,255,0.6)" : GRAY_MUTED, textTransform: "uppercase" }}>Score</div>
           <ScoreCompare altScore={alt.score} currentScore={currentScore} mob={mob} />
           {alt.badge && (
             <div style={{ fontSize: 10, fontWeight: 600, color: isWinner ? "#34d399" : GREEN, background: isWinner ? "rgba(52,211,153,0.15)" : GREEN_LIGHT, padding: "3px 8px", borderRadius: 4, textAlign: "center", display: "flex", alignItems: "center", gap: 3 }}>
@@ -133,7 +137,7 @@ function FeaturedCard({ alt, rank, currentScore, mob, why }) {
             </div>
           )}
           {alt.promo && (
-            <div style={{ fontSize: 11, color: isWinner ? ORANGE : ORANGE, display: "flex", alignItems: "center", gap: 3, fontWeight: 600 }}>
+            <div style={{ fontSize: 11, color: ORANGE, display: "flex", alignItems: "center", gap: 3, fontWeight: 600 }}>
               <Zap size={11} /> {alt.promo.length > 40 ? alt.promo.slice(0, 40) + "..." : alt.promo}
             </div>
           )}
@@ -147,7 +151,7 @@ function FeaturedCard({ alt, rank, currentScore, mob, why }) {
             Visit {alt.name} <ExternalLink size={13} />
           </a>
           <Link to={`/review/${alt.slug}`} style={{
-            fontSize: 12, color: isWinner ? "rgba(255,255,255,0.6)" : GRAY_MUTED, textDecoration: "none", fontWeight: 600,
+            fontSize: 12, color: isWinner ? "rgba(255,255,255,0.65)" : GRAY_MUTED, textDecoration: "none", fontWeight: 600,
             display: "flex", alignItems: "center", gap: 4,
           }}>
             Read Full Review <ArrowRight size={11} />
@@ -158,64 +162,87 @@ function FeaturedCard({ alt, rank, currentScore, mob, why }) {
   );
 }
 
-/* ─── Compact Row (for remaining brokers) ─── */
+/* ─── Compact Row (CSS Grid aligned) ─── */
 function CompactRow({ alt, i, mob }) {
   const visitUrl = getVisitUrl(alt.slug);
   const tier1 = alt.regs.filter(r => r.tier === 1);
-  return (
-    <div style={{
-      display: "flex", alignItems: mob ? "flex-start" : "center",
-      flexDirection: mob ? "column" : "row",
-      gap: mob ? 10 : 0,
-      padding: mob ? "14px 0" : "12px 0",
-      borderBottom: `1px solid ${BORDER}`,
-    }}>
-      {/* Logo + name */}
-      <div style={{ display: "flex", alignItems: "center", gap: 10, flex: 1, minWidth: 0 }}>
-        <span style={{ fontSize: 12, fontWeight: 700, color: GRAY_MUTED, width: 24, textAlign: "center", flexShrink: 0 }}>{i + 4}</span>
-        <BrokerLogo slug={alt.slug} name={alt.name} fallback={alt.name.slice(0, 2)} size={32} shape="icon" borderRadius={8} />
-        <div style={{ minWidth: 0 }}>
-          <div style={{ fontSize: 14, fontWeight: 700, color: NAVY, fontFamily: "Outfit" }}>{alt.name}</div>
-          <div style={{ fontSize: 11, color: GRAY_MUTED, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{alt.type}</div>
-        </div>
-      </div>
 
-      {/* Stats */}
-      {!mob && (
-        <div style={{ display: "flex", alignItems: "center", gap: 20, flexShrink: 0 }}>
-          <div style={{ width: 70, textAlign: "center" }}>
-            <div style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 14, fontWeight: 700, color: GREEN }}>{alt.score}</div>
+  if (mob) {
+    return (
+      <div style={{ padding: "14px 0", borderBottom: `1px solid ${BORDER}` }}>
+        {/* Row 1: rank + logo + name ... score */}
+        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          <span style={{ fontSize: 12, fontWeight: 700, color: GRAY_MUTED, width: 24, textAlign: "center", flexShrink: 0 }}>{i + 4}</span>
+          <BrokerLogo slug={alt.slug} name={alt.name} fallback={alt.name.slice(0, 2)} size={32} shape="icon" borderRadius={8} />
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div style={{ fontSize: 14, fontWeight: 700, color: NAVY, fontFamily: "Outfit" }}>{alt.name}</div>
+            <div style={{ fontSize: 11, color: GRAY_MUTED, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{alt.type}</div>
           </div>
-          <div style={{ width: 70, textAlign: "center" }}>
-            <div style={{ fontSize: 12, fontWeight: 600, color: NAVY }}>{alt.spread} pips</div>
-          </div>
-          <div style={{ width: 60, textAlign: "center" }}>
-            <div style={{ fontSize: 12, fontWeight: 600, color: NAVY }}>${alt.minDep}</div>
-          </div>
-          <div style={{ display: "flex", gap: 3 }}>
-            {tier1.slice(0, 2).map((r, j) => <RegBadge key={j} reg={r.name} />)}
-          </div>
+          <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 15, fontWeight: 700, color: GREEN, flexShrink: 0 }}>{alt.score}</span>
         </div>
-      )}
-
-      {/* Mobile stats row */}
-      {mob && (
-        <div style={{ display: "flex", gap: 12, paddingLeft: 34, alignItems: "center", flexWrap: "wrap" }}>
-          <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 13, fontWeight: 700, color: GREEN }}>{alt.score}</span>
+        {/* Row 2: stats */}
+        <div style={{ display: "flex", gap: 8, paddingLeft: 42, marginTop: 6, flexWrap: "wrap", alignItems: "center" }}>
           <span style={{ fontSize: 11, color: GRAY_MUTED }}>{alt.spread} pips</span>
           <span style={{ fontSize: 11, color: GRAY_MUTED }}>${alt.minDep} min</span>
           {tier1.slice(0, 2).map((r, j) => <RegBadge key={j} reg={r.name} />)}
         </div>
-      )}
+        {/* Row 3: full-width CTA */}
+        <div style={{ paddingLeft: 42, marginTop: 10 }}>
+          <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{
+            background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: NAVY,
+            fontSize: 13, fontWeight: 700, textDecoration: "none",
+            padding: "10px 16px", borderRadius: 8, height: 40, boxSizing: "border-box",
+            display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 5,
+          }}>
+            Visit {alt.name} <ExternalLink size={12} />
+          </a>
+        </div>
+      </div>
+    );
+  }
 
-      {/* CTA */}
+  /* Desktop: CSS Grid row */
+  return (
+    <div style={{
+      display: "grid",
+      gridTemplateColumns: GRID_COLS,
+      columnGap: GRID_GAP,
+      alignItems: "center",
+      padding: "12px 0",
+      borderBottom: `1px solid ${BORDER}`,
+    }}>
+      {/* Broker */}
+      <div style={{ display: "flex", alignItems: "center", gap: 10, minWidth: 0 }}>
+        <span style={{ fontSize: 12, fontWeight: 700, color: GRAY_MUTED, width: 24, textAlign: "center", flexShrink: 0 }}>{i + 4}</span>
+        <BrokerLogo slug={alt.slug} name={alt.name} fallback={alt.name.slice(0, 2)} size={32} shape="icon" borderRadius={8} />
+        <div style={{ minWidth: 0 }}>
+          <div style={{ fontSize: 14, fontWeight: 700, color: NAVY, fontFamily: "Outfit", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{alt.name}</div>
+          <div style={{ fontSize: 11, color: GRAY_MUTED, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{alt.type}</div>
+        </div>
+      </div>
+      {/* Score */}
+      <div style={{ textAlign: "center" }}>
+        <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 14, fontWeight: 700, color: GREEN }}>{alt.score}</span>
+      </div>
+      {/* Spread */}
+      <div style={{ textAlign: "center" }}>
+        <span style={{ fontSize: 12, fontWeight: 600, color: NAVY }}>{alt.spread} pips</span>
+      </div>
+      {/* Deposit */}
+      <div style={{ textAlign: "center" }}>
+        <span style={{ fontSize: 12, fontWeight: 600, color: NAVY }}>${alt.minDep}</span>
+      </div>
+      {/* Regs */}
+      <div style={{ display: "flex", gap: 3, overflow: "hidden" }}>
+        {tier1.slice(0, 2).map((r, j) => <RegBadge key={j} reg={r.name} />)}
+      </div>
+      {/* CTA — fixed width, uniform */}
       <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{
         background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: NAVY,
         fontSize: 12, fontWeight: 700, textDecoration: "none",
-        padding: mob ? "8px 16px" : "8px 16px", borderRadius: 8,
-        display: "inline-flex", alignItems: "center", gap: 4,
-        flexShrink: 0, whiteSpace: "nowrap",
-        ...(mob ? { marginLeft: 34 } : {}),
+        padding: "8px 0", borderRadius: 8, height: 34, boxSizing: "border-box",
+        display: "flex", alignItems: "center", justifyContent: "center", gap: 4,
+        whiteSpace: "nowrap",
       }}>
         Visit <ExternalLink size={11} />
       </a>
@@ -242,7 +269,8 @@ export default function AlternativesTab({ data, slug, mob }) {
   const remaining = allAlts.filter(a => !featuredSlugs.has(a.slug));
   const visibleRemaining = showAll ? remaining : remaining.slice(0, 7);
 
-  const quickAnswer = sp.quick_answer || `The best ${B.name} alternative is ${featured[0]?.name} (score ${featured[0]?.score}/10). Other top alternatives include ${featured[1]?.name} and ${featured[2]?.name}. All are regulated, offer competitive spreads, and accept new accounts.`;
+  const topAlt = featured[0];
+  const quickAnswer = sp.quick_answer || `The best ${B.name} alternative is ${topAlt?.name} (score ${topAlt?.score}/10). Other top alternatives include ${featured[1]?.name} and ${featured[2]?.name}. All are regulated, offer competitive spreads, and accept new accounts.`;
 
   return (
     <>
@@ -273,29 +301,42 @@ export default function AlternativesTab({ data, slug, mob }) {
         border: "1px solid rgba(255,255,255,0.08)",
       }}>
         <div>
-          <div style={{ fontSize: 15, fontWeight: 700, color: "#fff" }}>Not sure which broker to choose?</div>
-          <div style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", marginTop: 2 }}>Compare all {allAlts.length + 1} brokers side by side</div>
+          <div style={{ fontSize: 15, fontWeight: 700, color: "#fff" }}>Our Top Pick: {topAlt?.name}</div>
+          <div style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", marginTop: 2 }}>Rated {topAlt?.score}/10 — the #1 {B.name} alternative</div>
         </div>
-        <a href={getVisitUrl(featured[0]?.slug || slug)} target="_blank" rel="nofollow sponsored" className="cta-orange" style={{
+        <a href={getVisitUrl(topAlt?.slug || slug)} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{
           background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: NAVY,
           fontSize: 14, fontWeight: 700, textDecoration: "none",
           padding: "12px 28px", borderRadius: 8, display: "inline-flex",
           alignItems: "center", gap: 6, whiteSpace: "nowrap", flexShrink: 0,
           justifyContent: "center", boxShadow: "0 2px 8px rgba(245,158,11,0.3)",
         }}>
-          Open Account with {featured[0]?.name || "Top Broker"} <ExternalLink size={14} />
+          Visit {topAlt?.name} <ExternalLink size={14} />
         </a>
       </div>
 
       {/* ─── Quick Comparison Table ─── */}
       <H2>{B.name} vs Top Alternatives</H2>
       <div style={{ overflowX: "auto", marginBottom: 24, WebkitOverflowScrolling: "touch" }}>
-        <table style={{ width: "100%", borderCollapse: "collapse", minWidth: mob ? 500 : "auto", fontSize: 13 }}>
+        <table style={{ width: "100%", borderCollapse: "collapse", minWidth: mob ? 520 : "auto", fontSize: 13, tableLayout: "fixed" }}>
+          <colgroup>
+            <col style={{ width: "auto" }} />
+            <col style={{ width: 60 }} />
+            <col style={{ width: 75 }} />
+            <col style={{ width: 80 }} />
+            <col style={{ width: 85 }} />
+            <col style={{ width: 80 }} />
+            <col style={{ width: 72 }} />
+          </colgroup>
           <thead>
             <tr style={{ borderBottom: `2px solid ${BORDER}` }}>
-              {["Broker", "Score", "Spread", "Min Deposit", "Commission", "Regulation", ""].map((h, i) => (
-                <th key={i} style={{ padding: "10px 8px", textAlign: "left", fontSize: 11, fontWeight: 700, color: GRAY_MUTED, textTransform: "uppercase", letterSpacing: "0.05em" }}>{h}</th>
-              ))}
+              <th style={{ padding: "10px 8px", textAlign: "left", fontSize: 11, fontWeight: 700, color: GRAY_MUTED, textTransform: "uppercase", letterSpacing: "0.05em" }}>Broker</th>
+              <th style={{ padding: "10px 6px", textAlign: "center", fontSize: 11, fontWeight: 700, color: GRAY_MUTED, textTransform: "uppercase", letterSpacing: "0.05em" }}>Score</th>
+              <th style={{ padding: "10px 6px", textAlign: "center", fontSize: 11, fontWeight: 700, color: GRAY_MUTED, textTransform: "uppercase", letterSpacing: "0.05em" }}>Spread</th>
+              <th style={{ padding: "10px 6px", textAlign: "center", fontSize: 11, fontWeight: 700, color: GRAY_MUTED, textTransform: "uppercase", letterSpacing: "0.05em" }}>Deposit</th>
+              <th style={{ padding: "10px 6px", textAlign: "center", fontSize: 11, fontWeight: 700, color: GRAY_MUTED, textTransform: "uppercase", letterSpacing: "0.05em" }}>Commission</th>
+              <th style={{ padding: "10px 6px", textAlign: "left", fontSize: 11, fontWeight: 700, color: GRAY_MUTED, textTransform: "uppercase", letterSpacing: "0.05em" }}>Regs</th>
+              <th style={{ padding: "10px 4px", textAlign: "center", fontSize: 11, fontWeight: 700, color: GRAY_MUTED, textTransform: "uppercase", letterSpacing: "0.05em" }}></th>
             </tr>
           </thead>
           <tbody>
@@ -308,14 +349,14 @@ export default function AlternativesTab({ data, slug, mob }) {
                   <span style={{ fontSize: 10, color: GRAY_MUTED, fontWeight: 600, background: "#e2e8f0", padding: "1px 6px", borderRadius: 3 }}>Current</span>
                 </div>
               </td>
-              <td style={{ padding: "10px 8px", fontFamily: "'JetBrains Mono',monospace", fontWeight: 700, color: NAVY }}>{B.score}</td>
-              <td style={{ padding: "10px 8px" }}>{B.spread} pips</td>
-              <td style={{ padding: "10px 8px" }}>${B.minDep}</td>
-              <td style={{ padding: "10px 8px" }}>{B.commission}</td>
-              <td style={{ padding: "10px 8px" }}>
+              <td style={{ padding: "10px 6px", textAlign: "center", fontFamily: "'JetBrains Mono',monospace", fontWeight: 700, color: NAVY }}>{B.score}</td>
+              <td style={{ padding: "10px 6px", textAlign: "center" }}>{B.spread} pips</td>
+              <td style={{ padding: "10px 6px", textAlign: "center" }}>${B.minDep}</td>
+              <td style={{ padding: "10px 6px", textAlign: "center" }}>{B.commission}</td>
+              <td style={{ padding: "10px 6px" }}>
                 <div style={{ display: "flex", gap: 3 }}>{(B.regs || []).filter(r => r.tier === 1).slice(0, 2).map((r, i) => <RegBadge key={i} reg={r.name} />)}</div>
               </td>
-              <td style={{ padding: "10px 8px" }} />
+              <td style={{ padding: "10px 4px" }} />
             </tr>
             {/* Alternatives rows */}
             {featured.map((alt, i) => (
@@ -327,19 +368,20 @@ export default function AlternativesTab({ data, slug, mob }) {
                     {i === 0 && <span style={{ fontSize: 10, color: "#fff", fontWeight: 700, background: GREEN, padding: "1px 6px", borderRadius: 3, display: "inline-flex", alignItems: "center", gap: 2 }}><Trophy size={9} /> #1</span>}
                   </div>
                 </td>
-                <td style={{ padding: "10px 8px", fontFamily: "'JetBrains Mono',monospace", fontWeight: 700, color: GREEN }}>{alt.score}</td>
-                <td style={{ padding: "10px 8px" }}>{alt.spread} pips</td>
-                <td style={{ padding: "10px 8px" }}>${alt.minDep}</td>
-                <td style={{ padding: "10px 8px" }}>{alt.commission}</td>
-                <td style={{ padding: "10px 8px" }}>
+                <td style={{ padding: "10px 6px", textAlign: "center", fontFamily: "'JetBrains Mono',monospace", fontWeight: 700, color: GREEN }}>{alt.score}</td>
+                <td style={{ padding: "10px 6px", textAlign: "center" }}>{alt.spread} pips</td>
+                <td style={{ padding: "10px 6px", textAlign: "center" }}>${alt.minDep}</td>
+                <td style={{ padding: "10px 6px", textAlign: "center" }}>{alt.commission}</td>
+                <td style={{ padding: "10px 6px" }}>
                   <div style={{ display: "flex", gap: 3 }}>{alt.regs.filter(r => r.tier === 1).slice(0, 2).map((r, j) => <RegBadge key={j} reg={r.name} />)}</div>
                 </td>
-                <td style={{ padding: "10px 8px" }}>
+                <td style={{ padding: "10px 4px", textAlign: "center" }}>
                   <a href={getVisitUrl(alt.slug)} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{
                     background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: NAVY,
                     fontSize: 11, fontWeight: 700, textDecoration: "none",
-                    padding: "6px 12px", borderRadius: 6, display: "inline-flex",
-                    alignItems: "center", gap: 4, whiteSpace: "nowrap",
+                    padding: "6px 0", borderRadius: 6, display: "flex",
+                    alignItems: "center", justifyContent: "center", gap: 4,
+                    whiteSpace: "nowrap", width: "100%", height: 30, boxSizing: "border-box",
                   }}>
                     Visit <ExternalLink size={10} />
                   </a>
@@ -373,21 +415,27 @@ export default function AlternativesTab({ data, slug, mob }) {
       {/* ─── All Alternatives ─── */}
       <H2>All {B.name} Alternatives ({remaining.length + featured.length} Brokers)</H2>
 
-      {/* Table header for desktop */}
-      {!mob && (
-        <div style={{ display: "flex", alignItems: "center", padding: "8px 0", borderBottom: `2px solid ${BORDER}`, marginBottom: 4 }}>
-          <div style={{ flex: 1, fontSize: 11, fontWeight: 700, color: GRAY_MUTED, textTransform: "uppercase", letterSpacing: "0.05em" }}>Broker</div>
-          <div style={{ display: "flex", alignItems: "center", gap: 20, flexShrink: 0 }}>
-            <div style={{ width: 70, textAlign: "center", fontSize: 11, fontWeight: 700, color: GRAY_MUTED, textTransform: "uppercase" }}>Score</div>
-            <div style={{ width: 70, textAlign: "center", fontSize: 11, fontWeight: 700, color: GRAY_MUTED, textTransform: "uppercase" }}>Spread</div>
-            <div style={{ width: 60, textAlign: "center", fontSize: 11, fontWeight: 700, color: GRAY_MUTED, textTransform: "uppercase" }}>Deposit</div>
-            <div style={{ width: 60, fontSize: 11, fontWeight: 700, color: GRAY_MUTED, textTransform: "uppercase" }}>Regs</div>
-          </div>
-          <div style={{ width: 70 }} />
-        </div>
-      )}
-
       <Card style={{ padding: mob ? "8px 14px" : "8px 18px" }}>
+        {/* Grid header inside Card for pixel-perfect alignment */}
+        {!mob && (
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: GRID_COLS,
+            columnGap: GRID_GAP,
+            alignItems: "center",
+            padding: "8px 0",
+            borderBottom: `2px solid ${BORDER}`,
+            marginBottom: 4,
+          }}>
+            <div style={{ fontSize: 11, fontWeight: 700, color: GRAY_MUTED, textTransform: "uppercase", letterSpacing: "0.05em" }}>Broker</div>
+            <div style={{ textAlign: "center", fontSize: 11, fontWeight: 700, color: GRAY_MUTED, textTransform: "uppercase" }}>Score</div>
+            <div style={{ textAlign: "center", fontSize: 11, fontWeight: 700, color: GRAY_MUTED, textTransform: "uppercase" }}>Spread</div>
+            <div style={{ textAlign: "center", fontSize: 11, fontWeight: 700, color: GRAY_MUTED, textTransform: "uppercase" }}>Deposit</div>
+            <div style={{ fontSize: 11, fontWeight: 700, color: GRAY_MUTED, textTransform: "uppercase" }}>Regs</div>
+            <div />
+          </div>
+        )}
+
         {visibleRemaining.map((alt, i) => (
           <CompactRow key={alt.slug} alt={alt} i={i} mob={mob} />
         ))}
@@ -396,7 +444,7 @@ export default function AlternativesTab({ data, slug, mob }) {
           <button onClick={() => setShowAll(true)} style={{
             display: "flex", alignItems: "center", justifyContent: "center", gap: 6,
             width: "100%", padding: "12px", marginTop: 8,
-            background: "#f8f9fb", border: `1px solid ${BORDER}`, borderRadius: 8,
+            background: GREEN_LIGHT, border: `1px solid ${GREEN_BORDER}`, borderRadius: 8,
             color: GREEN, fontSize: 13, fontWeight: 700, cursor: "pointer",
             fontFamily: "DM Sans",
           }}>
@@ -414,13 +462,13 @@ export default function AlternativesTab({ data, slug, mob }) {
         <div style={{ fontSize: mob ? 18 : 22, fontWeight: 800, color: "#fff", fontFamily: "Outfit", marginBottom: 6 }}>Ready to Switch from {B.name}?</div>
         <div style={{ fontSize: 14, color: "rgba(255,255,255,0.6)", marginBottom: 16 }}>Open an account with our #1 recommended alternative</div>
         <div style={{ display: "flex", flexDirection: mob ? "column" : "row", gap: 10, justifyContent: "center", alignItems: "center" }}>
-          <a href={getVisitUrl(featured[0]?.slug || slug)} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{
+          <a href={getVisitUrl(topAlt?.slug || slug)} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{
             background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: NAVY,
             fontSize: 16, fontWeight: 700, textDecoration: "none",
             padding: "14px 32px", borderRadius: 10, display: "inline-flex",
             alignItems: "center", gap: 8, boxShadow: "0 4px 16px rgba(245,158,11,0.3)",
           }}>
-            Visit {featured[0]?.name} <ExternalLink size={15} />
+            Visit {topAlt?.name} <ExternalLink size={15} />
           </a>
           {featured[1] && (
             <a href={getVisitUrl(featured[1].slug)} target="_blank" rel="noopener nofollow sponsored" className="cta-secondary" style={{
@@ -440,11 +488,13 @@ export default function AlternativesTab({ data, slug, mob }) {
         <FaqSection faqs={sp.faq || FAQ.filter(f => f.q.toLowerCase().includes("alternative") || f.q.toLowerCase().includes("better") || f.q.toLowerCase().includes("vs") || f.q.toLowerCase().includes("compare") || f.q.toLowerCase().includes("switch")).slice(0, 5)} mob={mob} />
       )}
 
-      {/* ─── Verdict ─── */}
+      {/* ─── Verdict: about the #1 alternative, not the current broker ─── */}
       <VerdictBox
-        slug={slug} name={B.name} score={B.score}
-        title={sp.verdict_title || `Best ${B.name} Alternative — Our Pick`}
-        text={sp.verdict_text || `After comparing all ${allAlts.length} brokers, ${featured[0]?.name} (${featured[0]?.score}/10) is our top ${B.name} alternative. It offers ${featured[0]?.spread || "competitive"} pips spreads with ${featured[0]?.regs?.filter(r => r.tier === 1).map(r => r.name).join(" + ") || "strong"} regulation. ${featured[1]?.name} and ${featured[2]?.name} are also excellent choices depending on your trading priorities.`}
+        slug={topAlt?.slug || slug}
+        name={topAlt?.name || B.name}
+        score={topAlt?.score || B.score}
+        title={sp.verdict_title || `Best ${B.name} Alternative — Our #1 Pick`}
+        text={sp.verdict_text || `After comparing all ${allAlts.length} brokers, ${topAlt?.name} (${topAlt?.score}/10) is our top ${B.name} alternative. It offers ${topAlt?.spread || "competitive"} pips spreads with ${topAlt?.regs?.filter(r => r.tier === 1).map(r => r.name).join(" + ") || "strong"} regulation. ${featured[1]?.name} and ${featured[2]?.name} are also excellent choices depending on your trading priorities.`}
         bestFor={sp.best_for}
         notFor={sp.not_for}
         mob={mob}
