@@ -101,6 +101,32 @@ multi_leg_orders: true
 paper_trading: false
 options_analytics: true
 
+deposits:
+  - method: Bank Transfer (EFT)
+    fee: Free
+    min: $0
+    time: "1-3 days"
+  - method: Wire Transfer
+    fee: Free incoming
+    min: $0
+    time: "Same day"
+  - method: Check
+    fee: Free
+    min: $0
+    time: "5-7 days"
+
+timeline:
+  - year: 1946
+    event: "Fidelity Management & Research founded by Edward C. Johnson II"
+  - year: 1977
+    event: "Launched first no-load mutual funds available to retail investors"
+  - year: 2018
+    event: "Introduced zero-expense-ratio index funds (FZROX, FZILX)"
+  - year: 2019
+    event: "Eliminated stock and ETF trading commissions"
+  - year: 2020
+    event: "Launched fractional shares on 7,000+ securities from $1"
+
 pros:
   - "$0 commissions on stocks, ETFs, and options"
   - "Fractional shares on 7,000+ stocks and ETFs from $1"
@@ -145,7 +171,6 @@ author:
   updated: "March 2026"
   fact_checker: "Michael Torres"
 ---
-
 ## Overview
 
 Fidelity Investments is one of the world's largest
@@ -154,6 +179,31 @@ Fidelity Investments is one of the world's largest
 
 Our overall score of 8.7 reflects Fidelity's unmatched safety (9.9), best-in-class fractional shares, and zero-expense index funds. Platform scores lower due to the aging Active Trader Pro desktop client. financial services companies with over $12 trillion in assets under administration. Known for zero-commission trading, industry-leading fractional shares, and zero-expense-ratio index funds.
 
+## Account Intro
+
+Account setup is straightforward and fully online. Most accounts are approved within 1-2 business days.
+
+## Account Outro
+
+All accounts include access to research, screeners, and portfolio analysis tools.
+
+## Regulation
+
+The broker maintains registration with all required US financial regulators, providing SIPC coverage up to $500,000 per account. Excess SIPC insurance may provide additional protection.
+
+## Costs
+
+Commission-free stock and ETF trading is the standard. Options carry a per-contract fee, and margin interest rates vary by balance tier. There are no account maintenance or inactivity fees.
+
+## Platforms
+
+Trading is available through web, desktop, and mobile platforms with real-time quotes, charting, and order management.
+
+## Deposits
+
+Multiple funding methods are supported including ACH bank transfers (free, 1-3 days), wire transfers, and checks.
+
 ## Verdict
 
-Fidelity is the top choice for long-term US investors who want the best combination of $0 costs, fractional shares, research quality, and fund safety. The lack of futures is the only notable gap.
+A solid choice for stock and ETF investors seeking regulated, commission-free trading with quality research tools.
+

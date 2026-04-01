@@ -105,6 +105,32 @@ options_analytics: false
 futures_commission: "$0.50/contract (Gold), $0.75 (standard)"
 micro_futures: true
 
+deposits:
+  - method: Bank Transfer (ACH)
+    fee: Free
+    min: $0
+    time: "1-5 days"
+  - method: Wire Transfer
+    fee: $0 (Gold)
+    min: $0
+    time: "Same day"
+  - method: Debit Card
+    fee: 1.5% fee
+    min: $0
+    time: "Instant"
+
+timeline:
+  - year: 2013
+    event: "Founded by Vlad Tenev and Baiju Bhatt in Palo Alto"
+  - year: 2015
+    event: "Launched commission-free stock trading app"
+  - year: 2018
+    event: "Added cryptocurrency trading (Bitcoin, Ethereum)"
+  - year: 2021
+    event: "IPO on NASDAQ at $38/share ($32B valuation)"
+  - year: 2024
+    event: "Launched futures and index options trading"
+
 pros:
   - "$0 commissions on everything — stocks, ETFs, options, crypto, futures"
   - "Clean, intuitive mobile-first UX — lowest barrier for beginners"
@@ -149,7 +175,6 @@ author:
   updated: "March 2026"
   fact_checker: "Michael Torres"
 ---
-
 ## Overview
 
 Robinhood pioneered commission-free trading
@@ -158,6 +183,31 @@ Robinhood pioneered commission-free trading
 
 Our overall score of 8.0 reflects Robinhood's unbeatable cost structure (9.8) balanced against limited research tools (7.5) and PFOF execution concerns (7.5). Best for cost-conscious beginners, not for advanced traders. and remains the simplest way for US beginners to start investing. Now offers stocks, options, crypto, and futures — all at $0 commission.
 
+## Account Intro
+
+Account setup is straightforward and fully online. Most accounts are approved within 1-2 business days.
+
+## Account Outro
+
+All accounts include access to research, screeners, and portfolio analysis tools.
+
+## Regulation
+
+The broker maintains registration with all required US financial regulators, providing SIPC coverage up to $500,000 per account. Excess SIPC insurance may provide additional protection.
+
+## Costs
+
+Commission-free stock and ETF trading is the standard. Options carry a per-contract fee, and margin interest rates vary by balance tier. There are no account maintenance or inactivity fees.
+
+## Platforms
+
+Trading is available through web, desktop, and mobile platforms with real-time quotes, charting, and order management.
+
+## Deposits
+
+Multiple funding methods are supported including ACH bank transfers (free, 1-3 days), wire transfers, and checks.
+
 ## Verdict
 
-Robinhood is best for beginners and cost-conscious traders who prioritize simplicity and zero fees over advanced tools. For serious analysis, look at Schwab or Fidelity.
+A solid choice for stock and ETF investors seeking regulated, commission-free trading with quality research tools.
+

@@ -113,6 +113,28 @@ paper_trading: true
 futures_commission: "$1.50/contract/side"
 micro_futures: true
 
+deposits:
+  - method: Bank Transfer (ACH)
+    fee: Free
+    min: $0
+    time: "1-5 days"
+  - method: Wire Transfer
+    fee: $8 domestic
+    min: $0
+    time: "Same day"
+
+timeline:
+  - year: 2016
+    event: "Founded by Wang Anquan — launched fintech trading platform"
+  - year: 2018
+    event: "Received SEC/FINRA approval for US brokerage operations"
+  - year: 2023
+    event: "Obtained FCA (UK) and ASIC (Australia) licenses"
+  - year: 2024
+    event: "Added futures and overnight trading"
+  - year: 2025
+    event: "IPO on NASDAQ as BULL — expanded to 14 markets globally"
+
 pros:
   - "$0 commissions on stocks, ETFs, and equity options"
   - "Best charting tools among commission-free brokers"
@@ -155,7 +177,6 @@ author:
   updated: "March 2026"
   fact_checker: "Michael Torres"
 ---
-
 ## Overview
 
 Webull is a NASDAQ-listed commission-free broker offering advanced charting tools that rival professional platforms. Available in 14 markets with 5 Tier-1 regulatory licenses.
@@ -164,6 +185,31 @@ Webull is a NASDAQ-listed commission-free broker offering advanced charting tool
 
 7.8 reflects excellent multi-jurisdiction regulation (9.2) and charting tools (8.5), balanced against PFOF execution concerns and limited research.
 
+## Account Intro
+
+Account setup is straightforward and fully online. Most accounts are approved within 1-2 business days.
+
+## Account Outro
+
+All accounts include access to research, screeners, and portfolio analysis tools.
+
+## Regulation
+
+The broker maintains registration with all required US financial regulators, providing SIPC coverage up to $500,000 per account. Excess SIPC insurance may provide additional protection.
+
+## Costs
+
+Commission-free stock and ETF trading is the standard. Options carry a per-contract fee, and margin interest rates vary by balance tier. There are no account maintenance or inactivity fees.
+
+## Platforms
+
+Trading is available through web, desktop, and mobile platforms with real-time quotes, charting, and order management.
+
+## Deposits
+
+Multiple funding methods are supported including ACH bank transfers (free, 1-3 days), wire transfers, and checks.
+
 ## Verdict
 
-Best for technical traders who want free advanced charting and extended hours without paying for a premium platform.
+A solid choice for stock and ETF investors seeking regulated, commission-free trading with quality research tools.
+

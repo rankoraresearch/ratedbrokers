@@ -95,6 +95,30 @@ day_trade_margins: "$40 micro MES, ~$400 E-mini ES"
 dom_trading: true
 futures_platforms: ["CQG", "TT", "MT5", "TradingView", "NinjaTrader", "Sierra Chart", "MultiCharts"]
 
+deposits:
+  - method: Bank Transfer (ACH)
+    fee: Free
+    min: $100
+    time: "1-3 days"
+  - method: Wire Transfer
+    fee: $20
+    min: $100
+    time: "Same day"
+  - method: Credit Card
+    fee: 3.5%
+    min: $100
+    time: "Instant"
+
+timeline:
+  - year: 2004
+    event: "AMP Global Clearing founded in Chicago"
+  - year: 2010
+    event: "Partnered with 20+ platform providers for multi-platform access"
+  - year: 2018
+    event: "Reached 50+ supported platforms — largest selection in futures"
+  - year: 2023
+    event: "Introduced $40 micro day trade margins"
+
 pros:
   - "Ultra-low commissions from $0.15/side — industry cheapest"
   - "$100 minimum deposit — lowest barrier for futures"
@@ -137,7 +161,6 @@ author:
   updated: "March 2026"
   fact_checker: "Michael Torres"
 ---
-
 ## Overview
 
 AMP Futures is the deepest discount futures broker in the US, offering commissions from $0.15/side and 50+ platform choices. With a $100 minimum deposit, it's the most accessible entry point for futures trading.
@@ -146,6 +169,31 @@ AMP Futures is the deepest discount futures broker in the US, offering commissio
 
 8.0 reflects industry-leading costs (9.8) and good Trustpilot (4.3), offset by no proprietary platform and futures-only limitations.
 
+## Account Intro
+
+Futures accounts require a separate application. Approval is typically within 1-3 business days after identity verification.
+
+## Account Outro
+
+Day trade margins are significantly reduced from exchange minimums, making futures more accessible to retail traders.
+
+## Regulation
+
+Registered with the CFTC and NFA as required for US futures commission merchants and introducing brokers.
+
+## Costs
+
+Futures commissions are charged per contract per side. Total cost includes commission + exchange fees + NFA fees. Data feed subscriptions may be additional.
+
+## Platforms
+
+Trading platforms offer depth-of-market (DOM) tools, advanced charting, and order management for futures contracts.
+
+## Deposits
+
+Funding is available via ACH bank transfer, wire transfer, and in some cases credit card or check.
+
 ## Verdict
 
-Best for cost-conscious futures traders who want the lowest commissions and maximum platform flexibility.
+A competitive choice for futures traders seeking low commissions and access to CME Group products.
+

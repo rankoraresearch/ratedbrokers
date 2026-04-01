@@ -103,6 +103,32 @@ paper_trading: false
 futures_commission: "€0.75/contract (Eurex)"
 micro_futures: false
 
+deposits:
+  - method: Bank Transfer (SEPA)
+    fee: Free
+    min: €0
+    time: "1-2 days"
+  - method: iDEAL
+    fee: Free
+    min: €0
+    time: "Instant"
+  - method: Sofort
+    fee: Free
+    min: €0
+    time: "Instant"
+
+timeline:
+  - year: 2008
+    event: "Founded in Amsterdam as institutional execution-only broker"
+  - year: 2013
+    event: "Opened to retail investors in the Netherlands"
+  - year: 2020
+    event: "Merged with flatex AG to form flatexDEGIRO (Frankfurt listed)"
+  - year: 2023
+    event: "Surpassed 3 million customers across Europe"
+  - year: 2025
+    event: "Expanded to 50+ exchanges in 30 countries"
+
 pros:
   - "Very low fees — €1 per US stock trade, €0 Core ETFs"
   - "50+ exchanges in 30 countries — widest access in Europe"
@@ -147,7 +173,6 @@ author:
   updated: "March 2026"
   fact_checker: "Michael Torres"
 ---
-
 ## Overview
 
 DEGIRO is Europe's largest execution-only broker
@@ -156,6 +181,31 @@ DEGIRO is Europe's largest execution-only broker
 
 Our overall score of 8.5 reflects DEGIRO's excellent regulation (9.5), strong Trustpilot (4.2), and unmatched 50+ exchange access. The basic platform (7.0) is the primary trade-off for the low fees., offering access to 50+ exchanges across 30 countries at some of the lowest fees in the industry. Part of the Frankfurt-listed flatexDEGIRO group.
 
+## Account Intro
+
+Account opening is fully digital. EU residents can typically complete verification and start trading within 1-2 business days.
+
+## Account Outro
+
+All accounts benefit from EU investor protection regulations and deposit guarantee schemes.
+
+## Regulation
+
+Regulated by EU/EEA financial authorities with client funds protected under deposit guarantee schemes up to €100,000.
+
+## Costs
+
+Trading fees are transparent with no hidden charges. Commission structures vary by market and exchange.
+
+## Platforms
+
+Mobile-first platforms with web access. Basic charting and portfolio tracking included.
+
+## Deposits
+
+SEPA bank transfers are free and typically settle in 1-2 business days. Some instant payment methods also available.
+
 ## Verdict
 
-DEGIRO is the best choice for European buy-and-hold investors who want global market access at minimal cost. The basic platform is a trade-off for the low fees.
+A good option for European investors seeking simple, low-cost access to global markets through a regulated platform.
+

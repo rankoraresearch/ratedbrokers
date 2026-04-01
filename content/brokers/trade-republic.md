@@ -92,6 +92,32 @@ extended_hours: true
 ipo_access: false
 dividend_reinvestment: false
 
+deposits:
+  - method: Bank Transfer (SEPA)
+    fee: Free
+    min: €0
+    time: "1-2 days"
+  - method: Apple Pay
+    fee: Free
+    min: €0
+    time: "Instant"
+  - method: Google Pay
+    fee: Free
+    min: €0
+    time: "Instant"
+
+timeline:
+  - year: 2015
+    event: "Founded as Neon Trading in Berlin by Christian Hecker"
+  - year: 2019
+    event: "Launched Trade Republic app in Germany"
+  - year: 2023
+    event: "Received full BaFin banking license — deposits protected up to €100K"
+  - year: 2024
+    event: "Surpassed 4 million customers"
+  - year: 2025
+    event: "Reached 8M+ customers and €100B+ AUM — largest EU neobroker"
+
 pros:
   - "Simplest European broker — ultra-clean mobile UX"
   - "€1 flat fee, free savings plans from €1/month"
@@ -134,7 +160,6 @@ author:
   updated: "March 2026"
   fact_checker: "Michael Torres"
 ---
-
 ## Overview
 
 Trade Republic is Europe's largest neobroker with 8M+ customers and a full BaFin banking license. Offers the simplest mobile investing experience with €1 trades and free savings plans.
@@ -143,6 +168,31 @@ Trade Republic is Europe's largest neobroker with 8M+ customers and a full BaFin
 
 8.2 reflects strong regulation (9.5), good Trustpilot (7.5), and low costs (9.0), offset by a very basic platform (6.5) and limited product range.
 
+## Account Intro
+
+Account opening is fully digital. EU residents can typically complete verification and start trading within 1-2 business days.
+
+## Account Outro
+
+All accounts benefit from EU investor protection regulations and deposit guarantee schemes.
+
+## Regulation
+
+Regulated by EU/EEA financial authorities with client funds protected under deposit guarantee schemes up to €100,000.
+
+## Costs
+
+Trading fees are transparent with no hidden charges. Commission structures vary by market and exchange.
+
+## Platforms
+
+Mobile-first platforms with web access. Basic charting and portfolio tracking included.
+
+## Deposits
+
+SEPA bank transfers are free and typically settle in 1-2 business days. Some instant payment methods also available.
+
 ## Verdict
 
-Best for European buy-and-hold investors who want the simplest possible experience with free savings plans and competitive cash interest rates.
+A good option for European investors seeking simple, low-cost access to global markets through a regulated platform.
+

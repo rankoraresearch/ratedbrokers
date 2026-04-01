@@ -91,6 +91,32 @@ day_trade_margins: "$50 micro MES, $500 E-mini ES"
 dom_trading: true
 futures_platforms: ["NinjaTrader Desktop", "SuperDOM"]
 
+deposits:
+  - method: Bank Transfer (ACH)
+    fee: Free
+    min: $0
+    time: "1-3 days"
+  - method: Wire Transfer
+    fee: Varies
+    min: $0
+    time: "Same day"
+  - method: Check
+    fee: Free
+    min: $0
+    time: "5-7 days"
+
+timeline:
+  - year: 2003
+    event: "Founded as a charting software company for futures traders"
+  - year: 2015
+    event: "Launched NinjaTrader Brokerage — became a futures FCM"
+  - year: 2019
+    event: "Introduced $50 micro day trade margins"
+  - year: 2022
+    event: "Released NinjaTrader 8 with C# custom indicators"
+  - year: 2025
+    event: "Acquired by Kraken (crypto exchange)"
+
 pros:
   - "SuperDOM — elite depth-of-market for futures scalping"
   - "$50 micro day trade margins — extremely accessible"
@@ -133,7 +159,6 @@ author:
   updated: "March 2026"
   fact_checker: "Michael Torres"
 ---
-
 ## Overview
 
 NinjaTrader is the leading futures-focused platform, known for its SuperDOM order entry and C#-based custom indicators. Acquired by Kraken in 2025, it remains the go-to choice for futures day traders and scalpers.
@@ -142,6 +167,31 @@ NinjaTrader is the leading futures-focused platform, known for its SuperDOM orde
 
 8.3 reflects outstanding platform (9.5) and competitive pricing (9.5), offset by futures-only limitation and platform requiring Windows.
 
+## Account Intro
+
+Futures accounts require a separate application. Approval is typically within 1-3 business days after identity verification.
+
+## Account Outro
+
+Day trade margins are significantly reduced from exchange minimums, making futures more accessible to retail traders.
+
+## Regulation
+
+Registered with the CFTC and NFA as required for US futures commission merchants and introducing brokers.
+
+## Costs
+
+Futures commissions are charged per contract per side. Total cost includes commission + exchange fees + NFA fees. Data feed subscriptions may be additional.
+
+## Platforms
+
+Trading platforms offer depth-of-market (DOM) tools, advanced charting, and order management for futures contracts.
+
+## Deposits
+
+Funding is available via ACH bank transfer, wire transfer, and in some cases credit card or check.
+
 ## Verdict
 
-The #1 platform for dedicated futures scalpers and day traders who want the best depth-of-market tools and lowest micro margins.
+A competitive choice for futures traders seeking low commissions and access to CME Group products.
+

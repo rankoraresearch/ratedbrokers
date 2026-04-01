@@ -106,6 +106,32 @@ options_analytics: true
 futures_commission: "$1.25/side"
 micro_futures: true
 
+deposits:
+  - method: Bank Transfer (ACH)
+    fee: Free
+    min: $0
+    time: "1-4 days"
+  - method: Wire Transfer
+    fee: Free incoming
+    min: $0
+    time: "Same day"
+  - method: Check
+    fee: Free
+    min: $0
+    time: "5-7 days"
+
+timeline:
+  - year: 2011
+    event: "Founded by Tom Sosnoff and Scott Sheridan as tastytrade media"
+  - year: 2017
+    event: "Launched tastyworks brokerage platform for options traders"
+  - year: 2021
+    event: "Acquired by IG Group for $1 billion"
+  - year: 2023
+    event: "Rebranded from tastyworks to tastytrade"
+  - year: 2025
+    event: "Became independent from IG Group — self-clearing broker"
+
 pros:
   - "Options capped at $10/leg — massive savings on large blocks"
   - "Purpose-built options platform with IV, Greeks, probability"
@@ -148,7 +174,6 @@ author:
   updated: "March 2026"
   fact_checker: "Michael Torres"
 ---
-
 ## Overview
 
 tastytrade is the leading options-first broker, purpose-built for derivatives traders. Founded by Tom Sosnoff and Scott Sheridan, it offers the most advanced retail options platform with unique capped pricing.
@@ -157,6 +182,31 @@ tastytrade is the leading options-first broker, purpose-built for derivatives tr
 
 8.6 reflects excellent options platform (9.2), strong Trustpilot (3.9), and unique capped pricing structure. Limited research and no paper trading lower the overall score.
 
+## Account Intro
+
+Account setup is straightforward and fully online. Most accounts are approved within 1-2 business days.
+
+## Account Outro
+
+All accounts include access to research, screeners, and portfolio analysis tools.
+
+## Regulation
+
+The broker maintains registration with all required US financial regulators, providing SIPC coverage up to $500,000 per account. Excess SIPC insurance may provide additional protection.
+
+## Costs
+
+Commission-free stock and ETF trading is the standard. Options carry a per-contract fee, and margin interest rates vary by balance tier. There are no account maintenance or inactivity fees.
+
+## Platforms
+
+Trading is available through web, desktop, and mobile platforms with real-time quotes, charting, and order management.
+
+## Deposits
+
+Multiple funding methods are supported including ACH bank transfers (free, 1-3 days), wire transfers, and checks.
+
 ## Verdict
 
-The #1 choice for dedicated options traders. If derivatives are your focus, tastytrade's platform and pricing are unmatched.
+A solid choice for stock and ETF investors seeking regulated, commission-free trading with quality research tools.
+

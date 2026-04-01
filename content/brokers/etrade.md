@@ -102,6 +102,32 @@ options_analytics: true
 futures_commission: "$1.50/contract/side"
 micro_futures: true
 
+deposits:
+  - method: Bank Transfer (ACH)
+    fee: Free
+    min: $0
+    time: "1-3 days"
+  - method: Wire Transfer
+    fee: $25
+    min: $0
+    time: "Same day"
+  - method: Check
+    fee: Free
+    min: $0
+    time: "5-7 days"
+
+timeline:
+  - year: 1982
+    event: "Founded as TradePlus — one of the first electronic brokerages"
+  - year: 1992
+    event: "Rebranded as E*TRADE Financial"
+  - year: 2019
+    event: "Eliminated stock trading commissions"
+  - year: 2020
+    event: "Acquired by Morgan Stanley for $13 billion"
+  - year: 2023
+    event: "Integrated Power E*TRADE platform across Morgan Stanley network"
+
 pros:
   - "Morgan Stanley backing — $1T+ AUM, Wall Street credibility"
   - "Power E*TRADE is one of the best options platforms available"
@@ -144,7 +170,6 @@ author:
   updated: "March 2026"
   fact_checker: "Michael Torres"
 ---
-
 ## Overview
 
 E*TRADE from Morgan Stanley combines commission-free trading with institutional-grade tools. Power E*TRADE is among the best options trading platforms, and Morgan Stanley's IPO pipeline gives qualifying clients unique access.
@@ -153,6 +178,31 @@ E*TRADE from Morgan Stanley combines commission-free trading with institutional-
 
 Our 8.5 score reflects strong regulation (9.7), competitive costs (9.3), and excellent options platform (9.0), offset by low Trustpilot and US-only limitations.
 
+## Account Intro
+
+Account setup is straightforward and fully online. Most accounts are approved within 1-2 business days.
+
+## Account Outro
+
+All accounts include access to research, screeners, and portfolio analysis tools.
+
+## Regulation
+
+The broker maintains registration with all required US financial regulators, providing SIPC coverage up to $500,000 per account. Excess SIPC insurance may provide additional protection.
+
+## Costs
+
+Commission-free stock and ETF trading is the standard. Options carry a per-contract fee, and margin interest rates vary by balance tier. There are no account maintenance or inactivity fees.
+
+## Platforms
+
+Trading is available through web, desktop, and mobile platforms with real-time quotes, charting, and order management.
+
+## Deposits
+
+Multiple funding methods are supported including ACH bank transfers (free, 1-3 days), wire transfers, and checks.
+
 ## Verdict
 
-Best for US options traders who want professional-grade tools backed by Morgan Stanley's research and IPO access.
+A solid choice for stock and ETF investors seeking regulated, commission-free trading with quality research tools.
+

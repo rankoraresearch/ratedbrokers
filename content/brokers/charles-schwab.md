@@ -108,6 +108,32 @@ futures_commission: "$2.25/contract"
 micro_futures: true
 futures_platforms: ["thinkorswim"]
 
+deposits:
+  - method: Bank Transfer (ACH)
+    fee: Free
+    min: $0
+    time: "1-3 days"
+  - method: Wire Transfer
+    fee: $25 incoming
+    min: $0
+    time: "Same day"
+  - method: Check
+    fee: Free
+    min: $0
+    time: "5-7 days"
+
+timeline:
+  - year: 1971
+    event: "Charles Schwab founded as a traditional brokerage in San Francisco"
+  - year: 1996
+    event: "Launched e.Schwab — early online trading platform"
+  - year: 2019
+    event: "Eliminated stock trading commissions to $0"
+  - year: 2020
+    event: "Acquired TD Ameritrade for $26 billion"
+  - year: 2024
+    event: "Completed TD Ameritrade migration — thinkorswim integrated"
+
 pros:
   - "$0 commissions on stocks, ETFs, and options trades"
   - "thinkorswim — one of the best trading platforms in the industry"
@@ -158,7 +184,6 @@ author:
   updated: "March 2026"
   fact_checker: "Michael Torres"
 ---
-
 ## Overview
 
 Charles Schwab is one of the largest US broker-dealers
@@ -167,6 +192,31 @@ Charles Schwab is one of the largest US broker-dealers
 
 Our overall score of 8.8 reflects Schwab's exceptional regulation (9.8), zero-cost structure (9.5), and the industry-leading thinkorswim platform (9.6). The low Trustpilot score (1.6) is typical for US brokers and offset by JD Power #1 rankings. with over $8 trillion in client assets. Following the acquisition of TD Ameritrade, Schwab now offers the thinkorswim platform — widely considered one of the best retail trading platforms available.
 
+## Account Intro
+
+Account setup is straightforward and fully online. Most accounts are approved within 1-2 business days.
+
+## Account Outro
+
+All accounts include access to research, screeners, and portfolio analysis tools.
+
+## Regulation
+
+The broker maintains registration with all required US financial regulators, providing SIPC coverage up to $500,000 per account. Excess SIPC insurance may provide additional protection.
+
+## Costs
+
+Commission-free stock and ETF trading is the standard. Options carry a per-contract fee, and margin interest rates vary by balance tier. There are no account maintenance or inactivity fees.
+
+## Platforms
+
+Trading is available through web, desktop, and mobile platforms with real-time quotes, charting, and order management.
+
+## Deposits
+
+Multiple funding methods are supported including ACH bank transfers (free, 1-3 days), wire transfers, and checks.
+
 ## Verdict
 
-Charles Schwab is an excellent choice for US-based stock and options traders who want a full-service broker with $0 commissions and institutional-grade tools. The thinkorswim platform alone makes Schwab competitive with any broker in the market.
+A solid choice for stock and ETF investors seeking regulated, commission-free trading with quality research tools.
+

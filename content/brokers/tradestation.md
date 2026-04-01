@@ -113,6 +113,32 @@ micro_futures: true
 dom_trading: true
 futures_platforms: ["TITAN X", "FuturesPlus"]
 
+deposits:
+  - method: Bank Transfer (ACH)
+    fee: Free
+    min: $0
+    time: "1-3 days"
+  - method: Wire Transfer
+    fee: $0 incoming
+    min: $0
+    time: "Same day"
+  - method: Check
+    fee: Free
+    min: $0
+    time: "5-7 days"
+
+timeline:
+  - year: 1982
+    event: "Founded by William Porter as Omega Research"
+  - year: 1999
+    event: "Launched TradeStation platform with EasyLanguage scripting"
+  - year: 2007
+    event: "Went public on NASDAQ"
+  - year: 2021
+    event: "Taken private by Monex Group for $370 million"
+  - year: 2026
+    event: "Launched TITAN X platform — won #1 Innovation Award"
+
 pros:
   - "Full multi-asset: stocks, options, futures, crypto in one platform"
   - "EasyLanguage — proprietary scripting for custom strategies"
@@ -155,7 +181,6 @@ author:
   updated: "March 2026"
   fact_checker: "Michael Torres"
 ---
-
 ## Overview
 
 TradeStation is a 40+ year veteran multi-asset broker known for EasyLanguage automation and the award-winning TITAN X platform. Offers stocks, options, futures, and crypto for active traders.
@@ -164,6 +189,31 @@ TradeStation is a 40+ year veteran multi-asset broker known for EasyLanguage aut
 
 8.4 reflects excellent Trustpilot (4.6), strong platform (9.3), and multi-asset coverage. Higher futures costs vs specialists lower the overall.
 
+## Account Intro
+
+Account setup is straightforward and fully online. Most accounts are approved within 1-2 business days.
+
+## Account Outro
+
+All accounts include access to research, screeners, and portfolio analysis tools.
+
+## Regulation
+
+The broker maintains registration with all required US financial regulators, providing SIPC coverage up to $500,000 per account. Excess SIPC insurance may provide additional protection.
+
+## Costs
+
+Commission-free stock and ETF trading is the standard. Options carry a per-contract fee, and margin interest rates vary by balance tier. There are no account maintenance or inactivity fees.
+
+## Platforms
+
+Trading is available through web, desktop, and mobile platforms with real-time quotes, charting, and order management.
+
+## Deposits
+
+Multiple funding methods are supported including ACH bank transfers (free, 1-3 days), wire transfers, and checks.
+
 ## Verdict
 
-Best for active traders who want one platform for everything (stocks, options, futures) with custom automation via EasyLanguage.
+A solid choice for stock and ETF investors seeking regulated, commission-free trading with quality research tools.
+

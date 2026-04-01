@@ -111,6 +111,28 @@ options_level: 3
 paper_trading: true
 options_analytics: true
 
+deposits:
+  - method: Bank Transfer (ACH)
+    fee: Free
+    min: $0
+    time: "1-5 days"
+  - method: Wire Transfer
+    fee: $0 incoming
+    min: $0
+    time: "Same day"
+
+timeline:
+  - year: 2012
+    event: "Futu Holdings founded in Hong Kong by Leaf Li Hua"
+  - year: 2018
+    event: "Launched moomoo trading platform for international markets"
+  - year: 2019
+    event: "Futu Holdings IPO on NASDAQ (FUTU)"
+  - year: 2022
+    event: "Obtained ASIC and MAS regulatory licenses"
+  - year: 2024
+    event: "Expanded to Japan and Canada — 7 regulatory licenses"
+
 pros:
   - "Free Level 2 data and advanced analytics — rivaling paid platforms"
   - "Multi-market access: US, Hong Kong, Singapore, Australia, Japan"
@@ -153,7 +175,6 @@ author:
   updated: "March 2026"
   fact_checker: "Michael Torres"
 ---
-
 ## Overview
 
 Moomoo by Futu Holdings is a NASDAQ-listed broker offering the most advanced free analytics tools in the retail market. Unique multi-market access spanning US and Asia-Pacific exchanges.
@@ -162,6 +183,31 @@ Moomoo by Futu Holdings is a NASDAQ-listed broker offering the most advanced fre
 
 7.5 reflects strong regulation (9.3) and excellent tools (8.8), offset by no IRA, PFOF execution, and mixed Trustpilot reputation.
 
+## Account Intro
+
+Account setup is straightforward and fully online. Most accounts are approved within 1-2 business days.
+
+## Account Outro
+
+All accounts include access to research, screeners, and portfolio analysis tools.
+
+## Regulation
+
+The broker maintains registration with all required US financial regulators, providing SIPC coverage up to $500,000 per account. Excess SIPC insurance may provide additional protection.
+
+## Costs
+
+Commission-free stock and ETF trading is the standard. Options carry a per-contract fee, and margin interest rates vary by balance tier. There are no account maintenance or inactivity fees.
+
+## Platforms
+
+Trading is available through web, desktop, and mobile platforms with real-time quotes, charting, and order management.
+
+## Deposits
+
+Multiple funding methods are supported including ACH bank transfers (free, 1-3 days), wire transfers, and checks.
+
 ## Verdict
 
-Best for data-driven traders who want institutional-grade analytics for free, especially those interested in US and Asian markets.
+A solid choice for stock and ETF investors seeking regulated, commission-free trading with quality research tools.
+

@@ -93,6 +93,30 @@ day_trade_margins: "Competitive (CQG/Rithmic)"
 dom_trading: true
 futures_platforms: ["Optimus Flow", "TradingView", "NinjaTrader", "Sierra Chart"]
 
+deposits:
+  - method: Bank Transfer (ACH)
+    fee: Free
+    min: $500
+    time: "1-3 days"
+  - method: Wire Transfer
+    fee: Varies
+    min: $500
+    time: "Same day"
+  - method: Check
+    fee: Free
+    min: $500
+    time: "5-7 days"
+
+timeline:
+  - year: 2004
+    event: "Optimus Trading Group founded by Matt Zimberg in Florida"
+  - year: 2015
+    event: "Launched Optimus Flow proprietary trading platform"
+  - year: 2020
+    event: "Reached Trustpilot 4.5/5 — highest-rated futures broker"
+  - year: 2024
+    event: "Added TradingView integration for futures trading"
+
 pros:
   - "Exceptional customer support — personal broker assistance"
   - "Micro commissions as low as $0.05/side at volume"
@@ -135,7 +159,6 @@ author:
   updated: "March 2026"
   fact_checker: "Michael Torres"
 ---
-
 ## Overview
 
 Optimus Futures is an independent futures broker known for exceptional personal service and competitive volume-based pricing. Their proprietary Optimus Flow platform complements multi-platform support via CQG and Rithmic.
@@ -144,6 +167,31 @@ Optimus Futures is an independent futures broker known for exceptional personal 
 
 7.8 reflects highest Trustpilot among futures brokers (4.5), good costs at volume, offset by smaller brand and futures-only focus.
 
+## Account Intro
+
+Futures accounts require a separate application. Approval is typically within 1-3 business days after identity verification.
+
+## Account Outro
+
+Day trade margins are significantly reduced from exchange minimums, making futures more accessible to retail traders.
+
+## Regulation
+
+Registered with the CFTC and NFA as required for US futures commission merchants and introducing brokers.
+
+## Costs
+
+Futures commissions are charged per contract per side. Total cost includes commission + exchange fees + NFA fees. Data feed subscriptions may be additional.
+
+## Platforms
+
+Trading platforms offer depth-of-market (DOM) tools, advanced charting, and order management for futures contracts.
+
+## Deposits
+
+Funding is available via ACH bank transfer, wire transfer, and in some cases credit card or check.
+
 ## Verdict
 
-Best for futures traders who value personal support and want a dedicated broker relationship alongside competitive pricing.
+A competitive choice for futures traders seeking low commissions and access to CME Group products.
+
