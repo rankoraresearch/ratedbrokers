@@ -472,18 +472,233 @@ Sprint 2 ──┤→ Sprint 3 → Sprint 5 → Sprint 6 → Sprint 7 → Sprint
 
 ---
 
-### Phase 2: Новые брокеры — Stocks, Options, Futures (высокий уровень)
+### Phase 2: Новые брокеры — Stocks, Options, Futures (12 спринтов)
 
-**Предусловие:** Phase 1 завершена и стабильна.
+**Статус: В РАБОТЕ**
 
-- [ ] **P2.1** Исследование: 15-20 stock brokers (Fidelity, Schwab, Robinhood, Degiro...)
-- [ ] **P2.2** Stock Brokers: YAML-данные, 20-30 рейтингов, хаб `/stock-trading`
-- [ ] **P2.3** Options Brokers: 10-15 брокеров, 10-15 рейтингов, хаб `/options-trading`
-- [ ] **P2.4** Futures Brokers: 8-12 брокеров, 8-10 рейтингов, хаб `/futures-trading`
-- [ ] **P2.5** Обновление навигации и homepage: 8 вертикалей
+**Исследование:** `memory/m4-phase2-broker-research.md`
 
-**Оценка Phase 2:** ~16 рабочих дней (3-4 недели)
-**Результат:** +50-55 рейтингов, 3 новых хаба, ~30 новых брокеров
+**Масштаб:** 19 новых брокеров + 7 обновлений существующих. 3 новых хаба. ~50-60 рейтингов.
+
+**Overlap — 7 наших брокеров расширяются:** IBKR, Saxo, eToro, Trading 212, IG, Plus500, Swissquote — уже есть, добавляем verticals `stocks`/`options`/`futures`.
+
+**Новые брокеры (19):**
+- **Stocks Tier A:** Charles Schwab, Fidelity, Robinhood, DEGIRO
+- **Stocks Tier B:** E\*TRADE, Webull, Trade Republic, Moomoo
+- **Stocks Tier C:** Freetrade, SoFi, Ally Invest, Public.com
+- **Options-specific:** tastytrade
+- **Futures-specific:** NinjaTrader, TradeStation, AMP Futures, Optimus Futures, Tradovate, EdgeClear
+
+#### Sprint P2.1: Расширение YAML-схемы `[S, 1 день]`
+
+Добавить новые поля для stocks/options/futures в формат YAML и build script.
+
+- [ ] **P2.1.1** Определить новые YAML-поля для stocks:
+  - `commission_per_trade` — комиссия за сделку ($0 для Robinhood, $0.005/share для IBKR)
+  - `fractional_shares` — true/false (дробные акции)
+  - `real_stocks` — true/false (реальные акции, не CFD)
+  - `exchanges` — список бирж (NYSE, NASDAQ, LSE, Xetra...)
+  - `isa_available` — true/false (UK ISA wrapper)
+  - `extended_hours` — true/false (пре- и пост-маркет)
+  - `ipo_access` — true/false
+  - `dividend_reinvestment` — true/false (DRIP)
+- [ ] **P2.1.2** Определить новые YAML-поля для options:
+  - `options_contract_fee` — цена за контракт ($0.65 стандарт)
+  - `multi_leg_orders` — true/false (spreads, straddles)
+  - `options_level` — макс уровень (1-4)
+  - `paper_trading` — true/false
+  - `options_analytics` — true/false (Greeks, P/L charts)
+- [ ] **P2.1.3** Определить новые YAML-поля для futures:
+  - `futures_commission` — за контракт/сторону
+  - `micro_futures` — true/false (micro E-mini)
+  - `day_trade_margins` — инфо о дневных маржах
+  - `dom_trading` — true/false (depth of market)
+  - `futures_platforms` — список специализированных платформ
+- [ ] **P2.1.4** Обновить `scripts/build-brokers.mjs` — парсить все новые поля
+- [ ] **P2.1.5** Обновить `scripts/validate-brokers.mjs` — новые поля optional (не ломать существующих)
+
+**Файлы:** `scripts/build-brokers.mjs`, `scripts/validate-brokers.mjs`
+
+#### Sprint P2.2: Обновить 7 существующих брокеров `[M, 2 дня]`
+
+Добавить verticals + новые данные для stocks/options/futures.
+
+- [ ] **P2.2.1** Interactive Brokers (`interactive-brokers.md`):
+  - `verticals:` добавить `stocks, options, futures`
+  - Stocks: $0.005/share, fractional shares, 150+ exchanges
+  - Options: $0.65/contract, multi-leg, paper trading
+  - Futures: $0.85/contract, micro futures, DOM
+- [ ] **P2.2.2** Saxo Bank (`saxo-bank.md`):
+  - `verticals:` добавить `stocks, options, futures`
+  - Stocks: от $1/trade, 50+ exchanges, реальные акции
+  - Options: listed options, multi-leg
+  - Futures: основные индексные и commodity
+- [ ] **P2.2.3** eToro (`etoro.md`):
+  - `verticals:` добавить `stocks` (0% commission stocks, fractional)
+- [ ] **P2.2.4** Trading 212 (`trading-212.md`):
+  - `verticals:` добавить `stocks` (0% commission, ISA, fractional, 10K+ stocks)
+- [ ] **P2.2.5** IG (`ig.md`):
+  - `verticals:` добавить `stocks, options` (share dealing + options)
+- [ ] **P2.2.6** Plus500 (`plus500.md`):
+  - `verticals:` добавить `futures` (Plus500 Futures для US)
+- [ ] **P2.2.7** Swissquote (`swissquote.md`):
+  - `verticals:` добавить `stocks, options, futures`
+- [ ] **P2.2.8** `npm run brokers:build` — проверить парсинг
+
+**Файлы:** `content/brokers/` (7 файлов)
+
+#### Sprint P2.3: Stock Brokers — Tier A (4 новых профиля) `[L, 3 дня]`
+
+Создать полные YAML+MD профили для 4 главных stock brokers.
+
+- [ ] **P2.3.1** Charles Schwab (`charles-schwab.md`):
+  - $0 stock commissions, 4,000+ mutual funds, Schwab Intelligent Portfolios
+  - Regulators: SEC, FINRA, SIPC
+  - Verticals: stocks, options, futures
+  - Оценки: 6 категорий (Regulation, Costs, Trustpilot, Expert, Platform, Execution)
+  - Секции: Overview, Scoring, Accounts, Regulation, Costs, Platforms, Verdict
+- [ ] **P2.3.2** Fidelity (`fidelity.md`):
+  - $0 commissions, fractional shares, Fidelity Investments, $0 min deposit
+  - Regulators: SEC, FINRA, SIPC
+  - Verticals: stocks, options
+- [ ] **P2.3.3** Robinhood (`robinhood.md`):
+  - $0 commissions, crypto + stocks + options, Gold subscription
+  - Regulators: SEC, FINRA, SIPC
+  - Verticals: stocks, options, crypto
+- [ ] **P2.3.4** DEGIRO (`degiro.md`):
+  - €0 for US stocks, €1 for EU, Flatex group
+  - Regulators: BaFin, AFM, DNB
+  - Verticals: stocks, options, futures
+- [ ] **P2.3.5** Логотипы: square `logos/{slug}.png` + wide `logos-wide/{slug}.svg`
+- [ ] **P2.3.6** `npm run brokers:validate && npm run brokers:build`
+
+**Файлы:** `content/brokers/` (4 новых файла), `public/logos/`, `public/logos-wide/`
+
+#### Sprint P2.4: Stock Brokers — Tier B (4 новых) `[L, 2.5 дня]`
+
+- [ ] **P2.4.1** E\*TRADE (`etrade.md`): Morgan Stanley, $0 stocks, Power E*TRADE platform
+- [ ] **P2.4.2** Webull (`webull.md`): $0 commissions, advanced charts, extended hours
+- [ ] **P2.4.3** Trade Republic (`trade-republic.md`): €0 commissions, EU-focused, savings plans
+- [ ] **P2.4.4** Moomoo (`moomoo.md`): Futu Holdings, $0 commissions, advanced analytics
+- [ ] **P2.4.5** Логотипы для всех 4
+- [ ] **P2.4.6** Validate + build
+
+**Файлы:** `content/brokers/` (4 новых), `public/logos/`
+
+#### Sprint P2.5: Options + Futures специалисты (5 новых) `[L, 2.5 дня]`
+
+- [ ] **P2.5.1** tastytrade (`tastytrade.md`): $0 stocks, $1/contract options (cap $10), чисто options-focused
+- [ ] **P2.5.2** NinjaTrader (`ninjatrader.md`): futures-focused, $0.09/micro, DOM, backtesting
+- [ ] **P2.5.3** TradeStation (`tradestation.md`): stocks+options+futures, EasyLanguage, $0 stocks
+- [ ] **P2.5.4** AMP Futures (`amp-futures.md`): deep discount futures, 60+ platforms
+- [ ] **P2.5.5** Optimus Futures (`optimus-futures.md`): independent futures, multi-platform
+- [ ] **P2.5.6** Логотипы + validate + build
+
+**Файлы:** `content/brokers/` (5 новых), `public/logos/`
+
+#### Sprint P2.6: Stock Brokers — Tier C (опционально, 6 новых) `[L, 2 дня]`
+
+- [ ] **P2.6.1** Freetrade (`freetrade.md`): UK ISA, £0 standard, £9.99/mo Plus
+- [ ] **P2.6.2** SoFi (`sofi.md`): banking+investing, $0, fractional, IPO access
+- [ ] **P2.6.3** Ally Invest (`ally-invest.md`): Ally Financial, $0, banking integration
+- [ ] **P2.6.4** Public.com (`public-com.md`): social investing, $0, alternatives
+- [ ] **P2.6.5** Tradovate (`tradovate.md`): futures platform, membership-based pricing
+- [ ] **P2.6.6** EdgeClear (`edgeclear.md`): boutique futures, personalized support
+- [ ] **P2.6.7** Логотипы + validate + build
+
+**Файлы:** `content/brokers/` (6 новых), `public/logos/`
+
+#### Sprint P2.7: Stock Rankings — определения + фильтры `[M, 2 дня]`
+
+Добавить ~20 stock рейтингов.
+
+- [ ] **P2.7.1** Добавить рейтинги в `rankings.js` (category: "stocks"):
+  - Main: `best-stock-brokers` (exists), `best-stock-trading-apps` (exists)
+  - Audience: `best-stock-brokers-for-beginners`, `best-stock-brokers-for-day-trading`, `best-stock-brokers-for-professionals`
+  - Feature: `best-fractional-shares-brokers`, `best-dividend-investing-brokers`, `best-penny-stock-brokers`
+  - Cost: `best-commission-free-stock-brokers`, `best-low-fee-stock-brokers`
+  - Country: `best-stock-brokers-usa`, `best-stock-brokers-uk`, `best-stock-brokers-europe`
+  - Platform: `best-stock-trading-platforms`, `best-tradingview-stock-brokers`
+  - Account: `best-stock-brokers-isa`, `best-robo-advisors`
+- [ ] **P2.7.2** Фильтры в `rankingFilters.js` — `hasVertical("stocks")` + условия
+- [ ] **P2.7.3** SEO-контент (title/desc/intro) в `rankingSeoContent.js`
+
+**Файлы:** `src/data/rankings.js`, `src/data/rankingFilters.js`, `src/data/rankingSeoContent.js`
+
+#### Sprint P2.8: Options Rankings — определения + фильтры `[S, 1 день]`
+
+- [ ] **P2.8.1** ~10 options рейтингов:
+  - Main: `best-options-brokers` (exists)
+  - `best-options-brokers-for-beginners`, `best-options-trading-platforms`
+  - `best-forex-options-brokers`, `best-binary-options-brokers`
+  - `best-low-fee-options-brokers`, `best-options-brokers-usa`
+  - `best-options-paper-trading`, `best-options-for-spreads`
+- [ ] **P2.8.2** Фильтры: `hasVertical("options")` + conditions
+- [ ] **P2.8.3** SEO-контент
+
+**Файлы:** `src/data/rankings.js`, `src/data/rankingFilters.js`, `src/data/rankingSeoContent.js`
+
+#### Sprint P2.9: Futures Rankings — определения + фильтры `[S, 1 день]`
+
+- [ ] **P2.9.1** ~10 futures рейтингов:
+  - Main: `best-futures-brokers` (exists)
+  - `best-futures-brokers-for-beginners`, `best-futures-trading-platforms`
+  - `best-micro-futures-brokers`, `best-futures-brokers-usa`
+  - `best-futures-brokers-low-fees`, `best-day-trading-futures-brokers`
+  - `best-futures-brokers-tradingview`, `best-futures-brokers-ninjatrader`
+  - `best-commodity-futures-brokers`
+- [ ] **P2.9.2** Фильтры + SEO-контент
+
+**Файлы:** те же
+
+#### Sprint P2.10: 3 новых хаба + categoryHubs.js `[M, 1.5 дня]`
+
+- [ ] **P2.10.1** Обновить `categoryHubs.js` — добавить 3 хаба:
+  - `{ slug: "stocks", path: "/stock-trading", name: "Stock Brokers", ... }`
+  - `{ slug: "options", path: "/options-trading", name: "Options Brokers", ... }`
+  - `{ slug: "futures", path: "/futures-trading", name: "Futures Brokers", ... }`
+- [ ] **P2.10.2** Роутинг в `App.jsx`: 3 новых route
+- [ ] **P2.10.3** Обновить `OnlineBrokersHub.jsx` — 8 карточек вместо 5
+- [ ] **P2.10.4** Обновить Homepage: 8 категорий в category nav
+- [ ] **P2.10.5** Обновить `AllRankingsPage.jsx` — 3 новых таба
+
+**Файлы:** `src/data/categoryHubs.js`, `src/App.jsx`, `src/pages/OnlineBrokersHub.jsx`, `src/pages/Home.jsx`, `src/pages/AllRankingsPage.jsx`
+
+#### Sprint P2.11: Navigation + Footer `[S, 1 день]`
+
+- [ ] **P2.11.1** Header: добавить Stock, Options, Futures в nav
+- [ ] **P2.11.2** Footer: добавить ссылки на новые хабы
+- [ ] **P2.11.3** Mobile menu: новые секции
+
+**Файлы:** `src/components/Header.jsx`, `src/components/Footer.jsx`
+
+#### Sprint P2.12: QA + SEO-аудит + коммит `[M, 1.5 дня]`
+
+- [ ] **P2.12.1** Все новые рейтинги — открываются, фильтры возвращают ≥ 3 брокера
+- [ ] **P2.12.2** 3 хаба — все breakpoints
+- [ ] **P2.12.3** 19 новых ревью — `/review/{slug}` открывается
+- [ ] **P2.12.4** Regression: старые страницы не сломаны
+- [ ] **P2.12.5** `npm run build` — 0 ошибок
+- [ ] **P2.12.6** Slug uniqueness audit
+- [ ] **P2.12.7** Publication Planner: seed новые URL
+
+---
+
+### Phase 2 — Критический путь
+
+```
+P2.1 (schema) → P2.2 (update 7) → P2.3 (Tier A) → P2.4 (Tier B) → P2.5 (Options/Futures) → P2.6 (Tier C)
+                                                                                                    ↓
+P2.7 (stock rankings) + P2.8 (options) + P2.9 (futures) → P2.10 (hubs) → P2.11 (nav) → P2.12 (QA)
+```
+
+**Параллельные треки:**
+- P2.3-P2.6 (создание профилей) — последовательно (зависят от schema)
+- P2.7-P2.9 (rankings) — параллельно, после хотя бы P2.3 (нужны брокеры для фильтров)
+- P2.10-P2.11 (UI) — после P2.7-P2.9
+
+**Оценка Phase 2:** ~18 рабочих дней
+**Результат:** +19 брокеров (57 total), +40 рейтингов, 3 хаба, 8 вертикалей на homepage
 
 ---
 
