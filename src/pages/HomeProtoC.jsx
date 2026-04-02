@@ -120,45 +120,56 @@ export default function HomeProtoC() {
 
       {/* --- HERO --- */}
       <section style={{
-        background: "#0f172a",
+        borderTop: "3px solid #f59e0b",
+        background: "linear-gradient(135deg, #0f172a 0%, #0f2e24 40%, #047857 100%)",
         padding: mob ? "48px 20px 44px" : "72px 32px 60px",
+        position: "relative", overflow: "hidden",
       }}>
-        <div style={{ ...cn, display: mob ? "block" : "flex", alignItems: "center", gap: 56 }}>
+        <div style={{
+          position: "absolute", inset: 0, pointerEvents: "none",
+          background: "repeating-linear-gradient(135deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 12px)",
+        }} />
+        <div style={{
+          position: "absolute", top: "-30%", right: "-10%", width: "60%", height: "120%",
+          background: "radial-gradient(ellipse, rgba(52,211,153,0.08) 0%, transparent 70%)",
+          pointerEvents: "none",
+        }} />
+        <div style={{ ...cn, display: mob ? "block" : "flex", alignItems: "center", gap: 56, position: "relative", zIndex: 1 }}>
           <div style={{ flex: 1, marginBottom: mob ? 28 : 0 }}>
             <div style={{
               display: "inline-flex", alignItems: "center", gap: 8,
               padding: "6px 14px", borderRadius: 100,
               background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)",
-              fontSize: 11, fontWeight: 600, color: "rgba(255,255,255,0.45)", marginBottom: 20,
+              fontSize: 11, fontWeight: 600, color: "#34d399", marginBottom: 20,
               textTransform: "uppercase", letterSpacing: 1.5,
             }}>
               <Shield size={12} /> Updated Q1 {YEAR}
             </div>
             <h1 style={{
-              fontFamily: "'Plus Jakarta Sans','Outfit',sans-serif", fontWeight: 800,
+              fontFamily: "'Outfit',sans-serif", fontWeight: 800,
               fontSize: mob ? 32 : tab ? 40 : 50,
               lineHeight: 1.05, color: "#fff", marginBottom: 16,
-              letterSpacing: "-0.03em",
+              letterSpacing: "-0.02em",
             }}>
               Best Online Brokers {YEAR}
             </h1>
             <p style={{
-              fontSize: mob ? 15 : 17, color: "rgba(255,255,255,0.4)",
+              fontSize: mob ? 15 : 17, color: "rgba(255,255,255,0.6)",
               lineHeight: 1.7, marginBottom: 24, maxWidth: 460, fontWeight: 400,
             }}>
               {allBrokers.length} brokers tested across forex, stocks, crypto, options & futures.
               130+ data points. Real money. Expert rankings.
             </p>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-              <Link to="/online-brokers" style={{
-                padding: "12px 24px", borderRadius: 10, fontSize: 14, fontWeight: 600,
-                background: "#fff", color: "#0f172a",
+              <Link to="/online-brokers" className="cta-orange" style={{
+                padding: "12px 24px", borderRadius: 10, fontSize: 14, fontWeight: 700,
+                background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: "#0f172a",
                 textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 6,
                 letterSpacing: "-0.01em",
               }}>Browse All Categories <ArrowRight size={14} /></Link>
-              <Link to="/rankings" style={{
+              <Link to="/rankings" className="cta-secondary" style={{
                 padding: "12px 20px", borderRadius: 10, fontSize: 14, fontWeight: 600,
-                border: "1px solid rgba(255,255,255,0.15)", color: "rgba(255,255,255,0.6)",
+                border: "2px solid #059669", color: "#059669", background: "transparent",
                 textDecoration: "none", letterSpacing: "-0.01em",
               }}>{RANKINGS.length}+ Rankings</Link>
             </div>
@@ -184,7 +195,7 @@ export default function HomeProtoC() {
                     fontWeight: 700, color: "#fff", letterSpacing: "-0.02em",
                   }}>{s.n}</div>
                   <div style={{
-                    fontSize: 10, color: "rgba(255,255,255,0.25)", fontWeight: 500,
+                    fontSize: 10, color: "#34d399", fontWeight: 500,
                     textTransform: "uppercase", letterSpacing: 1.5, marginTop: 4,
                   }}>{s.l}</div>
                 </div>
@@ -217,8 +228,8 @@ export default function HomeProtoC() {
                 textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 4,
               }}>Navigate</p>
               <h2 style={{
-                fontFamily: "'Plus Jakarta Sans','Outfit',sans-serif",
-                fontWeight: 700, fontSize: mob ? 20 : 24, color: "#0f172a",
+                fontFamily: "'Outfit',sans-serif",
+                fontWeight: 800, fontSize: mob ? 20 : 24, color: "#0f172a",
                 letterSpacing: "-0.02em",
               }}>
                 Browse by Category
@@ -244,7 +255,7 @@ export default function HomeProtoC() {
                   border: "1px solid #e8ecf1", textDecoration: "none", color: "#0f172a",
                   transition: "all 0.15s", display: "block",
                 }}
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = "#94a3b8"; e.currentTarget.style.boxShadow = "0 4px 16px rgba(0,0,0,0.05)"; }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = "#059669"; e.currentTarget.style.boxShadow = "0 2px 8px rgba(5,150,105,0.12)"; }}
                   onMouseLeave={e => { e.currentTarget.style.borderColor = "#e8ecf1"; e.currentTarget.style.boxShadow = "none"; }}
                 >
                   <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 12 }}>
@@ -255,7 +266,7 @@ export default function HomeProtoC() {
                       <Icon name={hub.icon} size={16} style={{ color: "#64748b" }} />
                     </div>
                     <div style={{
-                      fontFamily: "'Plus Jakarta Sans','Outfit',sans-serif",
+                      fontFamily: "'Outfit',sans-serif",
                       fontWeight: 700, fontSize: 14, letterSpacing: "-0.01em",
                     }}>{hub.name}</div>
                   </div>
@@ -294,7 +305,7 @@ export default function HomeProtoC() {
               textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 4,
             }}>Selections</p>
             <h2 style={{
-              fontFamily: "'Plus Jakarta Sans','Outfit',sans-serif",
+              fontFamily: "'Outfit',sans-serif",
               fontWeight: 700, fontSize: mob ? 20 : 24, color: "#0f172a",
               letterSpacing: "-0.02em",
             }}>
@@ -316,7 +327,7 @@ export default function HomeProtoC() {
                   textDecoration: "none", color: "#0f172a", display: "block",
                   transition: "border-color 0.15s",
                 }}
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = "#94a3b8"; }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = "#059669"; }}
                   onMouseLeave={e => { if (i !== 0) e.currentTarget.style.borderColor = "#e8ecf1"; else e.currentTarget.style.borderColor = "#0f172a"; }}
                 >
                   <div style={{
@@ -329,15 +340,16 @@ export default function HomeProtoC() {
                     </div>
                     <div style={{ flex: 1 }}>
                       <div style={{
-                        fontFamily: "'Plus Jakarta Sans','Outfit',sans-serif",
+                        fontFamily: "'Outfit',sans-serif",
                         fontWeight: 700, fontSize: 15, letterSpacing: "-0.01em",
                       }}>{broker.B.name}</div>
                       <div style={{ fontSize: 12, color: "#94a3b8", fontWeight: 400 }}>{broker.B.type}</div>
                     </div>
                     <div style={{
                       padding: "5px 10px", borderRadius: 6,
-                      background: "#f1f5f9",
-                      color: "#334155",
+                      background: broker.B.score >= 9.0 ? "rgba(52,211,153,0.15)" : "#f1f5f9",
+                      border: broker.B.score >= 9.0 ? "2px solid #34d399" : "none",
+                      color: broker.B.score >= 9.0 ? "#34d399" : "#334155",
                       fontFamily: "'JetBrains Mono'", fontWeight: 700, fontSize: 13,
                     }}>{broker.B.score}</div>
                   </div>
@@ -356,7 +368,7 @@ export default function HomeProtoC() {
             textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 4,
           }}>Explore</p>
           <h2 style={{
-            fontFamily: "'Plus Jakarta Sans','Outfit',sans-serif",
+            fontFamily: "'Outfit',sans-serif",
             fontWeight: 700, fontSize: mob ? 20 : 24, marginBottom: 18, color: "#0f172a",
             letterSpacing: "-0.02em",
           }}>
@@ -370,8 +382,8 @@ export default function HomeProtoC() {
             ].map(t => (
               <button key={t.key} onClick={() => setActiveTab(t.key)} style={{
                 padding: "8px 16px", borderRadius: 8,
-                border: activeTab === t.key ? "1px solid #0f172a" : "1px solid #e8ecf1",
-                background: activeTab === t.key ? "#0f172a" : "#fff",
+                border: activeTab === t.key ? "1px solid #059669" : "1px solid #e8ecf1",
+                background: activeTab === t.key ? "#059669" : "#fff",
                 color: activeTab === t.key ? "#fff" : "#64748b",
                 fontSize: 13, fontWeight: 600, cursor: "pointer", fontFamily: "inherit",
                 letterSpacing: "-0.01em",
@@ -412,7 +424,7 @@ export default function HomeProtoC() {
                   letterSpacing: "-0.01em",
                   transition: "border-color 0.15s",
                 }}
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = "#94a3b8"; }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = "#059669"; }}
                   onMouseLeave={e => { e.currentTarget.style.borderColor = "#e8ecf1"; }}
                 >{item.name}</Link>
               ))}
@@ -429,7 +441,7 @@ export default function HomeProtoC() {
                   letterSpacing: "-0.01em",
                   transition: "border-color 0.15s",
                 }}
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = "#94a3b8"; }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = "#059669"; }}
                   onMouseLeave={e => { e.currentTarget.style.borderColor = "#e8ecf1"; }}
                 >
                   <span style={{
@@ -454,8 +466,8 @@ export default function HomeProtoC() {
                 textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 4,
               }}>Directory</p>
               <h2 style={{
-                fontFamily: "'Plus Jakarta Sans','Outfit',sans-serif",
-                fontWeight: 700, fontSize: mob ? 18 : 22, color: "#0f172a",
+                fontFamily: "'Outfit',sans-serif",
+                fontWeight: 800, fontSize: mob ? 18 : 22, color: "#0f172a",
                 letterSpacing: "-0.02em",
               }}>
                 All {allBrokers.length} Broker Reviews
@@ -480,7 +492,7 @@ export default function HomeProtoC() {
                   border: "1px solid #e8ecf1", textDecoration: "none", color: "#0f172a",
                   textAlign: "center", transition: "border-color 0.15s",
                 }}
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = "#94a3b8"; }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = "#059669"; }}
                   onMouseLeave={e => { e.currentTarget.style.borderColor = "#e8ecf1"; }}
                 >
                   <div style={{ width: 36, height: 36, borderRadius: 8, overflow: "hidden", margin: "0 auto 8px", border: "1px solid #eef0f4" }}>
@@ -517,15 +529,20 @@ export default function HomeProtoC() {
       <section style={{ padding: mob ? "0 20px 40px" : "0 32px 56px" }}>
         <div style={cn}>
           <div style={{
-            background: "#0f172a", borderRadius: 16,
+            background: "linear-gradient(135deg, #0f172a 0%, #0f2e24 40%, #047857 100%)", borderRadius: 16,
             padding: mob ? "24px 20px" : "32px 28px",
             display: mob ? "block" : "flex", gap: 28, alignItems: "center",
+            position: "relative", overflow: "hidden",
           }}>
-            <div style={{ flex: 1, marginBottom: mob ? 20 : 0 }}>
+            <div style={{
+              position: "absolute", inset: 0, pointerEvents: "none",
+              background: "repeating-linear-gradient(135deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 12px)",
+            }} />
+            <div style={{ flex: 1, marginBottom: mob ? 20 : 0, position: "relative", zIndex: 1 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
-                <Shield size={18} style={{ color: "rgba(255,255,255,0.4)" }} />
+                <Shield size={18} style={{ color: "#34d399" }} />
                 <span style={{
-                  fontFamily: "'Plus Jakarta Sans','Outfit',sans-serif",
+                  fontFamily: "'Outfit',sans-serif",
                   fontWeight: 700, fontSize: 18, color: "#fff",
                   letterSpacing: "-0.02em",
                 }}>How We Rate Brokers</span>
@@ -535,16 +552,16 @@ export default function HomeProtoC() {
                 platform quality, and execution speed. We test with real money — not demos.
               </p>
             </div>
-            <Link to="/methodology" style={{
+            <Link to="/methodology" className="cta-orange" style={{
               display: "inline-flex", alignItems: "center", gap: 6,
               padding: "12px 24px", borderRadius: 10,
-              background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.1)",
-              color: "rgba(255,255,255,0.6)", fontSize: 14, fontWeight: 600, textDecoration: "none",
+              background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: "#0f172a",
+              fontSize: 14, fontWeight: 700, textDecoration: "none",
               whiteSpace: "nowrap", flexShrink: 0, letterSpacing: "-0.01em",
-              transition: "all 0.15s",
+              transition: "all 0.15s", position: "relative", zIndex: 1,
             }}
-              onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.12)"; e.currentTarget.style.color = "#fff"; }}
-              onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.08)"; e.currentTarget.style.color = "rgba(255,255,255,0.6)"; }}
+              onMouseEnter={e => { e.currentTarget.style.filter = "brightness(1.1)"; e.currentTarget.style.transform = "translateY(-1px)"; }}
+              onMouseLeave={e => { e.currentTarget.style.filter = "none"; e.currentTarget.style.transform = "none"; }}
             >
               Our Methodology <ArrowRight size={14} />
             </Link>
@@ -560,7 +577,7 @@ export default function HomeProtoC() {
             background: "none", border: "none", cursor: "pointer", padding: 0, fontFamily: "inherit",
           }}>
             <h2 style={{
-              fontFamily: "'Plus Jakarta Sans','Outfit',sans-serif",
+              fontFamily: "'Outfit',sans-serif",
               fontWeight: 700, fontSize: mob ? 18 : 22, color: "#0f172a",
               letterSpacing: "-0.02em",
             }}>

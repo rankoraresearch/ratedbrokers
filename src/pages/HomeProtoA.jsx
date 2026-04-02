@@ -52,30 +52,43 @@ export default function HomeProtoA() {
 
       {/* --- HERO --- */}
       <section style={{
-        background: "#0f172a",
+        borderTop: "3px solid #f59e0b",
+        background: "linear-gradient(135deg, #0f172a 0%, #0f2e24 40%, #047857 100%)",
         padding: mob ? "56px 20px 48px" : "80px 32px 64px",
         textAlign: "center",
+        position: "relative", overflow: "hidden",
       }}>
-        <div style={cn}>
+        {/* Diagonal texture overlay */}
+        <div style={{
+          position: "absolute", inset: 0, pointerEvents: "none",
+          background: "repeating-linear-gradient(135deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 12px)",
+        }} />
+        {/* Radial glow */}
+        <div style={{
+          position: "absolute", top: "-30%", right: "-10%", width: "60%", height: "120%",
+          background: "radial-gradient(ellipse, rgba(52,211,153,0.08) 0%, transparent 70%)",
+          pointerEvents: "none",
+        }} />
+        <div style={{ ...cn, position: "relative", zIndex: 1 }}>
           <div style={{
             display: "inline-flex", alignItems: "center", gap: 8,
             padding: "6px 16px", borderRadius: 100,
             background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)",
-            fontSize: 11, fontWeight: 600, color: "rgba(255,255,255,0.5)", marginBottom: 24,
+            fontSize: 11, fontWeight: 600, color: "#34d399", marginBottom: 24,
             textTransform: "uppercase", letterSpacing: 1.5,
           }}>
             <Shield size={12} /> Independent Research
           </div>
           <h1 style={{
-            fontFamily: "'Plus Jakarta Sans','Outfit',sans-serif", fontWeight: 800,
+            fontFamily: "'Outfit',sans-serif", fontWeight: 800,
             fontSize: mob ? 34 : tab ? 44 : 56,
             lineHeight: 1.05, color: "#fff", marginBottom: 20,
-            letterSpacing: "-0.03em",
+            letterSpacing: "-0.02em",
           }}>
             Find the Best<br />Online Broker
           </h1>
           <p style={{
-            fontSize: mob ? 15 : 17, color: "rgba(255,255,255,0.45)",
+            fontSize: mob ? 15 : 17, color: "rgba(255,255,255,0.6)",
             maxWidth: 480, margin: "0 auto 36px", lineHeight: 1.7,
             fontWeight: 400,
           }}>
@@ -99,7 +112,7 @@ export default function HomeProtoA() {
                   fontWeight: 700, color: "#fff", letterSpacing: "-0.02em",
                 }}>{s.n}</div>
                 <div style={{
-                  fontSize: 10, color: "rgba(255,255,255,0.3)", fontWeight: 500,
+                  fontSize: 10, color: "#34d399", fontWeight: 500,
                   textTransform: "uppercase", letterSpacing: 1.5, marginTop: 4,
                 }}>{s.l}</div>
               </div>
@@ -127,7 +140,7 @@ export default function HomeProtoA() {
             textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 8,
           }}>Categories</p>
           <h2 style={{
-            fontFamily: "'Plus Jakarta Sans','Outfit',sans-serif", fontWeight: 700,
+            fontFamily: "'Outfit',sans-serif", fontWeight: 800,
             fontSize: mob ? 22 : 28, marginBottom: 32, color: "#0f172a",
             letterSpacing: "-0.02em",
           }}>
@@ -148,7 +161,7 @@ export default function HomeProtoA() {
                 textDecoration: "none", color: "#0f172a",
                 transition: "all 0.2s ease",
               }}
-                onMouseEnter={e => { e.currentTarget.style.borderColor = "#94a3b8"; e.currentTarget.style.borderLeftColor = hub.color; e.currentTarget.style.boxShadow = "0 4px 16px rgba(0,0,0,0.06)"; }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = "#059669"; e.currentTarget.style.borderLeftColor = hub.color; e.currentTarget.style.boxShadow = "0 2px 8px rgba(5,150,105,0.12)"; }}
                 onMouseLeave={e => { e.currentTarget.style.borderColor = "#e8ecf1"; e.currentTarget.style.borderLeftColor = hub.color; e.currentTarget.style.boxShadow = "none"; }}
               >
                 <div style={{
@@ -160,7 +173,7 @@ export default function HomeProtoA() {
                   <Icon name={hub.icon} size={18} style={{ color: "#475569" }} />
                 </div>
                 <div style={{
-                  fontFamily: "'Plus Jakarta Sans','Outfit',sans-serif",
+                  fontFamily: "'Outfit',sans-serif",
                   fontWeight: 700, fontSize: mob ? 14 : 15, marginBottom: 4, letterSpacing: "-0.01em",
                 }}>{hub.name}</div>
                 {/* Top 3 broker list */}
@@ -192,7 +205,7 @@ export default function HomeProtoA() {
             textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 8,
           }}>Trending</p>
           <h2 style={{
-            fontFamily: "'Plus Jakarta Sans','Outfit',sans-serif", fontWeight: 700,
+            fontFamily: "'Outfit',sans-serif", fontWeight: 800,
             fontSize: mob ? 18 : 22, marginBottom: 16, color: "#0f172a",
             letterSpacing: "-0.02em",
           }}>
@@ -211,7 +224,7 @@ export default function HomeProtoA() {
                 fontSize: 13, fontWeight: 600, letterSpacing: "-0.01em",
                 whiteSpace: "nowrap", transition: "all 0.15s",
               }}
-                onMouseEnter={e => { e.currentTarget.style.background = "#0f172a"; e.currentTarget.style.color = "#fff"; e.currentTarget.style.borderColor = "#0f172a"; }}
+                onMouseEnter={e => { e.currentTarget.style.background = "#059669"; e.currentTarget.style.color = "#fff"; e.currentTarget.style.borderColor = "#059669"; }}
                 onMouseLeave={e => { e.currentTarget.style.background = "#f8fafc"; e.currentTarget.style.color = "#0f172a"; e.currentTarget.style.borderColor = "#e8ecf1"; }}
               >
                 {r.label}
@@ -236,7 +249,7 @@ export default function HomeProtoA() {
                   textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 4,
                 }}>Rankings</p>
                 <h2 style={{
-                  fontFamily: "'Plus Jakarta Sans','Outfit',sans-serif",
+                  fontFamily: "'Outfit',sans-serif",
                   fontWeight: 700, fontSize: mob ? 18 : 22, color: "#0f172a",
                   letterSpacing: "-0.02em",
                 }}>
@@ -271,7 +284,7 @@ export default function HomeProtoA() {
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
                   <div style={{ width: 48, height: 4, borderRadius: 2, background: "#e8ecf1" }}>
-                    <div style={{ width: `${b.B.score * 10}%`, height: "100%", borderRadius: 2, background: "#0f172a" }} />
+                    <div style={{ width: `${b.B.score * 10}%`, height: "100%", borderRadius: 2, background: "#059669" }} />
                   </div>
                   <span style={{
                     fontFamily: "'JetBrains Mono'", fontWeight: 700, fontSize: 14, color: "#334155",
@@ -299,7 +312,7 @@ export default function HomeProtoA() {
             }}>
               <Icon name={item.icon} size={20} style={{ color: "#64748b", marginBottom: 14, display: "block" }} />
               <div style={{
-                fontFamily: "'Plus Jakarta Sans','Outfit',sans-serif",
+                fontFamily: "'Outfit',sans-serif",
                 fontWeight: 700, fontSize: 14, marginBottom: 6, color: "#0f172a",
                 letterSpacing: "-0.01em",
               }}>{item.title}</div>
@@ -317,7 +330,7 @@ export default function HomeProtoA() {
             textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 8,
           }}>Regions</p>
           <h2 style={{
-            fontFamily: "'Plus Jakarta Sans','Outfit',sans-serif",
+            fontFamily: "'Outfit',sans-serif",
             fontWeight: 700, fontSize: mob ? 18 : 22, marginBottom: 20, color: "#0f172a",
             letterSpacing: "-0.02em",
           }}>
@@ -331,7 +344,7 @@ export default function HomeProtoA() {
                 textDecoration: "none", color: "#0f172a",
                 transition: "border-color 0.15s",
               }}
-                onMouseEnter={e => { e.currentTarget.style.borderColor = "#94a3b8"; }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = "#059669"; e.currentTarget.style.boxShadow = "0 2px 8px rgba(5,150,105,0.12)"; }}
                 onMouseLeave={e => { e.currentTarget.style.borderColor = "#e8ecf1"; }}
               >
                 <span style={{
@@ -354,14 +367,19 @@ export default function HomeProtoA() {
       <section style={{ padding: mob ? "0 20px 48px" : "0 32px 64px" }}>
         <div style={cn}>
           <div style={{
-            background: "#0f172a", borderRadius: 16,
+            background: "linear-gradient(135deg, #0f172a 0%, #0f2e24 40%, #047857 100%)", borderRadius: 16,
             padding: mob ? "28px 20px" : "36px 32px",
             display: mob ? "block" : "flex", alignItems: "center", gap: 32,
+            position: "relative", overflow: "hidden",
           }}>
-            <div style={{ flex: 1, marginBottom: mob ? 20 : 0 }}>
+            <div style={{
+              position: "absolute", inset: 0, pointerEvents: "none",
+              background: "repeating-linear-gradient(135deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 12px)",
+            }} />
+            <div style={{ flex: 1, marginBottom: mob ? 20 : 0, position: "relative", zIndex: 1 }}>
               <h3 style={{
-                fontFamily: "'Plus Jakarta Sans','Outfit',sans-serif",
-                fontWeight: 700, fontSize: mob ? 18 : 22, color: "#fff", marginBottom: 8,
+                fontFamily: "'Outfit',sans-serif",
+                fontWeight: 800, fontSize: mob ? 18 : 22, color: "#fff", marginBottom: 8,
                 letterSpacing: "-0.02em",
               }}>
                 How We Rate Brokers
@@ -370,16 +388,16 @@ export default function HomeProtoA() {
                 Every broker is evaluated across 130+ data points. We test with real money — not demos.
               </p>
             </div>
-            <Link to="/methodology" style={{
+            <Link to="/methodology" className="cta-orange" style={{
               display: "inline-flex", alignItems: "center", gap: 6,
               padding: "12px 24px", borderRadius: 10,
-              background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)",
-              color: "rgba(255,255,255,0.7)", fontSize: 14, fontWeight: 600, textDecoration: "none",
-              whiteSpace: "nowrap",
+              background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: "#0f172a",
+              fontSize: 14, fontWeight: 700, textDecoration: "none",
+              whiteSpace: "nowrap", position: "relative", zIndex: 1,
               transition: "all 0.15s ease",
             }}
-              onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.12)"; e.currentTarget.style.color = "#fff"; }}
-              onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.08)"; e.currentTarget.style.color = "rgba(255,255,255,0.7)"; }}
+              onMouseEnter={e => { e.currentTarget.style.filter = "brightness(1.1)"; e.currentTarget.style.transform = "translateY(-1px)"; }}
+              onMouseLeave={e => { e.currentTarget.style.filter = "none"; e.currentTarget.style.transform = "none"; }}
             >
               Read Methodology <ArrowRight size={14} />
             </Link>

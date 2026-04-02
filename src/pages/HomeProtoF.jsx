@@ -48,14 +48,25 @@ export default function HomeProtoF() {
 
       {/* --- ACTION HERO + QUIZ --- */}
       <section style={{
-        background: "linear-gradient(135deg, #0f172a 0%, #1e293b 100%)",
+        borderTop: "3px solid #f59e0b",
+        background: "linear-gradient(135deg, #0f172a 0%, #0f2e24 40%, #047857 100%)",
         padding: mob ? "40px 16px 36px" : "64px 28px 52px",
+        position: "relative", overflow: "hidden",
       }}>
-        <div style={{ ...cn, textAlign: "center" }}>
+        <div style={{
+          position: "absolute", inset: 0, pointerEvents: "none",
+          background: "repeating-linear-gradient(135deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 12px)",
+        }} />
+        <div style={{
+          position: "absolute", top: "-30%", right: "-10%", width: "60%", height: "120%",
+          background: "radial-gradient(ellipse, rgba(52,211,153,0.08) 0%, transparent 70%)",
+          pointerEvents: "none",
+        }} />
+        <div style={{ ...cn, textAlign: "center", position: "relative", zIndex: 1 }}>
           <h1 style={{
-            fontFamily: "'Plus Jakarta Sans','Outfit',sans-serif", fontWeight: 800,
+            fontFamily: "'Outfit',sans-serif", fontWeight: 800,
             fontSize: mob ? 28 : tab ? 38 : 48, lineHeight: 1.08, color: "#fff",
-            marginBottom: 12, letterSpacing: "-0.03em",
+            marginBottom: 12, letterSpacing: "-0.02em",
           }}>
             Find Your Perfect Broker
           </h1>
@@ -92,9 +103,9 @@ export default function HomeProtoF() {
               <option>Intermediate</option>
               <option>Professional</option>
             </select>
-            <Link to="/rankings" style={{
+            <Link to="/rankings" className="cta-orange" style={{
               padding: "12px 28px", borderRadius: 8, fontSize: 14, fontWeight: 700,
-              background: "#f59e0b", color: "#0f172a", textDecoration: "none",
+              background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: "#0f172a", textDecoration: "none",
               display: "flex", alignItems: "center", justifyContent: "center", gap: 6,
               whiteSpace: "nowrap",
             }}>
@@ -108,7 +119,7 @@ export default function HomeProtoF() {
       <section style={{ padding: mob ? "28px 16px" : "48px 28px" }}>
         <div style={cn}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
-            <h2 style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontWeight: 700, fontSize: mob ? 20 : 24, color: "#0f172a", letterSpacing: "-0.02em" }}>
+            <h2 style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: mob ? 20 : 24, color: "#0f172a", letterSpacing: "-0.02em" }}>
               Top Rated Brokers
             </h2>
             <Link to="/reviews" style={{ fontSize: 13, fontWeight: 600, color: "#64748b", textDecoration: "none" }}>
@@ -128,8 +139,8 @@ export default function HomeProtoF() {
                   background: "#fff", borderRadius: 12, border: "1px solid #e8ecf1",
                   transition: "box-shadow 0.15s",
                 }}
-                  onMouseEnter={e => { e.currentTarget.style.boxShadow = "0 4px 20px rgba(0,0,0,0.08)"; }}
-                  onMouseLeave={e => { e.currentTarget.style.boxShadow = "none"; }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = "#059669"; e.currentTarget.style.boxShadow = "0 2px 8px rgba(5,150,105,0.12)"; }}
+                  onMouseLeave={e => { e.currentTarget.style.borderColor = "#e2e8f0"; e.currentTarget.style.boxShadow = "none"; }}
                 >
                   <div style={{ display: "flex", alignItems: "center", gap: 12, flex: 1 }}>
                     <span style={{ fontFamily: "'JetBrains Mono'", fontWeight: 700, fontSize: 16, color: i === 0 ? "#0f172a" : "#94a3b8", width: 24 }}>
@@ -139,7 +150,7 @@ export default function HomeProtoF() {
                       <BrokerLogo broker={b.B} size={48} variant="icon" />
                     </div>
                     <div>
-                      <div style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontWeight: 700, fontSize: 15, letterSpacing: "-0.01em" }}>{b.B.name}</div>
+                      <div style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: 15, letterSpacing: "-0.01em" }}>{b.B.name}</div>
                       <div style={{ fontSize: 12, color: "#94a3b8", marginBottom: 4 }}>{b.B.type} · {b.B.regs.filter(r=>r.tier===1).map(r=>r.name).join(", ")}</div>
                       {verts.length > 0 && (
                         <div style={{ display: "flex", gap: 4, flexWrap: "wrap" }}>
@@ -159,18 +170,21 @@ export default function HomeProtoF() {
                   {/* Score */}
                   <div style={{
                     fontFamily: "'JetBrains Mono'", fontSize: 18, fontWeight: 800,
-                    color: "#0f172a", background: "#f1f5f9", padding: "6px 14px", borderRadius: 8,
+                    color: b.B.score >= 9.0 ? "#34d399" : "#0f172a",
+                    background: b.B.score >= 9.0 ? "rgba(52,211,153,0.15)" : "#f1f5f9",
+                    border: b.B.score >= 9.0 ? "2px solid #34d399" : "none",
+                    padding: "6px 14px", borderRadius: 8,
                     flexShrink: 0,
                   }}>{b.B.score}</div>
                   {/* CTAs */}
                   <div style={{ display: "flex", gap: 8, flexShrink: 0 }}>
-                    <a href={visitUrl} target="_blank" rel="nofollow sponsored" style={{
+                    <a href={visitUrl} target="_blank" rel="nofollow sponsored" className="cta-orange" style={{
                       padding: "10px 20px", borderRadius: 8, fontSize: 13, fontWeight: 700,
-                      background: "#f59e0b", color: "#0f172a", textDecoration: "none",
+                      background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: "#0f172a", textDecoration: "none",
                     }}>Visit Broker</a>
-                    <Link to={`/review/${b.slug}`} style={{
+                    <Link to={`/review/${b.slug}`} className="cta-secondary" style={{
                       padding: "10px 16px", borderRadius: 8, fontSize: 13, fontWeight: 600,
-                      border: "1px solid #d1d5db", color: "#475569", textDecoration: "none",
+                      border: "2px solid #059669", color: "#059669", textDecoration: "none",
                     }}>Review</Link>
                   </div>
                 </div>
@@ -183,7 +197,7 @@ export default function HomeProtoF() {
       {/* --- CATEGORY PILLS --- */}
       <section style={{ padding: mob ? "0 16px 28px" : "0 28px 48px" }}>
         <div style={cn}>
-          <h3 style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontWeight: 700, fontSize: mob ? 18 : 22, color: "#0f172a", marginBottom: 16, letterSpacing: "-0.02em" }}>
+          <h3 style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: mob ? 18 : 22, color: "#0f172a", marginBottom: 16, letterSpacing: "-0.02em" }}>
             Browse by Category
           </h3>
           <div style={{
@@ -202,7 +216,7 @@ export default function HomeProtoF() {
                   textDecoration: "none", color: "#0f172a",
                   fontSize: 13, fontWeight: 600, transition: "all 0.15s",
                 }}
-                  onMouseEnter={e => { e.currentTarget.style.background = "#0f172a"; e.currentTarget.style.color = "#fff"; e.currentTarget.style.borderColor = "#0f172a"; }}
+                  onMouseEnter={e => { e.currentTarget.style.background = "#059669"; e.currentTarget.style.color = "#fff"; e.currentTarget.style.borderColor = "#059669"; }}
                   onMouseLeave={e => { e.currentTarget.style.background = "#f8fafc"; e.currentTarget.style.color = "#0f172a"; e.currentTarget.style.borderColor = "#e8ecf1"; }}
                 >
                   {topBroker && (
@@ -223,7 +237,7 @@ export default function HomeProtoF() {
       {/* --- COMPARE PAIRS --- */}
       <section style={{ padding: mob ? "0 16px 28px" : "0 28px 48px" }}>
         <div style={cn}>
-          <h3 style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontWeight: 700, fontSize: mob ? 18 : 20, color: "#0f172a", marginBottom: 16, letterSpacing: "-0.02em" }}>
+          <h3 style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: mob ? 18 : 20, color: "#0f172a", marginBottom: 16, letterSpacing: "-0.02em" }}>
             Popular Comparisons
           </h3>
           <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : tab ? "1fr 1fr" : "1fr 1fr 1fr", gap: 10 }}>
@@ -237,7 +251,7 @@ export default function HomeProtoF() {
                   padding: "14px", background: "#fafbfc", borderRadius: 10, border: "1px solid #e8ecf1",
                   textDecoration: "none", color: "#0f172a", transition: "border-color 0.15s",
                 }}
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = "#94a3b8"; }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = "#059669"; }}
                   onMouseLeave={e => { e.currentTarget.style.borderColor = "#e8ecf1"; }}
                 >
                   <div style={{ width: 32, height: 32, borderRadius: 8, overflow: "hidden", border: "1px solid #eef0f4" }}>
@@ -259,7 +273,7 @@ export default function HomeProtoF() {
       <section style={{ padding: mob ? "0 16px 28px" : "0 28px 48px", background: "#fafbfc" }}>
         <div style={{ ...cn, paddingTop: mob ? 28 : 48 }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
-            <h3 style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontWeight: 700, fontSize: 18, color: "#0f172a", letterSpacing: "-0.02em" }}>
+            <h3 style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: 18, color: "#0f172a", letterSpacing: "-0.02em" }}>
               All Brokers
             </h3>
             <Link to="/reviews" style={{ fontSize: 13, fontWeight: 600, color: "#64748b", textDecoration: "none" }}>View All</Link>
@@ -276,7 +290,7 @@ export default function HomeProtoF() {
                 border: "1px solid #e8ecf1", textDecoration: "none", color: "#0f172a",
                 transition: "border-color 0.15s",
               }}
-                onMouseEnter={e => { e.currentTarget.style.borderColor = "#94a3b8"; }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = "#059669"; }}
                 onMouseLeave={e => { e.currentTarget.style.borderColor = "#e8ecf1"; }}
               >
                 <div style={{ width: 36, height: 36, borderRadius: 8, overflow: "hidden", marginBottom: 6, border: "1px solid #eef0f4" }}>
