@@ -31,6 +31,9 @@ import LightThemeProto from "./pages/LightThemeProto";
 import ButtonLogoProto from "./pages/ButtonLogoProto";
 import SubPagesProto from "./pages/SubPagesProto";
 import SafetyProto from "./pages/SafetyProto";
+import HomeProtoA from "./pages/HomeProtoA";
+import HomeProtoB from "./pages/HomeProtoB";
+import HomeProtoC from "./pages/HomeProtoC";
 import BrokerSubPage from "./pages/BrokerSubPage";
 import CategoryHubPage from "./pages/CategoryHubPage";
 import OnlineBrokersHub from "./pages/OnlineBrokersHub";
@@ -76,6 +79,9 @@ function AppRoutes() {
       <Route path="proto/subpages" element={<Layout />}>
         <Route index element={<SubPagesProto />} />
       </Route>
+      <Route path="proto/home-a" element={<Layout />}><Route index element={<HomeProtoA />} /></Route>
+      <Route path="proto/home-b" element={<Layout />}><Route index element={<HomeProtoB />} /></Route>
+      <Route path="proto/home-c" element={<Layout />}><Route index element={<HomeProtoC />} /></Route>
       <Route path="proto/safety" element={<Layout />}>
         <Route index element={<SafetyProto />} />
       </Route>
