@@ -1,6 +1,6 @@
 /**
- * HOME PROTOTYPE F — "Conversion Machine" (Bankrate / Credit Karma)
- * Quiz hero, aggressive CTAs, maximum broker density, sticky compare
+ * HOME PROTOTYPE F3 — "F + Social Proof"
+ * Trustpilot badges, rank badges, trust stats, social proof emphasis
  */
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -11,21 +11,16 @@ import RANKINGS from "../data/rankings";
 import { getBrokersForRanking } from "../data/rankingFilters";
 import BrokerLogo from "../components/BrokerLogo";
 import Icon from "../components/Icon";
-import { ArrowRight, ChevronRight, Search } from "lucide-react";
+import { ArrowRight, ChevronRight, Shield, Star } from "lucide-react";
 import { getVisitUrl } from "../utils/visitUrl";
 
 const YEAR = "2026";
 
-const VERTICAL_MAP = {
-  forex: { label: "Forex", color: "#059669" },
-  cfd: { label: "CFD", color: "#2563eb" },
-  stocks: { label: "Stocks", color: "#0ea5e9" },
-  crypto: { label: "Crypto", color: "#f59e0b" },
-  options: { label: "Options", color: "#8b5cf6" },
-  futures: { label: "Futures", color: "#ea580c" },
-  "copy-trading": { label: "Copy", color: "#7c3aed" },
-  "spread-betting": { label: "SB", color: "#dc2626" },
-};
+const RANK_BADGES = [
+  { label: "Most Popular", bg: "#fef3c7", color: "#92400e" },
+  { label: "Editor's Choice", bg: "#ede9fe", color: "#6d28d9" },
+  { label: "Best Value", bg: "#dcfce7", color: "#166534" },
+];
 
 const COMPARISONS = [
   { a: "ic-markets", b: "pepperstone" },
@@ -36,17 +31,17 @@ const COMPARISONS = [
   { a: "ninjatrader", b: "tradestation" },
 ];
 
-export default function HomeProtoF() {
+export default function HomeProtoF3() {
   const { mob, tab } = useMedia();
   const cn = { maxWidth: 1120, margin: "0 auto", padding: mob ? "0 16px" : "0 28px" };
   const allBrokers = getAllBrokersWithData().sort((a, b) => b.B.score - a.B.score);
 
-  useEffect(() => { document.title = `Best Online Brokers ${YEAR} — Compare & Choose | RatedBrokers`; }, []);
+  useEffect(() => { document.title = `Best Online Brokers ${YEAR} — Trusted Reviews | RatedBrokers`; }, []);
 
   return (
     <div style={{ fontFamily: "'Inter',system-ui,sans-serif", background: "#fff", minHeight: "100vh" }}>
 
-      {/* --- ACTION HERO + QUIZ --- */}
+      {/* --- HERO with Social Proof --- */}
       <section style={{
         background: "linear-gradient(135deg, #0f172a 0%, #1e293b 100%)",
         padding: mob ? "40px 16px 36px" : "64px 28px 52px",
@@ -59,9 +54,25 @@ export default function HomeProtoF() {
           }}>
             Find Your Perfect Broker
           </h1>
-          <p style={{ fontSize: 15, color: "rgba(255,255,255,0.45)", marginBottom: 28, maxWidth: 440, margin: "0 auto 28px" }}>
+          <p style={{ fontSize: 15, color: "rgba(255,255,255,0.45)", marginBottom: 16, maxWidth: 440, margin: "0 auto 16px" }}>
             {allBrokers.length} brokers compared across 130+ data points
           </p>
+          {/* Trusted by traders */}
+          <div style={{
+            display: "inline-flex", alignItems: "center", gap: 10,
+            padding: "8px 20px", borderRadius: 100,
+            background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)",
+            marginBottom: 28,
+          }}>
+            <div style={{ display: "flex", gap: 2 }}>
+              {[1,2,3,4,5].map(s => (
+                <Star key={s} size={12} fill="#f59e0b" color="#f59e0b" />
+              ))}
+            </div>
+            <span style={{ fontSize: 12, fontWeight: 600, color: "rgba(255,255,255,0.6)" }}>
+              Trusted by traders worldwide
+            </span>
+          </div>
           {/* Quick Match Dropdowns */}
           <div style={{
             display: "flex", gap: mob ? 8 : 12, justifyContent: "center",
@@ -104,7 +115,7 @@ export default function HomeProtoF() {
         </div>
       </section>
 
-      {/* --- TOP BROKER CARDS - Aggressive CTAs --- */}
+      {/* --- TOP BROKER CARDS with Rank Badges + TP --- */}
       <section style={{ padding: mob ? "28px 16px" : "48px 28px" }}>
         <div style={cn}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
@@ -118,12 +129,12 @@ export default function HomeProtoF() {
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
             {allBrokers.slice(0, 5).map((b, i) => {
               const visitUrl = getVisitUrl(b.slug, b.B.url);
-              const verts = (b.B.verticals || []).slice(0, 4);
+              const badge = i < 3 ? RANK_BADGES[i] : null;
               return (
                 <div key={b.slug} style={{
                   display: "flex", alignItems: mob ? "flex-start" : "center",
                   flexDirection: mob ? "column" : "row",
-                  gap: mob ? 12 : 16,
+                  gap: mob ? 12 : 16, position: "relative",
                   padding: mob ? "16px" : "16px 20px",
                   background: "#fff", borderRadius: 12, border: "1px solid #e8ecf1",
                   transition: "box-shadow 0.15s",
@@ -131,6 +142,17 @@ export default function HomeProtoF() {
                   onMouseEnter={e => { e.currentTarget.style.boxShadow = "0 4px 20px rgba(0,0,0,0.08)"; }}
                   onMouseLeave={e => { e.currentTarget.style.boxShadow = "none"; }}
                 >
+                  {/* Rank badge */}
+                  {badge && (
+                    <div style={{
+                      position: "absolute", top: -8, right: 16,
+                      padding: "3px 10px", borderRadius: 6,
+                      background: badge.bg, color: badge.color,
+                      fontSize: 10, fontWeight: 700, letterSpacing: 0.3,
+                    }}>
+                      #{i + 1} {badge.label}
+                    </div>
+                  )}
                   <div style={{ display: "flex", alignItems: "center", gap: 12, flex: 1 }}>
                     <span style={{ fontFamily: "'JetBrains Mono'", fontWeight: 700, fontSize: 16, color: i === 0 ? "#0f172a" : "#94a3b8", width: 24 }}>
                       {i + 1}
@@ -141,18 +163,14 @@ export default function HomeProtoF() {
                     <div>
                       <div style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontWeight: 700, fontSize: 15, letterSpacing: "-0.01em" }}>{b.B.name}</div>
                       <div style={{ fontSize: 12, color: "#94a3b8", marginBottom: 4 }}>{b.B.type} · {b.B.regs.filter(r=>r.tier===1).map(r=>r.name).join(", ")}</div>
-                      {verts.length > 0 && (
-                        <div style={{ display: "flex", gap: 4, flexWrap: "wrap" }}>
-                          {verts.map(v => {
-                            const vm = VERTICAL_MAP[v];
-                            return vm ? (
-                              <span key={v} style={{
-                                fontSize: 9, fontWeight: 600, padding: "2px 6px", borderRadius: 4,
-                                background: `${vm.color}14`, color: vm.color,
-                              }}>{vm.label}</span>
-                            ) : null;
-                          })}
-                        </div>
+                      {/* Trustpilot badge */}
+                      {b.B.tp && (
+                        <span style={{
+                          fontSize: 10, fontWeight: 700, padding: "2px 8px", borderRadius: 4,
+                          background: "#00b67a", color: "#fff",
+                        }}>
+                          TP {b.B.tp}
+                        </span>
                       )}
                     </div>
                   </div>
@@ -180,6 +198,39 @@ export default function HomeProtoF() {
         </div>
       </section>
 
+      {/* --- WHY TRADERS TRUST US --- */}
+      <section style={{ padding: mob ? "0 16px 28px" : "0 28px 48px" }}>
+        <div style={cn}>
+          <h3 style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontWeight: 700, fontSize: mob ? 18 : 22, color: "#0f172a", marginBottom: 16, letterSpacing: "-0.02em" }}>
+            Why Traders Trust Us
+          </h3>
+          <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "1fr 1fr 1fr", gap: 12 }}>
+            {[
+              { value: `${allBrokers.length}`, label: "Brokers Tested", desc: "Real accounts opened. Real money deposited. Real trades executed." },
+              { value: "130+", label: "Data Points per Broker", desc: "Regulation, costs, platforms, execution, trust scores, and more." },
+              { value: "26", label: "Expert Analysts", desc: "CFA, CMT credentialed team with 200+ combined years of experience." },
+            ].map((item, i) => (
+              <div key={i} style={{
+                background: "#fafbfc", borderRadius: 12, padding: mob ? "20px" : "24px",
+                border: "1px solid #e8ecf1", textAlign: "center",
+              }}>
+                <div style={{
+                  fontFamily: "'JetBrains Mono'", fontSize: mob ? 32 : 40,
+                  fontWeight: 800, color: "#0f172a", letterSpacing: "-0.03em",
+                  marginBottom: 4,
+                }}>{item.value}</div>
+                <div style={{
+                  fontFamily: "'Plus Jakarta Sans',sans-serif",
+                  fontWeight: 700, fontSize: 14, color: "#0f172a", marginBottom: 6,
+                  letterSpacing: "-0.01em",
+                }}>{item.label}</div>
+                <div style={{ fontSize: 12, color: "#64748b", lineHeight: 1.6 }}>{item.desc}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* --- CATEGORY PILLS --- */}
       <section style={{ padding: mob ? "0 16px 28px" : "0 28px 48px" }}>
         <div style={cn}>
@@ -192,7 +243,6 @@ export default function HomeProtoF() {
             gap: 8,
           }}>
             {HUBS.map(hub => {
-              const topBroker = getBrokersForRanking(hub.featuredIds[0] || "forex-overall")[0];
               const rankCount = getRankingsForHub(hub).length;
               return (
                 <Link key={hub.slug} to={hub.path} style={{
@@ -201,18 +251,21 @@ export default function HomeProtoF() {
                   background: "#f8fafc", border: "1px solid #e8ecf1",
                   textDecoration: "none", color: "#0f172a",
                   fontSize: 13, fontWeight: 600, transition: "all 0.15s",
+                  position: "relative",
                 }}
                   onMouseEnter={e => { e.currentTarget.style.background = "#0f172a"; e.currentTarget.style.color = "#fff"; e.currentTarget.style.borderColor = "#0f172a"; }}
                   onMouseLeave={e => { e.currentTarget.style.background = "#f8fafc"; e.currentTarget.style.color = "#0f172a"; e.currentTarget.style.borderColor = "#e8ecf1"; }}
                 >
-                  {topBroker && (
-                    <div style={{ width: 20, height: 20, borderRadius: 5, overflow: "hidden", border: "1px solid #eef0f4", flexShrink: 0 }}>
-                      <BrokerLogo broker={topBroker.B} size={20} variant="icon" />
-                    </div>
-                  )}
                   <Icon name={hub.icon} size={14} />
                   {hub.name}
                   <span style={{ fontSize: 11, opacity: 0.5 }}>({rankCount})</span>
+                  {rankCount > 50 && (
+                    <span style={{
+                      position: "absolute", top: -6, right: 8,
+                      fontSize: 9, fontWeight: 700, padding: "2px 6px", borderRadius: 4,
+                      background: "#fef3c7", color: "#92400e",
+                    }}>Popular</span>
+                  )}
                 </Link>
               );
             })}
@@ -264,11 +317,7 @@ export default function HomeProtoF() {
             </h3>
             <Link to="/reviews" style={{ fontSize: 13, fontWeight: 600, color: "#64748b", textDecoration: "none" }}>View All</Link>
           </div>
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: mob ? "1fr 1fr 1fr" : "repeat(6, 1fr)",
-            gap: 8,
-          }}>
+          <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr 1fr 1fr" : "repeat(6, 1fr)", gap: 8 }}>
             {allBrokers.slice(0, mob ? 9 : 18).map(b => (
               <Link key={b.slug} to={`/review/${b.slug}`} style={{
                 display: "flex", flexDirection: "column", alignItems: "center",

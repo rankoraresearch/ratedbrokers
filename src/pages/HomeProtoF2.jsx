@@ -1,6 +1,6 @@
 /**
- * HOME PROTOTYPE F — "Conversion Machine" (Bankrate / Credit Karma)
- * Quiz hero, aggressive CTAs, maximum broker density, sticky compare
+ * HOME PROTOTYPE F2 — "F + Data Density"
+ * More data visible: inline chips, comparison table, score breakdowns
  */
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -11,21 +11,10 @@ import RANKINGS from "../data/rankings";
 import { getBrokersForRanking } from "../data/rankingFilters";
 import BrokerLogo from "../components/BrokerLogo";
 import Icon from "../components/Icon";
-import { ArrowRight, ChevronRight, Search } from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
 import { getVisitUrl } from "../utils/visitUrl";
 
 const YEAR = "2026";
-
-const VERTICAL_MAP = {
-  forex: { label: "Forex", color: "#059669" },
-  cfd: { label: "CFD", color: "#2563eb" },
-  stocks: { label: "Stocks", color: "#0ea5e9" },
-  crypto: { label: "Crypto", color: "#f59e0b" },
-  options: { label: "Options", color: "#8b5cf6" },
-  futures: { label: "Futures", color: "#ea580c" },
-  "copy-trading": { label: "Copy", color: "#7c3aed" },
-  "spread-betting": { label: "SB", color: "#dc2626" },
-};
 
 const COMPARISONS = [
   { a: "ic-markets", b: "pepperstone" },
@@ -36,12 +25,20 @@ const COMPARISONS = [
   { a: "ninjatrader", b: "tradestation" },
 ];
 
-export default function HomeProtoF() {
+const SCORE_CATS = [
+  { key: "regulation", label: "Regulation" },
+  { key: "costs", label: "Costs" },
+  { key: "platforms", label: "Platforms" },
+  { key: "trust", label: "Trust" },
+];
+
+export default function HomeProtoF2() {
   const { mob, tab } = useMedia();
   const cn = { maxWidth: 1120, margin: "0 auto", padding: mob ? "0 16px" : "0 28px" };
   const allBrokers = getAllBrokersWithData().sort((a, b) => b.B.score - a.B.score);
+  const top5 = allBrokers.slice(0, 5);
 
-  useEffect(() => { document.title = `Best Online Brokers ${YEAR} — Compare & Choose | RatedBrokers`; }, []);
+  useEffect(() => { document.title = `Best Online Brokers ${YEAR} — Data-Driven Comparison | RatedBrokers`; }, []);
 
   return (
     <div style={{ fontFamily: "'Inter',system-ui,sans-serif", background: "#fff", minHeight: "100vh" }}>
@@ -62,7 +59,6 @@ export default function HomeProtoF() {
           <p style={{ fontSize: 15, color: "rgba(255,255,255,0.45)", marginBottom: 28, maxWidth: 440, margin: "0 auto 28px" }}>
             {allBrokers.length} brokers compared across 130+ data points
           </p>
-          {/* Quick Match Dropdowns */}
           <div style={{
             display: "flex", gap: mob ? 8 : 12, justifyContent: "center",
             flexDirection: mob ? "column" : "row", maxWidth: 600, margin: "0 auto",
@@ -104,7 +100,7 @@ export default function HomeProtoF() {
         </div>
       </section>
 
-      {/* --- TOP BROKER CARDS - Aggressive CTAs --- */}
+      {/* --- TOP BROKER CARDS - Data Dense --- */}
       <section style={{ padding: mob ? "28px 16px" : "48px 28px" }}>
         <div style={cn}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
@@ -115,67 +111,148 @@ export default function HomeProtoF() {
               All {allBrokers.length} <ArrowRight size={12} style={{ verticalAlign: "middle" }} />
             </Link>
           </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-            {allBrokers.slice(0, 5).map((b, i) => {
+          <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+            {top5.map((b, i) => {
               const visitUrl = getVisitUrl(b.slug, b.B.url);
-              const verts = (b.B.verticals || []).slice(0, 4);
+              const spread = b.B.spread || "0.0";
+              const commission = b.B.commission || "$0";
+              const platforms = (b.B.platforms || []).slice(0, 3);
+              const minDep = b.B.minDeposit || "$0";
               return (
                 <div key={b.slug} style={{
-                  display: "flex", alignItems: mob ? "flex-start" : "center",
-                  flexDirection: mob ? "column" : "row",
-                  gap: mob ? 12 : 16,
-                  padding: mob ? "16px" : "16px 20px",
+                  padding: mob ? "16px" : "20px 24px",
                   background: "#fff", borderRadius: 12, border: "1px solid #e8ecf1",
                   transition: "box-shadow 0.15s",
                 }}
                   onMouseEnter={e => { e.currentTarget.style.boxShadow = "0 4px 20px rgba(0,0,0,0.08)"; }}
                   onMouseLeave={e => { e.currentTarget.style.boxShadow = "none"; }}
                 >
-                  <div style={{ display: "flex", alignItems: "center", gap: 12, flex: 1 }}>
-                    <span style={{ fontFamily: "'JetBrains Mono'", fontWeight: 700, fontSize: 16, color: i === 0 ? "#0f172a" : "#94a3b8", width: 24 }}>
-                      {i + 1}
-                    </span>
-                    <div style={{ width: 48, height: 48, borderRadius: 10, overflow: "hidden", border: "1px solid #eef0f4", flexShrink: 0 }}>
-                      <BrokerLogo broker={b.B} size={48} variant="icon" />
+                  {/* Row 1: Identity + Score + CTAs */}
+                  <div style={{
+                    display: "flex", alignItems: mob ? "flex-start" : "center",
+                    flexDirection: mob ? "column" : "row", gap: mob ? 12 : 16,
+                  }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: 12, flex: 1 }}>
+                      <span style={{ fontFamily: "'JetBrains Mono'", fontWeight: 700, fontSize: 16, color: i === 0 ? "#0f172a" : "#94a3b8", width: 24 }}>
+                        {i + 1}
+                      </span>
+                      <div style={{ width: 48, height: 48, borderRadius: 10, overflow: "hidden", border: "1px solid #eef0f4", flexShrink: 0 }}>
+                        <BrokerLogo broker={b.B} size={48} variant="icon" />
+                      </div>
+                      <div>
+                        <div style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontWeight: 700, fontSize: 15, letterSpacing: "-0.01em" }}>{b.B.name}</div>
+                        <div style={{ fontSize: 12, color: "#94a3b8" }}>{b.B.type} · {b.B.regs.filter(r=>r.tier===1).map(r=>r.name).join(", ")}</div>
+                      </div>
                     </div>
-                    <div>
-                      <div style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontWeight: 700, fontSize: 15, letterSpacing: "-0.01em" }}>{b.B.name}</div>
-                      <div style={{ fontSize: 12, color: "#94a3b8", marginBottom: 4 }}>{b.B.type} · {b.B.regs.filter(r=>r.tier===1).map(r=>r.name).join(", ")}</div>
-                      {verts.length > 0 && (
-                        <div style={{ display: "flex", gap: 4, flexWrap: "wrap" }}>
-                          {verts.map(v => {
-                            const vm = VERTICAL_MAP[v];
-                            return vm ? (
-                              <span key={v} style={{
-                                fontSize: 9, fontWeight: 600, padding: "2px 6px", borderRadius: 4,
-                                background: `${vm.color}14`, color: vm.color,
-                              }}>{vm.label}</span>
-                            ) : null;
-                          })}
-                        </div>
-                      )}
+                    <div style={{
+                      fontFamily: "'JetBrains Mono'", fontSize: 18, fontWeight: 800,
+                      color: "#0f172a", background: "#f1f5f9", padding: "6px 14px", borderRadius: 8,
+                      flexShrink: 0,
+                    }}>{b.B.score}</div>
+                    <div style={{ display: "flex", gap: 8, flexShrink: 0 }}>
+                      <a href={visitUrl} target="_blank" rel="nofollow sponsored" style={{
+                        padding: "10px 20px", borderRadius: 8, fontSize: 13, fontWeight: 700,
+                        background: "#f59e0b", color: "#0f172a", textDecoration: "none",
+                      }}>Visit Broker</a>
+                      <Link to={`/review/${b.slug}`} style={{
+                        padding: "10px 16px", borderRadius: 8, fontSize: 13, fontWeight: 600,
+                        border: "1px solid #d1d5db", color: "#475569", textDecoration: "none",
+                      }}>Review</Link>
                     </div>
                   </div>
-                  {/* Score */}
+                  {/* Row 2: Data Chips */}
                   <div style={{
-                    fontFamily: "'JetBrains Mono'", fontSize: 18, fontWeight: 800,
-                    color: "#0f172a", background: "#f1f5f9", padding: "6px 14px", borderRadius: 8,
-                    flexShrink: 0,
-                  }}>{b.B.score}</div>
-                  {/* CTAs */}
-                  <div style={{ display: "flex", gap: 8, flexShrink: 0 }}>
-                    <a href={visitUrl} target="_blank" rel="nofollow sponsored" style={{
-                      padding: "10px 20px", borderRadius: 8, fontSize: 13, fontWeight: 700,
-                      background: "#f59e0b", color: "#0f172a", textDecoration: "none",
-                    }}>Visit Broker</a>
-                    <Link to={`/review/${b.slug}`} style={{
-                      padding: "10px 16px", borderRadius: 8, fontSize: 13, fontWeight: 600,
-                      border: "1px solid #d1d5db", color: "#475569", textDecoration: "none",
-                    }}>Review</Link>
+                    display: "flex", gap: 8, marginTop: 12, flexWrap: "wrap",
+                  }}>
+                    <span style={{ fontSize: 11, fontWeight: 600, padding: "4px 10px", borderRadius: 6, background: "#f0fdf4", color: "#059669" }}>
+                      Spread: {spread}
+                    </span>
+                    <span style={{ fontSize: 11, fontWeight: 600, padding: "4px 10px", borderRadius: 6, background: "#eff6ff", color: "#2563eb" }}>
+                      Commission: {commission}
+                    </span>
+                    <span style={{ fontSize: 11, fontWeight: 600, padding: "4px 10px", borderRadius: 6, background: "#fefce8", color: "#ca8a04" }}>
+                      Min: {minDep}
+                    </span>
+                    {platforms.map(p => (
+                      <span key={p} style={{ fontSize: 11, fontWeight: 500, padding: "4px 10px", borderRadius: 6, background: "#f8fafc", color: "#64748b", border: "1px solid #e8ecf1" }}>
+                        {p}
+                      </span>
+                    ))}
+                  </div>
+                  {/* Row 3: Score Breakdown Mini-Bars */}
+                  <div style={{
+                    display: "flex", gap: mob ? 8 : 16, marginTop: 12,
+                  }}>
+                    {SCORE_CATS.map(cat => {
+                      const val = b.B.scores?.[cat.key] || b.B.score;
+                      return (
+                        <div key={cat.key} style={{ flex: 1 }}>
+                          <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 3 }}>
+                            <span style={{ fontSize: 10, color: "#94a3b8", fontWeight: 500 }}>{cat.label}</span>
+                            <span style={{ fontSize: 10, fontFamily: "'JetBrains Mono'", fontWeight: 600, color: "#64748b" }}>{val}</span>
+                          </div>
+                          <div style={{ height: 3, borderRadius: 2, background: "#e8ecf1" }}>
+                            <div style={{ width: `${val * 10}%`, height: "100%", borderRadius: 2, background: "#0f172a" }} />
+                          </div>
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* --- QUICK COMPARISON TABLE --- */}
+      <section style={{ padding: mob ? "0 16px 28px" : "0 28px 48px" }}>
+        <div style={cn}>
+          <h3 style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontWeight: 700, fontSize: mob ? 18 : 22, color: "#0f172a", marginBottom: 16, letterSpacing: "-0.02em" }}>
+            Quick Comparison Table
+          </h3>
+          <div style={{ overflowX: "auto", WebkitOverflowScrolling: "touch" }}>
+            <table style={{
+              width: "100%", borderCollapse: "collapse", fontSize: 13, minWidth: 600,
+            }}>
+              <thead>
+                <tr style={{ borderBottom: "2px solid #e8ecf1" }}>
+                  {["Broker", "Score", "Spread / Commission", "Min Deposit", "Platforms"].map(h => (
+                    <th key={h} style={{
+                      padding: "10px 12px", textAlign: "left", fontSize: 11,
+                      fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1,
+                      fontFamily: "'Inter',sans-serif",
+                    }}>{h}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {top5.map((b, i) => (
+                  <tr key={b.slug} style={{ borderBottom: i < 4 ? "1px solid #f1f5f9" : "none" }}>
+                    <td style={{ padding: "12px", display: "flex", alignItems: "center", gap: 8 }}>
+                      <div style={{ width: 28, height: 28, borderRadius: 6, overflow: "hidden", border: "1px solid #eef0f4", flexShrink: 0 }}>
+                        <BrokerLogo broker={b.B} size={28} variant="icon" />
+                      </div>
+                      <Link to={`/review/${b.slug}`} style={{ fontWeight: 600, color: "#0f172a", textDecoration: "none", letterSpacing: "-0.01em" }}>
+                        {b.B.name}
+                      </Link>
+                    </td>
+                    <td style={{ padding: "12px", fontFamily: "'JetBrains Mono'", fontWeight: 700, color: "#0f172a" }}>
+                      {b.B.score}
+                    </td>
+                    <td style={{ padding: "12px", color: "#475569" }}>
+                      {b.B.spread || "0.0"} / {b.B.commission || "$0"}
+                    </td>
+                    <td style={{ padding: "12px", color: "#475569" }}>
+                      {b.B.minDeposit || "$0"}
+                    </td>
+                    <td style={{ padding: "12px", color: "#64748b", fontSize: 12 }}>
+                      {(b.B.platforms || []).slice(0, 3).join(", ") || "Proprietary"}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
@@ -186,36 +263,23 @@ export default function HomeProtoF() {
           <h3 style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontWeight: 700, fontSize: mob ? 18 : 22, color: "#0f172a", marginBottom: 16, letterSpacing: "-0.02em" }}>
             Browse by Category
           </h3>
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: mob ? "1fr 1fr" : "repeat(4, 1fr)",
-            gap: 8,
-          }}>
-            {HUBS.map(hub => {
-              const topBroker = getBrokersForRanking(hub.featuredIds[0] || "forex-overall")[0];
-              const rankCount = getRankingsForHub(hub).length;
-              return (
-                <Link key={hub.slug} to={hub.path} style={{
-                  display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
-                  padding: mob ? "12px 8px" : "14px 12px", borderRadius: 10,
-                  background: "#f8fafc", border: "1px solid #e8ecf1",
-                  textDecoration: "none", color: "#0f172a",
-                  fontSize: 13, fontWeight: 600, transition: "all 0.15s",
-                }}
-                  onMouseEnter={e => { e.currentTarget.style.background = "#0f172a"; e.currentTarget.style.color = "#fff"; e.currentTarget.style.borderColor = "#0f172a"; }}
-                  onMouseLeave={e => { e.currentTarget.style.background = "#f8fafc"; e.currentTarget.style.color = "#0f172a"; e.currentTarget.style.borderColor = "#e8ecf1"; }}
-                >
-                  {topBroker && (
-                    <div style={{ width: 20, height: 20, borderRadius: 5, overflow: "hidden", border: "1px solid #eef0f4", flexShrink: 0 }}>
-                      <BrokerLogo broker={topBroker.B} size={20} variant="icon" />
-                    </div>
-                  )}
-                  <Icon name={hub.icon} size={14} />
-                  {hub.name}
-                  <span style={{ fontSize: 11, opacity: 0.5 }}>({rankCount})</span>
-                </Link>
-              );
-            })}
+          <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr 1fr" : "repeat(4, 1fr)", gap: 8 }}>
+            {HUBS.map(hub => (
+              <Link key={hub.slug} to={hub.path} style={{
+                display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
+                padding: mob ? "12px 8px" : "14px 12px", borderRadius: 10,
+                background: "#f8fafc", border: "1px solid #e8ecf1",
+                textDecoration: "none", color: "#0f172a",
+                fontSize: 13, fontWeight: 600, transition: "all 0.15s",
+              }}
+                onMouseEnter={e => { e.currentTarget.style.background = "#0f172a"; e.currentTarget.style.color = "#fff"; e.currentTarget.style.borderColor = "#0f172a"; }}
+                onMouseLeave={e => { e.currentTarget.style.background = "#f8fafc"; e.currentTarget.style.color = "#0f172a"; e.currentTarget.style.borderColor = "#e8ecf1"; }}
+              >
+                <Icon name={hub.icon} size={14} />
+                {hub.name}
+                <span style={{ fontSize: 11, opacity: 0.5 }}>({getRankingsForHub(hub).length})</span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
@@ -264,11 +328,7 @@ export default function HomeProtoF() {
             </h3>
             <Link to="/reviews" style={{ fontSize: 13, fontWeight: 600, color: "#64748b", textDecoration: "none" }}>View All</Link>
           </div>
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: mob ? "1fr 1fr 1fr" : "repeat(6, 1fr)",
-            gap: 8,
-          }}>
+          <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr 1fr 1fr" : "repeat(6, 1fr)", gap: 8 }}>
             {allBrokers.slice(0, mob ? 9 : 18).map(b => (
               <Link key={b.slug} to={`/review/${b.slug}`} style={{
                 display: "flex", flexDirection: "column", alignItems: "center",

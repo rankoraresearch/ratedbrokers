@@ -5,22 +5,22 @@
 import { useState } from "react";
 import { useMedia } from "../hooks/useMedia";
 import HomeProtoA from "./HomeProtoA";
-import HomeProtoB from "./HomeProtoB";
 import HomeProtoC from "./HomeProtoC";
-import HomeProtoD from "./HomeProtoD";
-import HomeProtoE from "./HomeProtoE";
 import HomeProtoF from "./HomeProtoF";
+import HomeProtoF2 from "./HomeProtoF2";
+import HomeProtoF3 from "./HomeProtoF3";
+import HomeProtoF4 from "./HomeProtoF4";
 
 const VARIANTS = [
-  { key: "A", label: "Hub Navigator", desc: "BrokerChooser style — categories first" },
-  { key: "B", label: "Editorial Authority", desc: "NerdWallet style — author + picks" },
-  { key: "C", label: "Hybrid Power", desc: "Best of both — nav + editorial" },
-  { key: "D", label: "Data Dashboard", desc: "Bloomberg style — dark, data-forward" },
-  { key: "E", label: "Magazine", desc: "Financial Times — serif, editorial" },
-  { key: "F", label: "Conversion Machine", desc: "Bankrate — quiz + CTAs" },
+  { key: "A", label: "Hub Navigator", desc: "Categories first — top 3 brokers per vertical" },
+  { key: "C", label: "Hybrid Power", desc: "8 verticals + Editor's Picks + tabbed rankings" },
+  { key: "F", label: "Conversion", desc: "Quiz + CTAs + vertical badges + compare pairs" },
+  { key: "F2", label: "F + Data", desc: "Data chips, comparison table, score breakdown" },
+  { key: "F3", label: "F + Social", desc: "Trustpilot, rank badges, trust stats" },
+  { key: "F4", label: "F + Verticals", desc: "8 mini-sections, one per category" },
 ];
 
-const COMPONENTS = { A: HomeProtoA, B: HomeProtoB, C: HomeProtoC, D: HomeProtoD, E: HomeProtoE, F: HomeProtoF };
+const COMPONENTS = { A: HomeProtoA, C: HomeProtoC, F: HomeProtoF, F2: HomeProtoF2, F3: HomeProtoF3, F4: HomeProtoF4 };
 
 export default function HomePrototypes() {
   const [active, setActive] = useState("A");

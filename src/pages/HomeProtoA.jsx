@@ -18,12 +18,23 @@ import { ArrowRight, Shield, ChevronRight } from "lucide-react";
 const YEAR = "2026";
 
 const COUNTRIES = [
-  { code: "GB", name: "United Kingdom", path: "/best-forex-brokers-uk" },
-  { code: "AU", name: "Australia", path: "/best-forex-brokers-australia" },
-  { code: "US", name: "United States", path: "/best-forex-brokers-usa" },
-  { code: "DE", name: "Germany", path: "/best-forex-brokers-germany" },
-  { code: "AE", name: "UAE", path: "/best-forex-brokers-uae" },
-  { code: "SG", name: "Singapore", path: "/best-forex-brokers-singapore" },
+  { code: "GB", name: "United Kingdom", path: "/best-forex-brokers-uk", verticals: "Forex / CFD / Spread Betting" },
+  { code: "AU", name: "Australia", path: "/best-forex-brokers-australia", verticals: "Forex / CFD / Stocks" },
+  { code: "US", name: "United States", path: "/best-forex-brokers-usa", verticals: "Stocks / Options / Futures" },
+  { code: "DE", name: "Germany", path: "/best-forex-brokers-germany", verticals: "Forex / CFD / Stocks" },
+  { code: "AE", name: "UAE", path: "/best-forex-brokers-uae", verticals: "Forex / CFD / Crypto" },
+  { code: "SG", name: "Singapore", path: "/best-forex-brokers-singapore", verticals: "Forex / CFD / Stocks" },
+];
+
+const POPULAR_RANKINGS = [
+  { label: "Best Forex Brokers", path: "/best-forex-brokers" },
+  { label: "Best CFD Brokers", path: "/best-cfd-brokers" },
+  { label: "Best for Beginners", path: "/best-forex-brokers-for-beginners" },
+  { label: "Copy Trading", path: "/best-copy-trading-platforms" },
+  { label: "Lowest Spreads", path: "/lowest-spread-forex-brokers" },
+  { label: "Best Stock Brokers", path: "/best-stock-brokers" },
+  { label: "Best Options Brokers", path: "/best-options-brokers" },
+  { label: "Best Futures Brokers", path: "/best-futures-brokers" },
 ];
 
 export default function HomeProtoA() {
@@ -39,7 +50,7 @@ export default function HomeProtoA() {
   return (
     <div style={{ fontFamily: "'Inter',system-ui,sans-serif", background: "#fff", minHeight: "100vh" }}>
 
-      {/* ═══ HERO ═══ */}
+      {/* --- HERO --- */}
       <section style={{
         background: "#0f172a",
         padding: mob ? "56px 20px 48px" : "80px 32px 64px",
@@ -108,7 +119,7 @@ export default function HomeProtoA() {
         </div>
       </section>
 
-      {/* ═══ CATEGORY GRID ═══ */}
+      {/* --- CATEGORY GRID --- */}
       <section style={{ padding: mob ? "40px 20px" : "56px 32px" }}>
         <div style={cn}>
           <p style={{
@@ -133,11 +144,12 @@ export default function HomeProtoA() {
                 padding: mob ? "20px 16px" : "24px 20px",
                 background: "#fff", borderRadius: 12,
                 border: "1px solid #e8ecf1",
+                borderLeft: `3px solid ${hub.color}`,
                 textDecoration: "none", color: "#0f172a",
                 transition: "all 0.2s ease",
               }}
-                onMouseEnter={e => { e.currentTarget.style.borderColor = "#94a3b8"; e.currentTarget.style.boxShadow = "0 4px 16px rgba(0,0,0,0.06)"; }}
-                onMouseLeave={e => { e.currentTarget.style.borderColor = "#e8ecf1"; e.currentTarget.style.boxShadow = "none"; }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = "#94a3b8"; e.currentTarget.style.borderLeftColor = hub.color; e.currentTarget.style.boxShadow = "0 4px 16px rgba(0,0,0,0.06)"; }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = "#e8ecf1"; e.currentTarget.style.borderLeftColor = hub.color; e.currentTarget.style.boxShadow = "none"; }}
               >
                 <div style={{
                   width: 36, height: 36, borderRadius: 10,
@@ -151,15 +163,17 @@ export default function HomeProtoA() {
                   fontFamily: "'Plus Jakarta Sans','Outfit',sans-serif",
                   fontWeight: 700, fontSize: mob ? 14 : 15, marginBottom: 4, letterSpacing: "-0.01em",
                 }}>{hub.name}</div>
-                <div style={{ display: "flex", gap: 4, margin: "10px 0 8px" }}>
-                  {getBrokersForRanking(hub.featuredIds?.[0] || "forex-overall").slice(0, 3).map(b => (
-                    <div key={b.slug} style={{ width: 24, height: 24, borderRadius: 6, overflow: "hidden", border: "1px solid #eef0f4" }}>
-                      <BrokerLogo broker={b.B} size={24} variant="icon" />
+                {/* Top 3 broker list */}
+                <div style={{ margin: "10px 0 8px" }}>
+                  {getBrokersForRanking(hub.featuredIds?.[0] || "forex-overall").slice(0, 3).map((b, i) => (
+                    <div key={b.slug} style={{ display: "flex", alignItems: "center", gap: 6, padding: "4px 0", borderBottom: i < 2 ? "1px solid #f1f5f9" : "none" }}>
+                      <div style={{ width: 20, height: 20, borderRadius: 5, overflow: "hidden", border: "1px solid #eef0f4" }}>
+                        <BrokerLogo broker={b.B} size={20} variant="icon" />
+                      </div>
+                      <span style={{ fontSize: 11, fontWeight: 500, flex: 1, color: "#475569" }}>{b.B.name}</span>
+                      <span style={{ fontFamily: "'JetBrains Mono'", fontSize: 10, fontWeight: 600, color: "#94a3b8" }}>{b.B.score}</span>
                     </div>
                   ))}
-                  <span style={{ fontSize: 11, color: "#94a3b8", fontWeight: 500, alignSelf: "center", marginLeft: 2 }}>
-                    +{getBrokersForRanking(hub.featuredIds?.[0] || "forex-overall").length - 3}
-                  </span>
                 </div>
                 <div style={{ fontSize: 11, color: "#94a3b8", fontWeight: 500 }}>
                   {RANKINGS.filter(r => r.category === hub.category || r.vertical === hub.verticalKey).length} rankings
@@ -170,7 +184,44 @@ export default function HomeProtoA() {
         </div>
       </section>
 
-      {/* ═══ TOP 5 BROKERS ═══ */}
+      {/* --- POPULAR RANKINGS --- */}
+      <section style={{ padding: mob ? "0 20px 32px" : "0 32px 48px" }}>
+        <div style={cn}>
+          <p style={{
+            fontSize: 11, fontWeight: 600, color: "#94a3b8",
+            textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 8,
+          }}>Trending</p>
+          <h2 style={{
+            fontFamily: "'Plus Jakarta Sans','Outfit',sans-serif", fontWeight: 700,
+            fontSize: mob ? 18 : 22, marginBottom: 16, color: "#0f172a",
+            letterSpacing: "-0.02em",
+          }}>
+            Popular Rankings
+          </h2>
+          <div style={{
+            display: "flex", gap: 10, overflowX: "auto",
+            paddingBottom: 8,
+            WebkitOverflowScrolling: "touch",
+          }}>
+            {POPULAR_RANKINGS.map(r => (
+              <Link key={r.path} to={r.path} style={{
+                flexShrink: 0, padding: "10px 18px", borderRadius: 100,
+                background: "#f8fafc", border: "1px solid #e8ecf1",
+                textDecoration: "none", color: "#0f172a",
+                fontSize: 13, fontWeight: 600, letterSpacing: "-0.01em",
+                whiteSpace: "nowrap", transition: "all 0.15s",
+              }}
+                onMouseEnter={e => { e.currentTarget.style.background = "#0f172a"; e.currentTarget.style.color = "#fff"; e.currentTarget.style.borderColor = "#0f172a"; }}
+                onMouseLeave={e => { e.currentTarget.style.background = "#f8fafc"; e.currentTarget.style.color = "#0f172a"; e.currentTarget.style.borderColor = "#e8ecf1"; }}
+              >
+                {r.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* --- TOP 5 BROKERS --- */}
       <section style={{ padding: mob ? "40px 20px" : "56px 32px", background: "#fafbfc" }}>
         <div style={cn}>
           <div style={{
@@ -233,7 +284,7 @@ export default function HomeProtoA() {
         </div>
       </section>
 
-      {/* ═══ TRUST SIGNALS ═══ */}
+      {/* --- TRUST SIGNALS --- */}
       <section style={{ padding: mob ? "0 20px 40px" : "0 32px 56px" }}>
         <div style={{ ...cn, display: "grid", gridTemplateColumns: mob ? "1fr" : "1fr 1fr 1fr", gap: 16 }}>
           {[
@@ -258,7 +309,7 @@ export default function HomeProtoA() {
         </div>
       </section>
 
-      {/* ═══ COUNTRIES ═══ */}
+      {/* --- COUNTRIES --- */}
       <section style={{ padding: mob ? "0 20px 40px" : "0 32px 56px" }}>
         <div style={cn}>
           <p style={{
@@ -277,9 +328,8 @@ export default function HomeProtoA() {
               <Link key={c.code} to={c.path} style={{
                 display: "flex", alignItems: "center", gap: 12, padding: "14px 16px",
                 background: "#fafbfc", borderRadius: 10, border: "1px solid #e8ecf1",
-                textDecoration: "none", color: "#0f172a", fontSize: 14, fontWeight: 600,
+                textDecoration: "none", color: "#0f172a",
                 transition: "border-color 0.15s",
-                letterSpacing: "-0.01em",
               }}
                 onMouseEnter={e => { e.currentTarget.style.borderColor = "#94a3b8"; }}
                 onMouseLeave={e => { e.currentTarget.style.borderColor = "#e8ecf1"; }}
@@ -289,15 +339,18 @@ export default function HomeProtoA() {
                   fontFamily: "'JetBrains Mono'",
                   width: 24, textAlign: "center",
                 }}>{c.code}</span>
-                {c.name}
-                <ChevronRight size={14} style={{ marginLeft: "auto", color: "#c0c7d0" }} />
+                <div style={{ flex: 1 }}>
+                  <div style={{ fontSize: 14, fontWeight: 600, letterSpacing: "-0.01em" }}>{c.name}</div>
+                  <div style={{ fontSize: 11, color: "#94a3b8", fontWeight: 400, marginTop: 2 }}>{c.verticals}</div>
+                </div>
+                <ChevronRight size={14} style={{ color: "#c0c7d0", flexShrink: 0 }} />
               </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ═══ METHODOLOGY CTA ═══ */}
+      {/* --- METHODOLOGY CTA --- */}
       <section style={{ padding: mob ? "0 20px 48px" : "0 32px 64px" }}>
         <div style={cn}>
           <div style={{

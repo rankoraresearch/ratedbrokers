@@ -19,9 +19,12 @@ import { getVisitUrl } from "../utils/visitUrl";
 const YEAR = "2026";
 
 const FEATURED = [
-  { slug: "ic-markets", label: "Best Overall Broker" },
-  { slug: "charles-schwab", label: "Best for Stock Trading" },
+  { slug: "ic-markets", label: "Best for Forex" },
+  { slug: "ig", label: "Best for CFD" },
+  { slug: "etoro", label: "Best for Copy Trading" },
+  { slug: "spreadex", label: "Best for Spread Betting" },
   { slug: "pepperstone", label: "Best for Beginners" },
+  { slug: "charles-schwab", label: "Best for Stocks" },
   { slug: "tastytrade", label: "Best for Options" },
   { slug: "ninjatrader", label: "Best for Futures" },
 ];
@@ -46,11 +49,25 @@ const POPULAR_BY_CATEGORY = [
     { name: "Best Crypto Brokers", path: "/best-crypto-brokers" },
     { name: "Bitcoin Brokers", path: "/best-bitcoin-brokers" },
   ]},
-  { title: "More", items: [
-    { name: "CFD Brokers", path: "/best-cfd-brokers" },
-    { name: "Copy Trading", path: "/best-copy-trading-platforms" },
-    { name: "Spread Betting", path: "/best-spread-betting-brokers" },
-    { name: "Futures Brokers", path: "/best-futures-brokers" },
+  { title: "CFD", items: [
+    { name: "Best CFD Brokers", path: "/best-cfd-brokers" },
+    { name: "CFD for Beginners", path: "/best-cfd-brokers-for-beginners" },
+    { name: "Low Spread CFD", path: "/lowest-spread-cfd-brokers" },
+  ]},
+  { title: "Copy Trading", items: [
+    { name: "Copy Trading Platforms", path: "/best-copy-trading-platforms" },
+    { name: "Social Trading", path: "/best-social-trading-platforms" },
+    { name: "Copy Trading Apps", path: "/best-copy-trading-apps" },
+  ]},
+  { title: "Spread Betting", items: [
+    { name: "Spread Betting Platforms", path: "/best-spread-betting-brokers" },
+    { name: "Spread Betting for Beginners", path: "/best-spread-betting-brokers-for-beginners" },
+    { name: "Spread Betting Apps", path: "/best-spread-betting-apps" },
+  ]},
+  { title: "Futures", items: [
+    { name: "Best Futures Brokers", path: "/best-futures-brokers" },
+    { name: "Micro Futures", path: "/best-micro-futures-brokers" },
+    { name: "Futures for Beginners", path: "/best-futures-brokers-for-beginners" },
   ]},
 ];
 
@@ -76,6 +93,17 @@ const COUNTRIES = [
   { code: "ZA", name: "South Africa", path: "/best-forex-brokers-south-africa" },
 ];
 
+const VERTICAL_MAP = {
+  forex: { label: "Forex", color: "#059669" },
+  cfd: { label: "CFD", color: "#2563eb" },
+  stocks: { label: "Stocks", color: "#0ea5e9" },
+  crypto: { label: "Crypto", color: "#f59e0b" },
+  options: { label: "Options", color: "#8b5cf6" },
+  futures: { label: "Futures", color: "#ea580c" },
+  "copy-trading": { label: "Copy", color: "#7c3aed" },
+  "spread-betting": { label: "SB", color: "#dc2626" },
+};
+
 export default function HomeProtoC() {
   const { mob, tab } = useMedia();
   const cn = { maxWidth: 1120, margin: "0 auto", padding: mob ? "0 20px" : "0 32px" };
@@ -90,7 +118,7 @@ export default function HomeProtoC() {
   return (
     <div style={{ fontFamily: "'Inter',system-ui,sans-serif", background: "#fff", minHeight: "100vh" }}>
 
-      {/* ═══ HERO ═══ */}
+      {/* --- HERO --- */}
       <section style={{
         background: "#0f172a",
         padding: mob ? "48px 20px 44px" : "72px 32px 60px",
@@ -179,7 +207,7 @@ export default function HomeProtoC() {
         </div>
       </section>
 
-      {/* ═══ CATEGORY CARDS ═══ */}
+      {/* --- CATEGORY CARDS --- */}
       <section style={{ padding: mob ? "40px 20px" : "56px 32px" }}>
         <div style={cn}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 24 }}>
@@ -257,7 +285,7 @@ export default function HomeProtoC() {
         </div>
       </section>
 
-      {/* ═══ EDITOR'S PICKS ═══ */}
+      {/* --- EDITOR'S PICKS --- */}
       <section style={{ padding: mob ? "40px 20px" : "56px 32px", background: "#fafbfc" }}>
         <div style={cn}>
           <div style={{ marginBottom: 20 }}>
@@ -275,7 +303,7 @@ export default function HomeProtoC() {
           </div>
           <div style={{
             display: "grid",
-            gridTemplateColumns: mob ? "1fr" : tab ? "1fr 1fr" : "1fr 1fr 1fr",
+            gridTemplateColumns: mob ? "1fr" : tab ? "1fr 1fr" : "repeat(4, 1fr)",
             gap: mob ? 10 : 14,
           }}>
             {FEATURED.map((f, i) => {
@@ -320,7 +348,7 @@ export default function HomeProtoC() {
         </div>
       </section>
 
-      {/* ═══ POPULAR RANKINGS — Tabbed ═══ */}
+      {/* --- POPULAR RANKINGS - Tabbed --- */}
       <section style={{ padding: mob ? "0 20px 40px" : "0 32px 56px" }}>
         <div style={cn}>
           <p style={{
@@ -353,7 +381,7 @@ export default function HomeProtoC() {
           </div>
 
           {activeTab === "category" && (
-            <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "repeat(3, 1fr)", gap: mob ? 20 : 28 }}>
+            <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : tab ? "repeat(3, 1fr)" : "repeat(4, 1fr)", gap: mob ? 20 : 28 }}>
               {POPULAR_BY_CATEGORY.map(cat => (
                 <div key={cat.title}>
                   <div style={{
@@ -416,7 +444,7 @@ export default function HomeProtoC() {
         </div>
       </section>
 
-      {/* ═══ ALL BROKERS — Compact Grid ═══ */}
+      {/* --- ALL BROKERS - Compact Grid --- */}
       <section style={{ padding: mob ? "0 20px 40px" : "0 32px 56px" }}>
         <div style={cn}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
@@ -444,31 +472,48 @@ export default function HomeProtoC() {
             gridTemplateColumns: mob ? "1fr 1fr" : tab ? "repeat(4, 1fr)" : "repeat(6, 1fr)",
             gap: mob ? 10 : 12,
           }}>
-            {allBrokers.slice(0, mob ? 8 : 18).map(b => (
-              <Link key={b.slug} to={`/review/${b.slug}`} style={{
-                background: "#fafbfc", borderRadius: 10, padding: "14px",
-                border: "1px solid #e8ecf1", textDecoration: "none", color: "#0f172a",
-                textAlign: "center", transition: "border-color 0.15s",
-              }}
-                onMouseEnter={e => { e.currentTarget.style.borderColor = "#94a3b8"; }}
-                onMouseLeave={e => { e.currentTarget.style.borderColor = "#e8ecf1"; }}
-              >
-                <div style={{ width: 36, height: 36, borderRadius: 8, overflow: "hidden", margin: "0 auto 8px", border: "1px solid #eef0f4" }}>
-                  <BrokerLogo broker={b.B} size={36} variant="icon" />
-                </div>
-                <div style={{ fontSize: 12, fontWeight: 600, marginBottom: 3, letterSpacing: "-0.01em" }}>{b.B.name}</div>
-                <div style={{
-                  fontSize: 11, fontWeight: 700,
-                  color: "#475569",
-                  fontFamily: "'JetBrains Mono'",
-                }}>{b.B.score}</div>
-              </Link>
-            ))}
+            {allBrokers.slice(0, mob ? 8 : 18).map(b => {
+              const verts = (b.B.verticals || []).slice(0, 3);
+              return (
+                <Link key={b.slug} to={`/review/${b.slug}`} style={{
+                  background: "#fafbfc", borderRadius: 10, padding: "14px",
+                  border: "1px solid #e8ecf1", textDecoration: "none", color: "#0f172a",
+                  textAlign: "center", transition: "border-color 0.15s",
+                }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = "#94a3b8"; }}
+                  onMouseLeave={e => { e.currentTarget.style.borderColor = "#e8ecf1"; }}
+                >
+                  <div style={{ width: 36, height: 36, borderRadius: 8, overflow: "hidden", margin: "0 auto 8px", border: "1px solid #eef0f4" }}>
+                    <BrokerLogo broker={b.B} size={36} variant="icon" />
+                  </div>
+                  <div style={{ fontSize: 12, fontWeight: 600, marginBottom: 3, letterSpacing: "-0.01em" }}>{b.B.name}</div>
+                  <div style={{
+                    fontSize: 11, fontWeight: 700,
+                    color: "#475569",
+                    fontFamily: "'JetBrains Mono'",
+                    marginBottom: 6,
+                  }}>{b.B.score}</div>
+                  {verts.length > 0 && (
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: 3, justifyContent: "center" }}>
+                      {verts.map(v => {
+                        const vm = VERTICAL_MAP[v];
+                        return vm ? (
+                          <span key={v} style={{
+                            fontSize: 9, fontWeight: 600, padding: "2px 5px", borderRadius: 4,
+                            background: `${vm.color}12`, color: vm.color,
+                          }}>{vm.label}</span>
+                        ) : null;
+                      })}
+                    </div>
+                  )}
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* ═══ TRUST + METHODOLOGY ═══ */}
+      {/* --- TRUST + METHODOLOGY --- */}
       <section style={{ padding: mob ? "0 20px 40px" : "0 32px 56px" }}>
         <div style={cn}>
           <div style={{
@@ -507,7 +552,7 @@ export default function HomeProtoC() {
         </div>
       </section>
 
-      {/* ═══ EDITORIAL — Collapsible ═══ */}
+      {/* --- EDITORIAL - Collapsible --- */}
       <section style={{ padding: mob ? "0 20px 40px" : "0 32px 56px" }}>
         <div style={{ ...cn, maxWidth: 720 }}>
           <button onClick={() => setEditorialOpen(!editorialOpen)} style={{
