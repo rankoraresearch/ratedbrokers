@@ -16,6 +16,17 @@ import { getVisitUrl } from "../utils/visitUrl";
 
 const YEAR = "2026";
 
+const VERTICAL_MAP = {
+  forex: { label: "Forex", color: "#059669" },
+  cfd: { label: "CFD", color: "#2563eb" },
+  stocks: { label: "Stocks", color: "#0ea5e9" },
+  crypto: { label: "Crypto", color: "#f59e0b" },
+  options: { label: "Options", color: "#8b5cf6" },
+  futures: { label: "Futures", color: "#ea580c" },
+  "copy-trading": { label: "Copy", color: "#7c3aed" },
+  "spread-betting": { label: "SB", color: "#dc2626" },
+};
+
 const COMPARE_PAIRS = {
   forex: { a: "ic-markets", b: "pepperstone" },
   cfd: { a: "ig", b: "cmc-markets" },
@@ -102,6 +113,17 @@ export default function HomeProtoF4() {
               Show Matches <ArrowRight size={14} />
             </Link>
           </div>
+          {/* Logo Strip */}
+          <div style={{
+            display: "flex", alignItems: "center", justifyContent: "center",
+            gap: mob ? 8 : 12, marginTop: 28, flexWrap: "wrap",
+          }}>
+            {allBrokers.slice(0, mob ? 8 : 12).map(b => (
+              <div key={b.slug} style={{ width: 30, height: 30, borderRadius: 8, overflow: "hidden", opacity: 0.5, border: "1px solid rgba(255,255,255,0.1)" }}>
+                <BrokerLogo broker={b.B} size={30} variant="icon" />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -116,7 +138,22 @@ export default function HomeProtoF4() {
             padding: mob ? "28px 16px" : "40px 28px",
             borderLeft: `3px solid ${hub.color}`,
             margin: mob ? "0 8px" : "0 20px",
+            position: "relative", overflow: "hidden",
           }}>
+            {/* Watermark: top broker wide logo */}
+            {brokers[0] && !mob && (
+              <div style={{
+                position: "absolute", top: "50%", right: 40, transform: "translateY(-50%)",
+                opacity: 0.04, pointerEvents: "none", width: 200, height: 80,
+              }}>
+                <img
+                  src={`${import.meta.env.BASE_URL}logos-wide/${brokers[0].slug}.svg`}
+                  alt=""
+                  style={{ width: "100%", height: "100%", objectFit: "contain" }}
+                  onError={e => { e.target.style.display = "none"; }}
+                />
+              </div>
+            )}
             <div style={cn}>
               {/* Section Header */}
               <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
@@ -162,8 +199,8 @@ export default function HomeProtoF4() {
                       onMouseEnter={e => { e.currentTarget.style.borderColor = "#059669"; e.currentTarget.style.boxShadow = "0 2px 8px rgba(5,150,105,0.12)"; }}
                       onMouseLeave={e => { e.currentTarget.style.boxShadow = "none"; }}
                     >
-                      <div style={{ width: 40, height: 40, borderRadius: 8, overflow: "hidden", border: "1px solid #eef0f4", flexShrink: 0 }}>
-                        <BrokerLogo broker={b.B} size={40} variant="icon" />
+                      <div style={{ width: 44, height: 44, borderRadius: 10, overflow: "hidden", border: "1px solid #eef0f4", flexShrink: 0 }}>
+                        <BrokerLogo broker={b.B} size={44} variant="icon" />
                       </div>
                       <div style={{ flex: 1, minWidth: 0 }}>
                         <div style={{
@@ -173,8 +210,14 @@ export default function HomeProtoF4() {
                         }}>{b.B.name}</div>
                         <div style={{
                           fontFamily: "'JetBrains Mono'", fontSize: 12, fontWeight: 700,
-                          color: "#475569",
+                          color: "#475569", marginBottom: 3,
                         }}>{b.B.score}</div>
+                        <div style={{ display: "flex", gap: 3, flexWrap: "wrap" }}>
+                          {(b.B.verticals || []).slice(0, 3).map(v => {
+                            const vm = VERTICAL_MAP[v];
+                            return vm ? <span key={v} style={{ fontSize: 8, fontWeight: 600, padding: "1px 5px", borderRadius: 3, background: `${vm.color}14`, color: vm.color }}>{vm.label}</span> : null;
+                          })}
+                        </div>
                       </div>
                       <a href={visitUrl} target="_blank" rel="nofollow sponsored" className="cta-orange" style={{
                         padding: "8px 14px", borderRadius: 7, fontSize: 12, fontWeight: 700,

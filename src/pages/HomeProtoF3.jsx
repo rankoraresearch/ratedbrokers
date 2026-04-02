@@ -16,6 +16,17 @@ import { getVisitUrl } from "../utils/visitUrl";
 
 const YEAR = "2026";
 
+const VERTICAL_MAP = {
+  forex: { label: "Forex", color: "#059669" },
+  cfd: { label: "CFD", color: "#2563eb" },
+  stocks: { label: "Stocks", color: "#0ea5e9" },
+  crypto: { label: "Crypto", color: "#f59e0b" },
+  options: { label: "Options", color: "#8b5cf6" },
+  futures: { label: "Futures", color: "#ea580c" },
+  "copy-trading": { label: "Copy", color: "#7c3aed" },
+  "spread-betting": { label: "SB", color: "#dc2626" },
+};
+
 const RANK_BADGES = [
   { label: "Most Popular", bg: "#fef3c7", color: "#92400e" },
   { label: "Editor's Choice", bg: "#ede9fe", color: "#6d28d9" },
@@ -123,6 +134,17 @@ export default function HomeProtoF3() {
               Show Matches <ArrowRight size={14} />
             </Link>
           </div>
+          {/* Logo Strip */}
+          <div style={{
+            display: "flex", alignItems: "center", justifyContent: "center",
+            gap: mob ? 8 : 12, marginTop: 28, flexWrap: "wrap",
+          }}>
+            {allBrokers.slice(0, mob ? 8 : 12).map(b => (
+              <div key={b.slug} style={{ width: 30, height: 30, borderRadius: 8, overflow: "hidden", opacity: 0.5, border: "1px solid rgba(255,255,255,0.1)" }}>
+                <BrokerLogo broker={b.B} size={30} variant="icon" />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -174,15 +196,29 @@ export default function HomeProtoF3() {
                     <div>
                       <div style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: 15, letterSpacing: "-0.01em" }}>{b.B.name}</div>
                       <div style={{ fontSize: 12, color: "#94a3b8", marginBottom: 4 }}>{b.B.type} · {b.B.regs.filter(r=>r.tier===1).map(r=>r.name).join(", ")}</div>
-                      {/* Trustpilot badge */}
+                      {/* Trustpilot dots */}
                       {b.B.tp && (
-                        <span style={{
-                          fontSize: 10, fontWeight: 700, padding: "2px 8px", borderRadius: 4,
-                          background: "#00b67a", color: "#fff",
-                        }}>
-                          TP {b.B.tp}
-                        </span>
+                        <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
+                          <div style={{ display: "flex", gap: 2 }}>
+                            {[1,2,3,4,5].map(s => {
+                              const tpScore = parseFloat(b.B.tp) || 0;
+                              const filled = s <= Math.round(tpScore);
+                              return <div key={s} style={{
+                                width: 8, height: 8, borderRadius: "50%",
+                                background: filled ? "#00b67a" : "#e2e8f0",
+                              }} />;
+                            })}
+                          </div>
+                          <span style={{ fontSize: 10, fontWeight: 700, color: "#00b67a" }}>{b.B.tp}</span>
+                        </div>
                       )}
+                      {/* Vertical badges */}
+                      <div style={{ display: "flex", gap: 3, marginTop: 2 }}>
+                        {(b.B.verticals || []).slice(0, 3).map(v => {
+                          const vm = VERTICAL_MAP[v];
+                          return vm ? <span key={v} style={{ fontSize: 9, fontWeight: 600, padding: "2px 6px", borderRadius: 4, background: `${vm.color}14`, color: vm.color }}>{vm.label}</span> : null;
+                        })}
+                      </div>
                     </div>
                   </div>
                   {/* Score */}
@@ -258,6 +294,7 @@ export default function HomeProtoF3() {
           }}>
             {HUBS.map(hub => {
               const rankCount = getRankingsForHub(hub).length;
+              const topBroker = getBrokersForRanking(hub.featuredIds?.[0] || "forex-overall")[0];
               return (
                 <Link key={hub.slug} to={hub.path} style={{
                   display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
@@ -270,6 +307,11 @@ export default function HomeProtoF3() {
                   onMouseEnter={e => { e.currentTarget.style.background = "#059669"; e.currentTarget.style.color = "#fff"; e.currentTarget.style.borderColor = "#059669"; }}
                   onMouseLeave={e => { e.currentTarget.style.background = "#f8fafc"; e.currentTarget.style.color = "#0f172a"; e.currentTarget.style.borderColor = "#e8ecf1"; }}
                 >
+                  {topBroker && (
+                    <div style={{ width: 20, height: 20, borderRadius: 5, overflow: "hidden", border: "1px solid #eef0f4", flexShrink: 0 }}>
+                      <BrokerLogo broker={topBroker.B} size={20} variant="icon" />
+                    </div>
+                  )}
                   <Icon name={hub.icon} size={14} />
                   {hub.name}
                   <span style={{ fontSize: 11, opacity: 0.5 }}>({rankCount})</span>

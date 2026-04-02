@@ -17,6 +17,17 @@ import { ArrowRight, Shield, ChevronRight } from "lucide-react";
 
 const YEAR = "2026";
 
+const VERTICAL_MAP = {
+  forex: { label: "Forex", color: "#059669" },
+  cfd: { label: "CFD", color: "#2563eb" },
+  stocks: { label: "Stocks", color: "#0ea5e9" },
+  crypto: { label: "Crypto", color: "#f59e0b" },
+  options: { label: "Options", color: "#8b5cf6" },
+  futures: { label: "Futures", color: "#ea580c" },
+  "copy-trading": { label: "Copy", color: "#7c3aed" },
+  "spread-betting": { label: "SB", color: "#dc2626" },
+};
+
 const COUNTRIES = [
   { code: "GB", name: "United Kingdom", path: "/best-forex-brokers-uk", verticals: "Forex / CFD / Spread Betting" },
   { code: "AU", name: "Australia", path: "/best-forex-brokers-australia", verticals: "Forex / CFD / Stocks" },
@@ -197,6 +208,69 @@ export default function HomeProtoA() {
         </div>
       </section>
 
+      {/* --- FEATURED BROKER SPOTLIGHT --- */}
+      {(() => {
+        const featured = allBrokers.find(b => b.slug === "ic-markets");
+        if (!featured) return null;
+        const visitUrl = (import.meta.env.VITE_API_URL || '') + `/go/${featured.slug}`;
+        return (
+          <section style={{ padding: mob ? "0 20px 32px" : "0 32px 48px" }}>
+            <div style={cn}>
+              <div style={{
+                background: "linear-gradient(135deg, #0f172a 0%, #0f2e24 50%, #047857 100%)",
+                borderRadius: 16, padding: mob ? "24px 20px" : "28px 32px",
+                display: mob ? "block" : "flex", alignItems: "center", gap: 28,
+                position: "relative", overflow: "hidden",
+              }}>
+                <div style={{
+                  position: "absolute", inset: 0, pointerEvents: "none",
+                  background: "repeating-linear-gradient(135deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 12px)",
+                }} />
+                <div style={{ display: "flex", alignItems: "center", gap: 16, flex: 1, position: "relative", zIndex: 1 }}>
+                  <div style={{
+                    width: 64, height: 64, borderRadius: 14, overflow: "hidden", flexShrink: 0,
+                    background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)",
+                  }}>
+                    <BrokerLogo broker={featured.B} size={64} variant="icon" />
+                  </div>
+                  <div>
+                    <div style={{
+                      fontSize: 10, fontWeight: 700, color: "#f59e0b",
+                      textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 4,
+                    }}>Featured Broker</div>
+                    <div style={{
+                      fontFamily: "'Outfit',sans-serif", fontWeight: 800,
+                      fontSize: mob ? 20 : 24, color: "#fff", letterSpacing: "-0.02em",
+                    }}>{featured.B.name}</div>
+                    <div style={{ display: "flex", gap: 12, marginTop: 6, flexWrap: "wrap" }}>
+                      <span style={{ fontSize: 12, color: "rgba(255,255,255,0.5)" }}>Score: <strong style={{ color: "#34d399" }}>{featured.B.score}</strong></span>
+                      <span style={{ fontSize: 12, color: "rgba(255,255,255,0.5)" }}>{featured.B.regs.filter(r=>r.tier===1).map(r=>r.name).join(", ")}</span>
+                    </div>
+                    <div style={{ display: "flex", gap: 4, marginTop: 8 }}>
+                      {(featured.B.verticals || []).slice(0, 4).map(v => {
+                        const vm = VERTICAL_MAP[v];
+                        return vm ? <span key={v} style={{ fontSize: 9, fontWeight: 600, padding: "2px 6px", borderRadius: 4, background: `${vm.color}30`, color: "#fff" }}>{vm.label}</span> : null;
+                      })}
+                    </div>
+                  </div>
+                </div>
+                <div style={{ display: "flex", gap: 10, marginTop: mob ? 16 : 0, position: "relative", zIndex: 1 }}>
+                  <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{
+                    padding: "12px 24px", borderRadius: 10, fontSize: 14, fontWeight: 700,
+                    background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: "#0f172a",
+                    textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 6,
+                  }}>Visit Broker <ArrowRight size={14} /></a>
+                  <Link to={`/review/${featured.slug}`} style={{
+                    padding: "12px 20px", borderRadius: 10, fontSize: 14, fontWeight: 600,
+                    border: "2px solid #059669", color: "#059669", textDecoration: "none",
+                  }}>Full Review</Link>
+                </div>
+              </div>
+            </div>
+          </section>
+        );
+      })()}
+
       {/* --- POPULAR RANKINGS --- */}
       <section style={{ padding: mob ? "0 20px 32px" : "0 32px 48px" }}>
         <div style={cn}>
@@ -280,7 +354,13 @@ export default function HomeProtoA() {
                 </div>
                 <div style={{ flex: 1 }}>
                   <div style={{ fontWeight: 600, fontSize: 14, letterSpacing: "-0.01em" }}>{b.B.name}</div>
-                  <div style={{ fontSize: 12, color: "#94a3b8", fontWeight: 400 }}>{b.B.type} · {b.B.regs.filter(r=>r.tier===1).map(r=>r.name).join(", ")}</div>
+                  <div style={{ fontSize: 12, color: "#94a3b8", fontWeight: 400, marginBottom: 4 }}>{b.B.type} · {b.B.regs.filter(r=>r.tier===1).map(r=>r.name).join(", ")}</div>
+                  <div style={{ display: "flex", gap: 3, flexWrap: "wrap" }}>
+                    {(b.B.verticals || []).slice(0, 3).map(v => {
+                      const vm = VERTICAL_MAP[v];
+                      return vm ? <span key={v} style={{ fontSize: 9, fontWeight: 600, padding: "2px 6px", borderRadius: 4, background: `${vm.color}14`, color: vm.color }}>{vm.label}</span> : null;
+                    })}
+                  </div>
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
                   <div style={{ width: 48, height: 4, borderRadius: 2, background: "#e8ecf1" }}>

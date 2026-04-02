@@ -112,6 +112,62 @@ export default function HomeProtoF() {
               Show Matches <ArrowRight size={14} />
             </Link>
           </div>
+          {/* Logo Strip */}
+          <div style={{
+            display: "flex", alignItems: "center", justifyContent: "center",
+            gap: mob ? 8 : 12, marginTop: 28, flexWrap: "wrap",
+          }}>
+            {allBrokers.slice(0, mob ? 8 : 12).map(b => (
+              <div key={b.slug} style={{ width: 30, height: 30, borderRadius: 8, overflow: "hidden", opacity: 0.5, border: "1px solid rgba(255,255,255,0.1)" }}>
+                <BrokerLogo broker={b.B} size={30} variant="icon" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* --- QUICK PICK ROW --- */}
+      <section style={{ padding: mob ? "28px 16px 0" : "48px 28px 0" }}>
+        <div style={cn}>
+          <h3 style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: mob ? 18 : 22, color: "#0f172a", marginBottom: 14, letterSpacing: "-0.02em" }}>
+            Quick Picks
+          </h3>
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: mob ? "1fr 1fr" : "repeat(4, 1fr)",
+            gap: 10,
+          }}>
+            {[
+              { label: "Best for Forex", slug: "ic-markets" },
+              { label: "Best for Stocks", slug: "charles-schwab" },
+              { label: "Best for Options", slug: "tastytrade" },
+              { label: "Best for Futures", slug: "ninjatrader" },
+            ].map(pick => {
+              const broker = allBrokers.find(b => b.slug === pick.slug);
+              if (!broker) return null;
+              const visitUrl = getVisitUrl(broker.slug, broker.B.url);
+              return (
+                <div key={pick.slug} style={{
+                  background: "#fff", borderRadius: 12, padding: mob ? "14px" : "16px",
+                  border: "1px solid #e8ecf1", textAlign: "center",
+                }}>
+                  <div style={{ fontSize: 10, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1.2, marginBottom: 10 }}>
+                    {pick.label}
+                  </div>
+                  <div style={{ width: 44, height: 44, borderRadius: 10, overflow: "hidden", margin: "0 auto 8px", border: "1px solid #eef0f4" }}>
+                    <BrokerLogo broker={broker.B} size={44} variant="icon" />
+                  </div>
+                  <div style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 700, fontSize: 14, marginBottom: 2 }}>{broker.B.name}</div>
+                  <div style={{ fontFamily: "'JetBrains Mono'", fontSize: 12, fontWeight: 700, color: "#059669", marginBottom: 8 }}>{broker.B.score}</div>
+                  <a href={visitUrl} target="_blank" rel="nofollow sponsored" className="cta-orange" style={{
+                    padding: "8px 16px", borderRadius: 7, fontSize: 11, fontWeight: 700,
+                    background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: "#0f172a",
+                    textDecoration: "none", display: "inline-block",
+                  }}>Visit</a>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
 

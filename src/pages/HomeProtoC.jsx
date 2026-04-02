@@ -203,18 +203,16 @@ export default function HomeProtoC() {
             </div>
           )}
           {/* Logo Strip */}
-          {mob && (
-            <div style={{
-              display: "flex", alignItems: "center", justifyContent: "center",
-              gap: 10, marginTop: 24, opacity: 0.35,
-            }}>
-              {allBrokers.slice(0, 6).map(b => (
-                <div key={b.slug} style={{ width: 28, height: 28, borderRadius: 7, overflow: "hidden", background: "rgba(255,255,255,0.08)" }}>
-                  <BrokerLogo broker={b.B} size={28} variant="icon" />
-                </div>
-              ))}
-            </div>
-          )}
+          <div style={{
+            display: "flex", alignItems: "center", justifyContent: mob ? "center" : "flex-start",
+            gap: mob ? 10 : 14, marginTop: 24, opacity: 0.4, flexWrap: "wrap",
+          }}>
+            {allBrokers.slice(0, mob ? 6 : 12).map(b => (
+              <div key={b.slug} style={{ width: mob ? 28 : 32, height: mob ? 28 : 32, borderRadius: 7, overflow: "hidden", background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.08)" }}>
+                <BrokerLogo broker={b.B} size={mob ? 28 : 32} variant="icon" />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -276,10 +274,18 @@ export default function HomeProtoC() {
                       padding: "10px", background: "#fafbfc", borderRadius: 8,
                       border: "1px solid #f1f5f9",
                     }}>
-                      <div style={{ width: 24, height: 24, borderRadius: 6, overflow: "hidden", flexShrink: 0 }}>
-                        <BrokerLogo broker={topBroker.B} size={24} variant="icon" />
+                      <div style={{ width: 32, height: 32, borderRadius: 7, overflow: "hidden", flexShrink: 0, border: "1px solid #eef0f4" }}>
+                        <BrokerLogo broker={topBroker.B} size={32} variant="icon" />
                       </div>
-                      <span style={{ fontSize: 12, fontWeight: 600, flex: 1, letterSpacing: "-0.01em" }}>{topBroker.B.name}</span>
+                      <div style={{ flex: 1, minWidth: 0 }}>
+                        <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: "-0.01em", display: "block" }}>{topBroker.B.name}</span>
+                        <div style={{ display: "flex", gap: 3, marginTop: 3 }}>
+                          {(topBroker.B.verticals || []).slice(0, 2).map(v => {
+                            const vm = VERTICAL_MAP[v];
+                            return vm ? <span key={v} style={{ fontSize: 8, fontWeight: 600, padding: "1px 4px", borderRadius: 3, background: `${vm.color}12`, color: vm.color }}>{vm.label}</span> : null;
+                          })}
+                        </div>
+                      </div>
                       <span style={{
                         fontSize: 11, fontWeight: 700, color: "#334155",
                         fontFamily: "'JetBrains Mono'",
@@ -495,8 +501,8 @@ export default function HomeProtoC() {
                   onMouseEnter={e => { e.currentTarget.style.borderColor = "#059669"; }}
                   onMouseLeave={e => { e.currentTarget.style.borderColor = "#e8ecf1"; }}
                 >
-                  <div style={{ width: 36, height: 36, borderRadius: 8, overflow: "hidden", margin: "0 auto 8px", border: "1px solid #eef0f4" }}>
-                    <BrokerLogo broker={b.B} size={36} variant="icon" />
+                  <div style={{ width: 40, height: 40, borderRadius: 9, overflow: "hidden", margin: "0 auto 8px", border: "1px solid #eef0f4" }}>
+                    <BrokerLogo broker={b.B} size={40} variant="icon" />
                   </div>
                   <div style={{ fontSize: 12, fontWeight: 600, marginBottom: 3, letterSpacing: "-0.01em" }}>{b.B.name}</div>
                   <div style={{

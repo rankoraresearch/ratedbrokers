@@ -16,6 +16,17 @@ import { getVisitUrl } from "../utils/visitUrl";
 
 const YEAR = "2026";
 
+const VERTICAL_MAP = {
+  forex: { label: "Forex", color: "#059669" },
+  cfd: { label: "CFD", color: "#2563eb" },
+  stocks: { label: "Stocks", color: "#0ea5e9" },
+  crypto: { label: "Crypto", color: "#f59e0b" },
+  options: { label: "Options", color: "#8b5cf6" },
+  futures: { label: "Futures", color: "#ea580c" },
+  "copy-trading": { label: "Copy", color: "#7c3aed" },
+  "spread-betting": { label: "SB", color: "#dc2626" },
+};
+
 const COMPARISONS = [
   { a: "ic-markets", b: "pepperstone" },
   { a: "etoro", b: "trading-212" },
@@ -108,6 +119,17 @@ export default function HomeProtoF2() {
               Show Matches <ArrowRight size={14} />
             </Link>
           </div>
+          {/* Logo Strip */}
+          <div style={{
+            display: "flex", alignItems: "center", justifyContent: "center",
+            gap: mob ? 8 : 12, marginTop: 28, flexWrap: "wrap",
+          }}>
+            {allBrokers.slice(0, mob ? 8 : 12).map(b => (
+              <div key={b.slug} style={{ width: 30, height: 30, borderRadius: 8, overflow: "hidden", opacity: 0.5, border: "1px solid rgba(255,255,255,0.1)" }}>
+                <BrokerLogo broker={b.B} size={30} variant="icon" />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -152,7 +174,13 @@ export default function HomeProtoF2() {
                       </div>
                       <div>
                         <div style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: 15, letterSpacing: "-0.01em" }}>{b.B.name}</div>
-                        <div style={{ fontSize: 12, color: "#94a3b8" }}>{b.B.type} · {b.B.regs.filter(r=>r.tier===1).map(r=>r.name).join(", ")}</div>
+                        <div style={{ fontSize: 12, color: "#94a3b8", marginBottom: 4 }}>{b.B.type} · {b.B.regs.filter(r=>r.tier===1).map(r=>r.name).join(", ")}</div>
+                        <div style={{ display: "flex", gap: 3, flexWrap: "wrap" }}>
+                          {(b.B.verticals || []).slice(0, 4).map(v => {
+                            const vm = VERTICAL_MAP[v];
+                            return vm ? <span key={v} style={{ fontSize: 9, fontWeight: 600, padding: "2px 6px", borderRadius: 4, background: `${vm.color}14`, color: vm.color }}>{vm.label}</span> : null;
+                          })}
+                        </div>
                       </div>
                     </div>
                     <div style={{
@@ -278,22 +306,30 @@ export default function HomeProtoF2() {
             Browse by Category
           </h3>
           <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr 1fr" : "repeat(4, 1fr)", gap: 8 }}>
-            {HUBS.map(hub => (
-              <Link key={hub.slug} to={hub.path} style={{
-                display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
-                padding: mob ? "12px 8px" : "14px 12px", borderRadius: 10,
-                background: "#f8fafc", border: "1px solid #e8ecf1",
-                textDecoration: "none", color: "#0f172a",
-                fontSize: 13, fontWeight: 600, transition: "all 0.15s",
-              }}
-                onMouseEnter={e => { e.currentTarget.style.background = "#059669"; e.currentTarget.style.color = "#fff"; e.currentTarget.style.borderColor = "#059669"; }}
-                onMouseLeave={e => { e.currentTarget.style.background = "#f8fafc"; e.currentTarget.style.color = "#0f172a"; e.currentTarget.style.borderColor = "#e8ecf1"; }}
-              >
-                <Icon name={hub.icon} size={14} />
-                {hub.name}
-                <span style={{ fontSize: 11, opacity: 0.5 }}>({getRankingsForHub(hub).length})</span>
-              </Link>
-            ))}
+            {HUBS.map(hub => {
+              const topBroker = getBrokersForRanking(hub.featuredIds?.[0] || "forex-overall")[0];
+              return (
+                <Link key={hub.slug} to={hub.path} style={{
+                  display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
+                  padding: mob ? "12px 8px" : "14px 12px", borderRadius: 10,
+                  background: "#f8fafc", border: "1px solid #e8ecf1",
+                  textDecoration: "none", color: "#0f172a",
+                  fontSize: 13, fontWeight: 600, transition: "all 0.15s",
+                }}
+                  onMouseEnter={e => { e.currentTarget.style.background = "#059669"; e.currentTarget.style.color = "#fff"; e.currentTarget.style.borderColor = "#059669"; }}
+                  onMouseLeave={e => { e.currentTarget.style.background = "#f8fafc"; e.currentTarget.style.color = "#0f172a"; e.currentTarget.style.borderColor = "#e8ecf1"; }}
+                >
+                  {topBroker && (
+                    <div style={{ width: 20, height: 20, borderRadius: 5, overflow: "hidden", border: "1px solid #eef0f4", flexShrink: 0 }}>
+                      <BrokerLogo broker={topBroker.B} size={20} variant="icon" />
+                    </div>
+                  )}
+                  <Icon name={hub.icon} size={14} />
+                  {hub.name}
+                  <span style={{ fontSize: 11, opacity: 0.5 }}>({getRankingsForHub(hub).length})</span>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
