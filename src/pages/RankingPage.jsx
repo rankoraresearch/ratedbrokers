@@ -631,28 +631,26 @@ export default function RankingPage() {
         } />
       </div>
 
-      {/* HERO — Compact */}
-      <HeroBand mob={mob} tab={tab} compact>
-        <header ref={heroRef} style={{ display: mob ? "block" : "flex", alignItems: "center", justifyContent: "space-between", gap: 24 }}>
-          <div style={{ flex: 1 }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8 }}>
-              <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 36, height: 36, borderRadius: 10, background: "rgba(255,255,255,0.08)" }}>
-                <Icon name={ranking.icon} size={18} color="#34d399" />
-              </span>
-              <span style={{ fontSize: 11, fontWeight: 600, color: "rgba(255,255,255,0.4)", textTransform: "uppercase", letterSpacing: 1 }}>
-                {brokers.length} brokers · Updated Q1 {YEAR}
-              </span>
-            </div>
-            <h1 style={{
-              fontFamily: "Outfit", fontWeight: 900,
-              fontSize: mob ? 24 : tab ? 30 : 36,
-              lineHeight: 1.1, color: "#fff", marginBottom: mob ? 8 : 0,
-              letterSpacing: "-0.03em",
-            }}>
-              {ranking.title} {YEAR}
-            </h1>
-          </div>
-          <div style={{ flexShrink: 0 }}>
+      {/* HERO */}
+      <HeroBand mob={mob} tab={tab}>
+        <header ref={heroRef} style={{ textAlign: "center" }}>
+          <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: mob ? 56 : 72, height: mob ? 56 : 72, borderRadius: 16, background: "rgba(255,255,255,0.1)", marginBottom: 14 }}>
+            <Icon name={ranking.icon} size={mob ? 28 : 36} color="#34d399" />
+          </span>
+          <h1 style={{
+            fontFamily: "Outfit", fontWeight: 900,
+            fontSize: mob ? 26 : tab ? 34 : 42,
+            lineHeight: 1.1, color: "#fff", marginBottom: 8,
+          }}>
+            {ranking.title} {YEAR}
+          </h1>
+          <p style={{
+            fontSize: mob ? 14 : 15, color: "rgba(255,255,255,0.75)",
+            maxWidth: 540, margin: "0 auto 10px", lineHeight: 1.5,
+          }}>
+            {brokers.length} brokers independently tested across 130+ data points
+          </p>
+          <div style={{ display: "flex", justifyContent: "center" }}>
             <AuthorCredits author={author} editor={editor} reviewer={reviewer} factChecker={factChecker} updatedDate={`March ${YEAR}`} variant="centered" onDark />
           </div>
         </header>
