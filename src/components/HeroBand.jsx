@@ -14,7 +14,7 @@ export default function HeroBand({
   compact = false,
 }) {
   const padding = compact
-    ? (mob ? "28px 16px 32px" : tab ? "32px 24px 40px" : "40px 24px 48px")
+    ? (mob ? "20px 16px 22px" : tab ? "24px 24px 28px" : "28px 24px 32px")
     : (mob ? "32px 16px 40px" : tab ? "40px 24px 48px" : "48px 24px 56px");
 
   return (
