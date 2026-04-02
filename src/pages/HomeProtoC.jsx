@@ -243,6 +243,93 @@ export default function HomeProtoC() {
         </div>
       </div>
 
+      {/* ═══ BROKER SHOWCASE ═══ */}
+      <section style={{ padding: mob ? "32px 16px" : "48px 28px" }}>
+        <div style={cn}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
+            <h2 style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: mob ? 22 : 28, color: "#0f172a", letterSpacing: "-0.03em" }}>
+              Top Rated Brokers
+            </h2>
+            <Link to="/reviews" style={{ fontSize: 13, fontWeight: 600, color: "#059669", textDecoration: "none", display: "flex", alignItems: "center", gap: 4 }}>
+              All {allBrokers.length} reviews <ArrowRight size={12} />
+            </Link>
+          </div>
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: mob ? "1fr" : tab ? "1fr 1fr" : "repeat(3, 1fr)",
+            gap: mob ? 12 : 16,
+          }}>
+            {allBrokers.slice(0, mob ? 3 : 6).map((b, i) => {
+              const visitUrl = getVisitUrl(b.slug, b.B.url);
+              return (
+                <div key={b.slug} style={{
+                  display: "flex", alignItems: "center", gap: 14,
+                  padding: mob ? "16px" : "20px",
+                  background: "rgba(255,255,255,0.7)", backdropFilter: "blur(12px)",
+                  borderRadius: 16, border: "1px solid rgba(0,0,0,0.06)",
+                  boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)",
+                  transition: "all 0.2s",
+                }}
+                  onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 4px 16px rgba(5,150,105,0.12)"; e.currentTarget.style.borderColor = "#059669"; }}
+                  onMouseLeave={e => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)"; e.currentTarget.style.borderColor = "rgba(0,0,0,0.06)"; }}
+                >
+                  <div style={{ width: 56, height: 56, borderRadius: 14, overflow: "hidden", boxShadow: "0 2px 8px rgba(0,0,0,0.08)", flexShrink: 0, border: "1px solid rgba(0,0,0,0.04)" }}>
+                    <BrokerLogo broker={b.B} size={56} variant="icon" />
+                  </div>
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 700, fontSize: 15, letterSpacing: "-0.01em" }}>{b.B.name}</div>
+                    <div style={{ fontSize: 12, color: "#64748b", marginTop: 2 }}>{b.B.type}</div>
+                    <div style={{ display: "flex", gap: 4, marginTop: 4 }}>
+                      {(b.B.verticals || []).slice(0, 3).map(v => {
+                        const vm = VERTICAL_MAP[v];
+                        return vm ? <span key={v} style={{ display: "inline-flex", alignItems: "center", gap: 3, fontSize: 10, color: "#64748b" }}>
+                          <span style={{ width: 5, height: 5, borderRadius: "50%", background: vm.color }} />{vm.label}
+                        </span> : null;
+                      })}
+                    </div>
+                  </div>
+                  <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, flexShrink: 0 }}>
+                    <div style={{
+                      width: 44, height: 44, borderRadius: "50%",
+                      display: "flex", alignItems: "center", justifyContent: "center",
+                      background: b.B.score >= 9.0 ? "linear-gradient(135deg, #059669, #34d399)" : "#f1f5f9",
+                      color: b.B.score >= 9.0 ? "#fff" : "#334155",
+                      fontFamily: "'JetBrains Mono'", fontSize: 14, fontWeight: 800,
+                      boxShadow: b.B.score >= 9.0 ? "0 4px 12px rgba(5,150,105,0.25)" : "none",
+                    }}>{b.B.score}</div>
+                    <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{
+                      padding: "6px 14px", borderRadius: 8, fontSize: 11, fontWeight: 700,
+                      background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: "#0f172a",
+                      textDecoration: "none",
+                    }}>Visit</a>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ TRUST STRIP ═══ */}
+      <section style={{
+        background: "#0f172a", padding: mob ? "24px 16px" : "28px 28px",
+        borderTop: "1px solid rgba(255,255,255,0.06)", borderBottom: "1px solid rgba(255,255,255,0.06)",
+      }}>
+        <div style={{ ...cn, display: "flex", justifyContent: "center", gap: mob ? 24 : 56, flexWrap: "wrap" }}>
+          {[
+            { n: "130+", l: "Data Points Per Broker" },
+            { n: "100%", l: "Independent Rankings" },
+            { n: "Real $", l: "Money Testing" },
+            { n: "Q1 2026", l: "Last Updated" },
+          ].map((s, i) => (
+            <div key={i} style={{ textAlign: "center" }}>
+              <div style={{ fontFamily: "'JetBrains Mono'", fontSize: mob ? 18 : 22, fontWeight: 700, color: "#34d399", letterSpacing: "-0.02em" }}>{s.n}</div>
+              <div style={{ fontSize: 10, color: "rgba(255,255,255,0.35)", fontWeight: 500, textTransform: "uppercase", letterSpacing: 1.5, marginTop: 4 }}>{s.l}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* --- CATEGORY CARDS --- */}
       <section style={{ padding: mob ? "56px 20px" : "88px 32px", background: "linear-gradient(180deg, #fff 0%, #f8fafc 100%)" }}>
         <div style={cn}>
@@ -553,7 +640,6 @@ export default function HomeProtoC() {
             gap: mob ? 14 : 16,
           }}>
             {allBrokers.slice(0, mob ? 8 : 18).map(b => {
-              const verts = (b.B.verticals || []).slice(0, 3);
               return (
                 <Link key={b.slug} to={`/review/${b.slug}`} style={{
                   background: "rgba(255,255,255,0.7)",
@@ -568,31 +654,23 @@ export default function HomeProtoC() {
                   onMouseLeave={e => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)"; }}
                 >
                   <div style={{
-                    width: 44, height: 44, borderRadius: 12, overflow: "hidden", margin: "0 auto 10px",
-                    boxShadow: "0 2px 8px rgba(0,0,0,0.06)", border: "1px solid rgba(0,0,0,0.04)",
+                    width: "100%", height: 40, display: "flex", alignItems: "center", justifyContent: "center",
+                    background: "#0f172a", borderRadius: 10, padding: "8px 16px", marginBottom: 8,
+                    overflow: "hidden",
                   }}>
-                    <BrokerLogo broker={b.B} size={44} variant="icon" />
+                    <img
+                      src={`${import.meta.env.BASE_URL}logos-wide-dark/${b.slug}.svg`}
+                      alt={b.B.name}
+                      style={{ maxWidth: "80%", maxHeight: "70%", objectFit: "contain" }}
+                      onError={e => { e.target.style.display = "none"; e.target.parentElement.innerHTML = `<span style="color:#fff;font-weight:700;font-size:13px">${b.B.name}</span>`; }}
+                    />
                   </div>
-                  <div style={{ fontSize: 13, fontWeight: 600, marginBottom: 4, letterSpacing: "-0.01em" }}>{b.B.name}</div>
                   <div style={{
                     fontSize: 12, fontWeight: 700,
                     color: "#475569",
                     fontFamily: "'JetBrains Mono'",
-                    marginBottom: 8,
+                    marginBottom: 4,
                   }}>{b.B.score}</div>
-                  {verts.length > 0 && (
-                    <div style={{ display: "flex", flexWrap: "wrap", gap: 6, justifyContent: "center" }}>
-                      {verts.map(v => {
-                        const vm = VERTICAL_MAP[v];
-                        return vm ? (
-                          <span key={v} style={{ display: "inline-flex", alignItems: "center", gap: 3, fontSize: 10, color: "#64748b" }}>
-                            <span style={{ width: 5, height: 5, borderRadius: "50%", background: vm.color }} />
-                            {vm.label}
-                          </span>
-                        ) : null;
-                      })}
-                    </div>
-                  )}
                 </Link>
               );
             })}
