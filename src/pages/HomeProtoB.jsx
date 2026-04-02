@@ -89,6 +89,16 @@ export default function HomeProtoB() {
               <div style={{ fontSize: 12, color: "#94a3b8", fontWeight: 400 }}>12 years in financial markets · CFA Charterholder</div>
             </div>
           </div>
+          {/* Broker logos strip */}
+          <div style={{ display: "flex", alignItems: "center", gap: mob ? 8 : 12, marginTop: 24, flexWrap: "wrap" }}>
+            <span style={{ fontSize: 11, fontWeight: 600, color: "#c0c7d0", textTransform: "uppercase", letterSpacing: 1, marginRight: 4 }}>Brokers tested</span>
+            {allBrokers.slice(0, mob ? 8 : 14).map(b => (
+              <div key={b.slug} style={{ width: 28, height: 28, borderRadius: 7, overflow: "hidden", border: "1px solid #eef0f4", flexShrink: 0 }}>
+                <BrokerLogo broker={b.B} size={28} variant="icon" />
+              </div>
+            ))}
+            <span style={{ fontSize: 11, color: "#c0c7d0", fontWeight: 500 }}>+{allBrokers.length - (mob ? 8 : 14)}</span>
+          </div>
         </div>
       </section>
 
@@ -210,8 +220,8 @@ export default function HomeProtoB() {
       </section>
 
       {/* ═══ EDITORIAL ═══ */}
-      <section style={{ padding: mob ? "0 20px 32px" : "0 32px 48px", borderTop: "1px solid #eef0f4" }}>
-        <div style={{ ...cn, maxWidth: 720, paddingTop: mob ? 32 : 48 }}>
+      <section style={{ padding: mob ? "32px 20px" : "48px 32px", background: "#fafbfc" }}>
+        <div style={{ ...cn, maxWidth: 720 }}>
           <h2 style={{
             fontFamily: "'Plus Jakarta Sans','Outfit',sans-serif",
             fontWeight: 700, fontSize: mob ? 20 : 26, marginBottom: 20, color: "#0f172a",

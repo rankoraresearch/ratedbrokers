@@ -163,6 +163,19 @@ export default function HomeProtoC() {
               ))}
             </div>
           )}
+          {/* Logo Strip */}
+          {mob && (
+            <div style={{
+              display: "flex", alignItems: "center", justifyContent: "center",
+              gap: 10, marginTop: 24, opacity: 0.35,
+            }}>
+              {allBrokers.slice(0, 6).map(b => (
+                <div key={b.slug} style={{ width: 28, height: 28, borderRadius: 7, overflow: "hidden", background: "rgba(255,255,255,0.08)" }}>
+                  <BrokerLogo broker={b.B} size={28} variant="icon" />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
@@ -245,7 +258,7 @@ export default function HomeProtoC() {
       </section>
 
       {/* ═══ EDITOR'S PICKS ═══ */}
-      <section style={{ padding: mob ? "0 20px 40px" : "0 32px 56px" }}>
+      <section style={{ padding: mob ? "40px 20px" : "56px 32px", background: "#fafbfc" }}>
         <div style={cn}>
           <div style={{ marginBottom: 20 }}>
             <p style={{

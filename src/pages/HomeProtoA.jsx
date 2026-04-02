@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { useMedia } from "../hooks/useMedia";
 import { getAllBrokersWithData } from "../data/brokers";
 import HUBS from "../data/categoryHubs";
+import { getBrokersForRanking } from "../data/rankingFilters";
 import RANKINGS from "../data/rankings";
 import BrokerLogo from "../components/BrokerLogo";
 import Icon from "../components/Icon";
@@ -73,6 +74,7 @@ export default function HomeProtoA() {
           {/* Stats Bar */}
           <div style={{
             display: "inline-flex", gap: mob ? 24 : 48, flexWrap: "wrap", justifyContent: "center",
+            marginBottom: mob ? 32 : 40,
           }}>
             {[
               { n: allBrokers.length, l: "Brokers" },
@@ -89,6 +91,17 @@ export default function HomeProtoA() {
                   fontSize: 10, color: "rgba(255,255,255,0.3)", fontWeight: 500,
                   textTransform: "uppercase", letterSpacing: 1.5, marginTop: 4,
                 }}>{s.l}</div>
+              </div>
+            ))}
+          </div>
+          {/* Logo Strip */}
+          <div style={{
+            display: "flex", alignItems: "center", justifyContent: "center",
+            gap: mob ? 12 : 20, flexWrap: "wrap", opacity: 0.4,
+          }}>
+            {allBrokers.slice(0, mob ? 6 : 10).map(b => (
+              <div key={b.slug} style={{ width: mob ? 28 : 36, height: mob ? 28 : 36, borderRadius: 8, overflow: "hidden", background: "rgba(255,255,255,0.08)" }}>
+                <BrokerLogo broker={b.B} size={mob ? 28 : 36} variant="icon" />
               </div>
             ))}
           </div>
@@ -138,14 +151,18 @@ export default function HomeProtoA() {
                   fontFamily: "'Plus Jakarta Sans','Outfit',sans-serif",
                   fontWeight: 700, fontSize: mob ? 14 : 15, marginBottom: 4, letterSpacing: "-0.01em",
                 }}>{hub.name}</div>
-                <div style={{ fontSize: 12, color: "#94a3b8", fontWeight: 500 }}>
-                  {RANKINGS.filter(r => r.category === hub.category || r.vertical === hub.verticalKey).length} rankings
+                <div style={{ display: "flex", gap: 4, margin: "10px 0 8px" }}>
+                  {getBrokersForRanking(hub.featuredIds?.[0] || "forex-overall").slice(0, 3).map(b => (
+                    <div key={b.slug} style={{ width: 24, height: 24, borderRadius: 6, overflow: "hidden", border: "1px solid #eef0f4" }}>
+                      <BrokerLogo broker={b.B} size={24} variant="icon" />
+                    </div>
+                  ))}
+                  <span style={{ fontSize: 11, color: "#94a3b8", fontWeight: 500, alignSelf: "center", marginLeft: 2 }}>
+                    +{getBrokersForRanking(hub.featuredIds?.[0] || "forex-overall").length - 3}
+                  </span>
                 </div>
-                <div style={{
-                  marginTop: 12, fontSize: 12, fontWeight: 600, color: "#64748b",
-                  display: "flex", alignItems: "center", gap: 4,
-                }}>
-                  Explore <ChevronRight size={12} />
+                <div style={{ fontSize: 11, color: "#94a3b8", fontWeight: 500 }}>
+                  {RANKINGS.filter(r => r.category === hub.category || r.vertical === hub.verticalKey).length} rankings
                 </div>
               </Link>
             ))}
@@ -154,7 +171,7 @@ export default function HomeProtoA() {
       </section>
 
       {/* ═══ TOP 5 BROKERS ═══ */}
-      <section style={{ padding: mob ? "0 20px 40px" : "0 32px 56px" }}>
+      <section style={{ padding: mob ? "40px 20px" : "56px 32px", background: "#fafbfc" }}>
         <div style={cn}>
           <div style={{
             background: "#fafbfc", borderRadius: 16,
@@ -194,20 +211,21 @@ export default function HomeProtoA() {
                   fontSize: 13, color: "#c0c7d0", width: 28,
                   letterSpacing: "-0.02em",
                 }}>#{i + 1}</span>
-                <div style={{ width: 40, height: 40, borderRadius: 10, overflow: "hidden", flexShrink: 0, border: "1px solid #eef0f4" }}>
-                  <BrokerLogo broker={b.B} size={40} variant="icon" />
+                <div style={{ width: 44, height: 44, borderRadius: 10, overflow: "hidden", flexShrink: 0, border: "1px solid #eef0f4" }}>
+                  <BrokerLogo broker={b.B} size={44} variant="icon" />
                 </div>
                 <div style={{ flex: 1 }}>
                   <div style={{ fontWeight: 600, fontSize: 14, letterSpacing: "-0.01em" }}>{b.B.name}</div>
-                  <div style={{ fontSize: 12, color: "#94a3b8", fontWeight: 400 }}>{b.B.type}</div>
+                  <div style={{ fontSize: 12, color: "#94a3b8", fontWeight: 400 }}>{b.B.type} · {b.B.regs.filter(r=>r.tier===1).map(r=>r.name).join(", ")}</div>
                 </div>
-                <div style={{
-                  padding: "5px 12px", borderRadius: 6,
-                  background: "#f1f5f9",
-                  color: "#334155",
-                  fontFamily: "'JetBrains Mono'", fontWeight: 700, fontSize: 14,
-                }}>
-                  {b.B.score}
+                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                  <div style={{ width: 48, height: 4, borderRadius: 2, background: "#e8ecf1" }}>
+                    <div style={{ width: `${b.B.score * 10}%`, height: "100%", borderRadius: 2, background: "#0f172a" }} />
+                  </div>
+                  <span style={{
+                    fontFamily: "'JetBrains Mono'", fontWeight: 700, fontSize: 14, color: "#334155",
+                    letterSpacing: "-0.02em", minWidth: 28,
+                  }}>{b.B.score}</span>
                 </div>
               </Link>
             ))}
