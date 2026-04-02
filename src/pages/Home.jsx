@@ -882,147 +882,119 @@ function BrokerNerdwallet({ mob, tab, lp, brokers }) {
 // ══════════════════════════════════════════════════════
 // BROKER VARIANT E — Compact Power Cards (Top 5, vertical)
 // ══════════════════════════════════════════════════════
+const VERTICAL_MAP = {
+  forex: { label: "Forex", color: "#059669" },
+  cfd: { label: "CFD", color: "#2563eb" },
+  stocks: { label: "Stocks", color: "#0ea5e9" },
+  crypto: { label: "Crypto", color: "#f59e0b" },
+  options: { label: "Options", color: "#8b5cf6" },
+  futures: { label: "Futures", color: "#ea580c" },
+  "copy-trading": { label: "Copy", color: "#7c3aed" },
+  "spread-betting": { label: "SB", color: "#dc2626" },
+};
+
 function BrokerPowerCards({ mob, tab, lp, brokers }) {
-  const top5 = brokers.slice(0, 5);
   return (
-    <section style={{ padding: mob ? "32px 16px" : "48px 24px" }}>
-      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-        <h2 style={{
-          fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 30,
-          textAlign: "center", marginBottom: 8,
-        }}>
-          Best Forex Brokers 2026
-        </h2>
-        <p style={{ textAlign: "center", fontSize: 15, color: "#1f2937", marginBottom: 28, maxWidth: 500, margin: "0 auto 28px" }}>
-          5 highest-scored brokers from our expert research.
-        </p>
-
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: mob ? "1fr 1fr" : tab ? "repeat(3, 1fr)" : "repeat(5, 1fr)",
-          gap: 12,
-        }}>
-          {top5.map((broker, idx) => {
-            const b = broker.B;
-            const rank = idx + 1;
-            const isFirst = rank === 1;
-            const visitUrl = getVisitUrl(broker.slug, b.url);
-            return (
-              <div key={broker.slug} style={{
-                position: "relative", background: "#fff",
-                border: isFirst ? "2px solid #059669" : "1px solid #e2e8f0",
-                borderRadius: 16, padding: "20px 16px", textAlign: "center",
-                boxShadow: isFirst ? "0 4px 20px rgba(5,150,105,0.1)" : "0 1px 4px rgba(0,0,0,0.04)",
-                display: "flex", flexDirection: "column", alignItems: "center",
-                transition: "transform 0.2s, box-shadow 0.2s",
-              }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = "translateY(-2px)";
-                  e.currentTarget.style.boxShadow = "0 6px 24px rgba(0,0,0,0.08)";
+    <>
+      {/* ═══ TOP RATED BROKERS — Compact Grid (from F3) ═══ */}
+      <section style={{ padding: mob ? "32px 16px" : "48px 24px" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: mob ? "0 0" : "0 8px" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
+            <h2 style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: mob ? 22 : 28, color: "#0f172a", letterSpacing: "-0.03em" }}>
+              Top Rated Brokers
+            </h2>
+            <Link to={lp("/reviews")} style={{ fontSize: 13, fontWeight: 600, color: "#059669", textDecoration: "none", display: "flex", alignItems: "center", gap: 4 }}>
+              All {brokers.length} reviews <ArrowRight size={12} />
+            </Link>
+          </div>
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: mob ? "1fr" : tab ? "1fr 1fr" : "repeat(3, 1fr)",
+            gap: mob ? 12 : 16,
+          }}>
+            {brokers.slice(0, mob ? 3 : 6).map((broker, i) => {
+              const b = broker.B;
+              const visitUrl = getVisitUrl(broker.slug, b.url);
+              return (
+                <div key={broker.slug} style={{
+                  display: "flex", alignItems: "center", gap: 14,
+                  padding: mob ? "16px" : "20px",
+                  background: "#fff",
+                  borderRadius: 14, border: "1px solid #e2e8f0",
+                  boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)",
+                  transition: "all 0.2s",
                 }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow = isFirst ? "0 4px 20px rgba(5,150,105,0.1)" : "0 1px 4px rgba(0,0,0,0.04)";
-                }}
-              >
-                {/* Editor's Choice ribbon for #1 */}
-                {isFirst && (
-                  <div style={{
-                    position: "absolute", top: -1, left: -1, right: -1,
-                    padding: "5px 0", borderRadius: "16px 16px 0 0",
-                    background: "#059669", color: "#fff",
-                    fontSize: 10, fontWeight: 700, textAlign: "center", letterSpacing: 0.5,
-                  }}>
-                    <Award size={12} style={{ verticalAlign: "middle", marginRight: 4 }} />
-                    EDITOR'S CHOICE
-                  </div>
-                )}
-
-                {/* Rank badge */}
-                <div style={{
-                  position: "absolute", top: isFirst ? 30 : 10, right: 10,
-                  width: 24, height: 24, borderRadius: "50%",
-                  background: "#1e3a5f", color: "#fff",
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                  fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: 11,
-                }}>#{rank}</div>
-
-                {/* Logo */}
-                <div style={{ marginTop: isFirst ? 28 : 8, marginBottom: 12 }}>
-                  <Link to={lp(`/review/${broker.slug}`)} style={{ textDecoration: "none" }}>
-                    <BrokerLogo slug={broker.slug} name={b.name} fallback={b.logo} size={48} shape="icon" />
-                  </Link>
-                </div>
-
-                {/* Name */}
-                <Link to={lp(`/review/${broker.slug}`)} style={{
-                  fontSize: 14, fontWeight: 700, color: "#111827",
-                  textDecoration: "none", marginBottom: 6,
-                }}>
-                  {b.name}
-                </Link>
-
-                {/* Score */}
-                <div style={{ fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: 24, color: scoreColor(b.score), lineHeight: 1 }}>
-                  {b.score}
-                </div>
-                <div style={{ fontSize: 11, fontWeight: 600, color: scoreColor(b.score), marginBottom: 12 }}>
-                  {scoreLabel(b.score)}
-                </div>
-
-                {/* Metrics */}
-                <div style={{ fontSize: 13, color: "#374151", marginBottom: 4 }}>
-                  <span style={{ fontWeight: 700, color: "#111827" }}>{b.spread}</span> pips
-                </div>
-                <div style={{ fontSize: 13, color: "#374151", marginBottom: 12 }}>
-                  Min <span style={{ fontWeight: 700, color: "#111827" }}>${b.minDep}</span>
-                </div>
-
-                {/* Regs */}
-                <div style={{ display: "flex", gap: 4, flexWrap: "wrap", justifyContent: "center", marginBottom: 14 }}>
-                  {b.regs.slice(0, 2).map((r, ri) => <RegBadge key={ri} reg={r.name} />)}
-                </div>
-
-                {/* CTA — pushes to bottom via margin-top auto */}
-                <div style={{ marginTop: "auto", width: "100%" }}>
-                  <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" style={{
-                    display: "block", padding: "10px 0", borderRadius: 10,
-                    background: "linear-gradient(135deg,#059669,#34d399)",
-                    color: "#fff", fontWeight: 700, fontSize: 14,
-                    textAlign: "center", textDecoration: "none", transition: "opacity 0.2s",
-                  }}
-                    onMouseEnter={(e) => e.currentTarget.style.opacity = "0.9"}
-                    onMouseLeave={(e) => e.currentTarget.style.opacity = "1"}
-                  >
-                    Visit Broker
-                  </a>
+                  onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.12)"; }}
+                  onMouseLeave={e => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)"; }}
+                >
+                  {/* Logo */}
                   <Link to={lp(`/review/${broker.slug}`)} style={{
-                    display: "block", marginTop: 8, fontSize: 12, fontWeight: 600,
-                    color: "#059669", textDecoration: "none", textAlign: "center",
+                    width: 56, height: 56, borderRadius: 14, overflow: "hidden", flexShrink: 0,
+                    boxShadow: "0 2px 8px rgba(0,0,0,0.08)", border: "1px solid rgba(0,0,0,0.04)",
+                    textDecoration: "none",
                   }}>
-                    Read Review <ArrowRight size={11} style={{ verticalAlign: "middle" }} />
+                    <BrokerLogo slug={broker.slug} name={b.name} fallback={b.logo} size={56} shape="icon" />
                   </Link>
+                  {/* Info */}
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <Link to={lp(`/review/${broker.slug}`)} style={{
+                      fontFamily: "'Outfit',sans-serif", fontWeight: 700, fontSize: 15,
+                      letterSpacing: "-0.01em", color: "#0f172a", textDecoration: "none",
+                      display: "block",
+                    }}>{b.name}</Link>
+                    <div style={{ fontSize: 12, color: "#64748b", marginTop: 2 }}>{b.type}</div>
+                    <div style={{ display: "flex", gap: 4, marginTop: 4 }}>
+                      {(b.verticals || []).slice(0, 3).map(v => {
+                        const vm = VERTICAL_MAP[v];
+                        return vm ? <span key={v} style={{ display: "inline-flex", alignItems: "center", gap: 3, fontSize: 10, color: "#64748b" }}>
+                          <span style={{ width: 5, height: 5, borderRadius: "50%", background: vm.color }} />{vm.label}
+                        </span> : null;
+                      })}
+                    </div>
+                  </div>
+                  {/* Score + Visit */}
+                  <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, flexShrink: 0 }}>
+                    <div style={{
+                      width: 44, height: 44, borderRadius: "50%",
+                      display: "flex", alignItems: "center", justifyContent: "center",
+                      background: b.score >= 9.0 ? "linear-gradient(135deg, #059669, #34d399)" : "#f1f5f9",
+                      color: b.score >= 9.0 ? "#fff" : "#334155",
+                      fontFamily: "'JetBrains Mono'", fontSize: 14, fontWeight: 800,
+                      boxShadow: b.score >= 9.0 ? "0 4px 12px rgba(5,150,105,0.25)" : "none",
+                    }}>{b.score}</div>
+                    <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{
+                      padding: "6px 14px", borderRadius: 8, fontSize: 11, fontWeight: 700,
+                      background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: "#0f172a",
+                      textDecoration: "none",
+                    }}>Visit</a>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
+      </section>
 
-        <div style={{ textAlign: "center", marginTop: 24 }}>
-          <Link to={lp("/best-forex-brokers")} style={{
-            display: "inline-flex", alignItems: "center", gap: 6,
-            padding: "10px 24px", borderRadius: 10,
-            background: "#1e3a5f", color: "#fff", fontWeight: 700, fontSize: 15,
-            textDecoration: "none", transition: "opacity 0.2s",
-          }}
-            onMouseEnter={(e) => e.currentTarget.style.opacity = "0.85"}
-            onMouseLeave={(e) => e.currentTarget.style.opacity = "1"}
-          >
-            See All {brokers.length} Brokers <ArrowRight size={16} />
-          </Link>
+      {/* ═══ TRUST STRIP ═══ */}
+      <section style={{
+        background: "#0f172a", padding: mob ? "24px 16px" : "28px 24px",
+        borderTop: "1px solid rgba(255,255,255,0.06)", borderBottom: "1px solid rgba(255,255,255,0.06)",
+      }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", justifyContent: "center", gap: mob ? 24 : 56, flexWrap: "wrap" }}>
+          {[
+            { n: "130+", l: "Data Points Per Broker" },
+            { n: "100%", l: "Independent Rankings" },
+            { n: "Real $", l: "Money Testing" },
+            { n: "Q1 2026", l: "Last Updated" },
+          ].map((s, i) => (
+            <div key={i} style={{ textAlign: "center" }}>
+              <div style={{ fontFamily: "'JetBrains Mono'", fontSize: mob ? 18 : 22, fontWeight: 700, color: "#34d399", letterSpacing: "-0.02em" }}>{s.n}</div>
+              <div style={{ fontSize: 10, color: "rgba(255,255,255,0.35)", fontWeight: 500, textTransform: "uppercase", letterSpacing: 1.5, marginTop: 4 }}>{s.l}</div>
+            </div>
+          ))}
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 
@@ -1275,7 +1247,7 @@ export default function Home() {
           position: "absolute", inset: 0, pointerEvents: "none",
           background: "repeating-linear-gradient(135deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 12px)",
         }} />
-        <div style={{ maxWidth: 1080, margin: "0 auto", padding: mob ? "0 20px" : "0 32px", position: "relative", zIndex: 1, display: mob ? "block" : "flex", alignItems: "center", gap: 32 }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: mob ? "0 20px" : "0 32px", position: "relative", zIndex: 1, display: mob ? "block" : "flex", alignItems: "center", gap: 32 }}>
 
           {/* Left: Title */}
           <div style={{ flex: 1, marginBottom: mob ? 16 : 0 }}>
@@ -1359,7 +1331,7 @@ export default function Home() {
         padding: mob ? "10px 16px" : "12px 28px",
         overflowX: "auto", WebkitOverflowScrolling: "touch",
       }}>
-        <div style={{ maxWidth: 1080, margin: "0 auto", padding: mob ? "0 20px" : "0 32px", display: "flex", gap: 8, minWidth: "max-content" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: mob ? "0 20px" : "0 32px", display: "flex", gap: 8, minWidth: "max-content" }}>
           {HUBS.map(hub => (
             <Link key={hub.slug} to={hub.path} style={{
               display: "inline-flex", alignItems: "center", gap: 6,
