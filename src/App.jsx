@@ -34,6 +34,10 @@ import SafetyProto from "./pages/SafetyProto";
 import HomeProtoA from "./pages/HomeProtoA";
 import HomeProtoB from "./pages/HomeProtoB";
 import HomeProtoC from "./pages/HomeProtoC";
+import HomeProtoD from "./pages/HomeProtoD";
+import HomeProtoE from "./pages/HomeProtoE";
+import HomeProtoF from "./pages/HomeProtoF";
+import HomePrototypes from "./pages/HomePrototypes";
 import BrokerSubPage from "./pages/BrokerSubPage";
 import CategoryHubPage from "./pages/CategoryHubPage";
 import OnlineBrokersHub from "./pages/OnlineBrokersHub";
@@ -79,9 +83,13 @@ function AppRoutes() {
       <Route path="proto/subpages" element={<Layout />}>
         <Route index element={<SubPagesProto />} />
       </Route>
+      <Route path="proto/home" element={<Layout />}><Route index element={<HomePrototypes />} /></Route>
       <Route path="proto/home-a" element={<Layout />}><Route index element={<HomeProtoA />} /></Route>
       <Route path="proto/home-b" element={<Layout />}><Route index element={<HomeProtoB />} /></Route>
       <Route path="proto/home-c" element={<Layout />}><Route index element={<HomeProtoC />} /></Route>
+      <Route path="proto/home-d" element={<Layout />}><Route index element={<HomeProtoD />} /></Route>
+      <Route path="proto/home-e" element={<Layout />}><Route index element={<HomeProtoE />} /></Route>
+      <Route path="proto/home-f" element={<Layout />}><Route index element={<HomeProtoF />} /></Route>
       <Route path="proto/safety" element={<Layout />}>
         <Route index element={<SafetyProto />} />
       </Route>
