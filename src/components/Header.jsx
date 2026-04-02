@@ -518,55 +518,6 @@ export default function Header() {
                 )}
               </div>
 
-              {/* ─── M4: New vertical links ─── */}
-              <Link to="/cfd-trading" style={{
-                fontSize: 15, fontWeight: 500, color: "#1f2937", padding: "8px 8px",
-                borderRadius: 8, textDecoration: "none", whiteSpace: "nowrap",
-                transition: "all 0.2s",
-              }}
-                onMouseEnter={(e) => { e.currentTarget.style.color = "#2563eb"; e.currentTarget.style.background = "#eff6ff"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.color = "#1f2937"; e.currentTarget.style.background = "transparent"; }}
-              >CFD</Link>
-              <Link to="/copy-trading" style={{
-                fontSize: 15, fontWeight: 500, color: "#1f2937", padding: "8px 8px",
-                borderRadius: 8, textDecoration: "none", whiteSpace: "nowrap",
-                transition: "all 0.2s",
-              }}
-                onMouseEnter={(e) => { e.currentTarget.style.color = "#7c3aed"; e.currentTarget.style.background = "#f5f3ff"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.color = "#1f2937"; e.currentTarget.style.background = "transparent"; }}
-              >Copy Trading</Link>
-              <Link to="/spread-betting" style={{
-                fontSize: 15, fontWeight: 500, color: "#1f2937", padding: "8px 8px",
-                borderRadius: 8, textDecoration: "none", whiteSpace: "nowrap",
-                transition: "all 0.2s",
-              }}
-                onMouseEnter={(e) => { e.currentTarget.style.color = "#dc2626"; e.currentTarget.style.background = "#fef2f2"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.color = "#1f2937"; e.currentTarget.style.background = "transparent"; }}
-              >Spread Betting</Link>
-              <Link to="/stock-trading" style={{
-                fontSize: 15, fontWeight: 500, color: "#1f2937", padding: "8px 8px",
-                borderRadius: 8, textDecoration: "none", whiteSpace: "nowrap",
-                transition: "all 0.2s",
-              }}
-                onMouseEnter={(e) => { e.currentTarget.style.color = "#0ea5e9"; e.currentTarget.style.background = "#f0f9ff"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.color = "#1f2937"; e.currentTarget.style.background = "transparent"; }}
-              >Stocks</Link>
-              <Link to="/options-trading" style={{
-                fontSize: 15, fontWeight: 500, color: "#1f2937", padding: "8px 8px",
-                borderRadius: 8, textDecoration: "none", whiteSpace: "nowrap",
-                transition: "all 0.2s",
-              }}
-                onMouseEnter={(e) => { e.currentTarget.style.color = "#8b5cf6"; e.currentTarget.style.background = "#f5f3ff"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.color = "#1f2937"; e.currentTarget.style.background = "transparent"; }}
-              >Options</Link>
-              <Link to="/futures-trading" style={{
-                fontSize: 15, fontWeight: 500, color: "#1f2937", padding: "8px 8px",
-                borderRadius: 8, textDecoration: "none", whiteSpace: "nowrap",
-                transition: "all 0.2s",
-              }}
-                onMouseEnter={(e) => { e.currentTarget.style.color = "#ea580c"; e.currentTarget.style.background = "#fff7ed"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.color = "#1f2937"; e.currentTarget.style.background = "transparent"; }}
-              >Futures</Link>
 
               {/* ─── 3. Reviews ▾ ─── */}
               <div style={{ position: "relative" }} onMouseEnter={() => enter("reviews")} onMouseLeave={leave}>
@@ -906,31 +857,6 @@ export default function Header() {
             )}
           </div>
 
-          {/* M4: New vertical links (mobile) */}
-          <Link to="/cfd-trading" onClick={() => setMenuOpen(false)} style={{
-            display: "block", padding: "12px 0", fontSize: 16, fontWeight: 700,
-            color: "#1f2937", textDecoration: "none", borderBottom: "1px solid #f1f5f9",
-          }}>CFD Brokers</Link>
-          <Link to="/copy-trading" onClick={() => setMenuOpen(false)} style={{
-            display: "block", padding: "12px 0", fontSize: 16, fontWeight: 700,
-            color: "#1f2937", textDecoration: "none", borderBottom: "1px solid #f1f5f9",
-          }}>Copy Trading</Link>
-          <Link to="/spread-betting" onClick={() => setMenuOpen(false)} style={{
-            display: "block", padding: "12px 0", fontSize: 16, fontWeight: 700,
-            color: "#1f2937", textDecoration: "none", borderBottom: "1px solid #f1f5f9",
-          }}>Spread Betting</Link>
-          <Link to="/stock-trading" onClick={() => setMenuOpen(false)} style={{
-            display: "block", padding: "12px 0", fontSize: 16, fontWeight: 700,
-            color: "#1f2937", textDecoration: "none", borderBottom: "1px solid #f1f5f9",
-          }}>Stock Brokers</Link>
-          <Link to="/options-trading" onClick={() => setMenuOpen(false)} style={{
-            display: "block", padding: "12px 0", fontSize: 16, fontWeight: 700,
-            color: "#1f2937", textDecoration: "none", borderBottom: "1px solid #f1f5f9",
-          }}>Options Brokers</Link>
-          <Link to="/futures-trading" onClick={() => setMenuOpen(false)} style={{
-            display: "block", padding: "12px 0", fontSize: 16, fontWeight: 700,
-            color: "#1f2937", textDecoration: "none", borderBottom: "1px solid #f1f5f9",
-          }}>Futures Brokers</Link>
 
           {/* 3. Reviews */}
           <div>

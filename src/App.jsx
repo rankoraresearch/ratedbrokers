@@ -39,6 +39,7 @@ import HomeProtoF3 from "./pages/HomeProtoF3";
 import HomeProtoF4 from "./pages/HomeProtoF4";
 import HomePrototypes from "./pages/HomePrototypes";
 import RankingHeroProtos from "./pages/RankingHeroProtos";
+import HeroButtonsProto from "./pages/HeroButtonsProto";
 import BrokerSubPage from "./pages/BrokerSubPage";
 import CategoryHubPage from "./pages/CategoryHubPage";
 import OnlineBrokersHub from "./pages/OnlineBrokersHub";
@@ -86,6 +87,7 @@ function AppRoutes() {
       </Route>
       <Route path="proto/home" element={<Layout />}><Route index element={<HomePrototypes />} /></Route>
       <Route path="proto/ranking-hero" element={<Layout />}><Route index element={<RankingHeroProtos />} /></Route>
+      <Route path="proto/hero-buttons" element={<Layout />}><Route index element={<HeroButtonsProto />} /></Route>
       <Route path="proto/home-a" element={<Layout />}><Route index element={<HomeProtoA />} /></Route>
       <Route path="proto/home-c" element={<Layout />}><Route index element={<HomeProtoC />} /></Route>
       <Route path="proto/home-f" element={<Layout />}><Route index element={<HomeProtoF />} /></Route>

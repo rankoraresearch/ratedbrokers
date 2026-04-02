@@ -5,10 +5,11 @@ import { useTranslation } from "../i18n/LanguageContext";
 import { useLocalePath } from "../i18n/useLocalePath";
 import { getAllBrokersWithData } from "../data/brokers";
 import RANKINGS from "../data/rankings";
+import HUBS, { getRankingsForHub } from "../data/categoryHubs";
 import RegBadge from "../components/RegBadge";
 import BrokerLogo from "../components/BrokerLogo";
 import Icon from "../components/Icon";
-import { ArrowRight, Award, Check } from "lucide-react";
+import { ArrowRight, Award, Check, BarChart3, BookOpen } from "lucide-react";
 import CountryFlag from "../components/CountryFlag";
 import { AUTHORS } from "../data/authors";
 import AuthorAvatar from "../components/AuthorAvatar";
@@ -1254,196 +1255,129 @@ export default function Home() {
     { name: "Crypto Brokers", slug: "crypto-brokers", icon: "bitcoin", count: 26, phase: 1, status: "partial" },
     { name: "Stock Brokers", slug: "stock-brokers", icon: "building-2", count: 15, phase: 2, status: "new" },
     { name: "Options Brokers", slug: "options-brokers", icon: "layers", count: 9, phase: 2, status: "new" },
-    { name: "Futures Brokers", slug: "futures-brokers", icon: "clock", count: 10, phase: 2, status: "new" },
+    { name: "Futures Brokers", slug: "futures-brokers", icon: "timer", count: 10, phase: 2, status: "new" },
     { name: "Prop Firms", slug: "prop-firms", icon: "rocket", count: 17, phase: 3, status: "future" },
   ];
 
   return (
     <div style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb", minHeight: "100vh" }}>
 
-      {/* ===== CATEGORY NAVIGATION ===== */}
-      <section style={{
-        background: "#fff",
-        borderBottom: "1px solid #e2e8f0",
-        padding: mob ? "14px 0" : "16px 0",
-        overflowX: "auto",
-      }}>
-        <div style={{ ...cn, display: "flex", gap: mob ? 8 : 10, minWidth: "min-content" }}>
-          {UMBRELLA_CATEGORIES.filter(c => c.phase <= 2).map(cat => (
-            <Link key={cat.slug} to={
-              cat.slug === "forex-brokers" ? "/forex-brokers" :
-              cat.slug === "cfd-brokers" ? "/cfd-trading" :
-              cat.slug === "copy-trading" ? "/copy-trading" :
-              cat.slug === "spread-betting" ? "/spread-betting" :
-              cat.slug === "crypto-brokers" ? "/crypto-trading" :
-              cat.slug === "stock-brokers" ? "/stock-trading" :
-              cat.slug === "options-brokers" ? "/options-trading" :
-              cat.slug === "futures-brokers" ? "/futures-trading" : "/online-brokers"
-            } style={{
-              display: "inline-flex", alignItems: "center", gap: 6,
-              padding: mob ? "8px 12px" : "9px 16px", borderRadius: 8,
-              background: "#f8f9fb", border: "1px solid #e2e8f0",
-              color: "#111827", fontSize: 13, fontWeight: 700,
-              textDecoration: "none", whiteSpace: "nowrap",
-              transition: "border-color 0.15s, background 0.15s",
-            }}
-              onMouseEnter={e => { e.currentTarget.style.borderColor = "#059669"; e.currentTarget.style.background = "#f0fdf4"; }}
-              onMouseLeave={e => { e.currentTarget.style.borderColor = "#e2e8f0"; e.currentTarget.style.background = "#f8f9fb"; }}
-            >
-              <Icon name={cat.icon} size={14} style={{ color: "#059669" }} />
-              {cat.name}
-              <span style={{ fontSize: 11, color: "#64748b", fontWeight: 600 }}>({cat.count})</span>
-            </Link>
-          ))}
-          <Link to="/online-brokers" style={{
-            display: "inline-flex", alignItems: "center", gap: 4,
-            padding: mob ? "8px 12px" : "9px 16px", borderRadius: 8,
-            background: "transparent", border: "1px solid transparent",
-            color: "#059669", fontSize: 13, fontWeight: 700,
-            textDecoration: "none", whiteSpace: "nowrap",
-          }}>
-            All Categories →
-          </Link>
-        </div>
-      </section>
+      {/* ===== REMOVED: Old category nav bar — replaced by pill strip inside hero ===== */}
 
-      {/* ===== HERO ===== */}
-      {NAV_VARIANT === "B" ? (
-        /* Variant B: Hero with integrated pill navigation */
-        <section style={{
-          position: "relative", overflow: "hidden",
-          background: "linear-gradient(135deg, #0f172a 0%, #1a365d 50%, #134e4a 100%)",
-          backgroundImage: [
-            "radial-gradient(ellipse 600px 400px at 15% 60%, rgba(52,211,153,0.12) 0%, transparent 70%)",
-            "radial-gradient(ellipse 500px 350px at 85% 25%, rgba(59,130,246,0.09) 0%, transparent 70%)",
-            "radial-gradient(ellipse 300px 300px at 50% 90%, rgba(16,185,129,0.07) 0%, transparent 70%)",
-            "linear-gradient(135deg, #0f172a 0%, #1a365d 50%, #134e4a 100%)",
-          ].join(", "),
-          padding: mob ? "36px 16px 0" : "52px 24px 0",
-        }}>
-          <div style={{
-            ...cn,
-            display: mob ? "block" : "flex",
-            alignItems: "center", gap: 48,
-          }}>
-            {/* Left: Text */}
-            <div style={{ flex: 1, marginBottom: mob ? 28 : 0 }}>
-              <div style={{
-                display: "inline-block", padding: "6px 16px", borderRadius: 100,
-                background: "rgba(52,211,153,0.15)", border: "1px solid rgba(52,211,153,0.3)",
-                fontSize: 13, fontWeight: 600, color: "#34d399", marginBottom: 20, letterSpacing: 0.5,
-              }}>
-                {t("home.updated")}
-              </div>
-              <h1 style={{
-                fontFamily: "Outfit", fontWeight: 900, fontSize: mob ? 28 : tab ? 36 : 44,
-                lineHeight: 1.1, color: "#fff", marginBottom: 12,
-              }}>
-                {t("home.heroTitle1")}
-              </h1>
-              <p style={{ fontSize: mob ? 15 : 17, color: "rgba(255,255,255,0.7)", fontWeight: 600, marginBottom: 20, lineHeight: 1.5 }}>
-                Compare {allBrokersData.length}+ brokers across forex, CFD, crypto, and more.
-              </p>
-              <div style={{ display: "flex", gap: mob ? 16 : 28, flexWrap: "wrap" }}>
+      {/* ===== HERO — from HeroButtonsProto V3 (exact copy) ===== */}
+      <section style={{
+        borderTop: "3px solid #f59e0b",
+        background: "linear-gradient(135deg, #0f172a 0%, #0f2e24 40%, #047857 100%)",
+        padding: mob ? "28px 16px 24px" : "36px 28px 32px",
+        position: "relative", overflow: "hidden",
+      }}>
+        <div style={{
+          position: "absolute", inset: 0, pointerEvents: "none",
+          background: "repeating-linear-gradient(135deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 12px)",
+        }} />
+        <div style={{ maxWidth: 1080, margin: "0 auto", padding: mob ? "0 20px" : "0 32px", position: "relative", zIndex: 1, display: mob ? "block" : "flex", alignItems: "center", gap: 32 }}>
+
+          {/* Left: Title */}
+          <div style={{ flex: 1, marginBottom: mob ? 16 : 0 }}>
+            <h1 style={{
+              fontFamily: "'Outfit',sans-serif", fontWeight: 800,
+              fontSize: mob ? 28 : tab ? 36 : 42, lineHeight: 1.08, color: "#fff",
+              marginBottom: 8, letterSpacing: "-0.04em",
+            }}>
+              Find Your Perfect Broker
+            </h1>
+            <p style={{ fontSize: mob ? 14 : 15, color: "rgba(255,255,255,0.55)", maxWidth: 420, lineHeight: 1.6, marginBottom: mob ? 8 : 0 }}>
+              {allBrokersData.length} brokers compared across 130+ data points
+            </p>
+            <div style={{
+              display: "inline-flex", alignItems: "center", gap: 4,
+              fontSize: 12, color: "rgba(255,255,255,0.5)", marginTop: 4,
+            }}>
+              {"★★★★★".split("").map((s, i) => <span key={i} style={{ color: "#fbbf24", fontSize: 14 }}>{s}</span>)}
+              <span style={{ marginLeft: 4 }}>Trusted by traders worldwide</span>
+            </div>
+          </div>
+
+          {/* Right: Stats + Buttons */}
+          <div style={{ display: "flex", flexDirection: "column", gap: 10, flexShrink: 0 }}>
+            {!mob && (
+              <div style={{ display: "flex", gap: 20, marginBottom: 4 }}>
                 {[
-                  [String(allBrokersData.length), t("home.stat.brokers")],
-                  ["130+", t("home.stat.trades")],
-                  ["96h", t("home.stat.research")],
-                  ["Q1 2026", t("home.stat.update")],
-                ].map(([val, label], i) => (
+                  { n: allBrokersData.length, l: "Brokers" },
+                  { n: HUBS.length, l: "Categories" },
+                  { n: RANKINGS.length + "+", l: "Rankings" },
+                  { n: "130+", l: "Data Points" },
+                ].map((s, i) => (
                   <div key={i} style={{ textAlign: "center" }}>
-                    <div style={{ fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: mob ? 17 : 20, color: "#fff" }}>{val}</div>
-                    <div style={{ fontSize: 12, color: "rgba(255,255,255,0.5)", fontWeight: 600 }}>{label}</div>
+                    <span style={{ fontFamily: "'JetBrains Mono'", fontSize: 16, fontWeight: 700, color: "#fff" }}>{s.n}</span>
+                    <span style={{ fontSize: 10, color: "#34d399", fontWeight: 500, marginLeft: 4 }}>{s.l}</span>
                   </div>
                 ))}
               </div>
-            </div>
-
-            {/* Right: Pill Navigation */}
-            <div style={{
-              display: "grid",
-              gridTemplateColumns: mob ? "1fr" : "1fr 1fr",
-              gap: 8, flexShrink: 0,
-              width: mob ? "100%" : tab ? 340 : 400,
-            }}>
-              {HERO_PILLS.map((pill, i) => (
-                <Link key={i} to={lp(pill.path)} style={{
-                  display: "flex", alignItems: "center", gap: 10,
-                  padding: "10px 16px", borderRadius: 10,
-                  background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)",
-                  textDecoration: "none", color: "#fff",
-                  fontSize: 13, fontWeight: 600, transition: "all 0.2s",
-                }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = "rgba(255,255,255,0.15)";
-                    e.currentTarget.style.borderColor = "rgba(52,211,153,0.5)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = "rgba(255,255,255,0.08)";
-                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.12)";
-                  }}
-                >
-                  <Check size={14} color="#34d399" style={{ flexShrink: 0 }} />
-                  {pill.title}
-                </Link>
-              ))}
-            </div>
-          </div>
-          <HeroWave color="#f8f9fb" height={mob ? 32 : 48} />
-        </section>
-      ) : (
-        /* Variants A & C: Compact standalone hero */
-        <section style={{
-          position: "relative", overflow: "hidden",
-          background: "linear-gradient(135deg, #0f172a 0%, #1a365d 50%, #134e4a 100%)",
-          backgroundImage: [
-            "radial-gradient(ellipse 600px 400px at 15% 60%, rgba(52,211,153,0.12) 0%, transparent 70%)",
-            "radial-gradient(ellipse 500px 350px at 85% 25%, rgba(59,130,246,0.09) 0%, transparent 70%)",
-            "linear-gradient(135deg, #0f172a 0%, #1a365d 50%, #134e4a 100%)",
-          ].join(", "),
-          padding: mob ? "32px 16px 0" : "40px 24px 0",
-          textAlign: "center",
-        }}>
-          <div style={{ ...cn }}>
-            <div style={{
-              display: "inline-block", padding: "6px 16px", borderRadius: 100,
-              background: "rgba(52,211,153,0.15)", border: "1px solid rgba(52,211,153,0.3)",
-              fontSize: 13, fontWeight: 600, color: "#34d399", marginBottom: 16, letterSpacing: 0.5,
-            }}>
-              {t("home.updated")}
-            </div>
-            <h1 style={{
-              fontFamily: "Outfit", fontWeight: 900, fontSize: mob ? 26 : tab ? 36 : 44,
-              lineHeight: 1.1, color: "#fff", marginBottom: 10,
-            }}>
-              {t("home.heroTitle1")}
-            </h1>
-            <p style={{
-              fontSize: mob ? 15 : 17, color: "rgba(255,255,255,0.7)", fontWeight: 600, marginBottom: 20,
-            }}>
-              {t("home.heroSubtitle")}
-            </p>
-            <div style={{ display: "flex", gap: mob ? 12 : 24, justifyContent: "center", flexWrap: "wrap" }}>
-              {[
-                [String(allBrokersData.length), t("home.stat.brokers")],
-                ["500+", t("home.stat.trades")],
-                ["96h", t("home.stat.research")],
-                ["Q1 2026", t("home.stat.update")],
-              ].map(([val, label], i) => (
-                <div key={i} style={{ textAlign: "center" }}>
-                  <div style={{ fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: mob ? 17 : 20, color: "#fff" }}>{val}</div>
-                  <div style={{ fontSize: 12, color: "rgba(255,255,255,0.5)", fontWeight: 600 }}>{label}</div>
-                </div>
-              ))}
+            )}
+            {/* V3: Top Actions */}
+            <div style={{ display: "flex", gap: mob ? 8 : 10, flexDirection: mob ? "column" : "row" }}>
+              <Link to="/compare" style={{
+                padding: "10px 18px", borderRadius: 10, fontSize: 13, fontWeight: 600,
+                background: "rgba(30,41,59,0.8)", backdropFilter: "blur(8px)",
+                border: "1px solid rgba(255,255,255,0.15)", color: "#e2e8f0",
+                textDecoration: "none", display: "flex", alignItems: "center", justifyContent: "center",
+                gap: 6, whiteSpace: "nowrap", cursor: "pointer", transition: "all 0.15s",
+              }}
+                onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.12)"; e.currentTarget.style.color = "#fff"; }}
+                onMouseLeave={e => { e.currentTarget.style.background = "rgba(30,41,59,0.8)"; e.currentTarget.style.color = "#e2e8f0"; }}
+              >
+                <BarChart3 size={14} /> Compare Brokers
+              </Link>
+              <Link to="/methodology" style={{
+                padding: "10px 18px", borderRadius: 10, fontSize: 13, fontWeight: 600,
+                background: "rgba(30,41,59,0.8)", backdropFilter: "blur(8px)",
+                border: "1px solid rgba(255,255,255,0.15)", color: "#e2e8f0",
+                textDecoration: "none", display: "flex", alignItems: "center", justifyContent: "center",
+                gap: 6, whiteSpace: "nowrap", cursor: "pointer", transition: "all 0.15s",
+              }}
+                onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.12)"; e.currentTarget.style.color = "#fff"; }}
+                onMouseLeave={e => { e.currentTarget.style.background = "rgba(30,41,59,0.8)"; e.currentTarget.style.color = "#e2e8f0"; }}
+              >
+                <BookOpen size={14} /> Our Methodology
+              </Link>
+              <Link to="/rankings" className="cta-orange" style={{
+                padding: "10px 24px", borderRadius: 10, fontSize: 13, fontWeight: 700,
+                background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: "#0f172a", textDecoration: "none",
+                display: "flex", alignItems: "center", justifyContent: "center", gap: 6, whiteSpace: "nowrap",
+              }}>
+                Browse All Rankings <ArrowRight size={13} />
+              </Link>
             </div>
           </div>
-          <HeroWave color="#f8f9fb" height={mob ? 32 : 48} />
-        </section>
-      )}
+        </div>
+      </section>
 
-      {/* ===== NAV BLOCK (Variants A & C only, B is in hero) ===== */}
-      {NAV_VARIANT === "A" && <NavGrid mob={mob} tab={tab} lp={lp} />}
-      {NAV_VARIANT === "C" && <NavTabs mob={mob} tab={tab} lp={lp} />}
+      {/* ===== PILL NAV — 8 categories only ===== */}
+      <div style={{
+        background: "#0f172a", borderBottom: "1px solid rgba(255,255,255,0.06)",
+        padding: mob ? "10px 16px" : "12px 28px",
+        overflowX: "auto", WebkitOverflowScrolling: "touch",
+      }}>
+        <div style={{ maxWidth: 1080, margin: "0 auto", padding: mob ? "0 20px" : "0 32px", display: "flex", gap: 8, minWidth: "max-content" }}>
+          {HUBS.map(hub => (
+            <Link key={hub.slug} to={hub.path} style={{
+              display: "inline-flex", alignItems: "center", gap: 6,
+              padding: "7px 14px", borderRadius: 8,
+              background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)",
+              color: "rgba(255,255,255,0.7)", fontSize: 12, fontWeight: 600,
+              textDecoration: "none", whiteSpace: "nowrap", transition: "all 0.15s",
+            }}
+              onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.12)"; e.currentTarget.style.color = "#fff"; }}
+              onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.06)"; e.currentTarget.style.color = "rgba(255,255,255,0.7)"; }}
+            >
+              <Icon name={hub.slug === "futures" ? "timer" : hub.icon} size={13} />
+              {hub.name}
+              <span style={{ fontSize: 10, opacity: 0.5 }}>{getRankingsForHub(hub).length}</span>
+            </Link>
+          ))}
+        </div>
+      </div>
 
       {/* ===== BROKER SHOWCASE ===== */}
       {BROKER_VARIANT === "A" && <BrokerPodium mob={mob} tab={tab} lp={lp} brokers={top10} />}
