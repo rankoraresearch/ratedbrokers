@@ -3,6 +3,7 @@
  *
  * Inspired by: Bloomberg, Wise.com, Morningstar
  * Design: Visual hierarchy, muted palette, generous whitespace, data-forward
+ * Premium: Stripe-level spacing, glass morphism, gradient orbs, circular badges
  */
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -106,7 +107,7 @@ const VERTICAL_MAP = {
 
 export default function HomeProtoC() {
   const { mob, tab } = useMedia();
-  const cn = { maxWidth: 1120, margin: "0 auto", padding: mob ? "0 20px" : "0 32px" };
+  const cn = { maxWidth: 1080, margin: "0 auto", padding: mob ? "0 20px" : "0 32px" };
   const allBrokers = getAllBrokersWithData().sort((a, b) => b.B.score - a.B.score);
   const [activeTab, setActiveTab] = useState("category");
   const [editorialOpen, setEditorialOpen] = useState(!mob);
@@ -136,53 +137,52 @@ export default function HomeProtoC() {
       <section style={{
         borderTop: "3px solid #f59e0b",
         background: "linear-gradient(135deg, #0f172a 0%, #0f2e24 40%, #047857 100%)",
-        padding: mob ? "48px 20px 44px" : "72px 32px 60px",
+        padding: mob ? "64px 20px 56px" : "96px 32px 80px",
         position: "relative", overflow: "hidden",
       }}>
         <div style={{
           position: "absolute", inset: 0, pointerEvents: "none",
           background: "repeating-linear-gradient(135deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 12px)",
         }} />
-        <div style={{
-          position: "absolute", top: "-30%", right: "-10%", width: "60%", height: "120%",
-          background: "radial-gradient(ellipse, rgba(52,211,153,0.08) 0%, transparent 70%)",
-          pointerEvents: "none",
-        }} />
-        <div style={{ ...cn, display: mob ? "block" : "flex", alignItems: "center", gap: 56, position: "relative", zIndex: 1 }}>
-          <div style={{ flex: 1, marginBottom: mob ? 28 : 0 }}>
+        {/* Gradient orbs for depth */}
+        <div style={{ position: "absolute", top: "20%", left: "10%", width: 400, height: 400, borderRadius: "50%", background: "radial-gradient(circle, rgba(52,211,153,0.08) 0%, transparent 70%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", bottom: "10%", right: "15%", width: 300, height: 300, borderRadius: "50%", background: "radial-gradient(circle, rgba(59,130,246,0.06) 0%, transparent 70%)", pointerEvents: "none" }} />
+        <div style={{ ...cn, display: mob ? "block" : "flex", alignItems: "center", gap: 64, position: "relative", zIndex: 1 }}>
+          <div style={{ flex: 1, marginBottom: mob ? 32 : 0 }}>
             <div style={{
               display: "inline-flex", alignItems: "center", gap: 8,
-              padding: "6px 14px", borderRadius: 100,
+              padding: "6px 16px", borderRadius: 100,
               background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)",
-              fontSize: 11, fontWeight: 600, color: "#34d399", marginBottom: 20,
+              fontSize: 11, fontWeight: 600, color: "#34d399", marginBottom: 24,
               textTransform: "uppercase", letterSpacing: 1.5,
             }}>
               <Shield size={12} /> Updated Q1 {YEAR}
             </div>
             <h1 style={{
               fontFamily: "'Outfit',sans-serif", fontWeight: 800,
-              fontSize: mob ? 32 : tab ? 40 : 50,
-              lineHeight: 1.05, color: "#fff", marginBottom: 16,
-              letterSpacing: "-0.02em",
+              fontSize: mob ? 36 : tab ? 48 : 56,
+              lineHeight: 1.05, color: "#fff", marginBottom: 20,
+              letterSpacing: "-0.04em",
+              textShadow: "0 2px 4px rgba(0,0,0,0.1)",
             }}>
               Best Online Brokers {YEAR}
             </h1>
             <p style={{
-              fontSize: mob ? 15 : 17, color: "rgba(255,255,255,0.6)",
-              lineHeight: 1.7, marginBottom: 24, maxWidth: 460, fontWeight: 400,
+              fontSize: mob ? 16 : 18, color: "rgba(255,255,255,0.6)",
+              lineHeight: 1.7, marginBottom: 28, maxWidth: 480, fontWeight: 400,
             }}>
               {allBrokers.length} brokers tested across forex, stocks, crypto, options & futures.
               130+ data points. Real money. Expert rankings.
             </p>
-            <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+            <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
               <Link to="/online-brokers" className="cta-orange" style={{
-                padding: "12px 24px", borderRadius: 10, fontSize: 14, fontWeight: 700,
+                padding: "14px 28px", borderRadius: 12, fontSize: 15, fontWeight: 700,
                 background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: "#0f172a",
-                textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 6,
+                textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8,
                 letterSpacing: "-0.01em",
-              }}>Browse All Categories <ArrowRight size={14} /></Link>
+              }}>Browse All Categories <ArrowRight size={15} /></Link>
               <Link to="/rankings" className="cta-secondary" style={{
-                padding: "12px 20px", borderRadius: 10, fontSize: 14, fontWeight: 600,
+                padding: "14px 24px", borderRadius: 12, fontSize: 15, fontWeight: 600,
                 border: "2px solid #059669", color: "#059669", background: "transparent",
                 textDecoration: "none", letterSpacing: "-0.01em",
               }}>{RANKINGS.length}+ Rankings</Link>
@@ -191,8 +191,8 @@ export default function HomeProtoC() {
           {/* Right: Quick Stats */}
           {!mob && (
             <div style={{
-              display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12,
-              width: 220, flexShrink: 0,
+              display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16,
+              width: 240, flexShrink: 0,
             }}>
               {[
                 { n: allBrokers.length, l: "Brokers" },
@@ -201,16 +201,16 @@ export default function HomeProtoC() {
                 { n: "130+", l: "Data Points" },
               ].map((s, i) => (
                 <div key={i} style={{
-                  background: "rgba(255,255,255,0.04)", borderRadius: 10, padding: "14px 12px",
+                  background: "rgba(255,255,255,0.04)", borderRadius: 14, padding: "18px 16px",
                   textAlign: "center", border: "1px solid rgba(255,255,255,0.06)",
                 }}>
                   <div style={{
-                    fontFamily: "'JetBrains Mono'", fontSize: 22,
+                    fontFamily: "'JetBrains Mono'", fontSize: 26,
                     fontWeight: 700, color: "#fff", letterSpacing: "-0.02em",
                   }}>{s.n}</div>
                   <div style={{
                     fontSize: 10, color: "#34d399", fontWeight: 500,
-                    textTransform: "uppercase", letterSpacing: 1.5, marginTop: 4,
+                    textTransform: "uppercase", letterSpacing: 1.5, marginTop: 6,
                   }}>{s.l}</div>
                 </div>
               ))}
@@ -219,11 +219,16 @@ export default function HomeProtoC() {
           {/* Logo Strip */}
           <div style={{
             display: "flex", alignItems: "center", justifyContent: mob ? "center" : "flex-start",
-            gap: mob ? 10 : 14, marginTop: 24, opacity: 0.4, flexWrap: "wrap",
+            gap: mob ? 12 : 16, marginTop: 28, flexWrap: "wrap",
           }}>
             {allBrokers.slice(0, mob ? 6 : 12).map(b => (
-              <div key={b.slug} style={{ width: mob ? 28 : 32, height: mob ? 28 : 32, borderRadius: 7, overflow: "hidden", background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.08)" }}>
-                <BrokerLogo broker={b.B} size={mob ? 28 : 32} variant="icon" />
+              <div key={b.slug} style={{
+                width: mob ? 36 : 40, height: mob ? 36 : 40, borderRadius: 12, overflow: "hidden",
+                background: "rgba(255,255,255,0.08)", opacity: 0.7,
+                boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
+                border: "1px solid rgba(255,255,255,0.15)",
+              }}>
+                <BrokerLogo broker={b.B} size={mob ? 36 : 40} variant="icon" />
               </div>
             ))}
           </div>
@@ -231,83 +236,101 @@ export default function HomeProtoC() {
       </section>
 
       {/* --- CATEGORY CARDS --- */}
-      <section style={{ padding: mob ? "40px 20px" : "56px 32px" }}>
+      <section style={{ padding: mob ? "56px 20px" : "88px 32px", background: "linear-gradient(180deg, #fff 0%, #f8fafc 100%)" }}>
         <div style={cn}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 24 }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 32 }}>
             <div>
               <p style={{
                 fontSize: 11, fontWeight: 600, color: "#94a3b8",
-                textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 4,
+                textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 6,
               }}>Navigate</p>
               <h2 style={{
                 fontFamily: "'Outfit',sans-serif",
-                fontWeight: 800, fontSize: mob ? 20 : 24, color: "#0f172a",
-                letterSpacing: "-0.02em",
+                fontWeight: 800, fontSize: mob ? 24 : 32, color: "#0f172a",
+                letterSpacing: "-0.04em",
               }}>
                 Browse by Category
               </h2>
             </div>
             <Link to="/online-brokers" style={{
-              fontSize: 13, fontWeight: 600, color: "#64748b",
+              fontSize: 14, fontWeight: 600, color: "#64748b",
               textDecoration: "none",
             }}>
-              All Categories <ArrowRight size={12} style={{ verticalAlign: "middle" }} />
+              All Categories <ArrowRight size={14} style={{ verticalAlign: "middle" }} />
             </Link>
           </div>
           <div style={{
             display: "grid",
             gridTemplateColumns: mob ? "1fr 1fr" : tab ? "repeat(3, 1fr)" : "repeat(4, 1fr)",
-            gap: mob ? 10 : 14,
+            gap: mob ? 16 : 20,
           }}>
             {HUBS.map(hub => {
               const topBroker = getBrokersForRanking(hub.featuredIds[0] || "forex-overall")[0];
               return (
                 <Link key={hub.slug} to={hub.path} style={{
-                  background: "#fff", borderRadius: 12, padding: mob ? "16px 14px" : "20px 18px",
-                  border: "1px solid #e8ecf1", textDecoration: "none", color: "#0f172a",
-                  transition: "all 0.15s", display: "block",
+                  background: "rgba(255,255,255,0.7)",
+                  backdropFilter: "blur(12px)",
+                  borderRadius: 16,
+                  padding: mob ? "20px 18px" : "28px 24px",
+                  border: "1px solid rgba(255,255,255,0.8)",
+                  boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)",
+                  textDecoration: "none", color: "#0f172a",
+                  transition: "all 0.2s", display: "block",
                 }}
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = "#059669"; e.currentTarget.style.boxShadow = "0 2px 8px rgba(5,150,105,0.12)"; }}
-                  onMouseLeave={e => { e.currentTarget.style.borderColor = "#e8ecf1"; e.currentTarget.style.boxShadow = "none"; }}
+                  onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 4px 12px rgba(5,150,105,0.12), 0 12px 32px rgba(0,0,0,0.06)"; }}
+                  onMouseLeave={e => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)"; }}
                 >
-                  <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 12 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 16 }}>
                     <div style={{
-                      width: 32, height: 32, borderRadius: 8, background: "#f1f5f9",
+                      width: 40, height: 40, borderRadius: 12, background: "#f1f5f9",
                       display: "flex", alignItems: "center", justifyContent: "center",
                     }}>
-                      <Icon name={hub.icon} size={16} style={{ color: "#64748b" }} />
+                      <Icon name={hub.icon} size={20} style={{ color: "#64748b" }} />
                     </div>
                     <div style={{
                       fontFamily: "'Outfit',sans-serif",
-                      fontWeight: 700, fontSize: 14, letterSpacing: "-0.01em",
+                      fontWeight: 700, fontSize: 15, letterSpacing: "-0.02em",
                     }}>{hub.name}</div>
                   </div>
                   {topBroker && (
                     <div style={{
-                      display: "flex", alignItems: "center", gap: 8,
-                      padding: "10px", background: "#fafbfc", borderRadius: 8,
+                      display: "flex", alignItems: "center", gap: 10,
+                      padding: "12px", background: "rgba(248,250,252,0.8)", borderRadius: 12,
                       border: "1px solid #f1f5f9",
                     }}>
-                      <div style={{ width: 32, height: 32, borderRadius: 7, overflow: "hidden", flexShrink: 0, border: "1px solid #eef0f4" }}>
-                        <BrokerLogo broker={topBroker.B} size={32} variant="icon" />
+                      <div style={{
+                        width: 36, height: 36, borderRadius: 10, overflow: "hidden", flexShrink: 0,
+                        boxShadow: "0 2px 8px rgba(0,0,0,0.06)", border: "1px solid rgba(0,0,0,0.04)",
+                      }}>
+                        <BrokerLogo broker={topBroker.B} size={36} variant="icon" />
                       </div>
                       <div style={{ flex: 1, minWidth: 0 }}>
-                        <span style={{ fontSize: 12, fontWeight: 600, letterSpacing: "-0.01em", display: "block" }}>{topBroker.B.name}</span>
-                        <div style={{ display: "flex", gap: 3, marginTop: 3 }}>
+                        <span style={{ fontSize: 13, fontWeight: 600, letterSpacing: "-0.01em", display: "block" }}>{topBroker.B.name}</span>
+                        <div style={{ display: "flex", gap: 6, marginTop: 4 }}>
                           {(topBroker.B.verticals || []).slice(0, 2).map(v => {
                             const vm = VERTICAL_MAP[v];
-                            return vm ? <span key={v} style={{ fontSize: 8, fontWeight: 600, padding: "1px 4px", borderRadius: 3, background: `${vm.color}12`, color: vm.color }}>{vm.label}</span> : null;
+                            return vm ? (
+                              <span key={v} style={{ display: "inline-flex", alignItems: "center", gap: 3, fontSize: 10, color: "#64748b" }}>
+                                <span style={{ width: 5, height: 5, borderRadius: "50%", background: vm.color }} />
+                                {vm.label}
+                              </span>
+                            ) : null;
                           })}
                         </div>
                       </div>
-                      <span style={{
-                        fontSize: 11, fontWeight: 700, color: "#334155",
-                        fontFamily: "'JetBrains Mono'",
-                      }}>{topBroker.B.score}</span>
+                      {/* Premium circular score badge */}
+                      <div style={{
+                        width: 36, height: 36, borderRadius: "50%",
+                        display: "flex", alignItems: "center", justifyContent: "center",
+                        background: topBroker.B.score >= 9.0 ? "linear-gradient(135deg, #059669, #34d399)" : "#f1f5f9",
+                        color: topBroker.B.score >= 9.0 ? "#fff" : "#334155",
+                        fontFamily: "'JetBrains Mono'", fontSize: 12, fontWeight: 800,
+                        boxShadow: topBroker.B.score >= 9.0 ? "0 4px 12px rgba(5,150,105,0.25)" : "none",
+                      }}>{topBroker.B.score}</div>
                     </div>
                   )}
-                  <div style={{ fontSize: 11, color: "#94a3b8", marginTop: 10, fontWeight: 500 }}>
-                    {getRankingsForHub(hub).length} rankings <ChevronRight size={10} style={{ verticalAlign: "middle" }} />
+                  <div style={{ fontSize: 12, color: "#94a3b8", marginTop: 12, fontWeight: 500 }}>
+                    {getRankingsForHub(hub).length} rankings <ChevronRight size={11} style={{ verticalAlign: "middle" }} />
                   </div>
                 </Link>
               );
@@ -317,17 +340,17 @@ export default function HomeProtoC() {
       </section>
 
       {/* --- EDITOR'S PICKS --- */}
-      <section style={{ padding: mob ? "40px 20px" : "56px 32px", background: "#fafbfc" }}>
+      <section style={{ padding: mob ? "56px 20px" : "88px 32px", background: "linear-gradient(180deg, #f8fafc 0%, #f1f5f9 50%, #f8fafc 100%)" }}>
         <div style={cn}>
-          <div style={{ marginBottom: 20 }}>
+          <div style={{ marginBottom: 28 }}>
             <p style={{
               fontSize: 11, fontWeight: 600, color: "#94a3b8",
-              textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 4,
+              textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 6,
             }}>Selections</p>
             <h2 style={{
               fontFamily: "'Outfit',sans-serif",
-              fontWeight: 700, fontSize: mob ? 20 : 24, color: "#0f172a",
-              letterSpacing: "-0.02em",
+              fontWeight: 700, fontSize: mob ? 24 : 32, color: "#0f172a",
+              letterSpacing: "-0.04em",
             }}>
               Editor's Picks {YEAR}
             </h2>
@@ -335,42 +358,50 @@ export default function HomeProtoC() {
           <div style={{
             display: "grid",
             gridTemplateColumns: mob ? "1fr" : tab ? "1fr 1fr" : "repeat(4, 1fr)",
-            gap: mob ? 10 : 14,
+            gap: mob ? 16 : 20,
           }}>
             {FEATURED.map((f, i) => {
               const broker = allBrokers.find(b => b.slug === f.slug);
               if (!broker) return null;
               return (
                 <Link key={f.slug} to={`/review/${f.slug}`} style={{
-                  background: "#fff", borderRadius: 12, padding: mob ? "16px" : "20px",
-                  border: i === 0 ? "1px solid #0f172a" : "1px solid #e8ecf1",
+                  background: "rgba(255,255,255,0.7)",
+                  backdropFilter: "blur(12px)",
+                  borderRadius: 16, padding: mob ? "20px" : "28px",
+                  border: i === 0 ? "1px solid #0f172a" : "1px solid rgba(255,255,255,0.8)",
+                  boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)",
                   textDecoration: "none", color: "#0f172a", display: "block",
-                  transition: "border-color 0.15s",
+                  transition: "all 0.2s",
                 }}
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = "#059669"; }}
-                  onMouseLeave={e => { if (i !== 0) e.currentTarget.style.borderColor = "#e8ecf1"; else e.currentTarget.style.borderColor = "#0f172a"; }}
+                  onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 4px 12px rgba(5,150,105,0.12), 0 12px 32px rgba(0,0,0,0.06)"; }}
+                  onMouseLeave={e => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)"; }}
                 >
                   <div style={{
                     fontSize: 10, fontWeight: 700, color: "#94a3b8",
-                    textTransform: "uppercase", letterSpacing: 1.2, marginBottom: 10,
+                    textTransform: "uppercase", letterSpacing: 1.2, marginBottom: 14,
                   }}>{f.label}</div>
-                  <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                    <div style={{ width: 36, height: 36, borderRadius: 8, overflow: "hidden", flexShrink: 0, border: "1px solid #eef0f4" }}>
-                      <BrokerLogo broker={broker.B} size={36} variant="icon" />
+                  <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                    <div style={{
+                      width: 44, height: 44, borderRadius: 12, overflow: "hidden", flexShrink: 0,
+                      boxShadow: "0 2px 8px rgba(0,0,0,0.06)", border: "1px solid rgba(0,0,0,0.04)",
+                    }}>
+                      <BrokerLogo broker={broker.B} size={44} variant="icon" />
                     </div>
                     <div style={{ flex: 1 }}>
                       <div style={{
                         fontFamily: "'Outfit',sans-serif",
-                        fontWeight: 700, fontSize: 15, letterSpacing: "-0.01em",
+                        fontWeight: 700, fontSize: 16, letterSpacing: "-0.02em",
                       }}>{broker.B.name}</div>
-                      <div style={{ fontSize: 12, color: "#94a3b8", fontWeight: 400 }}>{broker.B.type}</div>
+                      <div style={{ fontSize: 13, color: "#94a3b8", fontWeight: 400 }}>{broker.B.type}</div>
                     </div>
+                    {/* Premium circular score badge */}
                     <div style={{
-                      padding: "5px 10px", borderRadius: 6,
-                      background: broker.B.score >= 9.0 ? "rgba(52,211,153,0.15)" : "#f1f5f9",
-                      border: broker.B.score >= 9.0 ? "2px solid #34d399" : "none",
-                      color: broker.B.score >= 9.0 ? "#34d399" : "#334155",
-                      fontFamily: "'JetBrains Mono'", fontWeight: 700, fontSize: 13,
+                      width: 44, height: 44, borderRadius: "50%",
+                      display: "flex", alignItems: "center", justifyContent: "center",
+                      background: broker.B.score >= 9.0 ? "linear-gradient(135deg, #059669, #34d399)" : "#f1f5f9",
+                      color: broker.B.score >= 9.0 ? "#fff" : "#334155",
+                      fontFamily: "'JetBrains Mono'", fontSize: 14, fontWeight: 800,
+                      boxShadow: broker.B.score >= 9.0 ? "0 4px 12px rgba(5,150,105,0.25)" : "none",
                     }}>{broker.B.score}</div>
                   </div>
                 </Link>
@@ -381,52 +412,54 @@ export default function HomeProtoC() {
       </section>
 
       {/* --- POPULAR RANKINGS - Tabbed --- */}
-      <section style={{ padding: mob ? "0 20px 40px" : "0 32px 56px" }}>
+      <section style={{ padding: mob ? "0 20px 56px" : "0 32px 88px" }}>
         <div style={cn}>
           <p style={{
             fontSize: 11, fontWeight: 600, color: "#94a3b8",
-            textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 4,
+            textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 6,
           }}>Explore</p>
           <h2 style={{
             fontFamily: "'Outfit',sans-serif",
-            fontWeight: 700, fontSize: mob ? 20 : 24, marginBottom: 18, color: "#0f172a",
-            letterSpacing: "-0.02em",
+            fontWeight: 700, fontSize: mob ? 24 : 32, marginBottom: 24, color: "#0f172a",
+            letterSpacing: "-0.04em",
           }}>
             Popular Rankings
           </h2>
-          <div style={{ display: "flex", gap: 6, marginBottom: 20 }}>
+          <div style={{ display: "flex", gap: 8, marginBottom: 28 }}>
             {[
               { key: "category", label: "By Category" },
               { key: "style", label: "By Style" },
               { key: "country", label: "By Country" },
             ].map(t => (
               <button key={t.key} onClick={() => setActiveTab(t.key)} style={{
-                padding: "8px 16px", borderRadius: 8,
-                border: activeTab === t.key ? "1px solid #059669" : "1px solid #e8ecf1",
-                background: activeTab === t.key ? "#059669" : "#fff",
+                padding: "10px 20px", borderRadius: 10,
+                border: activeTab === t.key ? "1px solid #059669" : "1px solid rgba(255,255,255,0.8)",
+                background: activeTab === t.key ? "#059669" : "rgba(255,255,255,0.7)",
+                backdropFilter: activeTab !== t.key ? "blur(12px)" : "none",
+                boxShadow: activeTab !== t.key ? "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)" : "none",
                 color: activeTab === t.key ? "#fff" : "#64748b",
-                fontSize: 13, fontWeight: 600, cursor: "pointer", fontFamily: "inherit",
+                fontSize: 14, fontWeight: 600, cursor: "pointer", fontFamily: "inherit",
                 letterSpacing: "-0.01em",
-                transition: "all 0.15s",
+                transition: "all 0.2s",
               }}>{t.label}</button>
             ))}
           </div>
 
           {activeTab === "category" && (
-            <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : tab ? "repeat(3, 1fr)" : "repeat(4, 1fr)", gap: mob ? 20 : 28 }}>
+            <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : tab ? "repeat(3, 1fr)" : "repeat(4, 1fr)", gap: mob ? 24 : 32 }}>
               {POPULAR_BY_CATEGORY.map(cat => (
                 <div key={cat.title}>
                   <div style={{
                     fontSize: 11, fontWeight: 700, color: "#94a3b8",
-                    textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 10,
+                    textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 14,
                   }}>{cat.title}</div>
                   {cat.items.map(item => (
                     <Link key={item.path} to={item.path} style={{
-                      display: "flex", alignItems: "center", gap: 6, padding: "10px 0",
+                      display: "flex", alignItems: "center", gap: 8, padding: "12px 0",
                       borderBottom: "1px solid #f1f5f9", textDecoration: "none", color: "#0f172a",
-                      fontSize: 13, fontWeight: 500, letterSpacing: "-0.01em",
+                      fontSize: 14, fontWeight: 500, letterSpacing: "-0.01em",
                     }}>
-                      {item.name} <ChevronRight size={12} style={{ marginLeft: "auto", color: "#c0c7d0" }} />
+                      {item.name} <ChevronRight size={14} style={{ marginLeft: "auto", color: "#c0c7d0" }} />
                     </Link>
                   ))}
                 </div>
@@ -435,37 +468,44 @@ export default function HomeProtoC() {
           )}
 
           {activeTab === "style" && (
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
               {POPULAR_BY_STYLE.map(item => (
                 <Link key={item.path} to={item.path} style={{
-                  padding: "10px 18px", borderRadius: 8, background: "#fafbfc",
-                  border: "1px solid #e8ecf1",
-                  textDecoration: "none", color: "#0f172a", fontSize: 13, fontWeight: 600,
+                  padding: "12px 22px", borderRadius: 12,
+                  background: "rgba(255,255,255,0.7)",
+                  backdropFilter: "blur(12px)",
+                  border: "1px solid rgba(255,255,255,0.8)",
+                  boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)",
+                  textDecoration: "none", color: "#0f172a", fontSize: 14, fontWeight: 600,
                   letterSpacing: "-0.01em",
-                  transition: "border-color 0.15s",
+                  transition: "all 0.2s",
                 }}
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = "#059669"; }}
-                  onMouseLeave={e => { e.currentTarget.style.borderColor = "#e8ecf1"; }}
+                  onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-1px)"; e.currentTarget.style.boxShadow = "0 4px 12px rgba(5,150,105,0.12), 0 12px 32px rgba(0,0,0,0.06)"; }}
+                  onMouseLeave={e => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)"; }}
                 >{item.name}</Link>
               ))}
             </div>
           )}
 
           {activeTab === "country" && (
-            <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr 1fr" : "repeat(4, 1fr)", gap: 10 }}>
+            <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr 1fr" : "repeat(4, 1fr)", gap: 14 }}>
               {COUNTRIES.map(c => (
                 <Link key={c.name} to={c.path} style={{
-                  display: "flex", alignItems: "center", gap: 10, padding: "12px 14px",
-                  background: "#fafbfc", borderRadius: 8, border: "1px solid #e8ecf1",
-                  textDecoration: "none", color: "#0f172a", fontSize: 13, fontWeight: 600,
+                  display: "flex", alignItems: "center", gap: 12, padding: "16px 18px",
+                  background: "rgba(255,255,255,0.7)",
+                  backdropFilter: "blur(12px)",
+                  borderRadius: 14,
+                  border: "1px solid rgba(255,255,255,0.8)",
+                  boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)",
+                  textDecoration: "none", color: "#0f172a", fontSize: 14, fontWeight: 600,
                   letterSpacing: "-0.01em",
-                  transition: "border-color 0.15s",
+                  transition: "all 0.2s",
                 }}
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = "#059669"; }}
-                  onMouseLeave={e => { e.currentTarget.style.borderColor = "#e8ecf1"; }}
+                  onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-1px)"; e.currentTarget.style.boxShadow = "0 4px 12px rgba(5,150,105,0.12), 0 12px 32px rgba(0,0,0,0.06)"; }}
+                  onMouseLeave={e => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)"; }}
                 >
                   <span style={{
-                    fontSize: 11, fontWeight: 700, color: "#94a3b8",
+                    fontSize: 12, fontWeight: 700, color: "#94a3b8",
                     fontFamily: "'JetBrains Mono'",
                   }}>{c.code}</span>
                   {c.name}
@@ -477,63 +517,70 @@ export default function HomeProtoC() {
       </section>
 
       {/* --- ALL BROKERS - Compact Grid --- */}
-      <section style={{ padding: mob ? "0 20px 40px" : "0 32px 56px" }}>
+      <section style={{ padding: mob ? "0 20px 56px" : "0 32px 88px" }}>
         <div style={cn}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 28 }}>
             <div>
               <p style={{
                 fontSize: 11, fontWeight: 600, color: "#94a3b8",
-                textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 4,
+                textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 6,
               }}>Directory</p>
               <h2 style={{
                 fontFamily: "'Outfit',sans-serif",
-                fontWeight: 800, fontSize: mob ? 18 : 22, color: "#0f172a",
-                letterSpacing: "-0.02em",
+                fontWeight: 800, fontSize: mob ? 24 : 32, color: "#0f172a",
+                letterSpacing: "-0.04em",
               }}>
                 All {allBrokers.length} Broker Reviews
               </h2>
             </div>
             <Link to="/reviews" style={{
-              fontSize: 13, fontWeight: 600, color: "#64748b", textDecoration: "none",
+              fontSize: 14, fontWeight: 600, color: "#64748b", textDecoration: "none",
             }}>
-              View All <ArrowRight size={12} style={{ verticalAlign: "middle" }} />
+              View All <ArrowRight size={14} style={{ verticalAlign: "middle" }} />
             </Link>
           </div>
           <div style={{
             display: "grid",
             gridTemplateColumns: mob ? "1fr 1fr" : tab ? "repeat(4, 1fr)" : "repeat(6, 1fr)",
-            gap: mob ? 10 : 12,
+            gap: mob ? 14 : 16,
           }}>
             {allBrokers.slice(0, mob ? 8 : 18).map(b => {
               const verts = (b.B.verticals || []).slice(0, 3);
               return (
                 <Link key={b.slug} to={`/review/${b.slug}`} style={{
-                  background: "#fafbfc", borderRadius: 10, padding: "14px",
-                  border: "1px solid #e8ecf1", textDecoration: "none", color: "#0f172a",
-                  textAlign: "center", transition: "border-color 0.15s",
+                  background: "rgba(255,255,255,0.7)",
+                  backdropFilter: "blur(12px)",
+                  borderRadius: 14, padding: mob ? "16px" : "20px",
+                  border: "1px solid rgba(255,255,255,0.8)",
+                  boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)",
+                  textDecoration: "none", color: "#0f172a",
+                  textAlign: "center", transition: "all 0.2s",
                 }}
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = "#059669"; }}
-                  onMouseLeave={e => { e.currentTarget.style.borderColor = "#e8ecf1"; }}
+                  onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-1px)"; e.currentTarget.style.boxShadow = "0 4px 12px rgba(5,150,105,0.12), 0 12px 32px rgba(0,0,0,0.06)"; }}
+                  onMouseLeave={e => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)"; }}
                 >
-                  <div style={{ width: 40, height: 40, borderRadius: 9, overflow: "hidden", margin: "0 auto 8px", border: "1px solid #eef0f4" }}>
-                    <BrokerLogo broker={b.B} size={40} variant="icon" />
-                  </div>
-                  <div style={{ fontSize: 12, fontWeight: 600, marginBottom: 3, letterSpacing: "-0.01em" }}>{b.B.name}</div>
                   <div style={{
-                    fontSize: 11, fontWeight: 700,
+                    width: 44, height: 44, borderRadius: 12, overflow: "hidden", margin: "0 auto 10px",
+                    boxShadow: "0 2px 8px rgba(0,0,0,0.06)", border: "1px solid rgba(0,0,0,0.04)",
+                  }}>
+                    <BrokerLogo broker={b.B} size={44} variant="icon" />
+                  </div>
+                  <div style={{ fontSize: 13, fontWeight: 600, marginBottom: 4, letterSpacing: "-0.01em" }}>{b.B.name}</div>
+                  <div style={{
+                    fontSize: 12, fontWeight: 700,
                     color: "#475569",
                     fontFamily: "'JetBrains Mono'",
-                    marginBottom: 6,
+                    marginBottom: 8,
                   }}>{b.B.score}</div>
                   {verts.length > 0 && (
-                    <div style={{ display: "flex", flexWrap: "wrap", gap: 3, justifyContent: "center" }}>
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: 6, justifyContent: "center" }}>
                       {verts.map(v => {
                         const vm = VERTICAL_MAP[v];
                         return vm ? (
-                          <span key={v} style={{
-                            fontSize: 9, fontWeight: 600, padding: "2px 5px", borderRadius: 4,
-                            background: `${vm.color}12`, color: vm.color,
-                          }}>{vm.label}</span>
+                          <span key={v} style={{ display: "inline-flex", alignItems: "center", gap: 3, fontSize: 10, color: "#64748b" }}>
+                            <span style={{ width: 5, height: 5, borderRadius: "50%", background: vm.color }} />
+                            {vm.label}
+                          </span>
                         ) : null;
                       })}
                     </div>
@@ -546,51 +593,54 @@ export default function HomeProtoC() {
       </section>
 
       {/* --- TRUST + METHODOLOGY --- */}
-      <section style={{ padding: mob ? "0 20px 40px" : "0 32px 56px" }}>
+      <section style={{ padding: mob ? "0 20px 56px" : "0 32px 88px" }}>
         <div style={cn}>
           <div style={{
-            background: "linear-gradient(135deg, #0f172a 0%, #0f2e24 40%, #047857 100%)", borderRadius: 16,
-            padding: mob ? "24px 20px" : "32px 28px",
-            display: mob ? "block" : "flex", gap: 28, alignItems: "center",
+            background: "linear-gradient(135deg, #0f172a 0%, #0f2e24 40%, #047857 100%)", borderRadius: 20,
+            padding: mob ? "32px 24px" : "44px 40px",
+            display: mob ? "block" : "flex", gap: 36, alignItems: "center",
             position: "relative", overflow: "hidden",
           }}>
             <div style={{
               position: "absolute", inset: 0, pointerEvents: "none",
               background: "repeating-linear-gradient(135deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 12px)",
             }} />
-            <div style={{ flex: 1, marginBottom: mob ? 20 : 0, position: "relative", zIndex: 1 }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
-                <Shield size={18} style={{ color: "#34d399" }} />
+            {/* Gradient orb */}
+            <div style={{ position: "absolute", top: "10%", right: "20%", width: 250, height: 250, borderRadius: "50%", background: "radial-gradient(circle, rgba(52,211,153,0.08) 0%, transparent 70%)", pointerEvents: "none" }} />
+            <div style={{ flex: 1, marginBottom: mob ? 24 : 0, position: "relative", zIndex: 1 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 14 }}>
+                <Shield size={20} style={{ color: "#34d399" }} />
                 <span style={{
                   fontFamily: "'Outfit',sans-serif",
-                  fontWeight: 700, fontSize: 18, color: "#fff",
-                  letterSpacing: "-0.02em",
+                  fontWeight: 700, fontSize: 22, color: "#fff",
+                  letterSpacing: "-0.03em",
+                  textShadow: "0 2px 4px rgba(0,0,0,0.1)",
                 }}>How We Rate Brokers</span>
               </div>
-              <p style={{ fontSize: 14, color: "rgba(255,255,255,0.4)", lineHeight: 1.7, fontWeight: 400 }}>
+              <p style={{ fontSize: 15, color: "rgba(255,255,255,0.4)", lineHeight: 1.7, fontWeight: 400 }}>
                 Every broker is evaluated across 130+ data points including regulation, trading costs,
                 platform quality, and execution speed. We test with real money — not demos.
               </p>
             </div>
             <Link to="/methodology" className="cta-orange" style={{
-              display: "inline-flex", alignItems: "center", gap: 6,
-              padding: "12px 24px", borderRadius: 10,
+              display: "inline-flex", alignItems: "center", gap: 8,
+              padding: "14px 28px", borderRadius: 12,
               background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: "#0f172a",
-              fontSize: 14, fontWeight: 700, textDecoration: "none",
+              fontSize: 15, fontWeight: 700, textDecoration: "none",
               whiteSpace: "nowrap", flexShrink: 0, letterSpacing: "-0.01em",
               transition: "all 0.15s", position: "relative", zIndex: 1,
             }}
               onMouseEnter={e => { e.currentTarget.style.filter = "brightness(1.1)"; e.currentTarget.style.transform = "translateY(-1px)"; }}
               onMouseLeave={e => { e.currentTarget.style.filter = "none"; e.currentTarget.style.transform = "none"; }}
             >
-              Our Methodology <ArrowRight size={14} />
+              Our Methodology <ArrowRight size={15} />
             </Link>
           </div>
         </div>
       </section>
 
       {/* --- EDITORIAL - Collapsible --- */}
-      <section style={{ padding: mob ? "0 20px 40px" : "0 32px 56px" }}>
+      <section style={{ padding: mob ? "0 20px 56px" : "0 32px 88px" }}>
         <div style={{ ...cn, maxWidth: 720 }}>
           <button onClick={() => setEditorialOpen(!editorialOpen)} style={{
             display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%",
@@ -598,24 +648,24 @@ export default function HomeProtoC() {
           }}>
             <h2 style={{
               fontFamily: "'Outfit',sans-serif",
-              fontWeight: 700, fontSize: mob ? 18 : 22, color: "#0f172a",
-              letterSpacing: "-0.02em",
+              fontWeight: 700, fontSize: mob ? 24 : 32, color: "#0f172a",
+              letterSpacing: "-0.04em",
             }}>
               How to Choose the Best Online Broker
             </h2>
-            <ChevronDown size={20} style={{
+            <ChevronDown size={22} style={{
               color: "#94a3b8", transition: "transform 0.2s",
               transform: editorialOpen ? "rotate(180deg)" : "none",
             }} />
           </button>
           {editorialOpen && (
-            <div style={{ fontSize: 15, color: "#475569", lineHeight: 1.85, marginTop: 20, fontWeight: 400 }}>
-              <p style={{ marginBottom: 16 }}>
+            <div style={{ fontSize: 16, color: "#475569", lineHeight: 1.85, marginTop: 24, fontWeight: 400 }}>
+              <p style={{ marginBottom: 20 }}>
                 The best online broker depends on what you trade, your experience level, and your location.
                 Forex traders prioritize tight spreads and fast execution. Stock investors look for commission-free trades and research tools.
                 Options traders need advanced chain analysis and multi-leg order support.
               </p>
-              <p style={{ marginBottom: 16 }}>
+              <p style={{ marginBottom: 20 }}>
                 We evaluate every broker across six weighted categories: Regulation & Safety (25%), Trading Costs (20%),
                 Trustpilot Score (15%), Expert Evaluation (20%), Platform & Tools (10%), and Execution Quality (10%).
                 Weights adjust by broker type — options platforms carry 30% weight for options specialists.
@@ -625,12 +675,12 @@ export default function HomeProtoC() {
                 before publishing a review. We update rankings quarterly to reflect changes in pricing, regulation, and platform features.
               </p>
               <Link to="/methodology" style={{
-                display: "inline-flex", alignItems: "center", gap: 4,
-                fontSize: 14, fontWeight: 600, color: "#475569",
-                textDecoration: "none", marginTop: 14,
+                display: "inline-flex", alignItems: "center", gap: 6,
+                fontSize: 15, fontWeight: 600, color: "#475569",
+                textDecoration: "none", marginTop: 18,
                 borderBottom: "1px solid #c0c7d0", paddingBottom: 2,
               }}>
-                Read full methodology <ArrowRight size={14} />
+                Read full methodology <ArrowRight size={15} />
               </Link>
             </div>
           )}
@@ -638,13 +688,13 @@ export default function HomeProtoC() {
       </section>
 
       {/* --- RISK DISCLAIMER + AFFILIATE DISCLOSURE --- */}
-      <section style={{ padding: mob ? "0 20px 32px" : "0 32px 48px" }}>
+      <section style={{ padding: mob ? "0 20px 48px" : "0 32px 64px" }}>
         <div style={{ ...cn, maxWidth: 800 }}>
-          <p style={{ fontSize: 11, color: "#94a3b8", lineHeight: 1.7, textAlign: "center" }}>
+          <p style={{ fontSize: 12, color: "#94a3b8", lineHeight: 1.8, textAlign: "center" }}>
             <strong>Affiliate Disclosure:</strong> RatedBrokers may receive compensation from brokers featured on this site.
             This does not influence our rankings or reviews, which are based on independent research.
           </p>
-          <p style={{ fontSize: 11, color: "#94a3b8", lineHeight: 1.7, textAlign: "center", marginTop: 8 }}>
+          <p style={{ fontSize: 12, color: "#94a3b8", lineHeight: 1.8, textAlign: "center", marginTop: 12 }}>
             <strong>Risk Warning:</strong> CFDs are complex instruments and come with a high risk of losing money rapidly
             due to leverage. Between 74-89% of retail investor accounts lose money when trading CFDs.
             You should consider whether you understand how CFDs work and whether you can afford to take
