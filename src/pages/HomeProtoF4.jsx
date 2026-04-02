@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useMedia } from "../hooks/useMedia";
 import { getAllBrokersWithData } from "../data/brokers";
-import HUBS from "../data/categoryHubs";
+import HUBS, { getRankingsForHub } from "../data/categoryHubs";
 import RANKINGS from "../data/rankings";
 import { getBrokersForRanking } from "../data/rankingFilters";
 import BrokerLogo from "../components/BrokerLogo";
@@ -65,89 +65,121 @@ export default function HomeProtoF4() {
   return (
     <div style={{ fontFamily: "'Inter',system-ui,sans-serif", background: "#fff", minHeight: "100vh" }}>
 
-      {/* --- QUIZ HERO --- */}
+      {/* --- COMPACT QUIZ HERO --- */}
       <section style={{
         borderTop: "3px solid #f59e0b",
         background: "linear-gradient(135deg, #0f172a 0%, #0f2e24 40%, #047857 100%)",
-        padding: mob ? "56px 20px 48px" : "88px 32px 72px",
+        padding: mob ? "28px 16px 24px" : "36px 28px 32px",
         position: "relative", overflow: "hidden",
       }}>
         <div style={{
           position: "absolute", inset: 0, pointerEvents: "none",
           background: "repeating-linear-gradient(135deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 12px)",
         }} />
-        {/* Gradient orbs */}
-        <div style={{ position: "absolute", top: "20%", left: "10%", width: 400, height: 400, borderRadius: "50%", background: "radial-gradient(circle, rgba(52,211,153,0.08) 0%, transparent 70%)", pointerEvents: "none" }} />
-        <div style={{ position: "absolute", bottom: "10%", right: "15%", width: 300, height: 300, borderRadius: "50%", background: "radial-gradient(circle, rgba(59,130,246,0.06) 0%, transparent 70%)", pointerEvents: "none" }} />
-        <div style={{ ...cn, textAlign: "center", position: "relative", zIndex: 1 }}>
-          <h1 style={{
-            fontFamily: "'Outfit',sans-serif", fontWeight: 800,
-            fontSize: mob ? 36 : tab ? 48 : 56, lineHeight: 1.08, color: "#fff",
-            marginBottom: 16, letterSpacing: "-0.04em",
-            textShadow: "0 2px 4px rgba(0,0,0,0.1)",
-          }}>
-            Find Your Perfect Broker
-          </h1>
-          <p style={{ fontSize: mob ? 16 : 18, color: "rgba(255,255,255,0.5)", marginBottom: 36, maxWidth: 480, margin: "0 auto 36px" }}>
-            {allBrokers.length} brokers compared across 130+ data points
-          </p>
-          <div style={{
-            display: "flex", gap: mob ? 10 : 14, justifyContent: "center",
-            flexDirection: mob ? "column" : "row", maxWidth: 640, margin: "0 auto",
-          }}>
-            <select style={{
-              flex: 1, padding: "14px 16px", borderRadius: 12, border: "1px solid rgba(255,255,255,0.15)",
-              background: "rgba(30,41,59,0.8)", backdropFilter: "blur(8px)",
-              color: "#e2e8f0", fontSize: 14, fontFamily: "inherit",
-              appearance: "none", cursor: "pointer",
+        <div style={{ ...cn, position: "relative", zIndex: 1, display: mob ? "block" : "flex", alignItems: "center", gap: 32 }}>
+          <div style={{ flex: 1, marginBottom: mob ? 16 : 0 }}>
+            <h1 style={{
+              fontFamily: "'Outfit',sans-serif", fontWeight: 800,
+              fontSize: mob ? 28 : tab ? 36 : 42, lineHeight: 1.08, color: "#fff",
+              marginBottom: 8, letterSpacing: "-0.04em",
             }}>
-              <option>What do you trade?</option>
-              <option>Forex</option>
-              <option>CFD</option>
-              <option>Stocks & ETFs</option>
-              <option>Crypto</option>
-              <option>Options</option>
-              <option>Futures</option>
-              <option>Copy Trading</option>
-              <option>Spread Betting</option>
-            </select>
-            <select style={{
-              flex: 1, padding: "14px 16px", borderRadius: 12, border: "1px solid rgba(255,255,255,0.15)",
-              background: "rgba(30,41,59,0.8)", backdropFilter: "blur(8px)",
-              color: "#e2e8f0", fontSize: 14, fontFamily: "inherit",
-              appearance: "none", cursor: "pointer",
-            }}>
-              <option>Experience level</option>
-              <option>Beginner</option>
-              <option>Intermediate</option>
-              <option>Professional</option>
-            </select>
-            <Link to="/rankings" className="cta-orange" style={{
-              padding: "14px 32px", borderRadius: 12, fontSize: 15, fontWeight: 700,
-              background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: "#0f172a", textDecoration: "none",
-              display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
-              whiteSpace: "nowrap",
-            }}>
-              Show Matches <ArrowRight size={15} />
-            </Link>
+              Find Your Perfect Broker
+            </h1>
+            <p style={{ fontSize: mob ? 14 : 15, color: "rgba(255,255,255,0.55)", maxWidth: 420, lineHeight: 1.6, marginBottom: mob ? 16 : 0 }}>
+              {allBrokers.length} brokers compared across 130+ data points
+            </p>
           </div>
-          {/* Logo Strip */}
-          <div style={{
-            display: "flex", alignItems: "center", justifyContent: "center",
-            gap: mob ? 12 : 16, marginTop: 36, flexWrap: "wrap",
-          }}>
-            {allBrokers.slice(0, mob ? 8 : 12).map(b => (
-              <div key={b.slug} style={{
-                width: mob ? 36 : 40, height: mob ? 36 : 40, borderRadius: 12, overflow: "hidden",
-                opacity: 0.7, boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
-                border: "1px solid rgba(255,255,255,0.15)",
-              }}>
-                <BrokerLogo broker={b.B} size={mob ? 36 : 40} variant="icon" />
+          <div style={{ display: "flex", flexDirection: "column", gap: 10, flexShrink: 0 }}>
+            {!mob && (
+              <div style={{ display: "flex", gap: 20, marginBottom: 4 }}>
+                {[
+                  { n: allBrokers.length, l: "Brokers" },
+                  { n: HUBS.length, l: "Categories" },
+                  { n: RANKINGS.length + "+", l: "Rankings" },
+                  { n: "130+", l: "Data Points" },
+                ].map((s, i) => (
+                  <div key={i} style={{ textAlign: "center" }}>
+                    <span style={{ fontFamily: "'JetBrains Mono'", fontSize: 16, fontWeight: 700, color: "#fff" }}>{s.n}</span>
+                    <span style={{ fontSize: 10, color: "#34d399", fontWeight: 500, marginLeft: 4 }}>{s.l}</span>
+                  </div>
+                ))}
               </div>
-            ))}
+            )}
+            <div style={{
+              display: "flex", gap: mob ? 8 : 10,
+              flexDirection: mob ? "column" : "row",
+            }}>
+              <select style={{
+                flex: 1, padding: "10px 14px", borderRadius: 10, border: "1px solid rgba(255,255,255,0.15)",
+                background: "rgba(30,41,59,0.8)", backdropFilter: "blur(8px)",
+                color: "#e2e8f0", fontSize: 13, fontFamily: "inherit",
+                appearance: "none", cursor: "pointer",
+              }}>
+                <option>What do you trade?</option>
+                <option>Forex</option><option>CFD</option><option>Stocks & ETFs</option>
+                <option>Crypto</option><option>Options</option><option>Futures</option>
+                <option>Copy Trading</option><option>Spread Betting</option>
+              </select>
+              <select style={{
+                flex: 1, padding: "10px 14px", borderRadius: 10, border: "1px solid rgba(255,255,255,0.15)",
+                background: "rgba(30,41,59,0.8)", backdropFilter: "blur(8px)",
+                color: "#e2e8f0", fontSize: 13, fontFamily: "inherit",
+                appearance: "none", cursor: "pointer",
+              }}>
+                <option>Experience level</option>
+                <option>Beginner</option><option>Intermediate</option><option>Professional</option>
+              </select>
+              <Link to="/rankings" className="cta-orange" style={{
+                padding: "10px 24px", borderRadius: 10, fontSize: 13, fontWeight: 700,
+                background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: "#0f172a", textDecoration: "none",
+                display: "flex", alignItems: "center", justifyContent: "center", gap: 6, whiteSpace: "nowrap",
+              }}>
+                Show Matches <ArrowRight size={13} />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
+
+      {/* --- PILL NAV BAR --- */}
+      <div style={{
+        background: "#0f172a", borderBottom: "1px solid rgba(255,255,255,0.06)",
+        padding: mob ? "10px 16px" : "12px 28px",
+        overflowX: "auto", WebkitOverflowScrolling: "touch",
+      }}>
+        <div style={{ ...cn, display: "flex", gap: 8, minWidth: "max-content" }}>
+          {HUBS.map(hub => (
+            <Link key={hub.slug} to={hub.path} style={{
+              display: "inline-flex", alignItems: "center", gap: 6,
+              padding: "7px 14px", borderRadius: 8,
+              background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)",
+              color: "rgba(255,255,255,0.7)", fontSize: 12, fontWeight: 600,
+              textDecoration: "none", whiteSpace: "nowrap", transition: "all 0.15s",
+            }}
+              onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.12)"; e.currentTarget.style.color = "#fff"; }}
+              onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.06)"; e.currentTarget.style.color = "rgba(255,255,255,0.7)"; }}
+            >
+              <Icon name={hub.icon} size={13} />
+              {hub.name}
+              <span style={{ fontSize: 10, opacity: 0.5 }}>{getRankingsForHub(hub).length}</span>
+            </Link>
+          ))}
+          <div style={{ width: 1, background: "rgba(255,255,255,0.08)", margin: "0 4px", flexShrink: 0 }} />
+          {[
+            { name: "Beginners", path: "/best-forex-brokers-for-beginners" },
+            { name: "Low Spread", path: "/lowest-spread-forex-brokers" },
+            { name: "ECN", path: "/best-ecn-forex-brokers" },
+            { name: "Trading Apps", path: "/best-forex-trading-apps" },
+          ].map(r => (
+            <Link key={r.path} to={r.path} style={{
+              padding: "7px 12px", borderRadius: 8,
+              background: "transparent", border: "1px solid rgba(255,255,255,0.06)",
+              color: "rgba(255,255,255,0.45)", fontSize: 12, fontWeight: 500,
+              textDecoration: "none", whiteSpace: "nowrap",
+            }}>{r.name}</Link>
+          ))}
+        </div>
+      </div>
 
       {/* --- VERTICAL SECTIONS --- */}
       {HUBS.map((hub, hubIdx) => {

@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useMedia } from "../hooks/useMedia";
 import { getAllBrokersWithData } from "../data/brokers";
-import HUBS from "../data/categoryHubs";
+import HUBS, { getRankingsForHub } from "../data/categoryHubs";
 import { getBrokersForRanking } from "../data/rankingFilters";
 import RANKINGS from "../data/rankings";
 import BrokerLogo from "../components/BrokerLogo";
@@ -77,12 +77,11 @@ export default function HomeProtoA() {
   return (
     <div style={{ fontFamily: "'Inter',system-ui,sans-serif", background: "#fff", minHeight: "100vh" }}>
 
-      {/* --- HERO --- */}
+      {/* --- COMPACT HERO --- */}
       <section style={{
         borderTop: "3px solid #f59e0b",
         background: "linear-gradient(135deg, #0f172a 0%, #0f2e24 40%, #047857 100%)",
-        padding: mob ? "64px 20px 56px" : "96px 32px 80px",
-        textAlign: "center",
+        padding: mob ? "28px 16px 24px" : "36px 28px 32px",
         position: "relative", overflow: "hidden",
       }}>
         {/* Diagonal texture overlay */}
@@ -90,83 +89,103 @@ export default function HomeProtoA() {
           position: "absolute", inset: 0, pointerEvents: "none",
           background: "repeating-linear-gradient(135deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 12px)",
         }} />
-        {/* Gradient orbs for depth */}
-        <div style={{ position: "absolute", top: "20%", left: "10%", width: 400, height: 400, borderRadius: "50%", background: "radial-gradient(circle, rgba(52,211,153,0.08) 0%, transparent 70%)", pointerEvents: "none" }} />
-        <div style={{ position: "absolute", bottom: "10%", right: "15%", width: 300, height: 300, borderRadius: "50%", background: "radial-gradient(circle, rgba(59,130,246,0.06) 0%, transparent 70%)", pointerEvents: "none" }} />
-        {/* Radial glow */}
-        <div style={{
-          position: "absolute", top: "-30%", right: "-10%", width: "60%", height: "120%",
-          background: "radial-gradient(ellipse, rgba(52,211,153,0.08) 0%, transparent 70%)",
-          pointerEvents: "none",
-        }} />
-        <div style={{ ...cn, position: "relative", zIndex: 1 }}>
-          <div style={{
-            display: "inline-flex", alignItems: "center", gap: 8,
-            padding: "6px 16px", borderRadius: 100,
-            background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)",
-            fontSize: 11, fontWeight: 600, color: "#34d399", marginBottom: 28,
-            textTransform: "uppercase", letterSpacing: 1.5,
-          }}>
-            <Shield size={12} /> Independent Research
+        <div style={{ ...cn, position: "relative", zIndex: 1, display: mob ? "block" : "flex", alignItems: "center", gap: 32 }}>
+          <div style={{ flex: 1 }}>
+            <div style={{
+              display: "inline-flex", alignItems: "center", gap: 8,
+              padding: "5px 12px", borderRadius: 100,
+              background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)",
+              fontSize: 10, fontWeight: 600, color: "#34d399", marginBottom: 12,
+              textTransform: "uppercase", letterSpacing: 1.5,
+            }}>
+              <Shield size={11} /> Independent Research
+            </div>
+            <h1 style={{
+              fontFamily: "'Outfit',sans-serif", fontWeight: 800,
+              fontSize: mob ? 28 : tab ? 36 : 42,
+              lineHeight: 1.08, color: "#fff", marginBottom: 8,
+              letterSpacing: "-0.04em",
+            }}>
+              Find the Best Online Broker
+            </h1>
+            <p style={{
+              fontSize: mob ? 14 : 15, color: "rgba(255,255,255,0.55)",
+              maxWidth: 420, lineHeight: 1.6, fontWeight: 400, marginBottom: mob ? 16 : 0,
+            }}>
+              Compare {allBrokers.length} brokers across forex, stocks, crypto, options & more. Ranked by experts.
+            </p>
           </div>
-          <h1 style={{
-            fontFamily: "'Outfit',sans-serif", fontWeight: 800,
-            fontSize: mob ? 36 : tab ? 48 : 56,
-            lineHeight: 1.05, color: "#fff", marginBottom: 24,
-            letterSpacing: "-0.04em",
-            textShadow: "0 2px 4px rgba(0,0,0,0.1)",
-          }}>
-            Find the Best<br />Online Broker
-          </h1>
-          <p style={{
-            fontSize: mob ? 16 : 18, color: "rgba(255,255,255,0.6)",
-            maxWidth: 480, margin: "0 auto 40px", lineHeight: 1.7,
-            fontWeight: 400,
-          }}>
-            Compare {allBrokers.length} brokers across forex, stocks, crypto, options, and more.
-            Independently researched. Ranked by experts.
-          </p>
-          {/* Stats Bar */}
-          <div style={{
-            display: "inline-flex", gap: mob ? 32 : 56, flexWrap: "wrap", justifyContent: "center",
-            marginBottom: mob ? 36 : 48,
-          }}>
-            {[
-              { n: allBrokers.length, l: "Brokers" },
-              { n: HUBS.length, l: "Categories" },
-              { n: RANKINGS.length + "+", l: "Rankings" },
-              { n: "130+", l: "Data Points" },
-            ].map((s, i) => (
-              <div key={i} style={{ textAlign: "center" }}>
-                <div style={{
-                  fontFamily: "'JetBrains Mono'", fontSize: mob ? 28 : 36,
-                  fontWeight: 700, color: "#fff", letterSpacing: "-0.02em",
-                }}>{s.n}</div>
-                <div style={{
-                  fontSize: 10, color: "#34d399", fontWeight: 500,
-                  textTransform: "uppercase", letterSpacing: 1.5, marginTop: 6,
-                }}>{s.l}</div>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: mob ? "flex-start" : "flex-end", gap: 12, flexShrink: 0 }}>
+            {!mob && (
+              <div style={{ display: "flex", gap: 20, marginBottom: 4 }}>
+                {[
+                  { n: allBrokers.length, l: "Brokers" },
+                  { n: HUBS.length, l: "Categories" },
+                  { n: RANKINGS.length + "+", l: "Rankings" },
+                  { n: "130+", l: "Data Points" },
+                ].map((s, i) => (
+                  <div key={i} style={{ textAlign: "center" }}>
+                    <span style={{ fontFamily: "'JetBrains Mono'", fontSize: 16, fontWeight: 700, color: "#fff" }}>{s.n}</span>
+                    <span style={{ fontSize: 10, color: "#34d399", fontWeight: 500, marginLeft: 4 }}>{s.l}</span>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-          {/* Logo Strip */}
-          <div style={{
-            display: "flex", alignItems: "center", justifyContent: "center",
-            gap: mob ? 16 : 20, flexWrap: "wrap",
-          }}>
-            {allBrokers.slice(0, mob ? 6 : 10).map(b => (
-              <div key={b.slug} style={{
-                width: mob ? 36 : 40, height: mob ? 36 : 40, borderRadius: 12, overflow: "hidden",
-                background: "rgba(255,255,255,0.08)",
-                boxShadow: "0 2px 8px rgba(0,0,0,0.08)", opacity: 0.7,
-                border: "1px solid rgba(255,255,255,0.15)",
-              }}>
-                <BrokerLogo broker={b.B} size={mob ? 36 : 40} variant="icon" />
-              </div>
-            ))}
+            )}
+            <div style={{ display: "flex", gap: 10 }}>
+              <Link to="/online-brokers" className="cta-orange" style={{
+                padding: "10px 22px", borderRadius: 10, fontSize: 13, fontWeight: 700,
+                background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: "#0f172a",
+                textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 6,
+              }}>Browse All <ArrowRight size={13} /></Link>
+              <Link to="/rankings" className="cta-secondary" style={{
+                padding: "10px 20px", borderRadius: 10, fontSize: 13, fontWeight: 600,
+                border: "2px solid #059669", color: "#059669", background: "transparent",
+                textDecoration: "none",
+              }}>{RANKINGS.length}+ Rankings</Link>
+            </div>
           </div>
         </div>
       </section>
+
+      {/* --- PILL NAV BAR --- */}
+      <div style={{
+        background: "#0f172a", borderBottom: "1px solid rgba(255,255,255,0.06)",
+        padding: mob ? "10px 16px" : "12px 28px",
+        overflowX: "auto", WebkitOverflowScrolling: "touch",
+      }}>
+        <div style={{ ...cn, display: "flex", gap: 8, minWidth: "max-content" }}>
+          {HUBS.map(hub => (
+            <Link key={hub.slug} to={hub.path} style={{
+              display: "inline-flex", alignItems: "center", gap: 6,
+              padding: "7px 14px", borderRadius: 8,
+              background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)",
+              color: "rgba(255,255,255,0.7)", fontSize: 12, fontWeight: 600,
+              textDecoration: "none", whiteSpace: "nowrap", transition: "all 0.15s",
+            }}
+              onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.12)"; e.currentTarget.style.color = "#fff"; }}
+              onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.06)"; e.currentTarget.style.color = "rgba(255,255,255,0.7)"; }}
+            >
+              <Icon name={hub.icon} size={13} />
+              {hub.name}
+              <span style={{ fontSize: 10, opacity: 0.5 }}>{getRankingsForHub(hub).length}</span>
+            </Link>
+          ))}
+          <div style={{ width: 1, background: "rgba(255,255,255,0.08)", margin: "0 4px", flexShrink: 0 }} />
+          {[
+            { name: "Beginners", path: "/best-forex-brokers-for-beginners" },
+            { name: "Low Spread", path: "/lowest-spread-forex-brokers" },
+            { name: "ECN", path: "/best-ecn-forex-brokers" },
+            { name: "Trading Apps", path: "/best-forex-trading-apps" },
+          ].map(r => (
+            <Link key={r.path} to={r.path} style={{
+              padding: "7px 12px", borderRadius: 8,
+              background: "transparent", border: "1px solid rgba(255,255,255,0.06)",
+              color: "rgba(255,255,255,0.45)", fontSize: 12, fontWeight: 500,
+              textDecoration: "none", whiteSpace: "nowrap",
+            }}>{r.name}</Link>
+          ))}
+        </div>
+      </div>
 
       {/* --- CATEGORY GRID --- */}
       <section style={{ padding: mob ? "56px 20px" : "88px 32px", background: "linear-gradient(180deg, #fff 0%, #f8fafc 100%)" }}>
