@@ -38,10 +38,10 @@ function TocStrip({ mob }) {
           <button key={i} style={{
             padding: mob ? "10px 12px" : "12px 16px",
             background: "transparent", border: "none",
-            color: i === 0 ? "#f59e0b" : "rgba(255,255,255,0.4)",
+            color: i === 0 ? "#fbbf24" : "rgba(255,255,255,0.4)",
             fontSize: mob ? 12 : 13, fontWeight: 600, cursor: "pointer",
             fontFamily: "'DM Sans',sans-serif", whiteSpace: "nowrap",
-            borderBottom: i === 0 ? "2px solid #f59e0b" : "2px solid transparent",
+            borderBottom: i === 0 ? "2px solid #fbbf24" : "2px solid transparent",
           }}>{item}</button>
         ))}
       </div>
@@ -114,7 +114,7 @@ function HeroB({ mob, tab, brokers }) {
                 { n: "130+", l: "Data Points" },
               ].map((s, i) => (
                 <div key={i} style={{ textAlign: "center" }}>
-                  <div style={{ fontFamily: "'JetBrains Mono'", fontSize: 20, fontWeight: 700, color: "#f59e0b" }}>{s.n}</div>
+                  <div style={{ fontFamily: "'JetBrains Mono'", fontSize: 20, fontWeight: 700, color: "#fbbf24" }}>{s.n}</div>
                   <div style={{ fontSize: 9, color: "rgba(255,255,255,0.3)", textTransform: "uppercase", letterSpacing: 1.5 }}>{s.l}</div>
                 </div>
               ))}
@@ -143,9 +143,9 @@ function HeroC({ mob, tab, brokers }) {
         <div style={{ position: "relative", zIndex: 2, maxWidth: 1200, margin: "0 auto", padding: mob ? "28px 16px 32px" : "36px 24px 40px" }}>
           <div style={{ display: mob ? "block" : "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 32 }}>
             <div style={{ flex: 1 }}>
-              <div style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "4px 12px", borderRadius: 100, background: "rgba(245,158,11,0.15)", border: "1px solid rgba(245,158,11,0.3)", marginBottom: 12 }}>
-                <Icon name={RANKING.icon} size={12} color="#f59e0b" />
-                <span style={{ fontSize: 10, fontWeight: 700, color: "#f59e0b", textTransform: "uppercase", letterSpacing: 1 }}>Top Ranking</span>
+              <div style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "4px 12px", borderRadius: 100, background: "rgba(251,191,36,0.12)", border: "1px solid rgba(251,191,36,0.3)", marginBottom: 12 }}>
+                <Icon name={RANKING.icon} size={12} color="#fbbf24" />
+                <span style={{ fontSize: 10, fontWeight: 700, color: "#fbbf24", textTransform: "uppercase", letterSpacing: 1 }}>Top Ranking</span>
               </div>
               <h1 style={{ fontFamily: "Outfit", fontWeight: 900, fontSize: mob ? 26 : tab ? 32 : 40, lineHeight: 1.1, color: "#fff", marginBottom: 6, letterSpacing: "-0.03em" }}>
                 {RANKING.title} {YEAR}
@@ -167,7 +167,7 @@ function HeroC({ mob, tab, brokers }) {
                   onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.1)"; }}
                   onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.06)"; }}
                 >
-                  <span style={{ fontSize: 9, fontWeight: 800, color: i === 0 ? "#f59e0b" : "rgba(255,255,255,0.3)", textTransform: "uppercase", letterSpacing: 1, marginBottom: 6 }}>#{i + 1}</span>
+                  <span style={{ fontSize: 9, fontWeight: 800, color: i === 0 ? "#fbbf24" : "rgba(255,255,255,0.3)", textTransform: "uppercase", letterSpacing: 1, marginBottom: 6 }}>#{i + 1}</span>
                   <div style={{ width: 40, height: 40, borderRadius: 10, overflow: "hidden", marginBottom: 6, boxShadow: "0 2px 8px rgba(0,0,0,0.2)" }}>
                     <BrokerLogo broker={b.B} size={40} variant="icon" />
                   </div>
@@ -202,10 +202,10 @@ function HeroD({ mob, tab, brokers }) {
           <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 12 }}>
             <div style={{
               width: 40, height: 40, borderRadius: 10,
-              background: "rgba(245,158,11,0.15)", border: "1px solid rgba(245,158,11,0.3)",
+              background: "rgba(251,191,36,0.12)", border: "1px solid rgba(251,191,36,0.3)",
               display: "flex", alignItems: "center", justifyContent: "center",
             }}>
-              <Icon name={RANKING.icon} size={20} color="#f59e0b" />
+              <Icon name={RANKING.icon} size={20} color="#fbbf24" />
             </div>
             <div>
               <h1 style={{ fontFamily: "Outfit", fontWeight: 900, fontSize: mob ? 22 : tab ? 28 : 34, lineHeight: 1.1, color: "#fff", letterSpacing: "-0.03em" }}>
@@ -225,21 +225,21 @@ function HeroD({ mob, tab, brokers }) {
               <Link key={b.slug} to={`/review/${b.slug}`} style={{
                 display: "flex", alignItems: "center", gap: 8,
                 padding: "8px 12px", borderRadius: 8,
-                background: i === 0 ? "rgba(245,158,11,0.1)" : "rgba(255,255,255,0.04)",
-                border: `1px solid ${i === 0 ? "rgba(245,158,11,0.25)" : "rgba(255,255,255,0.06)"}`,
+                background: i === 0 ? "rgba(251,191,36,0.1)" : "rgba(255,255,255,0.04)",
+                border: `1px solid ${i === 0 ? "rgba(251,191,36,0.25)" : "rgba(255,255,255,0.06)"}`,
                 textDecoration: "none", whiteSpace: "nowrap",
                 transition: "background 0.15s",
                 flexShrink: 0,
               }}
                 onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.08)"; }}
-                onMouseLeave={e => { e.currentTarget.style.background = i === 0 ? "rgba(245,158,11,0.1)" : "rgba(255,255,255,0.04)"; }}
+                onMouseLeave={e => { e.currentTarget.style.background = i === 0 ? "rgba(251,191,36,0.1)" : "rgba(255,255,255,0.04)"; }}
               >
-                <span style={{ fontFamily: "'JetBrains Mono'", fontSize: 10, fontWeight: 700, color: i === 0 ? "#f59e0b" : "rgba(255,255,255,0.3)", width: 16 }}>#{i + 1}</span>
+                <span style={{ fontFamily: "'JetBrains Mono'", fontSize: 10, fontWeight: 700, color: i === 0 ? "#fbbf24" : "rgba(255,255,255,0.3)", width: 16 }}>#{i + 1}</span>
                 <div style={{ width: 28, height: 28, borderRadius: 7, overflow: "hidden", boxShadow: "0 1px 4px rgba(0,0,0,0.15)" }}>
                   <BrokerLogo broker={b.B} size={28} variant="icon" />
                 </div>
                 <span style={{ fontSize: 12, fontWeight: 600, color: "#fff" }}>{b.B.name}</span>
-                <span style={{ fontFamily: "'JetBrains Mono'", fontSize: 12, fontWeight: 700, color: i === 0 ? "#f59e0b" : "#34d399" }}>{b.B.score}</span>
+                <span style={{ fontFamily: "'JetBrains Mono'", fontSize: 12, fontWeight: 700, color: i === 0 ? "#fbbf24" : "#34d399" }}>{b.B.score}</span>
               </Link>
             ))}
           </div>
@@ -279,9 +279,9 @@ export default function RankingHeroProtos() {
           <button key={v.key} onClick={() => setActive(v.key)} style={{
             padding: mob ? "6px 10px" : "8px 16px",
             borderRadius: 8, border: "1px solid",
-            borderColor: active === v.key ? "#f59e0b" : "rgba(255,255,255,0.12)",
-            background: active === v.key ? "rgba(245,158,11,0.1)" : "transparent",
-            color: active === v.key ? "#f59e0b" : "rgba(255,255,255,0.5)",
+            borderColor: active === v.key ? "#fbbf24" : "rgba(255,255,255,0.12)",
+            background: active === v.key ? "rgba(251,191,36,0.1)" : "transparent",
+            color: active === v.key ? "#fbbf24" : "rgba(255,255,255,0.5)",
             fontSize: mob ? 11 : 13, fontWeight: 700, cursor: "pointer",
             fontFamily: "'Outfit',sans-serif", whiteSpace: "nowrap",
           }}>
