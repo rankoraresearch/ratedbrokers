@@ -950,7 +950,43 @@ P3.7 (rankings) → P3.8 (hub + nav) → P3.9 (logos) → P3.10 (QA)
 ```
 
 **Оценка Phase 3:** ~18 рабочих дней
-**Результат:** 18 prop firms, ~20 рейтингов, 1 хаб, PropFirmReview.jsx (новый шаблон), 9 вертикалей на сайте
+**Результат:** 18 prop firms, 25 рейтингов, 90 subpages, 1 хаб, PropFirmReview.jsx (новый шаблон) = **133 новых URL**, 9 вертикалей
+
+### Архитектурные решения Phase 3
+
+1. **PropFirmRankCard** — ОТДЕЛЬНЫЙ компонент (не BrokerRankCard). Показывает Challenge Price / Profit Split / Max DD вместо Spread / Commission / Leverage
+2. **RankingPage** — единый, ветвление по `ranking.vertical === "prop-firm"` → рендерит PropFirmRankCard
+3. **Data shape** — build-prop-firms.mjs генерирует `B: { name, score, ... }` как алиас для совместимости с общим кодом (sorting, Quick Grid), плюс `PF: { challenges, tradingRules, payouts }` для специфичных секций
+4. **Search** — prop firms находятся через SearchOverlay (тип "prop-firm", иконка 🏢)
+5. **AllReviewsPage** — отдельная секция "Prop Trading Firms" (не смешивать с брокерами)
+6. **Compare** — НЕТ на Phase 3 (слишком разные метрики)
+7. **Content** — ВСЕГДА массивы (урок Phase 2: строки ломали .map())
+8. **Контент** — ~87K слов (18 reviews × 3K + 25 rankings × 1K + 90 subpages × 0.5K). SEO-тексты минимальные, будут переписаны в M8
+
+### Phase 3 — Критический путь
+
+```
+Sprint 1 (data) → Sprint 2 (PropFirmReview) → Sprint 3 (RankCard + Rankings) → Sprint 4 (Hub + Nav) → Sprint 5 (Search + Backend)
+                                                           ↓
+                                                    Sprint 6 (SEO content) — параллельно с 4-5
+                                                           ↓
+                                              Sprint 7 (Tier B+C) → Sprint 8 (Interactive) → Sprint 9 (SubPages) → Sprint 10 (QA)
+```
+
+### Сводка по спринтам
+
+| Sprint | Файлов | Контент | Результат |
+|--------|--------|---------|-----------|
+| 1: Data + Tier A | 11 create, 2 modify | ~18K слов | 6 prop firms + build pipeline |
+| 2: PropFirmReview | 4 create, 2 modify | — | Полный шаблон review |
+| 3: RankCard + Rankings | 3 create, 4 modify | — | 25 rankings + карточки + фильтры |
+| 4: Hub + Nav + Logos | 18 create, 5 modify | — | Hub, header, footer, logos |
+| 5: Search + Backend | 0 create, 5 modify | — | Search, AllReviews, seed.sql |
+| 6: SEO Content | 2 create, 1 modify | ~30K слов | Thematic + SEO для rankings |
+| 7: Tier B+C | 48 create, 3 modify | ~27K слов | 12 доп. фирм + логотипы |
+| 8: Interactive | 3 create, 1 modify | — | Drawdown Calculator, Scaling Visual |
+| 9: SubPages | 6 create, 1 modify | ~12K слов | 90 subpages (18×5 табов) |
+| 10: QA + Polish | 0 create, 6+ modify | — | Admin, SEO audit, breakpoints |
 
 ---
 
