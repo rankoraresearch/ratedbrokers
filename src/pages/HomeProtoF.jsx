@@ -41,7 +41,23 @@ export default function HomeProtoF() {
   const cn = { maxWidth: 1120, margin: "0 auto", padding: mob ? "0 16px" : "0 28px" };
   const allBrokers = getAllBrokersWithData().sort((a, b) => b.B.score - a.B.score);
 
-  useEffect(() => { document.title = `Best Online Brokers ${YEAR} — Compare & Choose | RatedBrokers`; }, []);
+  useEffect(() => {
+    document.title = `Best Online Brokers ${YEAR} — Compare & Choose | RatedBrokers`;
+    let meta = document.querySelector('meta[name="description"]');
+    if (!meta) { meta = document.createElement("meta"); meta.name = "description"; document.head.appendChild(meta); }
+    meta.content = `Compare ${allBrokers.length} online brokers in ${YEAR}. Find your perfect broker across forex, stocks, crypto, options & futures. 130+ data points.`;
+    const ld = document.createElement("script");
+    ld.type = "application/ld+json";
+    ld.textContent = JSON.stringify({
+      "@context": "https://schema.org", "@type": "WebPage",
+      name: `Best Online Brokers ${YEAR} — Compare & Choose`,
+      description: meta.content,
+      url: "https://ratedbrokers.com/",
+      publisher: { "@type": "Organization", name: "RatedBrokers", url: "https://ratedbrokers.com" },
+    });
+    document.head.appendChild(ld);
+    return () => { document.head.removeChild(ld); };
+  }, []);
 
   return (
     <div style={{ fontFamily: "'Inter',system-ui,sans-serif", background: "#fff", minHeight: "100vh" }}>
@@ -159,7 +175,7 @@ export default function HomeProtoF() {
                   </div>
                   <div style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 700, fontSize: 14, marginBottom: 2 }}>{broker.B.name}</div>
                   <div style={{ fontFamily: "'JetBrains Mono'", fontSize: 12, fontWeight: 700, color: "#059669", marginBottom: 8 }}>{broker.B.score}</div>
-                  <a href={visitUrl} target="_blank" rel="nofollow sponsored" className="cta-orange" style={{
+                  <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{
                     padding: "8px 16px", borderRadius: 7, fontSize: 11, fontWeight: 700,
                     background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: "#0f172a",
                     textDecoration: "none", display: "inline-block",
@@ -234,7 +250,7 @@ export default function HomeProtoF() {
                   }}>{b.B.score}</div>
                   {/* CTAs */}
                   <div style={{ display: "flex", gap: 8, flexShrink: 0 }}>
-                    <a href={visitUrl} target="_blank" rel="nofollow sponsored" className="cta-orange" style={{
+                    <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{
                       padding: "10px 20px", borderRadius: 8, fontSize: 13, fontWeight: 700,
                       background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: "#0f172a", textDecoration: "none",
                     }}>Visit Broker</a>
@@ -357,6 +373,22 @@ export default function HomeProtoF() {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* --- RISK DISCLAIMER + AFFILIATE DISCLOSURE --- */}
+      <section style={{ padding: mob ? "0 16px 28px" : "0 28px 48px" }}>
+        <div style={{ ...cn, maxWidth: 800 }}>
+          <p style={{ fontSize: 11, color: "#94a3b8", lineHeight: 1.7, textAlign: "center" }}>
+            <strong>Affiliate Disclosure:</strong> RatedBrokers may receive compensation from brokers featured on this site.
+            This does not influence our rankings or reviews, which are based on independent research.
+          </p>
+          <p style={{ fontSize: 11, color: "#94a3b8", lineHeight: 1.7, textAlign: "center", marginTop: 8 }}>
+            <strong>Risk Warning:</strong> CFDs are complex instruments and come with a high risk of losing money rapidly
+            due to leverage. Between 74-89% of retail investor accounts lose money when trading CFDs.
+            You should consider whether you understand how CFDs work and whether you can afford to take
+            the high risk of losing your money.
+          </p>
         </div>
       </section>
     </div>

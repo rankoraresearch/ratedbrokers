@@ -56,6 +56,23 @@ export default function HomeProtoA() {
 
   useEffect(() => {
     document.title = `Best Online Brokers ${YEAR} — Reviews & Rankings | RatedBrokers`;
+    // Meta description
+    let meta = document.querySelector('meta[name="description"]');
+    if (!meta) { meta = document.createElement("meta"); meta.name = "description"; document.head.appendChild(meta); }
+    meta.content = `Compare ${allBrokers.length} online brokers in ${YEAR}. Expert reviews, rankings across forex, stocks, crypto, options & futures. 130+ data points per broker.`;
+    // JSON-LD
+    const ld = document.createElement("script");
+    ld.type = "application/ld+json";
+    ld.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: `Best Online Brokers ${YEAR} — Reviews & Rankings`,
+      description: meta.content,
+      url: "https://ratedbrokers.com/",
+      publisher: { "@type": "Organization", name: "RatedBrokers", url: "https://ratedbrokers.com" },
+    });
+    document.head.appendChild(ld);
+    return () => { document.head.removeChild(ld); };
   }, []);
 
   return (
@@ -482,6 +499,22 @@ export default function HomeProtoA() {
               Read Methodology <ArrowRight size={14} />
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* --- RISK DISCLAIMER + AFFILIATE DISCLOSURE --- */}
+      <section style={{ padding: mob ? "0 20px 32px" : "0 32px 48px" }}>
+        <div style={{ ...cn, maxWidth: 800 }}>
+          <p style={{ fontSize: 11, color: "#94a3b8", lineHeight: 1.7, textAlign: "center" }}>
+            <strong>Affiliate Disclosure:</strong> RatedBrokers may receive compensation from brokers featured on this site.
+            This does not influence our rankings or reviews, which are based on independent research.
+          </p>
+          <p style={{ fontSize: 11, color: "#94a3b8", lineHeight: 1.7, textAlign: "center", marginTop: 8 }}>
+            <strong>Risk Warning:</strong> CFDs are complex instruments and come with a high risk of losing money rapidly
+            due to leverage. Between 74-89% of retail investor accounts lose money when trading CFDs.
+            You should consider whether you understand how CFDs work and whether you can afford to take
+            the high risk of losing your money.
+          </p>
         </div>
       </section>
     </div>
