@@ -9,7 +9,7 @@ import HUBS, { getRankingsForHub } from "../data/categoryHubs";
 import RegBadge from "../components/RegBadge";
 import BrokerLogo from "../components/BrokerLogo";
 import Icon from "../components/Icon";
-import { ArrowRight, Award, Check, BarChart3, BookOpen } from "lucide-react";
+import { ArrowRight, Award, Check, BarChart3, BookOpen, Target } from "lucide-react";
 import CountryFlag from "../components/CountryFlag";
 import { AUTHORS } from "../data/authors";
 import AuthorAvatar from "../components/AuthorAvatar";
@@ -955,12 +955,16 @@ function BrokerPowerCards({ mob, tab, lp, brokers }) {
                   {/* Score + Visit */}
                   <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, flexShrink: 0 }}>
                     <div style={{
-                      width: 44, height: 44, borderRadius: "50%",
+                      width: 44, height: 34, borderRadius: 10,
                       display: "flex", alignItems: "center", justifyContent: "center",
-                      background: b.score >= 9.0 ? "linear-gradient(135deg, #059669, #34d399)" : "#f1f5f9",
-                      color: b.score >= 9.0 ? "#fff" : "#334155",
+                      background: b.score >= 9.0
+                        ? "linear-gradient(135deg, #059669, #047857)"
+                        : b.score >= 8.0
+                        ? "linear-gradient(135deg, #2563eb, #1d4ed8)"
+                        : "linear-gradient(135deg, #d97706, #b45309)",
                       fontFamily: "'JetBrains Mono'", fontSize: 14, fontWeight: 800,
-                      boxShadow: b.score >= 9.0 ? "0 4px 12px rgba(5,150,105,0.25)" : "none",
+                      color: "#fff",
+                      boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
                     }}>{b.score}</div>
                     <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{
                       padding: "6px 14px", borderRadius: 8, fontSize: 11, fontWeight: 700,
@@ -1289,6 +1293,15 @@ export default function Home() {
             )}
             {/* V3: Top Actions */}
             <div style={{ display: "flex", gap: mob ? 8 : 10, flexDirection: mob ? "column" : "row" }}>
+              <Link to="/find-your-broker" className="cta-orange" style={{
+                padding: "10px 20px", borderRadius: 10, fontSize: 13, fontWeight: 700,
+                background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: "#0f172a",
+                textDecoration: "none", display: "flex", alignItems: "center", justifyContent: "center",
+                gap: 6, whiteSpace: "nowrap", cursor: "pointer",
+                boxShadow: "0 2px 8px rgba(245,158,11,0.3)",
+              }}>
+                <Target size={14} /> Find Your Broker
+              </Link>
               <Link to="/compare" style={{
                 padding: "10px 18px", borderRadius: 10, fontSize: 13, fontWeight: 600,
                 background: "rgba(30,41,59,0.8)", backdropFilter: "blur(8px)",

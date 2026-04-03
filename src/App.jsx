@@ -40,10 +40,12 @@ import HomeProtoF4 from "./pages/HomeProtoF4";
 import HomePrototypes from "./pages/HomePrototypes";
 import RankingHeroProtos from "./pages/RankingHeroProtos";
 import HeroButtonsProto from "./pages/HeroButtonsProto";
+import ScoreBadgeProto from "./pages/ScoreBadgeProto";
 import BrokerSubPage from "./pages/BrokerSubPage";
 import CategoryHubPage from "./pages/CategoryHubPage";
 import OnlineBrokersHub from "./pages/OnlineBrokersHub";
 import WarningPage from "./pages/WarningPage";
+import FindYourBrokerPage from "./pages/FindYourBrokerPage";
 import { LanguageProvider } from "./i18n/LanguageContext";
 
 function Layout() {
@@ -88,6 +90,7 @@ function AppRoutes() {
       <Route path="proto/home" element={<Layout />}><Route index element={<HomePrototypes />} /></Route>
       <Route path="proto/ranking-hero" element={<Layout />}><Route index element={<RankingHeroProtos />} /></Route>
       <Route path="proto/hero-buttons" element={<Layout />}><Route index element={<HeroButtonsProto />} /></Route>
+      <Route path="proto/score-badge" element={<Layout />}><Route index element={<ScoreBadgeProto />} /></Route>
       <Route path="proto/home-a" element={<Layout />}><Route index element={<HomeProtoA />} /></Route>
       <Route path="proto/home-c" element={<Layout />}><Route index element={<HomeProtoC />} /></Route>
       <Route path="proto/home-f" element={<Layout />}><Route index element={<HomeProtoF />} /></Route>
@@ -119,6 +122,7 @@ function AppRoutes() {
         <Route path="author/:slug" element={<AuthorPage />} />
         <Route path="platform/:slug" element={<PlatformPage />} />
         <Route path="warnings/:slug" element={<WarningPage />} />
+        <Route path="find-your-broker" element={<FindYourBrokerPage />} />
         {/* M4 Category Hubs — must be before catch-all :slug */}
         <Route path="online-brokers" element={<OnlineBrokersHub />} />
         <Route path="forex-brokers" element={<CategoryHubPage hubSlug="forex" />} />

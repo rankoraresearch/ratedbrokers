@@ -3,7 +3,11 @@ import { useTranslation } from "../i18n/LanguageContext";
 export default function ScoreBadge({ score, size = "md" }) {
   const { t } = useTranslation();
   const color = score >= 9.0 ? "#059669" : score >= 8.0 ? "#2563eb" : "#d97706";
-  const bg = score >= 9.0 ? "#ecfdf5" : score >= 8.0 ? "#eff6ff" : "#fffbeb";
+  const grad = score >= 9.0
+    ? "linear-gradient(135deg, #059669, #047857)"
+    : score >= 8.0
+    ? "linear-gradient(135deg, #2563eb, #1d4ed8)"
+    : "linear-gradient(135deg, #d97706, #b45309)";
   const label =
     score >= 9.5
       ? t("score.excellent")
@@ -12,20 +16,21 @@ export default function ScoreBadge({ score, size = "md" }) {
       : score >= 8.5
       ? t("score.veryGood")
       : t("score.good");
-  const s = size === "lg" ? 52 : 40;
-  const fs = size === "lg" ? 18 : 14;
+  const w = size === "lg" ? 52 : 44;
+  const h = size === "lg" ? 40 : 34;
+  const fs = size === "lg" ? 16 : 14;
   return (
     <div style={{ textAlign: "center" }}>
       <div
         style={{
-          width: s,
-          height: s,
+          width: w,
+          height: h,
           borderRadius: 10,
-          background: bg,
-          border: `2px solid ${color}`,
+          background: grad,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
           marginBottom: 2,
         }}
       >
@@ -34,13 +39,13 @@ export default function ScoreBadge({ score, size = "md" }) {
             fontFamily: "'JetBrains Mono',monospace",
             fontWeight: 800,
             fontSize: fs,
-            color,
+            color: "#fff",
           }}
         >
           {score}
         </span>
       </div>
-      <span style={{ fontSize: size === "lg" ? 12 : 11, color, fontWeight: 600 }}>
+      <span style={{ fontSize: size === "lg" ? 12 : 10, color, fontWeight: 600 }}>
         {label}
       </span>
     </div>
