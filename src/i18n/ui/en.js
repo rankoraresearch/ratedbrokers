@@ -11,6 +11,7 @@ const en = {
   "nav.about": "About Us",
   "nav.rankings": "Rankings",
   "nav.methodology": "Methodology",
+  "nav.findBroker": "Find Your Broker",
   "nav.brokersTested": "36 Brokers Tested",
   "nav.updatedQ": "Updated Q1 2026",
 

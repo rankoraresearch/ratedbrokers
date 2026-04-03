@@ -222,6 +222,9 @@ export default function Footer() {
             <HoverLink to={lp("/compare")} style={{ color: "#34d399", fontWeight: 600, marginTop: 4 }}>
               {t("footer.compareBrokers")} {arrowIcon}
             </HoverLink>
+            <HoverLink to={lp("/find-your-broker")} style={{ color: "#fbbf24", fontWeight: 600, marginTop: 2 }}>
+              Find Your Broker {arrowIcon}
+            </HoverLink>
           </div>
 
           {/* D. Trading Guides */}

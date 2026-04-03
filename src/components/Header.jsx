@@ -713,20 +713,21 @@ export default function Header() {
                 <ChevronDown size={11} style={{ color: "#64748b" }} />
               </button>
 
-              {/* ─── CTA: Compare Brokers ─── */}
+              {/* ─── CTA: Find Your Broker ─── */}
               <Link
-                to={lp("/compare")}
+                to={lp("/find-your-broker")}
                 style={{
-                  background: "#059669", color: "#fff",
+                  background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: "#0f172a",
                   padding: "8px 16px", borderRadius: 8,
                   fontWeight: 700, fontSize: 14,
                   textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 6,
-                  transition: "background 0.2s", whiteSpace: "nowrap",
+                  transition: "all 0.2s", whiteSpace: "nowrap",
+                  boxShadow: "0 2px 8px rgba(245,158,11,0.2)",
                 }}
-                onMouseEnter={(e) => { e.currentTarget.style.background = "#047857"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.background = "#059669"; }}
+                onMouseEnter={(e) => { e.currentTarget.style.background = "linear-gradient(135deg, #d97706, #f59e0b)"; e.currentTarget.style.boxShadow = "0 4px 16px rgba(245,158,11,0.3)"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.background = "linear-gradient(135deg, #f59e0b, #fbbf24)"; e.currentTarget.style.boxShadow = "0 2px 8px rgba(245,158,11,0.2)"; }}
               >
-                {t("nav.compare")} Brokers
+                Find Your Broker
                 <ArrowRight size={14} />
               </Link>
 
@@ -985,6 +986,22 @@ export default function Header() {
 
           {/* 8. About Us */}
           <MobLink to={lp("/about")} label={t("nav.about")} match={location.pathname.includes("/about")} />
+
+          {/* 9. Find Your Broker CTA */}
+          <Link
+            to={lp("/find-your-broker")}
+            style={{
+              display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
+              margin: "16px 0 8px", padding: "14px 20px", borderRadius: 12,
+              background: "linear-gradient(135deg, #f59e0b, #fbbf24)",
+              color: "#0f172a", fontWeight: 700, fontSize: 16,
+              textDecoration: "none",
+              boxShadow: "0 2px 8px rgba(245,158,11,0.25)",
+            }}
+          >
+            Find Your Broker
+            <ArrowRight size={16} />
+          </Link>
 
         </nav>
       )}
