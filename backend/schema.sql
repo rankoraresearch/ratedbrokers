@@ -87,3 +87,47 @@ CREATE TABLE IF NOT EXISTS publish_log (
   triggered_by TEXT NOT NULL DEFAULT 'cron',
   created_at TEXT DEFAULT (datetime('now'))
 );
+
+-- Review content overrides (expert edits via admin panel)
+CREATE TABLE IF NOT EXISTS review_overrides (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  broker_slug TEXT NOT NULL,
+  section TEXT NOT NULL,
+  lang TEXT NOT NULL DEFAULT 'en',
+  content TEXT NOT NULL,
+  edited_by TEXT NOT NULL DEFAULT 'admin',
+  status TEXT NOT NULL DEFAULT 'published',
+  created_at TEXT DEFAULT (datetime('now')),
+  updated_at TEXT DEFAULT (datetime('now')),
+  UNIQUE(broker_slug, section, lang)
+);
+CREATE INDEX IF NOT EXISTS idx_rvo_broker ON review_overrides(broker_slug);
+CREATE INDEX IF NOT EXISTS idx_rvo_lang ON review_overrides(lang);
+
+-- Expert access tokens (separate from admin API key)
+CREATE TABLE IF NOT EXISTS expert_tokens (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  token TEXT NOT NULL UNIQUE,
+  name TEXT NOT NULL,
+  email TEXT,
+  lang TEXT NOT NULL DEFAULT 'en',
+  broker_slugs TEXT,
+  active INTEGER NOT NULL DEFAULT 1,
+  created_at TEXT DEFAULT (datetime('now')),
+  expires_at TEXT
+);
+CREATE INDEX IF NOT EXISTS idx_et_token ON expert_tokens(token);
+
+-- Review edit audit log
+CREATE TABLE IF NOT EXISTS review_edit_log (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  broker_slug TEXT NOT NULL,
+  section TEXT NOT NULL,
+  action TEXT NOT NULL,
+  edited_by TEXT NOT NULL,
+  old_content TEXT,
+  new_content TEXT,
+  created_at TEXT DEFAULT (datetime('now'))
+);
+CREATE INDEX IF NOT EXISTS idx_rel_broker ON review_edit_log(broker_slug);
+CREATE INDEX IF NOT EXISTS idx_rel_date ON review_edit_log(created_at);

@@ -6,6 +6,8 @@ import { handleRankingsDashboard, handleRankingBrokers, handleRankingOrderUpdate
 import { handlePublishDashboard, handlePublishPages, handlePublishUpdate, handlePublishBatch, handlePublishAutoSchedule, handlePublishTick, handlePublishActive, handleSitemapIndex, handleSitemapSection } from './routes/publish.js';
 import { handleMessagesDashboard, handleMessageDelete } from './routes/messages.js';
 import { handleLinkHealthDashboard, handleLinkRecheck } from './routes/linkhealth.js';
+import { handleReviewsDashboard, handleReviewContent, handleReviewContentUpdate, handleReviewContentDelete, handleReviewOverridesPublic, handleReviewLog, handleTokensList, handleTokenCreate, handleTokenDelete } from './routes/reviews.js';
+import { handleExpertDashboard, handleExpertReviewContent, handleExpertReviewUpdate, handleExpertReviewDelete } from './routes/expert.js';
 import { handleOptions } from './utils/cors.js';
 
 export default {
@@ -139,6 +141,81 @@ export default {
     const rankingPublicMatch = path.match(/^\/api\/rankings\/([a-z0-9-]+)\/order$/);
     if (rankingPublicMatch && request.method === 'GET') {
       return handleRankingOrderPublic(request, env, rankingPublicMatch[1]);
+    }
+
+    // ─── Review Editor ───
+
+    // GET /api/admin/reviews/dashboard — HTML Review Editor
+    if (path === '/api/admin/reviews/dashboard' && request.method === 'GET') {
+      return handleReviewsDashboard(request, env);
+    }
+
+    // GET /api/admin/reviews/log — recent edit log
+    if (path === '/api/admin/reviews/log' && request.method === 'GET') {
+      return handleReviewLog(request, env);
+    }
+
+    // GET /api/admin/reviews/tokens — list expert tokens
+    if (path === '/api/admin/reviews/tokens' && request.method === 'GET') {
+      return handleTokensList(request, env);
+    }
+
+    // POST /api/admin/reviews/tokens — create expert token
+    if (path === '/api/admin/reviews/tokens' && request.method === 'POST') {
+      return handleTokenCreate(request, env);
+    }
+
+    // DELETE /api/admin/reviews/tokens/:id — revoke token
+    const tokenDeleteMatch = path.match(/^\/api\/admin\/reviews\/tokens\/(\d+)$/);
+    if (tokenDeleteMatch && request.method === 'DELETE') {
+      return handleTokenDelete(request, env, tokenDeleteMatch[1]);
+    }
+
+    // GET /api/admin/reviews/:slug/content — all overrides for broker
+    const reviewContentMatch = path.match(/^\/api\/admin\/reviews\/([a-z0-9-]+)\/content$/);
+    if (reviewContentMatch && request.method === 'GET') {
+      return handleReviewContent(request, env, reviewContentMatch[1]);
+    }
+
+    // PUT /api/admin/reviews/:slug/content — save section override
+    if (reviewContentMatch && request.method === 'PUT') {
+      return handleReviewContentUpdate(request, env, reviewContentMatch[1]);
+    }
+
+    // DELETE /api/admin/reviews/:slug/content/:section — revert section
+    const reviewDeleteMatch = path.match(/^\/api\/admin\/reviews\/([a-z0-9-]+)\/content\/([a-zA-Z]+)$/);
+    if (reviewDeleteMatch && request.method === 'DELETE') {
+      return handleReviewContentDelete(request, env, reviewDeleteMatch[1], reviewDeleteMatch[2]);
+    }
+
+    // GET /api/reviews/:slug/overrides — PUBLIC: overrides for frontend merge
+    const reviewPublicMatch = path.match(/^\/api\/reviews\/([a-z0-9-]+)\/overrides$/);
+    if (reviewPublicMatch && request.method === 'GET') {
+      return handleReviewOverridesPublic(request, env, reviewPublicMatch[1]);
+    }
+
+    // ─── Expert Access ───
+
+    // GET /api/expert/dashboard — Expert review editor
+    if (path === '/api/expert/dashboard' && request.method === 'GET') {
+      return handleExpertDashboard(request, env);
+    }
+
+    // GET /api/expert/reviews/:slug — expert get overrides
+    const expertReviewMatch = path.match(/^\/api\/expert\/reviews\/([a-z0-9-]+)$/);
+    if (expertReviewMatch && request.method === 'GET') {
+      return handleExpertReviewContent(request, env, expertReviewMatch[1]);
+    }
+
+    // PUT /api/expert/reviews/:slug — expert save override
+    if (expertReviewMatch && request.method === 'PUT') {
+      return handleExpertReviewUpdate(request, env, expertReviewMatch[1]);
+    }
+
+    // DELETE /api/expert/reviews/:slug/:section — expert revert
+    const expertDeleteMatch = path.match(/^\/api\/expert\/reviews\/([a-z0-9-]+)\/([a-zA-Z]+)$/);
+    if (expertDeleteMatch && request.method === 'DELETE') {
+      return handleExpertReviewDelete(request, env, expertDeleteMatch[1], expertDeleteMatch[2]);
     }
 
     // ─── Messages & Link Health ───

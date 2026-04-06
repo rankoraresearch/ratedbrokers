@@ -99,6 +99,7 @@ export default function BrokerReview() {
   const [openFaq, setOpenFaq] = useState(null);
   const [stickyVisible, setStickyVisible] = useState(false);
   const [tocOpen, setTocOpen] = useState(false);
+  const [overrides, setOverrides] = useState({});
   const cn = {maxWidth:1200,margin:"0 auto",padding:mob?"0 16px":"0 24px"};
 
   useEffect(()=>{
@@ -106,6 +107,17 @@ export default function BrokerReview() {
     window.addEventListener("scroll",fn);
     return ()=>window.removeEventListener("scroll",fn);
   },[]);
+
+  // Fetch review content overrides from API
+  useEffect(()=>{
+    if (!slug) return;
+    const apiBase = import.meta.env.VITE_API_URL || '';
+    if (!apiBase) return;
+    fetch(`${apiBase}/api/reviews/${slug}/overrides`)
+      .then(r => r.ok ? r.json() : {})
+      .then(data => { if (data && Object.keys(data).length > 0) setOverrides(data); })
+      .catch(() => {});
+  },[slug]);
 
   useEffect(()=>{
     window.scrollTo(0,0);
@@ -177,11 +189,20 @@ export default function BrokerReview() {
   const authorReviewer = getReviewerForAuthor(author?.id);
   const authorFactChecker = getFactChecker(author?.id);
 
-  // Merge translated content + normalize array fields
+  // Merge translated content + API overrides + normalize array fields
   const translated = tc(slug);
+  // Parse override strings: split on double newlines into paragraphs (matching MD build)
+  const parsedOverrides = {};
+  for (const [k, v] of Object.entries(overrides)) {
+    if (typeof v === 'string') {
+      const paragraphs = v.split(/\n\n+/).map(p => p.trim()).filter(Boolean);
+      parsedOverrides[k] = paragraphs.length === 1 ? paragraphs[0] : paragraphs;
+    }
+  }
   const rawContent = {
     ...enContent,
     ...(translated?.content || {}),
+    ...parsedOverrides,
   };
   // Some fields are used with .map() and must be arrays; others are strings
   const toArr = (v) => Array.isArray(v) ? v : (v ? [v] : []);

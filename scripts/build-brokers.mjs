@@ -327,6 +327,7 @@ console.log(`Building ${files.length} broker files...\n`);
 const slugs = [];
 let success = 0;
 let errors = 0;
+const allContent = {}; // for broker-content.json (admin editor)
 
 for (const file of files) {
   const slug = basename(file, ".md");
@@ -341,6 +342,7 @@ for (const file of files) {
     const js = generateBrokerJS(slug, dataObj);
 
     writeFileSync(join(OUT_DIR, `${slug}.js`), js, "utf-8");
+    allContent[slug] = { name: fm.name, content };
     console.log(`  ✓ ${slug}`);
     success++;
   } catch (err) {
@@ -358,6 +360,16 @@ try {
   console.error(`  ✗ index.js: ${err.message}`);
   errors++;
 }
+
+// Generate public/data/broker-content.json (for admin review editor)
+const CONTENT_JSON_DIR = join(ROOT, "public/data");
+mkdirSync(CONTENT_JSON_DIR, { recursive: true });
+writeFileSync(
+  join(CONTENT_JSON_DIR, "broker-content.json"),
+  JSON.stringify(allContent),
+  "utf-8"
+);
+console.log(`  ✓ broker-content.json (${Object.keys(allContent).length} brokers)`);
 
 console.log(
   `\nBuild complete: ${success} brokers + index.js (${errors} errors).`
