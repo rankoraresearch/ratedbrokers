@@ -24,6 +24,7 @@ import { getVisitUrl } from "../utils/visitUrl";
 function Stars({r,size=15}){ return <div style={{display:"flex",gap:2}}>{[1,2,3,4,5].map(i=><div key={i} style={{width:size,height:size,background:i<=Math.floor(r)?"#00B67A":i-0.5<=r?"linear-gradient(90deg,#00B67A 50%,#d1d5db 50%)":"#d1d5db",clipPath:"polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)"}}/>)}</div>; }
 function H2({id,children}){ return <h2 id={id} style={{fontFamily:"Outfit",fontSize:24,fontWeight:800,color:"#0f172a",marginBottom:14,marginTop:32,scrollMarginTop:80}}>{children}</h2>; }
 function P({children}){ return <p style={{fontSize:16,color:"#374151",lineHeight:1.8,marginBottom:14}}>{children}</p>; }
+function HtmlContent({html}){ return <div style={{fontSize:16,color:"#374151",lineHeight:1.8}} dangerouslySetInnerHTML={{__html:html}} />; }
 function Card({children,style={}}){ return <div style={{background:"#fff",border:"1px solid #e8ecf1",borderRadius:12,padding:"22px",marginBottom:16,...style}}>{children}</div>; }
 
 /* Wide rectangular wordmark logo for review hero.
@@ -191,10 +192,18 @@ export default function BrokerReview() {
 
   // Merge translated content + API overrides + normalize array fields
   const translated = tc(slug);
-  // Parse override strings: split on double newlines into paragraphs (matching MD build)
+  // Track which sections have HTML overrides (from rich text editor)
+  const htmlOverrides = {};
+  for (const [k, v] of Object.entries(overrides)) {
+    if (typeof v === 'string' && v.includes('<')) {
+      // HTML content from Quill editor — render directly
+      htmlOverrides[k] = v;
+    }
+  }
+  // Parse plain-text overrides (legacy format) into paragraphs
   const parsedOverrides = {};
   for (const [k, v] of Object.entries(overrides)) {
-    if (typeof v === 'string') {
+    if (typeof v === 'string' && !v.includes('<')) {
       const paragraphs = v.split(/\n\n+/).map(p => p.trim()).filter(Boolean);
       parsedOverrides[k] = paragraphs.length === 1 ? paragraphs[0] : paragraphs;
     }
@@ -367,12 +376,12 @@ export default function BrokerReview() {
 
           {/* OVERVIEW */}
           <H2 id="overview">{t("review.overview", { name: B.name })}</H2>
-          {(content.overview || []).map((p,i)=><P key={i}>{p}</P>)}
+          {htmlOverrides.overview ? <HtmlContent html={htmlOverrides.overview}/> : (content.overview || []).map((p,i)=><P key={i}>{p}</P>)}
           <CTA B={B} visitUrl={visitUrl} sub={t("review.readyToTrade", { name: B.name })} />
 
           {/* SCORES */}
           <H2 id="scoring-breakdown">{t("review.scoringBreakdown")}</H2>
-          <P>{(content.scoring || "").replace("{score}",B.score)}</P>
+          {htmlOverrides.scoring ? <HtmlContent html={htmlOverrides.scoring}/> : <P>{(content.scoring || "").replace("{score}",B.score)}</P>}
           <Card style={{borderTop:"3px solid #0f172a",padding:0,overflow:"hidden"}}>
             <div style={{padding:"22px 22px 8px"}}>
             {scores.map((s,i)=>{
@@ -413,7 +422,7 @@ export default function BrokerReview() {
           {/* ACCOUNT TYPES */}
           <H2 id="account-types">{t("review.accountTypes")}</H2>
           <Link to={lp(`/review/${slug}/account`)} style={{display:"flex",alignItems:"center",gap:12,padding:"12px 16px",background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,textDecoration:"none",marginBottom:14,boxShadow:"0 1px 3px rgba(0,0,0,0.04)"}} onMouseEnter={e=>{e.currentTarget.style.borderColor="#059669";e.currentTarget.style.boxShadow="0 2px 8px rgba(5,150,105,0.12)"}} onMouseLeave={e=>{e.currentTarget.style.borderColor="#e2e8f0";e.currentTarget.style.boxShadow="0 1px 3px rgba(0,0,0,0.04)"}}><div style={{width:36,height:36,borderRadius:8,background:"#ecfdf5",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}><BookOpen size={16} color="#059669" /></div><div style={{flex:1}}><div style={{fontSize:10,fontWeight:700,color:"#059669",textTransform:"uppercase",letterSpacing:"0.06em",marginBottom:1}}>Deep Dive</div><div style={{fontSize:14,fontWeight:700,color:"#0f172a"}}>{B.name} Account Opening</div></div><ArrowRight size={16} color="#059669" style={{flexShrink:0}} /></Link>
-          <P>{content.accountIntro}</P>
+          {htmlOverrides.accountIntro ? <HtmlContent html={htmlOverrides.accountIntro}/> : <P>{content.accountIntro}</P>}
           <Card style={{padding:0,overflow:"hidden"}}>
             <table style={{width:"100%",borderCollapse:"collapse",fontSize:14}}>
               <thead><tr style={{background:"#f8f9fb",borderBottom:"1px solid #e8ecf1"}}>
@@ -434,12 +443,12 @@ export default function BrokerReview() {
               </tr>})}</tbody>
             </table>
           </Card>
-          <P>{content.accountOutro}</P>
+          {htmlOverrides.accountOutro ? <HtmlContent html={htmlOverrides.accountOutro}/> : <P>{content.accountOutro}</P>}
 
           {/* REGULATION */}
           <H2 id="regulation-&-safety">{t("review.regulationSafety")}</H2>
           <Link to={lp(`/review/${slug}/regulation`)} style={{display:"flex",alignItems:"center",gap:12,padding:"12px 16px",background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,textDecoration:"none",marginBottom:14,boxShadow:"0 1px 3px rgba(0,0,0,0.04)"}} onMouseEnter={e=>{e.currentTarget.style.borderColor="#059669";e.currentTarget.style.boxShadow="0 2px 8px rgba(5,150,105,0.12)"}} onMouseLeave={e=>{e.currentTarget.style.borderColor="#e2e8f0";e.currentTarget.style.boxShadow="0 1px 3px rgba(0,0,0,0.04)"}}><div style={{width:36,height:36,borderRadius:8,background:"#ecfdf5",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}><BookOpen size={16} color="#059669" /></div><div style={{flex:1}}><div style={{fontSize:10,fontWeight:700,color:"#059669",textTransform:"uppercase",letterSpacing:"0.06em",marginBottom:1}}>Deep Dive</div><div style={{fontSize:14,fontWeight:700,color:"#0f172a"}}>{B.name} Regulation & Safety</div></div><ArrowRight size={16} color="#059669" style={{flexShrink:0}} /></Link>
-          <P>{(content.regulation || [])[0]}</P>
+          {htmlOverrides.regulation ? <HtmlContent html={htmlOverrides.regulation}/> : <P>{(content.regulation || [])[0]}</P>}
           <Card style={{padding:0,overflow:"hidden"}}>
             {B.regs.map((r,i)=>{const rSlug=getRegulatorSlug(r.name);return <div key={i} style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"12px 18px",borderBottom:i<B.regs.length-1?"1px solid #f0f4f8":"none"}}>
               <div style={{display:"flex",alignItems:"center",gap:10}}>
@@ -451,12 +460,12 @@ export default function BrokerReview() {
               <span style={{fontFamily:"'JetBrains Mono'",fontSize:13,color:"#374151"}}>#{r.num}</span>
             </div>;})}
           </Card>
-          <P>{(content.regulation || [])[1]}</P>
+          {!htmlOverrides.regulation && <P>{(content.regulation || [])[1]}</P>}
 
           {/* TRADING COSTS */}
           <H2 id="trading-costs">{t("review.tradingCosts")}</H2>
           <Link to={lp(`/review/${slug}/fees`)} style={{display:"flex",alignItems:"center",gap:12,padding:"12px 16px",background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,textDecoration:"none",marginBottom:14,boxShadow:"0 1px 3px rgba(0,0,0,0.04)"}} onMouseEnter={e=>{e.currentTarget.style.borderColor="#059669";e.currentTarget.style.boxShadow="0 2px 8px rgba(5,150,105,0.12)"}} onMouseLeave={e=>{e.currentTarget.style.borderColor="#e2e8f0";e.currentTarget.style.boxShadow="0 1px 3px rgba(0,0,0,0.04)"}}><div style={{width:36,height:36,borderRadius:8,background:"#ecfdf5",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}><BookOpen size={16} color="#059669" /></div><div style={{flex:1}}><div style={{fontSize:10,fontWeight:700,color:"#059669",textTransform:"uppercase",letterSpacing:"0.06em",marginBottom:1}}>Deep Dive</div><div style={{fontSize:14,fontWeight:700,color:"#0f172a"}}>{B.name} Fees & Spreads</div></div><ArrowRight size={16} color="#059669" style={{flexShrink:0}} /></Link>
-          <P>{(content.costs || [])[0]}</P>
+          {htmlOverrides.costs ? <HtmlContent html={htmlOverrides.costs}/> : <P>{(content.costs || [])[0]}</P>}
           {costBoxes.length > 0 && <Card>
             <div style={{display:"grid",gridTemplateColumns:mob?"1fr 1fr":"1fr 1fr 1fr",gap:16,marginBottom:14}}>
               {costBoxes.map((x,i)=><div key={i} style={{textAlign:"center"}}>
@@ -466,7 +475,7 @@ export default function BrokerReview() {
               </div>)}
             </div>
           </Card>}
-          {(content.costs || []).slice(1).map((p,i)=><P key={i}>{p}</P>)}
+          {!htmlOverrides.costs && (content.costs || []).slice(1).map((p,i)=><P key={i}>{p}</P>)}
 
           <CTA B={B} visitUrl={visitUrl} label={(() => {
             const v = B.verticals || [];
@@ -479,7 +488,7 @@ export default function BrokerReview() {
           {/* LIVE SPREAD COMPARISON — only show if broker has spread data */}
           {SPREADS.length > 0 && <>
           <H2 id="live-spread-comparison">{t("review.liveSpread")}</H2>
-          <P>{(content.spreads || [])[0]}</P>
+          {htmlOverrides.spreads ? <HtmlContent html={htmlOverrides.spreads}/> : <P>{(content.spreads || [])[0]}</P>}
           <Card style={{padding:0,overflow:"hidden"}}>
             <table style={{width:"100%",borderCollapse:"collapse",fontSize:13}}>
               <thead><tr style={{background:"#f8f9fb",borderBottom:"1px solid #e8ecf1"}}>
@@ -492,13 +501,13 @@ export default function BrokerReview() {
               </tr>)}</tbody>
             </table>
           </Card>
-          <P>{(content.spreads || [])[1]}</P>
+          {!htmlOverrides.spreads && <P>{(content.spreads || [])[1]}</P>}
           </>}
 
           {/* DEPOSIT & WITHDRAWAL */}
           <H2 id="deposit-&-withdrawal">{t("review.depositWithdrawal")}</H2>
           <Link to={lp(`/review/${slug}/deposit`)} style={{display:"flex",alignItems:"center",gap:12,padding:"12px 16px",background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,textDecoration:"none",marginBottom:14,boxShadow:"0 1px 3px rgba(0,0,0,0.04)"}} onMouseEnter={e=>{e.currentTarget.style.borderColor="#059669";e.currentTarget.style.boxShadow="0 2px 8px rgba(5,150,105,0.12)"}} onMouseLeave={e=>{e.currentTarget.style.borderColor="#e2e8f0";e.currentTarget.style.boxShadow="0 1px 3px rgba(0,0,0,0.04)"}}><div style={{width:36,height:36,borderRadius:8,background:"#ecfdf5",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}><BookOpen size={16} color="#059669" /></div><div style={{flex:1}}><div style={{fontSize:10,fontWeight:700,color:"#059669",textTransform:"uppercase",letterSpacing:"0.06em",marginBottom:1}}>Deep Dive</div><div style={{fontSize:14,fontWeight:700,color:"#0f172a"}}>{B.name} Deposit & Withdrawal</div></div><ArrowRight size={16} color="#059669" style={{flexShrink:0}} /></Link>
-          <P>{(content.deposits || [])[0]}</P>
+          {htmlOverrides.deposits ? <HtmlContent html={htmlOverrides.deposits}/> : <P>{(content.deposits || [])[0]}</P>}
           <Card style={{padding:0,overflow:"hidden"}}>
             <table style={{width:"100%",borderCollapse:"collapse",fontSize:14}}>
               <thead><tr style={{background:"#f8f9fb",borderBottom:"1px solid #e8ecf1"}}>
@@ -512,33 +521,33 @@ export default function BrokerReview() {
               </tr>)}</tbody>
             </table>
           </Card>
-          <P>{(content.deposits || [])[1]}</P>
+          {!htmlOverrides.deposits && <P>{(content.deposits || [])[1]}</P>}
 
           {/* PLATFORMS */}
           <H2 id="platforms-&-tools">{t("review.platformsTools")}</H2>
           <Link to={lp(`/review/${slug}/platforms`)} style={{display:"flex",alignItems:"center",gap:12,padding:"12px 16px",background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,textDecoration:"none",marginBottom:14,boxShadow:"0 1px 3px rgba(0,0,0,0.04)"}} onMouseEnter={e=>{e.currentTarget.style.borderColor="#059669";e.currentTarget.style.boxShadow="0 2px 8px rgba(5,150,105,0.12)"}} onMouseLeave={e=>{e.currentTarget.style.borderColor="#e2e8f0";e.currentTarget.style.boxShadow="0 1px 3px rgba(0,0,0,0.04)"}}><div style={{width:36,height:36,borderRadius:8,background:"#ecfdf5",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}><BookOpen size={16} color="#059669" /></div><div style={{flex:1}}><div style={{fontSize:10,fontWeight:700,color:"#059669",textTransform:"uppercase",letterSpacing:"0.06em",marginBottom:1}}>Deep Dive</div><div style={{fontSize:14,fontWeight:700,color:"#0f172a"}}>{B.name} Trading Platforms</div></div><ArrowRight size={16} color="#059669" style={{flexShrink:0}} /></Link>
-          <P>{(content.platforms || [])[0]}</P>
+          {htmlOverrides.platforms ? <HtmlContent html={htmlOverrides.platforms}/> : <P>{(content.platforms || [])[0]}</P>}
           <div style={{display:"grid",gridTemplateColumns:mob?"1fr 1fr":`repeat(${Math.min(B.platforms.length,4)},1fr)`,gap:10,marginBottom:16}}>
             {B.platforms.map((p,i)=>{const pSlug=getPlatformSlugByName(p);const inner=<><div style={{display:"flex",justifyContent:"center",marginBottom:8}}><PlatformLogo slug={pSlug} name={p} size={44} shape="icon" /></div><div style={{fontWeight:600,fontSize:14}}>{p}</div></>;return pSlug?<Link key={i} to={lp(`/platform/${pSlug}`)} style={{background:"#fff",border:"1px solid #e8ecf1",borderRadius:10,padding:"16px",textAlign:"center",textDecoration:"none",color:"#111827",transition:"border-color 0.2s"}} onMouseEnter={e=>{e.currentTarget.style.borderColor="#059669"}} onMouseLeave={e=>{e.currentTarget.style.borderColor="#e8ecf1"}}>{inner}</Link>:<div key={i} style={{background:"#fff",border:"1px solid #e8ecf1",borderRadius:10,padding:"16px",textAlign:"center"}}>{inner}</div>;})}
           </div>
-          {(content.platforms || []).slice(1).map((p,i)=><P key={i}>{p}</P>)}
+          {!htmlOverrides.platforms && (content.platforms || []).slice(1).map((p,i)=><P key={i}>{p}</P>)}
 
           {/* MOBILE TRADING — hide if no content */}
           {(content.mobile || []).length > 0 && <>
           <H2 id="mobile-trading">{t("review.mobileTrading")}</H2>
-          {content.mobile.map((p,i)=><P key={i}>{p}</P>)}
+          {htmlOverrides.mobile ? <HtmlContent html={htmlOverrides.mobile}/> : content.mobile.map((p,i)=><P key={i}>{p}</P>)}
           </>}
 
           {/* CUSTOMER SUPPORT — hide if no content */}
           {(content.support || []).length > 0 && <>
           <H2 id="customer-support">{t("review.customerSupport")}</H2>
-          {content.support.map((p,i)=><P key={i}>{p}</P>)}
+          {htmlOverrides.support ? <HtmlContent html={htmlOverrides.support}/> : content.support.map((p,i)=><P key={i}>{p}</P>)}
           </>}
 
           {/* EDUCATION — hide if no content */}
           {(content.education || []).length > 0 && <>
           <H2 id="education-&-research">{t("review.educationResearch")}</H2>
-          {content.education.map((p,i)=><P key={i}>{p}</P>)}
+          {htmlOverrides.education ? <HtmlContent html={htmlOverrides.education}/> : content.education.map((p,i)=><P key={i}>{p}</P>)}
           </>}
 
           <CTA B={B} visitUrl={visitUrl} label={t("review.visit", { name: B.name })} sub={t("review.openAccount")} />
@@ -565,7 +574,7 @@ export default function BrokerReview() {
             {t("review.readOnTrustpilot", {name: B.name})}
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="#00B67A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
           </a>
-          {content.trustpilot && <P>{content.trustpilot}</P>}
+          {content.trustpilot && (htmlOverrides.trustpilot ? <HtmlContent html={htmlOverrides.trustpilot}/> : <P>{content.trustpilot}</P>)}
 
           {/* HISTORY — hide if no timeline */}
           {TIMELINE.length > 0 && <>
@@ -581,9 +590,9 @@ export default function BrokerReview() {
           </>}
 
           {/* COUNTRY — hide if no content */}
-          {content.country && <>
+          {(content.country || htmlOverrides.country) && <>
           <H2 id="country-availability">{t("review.countryAvailability")}</H2>
-          <P>{content.country}</P>
+          {htmlOverrides.country ? <HtmlContent html={htmlOverrides.country}/> : <P>{content.country}</P>}
           </>}
 
           {/* VERDICT */}
@@ -593,7 +602,7 @@ export default function BrokerReview() {
               <AuthorAvatar author={author} size={36} />
               <div><span style={{fontWeight:700,fontSize:15,color:"#fff"}}>{AUTHOR.name}</span><div style={{fontSize:13,color:"rgba(255,255,255,0.6)"}}>{AUTHOR.role}</div></div>
             </div>
-            {(content.verdict || []).map((p,i)=><p key={i} style={{fontSize:16,color:"rgba(255,255,255,0.85)",lineHeight:1.8,marginBottom:14}}>{p}</p>)}
+            {htmlOverrides.verdict ? <div style={{color:"rgba(255,255,255,0.85)"}} dangerouslySetInnerHTML={{__html:htmlOverrides.verdict}}/> : (content.verdict || []).map((p,i)=><p key={i} style={{fontSize:16,color:"rgba(255,255,255,0.85)",lineHeight:1.8,marginBottom:14}}>{p}</p>)}
             <a href={visitUrl} target="_blank" rel="nofollow sponsored" className="cta-orange" style={{display:"flex",alignItems:"center",justifyContent:"center",gap:8,background:"linear-gradient(135deg, #f59e0b, #fbbf24)",color:"#0f172a",fontSize:15,fontWeight:700,textDecoration:"none",padding:"14px 28px",borderRadius:10,marginTop:8,width:"100%",boxShadow:"0 4px 12px rgba(245,158,11,0.3)"}}>{t("review.openAccountWith", { name: B.name })} <svg width="14" height="14" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="#0f172a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></a>
             <div style={{fontSize:12,color:"rgba(255,255,255,0.4)",textAlign:"center",marginTop:8}}>{B.type} {"\u00b7"} {t("review.regulated")}</div>
           </Card>

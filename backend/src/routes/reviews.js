@@ -304,6 +304,7 @@ export async function handleReviewsDashboard(request, env) {
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Review Editor — Rated.Admin</title>
+<link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a0c10; color: #f0f0f0; }
@@ -377,15 +378,45 @@ export async function handleReviewsDashboard(request, env) {
   /* Editor body */
   .editor-body { padding: 20px 24px; }
 
-  .editor-textarea {
-    width: 100%; min-height: 300px; padding: 16px;
-    background: rgba(255,255,255,0.03); border: 1px solid var(--border);
-    border-radius: 10px; color: var(--text-primary); font-size: 14px;
-    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
-    line-height: 1.7; resize: vertical; outline: none;
-    transition: border-color 0.15s;
+  /* Quill dark theme overrides */
+  .ql-toolbar.ql-snow {
+    background: rgba(255,255,255,0.04) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 10px 10px 0 0 !important;
   }
-  .editor-textarea:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(74,222,128,0.1); }
+  .ql-toolbar .ql-stroke { stroke: var(--text-secondary) !important; }
+  .ql-toolbar .ql-fill { fill: var(--text-secondary) !important; }
+  .ql-toolbar .ql-picker-label { color: var(--text-secondary) !important; }
+  .ql-toolbar button:hover .ql-stroke, .ql-toolbar .ql-active .ql-stroke { stroke: var(--green) !important; }
+  .ql-toolbar button:hover .ql-fill, .ql-toolbar .ql-active .ql-fill { fill: var(--green) !important; }
+  .ql-toolbar button.ql-active { color: var(--green) !important; }
+  .ql-snow .ql-tooltip {
+    background: var(--bg-card-solid) !important; border: 1px solid var(--border) !important;
+    color: var(--text-primary) !important; box-shadow: 0 8px 32px rgba(0,0,0,0.5) !important;
+    border-radius: 8px !important; z-index: 1000 !important;
+  }
+  .ql-snow .ql-tooltip input[type="text"] {
+    background: rgba(255,255,255,0.06) !important; border: 1px solid var(--border) !important;
+    color: var(--text-primary) !important; border-radius: 6px !important; padding: 4px 8px !important;
+  }
+  .ql-snow .ql-tooltip a { color: var(--green) !important; }
+  .ql-container.ql-snow {
+    border: 1px solid var(--border) !important;
+    border-top: none !important;
+    border-radius: 0 0 10px 10px !important;
+    background: rgba(255,255,255,0.03) !important;
+    min-height: 280px;
+  }
+  .ql-editor {
+    color: var(--text-primary) !important;
+    font-size: 15px !important;
+    line-height: 1.8 !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    min-height: 280px;
+  }
+  .ql-editor p { margin-bottom: 12px; }
+  .ql-editor a { color: var(--green) !important; text-decoration: underline !important; }
+  .ql-editor.ql-blank::before { color: var(--text-muted) !important; font-style: normal !important; }
 
   .editor-meta {
     display: flex; align-items: center; justify-content: space-between;
@@ -594,7 +625,7 @@ ${esc(`https://api.ratedbrokers.com/api/expert/dashboard?token=ВАШ_ТОКЕН
     </div>
 
     <div class="editor-body">
-      <textarea class="editor-textarea" id="editorTextarea" placeholder="Loading content..."></textarea>
+      <div id="editorQuill"></div>
       <div class="editor-meta">
         <span id="editorStatus" class="editor-status original">Original</span>
         <span id="editorUpdated"></span>
@@ -619,6 +650,7 @@ ${esc(`https://api.ratedbrokers.com/api/expert/dashboard?token=ВАШ_ТОКЕН
   </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
 <script>
 const API_KEY = '${encodedKey}';
 const SECTIONS = ${JSON.stringify(SECTIONS)};
@@ -627,9 +659,26 @@ const FRONTEND_URL = '${env.FRONTEND_URL || 'https://ratedbrokers.com'}';
 
 let currentSlug = null;
 let currentSection = 'overview';
-let overridesCache = {};    // { section: { content, edited_by, updated_at } }
-let originalContent = {};   // { section: "text..." } from broker-content.json
-let brokerContentData = null; // cached broker-content.json
+let overridesCache = {};
+let originalContent = {};
+let brokerContentData = null;
+let quill = null;
+
+// ─── Init Quill ───
+document.addEventListener('DOMContentLoaded', () => {
+  quill = new Quill('#editorQuill', {
+    theme: 'snow',
+    placeholder: 'Loading content...',
+    modules: {
+      toolbar: [
+        ['bold', 'italic'],
+        ['link'],
+        [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+        ['clean'],
+      ],
+    },
+  });
+});
 
 ${adminHeaderScript()}
 
@@ -638,21 +687,30 @@ async function loadBrokerContent() {
   if (brokerContentData) return brokerContentData;
   try {
     const res = await fetch(FRONTEND_URL + '/data/broker-content.json');
-    if (res.ok) {
-      brokerContentData = await res.json();
-      return brokerContentData;
-    }
-  } catch (e) {
-    console.error('Failed to load broker-content.json:', e);
-  }
+    if (res.ok) { brokerContentData = await res.json(); return brokerContentData; }
+  } catch (e) { console.error('Failed to load broker-content.json:', e); }
   return {};
 }
 
-// Convert content value (string or array) to plain text for textarea
-function contentToText(val) {
+// Convert plain text content (string or array from MD) to HTML for Quill
+function contentToHtml(val) {
   if (!val) return '';
-  if (Array.isArray(val)) return val.join('\\n\\n');
-  return String(val);
+  const parts = Array.isArray(val) ? val : [val];
+  return parts.map(p => '<p>' + escHtml(String(p)) + '</p>').join('');
+}
+function escHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// Get clean HTML from Quill (strip empty trailing paragraphs)
+function getEditorHtml() {
+  if (!quill) return '';
+  let html = quill.root.innerHTML;
+  // Remove Quill's empty default
+  if (html === '<p><br></p>') return '';
+  // Trim trailing empty paragraphs
+  html = html.replace(/(<p><br><\\/p>)+$/g, '');
+  return html.trim();
 }
 
 // ─── Broker Search ───
@@ -675,8 +733,7 @@ async function openEditor(slug, name) {
   document.getElementById('editorTitle').textContent = name;
   document.getElementById('editorLogo').src = FRONTEND_URL + '/logos/' + slug + '.png';
   document.getElementById('editorOverlay').classList.add('open');
-  document.getElementById('editorTextarea').value = 'Loading...';
-  document.getElementById('editorTextarea').disabled = true;
+  if (quill) { quill.setText('Loading...'); quill.disable(); }
 
   // Reset tabs
   document.querySelectorAll('.section-tab').forEach(t => {
@@ -690,19 +747,17 @@ async function openEditor(slug, name) {
     fetch('/api/admin/reviews/' + slug + '/content?key=' + API_KEY + '&lang=' + CURRENT_LANG).then(r => r.json()).catch(() => ({ overrides: [] })),
   ]);
 
-  // Store original content
   if (allContent[slug] && allContent[slug].content) {
     originalContent = allContent[slug].content;
   }
 
-  // Store overrides
   for (const o of (overridesRes.overrides || [])) {
     overridesCache[o.section] = { content: o.content, edited_by: o.edited_by, updated_at: o.updated_at, status: o.status };
     const tab = document.querySelector('.section-tab[data-section="' + o.section + '"]');
     if (tab) tab.classList.add('has-override');
   }
 
-  document.getElementById('editorTextarea').disabled = false;
+  if (quill) quill.enable();
   loadSection('overview');
 }
 
@@ -719,42 +774,33 @@ function switchSection(section, btn) {
 }
 
 function loadSection(section) {
-  const textarea = document.getElementById('editorTextarea');
   const status = document.getElementById('editorStatus');
   const updated = document.getElementById('editorUpdated');
   const btnRevert = document.getElementById('btnRevert');
 
   const override = overridesCache[section];
-  const original = contentToText(originalContent[section]);
+  const originalHtml = contentToHtml(originalContent[section]);
 
   if (override) {
-    // Show override content
-    textarea.value = override.content;
+    // Override is already HTML — load directly
+    if (quill) quill.root.innerHTML = override.content;
     status.textContent = 'Modified';
     status.className = 'editor-status modified';
-    updated.textContent = 'Edited: ' + (override.updated_at || '—') + ' by ' + (override.edited_by || 'admin');
+    updated.textContent = 'Edited: ' + (override.updated_at || '') + ' by ' + (override.edited_by || 'admin');
     btnRevert.disabled = false;
   } else {
-    // Show original content from MD
-    textarea.value = original;
+    // Original from MD — convert to HTML
+    if (quill) quill.root.innerHTML = originalHtml || '<p><br></p>';
     status.textContent = 'Original';
     status.className = 'editor-status original';
-    updated.textContent = original ? 'Content from source MD file' : 'No content in source file for this section';
+    updated.textContent = originalHtml ? 'Content from source MD file' : 'No content for this section';
     btnRevert.disabled = true;
   }
 }
 
 async function saveSection() {
-  const textarea = document.getElementById('editorTextarea');
-  const content = textarea.value.trim();
+  const content = getEditorHtml();
   if (!content) { showToast('Content cannot be empty', true); return; }
-
-  // Check if content is same as original — no need to save
-  const original = contentToText(originalContent[currentSection]);
-  if (content === original && !overridesCache[currentSection]) {
-    showToast('No changes to save', true);
-    return;
-  }
 
   const btn = document.getElementById('btnSave');
   btn.disabled = true;
@@ -769,26 +815,22 @@ async function saveSection() {
 
     if (res.ok) {
       overridesCache[currentSection] = { content, edited_by: 'admin', updated_at: new Date().toISOString().slice(0,19).replace('T',' ') };
-
       const tab = document.querySelector('.section-tab[data-section="' + currentSection + '"]');
       if (tab) tab.classList.add('has-override');
-
       loadSection(currentSection);
       showToast('Saved: ' + currentSection);
     } else {
       const err = await res.json();
       showToast('Error: ' + (err.error || 'Unknown'), true);
     }
-  } catch (e) {
-    showToast('Network error', true);
-  }
+  } catch (e) { showToast('Network error', true); }
 
   btn.disabled = false;
   btn.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg> Save Changes';
 }
 
 async function revertSection() {
-  if (!confirm('Revert "' + currentSection + '" to original content from MD file?')) return;
+  if (!confirm('Revert to original content from MD file?')) return;
 
   try {
     const res = await fetch('/api/admin/reviews/' + currentSlug + '/content/' + currentSection + '?key=' + API_KEY + '&lang=' + CURRENT_LANG, {
@@ -797,18 +839,12 @@ async function revertSection() {
 
     if (res.ok) {
       delete overridesCache[currentSection];
-
       const tab = document.querySelector('.section-tab[data-section="' + currentSection + '"]');
       if (tab) tab.classList.remove('has-override');
-
       loadSection(currentSection);
       showToast('Reverted: ' + currentSection);
-    } else {
-      showToast('Error reverting', true);
-    }
-  } catch (e) {
-    showToast('Network error', true);
-  }
+    } else { showToast('Error reverting', true); }
+  } catch (e) { showToast('Network error', true); }
 }
 
 // Close on Escape / overlay click
