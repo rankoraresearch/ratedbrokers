@@ -455,6 +455,85 @@ export async function handleReviewsDashboard(request, env) {
       </div>
     </div>
 
+    <!-- Instructions (collapsible) -->
+    <details style="margin-bottom:20px;background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:14px;overflow:hidden">
+      <summary style="padding:14px 20px;cursor:pointer;font-size:13px;font-weight:700;color:var(--text-secondary);display:flex;align-items:center;gap:8px;user-select:none">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+        Instructions / Expert Guide
+        <span style="font-size:11px;color:var(--text-muted);font-weight:400;margin-left:auto">Click to expand</span>
+      </summary>
+      <div style="padding:0 20px 16px">
+        <div style="display:flex;gap:8px;margin-bottom:10px">
+          <button class="btn-secondary" style="font-size:11px;padding:4px 12px" onclick="copyGuide('en')">Copy EN</button>
+          <button class="btn-secondary" style="font-size:11px;padding:4px 12px" onclick="copyGuide('ru')">Copy RU</button>
+          <button class="btn-secondary" style="font-size:11px;padding:4px 12px" onclick="copyGuide('both')">Copy Both</button>
+        </div>
+        <textarea id="guideEN" style="display:none">## Review Editor — Guide
+
+### Access
+
+Admin access (full control):
+${esc(`https://api.ratedbrokers.com/api/admin/reviews/dashboard?key=YOUR_ADMIN_KEY`)}
+
+Expert access (limited to assigned brokers):
+${esc(`https://api.ratedbrokers.com/api/expert/dashboard?token=YOUR_EXPERT_TOKEN`)}
+
+Expert tokens are created by the admin. Each token can be restricted to specific brokers, set to a specific language, and given an expiration date.
+
+### How to Edit a Review
+
+1. Open the Review Editor using your link
+2. Find the broker — use search or scroll
+3. Click the broker row or Edit button
+4. The editor opens with 15 section tabs: Overview, Scoring, Account Intro, Account Outro, Regulation, Costs, Spreads, Deposits, Platforms, Mobile, Support, Education, Trustpilot, Country, Verdict
+5. Each tab shows the current text from the review
+6. Edit the text. Use double line breaks (Enter twice) to separate paragraphs. Plain text only — no HTML or Markdown.
+7. Click Save Changes — goes live within 5 minutes (CDN cache)
+8. Green dot on a tab = section has been edited (override active)
+9. To undo, click Revert to Original — restores the source text
+
+### Important
+
+- Saving creates an override on top of the original. The original is never lost.
+- Revert to Original removes your edit and restores the source text.
+- All edits are logged with timestamps and editor name.
+- Changes may take up to 5 min to appear on the live site (CDN cache).
+- Empty content = the original review has no text for this section.</textarea>
+        <textarea id="guideRU" style="display:none">## Review Editor — Руководство
+
+### Доступ
+
+Доступ администратора (полный контроль):
+${esc(`https://api.ratedbrokers.com/api/admin/reviews/dashboard?key=ВАШ_КЛЮЧ`)}
+
+Доступ эксперта (только назначенные брокеры):
+${esc(`https://api.ratedbrokers.com/api/expert/dashboard?token=ВАШ_ТОКЕН`)}
+
+Токены создаются администратором. Каждый токен может быть ограничен конкретными брокерами, привязан к языку и иметь срок действия.
+
+### Как редактировать обзор
+
+1. Откройте Review Editor по вашей ссылке
+2. Найдите брокера через поиск или прокруткой
+3. Нажмите на строку или кнопку Edit
+4. Откроется редактор с 15 вкладками: Overview, Scoring, Account Intro, Account Outro, Regulation, Costs, Spreads, Deposits, Platforms, Mobile, Support, Education, Trustpilot, Country, Verdict
+5. Каждая вкладка показывает текущий текст обзора
+6. Отредактируйте текст. Двойной Enter для разделения абзацев. Простой текст — без HTML и Markdown.
+7. Нажмите Save Changes — изменения появятся на сайте в течение 5 минут (кэш CDN)
+8. Зелёная точка на вкладке = секция отредактирована (override активен)
+9. Для отмены нажмите Revert to Original — вернёт оригинальный текст
+
+### Важно
+
+- Сохранение создаёт override поверх оригинала. Оригинал не теряется.
+- Revert to Original удаляет правку и возвращает исходный текст.
+- Все правки логируются с временными метками и именем редактора.
+- Изменения могут появиться на сайте с задержкой до 5 мин (кэш CDN).
+- Пустое содержимое = в оригинальном обзоре нет текста для этой секции.</textarea>
+        <div id="guidePreview" style="background:rgba(0,0,0,0.3);border:1px solid var(--border);border-radius:8px;padding:14px 16px;font-size:12px;line-height:1.7;color:var(--text-secondary);white-space:pre-wrap;max-height:300px;overflow-y:auto;font-family:'SF Mono','Fira Code',monospace"></div>
+      </div>
+    </details>
+
     <!-- Content grid: Brokers + Activity -->
     <div class="content-grid">
       <div>
@@ -735,6 +814,23 @@ async function revertSection() {
 // Close on Escape / overlay click
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeEditor(); });
 document.getElementById('editorOverlay').addEventListener('click', (e) => { if (e.target === e.currentTarget) closeEditor(); });
+
+// Guide copy
+function copyGuide(mode) {
+  const en = document.getElementById('guideEN').value;
+  const ru = document.getElementById('guideRU').value;
+  let text = '';
+  if (mode === 'en') text = en;
+  else if (mode === 'ru') text = ru;
+  else text = en + '\\n\\n---\\n\\n' + ru;
+  navigator.clipboard.writeText(text).then(() => showToast('Copied to clipboard'));
+  document.getElementById('guidePreview').textContent = text;
+}
+// Show EN by default
+document.addEventListener('DOMContentLoaded', () => {
+  const en = document.getElementById('guideEN');
+  if (en) document.getElementById('guidePreview').textContent = en.value;
+});
 
 function showToast(msg, isError) {
   const t = document.createElement('div');
