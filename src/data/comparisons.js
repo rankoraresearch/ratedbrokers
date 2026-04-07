@@ -8,37 +8,130 @@ export function parsePair(pairParam) {
   return [pairParam.slice(0, idx), pairParam.slice(idx + 4)];
 }
 
-/*
- * Manually ordered by estimated search volume.
- * Top pairs first — these get the "Most Popular" badge on /compare.
- */
-export const POPULAR_PAIRS = [
-  // Tier 1 — highest search volume rivalries
-  { slugA: "ic-markets", slugB: "pepperstone" },
-  { slugA: "etoro", slugB: "xtb" },
-  { slugA: "ic-markets", slugB: "xm" },
-  { slugA: "pepperstone", slugB: "xm" },
-  { slugA: "ig", slugB: "pepperstone" },
-  { slugA: "exness", slugB: "ic-markets" },
-  { slugA: "etoro", slugB: "ig" },
-  { slugA: "ic-markets", slugB: "oanda" },
-  { slugA: "etoro", slugB: "pepperstone" },
-  { slugA: "exness", slugB: "xm" },
-  { slugA: "ic-markets", slugB: "ig" },
-  { slugA: "fp-markets", slugB: "ic-markets" },
-  // Tier 1.5 — cross-tier high volume
-  { slugA: "etoro", slugB: "plus500" },
-  { slugA: "ig", slugB: "saxo-bank" },
-  { slugA: "avatrade", slugB: "pepperstone" },
-  { slugA: "fusion-markets", slugB: "ic-markets" },
+/* ── Verticals ─────────────────────────────────────── */
+
+export const VERTICALS = [
+  { key: "all", label: "All Brokers", icon: "layers" },
+  { key: "forex", label: "Forex & CFD", icon: "trending-up" },
+  { key: "stocks", label: "Stocks & ETF", icon: "bar-chart-3" },
+  { key: "options", label: "Options", icon: "target" },
+  { key: "futures", label: "Futures", icon: "activity" },
+  { key: "copy-trading", label: "Copy Trading", icon: "users" },
+  { key: "crypto", label: "Crypto", icon: "bitcoin" },
+  { key: "spread-betting", label: "Spread Betting", icon: "zap" },
 ];
+
+/* ── Popular Pairs by Vertical ─────────────────────── */
+
+export const POPULAR_PAIRS_BY_VERTICAL = {
+  forex: [
+    { slugA: "ic-markets", slugB: "pepperstone" },
+    { slugA: "etoro", slugB: "xtb" },
+    { slugA: "ic-markets", slugB: "xm" },
+    { slugA: "pepperstone", slugB: "xm" },
+    { slugA: "ig", slugB: "pepperstone" },
+    { slugA: "exness", slugB: "ic-markets" },
+    { slugA: "etoro", slugB: "ig" },
+    { slugA: "ic-markets", slugB: "oanda" },
+    { slugA: "etoro", slugB: "pepperstone" },
+    { slugA: "exness", slugB: "xm" },
+    { slugA: "ic-markets", slugB: "ig" },
+    { slugA: "fp-markets", slugB: "ic-markets" },
+    { slugA: "etoro", slugB: "plus500" },
+    { slugA: "ig", slugB: "saxo-bank" },
+    { slugA: "avatrade", slugB: "pepperstone" },
+    { slugA: "fusion-markets", slugB: "ic-markets" },
+  ],
+  stocks: [
+    { slugA: "charles-schwab", slugB: "fidelity" },
+    { slugA: "robinhood", slugB: "webull" },
+    { slugA: "fidelity", slugB: "robinhood" },
+    { slugA: "etrade", slugB: "charles-schwab" },
+    { slugA: "degiro", slugB: "interactive-brokers" },
+    { slugA: "interactive-brokers", slugB: "charles-schwab" },
+    { slugA: "trading-212", slugB: "degiro" },
+    { slugA: "robinhood", slugB: "moomoo" },
+    { slugA: "etoro", slugB: "trading-212" },
+    { slugA: "webull", slugB: "moomoo" },
+    { slugA: "trade-republic", slugB: "degiro" },
+    { slugA: "saxo-bank", slugB: "interactive-brokers" },
+  ],
+  options: [
+    { slugA: "tastytrade", slugB: "robinhood" },
+    { slugA: "tastytrade", slugB: "interactive-brokers" },
+    { slugA: "charles-schwab", slugB: "fidelity" },
+    { slugA: "etrade", slugB: "tastytrade" },
+    { slugA: "robinhood", slugB: "webull" },
+    { slugA: "interactive-brokers", slugB: "charles-schwab" },
+    { slugA: "moomoo", slugB: "webull" },
+    { slugA: "tastytrade", slugB: "tradestation" },
+  ],
+  futures: [
+    { slugA: "ninjatrader", slugB: "tradestation" },
+    { slugA: "amp-futures", slugB: "ninjatrader" },
+    { slugA: "optimus-futures", slugB: "amp-futures" },
+    { slugA: "interactive-brokers", slugB: "ninjatrader" },
+    { slugA: "charles-schwab", slugB: "tradestation" },
+    { slugA: "tastytrade", slugB: "ninjatrader" },
+    { slugA: "ninjatrader", slugB: "optimus-futures" },
+    { slugA: "tradestation", slugB: "interactive-brokers" },
+  ],
+  "copy-trading": [
+    { slugA: "etoro", slugB: "ic-markets" },
+    { slugA: "etoro", slugB: "pepperstone" },
+    { slugA: "etoro", slugB: "avatrade" },
+    { slugA: "ic-markets", slugB: "pepperstone" },
+    { slugA: "fp-markets", slugB: "ic-markets" },
+    { slugA: "exness", slugB: "ic-markets" },
+    { slugA: "axi", slugB: "pepperstone" },
+    { slugA: "etoro", slugB: "naga" },
+  ],
+  crypto: [
+    { slugA: "etoro", slugB: "robinhood" },
+    { slugA: "interactive-brokers", slugB: "etoro" },
+    { slugA: "webull", slugB: "robinhood" },
+    { slugA: "etoro", slugB: "trading-212" },
+    { slugA: "capital-com", slugB: "etoro" },
+    { slugA: "pepperstone", slugB: "ic-markets" },
+    { slugA: "saxo-bank", slugB: "interactive-brokers" },
+    { slugA: "xtb", slugB: "etoro" },
+  ],
+  "spread-betting": [
+    { slugA: "ig", slugB: "pepperstone" },
+    { slugA: "ig", slugB: "cmc-markets" },
+    { slugA: "spreadex", slugB: "ig" },
+    { slugA: "ig", slugB: "saxo-bank" },
+    { slugA: "cmc-markets", slugB: "pepperstone" },
+    { slugA: "capital-com", slugB: "ig" },
+  ],
+};
+
+/* ── Mixed "All" popular pairs (top from each vertical) ── */
+
+export const POPULAR_PAIRS_ALL = [
+  { slugA: "ic-markets", slugB: "pepperstone", vertical: "forex" },
+  { slugA: "etoro", slugB: "xtb", vertical: "forex" },
+  { slugA: "ic-markets", slugB: "xm", vertical: "forex" },
+  { slugA: "charles-schwab", slugB: "fidelity", vertical: "stocks" },
+  { slugA: "robinhood", slugB: "webull", vertical: "stocks" },
+  { slugA: "fidelity", slugB: "robinhood", vertical: "stocks" },
+  { slugA: "tastytrade", slugB: "interactive-brokers", vertical: "options" },
+  { slugA: "ninjatrader", slugB: "tradestation", vertical: "futures" },
+  { slugA: "etoro", slugB: "ic-markets", vertical: "copy-trading" },
+  { slugA: "etoro", slugB: "robinhood", vertical: "crypto" },
+  { slugA: "ig", slugB: "pepperstone", vertical: "spread-betting" },
+  { slugA: "exness", slugB: "ic-markets", vertical: "forex" },
+];
+
+/* ── Legacy exports (backward compatibility) ── */
+
+export const POPULAR_PAIRS = POPULAR_PAIRS_BY_VERTICAL.forex;
 
 const TOP_10 = [
   "capital-com", "etoro", "exness", "fp-markets", "ic-markets",
   "ig", "oanda", "pepperstone", "xm", "xtb",
 ];
 
-// Generate all C(10,2) = 45 top-10 pairs
 const topPairsAll = [];
 for (let i = 0; i < TOP_10.length; i++) {
   for (let j = i + 1; j < TOP_10.length; j++) {
@@ -59,7 +152,6 @@ const CROSS_TIER = [
   { slugA: "admirals", slugB: "xtb" },
 ];
 
-// Deduplicated full list: POPULAR first, then remaining pairs
 const popularKeys = new Set(POPULAR_PAIRS.map(p => canonicalPair(p.slugA, p.slugB)));
 const allRaw = [...topPairsAll, ...CROSS_TIER];
 const remaining = allRaw.filter(p => !popularKeys.has(canonicalPair(p.slugA, p.slugB)));
