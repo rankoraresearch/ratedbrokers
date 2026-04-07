@@ -127,6 +127,10 @@ export const POPULAR_PAIRS_ALL = [
 
 export const POPULAR_PAIRS = POPULAR_PAIRS_BY_VERTICAL.forex;
 
+/* ── ALL_PAIRS: deduplicated union of every vertical ── */
+
+const allVerticalPairs = Object.values(POPULAR_PAIRS_BY_VERTICAL).flat();
+
 const TOP_10 = [
   "capital-com", "etoro", "exness", "fp-markets", "ic-markets",
   "ig", "oanda", "pepperstone", "xm", "xtb",
@@ -152,8 +156,15 @@ const CROSS_TIER = [
   { slugA: "admirals", slugB: "xtb" },
 ];
 
-const popularKeys = new Set(POPULAR_PAIRS.map(p => canonicalPair(p.slugA, p.slugB)));
-const allRaw = [...topPairsAll, ...CROSS_TIER];
-const remaining = allRaw.filter(p => !popularKeys.has(canonicalPair(p.slugA, p.slugB)));
+// Deduplicate: all vertical pairs + forex top-10 combos + cross-tier
+const seenKeys = new Set();
+const deduped = [];
+[...allVerticalPairs, ...topPairsAll, ...CROSS_TIER].forEach(p => {
+  const key = canonicalPair(p.slugA, p.slugB);
+  if (!seenKeys.has(key)) {
+    seenKeys.add(key);
+    deduped.push(p);
+  }
+});
 
-export const FEATURED_PAIRS = [...POPULAR_PAIRS, ...remaining];
+export const FEATURED_PAIRS = deduped;

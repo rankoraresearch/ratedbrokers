@@ -19,7 +19,7 @@ import Icon, { ArrowRight, Check, ChevronDown } from "../components/Icon";
 import { Trophy, Handshake } from "lucide-react";
 import { getVisitUrl } from "../utils/visitUrl";
 import {
-  getComparisonVertical, isForexPair, isStockPair, isOptionsPair, isFuturesPair,
+  getComparisonVertical, isForexPair, isStockPair, isOptionsPair, isFuturesPair, isGenericPair,
   BREADCRUMB_MAP, getCTAText, getCTATextShort,
 } from "../utils/comparisonVertical";
 
@@ -263,13 +263,26 @@ export default function BrokerComparison() {
   const instrB = parseNum(B.instruments);
   const quickDecisions = [];
 
-  // Cost
+  // Cost — compare both brokers
   if (isForex && hasForexCosts) {
     quickDecisions.push({ need: "Lowest Trading Cost", pick: totalA <= totalB ? A.name : B.name, reason: `$${Math.min(totalA, totalB).toFixed(2)}/lot EUR/USD` });
   } else if (isStock) {
-    quickDecisions.push({ need: "Lowest Trading Cost", pick: A.name, reason: `${A.commission_per_trade || A.commission || "$0"} per trade` });
+    const feeA = A.commission_per_trade || A.commission || "$0";
+    const feeB = B.commission_per_trade || B.commission || "$0";
+    const bothZero = feeA === "$0" && feeB === "$0";
+    quickDecisions.push({ need: "Lowest Trading Cost", pick: bothZero ? "Both" : (feeA === "$0" ? A.name : feeB === "$0" ? B.name : A.name), reason: bothZero ? "$0 commissions — both" : `${feeA === "$0" ? feeA : feeB} per trade` });
+  } else if (isOptionsPair(vertical)) {
+    const feeA = A.options_contract_fee || A.commission || "N/A";
+    const feeB = B.options_contract_fee || B.commission || "N/A";
+    quickDecisions.push({ need: "Lowest Options Cost", pick: feeA === feeB ? "Both" : A.name, reason: `${feeA} per contract` });
+  } else if (isFuturesPair(vertical)) {
+    const feeA = A.futures_commission || A.commission || "N/A";
+    const feeB = B.futures_commission || B.commission || "N/A";
+    quickDecisions.push({ need: "Lowest Futures Cost", pick: feeA === feeB ? "Both" : A.name, reason: `${feeA} per contract` });
   } else {
-    quickDecisions.push({ need: "Lowest Trading Cost", pick: A.name, reason: `${A.commission || "Competitive fees"}` });
+    const feeA = A.commission || "N/A";
+    const feeB = B.commission || "N/A";
+    quickDecisions.push({ need: "Lowest Trading Cost", pick: feeA === feeB ? "Both" : A.name, reason: `${feeA}` });
   }
 
   // Beginners
@@ -912,7 +925,9 @@ export default function BrokerComparison() {
               color: "#fbbf24", fontWeight: 800, fontSize: mob ? 14 : 16, textDecoration: "none",
             }}><span style={{ display: "inline-flex", alignItems: "center", gap: 5 }}>{ctaB} <ArrowRight size={15} /></span></a>
           </div>
-          <div style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", marginTop: 16 }}>CFDs are complex instruments. Between 62% and 82% of retail accounts lose money trading CFDs.</div>
+          {(isForex || vertical === "spread-betting") && (
+            <div style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", marginTop: 16 }}>CFDs are complex instruments. Between 62% and 82% of retail accounts lose money trading CFDs.</div>
+          )}
         </div>
       </section>
 
