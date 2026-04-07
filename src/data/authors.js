@@ -1,4 +1,20 @@
 export const AUTHORS = {
+  "yegor-barakovskiy": {
+    id: "yegor-barakovskiy",
+    name: "Yegor Barakovskiy",
+    role: "Founder & Editor-in-Chief",
+    initials: "YB",
+    exp: "10+ years",
+    linkedin: "https://linkedin.com/in/yegorbarakovskiy",
+    image: "/authors/yegor-barakovskiy.webp",
+    credentials: [],
+    verified: true,
+    isFounder: true,
+    bio: "Yegor Barakovskiy is the founder and editor-in-chief of RatedBrokers. With over 10 years of experience in forex and equities trading, he built the platform to provide independent, data-driven broker reviews. Yegor personally oversees the editorial methodology, ensuring every ranking is based on real testing with real money — never influenced by advertising.",
+    shortBio: "Founder of RatedBrokers. 10+ years in forex & equities. Built the platform for independent, data-driven broker research.",
+    specialty: "Editorial Strategy, Broker Research Methodology",
+    reviews: 0,
+  },
   "marcus-chen": {
     id: "marcus-chen",
     name: "Marcus Chen",
