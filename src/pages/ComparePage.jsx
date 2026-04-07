@@ -365,10 +365,12 @@ export default function ComparePage() {
       {/* ── ALL COMPARISONS (Accordion by broker) ── */}
       <section style={{ ...cn, marginBottom: 48 }}>
         <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 28, marginBottom: 6, textAlign: "center" }}>
-          All Broker Comparisons
+          {activeVertical === "all" ? "All Broker Comparisons" : `${VERTICALS.find(v => v.key === activeVertical)?.label || ""} Comparisons`}
         </h2>
         <p style={{ fontSize: 15, color: "#6b7280", textAlign: "center", marginBottom: 24 }}>
-          Browse all available side-by-side comparisons, grouped by broker.
+          {activeVertical === "all"
+            ? "Browse all available side-by-side comparisons, grouped by broker."
+            : `Browse ${VERTICALS.find(v => v.key === activeVertical)?.label || ""} comparisons, grouped by broker.`}
         </p>
 
         <div style={{ display: "grid", gap: 8, maxWidth: 900, margin: "0 auto" }}>

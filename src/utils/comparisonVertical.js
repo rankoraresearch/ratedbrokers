@@ -1,7 +1,16 @@
-// Priority: specific verticals first, then broad ones
-const VERTICAL_PRIORITY = ['options', 'futures', 'spread-betting', 'copy-trading', 'crypto', 'stocks', 'forex', 'cfd'];
+// Fallback priority when no curated vertical is available
+const VERTICAL_PRIORITY = ['stocks', 'options', 'futures', 'spread-betting', 'copy-trading', 'crypto', 'forex', 'cfd'];
 
-export function getComparisonVertical(brokerA, brokerB) {
+/**
+ * Determine the comparison vertical for a broker pair.
+ * @param {object} brokerA - broker data with .verticals array
+ * @param {object} brokerB - broker data with .verticals array
+ * @param {string} [hintVertical] - explicit vertical from curated pair data (takes priority)
+ */
+export function getComparisonVertical(brokerA, brokerB, hintVertical) {
+  // If a curated vertical hint is provided, use it directly
+  if (hintVertical && hintVertical !== "all") return hintVertical;
+
   const vA = brokerA.verticals || ['forex'];
   const vB = brokerB.verticals || ['forex'];
   const shared = VERTICAL_PRIORITY.filter(v => vA.includes(v) && vB.includes(v));

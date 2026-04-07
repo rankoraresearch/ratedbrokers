@@ -4,7 +4,7 @@ import { useTranslation } from "../i18n/LanguageContext";
 import { useLocalePath } from "../i18n/useLocalePath";
 import { useMedia } from "../hooks/useMedia";
 import { getBrokerData } from "../data/brokers";
-import { parsePair, canonicalPair, FEATURED_PAIRS } from "../data/comparisons";
+import { parsePair, canonicalPair, FEATURED_PAIRS, POPULAR_PAIRS_BY_VERTICAL } from "../data/comparisons";
 import { AUTHORS } from "../data/authors";
 import RegBadge from "../components/RegBadge";
 import Stars from "../components/Stars";
@@ -19,7 +19,7 @@ import Icon, { ArrowRight, Check, ChevronDown } from "../components/Icon";
 import { Trophy, Handshake } from "lucide-react";
 import { getVisitUrl } from "../utils/visitUrl";
 import {
-  getComparisonVertical, isForexPair, isStockPair, isOptionsPair, isFuturesPair, isGenericPair,
+  getComparisonVertical, isForexPair, isStockPair, isOptionsPair, isFuturesPair,
   BREADCRUMB_MAP, getCTAText, getCTATextShort,
 } from "../utils/comparisonVertical";
 
@@ -89,7 +89,15 @@ export default function BrokerComparison() {
 
   const A = dataA.B;
   const B = dataB.B;
-  const vertical = getComparisonVertical(A, B);
+
+  // Look up curated vertical hint from pair data
+  const hintVertical = (() => {
+    for (const [vert, pairs] of Object.entries(POPULAR_PAIRS_BY_VERTICAL)) {
+      if (pairs.some(p => canonicalPair(p.slugA, p.slugB) === canonical)) return vert;
+    }
+    return undefined;
+  })();
+  const vertical = getComparisonVertical(A, B, hintVertical);
   const isForex = isForexPair(vertical);
   const isStock = isStockPair(vertical);
   const author = AUTHORS["marcus-chen"];
@@ -142,11 +150,11 @@ export default function BrokerComparison() {
     if (isForex && broker.avgSpread && broker.avgSpread !== "N/A") {
       costInfo = `${broker.avgSpread} pip EUR/USD spread`;
     } else if (isStock) {
-      costInfo = `${broker.commission_per_trade || broker.commission || "$0"} stock trades${broker.fractional_shares ? ", fractional shares" : ""}`;
+      costInfo = `${broker.commissionPerTrade || broker.commission || "$0"} stock trades${broker.fractionalShares ? ", fractional shares" : ""}`;
     } else if (isOptionsPair(vertical)) {
-      costInfo = `${broker.options_contract_fee || broker.commission} per options contract`;
+      costInfo = `${broker.optionsContractFee || broker.commission} per options contract`;
     } else if (isFuturesPair(vertical)) {
-      costInfo = `${broker.futures_commission || broker.commission} per futures contract`;
+      costInfo = `${broker.futuresCommission || broker.commission} per futures contract`;
     } else {
       costInfo = `competitive fees`;
     }
@@ -166,7 +174,7 @@ export default function BrokerComparison() {
     if (isForex) {
       comparison = `We compare spreads from ${A.avgSpread} vs ${B.avgSpread} pips, ${tier1A + tier1B} combined Tier-1 licenses, and ${uniquePlatforms} unique platforms.`;
     } else if (isStock) {
-      comparison = `We compare commissions, ${A.fractional_shares && B.fractional_shares ? "fractional shares, " : ""}${tier1A + tier1B} combined Tier-1 licenses, and ${uniquePlatforms} unique platforms.`;
+      comparison = `We compare commissions, ${A.fractionalShares && B.fractionalShares ? "fractional shares, " : ""}${tier1A + tier1B} combined Tier-1 licenses, and ${uniquePlatforms} unique platforms.`;
     } else if (isOptionsPair(vertical)) {
       comparison = `We compare per-contract fees, platform capabilities, and ${tier1A + tier1B} combined Tier-1 licenses.`;
     } else if (isFuturesPair(vertical)) {
@@ -200,7 +208,7 @@ export default function BrokerComparison() {
   } else if (isStock) {
     autoFAQ.push({
       q: `Which has lower commissions, ${A.name} or ${B.name}?`,
-      a: `${A.name} charges ${A.commission_per_trade || A.commission || "$0"} per stock/ETF trade. ${B.name} charges ${B.commission_per_trade || B.commission || "$0"} per stock/ETF trade.${(A.commission_per_trade === "$0" || A.commission === "$0") && (B.commission_per_trade === "$0" || B.commission === "$0") ? " Both offer commission-free stock and ETF trading." : ""}`,
+      a: `${A.name} charges ${A.commissionPerTrade || A.commission || "$0"} per stock/ETF trade. ${B.name} charges ${B.commissionPerTrade || B.commission || "$0"} per stock/ETF trade.${(A.commissionPerTrade === "$0" || A.commission === "$0") && (B.commissionPerTrade === "$0" || B.commission === "$0") ? " Both offer commission-free stock and ETF trading." : ""}`,
     });
   } else {
     autoFAQ.push({
@@ -230,10 +238,10 @@ export default function BrokerComparison() {
       q: `Which offers better value for investors?`,
       a: (() => {
         const pts = [];
-        if (A.fractional_shares) pts.push(`${A.name} offers fractional shares`);
-        if (B.fractional_shares) pts.push(`${B.name} offers fractional shares`);
-        if (A.dividend_reinvestment) pts.push(`${A.name} has automatic DRIP`);
-        if (B.dividend_reinvestment) pts.push(`${B.name} has automatic DRIP`);
+        if (A.fractionalShares) pts.push(`${A.name} offers fractional shares`);
+        if (B.fractionalShares) pts.push(`${B.name} offers fractional shares`);
+        if (A.dividendReinvestment) pts.push(`${A.name} has automatic DRIP`);
+        if (B.dividendReinvestment) pts.push(`${B.name} has automatic DRIP`);
         return pts.length > 0 ? pts.join(". ") + ". Compare tools and research capabilities above." : "Both offer competitive pricing. Compare tools and research capabilities above.";
       })(),
     });
@@ -281,18 +289,18 @@ export default function BrokerComparison() {
   if (isForex && hasForexCosts) {
     quickDecisions.push({ need: "Lowest Trading Cost", pick: totalA <= totalB ? A.name : B.name, reason: `$${Math.min(totalA, totalB).toFixed(2)}/lot EUR/USD` });
   } else if (isStock) {
-    const feeA = A.commission_per_trade || A.commission || "$0";
-    const feeB = B.commission_per_trade || B.commission || "$0";
+    const feeA = A.commissionPerTrade || A.commission || "$0";
+    const feeB = B.commissionPerTrade || B.commission || "$0";
     const { pick, reason } = pickCheaper(feeA, feeB, "per trade");
     quickDecisions.push({ need: "Lowest Trading Cost", pick, reason });
   } else if (isOptionsPair(vertical)) {
-    const feeA = A.options_contract_fee || A.commission || "N/A";
-    const feeB = B.options_contract_fee || B.commission || "N/A";
+    const feeA = A.optionsContractFee || A.commission || "N/A";
+    const feeB = B.optionsContractFee || B.commission || "N/A";
     const { pick, reason } = pickCheaper(feeA, feeB, "per contract");
     quickDecisions.push({ need: "Lowest Options Cost", pick, reason });
   } else if (isFuturesPair(vertical)) {
-    const feeA = A.futures_commission || A.commission || "N/A";
-    const feeB = B.futures_commission || B.commission || "N/A";
+    const feeA = A.futuresCommission || A.commission || "N/A";
+    const feeB = B.futuresCommission || B.commission || "N/A";
     const { pick, reason } = pickCheaper(feeA, feeB, "per contract");
     quickDecisions.push({ need: "Lowest Futures Cost", pick, reason });
   } else {
@@ -337,25 +345,25 @@ export default function BrokerComparison() {
     );
   } else if (isStock) {
     featureRows.push(
-      ["Commission per Trade", A.commission_per_trade || A.commission, B.commission_per_trade || B.commission],
-      ["Fractional Shares", A.fractional_shares ? "Yes" : "No", B.fractional_shares ? "Yes" : "No"],
-      ["Real Stocks (not CFD)", A.real_stocks ? "Yes" : "No", B.real_stocks ? "Yes" : "No"],
-      ["Dividend Reinvestment", A.dividend_reinvestment ? "Yes" : "No", B.dividend_reinvestment ? "Yes" : "No"],
-      ["Extended Hours", A.extended_hours ? "Yes" : "No", B.extended_hours ? "Yes" : "No"],
-      ["IPO Access", A.ipo_access ? "Yes" : "No", B.ipo_access ? "Yes" : "No"],
+      ["Commission per Trade", A.commissionPerTrade || A.commission, B.commissionPerTrade || B.commission],
+      ["Fractional Shares", A.fractionalShares ? "Yes" : "No", B.fractionalShares ? "Yes" : "No"],
+      ["Real Stocks (not CFD)", A.realStocks ? "Yes" : "No", B.realStocks ? "Yes" : "No"],
+      ["Dividend Reinvestment", A.dividendReinvestment ? "Yes" : "No", B.dividendReinvestment ? "Yes" : "No"],
+      ["Extended Hours", A.extendedHours ? "Yes" : "No", B.extendedHours ? "Yes" : "No"],
+      ["IPO Access", A.ipoAccess ? "Yes" : "No", B.ipoAccess ? "Yes" : "No"],
       ["Available Assets", A.instruments, B.instruments],
     );
   } else if (isOptionsPair(vertical)) {
     featureRows.push(
-      ["Per Contract Fee", A.options_contract_fee || "N/A", B.options_contract_fee || "N/A"],
-      ["Multi-Leg Orders", A.multi_leg_orders ? "Yes" : "No", B.multi_leg_orders ? "Yes" : "No"],
-      ["Paper Trading", A.paper_trading ? "Yes" : "No", B.paper_trading ? "Yes" : "No"],
+      ["Per Contract Fee", A.optionsContractFee || "N/A", B.optionsContractFee || "N/A"],
+      ["Multi-Leg Orders", A.multiLegOrders ? "Yes" : "No", B.multiLegOrders ? "Yes" : "No"],
+      ["Paper Trading", A.paperTrading ? "Yes" : "No", B.paperTrading ? "Yes" : "No"],
       [t("comp.feat.instruments"), A.instruments, B.instruments],
     );
   } else if (isFuturesPair(vertical)) {
     featureRows.push(
-      ["Commission/Contract", A.futures_commission || "N/A", B.futures_commission || "N/A"],
-      ["Micro Futures", A.micro_futures ? "Yes" : "No", B.micro_futures ? "Yes" : "No"],
+      ["Commission/Contract", A.futuresCommission || "N/A", B.futuresCommission || "N/A"],
+      ["Micro Futures", A.microFutures ? "Yes" : "No", B.microFutures ? "Yes" : "No"],
       [t("comp.feat.instruments"), A.instruments, B.instruments],
     );
   } else {
@@ -421,7 +429,7 @@ export default function BrokerComparison() {
   const ctaA = getCTAText(A.name, vertical);
   const ctaB = getCTAText(B.name, vertical);
   const ctaShort = getCTATextShort(vertical);
-  const bothZeroComm = isStock && parseFee(A.commission_per_trade || A.commission) === 0 && parseFee(B.commission_per_trade || B.commission) === 0;
+  const bothZeroComm = isStock && parseFee(A.commissionPerTrade || A.commission) === 0 && parseFee(B.commissionPerTrade || B.commission) === 0;
   const midCTA = isForex ? "Both brokers offer demo accounts — test risk-free." : isStock ? (bothZeroComm ? "Both brokers offer $0 commission trading — open an account in minutes." : "Compare commissions, platforms, and features — open an account in minutes.") : "Compare both platforms — open demo accounts to test.";
 
   /* =================== RENDER =================== */
@@ -696,16 +704,16 @@ export default function BrokerComparison() {
                 {(() => {
                   const rows = [];
                   if (isStock) {
-                    rows.push(["Stock/ETF Trade", A.commission_per_trade || A.commission || "$0", B.commission_per_trade || B.commission || "$0"]);
-                    rows.push(["Options (per contract)", A.options_contract_fee || "N/A", B.options_contract_fee || "N/A"]);
+                    rows.push(["Stock/ETF Trade", A.commissionPerTrade || A.commission || "$0", B.commissionPerTrade || B.commission || "$0"]);
+                    rows.push(["Options (per contract)", A.optionsContractFee || "N/A", B.optionsContractFee || "N/A"]);
                     rows.push(["Margin Rate", A.leverage || "N/A", B.leverage || "N/A"]);
                     rows.push(["Account Minimum", A.minDep === 0 ? "$0" : `$${A.minDep}`, B.minDep === 0 ? "$0" : `$${B.minDep}`]);
                   } else if (isOptionsPair(vertical)) {
-                    rows.push(["Per Contract Fee", A.options_contract_fee || "N/A", B.options_contract_fee || "N/A"]);
-                    rows.push(["Base Commission", A.commission_per_trade || A.commission, B.commission_per_trade || B.commission]);
+                    rows.push(["Per Contract Fee", A.optionsContractFee || "N/A", B.optionsContractFee || "N/A"]);
+                    rows.push(["Base Commission", A.commissionPerTrade || A.commission, B.commissionPerTrade || B.commission]);
                     rows.push(["Account Minimum", A.minDep === 0 ? "$0" : `$${A.minDep}`, B.minDep === 0 ? "$0" : `$${B.minDep}`]);
                   } else if (isFuturesPair(vertical)) {
-                    rows.push(["Commission/Contract", A.futures_commission || "N/A", B.futures_commission || "N/A"]);
+                    rows.push(["Commission/Contract", A.futuresCommission || "N/A", B.futuresCommission || "N/A"]);
                     rows.push(["Account Minimum", A.minDep === 0 ? "$0" : `$${A.minDep}`, B.minDep === 0 ? "$0" : `$${B.minDep}`]);
                   } else {
                     rows.push(["Trading Commission", A.commission, B.commission]);
