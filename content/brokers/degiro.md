@@ -156,6 +156,12 @@ similar:
     type: Discount
     why: "$0 commissions, fractional shares, ISA"
     slug: trading-212
+  - name: Robinhood
+    score: 8.0
+    spread: "$0"
+    type: Discount
+    why: "$0 commissions, crypto trading, simpler mobile UX"
+    slug: robinhood
 
 faq:
   - q: "Is DEGIRO available in the UK?"

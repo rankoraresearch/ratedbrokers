@@ -144,6 +144,12 @@ similar:
     type: Multi-Asset
     why: "Stocks+options+futures, EasyLanguage automation"
     slug: tradestation
+  - name: Optimus Futures
+    score: 7.8
+    spread: "N/A"
+    type: Independent Futures
+    why: "50+ platforms, Optimus Flow charting, responsive support"
+    slug: optimus-futures
 
 faq:
   - q: "What are NinjaTrader's day trade margins?"

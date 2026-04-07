@@ -31,7 +31,7 @@ regulations:
   - name: CMVM
     country: Portugal
     number: "378/20"
-    tier: 2
+    tier: 1
 
 type: STP / Market Maker
 min_deposit: 0
@@ -55,7 +55,7 @@ scores:
   - name: "Regulation & Safety"
     score: 9.6
     weight: 25
-    detail: "2 Tier-1 (FCA + CSSF Luxembourg) + Tier-2 (CMVM Portugal) + Tier-3 (SCB Bahamas). Base 9.5 for 2+ Tier-1. +0.1 segregated funds with £1M insurance. 25+ years of clean operation."
+    detail: "3 Tier-1 (FCA + CSSF Luxembourg + CMVM Portugal) + Tier-3 (SCB Bahamas). Base 9.5 for 2+ Tier-1. +0.1 segregated funds with £1M insurance. 25+ years of clean operation."
   - name: Trading Costs
     score: 9.4
     weight: 20
@@ -276,7 +276,7 @@ subpages:
       - "Dual Tier-1 regulation — FCA (UK) and CSSF (Luxembourg) provide strong European oversight"
       - "Free £1,000,000 insurance per client via Lloyd's of London — 12x the standard FSCS £85,000 limit"
       - "25+ years of continuous FCA-regulated operation with no major regulatory sanctions"
-      - "CMVM Portugal (Tier-2) adds additional EU passporting coverage"
+      - "CMVM Portugal (Tier-1) adds additional EU passporting coverage"
     cons:
       - "SCB Bahamas entity (Tier-3) for non-EU/UK clients offers significantly weaker protection"
       - "Not publicly listed — less financial transparency than LSE or NASDAQ-listed brokers like IG or CMC Markets"

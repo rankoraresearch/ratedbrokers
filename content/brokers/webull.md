@@ -162,6 +162,12 @@ similar:
     type: Discount
     why: "Similar charting, multi-market access (Asia)"
     slug: moomoo
+  - name: DEGIRO
+    score: 8.5
+    spread: "€1"
+    type: Discount
+    why: "50+ exchanges, European markets, low flat-fee structure"
+    slug: degiro
 
 faq:
   - q: "Is Webull safe to use?"

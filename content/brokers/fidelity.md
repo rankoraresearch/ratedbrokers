@@ -154,6 +154,12 @@ similar:
     type: Discount
     why: "Simpler UX, $0 options contracts, crypto trading"
     slug: robinhood
+  - name: E*TRADE
+    score: 8.5
+    spread: "$0"
+    type: Full-Service
+    why: "Power E*TRADE for options, managed portfolios, strong mobile app"
+    slug: etrade
 
 faq:
   - q: "Is Fidelity good for beginners?"

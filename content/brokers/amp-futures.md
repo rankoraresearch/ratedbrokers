@@ -146,6 +146,12 @@ similar:
     type: Independent Futures
     why: "Better support, proprietary Optimus Flow, higher min deposit"
     slug: optimus-futures
+  - name: TradeStation
+    score: 8.4
+    spread: "$0"
+    type: Multi-Asset
+    why: "Stocks+options+futures, EasyLanguage automation, broader asset classes"
+    slug: tradestation
 
 faq:
   - q: "What is AMP Futures' minimum deposit?"

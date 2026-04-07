@@ -158,6 +158,12 @@ similar:
     type: Full-Service
     why: "150+ exchanges, advanced tools, professional-grade"
     slug: interactive-brokers
+  - name: Webull
+    score: 7.8
+    spread: "$0"
+    type: Discount
+    why: "Advanced charting, extended hours trading, paper trading"
+    slug: webull
 
 faq:
   - q: "Is Robinhood safe?"

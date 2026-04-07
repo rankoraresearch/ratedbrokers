@@ -155,6 +155,12 @@ similar:
     type: Full-Service
     why: "7K+ fractional shares, zero-fee index funds, better research"
     slug: fidelity
+  - name: Interactive Brokers
+    score: 9.1
+    spread: "$0.005/share"
+    type: ECN / DMA
+    why: "150+ exchanges, lowest margin rates, professional-grade tools"
+    slug: interactive-brokers
 
 faq:
   - q: "Is E*TRADE owned by Morgan Stanley?"

@@ -166,6 +166,12 @@ similar:
     type: Futures FCM
     why: "Lower futures costs, SuperDOM, futures-only focus"
     slug: ninjatrader
+  - name: Interactive Brokers
+    score: 9.1
+    spread: "$0.005/share"
+    type: ECN / DMA
+    why: "150+ exchanges, lowest margin rates, global multi-asset access"
+    slug: interactive-brokers
 
 faq:
   - q: "What is EasyLanguage?"

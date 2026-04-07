@@ -159,6 +159,12 @@ similar:
     type: Full-Service
     why: "150+ exchanges, professional-grade, lower options fees at volume"
     slug: interactive-brokers
+  - name: E*TRADE
+    score: 8.5
+    spread: "$0"
+    type: Full-Service
+    why: "Power E*TRADE options platform, broader product range, managed accounts"
+    slug: etrade
 
 faq:
   - q: "How much does tastytrade charge for options?"

@@ -144,6 +144,12 @@ similar:
     type: Futures FCM
     why: "SuperDOM, C# automation, $0 min deposit"
     slug: ninjatrader
+  - name: TradeStation
+    score: 8.4
+    spread: "$0"
+    type: Multi-Asset
+    why: "Stocks+options+futures, EasyLanguage automation, regulated FCM"
+    slug: tradestation
 
 faq:
   - q: "What makes Optimus Futures different?"

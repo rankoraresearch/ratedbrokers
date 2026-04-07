@@ -145,6 +145,12 @@ similar:
     type: Discount
     why: "$0 commissions, ISA available, fractional shares"
     slug: trading-212
+  - name: eToro
+    score: 8.5
+    spread: "$0"
+    type: Social Trading
+    why: "Copy trading, crypto, wider market access, social features"
+    slug: etoro
 
 faq:
   - q: "Is Trade Republic available in the UK?"

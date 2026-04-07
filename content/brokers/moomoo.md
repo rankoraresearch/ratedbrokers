@@ -160,6 +160,12 @@ similar:
     type: Full-Service
     why: "150+ exchanges, professional-grade, better execution"
     slug: interactive-brokers
+  - name: Robinhood
+    score: 8.0
+    spread: "$0"
+    type: Discount
+    why: "$0 commissions, simpler UX, crypto included, IRA match"
+    slug: robinhood
 
 faq:
   - q: "Is Moomoo safe?"
