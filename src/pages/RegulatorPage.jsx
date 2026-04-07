@@ -139,8 +139,19 @@ export default function RegulatorPage() {
         </div>
       </HeroBand>
 
+      {/* Author Credits — top, after hero */}
+      <div style={{ ...cn, paddingTop: mob ? 12 : 16 }}>
+        <AuthorCredits
+          author={TEAM.writer}
+          editor={TEAM.editor}
+          factChecker={TEAM.factChecker}
+          reviewer={TEAM.reviewer}
+          updatedDate="April 2026"
+        />
+      </div>
+
       {/* Main Layout */}
-      <div style={{ ...cn, display: mob ? "flex" : "grid", flexDirection: "column", gridTemplateColumns: mob ? "1fr" : "1fr 300px", gap: mob ? 16 : 28, paddingTop: mob ? 20 : 28, paddingBottom: mob ? 40 : 64 }}>
+      <div style={{ ...cn, display: mob ? "flex" : "grid", flexDirection: "column", gridTemplateColumns: mob ? "1fr" : "1fr 300px", gap: mob ? 16 : 28, paddingTop: mob ? 16 : 24, paddingBottom: mob ? 40 : 64 }}>
         {/* Main content */}
         <main>
           {/* Overview */}
@@ -251,16 +262,6 @@ export default function RegulatorPage() {
             </div>
           ))}
 
-          {/* Author Credits */}
-          <div style={{ marginTop: 32, paddingTop: 20, borderTop: "1px solid #e8ecf1" }}>
-            <AuthorCredits
-              author={TEAM.writer}
-              editor={TEAM.editor}
-              factChecker={TEAM.factChecker}
-              reviewer={TEAM.reviewer}
-              updatedDate="March 2026"
-            />
-          </div>
         </main>
 
         {/* Sidebar - Key Facts */}

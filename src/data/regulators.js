@@ -1,5 +1,5 @@
 // ============================
-// REGULATOR DATA — 24 regulators
+// REGULATOR DATA — 30 regulators
 // ============================
 export const REGULATORS = [
   {
@@ -831,6 +831,218 @@ export const REGULATORS = [
     history: "Established in 1989 under the Securities and Futures Commission Ordinance. The SFC has built a reputation as one of Asia's strictest and most effective financial regulators.",
     faq: [
       { q: "Is SFC a Tier-1 regulator?", a: "Yes. The SFC is one of the top financial regulators in Asia, with strict licensing requirements and active enforcement." },
+    ],
+  },
+  // ── NEW: 6 additional regulators (April 2026) ──
+  {
+    slug: "cssf",
+    name: "CSSF",
+    fullName: "Commission de Surveillance du Secteur Financier",
+    country: "Luxembourg",
+    code: "LU",
+    tier: 1,
+    established: 1998,
+    website: "https://www.cssf.lu",
+    licenseCheck: "https://www.cssf.lu/en/financial-sector/",
+    investorProtection: "SIIL — €20,000 per investor (securities), €100,000 per depositor (deposits)",
+    leverageLimit: "1:30 (retail, MiFID II / ESMA)",
+    supervisedFirms: "~3,000 entities",
+    overview: [
+      "The Commission de Surveillance du Secteur Financier (CSSF) is Luxembourg's financial regulator, supervising banks, investment firms, pension funds, and the world's second-largest fund domicile after the United States. Luxembourg is home to more than €5 trillion in fund assets, making the CSSF one of Europe's most important supervisory authorities.",
+      "As a full EU member state, Luxembourg applies MiFID II, MiFIR, and ESMA guidelines. The CSSF enforces all EU-wide investor protections including negative balance protection, leverage caps of 1:30 for retail, and mandatory client fund segregation.",
+      "The CSSF is particularly significant for brokers seeking a pan-European license via the EU passporting framework. A CSSF-regulated firm can offer services across all 27 EU member states and the EEA without requiring additional national licenses."
+    ],
+    requirements: [
+      "Authorization as investment firm under Luxembourg Law of 5 April 1993",
+      "Minimum initial capital of €125,000 (agency broker) to €730,000 (dealing on own account)",
+      "Client funds held in segregated accounts at approved credit institutions",
+      "Compliance with MiFID II conduct of business rules and best execution obligations",
+      "Negative balance protection for all retail clients (ESMA requirement)",
+      "Maximum leverage 1:30 for major forex pairs (retail)",
+      "Mandatory membership in Système d'Indemnisation des Investisseurs Luxembourg (SIIL)",
+      "Annual audit, regulatory reporting, and anti-money laundering compliance (AML/CFT)"
+    ],
+    history: "The CSSF was established on 1 January 1998, replacing the Institut Monétaire Luxembourgeois in its role as financial sector supervisor. Luxembourg's strategic position as a hub for cross-border fund management and banking has made the CSSF a key regulator in the European financial ecosystem. The CSSF has been an active adopter of ESMA directives and has consistently ranked among the most efficient EU regulators for licensing turnaround times.",
+    faq: [
+      { q: "Is CSSF a Tier-1 regulator?", a: "Yes. The CSSF is a Tier-1 EU regulator under MiFID II. Luxembourg is a founding EU member state, and the CSSF applies the full suite of European investor protections including €20,000 securities compensation and mandatory negative balance protection." },
+      { q: "Can CSSF-regulated brokers operate across Europe?", a: "Yes. Through the EU passporting framework, a CSSF-regulated firm can offer services in all EU/EEA countries without requiring additional national licenses. This makes Luxembourg a popular domicile for brokers targeting the entire European market." },
+      { q: "How do I verify a CSSF-regulated broker?", a: "Visit the CSSF website at cssf.lu and search the supervised entities register. You can verify the firm's authorization status, permitted activities, and any sanctions or warnings." },
+      { q: "What investor protection does CSSF provide?", a: "The Système d'Indemnisation des Investisseurs Luxembourg (SIIL) protects investors up to €20,000 for securities claims. Deposits are separately protected up to €100,000 under the Luxembourg deposit guarantee scheme (FGDL)." }
+    ],
+  },
+  {
+    slug: "iiroc",
+    name: "IIROC",
+    fullName: "Investment Industry Regulatory Organization of Canada",
+    country: "Canada",
+    code: "CA",
+    tier: 1,
+    established: 2008,
+    website: "https://www.ciro.ca",
+    licenseCheck: "https://www.ciro.ca/investors/check-registration",
+    investorProtection: "CIPF — C$1,000,000 per account category",
+    leverageLimit: "No statutory retail cap (broker-set, typically 1:50)",
+    supervisedFirms: "~170 dealer members",
+    overview: [
+      "The Investment Industry Regulatory Organization of Canada (IIROC) is Canada's national self-regulatory organization that oversees all investment dealers and trading activity on Canadian debt and equity markets. In 2023, IIROC merged with the Mutual Fund Dealers Association (MFDA) to form the Canadian Investment Regulatory Organization (CIRO).",
+      "IIROC/CIRO-regulated brokers are among the most heavily supervised in the world. Canadian investor protection through the Canadian Investor Protection Fund (CIPF) offers coverage up to C$1,000,000 per account category — one of the highest compensation limits globally.",
+      "Canada's regulatory framework is unique in that securities regulation is provincial, not federal. However, IIROC/CIRO provides national-level oversight, and brokers must also be registered with the relevant provincial securities commission (e.g., OSC in Ontario, AMF in Quebec)."
+    ],
+    requirements: [
+      "CIRO (formerly IIROC) membership and registration as investment dealer",
+      "Registration with relevant provincial securities commission(s)",
+      "Minimum capital requirements based on risk-adjusted calculations",
+      "Client funds held in segregated trust accounts at Canadian Schedule I banks",
+      "Mandatory membership in Canadian Investor Protection Fund (CIPF)",
+      "Know Your Client (KYC) and suitability obligations",
+      "Comprehensive compliance and supervision procedures",
+      "Annual financial filings and regulatory audits"
+    ],
+    history: "IIROC was created in 2008 through the merger of the Investment Dealers Association of Canada (IDA) and Market Regulation Services Inc. (RS Inc.). In 2023, IIROC merged with the MFDA to form CIRO, creating a single national self-regulatory organization for investment dealers and mutual fund dealers. Despite the name change, 'IIROC' remains widely used in the industry.",
+    faq: [
+      { q: "Is IIROC the same as CIRO?", a: "Yes. In January 2023, IIROC merged with the MFDA to form the Canadian Investment Regulatory Organization (CIRO). CIRO is the new name, but many brokers still reference IIROC. Both refer to Canada's national SRO for investment dealers." },
+      { q: "How much protection do Canadian traders get?", a: "The Canadian Investor Protection Fund (CIPF) covers up to C$1,000,000 per account category (e.g., general, RRSP, TFSA) if a CIRO member becomes insolvent. This is one of the highest investor compensation limits in the world." },
+      { q: "How do I check if a broker is CIRO/IIROC-regulated?", a: "Visit ciro.ca and use the 'Check Registration' tool. You can search by firm name or registration number to verify the broker's membership status and any disciplinary history." },
+      { q: "Can international clients use IIROC-regulated brokers?", a: "IIROC/CIRO-regulated entities primarily serve Canadian residents. International clients may be routed through affiliated entities in other jurisdictions with different regulatory protections." }
+    ],
+  },
+  {
+    slug: "cma",
+    name: "CMA",
+    fullName: "Capital Markets Authority",
+    country: "Kenya",
+    code: "KE",
+    tier: 2,
+    established: 1989,
+    website: "https://www.cma.or.ke",
+    licenseCheck: "https://www.cma.or.ke/index.php/licensees",
+    investorProtection: "Investor Compensation Fund (limited)",
+    leverageLimit: "1:400 (retail, no statutory cap)",
+    supervisedFirms: "~50 licensed entities",
+    overview: [
+      "The Capital Markets Authority (CMA) of Kenya is the statutory agency responsible for regulating and developing the capital markets industry in Kenya. Established under the Capital Markets Act (Cap 485A), the CMA licenses and supervises all securities exchanges, brokers, fund managers, and online forex dealers operating in Kenya.",
+      "Kenya was one of the first African nations to establish a formal regulatory framework for retail forex and CFD trading. The CMA introduced its Online Foreign Exchange Trading Regulations in 2017, requiring all forex brokers offering services to Kenyan residents to obtain a local license.",
+      "While the CMA is a Tier-2 regulator with less extensive investor protection than Tier-1 bodies, it represents a significant improvement over unregulated environments and has actively worked to protect Kenyan retail traders from fraudulent operators."
+    ],
+    requirements: [
+      "CMA Online Forex Dealer license required",
+      "Minimum net capital of KES 30 million (~US$230,000)",
+      "Client funds held in segregated accounts at licensed Kenyan banks",
+      "Mandatory risk disclosures to all retail clients",
+      "Regular financial and compliance reporting",
+      "Physical office presence in Kenya",
+      "Fit and proper requirements for directors and key personnel",
+      "Anti-money laundering and Counter Financing of Terrorism compliance"
+    ],
+    history: "The CMA was established in 1989 as Kenya's capital markets regulator. It introduced specific forex trading regulations in 2017, becoming one of Africa's first regulators to create a dedicated licensing framework for online forex dealers. The CMA has issued warnings against numerous unregulated brokers and maintains a public list of licensed entities.",
+    faq: [
+      { q: "Is CMA Kenya a trusted regulator?", a: "The CMA is a Tier-2 regulator. While it provides meaningful oversight and requires fund segregation, it does not offer the same level of investor compensation as Tier-1 regulators like the FCA or ASIC. It is the primary regulator for brokers operating in East Africa." },
+      { q: "How do I verify a CMA-licensed broker?", a: "Visit the CMA website at cma.or.ke and check the list of licensed Online Foreign Exchange Dealers. Only brokers on this list are authorized to offer forex trading services to Kenyan residents." },
+      { q: "What protection do Kenyan traders have?", a: "CMA-regulated brokers must segregate client funds and maintain minimum capital requirements. However, Kenya does not have a comprehensive investor compensation scheme comparable to the FSCS or CIPF." },
+    ],
+  },
+  {
+    slug: "cmvm",
+    name: "CMVM",
+    fullName: "Comissão do Mercado de Valores Mobiliários",
+    country: "Portugal",
+    code: "PT",
+    tier: 1,
+    established: 1991,
+    website: "https://www.cmvm.pt",
+    licenseCheck: "https://www.cmvm.pt/en/Intermediarios/",
+    investorProtection: "SII — €25,000 per investor",
+    leverageLimit: "1:30 (retail, MiFID II / ESMA)",
+    supervisedFirms: "~350 registered entities",
+    overview: [
+      "The Comissão do Mercado de Valores Mobiliários (CMVM) is Portugal's securities market regulator. It supervises and regulates securities and other financial instruments markets, as well as the entities that operate within them, including investment firms and brokers.",
+      "As a full EU member state, Portugal applies MiFID II and ESMA regulations. The CMVM enforces all EU-wide investor protections including leverage limits of 1:30 for retail traders, negative balance protection, and mandatory fund segregation.",
+      "Portugal's investor compensation scheme (Sistema de Indemnização aos Investidores — SII) provides coverage up to €25,000 per investor, slightly higher than the EU minimum of €20,000."
+    ],
+    requirements: [
+      "CMVM authorization as financial intermediary",
+      "Compliance with MiFID II transposition into Portuguese law",
+      "Minimum initial capital per EU Investment Firms Directive",
+      "Client fund segregation at authorized credit institutions",
+      "Mandatory membership in investor compensation scheme (SII)",
+      "Negative balance protection for retail clients",
+      "Maximum leverage 1:30 for major forex pairs (retail)",
+      "Regular regulatory reporting and annual audits"
+    ],
+    history: "The CMVM was established in 1991 under Decree-Law 142-A/91 to regulate Portuguese securities markets. It has been a member of ESMA since its formation and actively participates in EU-wide regulatory coordination. Portugal has grown as a fintech hub, and the CMVM has adapted its regulatory framework to accommodate digital financial services.",
+    faq: [
+      { q: "Is CMVM a Tier-1 regulator?", a: "Yes. The CMVM is a Tier-1 EU regulator that enforces MiFID II. It provides €25,000 investor compensation through the SII and applies all ESMA protections including leverage caps and negative balance protection." },
+      { q: "Can CMVM-regulated brokers serve other EU countries?", a: "Yes. Through EU passporting, CMVM-regulated firms can offer services across all EU/EEA member states without additional national authorization." },
+    ],
+  },
+  {
+    slug: "ecb",
+    name: "ECB",
+    fullName: "European Central Bank",
+    country: "European Union",
+    code: "DE",
+    tier: 1,
+    established: 1998,
+    website: "https://www.ecb.europa.eu",
+    licenseCheck: "https://www.bankingsupervision.europa.eu/banking/list/who/html/index.en.html",
+    investorProtection: "National deposit guarantee schemes — €100,000 per depositor",
+    leverageLimit: "N/A (delegates to national regulators and ESMA)",
+    supervisedFirms: "~110 significant banks directly, ~2,500 indirectly",
+    overview: [
+      "The European Central Bank (ECB) is the central bank for the eurozone and a key supervisory authority under the Single Supervisory Mechanism (SSM). While the ECB primarily oversees significant banks across the euro area, some fintech and investment platforms hold banking licenses that fall under ECB direct or indirect supervision.",
+      "The ECB works alongside national regulators (such as BaFin, CSSF, and CBI) to ensure consistent banking supervision across the eurozone. For retail trading and investment platforms that hold banking licenses, ECB oversight provides an additional layer of supervisory scrutiny.",
+      "Firms under ECB supervision benefit from the EU's comprehensive regulatory framework, including deposit guarantees of €100,000, ESMA-aligned investor protections, and stringent capital adequacy requirements under CRR/CRD."
+    ],
+    requirements: [
+      "Banking license from a eurozone national competent authority",
+      "Capital requirements per Capital Requirements Regulation (CRR) and CRD IV/V",
+      "Participation in national deposit guarantee scheme (up to €100,000)",
+      "Regular supervisory reporting to ECB and national regulator",
+      "Stress testing and ongoing risk assessment (SREP)",
+      "Compliance with AML/CFT directives",
+      "Governance, fitness and probity requirements for management",
+      "Recovery and resolution planning"
+    ],
+    history: "The ECB was established on 1 June 1998 and took over monetary policy for the eurozone on 1 January 1999. The ECB assumed banking supervision responsibilities in November 2014 under the Single Supervisory Mechanism (SSM), following the eurozone debt crisis. The SSM made the ECB the direct supervisor of 'significant' banks across the euro area.",
+    faq: [
+      { q: "Does the ECB directly regulate brokers?", a: "The ECB primarily supervises significant banks. However, some investment platforms and fintechs hold banking licenses that bring them under ECB oversight. Retail forex/CFD regulation is delegated to national authorities and ESMA." },
+      { q: "What protection does ECB supervision provide?", a: "ECB-supervised entities are covered by national deposit guarantee schemes providing up to €100,000 per depositor. They are also subject to the EU's most stringent capital and liquidity requirements." },
+      { q: "How do I check if a firm is ECB-supervised?", a: "Visit the ECB's banking supervision website at bankingsupervision.europa.eu and search the list of supervised entities. You can verify the firm's status and supervisory category." },
+    ],
+  },
+  {
+    slug: "adgm-fsra",
+    name: "ADGM FSRA",
+    fullName: "Abu Dhabi Global Markets Financial Services Regulatory Authority",
+    country: "United Arab Emirates",
+    code: "AE",
+    tier: 2,
+    established: 2015,
+    website: "https://www.adgm.com/fsra",
+    licenseCheck: "https://www.adgm.com/public-registers",
+    investorProtection: "No statutory compensation scheme (contractual protections apply)",
+    leverageLimit: "1:20 (retail, ADGM regulations)",
+    supervisedFirms: "~200 regulated firms",
+    overview: [
+      "The Financial Services Regulatory Authority (FSRA) is the independent regulator of Abu Dhabi Global Market (ADGM), the UAE's international financial centre. ADGM operates as a free zone with its own legal framework based on English common law, making it distinct from the DIFC (regulated by DFSA) and mainland UAE.",
+      "The FSRA has established itself as a modern, technology-forward regulator. It was among the first globally to create a comprehensive regulatory framework for virtual assets and has attracted fintech firms with its RegLab (regulatory sandbox) program.",
+      "FSRA-regulated firms operate under a principles-based regulatory framework that combines elements from the UK FCA model with region-specific requirements. While ADGM does not have a statutory investor compensation scheme, firms are required to maintain professional indemnity insurance and capital buffers."
+    ],
+    requirements: [
+      "Financial Services Permission (FSP) from the FSRA",
+      "Minimum base capital of US$500,000 for Category 3C (dealing, managing)",
+      "Client money held in segregated accounts at ADGM-approved banks",
+      "Professional indemnity insurance coverage",
+      "Retail leverage limited to 1:20 for forex (ADGM rules)",
+      "Fit and proper requirements for controllers and key individuals",
+      "Anti-money laundering and sanctions compliance",
+      "Annual financial statements audited by ADGM-recognized auditor"
+    ],
+    history: "ADGM was established by UAE Federal Decree in 2013 and commenced operations in 2015. The FSRA was created as ADGM's independent financial regulator, modeled on international best practices. ADGM has rapidly grown as a financial centre, particularly for fintech and digital assets, and has signed cooperation agreements with regulators worldwide including the FCA, MAS, and HKMA.",
+    faq: [
+      { q: "What is the difference between ADGM FSRA and DFSA?", a: "ADGM FSRA regulates Abu Dhabi Global Market, while DFSA regulates the Dubai International Financial Centre (DIFC). Both are financial free zones in the UAE with their own legal systems, but they are separate jurisdictions with independent regulatory frameworks." },
+      { q: "Is ADGM FSRA a Tier-1 regulator?", a: "ADGM FSRA is classified as Tier-2. While it applies high standards modeled on the FCA, it does not offer a statutory investor compensation scheme. It provides strong operational regulation but lacks the safety net of Tier-1 frameworks." },
+      { q: "How do I verify an ADGM-licensed broker?", a: "Visit adgm.com/public-registers and search the Financial Services Register. You can verify a firm's license status, permitted activities, and any regulatory actions." },
     ],
   },
 ];
