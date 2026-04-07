@@ -73,6 +73,7 @@ function generateCombinatorialRankings() {
         sub: type.id,
         priority: 3,
         icon: type.icon,
+        vertical: "forex",
         // Combinatorial-specific metadata
         _typeId: type.id,
         _typeLabel: type.label,

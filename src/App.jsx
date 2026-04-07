@@ -42,8 +42,7 @@ import RankingHeroProtos from "./pages/RankingHeroProtos";
 import HeroButtonsProto from "./pages/HeroButtonsProto";
 import ScoreBadgeProto from "./pages/ScoreBadgeProto";
 import BrokerSubPage from "./pages/BrokerSubPage";
-import CategoryHubPage from "./pages/CategoryHubPage";
-import OnlineBrokersHub from "./pages/OnlineBrokersHub";
+// CategoryHubPage and OnlineBrokersHub removed — redirects to ranking pages
 import WarningPage from "./pages/WarningPage";
 import FindYourBrokerPage from "./pages/FindYourBrokerPage";
 import { LanguageProvider } from "./i18n/LanguageContext";
@@ -123,16 +122,16 @@ function AppRoutes() {
         <Route path="platform/:slug" element={<PlatformPage />} />
         <Route path="warnings/:slug" element={<WarningPage />} />
         <Route path="find-your-broker" element={<FindYourBrokerPage />} />
-        {/* M4 Category Hubs — must be before catch-all :slug */}
-        <Route path="online-brokers" element={<OnlineBrokersHub />} />
-        <Route path="forex-brokers" element={<CategoryHubPage hubSlug="forex" />} />
-        <Route path="cfd-trading" element={<CategoryHubPage hubSlug="cfd" />} />
-        <Route path="copy-trading" element={<CategoryHubPage hubSlug="copy-trading" />} />
-        <Route path="spread-betting" element={<CategoryHubPage hubSlug="spread-betting" />} />
-        <Route path="crypto-trading" element={<CategoryHubPage hubSlug="crypto" />} />
-        <Route path="stock-trading" element={<CategoryHubPage hubSlug="stocks" />} />
-        <Route path="options-trading" element={<CategoryHubPage hubSlug="options" />} />
-        <Route path="futures-trading" element={<CategoryHubPage hubSlug="futures" />} />
+        {/* Redirects: old hub pages → ranking pages (URL migration) */}
+        <Route path="online-brokers" element={<Navigate to="/" replace />} />
+        <Route path="forex-brokers" element={<Navigate to="/best-forex-brokers" replace />} />
+        <Route path="cfd-trading" element={<Navigate to="/best-cfd-brokers" replace />} />
+        <Route path="copy-trading" element={<Navigate to="/best-copy-trading-platforms" replace />} />
+        <Route path="spread-betting" element={<Navigate to="/best-spread-betting-brokers" replace />} />
+        <Route path="crypto-trading" element={<Navigate to="/best-crypto-brokers" replace />} />
+        <Route path="stock-trading" element={<Navigate to="/best-stock-brokers" replace />} />
+        <Route path="options-trading" element={<Navigate to="/best-options-brokers" replace />} />
+        <Route path="futures-trading" element={<Navigate to="/best-futures-brokers" replace />} />
         <Route path=":slug" element={<RankingPage />} />
       </Route>
     </Routes>

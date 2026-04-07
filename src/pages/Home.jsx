@@ -6,6 +6,7 @@ import { useLocalePath } from "../i18n/useLocalePath";
 import { getAllBrokersWithData } from "../data/brokers";
 import RANKINGS from "../data/rankings";
 import HUBS, { getRankingsForHub } from "../data/categoryHubs";
+import { POPULAR_PAIRS_BY_VERTICAL, canonicalPair } from "../data/comparisons";
 import RegBadge from "../components/RegBadge";
 import BrokerLogo from "../components/BrokerLogo";
 import Icon from "../components/Icon";
@@ -26,12 +27,14 @@ const BROKER_VARIANT = "E";   // "A" = Podium+List | "B" = Card Grid | "C" = Edi
 // DATA
 // ══════════════════════════════════════════════════════
 const COUNTRIES = [
-  { code: "GB", name: "United Kingdom", reg: "FCA", count: 38, path: "/best-forex-brokers-uk", featured: true },
-  { code: "AU", name: "Australia", reg: "ASIC", count: 24, path: "/best-forex-brokers-australia" },
-  { code: "AE", name: "UAE", reg: "DFSA / VARA", count: 18, path: "/best-forex-brokers-uae" },
-  { code: "DE", name: "Germany", reg: "BaFin", count: 22, path: "/best-forex-brokers-germany" },
-  { code: "SG", name: "Singapore", reg: "MAS", count: 15, path: "/best-forex-brokers-singapore" },
-  { code: "US", name: "United States", reg: "NFA / CFTC", count: 12, path: "/best-forex-brokers-usa" },
+  { code: "GB", name: "United Kingdom", reg: "FCA", path: "/best-forex-brokers-uk", featured: true, verticals: ["Forex", "CFD", "Stocks", "Spread Betting", "Crypto", "Copy Trading"] },
+  { code: "US", name: "United States", reg: "SEC / NFA", path: "/best-forex-brokers-usa", verticals: ["Stocks", "Options", "Futures", "Forex", "Crypto"] },
+  { code: "AU", name: "Australia", reg: "ASIC", path: "/best-forex-brokers-australia", verticals: ["Forex", "CFD", "Stocks", "Crypto", "Copy Trading"] },
+  { code: "DE", name: "Germany", reg: "BaFin", path: "/best-forex-brokers-germany", verticals: ["Forex", "CFD", "Stocks", "Crypto", "Copy Trading"] },
+  { code: "AE", name: "UAE", reg: "DFSA / VARA", path: "/best-forex-brokers-uae", verticals: ["Forex", "CFD", "Crypto", "Copy Trading"] },
+  { code: "SG", name: "Singapore", reg: "MAS", path: "/best-forex-brokers-singapore", verticals: ["Forex", "CFD", "Stocks", "Crypto"] },
+  { code: "CA", name: "Canada", reg: "IIROC / CSA", path: "/best-forex-brokers-canada", verticals: ["Forex", "Stocks", "Options", "Crypto", "CFD"] },
+  { code: "ZA", name: "South Africa", reg: "FSCA", path: "/best-forex-brokers-south-africa", verticals: ["Forex", "CFD", "Crypto", "Copy Trading"] },
 ];
 
 const COMPARISONS = [
@@ -1222,16 +1225,16 @@ export default function Home() {
     return () => { const el = document.querySelector('script[data-jsonld="home"]'); if (el) el.remove(); };
   }, []);
 
-  // ── Umbrella Categories (dev-only blueprint) ──
+  // ── Umbrella Categories (dev-only blueprint, aligned with ranking URLs) ──
   const UMBRELLA_CATEGORIES = [
-    { name: "Forex Brokers", slug: "forex-brokers", icon: "trending-up", count: 205, phase: 1, status: "done" },
-    { name: "CFD Brokers", slug: "cfd-brokers", icon: "bar-chart-3", count: 25, phase: 1, status: "new" },
-    { name: "Copy Trading", slug: "copy-trading", icon: "handshake", count: 12, phase: 1, status: "new" },
-    { name: "Spread Betting", slug: "spread-betting", icon: "target", count: 9, phase: 1, status: "new" },
-    { name: "Crypto Brokers", slug: "crypto-brokers", icon: "bitcoin", count: 26, phase: 1, status: "partial" },
-    { name: "Stock Brokers", slug: "stock-brokers", icon: "building-2", count: 15, phase: 2, status: "new" },
-    { name: "Options Brokers", slug: "options-brokers", icon: "layers", count: 9, phase: 2, status: "new" },
-    { name: "Futures Brokers", slug: "futures-brokers", icon: "timer", count: 10, phase: 2, status: "new" },
+    { name: "Forex Brokers", slug: "best-forex-brokers", icon: "trending-up", count: 205, phase: 1, status: "done" },
+    { name: "CFD Brokers", slug: "best-cfd-brokers", icon: "bar-chart-3", count: 25, phase: 1, status: "new" },
+    { name: "Copy Trading", slug: "best-copy-trading-platforms", icon: "handshake", count: 12, phase: 1, status: "new" },
+    { name: "Spread Betting", slug: "best-spread-betting-brokers", icon: "target", count: 9, phase: 1, status: "new" },
+    { name: "Crypto Brokers", slug: "best-crypto-brokers", icon: "bitcoin", count: 26, phase: 1, status: "partial" },
+    { name: "Stock Brokers", slug: "best-stock-brokers", icon: "building-2", count: 15, phase: 2, status: "new" },
+    { name: "Options Brokers", slug: "best-options-brokers", icon: "layers", count: 9, phase: 2, status: "new" },
+    { name: "Futures Brokers", slug: "best-futures-brokers", icon: "timer", count: 10, phase: 2, status: "new" },
     { name: "Prop Firms", slug: "prop-firms", icon: "rocket", count: 17, phase: 3, status: "future" },
   ];
 
@@ -1372,49 +1375,74 @@ export default function Home() {
       {BROKER_VARIANT === "E" && <BrokerPowerCards mob={mob} tab={tab} lp={lp} brokers={allBrokersData} />}
       {BROKER_VARIANT === "F" && <BrokerLeaderboard mob={mob} tab={tab} lp={lp} brokers={allBrokersData} />}
 
-      {/* ===== BROWSE BY COUNTRY ===== */}
+      {/* ===== REGULATED BROKERS BY COUNTRY ===== */}
       <section style={{ ...cn, padding: mob ? "40px 16px" : "60px 24px" }}>
-        <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 30, textAlign: "center", marginBottom: 8 }}>
-          {t("home.countryTitle")}
-        </h2>
-        <p style={{ textAlign: "center", fontSize: 16, color: "#1f2937", marginBottom: 32, maxWidth: 500, margin: "0 auto 32px" }}>
-          {t("home.countryDesc")}
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
+          <h2 style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: mob ? 22 : 30, color: "#0f172a", letterSpacing: "-0.03em" }}>
+            Regulated Brokers by Country
+          </h2>
+          <Link to={lp("/best-forex-brokers-by-country")} style={{ fontSize: 13, fontWeight: 600, color: "#059669", textDecoration: "none", display: "flex", alignItems: "center", gap: 4 }}>
+            All 45 countries <ArrowRight size={12} />
+          </Link>
+        </div>
+        <p style={{ fontSize: 15, color: "#64748b", marginBottom: 28, maxWidth: 600 }}>
+          Find brokers licensed by top-tier regulators in your country — across forex, stocks, crypto, and more.
         </p>
         <div style={{
           display: "grid",
-          gridTemplateColumns: mob ? "1fr" : tab ? "1fr 1fr" : "repeat(3, 1fr)",
-          gap: 16,
+          gridTemplateColumns: mob ? "1fr" : tab ? "1fr 1fr" : "repeat(4, 1fr)",
+          gap: 14,
         }}>
           {COUNTRIES.map((c, i) => (
             <Link key={i} to={lp(c.path)} style={{
-              display: "flex", alignItems: "center", gap: 14,
-              padding: mob ? "16px" : "20px 24px", borderRadius: 14,
+              display: "flex", flexDirection: "column", gap: 12,
+              padding: mob ? "16px" : "20px",
+              borderRadius: 14,
               background: "#fff", border: c.featured ? "2px solid #059669" : "1px solid #e2e8f0",
               textDecoration: "none", color: "#111827",
-              boxShadow: c.featured ? "0 4px 16px rgba(5,150,105,0.08)" : "0 1px 4px rgba(0,0,0,0.03)",
+              boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)",
               transition: "all 0.2s", position: "relative",
-            }}>
+            }}
+              onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.12)"; e.currentTarget.style.borderColor = "#059669"; }}
+              onMouseLeave={e => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)"; e.currentTarget.style.borderColor = c.featured ? "#059669" : "#e2e8f0"; }}
+            >
               {c.featured && (
                 <span style={{
                   position: "absolute", top: -10, right: 16,
                   padding: "3px 10px", borderRadius: 6,
-                  background: "#059669", color: "#fff",
-                  fontSize: 11, fontWeight: 700,
-                }}>{t("home.mostPopular")}</span>
+                  background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: "#0f172a",
+                  fontSize: 10, fontWeight: 800, letterSpacing: "0.03em",
+                }}>MOST POPULAR</span>
               )}
-              <CountryFlag code={c.code} size={mob ? 32 : 38} />
-              <div style={{ flex: 1 }}>
-                <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: mob ? 15 : 17 }}>{c.name}</div>
-                <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 4 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                <CountryFlag code={c.code} size={mob ? 32 : 36} />
+                <div style={{ flex: 1 }}>
+                  <div style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 700, fontSize: mob ? 15 : 16 }}>{c.name}</div>
                   <span style={{
-                    padding: "2px 8px", borderRadius: 4,
-                    background: "#ecfdf5", color: "#059669",
-                    fontSize: 12, fontWeight: 700,
+                    display: "inline-block", marginTop: 3,
+                    padding: "2px 8px", borderRadius: 6,
+                    background: "#0f172a", color: "#fff",
+                    fontFamily: "'JetBrains Mono',monospace", fontSize: 11, fontWeight: 700,
                   }}>{c.reg}</span>
-                  <span style={{ fontSize: 14, color: "#1f2937" }}>{c.count} {t("home.brokers")}</span>
                 </div>
+                <ArrowRight size={16} color="#94a3b8" />
               </div>
-              <ArrowRight size={18} color="#64748b" />
+              <div style={{ display: "flex", gap: 4, flexWrap: "wrap" }}>
+                {c.verticals.slice(0, 3).map(v => (
+                  <span key={v} style={{
+                    padding: "2px 7px", borderRadius: 4,
+                    background: "#f1f5f9", color: "#475569",
+                    fontSize: 11, fontWeight: 600,
+                  }}>{v}</span>
+                ))}
+                {c.verticals.length > 3 && (
+                  <span style={{
+                    padding: "2px 7px", borderRadius: 4,
+                    background: "#ecfdf5", color: "#059669",
+                    fontSize: 11, fontWeight: 700,
+                  }}>+{c.verticals.length - 3} more</span>
+                )}
+              </div>
             </Link>
           ))}
         </div>
@@ -1597,108 +1625,250 @@ export default function Home() {
       </section>
       )}
 
-      {/* ===== COMPARISONS ===== */}
+      {/* ===== SIDE-BY-SIDE BROKER COMPARISONS ===== */}
       <section style={{ ...cn, padding: mob ? "40px 16px" : "60px 24px" }}>
-        <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 30, textAlign: "center", marginBottom: 32 }}>
-          {t("home.compTitle")}
-        </h2>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
+          <h2 style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: mob ? 22 : 30, color: "#0f172a", letterSpacing: "-0.03em" }}>
+            Side-by-Side Comparisons
+          </h2>
+          <Link to={lp("/compare")} style={{ fontSize: 13, fontWeight: 600, color: "#059669", textDecoration: "none", display: "flex", alignItems: "center", gap: 4 }}>
+            Compare any two <ArrowRight size={12} />
+          </Link>
+        </div>
+        <p style={{ fontSize: 15, color: "#64748b", marginBottom: 24, maxWidth: 600 }}>
+          Compare brokers head-to-head across forex, stocks, crypto, and more — scores, fees, and regulation side by side.
+        </p>
+
+        {/* Vertical category labels */}
+        <div style={{ display: "flex", gap: 8, marginBottom: 20, flexWrap: "wrap" }}>
+          {[
+            { key: "forex", label: "Forex", color: "#059669" },
+            { key: "stocks", label: "Stocks", color: "#2563eb" },
+            { key: "crypto", label: "Crypto", color: "#f59e0b" },
+          ].map(v => (
+            <span key={v.key} style={{
+              padding: "4px 12px", borderRadius: 6,
+              background: `${v.color}12`, border: `1px solid ${v.color}30`,
+              color: v.color, fontSize: 12, fontWeight: 700,
+            }}>{v.label}</span>
+          ))}
+        </div>
+
         <div style={{
           display: "grid",
-          gridTemplateColumns: mob ? "1fr" : tab ? "1fr 1fr" : "repeat(4, 1fr)",
-          gap: 16,
+          gridTemplateColumns: mob ? "1fr" : tab ? "1fr 1fr" : "repeat(3, 1fr)",
+          gap: 14,
         }}>
-          {COMPARISONS.map((c, i) => (
-            <Link key={i} to={lp(c.path)} style={{
-              padding: mob ? "20px" : "24px", borderRadius: 14,
-              background: "#fff", border: "1px solid #e2e8f0",
-              textAlign: "center", textDecoration: "none", color: "#111827",
-              transition: "all 0.2s",
-            }}>
-              <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 16, marginBottom: 8 }}>{c.a}</div>
-              <div style={{
-                width: 36, height: 36, borderRadius: "50%", margin: "0 auto 8px",
-                background: "linear-gradient(135deg,#1e3a5f,#2d5a8e)",
-                display: "flex", alignItems: "center", justifyContent: "center",
-                fontWeight: 800, fontSize: 12, color: "#fff",
-              }}>VS</div>
-              <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 16, marginBottom: 12 }}>{c.b}</div>
-              <span style={{
-                padding: "6px 14px", borderRadius: 6,
-                background: "#f1f5f9", color: "#2563eb",
-                fontSize: 13, fontWeight: 700,
-              }}>{t("home.compare")}</span>
-            </Link>
-          ))}
+          {[
+            ...(POPULAR_PAIRS_BY_VERTICAL.forex || []).slice(0, 2).map(p => ({ ...p, cat: "Forex", catColor: "#059669" })),
+            ...(POPULAR_PAIRS_BY_VERTICAL.stocks || []).slice(0, 2).map(p => ({ ...p, cat: "Stocks", catColor: "#2563eb" })),
+            ...(POPULAR_PAIRS_BY_VERTICAL.crypto || []).slice(0, 2).map(p => ({ ...p, cat: "Crypto", catColor: "#f59e0b" })),
+          ].map((pair, i) => {
+            const brokerA = allBrokersData.find(b => b.slug === pair.slugA);
+            const brokerB = allBrokersData.find(b => b.slug === pair.slugB);
+            if (!brokerA || !brokerB) return null;
+            const pairSlug = canonicalPair(pair.slugA, pair.slugB);
+            return (
+              <Link key={i} to={lp(`/compare/${pairSlug}`)} style={{
+                display: "flex", flexDirection: "column", gap: 0,
+                borderRadius: 14, background: "#fff", border: "1px solid #e2e8f0",
+                overflow: "hidden", textDecoration: "none", color: "#111827",
+                boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)",
+                transition: "all 0.2s",
+              }}
+                onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.12)"; e.currentTarget.style.borderColor = "#059669"; }}
+                onMouseLeave={e => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)"; e.currentTarget.style.borderColor = "#e2e8f0"; }}
+              >
+                {/* Broker logos side by side */}
+                <div style={{
+                  display: "flex", alignItems: "center", justifyContent: "center", gap: 0,
+                  background: "linear-gradient(135deg, #0a2018, #0f172a)",
+                  padding: "16px 12px", position: "relative",
+                }}>
+                  <div style={{ flex: 1, display: "flex", justifyContent: "center" }}>
+                    <img src={`${import.meta.env.BASE_URL}logos-wide-dark/${pair.slugA}.svg`} alt={brokerA.B.name}
+                      style={{ maxWidth: "80%", height: 28, objectFit: "contain" }}
+                      onError={e => { e.target.style.display = "none"; }} />
+                  </div>
+                  <div style={{
+                    width: 28, height: 28, borderRadius: "50%", flexShrink: 0,
+                    background: "linear-gradient(135deg, #f59e0b, #fbbf24)",
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    fontWeight: 800, fontSize: 9, color: "#0f172a",
+                  }}>VS</div>
+                  <div style={{ flex: 1, display: "flex", justifyContent: "center" }}>
+                    <img src={`${import.meta.env.BASE_URL}logos-wide-dark/${pair.slugB}.svg`} alt={brokerB.B.name}
+                      style={{ maxWidth: "80%", height: 28, objectFit: "contain" }}
+                      onError={e => { e.target.style.display = "none"; }} />
+                  </div>
+                </div>
+                {/* Info */}
+                <div style={{ padding: "14px 16px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                  <div>
+                    <div style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 700, fontSize: 14 }}>
+                      {brokerA.B.name} vs {brokerB.B.name}
+                    </div>
+                    <span style={{
+                      display: "inline-block", marginTop: 4,
+                      padding: "2px 7px", borderRadius: 4,
+                      background: `${pair.catColor}12`, color: pair.catColor,
+                      fontSize: 11, fontWeight: 700,
+                    }}>{pair.cat}</span>
+                  </div>
+                  <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+                    <span style={{ fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 14, color: "#059669" }}>{brokerA.B.score}</span>
+                    <span style={{ fontSize: 11, color: "#94a3b8" }}>vs</span>
+                    <span style={{ fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 14, color: "#059669" }}>{brokerB.B.score}</span>
+                  </div>
+                </div>
+              </Link>
+            );
+          })}
         </div>
       </section>
 
-      {/* ===== ABOUT / METHODOLOGY (compact) ===== */}
-      <section style={{ ...cn, padding: mob ? "32px 16px" : "48px 24px" }}>
-        <div style={{
-          background: "#fff", borderRadius: 20, padding: mob ? "24px 20px" : "32px 40px",
-          border: "1px solid #e2e8f0", textAlign: "center",
-        }}>
-          <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 20 : 26, marginBottom: 12 }}>
-            {t("home.aboutTitle")}
-          </h2>
-          <p style={{
-            fontSize: 15, color: "#1f2937", lineHeight: 1.7, maxWidth: 680,
-            margin: "0 auto 20px",
+      {/* ===== ABOUT RATEDBROKERS — Navy Section ===== */}
+      <section style={{
+        background: "linear-gradient(180deg, #0f172a 0%, #1e293b 100%)",
+        padding: mob ? "48px 16px" : "64px 24px",
+      }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          {/* Stats row */}
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: mob ? "repeat(2, 1fr)" : "repeat(4, 1fr)",
+            gap: mob ? 16 : 24, marginBottom: mob ? 32 : 48,
           }}>
-            {t("home.aboutText")}
-          </p>
-          <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-            <Link to={lp("/methodology")} style={{
-              padding: "10px 22px", borderRadius: 10,
-              background: "#1e3a5f", color: "#fff",
-              fontWeight: 700, fontSize: 15, textDecoration: "none",
-            }}>{t("home.aboutMethodology")}</Link>
-            <Link to={lp("/about")} style={{
-              padding: "10px 22px", borderRadius: 10,
-              background: "#f1f5f9", color: "#1f2937",
-              fontWeight: 600, fontSize: 15, textDecoration: "none",
-            }}>{t("home.aboutLearnMore")}</Link>
+            {[
+              { n: "51+", l: "Brokers Tested" },
+              { n: "288+", l: "Rankings" },
+              { n: "924+", l: "Pages" },
+              { n: "130+", l: "Data Points" },
+            ].map((s, i) => (
+              <div key={i} style={{ textAlign: "center", borderRight: (!mob && i < 3) ? "1px solid rgba(255,255,255,0.08)" : "none" }}>
+                <div style={{ fontFamily: "'JetBrains Mono',monospace", fontWeight: 900, fontSize: mob ? 28 : 40, color: "#34d399", lineHeight: 1 }}>{s.n}</div>
+                <div style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 600, fontSize: mob ? 11 : 13, color: "#64748b", letterSpacing: "0.08em", textTransform: "uppercase", marginTop: 6 }}>{s.l}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* Text */}
+          <div style={{ textAlign: "center", maxWidth: 640, margin: "0 auto 40px" }}>
+            <h2 style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: mob ? 22 : 30, color: "#f8fafc", marginBottom: 16, letterSpacing: "-0.03em" }}>
+              Independent Research. No Paid Placements.
+            </h2>
+            <p style={{ fontSize: mob ? 15 : 17, lineHeight: 1.7, color: "#cbd5e1" }}>
+              Every broker on RatedBrokers is scored across 6 weighted categories using real accounts, real money, and real trades. We earn commissions when you open an account — but this never influences our rankings or reviews.
+            </p>
+          </div>
+
+          {/* Link cards */}
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: mob ? "1fr" : "repeat(3, 1fr)",
+            gap: 16,
+          }}>
+            {[
+              { icon: "book-open", title: "Our Mission", desc: "Why we built RatedBrokers and our commitment to transparency.", path: "/about" },
+              { icon: "bar-chart-3", title: "Scoring Methodology", desc: "6 categories, 130+ data points — how we rate every broker.", path: "/methodology" },
+              { icon: "shield", title: "Trust & Transparency", desc: "How we make money, editorial independence, and our trust score.", path: "/trust-score" },
+            ].map((card, i) => (
+              <Link key={i} to={lp(card.path)} style={{
+                display: "block", padding: mob ? "20px 16px" : "24px 20px",
+                borderRadius: 14,
+                background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)",
+                textDecoration: "none", transition: "all 0.2s",
+              }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(52,211,153,0.4)"; e.currentTarget.style.background = "rgba(255,255,255,0.08)"; e.currentTarget.style.transform = "translateY(-2px)"; }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)"; e.currentTarget.style.background = "rgba(255,255,255,0.05)"; e.currentTarget.style.transform = "none"; }}
+              >
+                <Icon name={card.icon} size={24} color="#f59e0b" />
+                <div style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 700, fontSize: 16, color: "#f8fafc", marginTop: 12 }}>{card.title}</div>
+                <div style={{ fontSize: 13, color: "#94a3b8", marginTop: 6, lineHeight: 1.5 }}>{card.desc}</div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ===== OUR EXPERTS ===== */}
-      <section style={{ ...cn, padding: mob ? "0 16px 40px" : "0 24px 60px" }}>
-        <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 28, textAlign: "center", marginBottom: 8 }}>
-          Our Expert Team
-        </h2>
-        <p style={{ textAlign: "center", fontSize: 15, color: "#1f2937", marginBottom: 24, maxWidth: 500, margin: "0 auto 24px" }}>
-          Every review is written, peer-reviewed, and fact-checked by certified industry professionals.
+      {/* ===== OUR EXPERT TEAM ===== */}
+      <section style={{ ...cn, padding: mob ? "40px 16px" : "60px 24px" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
+          <h2 style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: mob ? 22 : 30, color: "#0f172a", letterSpacing: "-0.03em" }}>
+            Our Expert Team
+          </h2>
+        </div>
+        <p style={{ fontSize: 15, color: "#64748b", marginBottom: 24, maxWidth: 600 }}>
+          Every review is written, peer-reviewed, and fact-checked by certified industry professionals with real trading experience.
         </p>
+
+        {/* Founder hero card */}
+        {(() => {
+          const founder = Object.values(AUTHORS).find(a => a.isFounder);
+          if (!founder) return null;
+          return (
+            <Link to={lp(`/author/${founder.id}`)} style={{
+              display: "flex", alignItems: "center", gap: mob ? 16 : 24,
+              padding: mob ? "20px 16px" : "28px 32px",
+              borderRadius: 16, marginBottom: 16,
+              background: "linear-gradient(135deg, #0a1628, #0f172a)",
+              border: "1px solid rgba(52,211,153,0.2)",
+              borderLeft: "4px solid #059669",
+              textDecoration: "none", transition: "all 0.2s",
+            }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(52,211,153,0.5)"; e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 8px 24px rgba(0,0,0,0.2)"; }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(52,211,153,0.2)"; e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "none"; }}
+            >
+              <div style={{ flexShrink: 0 }}>
+                <AuthorAvatar author={founder} size={mob ? 64 : 80} showVerified />
+              </div>
+              <div style={{ flex: 1 }}>
+                <span style={{
+                  display: "inline-block", marginBottom: 8,
+                  padding: "3px 10px", borderRadius: 6,
+                  background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: "#0f172a",
+                  fontSize: 10, fontWeight: 800, letterSpacing: "0.06em", textTransform: "uppercase",
+                }}>FOUNDER & EDITOR-IN-CHIEF</span>
+                <div style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: mob ? 18 : 24, color: "#f8fafc" }}>{founder.name}</div>
+                <div style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 12, color: "#34d399", marginTop: 4 }}>
+                  {founder.exp} experience
+                </div>
+                <p style={{ fontSize: mob ? 13 : 15, color: "#94a3b8", fontStyle: "italic", marginTop: 8, lineHeight: 1.6 }}>
+                  "{founder.shortBio}"
+                </p>
+              </div>
+              <ArrowRight size={20} color="#94a3b8" style={{ flexShrink: 0 }} />
+            </Link>
+          );
+        })()}
+
+        {/* Analyst grid */}
         <div style={{
           display: "grid",
           gridTemplateColumns: mob ? "1fr 1fr" : "repeat(4, 1fr)",
           gap: 12,
         }}>
-          {Object.values(AUTHORS).map((a) => (
+          {Object.values(AUTHORS).filter(a => !a.isFounder).map((a) => (
             <Link key={a.id} to={lp(`/author/${a.id}`)} style={{
               display: "flex", flexDirection: "column", alignItems: "center", gap: 10,
               padding: mob ? "20px 12px" : "24px 16px", borderRadius: 14,
               background: "#fff", border: "1px solid #e2e8f0",
               textDecoration: "none", color: "#111827", transition: "all 0.2s",
             }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = "#a7f3d0";
-                e.currentTarget.style.transform = "translateY(-2px)";
-                e.currentTarget.style.boxShadow = "0 4px 16px rgba(5,150,105,0.08)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = "#e2e8f0";
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow = "none";
-              }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = "#a7f3d0"; e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 4px 16px rgba(5,150,105,0.08)"; }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = "#e2e8f0"; e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "none"; }}
             >
               <AuthorAvatar author={a} size={mob ? 48 : 56} showVerified />
               <div style={{ textAlign: "center" }}>
-                <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: mob ? 13 : 15 }}>{a.name}</div>
-                <div style={{ fontSize: 13, color: "#1f2937", marginTop: 2 }}>{a.role}</div>
+                <div style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 700, fontSize: mob ? 13 : 15 }}>{a.name}</div>
+                <div style={{ fontSize: 13, color: "#64748b", marginTop: 2 }}>{a.role}</div>
+                {a.credentials.length > 0 && (
+                  <div style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11, color: "#059669", fontWeight: 700, marginTop: 4 }}>
+                    {a.credentials.join(" · ")}
+                  </div>
+                )}
               </div>
-              <span style={{ fontSize: 13, fontWeight: 600, color: "#059669" }}>View Profile &rarr;</span>
+              <span style={{ fontSize: 12, fontWeight: 600, color: "#059669" }}>View Profile →</span>
             </Link>
           ))}
         </div>

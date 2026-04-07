@@ -133,7 +133,7 @@ export default function HomeProtoA() {
               </div>
             )}
             <div style={{ display: "flex", gap: 10 }}>
-              <Link to="/online-brokers" className="cta-orange" style={{
+              <Link to="/rankings" className="cta-orange" style={{
                 padding: "10px 22px", borderRadius: 10, fontSize: 13, fontWeight: 700,
                 background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: "#0f172a",
                 textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 6,

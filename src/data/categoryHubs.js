@@ -1,13 +1,14 @@
 /**
- * Category Hub Configuration — M4 Online Brokers Umbrella
- * Each hub = one landing page for a broker vertical.
+ * Category Configuration — M4 Online Brokers Umbrella
+ * Hub data for ranking sub-navigation, breadcrumbs, and category grouping.
+ * Hub pages deleted — rankings serve as category landing pages.
  */
 import RANKINGS from "./rankings";
 
 const HUBS = [
   {
     slug: "forex",
-    path: "/forex-brokers",
+    path: "/best-forex-brokers",
     name: "Forex Brokers",
     title: "Forex Brokers",
     subtitle: "Compare forex brokers across spreads, execution, platforms, and regulation.",
@@ -19,7 +20,7 @@ const HUBS = [
   },
   {
     slug: "cfd",
-    path: "/cfd-trading",
+    path: "/best-cfd-brokers",
     name: "CFD Brokers",
     title: "CFD Brokers",
     subtitle: "Find the best CFD trading platforms for stocks, indices, commodities, and more.",
@@ -31,7 +32,7 @@ const HUBS = [
   },
   {
     slug: "copy-trading",
-    path: "/copy-trading",
+    path: "/best-copy-trading-platforms",
     name: "Copy Trading",
     title: "Copy Trading Platforms",
     subtitle: "Follow and replicate expert traders automatically. Compare the best copy trading platforms.",
@@ -43,7 +44,7 @@ const HUBS = [
   },
   {
     slug: "spread-betting",
-    path: "/spread-betting",
+    path: "/best-spread-betting-brokers",
     name: "Spread Betting",
     title: "Spread Betting Platforms",
     subtitle: "Tax-free trading for UK and Ireland. Compare the best spread betting brokers.",
@@ -55,7 +56,7 @@ const HUBS = [
   },
   {
     slug: "crypto",
-    path: "/crypto-trading",
+    path: "/best-crypto-brokers",
     name: "Crypto Brokers",
     title: "Crypto Brokers",
     subtitle: "Trade Bitcoin, Ethereum, and altcoins through regulated brokers and exchanges.",
@@ -97,7 +98,7 @@ export function getFeaturedRankings(hub) {
 HUBS.push(
   {
     slug: "stocks",
-    path: "/stock-trading",
+    path: "/best-stock-brokers",
     name: "Stock Brokers",
     title: "Stock Brokers",
     subtitle: "Compare stock brokers for commission-free investing, fractional shares, and retirement accounts.",
@@ -105,11 +106,11 @@ HUBS.push(
     color: "#0ea5e9",
     category: "stocks",
     verticalKey: "stocks",
-    featuredIds: ["stocks-overall", "stocks-beginners", "stocks-commission-free", "stocks-fractional", "stocks-usa"],
+    featuredIds: ["stocks", "stocks-beginners", "stocks-commission-free", "stocks-fractional", "stocks-usa"],
   },
   {
     slug: "options",
-    path: "/options-trading",
+    path: "/best-options-brokers",
     name: "Options Brokers",
     title: "Options Brokers",
     subtitle: "Find the best options trading platforms with advanced chains, Greeks, and multi-leg support.",
@@ -121,7 +122,7 @@ HUBS.push(
   },
   {
     slug: "futures",
-    path: "/futures-trading",
+    path: "/best-futures-brokers",
     name: "Futures Brokers",
     title: "Futures Brokers",
     subtitle: "Compare futures brokers for micro contracts, low margins, and professional DOM tools.",

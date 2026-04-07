@@ -30,7 +30,7 @@ const RANKINGS = [
   { id: "forex-automated",        slug: "/best-forex-brokers-for-automated-trading",  title: "Best Forex Brokers for Automated Trading",        category: "forex", sub: "style",     priority: 2, icon: "bot" },
   { id: "forex-algo",             slug: "/best-forex-brokers-for-algo-trading",       title: "Best Forex Brokers for Algorithmic Trading",      category: "forex", sub: "style",     priority: 2, icon: "cpu" },
   { id: "forex-hft",              slug: "/best-high-frequency-trading-brokers",       title: "Best High-Frequency Trading Brokers",             category: "forex", sub: "style",     priority: 3, icon: "zap" },
-  { id: "forex-copy-trading",     slug: "/best-copy-trading-platforms",               title: "Best Copy Trading Platforms",                     category: "forex", sub: "style",     priority: 1, icon: "copy" },
+  { id: "forex-copy-trading",     slug: "/best-copy-trading-platforms",               title: "Best Copy Trading Platforms",                     category: "copy-trading", sub: "top",     priority: 1, icon: "copy", vertical: "copy-trading" },
   { id: "forex-social-trading",   slug: "/best-social-trading-platforms",             title: "Best Social Trading Platforms",                   category: "forex", sub: "style",     priority: 2, icon: "users" },
   { id: "forex-signals",          slug: "/best-forex-signal-providers",               title: "Best Forex Signal Providers",                     category: "forex", sub: "style",     priority: 2, icon: "signal" },
   { id: "forex-ea",               slug: "/best-forex-brokers-for-expert-advisors",    title: "Best Forex Brokers for Expert Advisors (EA)",     category: "forex", sub: "style",     priority: 3, icon: "settings" },
@@ -170,17 +170,17 @@ const RANKINGS = [
   // ═══════════════════════════════════════════════════════════════
   // M. OTHER ASSET CLASSES (12)
   // ═══════════════════════════════════════════════════════════════
-  { id: "cfd",           slug: "/best-cfd-brokers",                  title: "Best CFD Brokers",                     category: "assets", sub: "type",   priority: 1, icon: "chart-candlestick" },
-  { id: "stocks",        slug: "/best-stock-brokers",                title: "Best Stock Trading Brokers",           category: "assets", sub: "type",   priority: 2, icon: "chart-no-axes-combined" },
+  { id: "cfd",           slug: "/best-cfd-brokers",                  title: "Best CFD Brokers",                     category: "cfd", sub: "top",   priority: 1, icon: "chart-candlestick", vertical: "cfd" },
+  { id: "stocks",        slug: "/best-stock-brokers",                title: "Best Stock Trading Brokers",           category: "stocks", sub: "top",   priority: 1, icon: "chart-no-axes-combined", vertical: "stocks" },
   { id: "gold",          slug: "/best-gold-trading-brokers",         title: "Best Gold Trading Brokers",            category: "assets", sub: "type",   priority: 2, icon: "award" },
   { id: "silver",        slug: "/best-silver-trading-brokers",       title: "Best Silver Trading Brokers",          category: "assets", sub: "type",   priority: 3, icon: "circle-dollar-sign" },
   { id: "oil",           slug: "/best-oil-trading-brokers",          title: "Best Oil Trading Brokers",             category: "assets", sub: "type",   priority: 3, icon: "fuel" },
   { id: "commodities",   slug: "/best-commodities-brokers",          title: "Best Commodities Brokers",             category: "assets", sub: "type",   priority: 2, icon: "wheat" },
   { id: "indices",       slug: "/best-index-trading-brokers",        title: "Best Index Trading Brokers",           category: "assets", sub: "type",   priority: 2, icon: "bar-chart-3" },
-  { id: "options",       slug: "/best-options-brokers",              title: "Best Options Brokers",                 category: "assets", sub: "type",   priority: 2, icon: "toggle-right" },
-  { id: "futures",       slug: "/best-futures-brokers",              title: "Best Futures Brokers",                 category: "assets", sub: "type",   priority: 2, icon: "hourglass" },
+  { id: "options",       slug: "/best-options-brokers",              title: "Best Options Brokers",                 category: "options", sub: "top",   priority: 1, icon: "toggle-right", vertical: "options" },
+  { id: "futures",       slug: "/best-futures-brokers",              title: "Best Futures Brokers",                 category: "futures", sub: "top",   priority: 1, icon: "hourglass", vertical: "futures" },
   { id: "etf",           slug: "/best-etf-brokers",                  title: "Best ETF Brokers",                     category: "assets", sub: "type",   priority: 3, icon: "package" },
-  { id: "spread-betting",slug: "/best-spread-betting-brokers",       title: "Best Spread Betting Brokers",          category: "assets", sub: "type",   priority: 2, icon: "dice-6" },
+  { id: "spread-betting",slug: "/best-spread-betting-brokers",       title: "Best Spread Betting Brokers",          category: "spread-betting", sub: "top",   priority: 1, icon: "dice-6", vertical: "spread-betting" },
   { id: "bonds",         slug: "/best-bond-trading-brokers",         title: "Best Bond Trading Brokers",            category: "assets", sub: "type",   priority: 3, icon: "landmark" },
 
   // ═══════════════════════════════════════════════════════════════

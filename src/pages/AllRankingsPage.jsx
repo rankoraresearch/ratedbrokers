@@ -89,7 +89,7 @@ export default function AllRankingsPage() {
   const [activeTab, setActiveTab] = useState("all");
 
   useEffect(() => {
-    document.title = `All Broker Rankings ${YEAR} — ${ALL_RANKINGS.length} Expert-Tested Lists | RatedBrokers`;
+    document.title = `Browse All Broker Rankings ${YEAR} — ${ALL_RANKINGS.length} Lists | RatedBrokers`;
     const meta = document.querySelector('meta[name="description"]');
     if (meta) meta.setAttribute("content", `Browse ${ALL_RANKINGS.length} broker rankings for ${YEAR}. Forex, crypto, CFDs — filtered by trading style, platform, costs, regulation, and country. All independently analyzed.`);
     window.scrollTo(0, 0);
@@ -117,7 +117,7 @@ export default function AllRankingsPage() {
             fontSize: mob ? 28 : tab ? 36 : 44,
             lineHeight: 1.1, color: "#fff", marginBottom: 12,
           }}>
-            All Broker Rankings {YEAR}
+            Browse All Rankings {YEAR}
           </h1>
           <p style={{
             fontSize: mob ? 14 : 16, color: "rgba(255,255,255,0.7)",

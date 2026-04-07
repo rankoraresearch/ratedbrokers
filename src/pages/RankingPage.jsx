@@ -18,6 +18,7 @@ import { useMedia } from "../hooks/useMedia";
 import { useLocalePath } from "../i18n/useLocalePath";
 import RANKINGS, { getRankingBySlug, getRankingsByCategory, getRankingsBySub } from "../data/rankings";
 import { getBrokersForRanking, fetchRankingOverrides, applyOverrides } from "../data/rankingFilters";
+import RankingSubNav from "../components/RankingSubNav";
 import SEO_CONTENT from "../data/rankingSeoContent";
 import { getThematicData, getBrokerBlurb, getComparisonCols, getEducation } from "../data/rankingThematic";
 import BrokerRankCard from "../components/BrokerRankCard";
@@ -474,18 +475,33 @@ export default function RankingPage() {
           },
         },
         breadcrumbSchema((() => {
-          const hub = HUBS.find(h => h.category === ranking.category || h.verticalKey === ranking.vertical) || HUBS[0];
-          if (ranking.category === "combinatorial") {
+          const hub = HUBS.find(h => h.category === ranking.category || h.verticalKey === ranking.vertical);
+          const parentLabel = hub ? hub.name : "All Rankings";
+          const parentPath = hub ? hub.path : "/rankings";
+          if (ranking.category === "combinatorial" && ranking._geoId) {
+            // Find actual country ranking: match by hub category, or "country" category for forex geo pages
+            const geoSlug = ranking._geoId;
+            const countryRanking = RANKINGS.find(r => {
+              if (r.category === "combinatorial") return false;
+              const slugEnd = r.slug?.split("/").pop() || "";
+              if (!slugEnd.endsWith(geoSlug)) return false;
+              // Match by hub category + sub "country", OR forex geo pages (category: "country")
+              if (hub && (r.category === hub.category || r.vertical === hub.verticalKey) && r.sub === "country") return true;
+              if (ranking.vertical === "forex" && r.category === "country") return true;
+              return false;
+            });
+            const countryLabel = `${parentLabel} ${ranking._countryName}`;
+            const countryPath = countryRanking?.slug || null;
             return [
               { label: "RatedBrokers", path: "/" },
-              { label: hub.name, path: hub.path },
-              { label: `Best Forex Brokers ${ranking._countryName}`, path: `/best-forex-brokers-${ranking._geoId}` },
+              { label: parentLabel, path: parentPath },
+              ...(countryPath ? [{ label: countryLabel, path: countryPath }] : []),
               { label: `${ranking.title} ${YEAR}`, path: fullSlug },
             ];
           }
           return [
             { label: "RatedBrokers", path: "/" },
-            { label: hub.name, path: hub.path },
+            { label: parentLabel, path: parentPath },
             { label: `${ranking.title} ${YEAR}`, path: fullSlug },
           ];
         })()),
@@ -613,18 +629,31 @@ export default function RankingPage() {
       {/* BREADCRUMBS */}
       <div style={{ ...cn, padding: mob ? "10px 16px" : "14px 24px" }}>
         <Breadcrumb items={(() => {
-          const hub = HUBS.find(h => h.category === ranking.category || h.verticalKey === ranking.vertical) || HUBS[0];
-          if (ranking.category === "combinatorial") {
+          const hub = HUBS.find(h => h.category === ranking.category || h.verticalKey === ranking.vertical);
+          const parentLabel = hub ? hub.name : "All Rankings";
+          const parentPath = hub ? hub.path : "/rankings";
+          if (ranking.category === "combinatorial" && ranking._geoId) {
+            const geoSlug = ranking._geoId;
+            const countryRanking = RANKINGS.find(r => {
+              if (r.category === "combinatorial") return false;
+              const slugEnd = r.slug?.split("/").pop() || "";
+              if (!slugEnd.endsWith(geoSlug)) return false;
+              if (hub && (r.category === hub.category || r.vertical === hub.verticalKey) && r.sub === "country") return true;
+              if (ranking.vertical === "forex" && r.category === "country") return true;
+              return false;
+            });
+            const countryLabel = `${parentLabel} ${ranking._countryName}`;
+            const countryPath = countryRanking?.slug || null;
             return [
               { label: "RatedBrokers", path: "/" },
-              { label: hub.name, path: hub.path },
-              { label: `${ranking._countryName}`, path: `/best-forex-brokers-${ranking._geoId}` },
+              { label: parentLabel, path: parentPath },
+              ...(countryPath ? [{ label: countryLabel, path: countryPath }] : []),
               { label: ranking.title },
             ];
           }
           return [
             { label: "RatedBrokers", path: "/" },
-            { label: hub.name, path: hub.path },
+            { label: parentLabel, path: parentPath },
             { label: ranking.title },
           ];
         })()
@@ -723,6 +752,9 @@ export default function RankingPage() {
           )}
         </section>
       )}
+
+      {/* ═══ Sub-Navigation (head ranking pages only) ═══ */}
+      <RankingSubNav rankingId={ranking.id} mob={mob} />
 
       {/* ═══ БЛОК 4: Filter Buttons + heading ═══ */}
       <section style={{ ...cn, paddingBottom: 12 }}>

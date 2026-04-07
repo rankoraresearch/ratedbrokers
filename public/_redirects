@@ -1,2 +1,14 @@
+# URL migration: hub pages → ranking pages (301 permanent)
+/online-brokers  /  301
+/forex-brokers  /best-forex-brokers  301
+/cfd-trading  /best-cfd-brokers  301
+/copy-trading  /best-copy-trading-platforms  301
+/spread-betting  /best-spread-betting-brokers  301
+/crypto-trading  /best-crypto-brokers  301
+/stock-trading  /best-stock-brokers  301
+/options-trading  /best-options-brokers  301
+/futures-trading  /best-futures-brokers  301
+
+# Existing rules
 /favicon-preview.html  /favicon-preview.html  200
 /*    /index.html   200
