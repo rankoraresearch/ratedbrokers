@@ -263,26 +263,43 @@ export default function BrokerComparison() {
   const instrB = parseNum(B.instruments);
   const quickDecisions = [];
 
-  // Cost — compare both brokers
+  // Cost — compare both brokers with actual fee parsing
+  function parseFee(s) {
+    if (!s || s === "$0" || s === "None" || s === "Zero" || s === "Free") return 0;
+    const m = String(s).match(/\$?([\d.]+)/);
+    return m ? parseFloat(m[1]) : Infinity;
+  }
+  function pickCheaper(feeStrA, feeStrB, label) {
+    const numA = parseFee(feeStrA);
+    const numB = parseFee(feeStrB);
+    if (numA === numB) return { pick: "Both", reason: `${feeStrA} — both` };
+    const winner = numA < numB ? A.name : B.name;
+    const cheaper = numA < numB ? feeStrA : feeStrB;
+    return { pick: winner, reason: `${cheaper}${label ? " " + label : ""}` };
+  }
+
   if (isForex && hasForexCosts) {
     quickDecisions.push({ need: "Lowest Trading Cost", pick: totalA <= totalB ? A.name : B.name, reason: `$${Math.min(totalA, totalB).toFixed(2)}/lot EUR/USD` });
   } else if (isStock) {
     const feeA = A.commission_per_trade || A.commission || "$0";
     const feeB = B.commission_per_trade || B.commission || "$0";
-    const bothZero = feeA === "$0" && feeB === "$0";
-    quickDecisions.push({ need: "Lowest Trading Cost", pick: bothZero ? "Both" : (feeA === "$0" ? A.name : feeB === "$0" ? B.name : A.name), reason: bothZero ? "$0 commissions — both" : `${feeA === "$0" ? feeA : feeB} per trade` });
+    const { pick, reason } = pickCheaper(feeA, feeB, "per trade");
+    quickDecisions.push({ need: "Lowest Trading Cost", pick, reason });
   } else if (isOptionsPair(vertical)) {
     const feeA = A.options_contract_fee || A.commission || "N/A";
     const feeB = B.options_contract_fee || B.commission || "N/A";
-    quickDecisions.push({ need: "Lowest Options Cost", pick: feeA === feeB ? "Both" : A.name, reason: `${feeA} per contract` });
+    const { pick, reason } = pickCheaper(feeA, feeB, "per contract");
+    quickDecisions.push({ need: "Lowest Options Cost", pick, reason });
   } else if (isFuturesPair(vertical)) {
     const feeA = A.futures_commission || A.commission || "N/A";
     const feeB = B.futures_commission || B.commission || "N/A";
-    quickDecisions.push({ need: "Lowest Futures Cost", pick: feeA === feeB ? "Both" : A.name, reason: `${feeA} per contract` });
+    const { pick, reason } = pickCheaper(feeA, feeB, "per contract");
+    quickDecisions.push({ need: "Lowest Futures Cost", pick, reason });
   } else {
     const feeA = A.commission || "N/A";
     const feeB = B.commission || "N/A";
-    quickDecisions.push({ need: "Lowest Trading Cost", pick: feeA === feeB ? "Both" : A.name, reason: `${feeA}` });
+    const { pick, reason } = pickCheaper(feeA, feeB, "");
+    quickDecisions.push({ need: "Lowest Trading Cost", pick, reason });
   }
 
   // Beginners
@@ -404,7 +421,8 @@ export default function BrokerComparison() {
   const ctaA = getCTAText(A.name, vertical);
   const ctaB = getCTAText(B.name, vertical);
   const ctaShort = getCTATextShort(vertical);
-  const midCTA = isForex ? "Both brokers offer demo accounts — test risk-free." : isStock ? "Both brokers offer $0 commission trading — open an account in minutes." : "Compare both platforms — open demo accounts to test.";
+  const bothZeroComm = isStock && parseFee(A.commission_per_trade || A.commission) === 0 && parseFee(B.commission_per_trade || B.commission) === 0;
+  const midCTA = isForex ? "Both brokers offer demo accounts — test risk-free." : isStock ? (bothZeroComm ? "Both brokers offer $0 commission trading — open an account in minutes." : "Compare commissions, platforms, and features — open an account in minutes.") : "Compare both platforms — open demo accounts to test.";
 
   /* =================== RENDER =================== */
   return (

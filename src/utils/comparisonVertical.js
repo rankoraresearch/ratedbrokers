@@ -1,4 +1,5 @@
-const VERTICAL_PRIORITY = ['stocks', 'options', 'futures', 'forex', 'cfd', 'crypto', 'copy-trading', 'spread-betting'];
+// Priority: specific verticals first, then broad ones
+const VERTICAL_PRIORITY = ['options', 'futures', 'spread-betting', 'copy-trading', 'crypto', 'stocks', 'forex', 'cfd'];
 
 export function getComparisonVertical(brokerA, brokerB) {
   const vA = brokerA.verticals || ['forex'];
@@ -26,7 +27,7 @@ export const BREADCRUMB_MAP = {
   crypto: { label: "Crypto Exchanges", path: "/best-crypto-brokers" },
   "copy-trading": { label: "Copy Trading", path: "/best-copy-trading-platforms" },
   "spread-betting": { label: "Spread Betting", path: "/best-spread-betting-brokers" },
-  generic: { label: "Online Brokers", path: "/best-forex-brokers" },
+  generic: { label: "Online Brokers", path: "/compare" },
 };
 
 export function getCTAText(name, vertical) {
