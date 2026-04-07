@@ -90,12 +90,20 @@ export default function BrokerComparison() {
   const A = dataA.B;
   const B = dataB.B;
 
-  // Look up curated vertical hint from pair data
+  // Look up curated vertical hint — prefer the vertical that both brokers share
   const hintVertical = (() => {
+    const vA = new Set(A.verticals || ['forex']);
+    const vB = new Set(B.verticals || ['forex']);
+    const candidates = [];
     for (const [vert, pairs] of Object.entries(POPULAR_PAIRS_BY_VERTICAL)) {
-      if (pairs.some(p => canonicalPair(p.slugA, p.slugB) === canonical)) return vert;
+      if (pairs.some(p => canonicalPair(p.slugA, p.slugB) === canonical)) {
+        candidates.push(vert);
+      }
     }
-    return undefined;
+    // Prefer the candidate where both brokers declare that vertical
+    const shared = candidates.filter(v => vA.has(v) && vB.has(v));
+    if (shared.length > 0) return shared[0];
+    return candidates[0];
   })();
   const vertical = getComparisonVertical(A, B, hintVertical);
   const isForex = isForexPair(vertical);

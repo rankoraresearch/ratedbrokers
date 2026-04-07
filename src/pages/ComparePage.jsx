@@ -370,7 +370,7 @@ export default function ComparePage() {
         <p style={{ fontSize: 15, color: "#6b7280", textAlign: "center", marginBottom: 24 }}>
           {activeVertical === "all"
             ? "Browse all available side-by-side comparisons, grouped by broker."
-            : `Browse ${VERTICALS.find(v => v.key === activeVertical)?.label || ""} comparisons, grouped by broker.`}
+            : `Popular ${VERTICALS.find(v => v.key === activeVertical)?.label || ""} comparisons, grouped by broker.`}
         </p>
 
         <div style={{ display: "grid", gap: 8, maxWidth: 900, margin: "0 auto" }}>
