@@ -568,7 +568,7 @@ export default function Home() {
           Compare brokers head-to-head across forex, stocks, crypto, and more — scores, fees, and regulation side by side.
         </p>
 
-        {/* Vertical category labels — icons + labels from VERTICALS, colors from VERT_COLORS */}
+        {/* Vertical category labels — icons + labels from VERTICALS, colors from VERTICAL_MAP */}
         <div style={{ display: "flex", gap: 8, marginBottom: 20, flexWrap: "wrap" }}>
           {["forex", "stocks", "crypto"].map(key => {
             const vert = VERTICALS.find(v => v.key === key);
