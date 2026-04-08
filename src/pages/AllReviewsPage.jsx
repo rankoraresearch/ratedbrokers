@@ -1,14 +1,40 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useId } from "react";
 import { Link } from "react-router-dom";
 import { useMedia } from "../hooks/useMedia";
 import { useLocalePath } from "../i18n/useLocalePath";
 import { getAllBrokers } from "../data/brokers";
 import { ArrowRight } from "../components/Icon";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import Breadcrumb, { breadcrumbSchema } from "../components/Breadcrumb";
 import HUBS from "../data/categoryHubs";
 
 const YEAR = "2026";
 const scoreColor = (s) => s >= 9.0 ? "#059669" : s >= 8.0 ? "#2563eb" : "#d97706";
+
+const REVIEWS_FAQ = [
+  { q: "How many brokers does RatedBrokers review?", a: "We currently review 51+ online brokers across forex, stocks, crypto, options, futures, CFD, copy trading, and spread betting. We add new brokers quarterly as the market evolves." },
+  { q: "How are broker reviews scored?", a: "Each broker is scored across 6 weighted categories: Regulation & Safety (30%), Trading Costs (20%), User Reputation (15%), Broker Transparency (15%), Platforms & Tools (15%), and Execution Model (5%). We prioritize brokers holding Tier-1 regulatory licenses." },
+  { q: "Are RatedBrokers reviews independent?", a: "Yes. We earn commissions through affiliate links when you open an account, but this never influences scores or rankings. Brokers cannot pay for higher ratings. Our scoring formula is published on our methodology page." },
+  { q: "How often are reviews updated?", a: "We re-evaluate every listed broker quarterly. When conditions change — new fees, regulatory actions, platform updates — scores are adjusted and rankings updated accordingly." },
+];
+
+function FaqItem({ question, answer, defaultOpen = false }) {
+  const [open, setOpen] = useState(defaultOpen);
+  const id = useId();
+  return (
+    <div style={{ borderBottom: "1px solid #e2e8f0" }}>
+      <button onClick={() => setOpen(!open)} aria-expanded={open} aria-controls={id} style={{
+        display: "flex", alignItems: "center", justifyContent: "space-between",
+        width: "100%", padding: "18px 0", border: "none", background: "none",
+        cursor: "pointer", textAlign: "left", gap: 12,
+      }}>
+        <span style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 700, fontSize: 16, color: "#0f172a", flex: 1 }}>{question}</span>
+        {open ? <ChevronUp size={18} color="#64748b" /> : <ChevronDown size={18} color="#64748b" />}
+      </button>
+      {open && <p id={id} style={{ fontSize: 15, lineHeight: 1.7, color: "#475569", margin: "0 0 18px 0" }}>{answer}</p>}
+    </div>
+  );
+}
 
 // Filter tabs: "All" + all 8 verticals from HUBS + utility filters
 const FILTER_TABS = [
@@ -66,6 +92,11 @@ export default function AllReviewsPage() {
             name: `${b.name} Review`,
             url: `https://ratedbrokers.com/reviews/${b.slug}`,
           })),
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: REVIEWS_FAQ.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
         },
       ])}} />
 
@@ -181,6 +212,18 @@ export default function AllReviewsPage() {
               Browse Rankings <ArrowRight size={14} />
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* ═══ FAQ ═══ */}
+      <section style={{ ...cn, padding: mob ? "0 16px 60px" : "0 24px 80px" }}>
+        <h2 style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: mob ? 20 : 24, color: "#0f172a", marginBottom: 16 }}>
+          Frequently Asked Questions
+        </h2>
+        <div style={{ maxWidth: 800, display: "flex", flexDirection: "column", gap: 0 }}>
+          {REVIEWS_FAQ.map((item, i) => (
+            <FaqItem key={i} question={item.q} answer={item.a} defaultOpen={i === 0} />
+          ))}
         </div>
       </section>
     </div>
