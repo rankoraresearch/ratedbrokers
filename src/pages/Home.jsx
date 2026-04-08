@@ -185,7 +185,7 @@ function FaqItem({ question, answer, defaultOpen = false }) {
         {open ? <ChevronUp size={18} color="#64748b" /> : <ChevronDown size={18} color="#64748b" />}
       </button>
       {open && (
-        <p id={id} role="region" style={{ fontSize: 15, lineHeight: 1.7, color: "#475569", margin: "0 0 18px 0" }}>
+        <p id={id} style={{ fontSize: 15, lineHeight: 1.7, color: "#475569", margin: "0 0 18px 0" }}>
           {answer}
         </p>
       )}

@@ -117,7 +117,7 @@ const HOMEPAGE_SEO = {
     },
     {
       q: "Are the brokers on RatedBrokers regulated?",
-      a: `Yes. Every broker listed on RatedBrokers is regulated by at least one recognized financial authority. We prioritize brokers holding Tier-1 licenses from the FCA (UK), ASIC (Australia), NFA/CFTC (US), FINMA (Switzerland), MAS (Singapore), BaFin (Germany), or CySEC (EU/MiFID). Regulation carries the highest weight (30%) in our scoring formula. We verify each license number directly on the regulator's public database.`,
+      a: `Regulation is our top priority. We prioritize brokers holding Tier-1 licenses from the FCA (UK), ASIC (Australia), NFA/CFTC (US), FINMA (Switzerland), MAS (Singapore), BaFin (Germany), or CySEC (EU/MiFID). Regulation carries the highest weight (30%) in our scoring formula, and we verify each license number directly on the regulator's public database. You can check each broker's regulatory status in their individual review.`,
     },
     {
       q: `What is the best online broker for beginners in ${YEAR}?`,
