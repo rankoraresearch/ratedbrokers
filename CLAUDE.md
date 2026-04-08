@@ -70,6 +70,10 @@ HH:MM — действие — результат
 | `BROKER-TYPES.md` | Различия типов брокеров: секции, скоринг, CTA, risk warning |
 | `/logo-showcase.html` | Библиотека логотипов всех брокеров (square, wide light, wide dark, hero) |
 | `THEMATIC-RANKINGS-TREE.md` | Дерево 330 рейтингов по 9 категориям |
+| `ARCHITECTURE.md` | Frontend structure, data pipeline, routing, deployment |
+| `ADMIN-GUIDE.md` | Руководство по 7 разделам админ-панели |
+| `REVIEW-EDITOR-GUIDE.md` | Инструкция по Review Editor (EN/RU) |
+| `backend/README.md` | API reference, D1 schema, все 40+ endpoints |
 
 ## Стек и правила кода
 

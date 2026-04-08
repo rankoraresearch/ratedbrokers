@@ -269,7 +269,32 @@ Score = Regulation×0.30 + Costs×0.20 + Reputation×0.15 + Transparency×0.15 +
 
 ---
 
-## 17. AI-агенты для актуализации данных (Джон + Боб)
+## 17. Review Editor: D1 overrides + Quill WYSIWYG (не CMS, не git-only)
+
+**Выбор:** Гибридный подход — MD-файлы как base content, D1 overrides поверх. Rich text editor (Quill) в админке.
+
+**Почему:**
+- Эксперты редактируют контент без доступа к git/коду
+- Оригинал никогда не теряется — override можно удалить, вернув MD-текст
+- Мгновенное обновление — без rebuild, без deploy (frontend fetch + merge)
+- Graceful fallback — если API недоступен, показывается статика из бандла
+- HTML из Quill даёт **bold**, *italic*, [ссылки] — необходимо для SEO-контента
+- Мультиязычность — колонка `lang` во всех таблицах, каждый язык редактируется отдельно
+
+**Отвергнуто:**
+- Полный CMS (Contentful, Strapi) — внешняя зависимость, стоимость, latency, overkill
+- Git-only редактирование — требует технических навыков от экспертов
+- Markdown editor — MD → HTML конвертация добавляет сложность, Quill WYSIWYG проще для non-tech
+
+**Архитектура:**
+```
+Admin/Expert → Quill editor → HTML → D1 (review_overrides)
+Frontend → fetch /api/reviews/:slug/overrides → merge HTML over static JS → render
+```
+
+---
+
+## 18. AI-агенты для актуализации данных (Джон + Боб)
 
 **Выбор:** Два специализированных AI-агента, запускаемых через Claude Code Task tool. Промпты хранятся в `agents/`.
 
@@ -358,3 +383,32 @@ Score = Regulation×0.30 + Costs×0.20 + Reputation×0.15 + Transparency×0.15 +
 **Почему:** Конкуренты (BrokerChooser, BestBrokers) используют зонтичный подход "online brokers". Homepage таргетирует "Best Online Brokers 2026" вместо "Best Forex Brokers".
 
 **Реализация:** 8 хабов + master hub (/online-brokers). 51 брокер. 288 тематических + 266 комбинаторных рейтингов. Homepage показывает 8 категорий в navigation bar.
+
+---
+
+## 19. Compare Page — мультивертикальный подход (M4)
+
+**Выбор:** Один URL `/compare` с pill-табами вертикалей (client-side фильтрация). BrokerComparison определяет вертикаль автоматически по данным пары.
+
+**Почему:** Один URL проще для internal linking, нет каннибализации с `/compare/{pair}`. Табы визуально показывают breadth of coverage. Compare landing — utility page, не SEO-страница.
+
+**Альтернативы:**
+- Отдельные URL `/compare/stocks`, `/compare/forex` — каннибализация, лишние редиректы
+- Dropdown-фильтры — более сложный UI для task-oriented страницы
+
+**Vertical detection:** `getComparisonVertical(A, B, hintVertical)` — 3 уровня: 1) explicit hint из curated pair data, 2) shared vertical из broker metadata, 3) "generic" fallback.
+
+---
+
+## 18. Vertical badge — Dot + Text (M4)
+
+**Выбор:** Цветная точка 6px + серый uppercase текст вместо цветного залитого badge.
+
+**Почему:** 7 ярких badge-ей = "винегрет из цветов". Из 6 прототипов (Color, Mono, Ghost, Dot+Text, Left Stripe, 2-Group) выбран Dot+Text — лучший баланс: цветовая дифференциация сохраняется (мягкие пастельные точки), но площадь цвета минимальна. Паттерн Bloomberg/Linear/Figma.
+
+**Альтернативы отвергнуты:**
+- Color (текущий) — пёстро
+- Mono Text — слишком незаметно
+- Ghost Badge — аккуратно, но badge занимает лишнее место
+- Left Stripe — элегантно, но требует tooltip для понимания цвета
+- 2-Group — спорное деление на trading/investing
