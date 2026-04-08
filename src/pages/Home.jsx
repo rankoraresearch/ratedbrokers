@@ -482,6 +482,13 @@ export default function Home() {
         {[
           { id: "A", label: "Dark Cards" },
           { id: "C", label: "Ticker Wall" },
+          { id: "A2", label: "Score Cards" },
+          { id: "A3", label: "Brand Wall" },
+          { id: "C2", label: "Ranked List" },
+          { id: "C3", label: "Dense Table" },
+          { id: "C4", label: "Score Border" },
+          { id: "C5", label: "Ticker + Label" },
+          { id: "C6", label: "Ticker 3-col" },
         ].map((v) => (
           <button key={v.id} onClick={() => setAllRevVar(v.id)} style={{
             padding: mob ? "6px 12px" : "8px 16px", borderRadius: 8,
@@ -548,6 +555,241 @@ export default function Home() {
               </div>
               <span style={{ fontFamily: "'DM Sans'", fontWeight: 600, fontSize: mob ? 11 : 13, color: "#e2e8f0", flex: 1, minWidth: 0, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{b.B.name}</span>
               <span style={{ fontFamily: "'JetBrains Mono'", fontSize: mob ? 10 : 11, fontWeight: 800, color: "#34d399", flexShrink: 0 }}>{b.B.score}</span>
+            </Link>
+          ))}
+        </div>
+      </section>
+      )}
+
+      {allRevVar === "A2" && (
+      /* ─── Variant A2: Dark Cards + Score Badge — same grid, score overlay in corner, green glow on 9+ ─── */
+      <section style={{ ...cn, padding: mob ? "40px 16px" : "60px 24px" }}>
+        <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 30, textAlign: "center", marginBottom: 8 }}>{t("home.allTitle")}</h2>
+        <p style={{ textAlign: "center", fontSize: 16, color: "#1f2937", marginBottom: mob ? 24 : 36, maxWidth: 500, margin: "0 auto" }}>{t("home.allDesc", { count: allBrokersData.length })}</p>
+        <div style={{ display: "grid", gridTemplateColumns: mob ? "repeat(3, 1fr)" : tab ? "repeat(4, 1fr)" : "repeat(6, 1fr)", gap: mob ? 10 : 14 }}>
+          {allBrokersData.map((b) => (
+            <Link key={b.slug} to={lp(`/review/${b.slug}`)} style={{ display: "flex", flexDirection: "column", alignItems: "center", textDecoration: "none", transition: "transform 0.25s ease" }}
+              onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-4px) scale(1.03)"; const c = e.currentTarget.querySelector("[data-lc2]"); if (c) { c.style.boxShadow = "0 8px 24px rgba(15,23,42,0.4)"; c.style.borderColor = "#34d399"; } }}
+              onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0) scale(1)"; const c = e.currentTarget.querySelector("[data-lc2]"); if (c) { c.style.boxShadow = "0 2px 8px rgba(15,23,42,0.15)"; c.style.borderColor = b.B.score >= 9.0 ? "rgba(52,211,153,0.3)" : "transparent"; } }}
+            >
+              <div data-lc2 style={{
+                width: "100%", aspectRatio: "16/9", borderRadius: mob ? 8 : 10, overflow: "hidden",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                background: "#0f172a", position: "relative",
+                border: b.B.score >= 9.0 ? "2px solid rgba(52,211,153,0.3)" : "2px solid transparent",
+                boxShadow: "0 2px 8px rgba(15,23,42,0.15)",
+                transition: "box-shadow 0.25s ease, border-color 0.25s ease", marginBottom: mob ? 6 : 8,
+              }}>
+                <img src={`${import.meta.env.BASE_URL}logos-wide-dark/${b.slug}.svg`} alt={b.B.name} loading="lazy" onError={e => { e.target.style.display = "none"; e.target.nextSibling.style.display = "flex"; }} style={{ width: "70%", height: "55%", objectFit: "contain" }} />
+                <span style={{ display: "none", alignItems: "center", justifyContent: "center", fontFamily: "Outfit", fontWeight: 700, fontSize: mob ? 9 : 11, color: "#94a3b8" }}>{b.B.name}</span>
+                <span style={{
+                  position: "absolute", bottom: 4, right: 4,
+                  padding: "1px 5px", borderRadius: 4,
+                  background: "rgba(0,0,0,0.5)", backdropFilter: "blur(4px)",
+                  fontFamily: "'JetBrains Mono'", fontSize: mob ? 9 : 10, fontWeight: 800, color: scoreColor(b.B.score),
+                }}>{b.B.score}</span>
+              </div>
+              <span style={{ fontFamily: "'DM Sans'", fontWeight: 600, fontSize: mob ? 10 : 12, color: "#334155", textAlign: "center", lineHeight: 1.2, maxWidth: "100%", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{b.B.name}</span>
+            </Link>
+          ))}
+        </div>
+      </section>
+      )}
+
+      {allRevVar === "A3" && (
+      /* ─── Variant A3: Dark Cards Compact — 8-col tighter grid, no name below, score on hover ─── */
+      <section style={{ ...cn, padding: mob ? "40px 16px" : "60px 24px" }}>
+        <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 30, textAlign: "center", marginBottom: 8 }}>{t("home.allTitle")}</h2>
+        <p style={{ textAlign: "center", fontSize: 16, color: "#1f2937", marginBottom: mob ? 24 : 36, maxWidth: 500, margin: "0 auto" }}>{t("home.allDesc", { count: allBrokersData.length })}</p>
+        <div style={{ display: "grid", gridTemplateColumns: mob ? "repeat(4, 1fr)" : tab ? "repeat(5, 1fr)" : "repeat(8, 1fr)", gap: mob ? 6 : 8 }}>
+          {allBrokersData.map((b) => (
+            <Link key={b.slug} to={lp(`/review/${b.slug}`)} title={`${b.B.name} — ${b.B.score}`} style={{
+              display: "block", textDecoration: "none", position: "relative",
+              borderRadius: mob ? 6 : 8, overflow: "hidden", transition: "transform 0.2s",
+            }}
+              onMouseEnter={e => { e.currentTarget.style.transform = "scale(1.08)"; const ov = e.currentTarget.querySelector("[data-ov3]"); if (ov) ov.style.opacity = "1"; }}
+              onMouseLeave={e => { e.currentTarget.style.transform = "scale(1)"; const ov = e.currentTarget.querySelector("[data-ov3]"); if (ov) ov.style.opacity = "0"; }}
+            >
+              <div style={{
+                aspectRatio: "1", background: "#0f172a",
+                display: "flex", alignItems: "center", justifyContent: "center",
+              }}>
+                <img src={`${import.meta.env.BASE_URL}logos-wide-dark/${b.slug}.svg`} alt={b.B.name} loading="lazy" onError={e => { e.target.style.display = "none"; }} style={{ width: "75%", height: "45%", objectFit: "contain" }} />
+              </div>
+              <div data-ov3 style={{
+                position: "absolute", bottom: 0, left: 0, right: 0,
+                background: "linear-gradient(180deg, transparent 0%, rgba(5,150,105,0.9) 100%)",
+                padding: "16px 4px 4px", textAlign: "center",
+                opacity: 0, transition: "opacity 0.2s",
+              }}>
+                <div style={{ fontFamily: "'DM Sans'", fontWeight: 700, fontSize: mob ? 8 : 10, color: "#fff", lineHeight: 1.1 }}>{b.B.name}</div>
+                <div style={{ fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: mob ? 10 : 12, color: "#fff" }}>{b.B.score}</div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+      )}
+
+      {allRevVar === "C2" && (
+      /* ─── Variant C2: Ticker + Rank — like C but with rank numbers and score pill ─── */
+      <section style={{ ...cn, padding: mob ? "40px 16px" : "60px 24px" }}>
+        <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 30, textAlign: "center", marginBottom: 8 }}>{t("home.allTitle")}</h2>
+        <p style={{ textAlign: "center", fontSize: 16, color: "#1f2937", marginBottom: mob ? 24 : 36, maxWidth: 500, margin: "0 auto" }}>{t("home.allDesc", { count: allBrokersData.length })}</p>
+        <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr 1fr" : tab ? "repeat(3, 1fr)" : "repeat(4, 1fr)", gap: mob ? 6 : 8 }}>
+          {allBrokersData.map((b, i) => (
+            <Link key={b.slug} to={lp(`/review/${b.slug}`)} style={{
+              display: "flex", alignItems: "center", gap: mob ? 6 : 8,
+              padding: mob ? "6px 8px" : "8px 12px", borderRadius: 8,
+              background: "#0f172a", textDecoration: "none",
+              transition: "all 0.2s ease",
+              border: "1px solid #1e293b",
+            }}
+              onMouseEnter={e => { e.currentTarget.style.background = "#1e293b"; e.currentTarget.style.borderColor = "#34d399"; e.currentTarget.style.transform = "translateX(3px)"; }}
+              onMouseLeave={e => { e.currentTarget.style.background = "#0f172a"; e.currentTarget.style.borderColor = "#1e293b"; e.currentTarget.style.transform = "translateX(0)"; }}
+            >
+              <span style={{
+                fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: 10,
+                color: i < 3 ? "#34d399" : i < 10 ? "#94a3b8" : "#475569",
+                width: 18, textAlign: "center", flexShrink: 0,
+              }}>{i + 1}</span>
+              <div style={{ width: mob ? 44 : 56, height: mob ? 22 : 26, flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <img src={`${import.meta.env.BASE_URL}logos-wide-dark/${b.slug}.svg`} alt={b.B.name} loading="lazy" onError={e => { e.target.style.display = "none"; }} style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }} />
+              </div>
+              <span style={{ fontFamily: "'DM Sans'", fontWeight: 600, fontSize: mob ? 11 : 13, color: "#e2e8f0", flex: 1, minWidth: 0, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{b.B.name}</span>
+              <span style={{
+                padding: "1px 6px", borderRadius: 4,
+                background: scoreColor(b.B.score), color: "#fff",
+                fontFamily: "'JetBrains Mono'", fontSize: mob ? 9 : 10, fontWeight: 800, flexShrink: 0,
+              }}>{b.B.score}</span>
+            </Link>
+          ))}
+        </div>
+      </section>
+      )}
+
+      {allRevVar === "C3" && (
+      /* ─── Variant C3: Ticker Dense — like C but 5-col, even tighter, no gap, stripe bg ─── */
+      <section style={{ ...cn, padding: mob ? "40px 16px" : "60px 24px" }}>
+        <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 30, textAlign: "center", marginBottom: 8 }}>{t("home.allTitle")}</h2>
+        <p style={{ textAlign: "center", fontSize: 16, color: "#1f2937", marginBottom: mob ? 24 : 36, maxWidth: 500, margin: "0 auto" }}>{t("home.allDesc", { count: allBrokersData.length })}</p>
+        <div style={{
+          borderRadius: 12, overflow: "hidden", border: "1px solid #1e293b",
+        }}>
+          <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr 1fr" : tab ? "repeat(3, 1fr)" : "repeat(5, 1fr)" }}>
+            {allBrokersData.map((b, i) => (
+              <Link key={b.slug} to={lp(`/review/${b.slug}`)} style={{
+                display: "flex", alignItems: "center", gap: mob ? 6 : 8,
+                padding: mob ? "7px 8px" : "8px 12px",
+                background: i % 2 === 0 ? "#0f172a" : "#131d30",
+                textDecoration: "none", transition: "background 0.15s",
+                borderBottom: "1px solid rgba(255,255,255,0.04)",
+              }}
+                onMouseEnter={e => { e.currentTarget.style.background = "#1e293b"; }}
+                onMouseLeave={e => { e.currentTarget.style.background = i % 2 === 0 ? "#0f172a" : "#131d30"; }}
+              >
+                <div style={{ width: mob ? 44 : 52, height: mob ? 20 : 24, flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <img src={`${import.meta.env.BASE_URL}logos-wide-dark/${b.slug}.svg`} alt={b.B.name} loading="lazy" onError={e => { e.target.style.display = "none"; }} style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }} />
+                </div>
+                <span style={{ fontFamily: "'DM Sans'", fontWeight: 600, fontSize: mob ? 10 : 12, color: "#cbd5e1", flex: 1, minWidth: 0, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{b.B.name}</span>
+                <span style={{ fontFamily: "'JetBrains Mono'", fontSize: mob ? 10 : 11, fontWeight: 800, color: scoreColor(b.B.score), flexShrink: 0 }}>{b.B.score}</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+      )}
+
+      {allRevVar === "C4" && (
+      /* ─── Variant C4: Score Border — like C but left border colored by score tier ─── */
+      <section style={{ ...cn, padding: mob ? "40px 16px" : "60px 24px" }}>
+        <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 30, textAlign: "center", marginBottom: 8 }}>{t("home.allTitle")}</h2>
+        <p style={{ textAlign: "center", fontSize: 16, color: "#1f2937", marginBottom: mob ? 24 : 36, maxWidth: 500, margin: "0 auto" }}>{t("home.allDesc", { count: allBrokersData.length })}</p>
+        <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr 1fr" : tab ? "repeat(3, 1fr)" : "repeat(4, 1fr)", gap: mob ? 6 : 8 }}>
+          {allBrokersData.map((b) => (
+            <Link key={b.slug} to={lp(`/review/${b.slug}`)} style={{
+              display: "flex", alignItems: "center", gap: mob ? 8 : 10,
+              padding: mob ? "6px 8px" : "8px 12px", borderRadius: 8,
+              background: "#0f172a", textDecoration: "none",
+              transition: "all 0.2s ease",
+              border: "1px solid #1e293b",
+              borderLeft: `3px solid ${scoreColor(b.B.score)}`,
+            }}
+              onMouseEnter={e => { e.currentTarget.style.background = "#1e293b"; e.currentTarget.style.transform = "translateX(3px)"; }}
+              onMouseLeave={e => { e.currentTarget.style.background = "#0f172a"; e.currentTarget.style.transform = "translateX(0)"; }}
+            >
+              <div style={{ width: mob ? 48 : 60, height: mob ? 24 : 28, flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <img src={`${import.meta.env.BASE_URL}logos-wide-dark/${b.slug}.svg`} alt={b.B.name} loading="lazy" onError={e => { e.target.style.display = "none"; }} style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }} />
+              </div>
+              <span style={{ fontFamily: "'DM Sans'", fontWeight: 600, fontSize: mob ? 11 : 13, color: "#e2e8f0", flex: 1, minWidth: 0, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{b.B.name}</span>
+              <span style={{ fontFamily: "'JetBrains Mono'", fontSize: mob ? 10 : 11, fontWeight: 800, color: scoreColor(b.B.score), flexShrink: 0 }}>{b.B.score}</span>
+            </Link>
+          ))}
+        </div>
+      </section>
+      )}
+
+      {allRevVar === "C5" && (
+      /* ─── Variant C5: Ticker + Label — like C but with score label (Excellent/Very Good) ─── */
+      <section style={{ ...cn, padding: mob ? "40px 16px" : "60px 24px" }}>
+        <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 30, textAlign: "center", marginBottom: 8 }}>{t("home.allTitle")}</h2>
+        <p style={{ textAlign: "center", fontSize: 16, color: "#1f2937", marginBottom: mob ? 24 : 36, maxWidth: 500, margin: "0 auto" }}>{t("home.allDesc", { count: allBrokersData.length })}</p>
+        <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr 1fr" : tab ? "repeat(3, 1fr)" : "repeat(4, 1fr)", gap: mob ? 6 : 8 }}>
+          {allBrokersData.map((b) => {
+            const label = b.B.score >= 9.5 ? "Excellent" : b.B.score >= 9.0 ? "Great" : b.B.score >= 8.5 ? "Very Good" : b.B.score >= 8.0 ? "Good" : "Fair";
+            return (
+            <Link key={b.slug} to={lp(`/review/${b.slug}`)} style={{
+              display: "flex", alignItems: "center", gap: mob ? 6 : 10,
+              padding: mob ? "7px 8px" : "9px 12px", borderRadius: 8,
+              background: "#0f172a", textDecoration: "none",
+              transition: "all 0.2s ease",
+              border: "1px solid #1e293b",
+            }}
+              onMouseEnter={e => { e.currentTarget.style.background = "#1e293b"; e.currentTarget.style.borderColor = "#34d399"; e.currentTarget.style.transform = "translateX(3px)"; }}
+              onMouseLeave={e => { e.currentTarget.style.background = "#0f172a"; e.currentTarget.style.borderColor = "#1e293b"; e.currentTarget.style.transform = "translateX(0)"; }}
+            >
+              <div style={{ width: mob ? 44 : 56, height: mob ? 22 : 26, flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <img src={`${import.meta.env.BASE_URL}logos-wide-dark/${b.slug}.svg`} alt={b.B.name} loading="lazy" onError={e => { e.target.style.display = "none"; }} style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }} />
+              </div>
+              <span style={{ fontFamily: "'DM Sans'", fontWeight: 600, fontSize: mob ? 11 : 13, color: "#e2e8f0", flex: 1, minWidth: 0, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{b.B.name}</span>
+              <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", flexShrink: 0 }}>
+                <span style={{ fontFamily: "'JetBrains Mono'", fontSize: mob ? 10 : 11, fontWeight: 800, color: scoreColor(b.B.score) }}>{b.B.score}</span>
+                {!mob && <span style={{ fontSize: 9, color: "#64748b", fontWeight: 600 }}>{label}</span>}
+              </div>
+            </Link>
+            );
+          })}
+        </div>
+      </section>
+      )}
+
+      {allRevVar === "C6" && (
+      /* ─── Variant C6: Ticker 3-col — wider rows, more breathing room, subtle separator ─── */
+      <section style={{ ...cn, padding: mob ? "40px 16px" : "60px 24px" }}>
+        <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 30, textAlign: "center", marginBottom: 8 }}>{t("home.allTitle")}</h2>
+        <p style={{ textAlign: "center", fontSize: 16, color: "#1f2937", marginBottom: mob ? 24 : 36, maxWidth: 500, margin: "0 auto" }}>{t("home.allDesc", { count: allBrokersData.length })}</p>
+        <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : tab ? "1fr 1fr" : "repeat(3, 1fr)", gap: mob ? 6 : 8 }}>
+          {allBrokersData.map((b) => (
+            <Link key={b.slug} to={lp(`/review/${b.slug}`)} style={{
+              display: "flex", alignItems: "center", gap: mob ? 10 : 14,
+              padding: mob ? "8px 10px" : "10px 16px", borderRadius: 10,
+              background: "#0f172a", textDecoration: "none",
+              transition: "all 0.2s ease",
+              border: "1px solid #1e293b",
+            }}
+              onMouseEnter={e => { e.currentTarget.style.background = "#1e293b"; e.currentTarget.style.borderColor = "#34d399"; e.currentTarget.style.transform = "translateX(3px)"; }}
+              onMouseLeave={e => { e.currentTarget.style.background = "#0f172a"; e.currentTarget.style.borderColor = "#1e293b"; e.currentTarget.style.transform = "translateX(0)"; }}
+            >
+              <div style={{ width: mob ? 56 : 72, height: mob ? 28 : 32, flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <img src={`${import.meta.env.BASE_URL}logos-wide-dark/${b.slug}.svg`} alt={b.B.name} loading="lazy" onError={e => { e.target.style.display = "none"; }} style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }} />
+              </div>
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <span style={{ fontFamily: "'DM Sans'", fontWeight: 600, fontSize: mob ? 13 : 14, color: "#f1f5f9", display: "block", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{b.B.name}</span>
+              </div>
+              <div style={{
+                width: 1, height: 20, background: "rgba(255,255,255,0.08)", flexShrink: 0,
+              }} />
+              <span style={{ fontFamily: "'JetBrains Mono'", fontSize: mob ? 12 : 13, fontWeight: 800, color: scoreColor(b.B.score), flexShrink: 0, minWidth: 32, textAlign: "right" }}>{b.B.score}</span>
             </Link>
           ))}
         </div>
