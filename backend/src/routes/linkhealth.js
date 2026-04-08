@@ -4,11 +4,7 @@
  */
 import { corsHeaders } from '../utils/cors.js';
 import { adminHeaderCSS, adminHeaderHTML, adminFooterHTML, adminHeaderScript } from '../utils/adminLayout.js';
-
-function checkKey(url, env) {
-  const key = url.searchParams.get('key');
-  return key && key === env.API_KEY;
-}
+import { checkAuth, extractKey } from '../utils/auth.js';
 
 function esc(str) {
   if (!str) return '';
@@ -24,9 +20,8 @@ function fmtDate(d) {
 
 // ─── POST /api/admin/linkhealth/recheck/:slug ───
 export async function handleLinkRecheck(request, env, slug) {
-  const url = new URL(request.url);
   const headers = { ...corsHeaders(request), 'Content-Type': 'application/json' };
-  if (!checkKey(url, env)) return Response.json({ error: 'Unauthorized' }, { status: 401, headers });
+  if (!checkAuth(request, env)) return Response.json({ error: 'Unauthorized' }, { status: 401, headers });
 
   const broker = await env.DB.prepare('SELECT slug, affiliate_url FROM brokers WHERE slug = ?').bind(slug).first();
   if (!broker) return Response.json({ error: 'Broker not found' }, { status: 404, headers });
@@ -50,10 +45,9 @@ export async function handleLinkRecheck(request, env, slug) {
 
 // ─── GET /api/admin/linkhealth/dashboard ───
 export async function handleLinkHealthDashboard(request, env) {
-  const url = new URL(request.url);
-  if (!checkKey(url, env)) return new Response('Unauthorized', { status: 401 });
+  if (!checkAuth(request, env)) return new Response('Unauthorized', { status: 401 });
 
-  const encodedKey = encodeURIComponent(url.searchParams.get('key'));
+  const encodedKey = encodeURIComponent(extractKey(request));
 
   // Link health — latest check per broker
   const linkChecks = await env.DB.prepare(`
@@ -258,6 +252,11 @@ export async function handleLinkHealthDashboard(request, env) {
 <script>
 const API_KEY = '${encodedKey}';
 
+function authFetch(url, opts = {}) {
+  opts.headers = { ...opts.headers, 'Authorization': 'Bearer ' + API_KEY };
+  return fetch(url, opts);
+}
+
 ${adminHeaderScript()}
 
 // Re-check single link
@@ -265,7 +264,7 @@ async function recheckLink(slug, btn) {
   btn.disabled = true;
   btn.innerHTML = '<span style="font-size:11px">...</span>';
   try {
-    const res = await fetch('/api/admin/linkhealth/recheck/' + slug + '?key=' + API_KEY, { method: 'POST' });
+    const res = await authFetch('/api/admin/linkhealth/recheck/' + slug, { method: 'POST' });
     const data = await res.json();
     if (data.healthy) {
       showToast(slug + ' — OK (' + data.status_code + ')');
@@ -303,7 +302,7 @@ async function batchCheck(selector, brokenOnly) {
     const btn = row.querySelector('button');
     if (btn) { btn.disabled = true; btn.innerHTML = '<span style="font-size:11px">...</span>'; }
     try {
-      await fetch('/api/admin/linkhealth/recheck/' + slug + '?key=' + API_KEY, { method: 'POST' });
+      await authFetch('/api/admin/linkhealth/recheck/' + slug, { method: 'POST' });
       checked++;
     } catch (e) {}
   }

@@ -361,15 +361,15 @@ try {
   errors++;
 }
 
-// Generate public/data/broker-content.json (for admin review editor)
-const CONTENT_JSON_DIR = join(ROOT, "public/data");
-mkdirSync(CONTENT_JSON_DIR, { recursive: true });
+// Generate broker-content.json for admin review editor (in backend, NOT public)
+const BACKEND_DATA_DIR = join(ROOT, "backend/src/data");
+mkdirSync(BACKEND_DATA_DIR, { recursive: true });
 writeFileSync(
-  join(CONTENT_JSON_DIR, "broker-content.json"),
+  join(BACKEND_DATA_DIR, "broker-content.json"),
   JSON.stringify(allContent),
   "utf-8"
 );
-console.log(`  ✓ broker-content.json (${Object.keys(allContent).length} brokers)`);
+console.log(`  ✓ broker-content.json → backend/src/data/ (${Object.keys(allContent).length} brokers)`);
 
 console.log(
   `\nBuild complete: ${success} brokers + index.js (${errors} errors).`

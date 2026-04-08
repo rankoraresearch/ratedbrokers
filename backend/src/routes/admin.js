@@ -1,10 +1,6 @@
 import { corsHeaders } from '../utils/cors.js';
 import { adminHeaderCSS, adminHeaderHTML, adminFooterHTML, adminHeaderScript } from '../utils/adminLayout.js';
-
-function checkKey(url, env) {
-  const key = url.searchParams.get('key');
-  return key && key === env.API_KEY;
-}
+import { checkAuth, extractKey } from '../utils/auth.js';
 
 function esc(str) {
   if (!str) return '';
@@ -17,10 +13,9 @@ function isPlaceholder(url) {
 
 // ─── GET /api/admin/brokers ───
 export async function handleAdminList(request, env) {
-  const url = new URL(request.url);
   const headers = { ...corsHeaders(request), 'Content-Type': 'application/json' };
 
-  if (!checkKey(url, env)) {
+  if (!checkAuth(request, env)) {
     return Response.json({ error: 'Unauthorized' }, { status: 401, headers });
   }
 
@@ -41,10 +36,9 @@ export async function handleAdminList(request, env) {
 
 // ─── PUT /api/admin/brokers/:slug ───
 export async function handleAdminUpdate(request, env, slug) {
-  const url = new URL(request.url);
   const headers = { ...corsHeaders(request), 'Content-Type': 'application/json' };
 
-  if (!checkKey(url, env)) {
+  if (!checkAuth(request, env)) {
     return Response.json({ error: 'Unauthorized' }, { status: 401, headers });
   }
 
@@ -101,10 +95,9 @@ export async function handleAdminUpdate(request, env, slug) {
 
 // ─── POST /api/admin/brokers ───
 export async function handleAdminCreate(request, env) {
-  const url = new URL(request.url);
   const headers = { ...corsHeaders(request), 'Content-Type': 'application/json' };
 
-  if (!checkKey(url, env)) {
+  if (!checkAuth(request, env)) {
     return Response.json({ error: 'Unauthorized' }, { status: 401, headers });
   }
 
@@ -139,10 +132,9 @@ export async function handleAdminCreate(request, env) {
 
 // ─── DELETE /api/admin/brokers/:slug ───
 export async function handleAdminDelete(request, env, slug) {
-  const url = new URL(request.url);
   const headers = { ...corsHeaders(request), 'Content-Type': 'application/json' };
 
-  if (!checkKey(url, env)) {
+  if (!checkAuth(request, env)) {
     return Response.json({ error: 'Unauthorized' }, { status: 401, headers });
   }
 
@@ -158,16 +150,14 @@ export async function handleAdminDelete(request, env, slug) {
 
 // ─── GET /api/admin/dashboard ─── HTML Admin Panel ───
 export async function handleAdminDashboard(request, env) {
-  const url = new URL(request.url);
-
-  if (!checkKey(url, env)) {
+  if (!checkAuth(request, env)) {
     return new Response('Unauthorized. Add ?key=YOUR_API_KEY', {
       status: 401,
       headers: { 'Content-Type': 'text/plain' },
     });
   }
 
-  const key = url.searchParams.get('key');
+  const key = extractKey(request);
   const encodedKey = encodeURIComponent(key);
 
   const [brokersResult, changesResult] = await Promise.all([
@@ -589,6 +579,10 @@ ${shellFooter}
 <script>
 const API_KEY = '${esc(key)}';
 const ENC_KEY = '${encodedKey}';
+function authFetch(url, opts = {}) {
+  opts.headers = { ...opts.headers, 'Authorization': 'Bearer ' + API_KEY };
+  return fetch(url, opts);
+}
 let BROKERS = ${brokersJson};
 const CHANGES = ${changesJson};
 const MAX_CLICKS = ${maxClicks30d};
@@ -765,7 +759,7 @@ async function saveEdit(slug) {
   btn.textContent = 'Saving...';
 
   try {
-    const res = await fetch('/api/admin/brokers/' + slug + '?key=' + ENC_KEY, {
+    const res = await authFetch('/api/admin/brokers/' + slug, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ affiliate_url: newUrl }),
@@ -901,7 +895,7 @@ async function applyBulk() {
   let ok = 0, fail = 0;
   for (const item of bulkItems) {
     try {
-      const res = await fetch('/api/admin/brokers/' + item.slug + '?key=' + ENC_KEY, {
+      const res = await authFetch('/api/admin/brokers/' + item.slug, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ affiliate_url: item.url }),

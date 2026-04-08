@@ -303,7 +303,7 @@ let brokerContentData = null;
 async function loadBrokerContent() {
   if (brokerContentData) return brokerContentData;
   try {
-    const res = await fetch(FRONTEND_URL + '/data/broker-content.json');
+    const res = await fetch('/api/admin/broker-content?token=' + TOKEN);
     if (res.ok) { brokerContentData = await res.json(); return brokerContentData; }
   } catch (e) { console.error(e); }
   return {};

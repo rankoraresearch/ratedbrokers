@@ -104,7 +104,7 @@ Overrides хранятся в D1 (`review_overrides`), не в git. Graceful fal
 | `src/data/countries.js` | 43 countries |
 | `src/data/guides.js` | 25 guides |
 | `src/data/comparisons.js` | Broker comparison pairs |
-| `public/data/broker-content.json` | Original content for admin editor |
+| `backend/src/data/broker-content.json` | Original content for admin editor (protected, not public) |
 
 ### Key Components
 
@@ -130,7 +130,8 @@ git push origin main → Cloudflare Pages auto-build → live at ratedbrokers.co
 
 Build command: `npm run build`  
 Output: `dist/`  
-SPA fallback: все пути → `index.html`
+SPA fallback: все пути → `index.html`  
+Code splitting: `React.lazy()` + `Suspense` — каждая страница в отдельном chunk
 
 ### Backend (Cloudflare Workers)
 
@@ -139,7 +140,9 @@ cd backend
 npx wrangler deploy --config wrangler.toml
 ```
 
-Manual deploy. API available at `api.ratedbrokers.com`.
+Manual deploy. API available at `api.ratedbrokers.com`.  
+Smart Placement enabled — Workers run close to D1 for faster queries.  
+Staging: `npx wrangler deploy --env staging`
 
 ### D1 Migrations
 

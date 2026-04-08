@@ -15,14 +15,15 @@ npx wrangler secret put API_KEY               # set admin API key
 npx wrangler d1 execute ratedbrokers --remote --command "SQL"  # run SQL on production D1
 ```
 
-Auto-deploy: push to `main` deploys frontend (Cloudflare Pages). Backend deploys manually via `wrangler deploy`.
+Auto-deploy: push to `main` deploys frontend (Cloudflare Pages). Backend deploys manually via `wrangler deploy`.  
+Staging: `npx wrangler deploy --env staging` → `ratedbrokers-api-staging.ratedbrokers.workers.dev`
 
 ## Environment
 
 | Variable | Source | Description |
 |----------|--------|-------------|
 | `FRONTEND_URL` | wrangler.toml | `https://ratedbrokers.com` |
-| `API_KEY` | wrangler secret | Admin panel access key |
+| `API_KEY` | wrangler secret | Admin panel access key (supports `Authorization: Bearer` header + `?key=` fallback) |
 | `TURNSTILE_SECRET` | wrangler secret | Cloudflare Turnstile CAPTCHA (optional, graceful skip) |
 | `DB` | D1 binding | Database `ratedbrokers` (ID: `0583b2f5-...`) |
 
@@ -94,6 +95,7 @@ Auto-deploy: push to `main` deploys frontend (Cloudflare Pages). Backend deploys
 | GET | `/api/admin/reviews/:slug/content` | All overrides for broker. `?lang=en` |
 | PUT | `/api/admin/reviews/:slug/content` | Save section override `{section, content, edited_by}`. `?lang=en` |
 | DELETE | `/api/admin/reviews/:slug/content/:section` | Revert section to original. `?lang=en` |
+| GET | `/api/admin/broker-content` | Original broker content JSON (accepts admin key or expert token) |
 | GET | `/api/admin/reviews/log` | Recent edit audit log (last 100) |
 | GET | `/api/admin/reviews/tokens` | List expert tokens |
 | POST | `/api/admin/reviews/tokens` | Create token `{name, email?, lang?, broker_slugs?, expires_days?}` |

@@ -6,7 +6,7 @@ import { handleRankingsDashboard, handleRankingBrokers, handleRankingOrderUpdate
 import { handlePublishDashboard, handlePublishPages, handlePublishUpdate, handlePublishBatch, handlePublishAutoSchedule, handlePublishTick, handlePublishActive, handleSitemapIndex, handleSitemapSection } from './routes/publish.js';
 import { handleMessagesDashboard, handleMessageDelete } from './routes/messages.js';
 import { handleLinkHealthDashboard, handleLinkRecheck } from './routes/linkhealth.js';
-import { handleReviewsDashboard, handleReviewContent, handleReviewContentUpdate, handleReviewContentDelete, handleReviewOverridesPublic, handleReviewLog, handleTokensList, handleTokenCreate, handleTokenDelete } from './routes/reviews.js';
+import { handleReviewsDashboard, handleReviewContent, handleReviewContentUpdate, handleReviewContentDelete, handleReviewOverridesPublic, handleReviewLog, handleTokensList, handleTokenCreate, handleTokenDelete, handleBrokerContent } from './routes/reviews.js';
 import { handleExpertDashboard, handleExpertReviewContent, handleExpertReviewUpdate, handleExpertReviewDelete } from './routes/expert.js';
 import { handleOptions } from './utils/cors.js';
 
@@ -192,6 +192,11 @@ export default {
     const reviewPublicMatch = path.match(/^\/api\/reviews\/([a-z0-9-]+)\/overrides$/);
     if (reviewPublicMatch && request.method === 'GET') {
       return handleReviewOverridesPublic(request, env, reviewPublicMatch[1]);
+    }
+
+    // GET /api/admin/broker-content — protected original content (admin key or expert token)
+    if (path === '/api/admin/broker-content' && request.method === 'GET') {
+      return handleBrokerContent(request, env);
     }
 
     // ─── Expert Access ───

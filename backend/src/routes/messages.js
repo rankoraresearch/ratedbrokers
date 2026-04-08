@@ -4,11 +4,7 @@
  */
 import { corsHeaders } from '../utils/cors.js';
 import { adminHeaderCSS, adminHeaderHTML, adminFooterHTML, adminHeaderScript } from '../utils/adminLayout.js';
-
-function checkKey(url, env) {
-  const key = url.searchParams.get('key');
-  return key && key === env.API_KEY;
-}
+import { checkAuth, extractKey } from '../utils/auth.js';
 
 function esc(str) {
   if (!str) return '';
@@ -24,9 +20,8 @@ function fmtDate(d) {
 
 // ─── DELETE /api/admin/messages/:id ───
 export async function handleMessageDelete(request, env, id) {
-  const url = new URL(request.url);
   const headers = { ...corsHeaders(request), 'Content-Type': 'application/json' };
-  if (!checkKey(url, env)) return Response.json({ error: 'Unauthorized' }, { status: 401, headers });
+  if (!checkAuth(request, env)) return Response.json({ error: 'Unauthorized' }, { status: 401, headers });
 
   await env.DB.prepare('DELETE FROM contacts WHERE id = ?').bind(parseInt(id)).run();
   return Response.json({ ok: true }, { headers });
@@ -34,10 +29,9 @@ export async function handleMessageDelete(request, env, id) {
 
 // ─── GET /api/admin/messages/dashboard ───
 export async function handleMessagesDashboard(request, env) {
-  const url = new URL(request.url);
-  if (!checkKey(url, env)) return new Response('Unauthorized', { status: 401 });
+  if (!checkAuth(request, env)) return new Response('Unauthorized', { status: 401 });
 
-  const encodedKey = encodeURIComponent(url.searchParams.get('key'));
+  const encodedKey = encodeURIComponent(extractKey(request));
 
   // Messages stats
   const [totalMsg, weekMsg, todayMsg] = await Promise.all([
@@ -146,6 +140,11 @@ export async function handleMessagesDashboard(request, env) {
 <script>
 const API_KEY = '${encodedKey}';
 
+function authFetch(url, opts = {}) {
+  opts.headers = { ...opts.headers, 'Authorization': 'Bearer ' + API_KEY };
+  return fetch(url, opts);
+}
+
 ${adminHeaderScript()}
 
 // Toggle message expand
@@ -177,7 +176,7 @@ async function deleteMsg(id, btn) {
   if (!confirm('Delete this message?')) return;
   btn.disabled = true;
   try {
-    const res = await fetch('/api/admin/messages/' + id + '?key=' + API_KEY, { method: 'DELETE' });
+    const res = await authFetch('/api/admin/messages/' + id, { method: 'DELETE' });
     if (res.ok) {
       btn.closest('tr').remove();
       showToast('Message deleted');

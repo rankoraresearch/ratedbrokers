@@ -101,6 +101,7 @@ export default function BrokerReview() {
   const [stickyVisible, setStickyVisible] = useState(false);
   const [tocOpen, setTocOpen] = useState(false);
   const [overrides, setOverrides] = useState({});
+  const [overridesReady, setOverridesReady] = useState(false);
   const cn = {maxWidth:1200,margin:"0 auto",padding:mob?"0 16px":"0 24px"};
 
   useEffect(()=>{
@@ -113,11 +114,12 @@ export default function BrokerReview() {
   useEffect(()=>{
     if (!slug) return;
     const apiBase = import.meta.env.VITE_API_URL || '';
-    if (!apiBase) return;
+    if (!apiBase) { setOverridesReady(true); return; }
     fetch(`${apiBase}/api/reviews/${slug}/overrides`)
       .then(r => r.ok ? r.json() : {})
       .then(data => { if (data && Object.keys(data).length > 0) setOverrides(data); })
-      .catch(() => {});
+      .catch(() => {})
+      .finally(() => setOverridesReady(true));
   },[slug]);
 
   useEffect(()=>{
@@ -251,7 +253,7 @@ export default function BrokerReview() {
   ];
 
   return (
-    <div style={{fontFamily:"'DM Sans',system-ui,sans-serif",background:"#f8f9fb",color:"#111827"}}>
+    <div style={{fontFamily:"'DM Sans',system-ui,sans-serif",background:"#f8f9fb",color:"#111827",opacity:overridesReady?1:0.92,transition:"opacity 0.3s ease"}}>
       {/* Breadcrumbs */}
       <div style={{...cn, padding: mob ? "10px 16px" : "14px 24px"}}>
         <Breadcrumb items={(() => {

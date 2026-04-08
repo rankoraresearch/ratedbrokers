@@ -4,11 +4,7 @@
  */
 import { corsHeaders } from '../utils/cors.js';
 import { adminHeaderCSS, adminHeaderHTML, adminFooterHTML, adminHeaderScript } from '../utils/adminLayout.js';
-
-function checkKey(url, env) {
-  const key = url.searchParams.get('key');
-  return key && key === env.API_KEY;
-}
+import { checkAuth, extractKey } from '../utils/auth.js';
 
 function esc(str) {
   if (!str) return '';
@@ -272,10 +268,9 @@ const RANKINGS = _R.map(([id, title, group, priority]) => ({ id, title, group, p
 
 // ─── GET /api/admin/rankings/:id/brokers ───
 export async function handleRankingBrokers(request, env, rankingId) {
-  const url = new URL(request.url);
   const headers = { ...corsHeaders(request), 'Content-Type': 'application/json' };
 
-  if (!checkKey(url, env)) {
+  if (!checkAuth(request, env)) {
     return Response.json({ error: 'Unauthorized' }, { status: 401, headers });
   }
 
@@ -316,10 +311,9 @@ export async function handleRankingBrokers(request, env, rankingId) {
 
 // ─── PUT /api/admin/rankings/:id/order ───
 export async function handleRankingOrderUpdate(request, env, rankingId) {
-  const url = new URL(request.url);
   const headers = { ...corsHeaders(request), 'Content-Type': 'application/json' };
 
-  if (!checkKey(url, env)) {
+  if (!checkAuth(request, env)) {
     return Response.json({ error: 'Unauthorized' }, { status: 401, headers });
   }
 
@@ -372,10 +366,9 @@ export async function handleRankingOrderUpdate(request, env, rankingId) {
 
 // ─── DELETE /api/admin/rankings/:id/overrides ───
 export async function handleRankingOrderReset(request, env, rankingId) {
-  const url = new URL(request.url);
   const headers = { ...corsHeaders(request), 'Content-Type': 'application/json' };
 
-  if (!checkKey(url, env)) {
+  if (!checkAuth(request, env)) {
     return Response.json({ error: 'Unauthorized' }, { status: 401, headers });
   }
 
@@ -406,15 +399,13 @@ export async function handleRankingOrderPublic(request, env, rankingId) {
 
 // ─── GET /api/admin/rankings/dashboard ── HTML Admin Panel ───
 export async function handleRankingsDashboard(request, env) {
-  const url = new URL(request.url);
-
-  if (!checkKey(url, env)) {
+  if (!checkAuth(request, env)) {
     return new Response('Unauthorized. Add ?key=YOUR_API_KEY', {
       status: 401, headers: { 'Content-Type': 'text/plain' },
     });
   }
 
-  const key = url.searchParams.get('key');
+  const key = extractKey(request);
   const encodedKey = encodeURIComponent(key);
 
   // Fetch data from D1
@@ -881,11 +872,16 @@ ${shellFooter}
 </div>
 
 <script>
-const ENC_KEY = '${encodedKey}';
+const API_KEY = '${encodedKey}';
 const RANKINGS = ${rankingsJson};
 const GROUPS = ${groupsJson};
 const OVERRIDE_MAP = ${overrideMapJson};
 const CHANGES = ${changesJson};
+
+function authFetch(url, opts = {}) {
+  opts.headers = { ...opts.headers, 'Authorization': 'Bearer ' + API_KEY };
+  return fetch(url, opts);
+}
 
 const LABEL_PRESETS = ['Top Pick','Editor\\'s Choice','Best Value','Best for Beginners','Lowest Spreads','Most Trusted'];
 
@@ -1039,7 +1035,7 @@ async function selectRanking(id) {
   previewBtn.href = 'https://ratedbrokers.com/best/' + id;
 
   try {
-    const res = await fetch('/api/admin/rankings/' + id + '/brokers?key=' + ENC_KEY);
+    const res = await authFetch('/api/admin/rankings/' + id + '/brokers');
     const data = await res.json();
     if (!res.ok) throw new Error(data.error);
     editorBrokers = data.brokers;
@@ -1362,7 +1358,7 @@ async function saveOrder() {
   }
 
   try {
-    const res = await fetch('/api/admin/rankings/' + selectedRankingId + '/order?key=' + ENC_KEY, {
+    const res = await authFetch('/api/admin/rankings/' + selectedRankingId + '/order', {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
@@ -1388,7 +1384,7 @@ async function resetOrder() {
   if (!confirm('Reset all overrides for this ranking to natural order?')) return;
 
   try {
-    const res = await fetch('/api/admin/rankings/' + selectedRankingId + '/overrides?key=' + ENC_KEY, {
+    const res = await authFetch('/api/admin/rankings/' + selectedRankingId + '/overrides', {
       method: 'DELETE',
     });
     if (!res.ok) throw new Error('Failed');
@@ -1465,7 +1461,7 @@ async function copyFrom() {
   if (!sourceId) return;
 
   try {
-    const res = await fetch('/api/admin/rankings/' + sourceId + '/brokers?key=' + ENC_KEY);
+    const res = await authFetch('/api/admin/rankings/' + sourceId + '/brokers');
     const data = await res.json();
     if (!res.ok) throw new Error(data.error);
 
@@ -1540,7 +1536,7 @@ async function applyToSelected() {
   let ok = 0, fail = 0;
   for (const id of checked) {
     try {
-      const res = await fetch('/api/admin/rankings/' + id + '/order?key=' + ENC_KEY, {
+      const res = await authFetch('/api/admin/rankings/' + id + '/order', {
         method: 'PUT', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       });

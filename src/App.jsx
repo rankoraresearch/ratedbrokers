@@ -1,58 +1,73 @@
+import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route, Navigate, Outlet } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Home from "./pages/Home";
-import CountryPage from "./pages/CountryPage";
-import CountryHubPage from "./pages/CountryHubPage";
-import BrokerReview from "./pages/BrokerReview";
-import BrokerComparison from "./pages/BrokerComparison";
-import ComparePage from "./pages/ComparePage";
-import Methodology from "./pages/Methodology";
-import AllReviewsPage from "./pages/AllReviewsPage";
-import RankingPage from "./pages/RankingPage";
-import RegulatorPage from "./pages/RegulatorPage";
-import GuidePage from "./pages/GuidePage";
-import PlatformPage from "./pages/PlatformPage";
-import AboutPage from "./pages/AboutPage";
-import HowWeMakeMoneyPage from "./pages/HowWeMakeMoneyPage";
-import TrustScorePage from "./pages/TrustScorePage";
-import ContactPage from "./pages/ContactPage";
-import AllGuidesPage from "./pages/AllGuidesPage";
-import AllRankingsPage from "./pages/AllRankingsPage";
-import AuthorPage from "./pages/AuthorPage";
-import PrototypesPage from "./pages/prototypes/PrototypesPage";
-import LogoLab from "./pages/LogoLabDotCom";
-import RankingProto from "./pages/RankingProto";
-import RankingProtoB from "./pages/RankingProtoB";
-import RankingProtoC from "./pages/RankingProtoC";
-import CardProto from "./pages/CardProto";
-import RankingProtoWide from "./pages/RankingProtoWide";
-import LightThemeProto from "./pages/LightThemeProto";
-import ButtonLogoProto from "./pages/ButtonLogoProto";
-import SubPagesProto from "./pages/SubPagesProto";
-import SafetyProto from "./pages/SafetyProto";
-import HomeProtoA from "./pages/HomeProtoA";
-import HomeProtoC from "./pages/HomeProtoC";
-import HomeProtoF from "./pages/HomeProtoF";
-import HomeProtoF2 from "./pages/HomeProtoF2";
-import HomeProtoF3 from "./pages/HomeProtoF3";
-import HomeProtoF4 from "./pages/HomeProtoF4";
-import HomePrototypes from "./pages/HomePrototypes";
-import RankingHeroProtos from "./pages/RankingHeroProtos";
-import HeroButtonsProto from "./pages/HeroButtonsProto";
-import ScoreBadgeProto from "./pages/ScoreBadgeProto";
-import BrokerSubPage from "./pages/BrokerSubPage";
-// CategoryHubPage and OnlineBrokersHub removed — redirects to ranking pages
-import WarningPage from "./pages/WarningPage";
-import FindYourBrokerPage from "./pages/FindYourBrokerPage";
 import { LanguageProvider } from "./i18n/LanguageContext";
+
+// ─── Production pages (lazy loaded) ───
+const Home = lazy(() => import("./pages/Home"));
+const CountryPage = lazy(() => import("./pages/CountryPage"));
+const CountryHubPage = lazy(() => import("./pages/CountryHubPage"));
+const BrokerReview = lazy(() => import("./pages/BrokerReview"));
+const BrokerComparison = lazy(() => import("./pages/BrokerComparison"));
+const ComparePage = lazy(() => import("./pages/ComparePage"));
+const Methodology = lazy(() => import("./pages/Methodology"));
+const AllReviewsPage = lazy(() => import("./pages/AllReviewsPage"));
+const RankingPage = lazy(() => import("./pages/RankingPage"));
+const RegulatorPage = lazy(() => import("./pages/RegulatorPage"));
+const GuidePage = lazy(() => import("./pages/GuidePage"));
+const PlatformPage = lazy(() => import("./pages/PlatformPage"));
+const AboutPage = lazy(() => import("./pages/AboutPage"));
+const HowWeMakeMoneyPage = lazy(() => import("./pages/HowWeMakeMoneyPage"));
+const TrustScorePage = lazy(() => import("./pages/TrustScorePage"));
+const ContactPage = lazy(() => import("./pages/ContactPage"));
+const AllGuidesPage = lazy(() => import("./pages/AllGuidesPage"));
+const AllRankingsPage = lazy(() => import("./pages/AllRankingsPage"));
+const AuthorPage = lazy(() => import("./pages/AuthorPage"));
+const BrokerSubPage = lazy(() => import("./pages/BrokerSubPage"));
+const WarningPage = lazy(() => import("./pages/WarningPage"));
+const FindYourBrokerPage = lazy(() => import("./pages/FindYourBrokerPage"));
+
+// ─── Prototypes (lazy, dev-only chunks) ───
+const PrototypesPage = lazy(() => import("./pages/prototypes/PrototypesPage"));
+const LogoLab = lazy(() => import("./pages/LogoLabDotCom"));
+const RankingProto = lazy(() => import("./pages/RankingProto"));
+const RankingProtoB = lazy(() => import("./pages/RankingProtoB"));
+const RankingProtoC = lazy(() => import("./pages/RankingProtoC"));
+const CardProto = lazy(() => import("./pages/CardProto"));
+const RankingProtoWide = lazy(() => import("./pages/RankingProtoWide"));
+const LightThemeProto = lazy(() => import("./pages/LightThemeProto"));
+const ButtonLogoProto = lazy(() => import("./pages/ButtonLogoProto"));
+const SubPagesProto = lazy(() => import("./pages/SubPagesProto"));
+const SafetyProto = lazy(() => import("./pages/SafetyProto"));
+const HomeProtoA = lazy(() => import("./pages/HomeProtoA"));
+const HomeProtoC = lazy(() => import("./pages/HomeProtoC"));
+const HomeProtoF = lazy(() => import("./pages/HomeProtoF"));
+const HomeProtoF2 = lazy(() => import("./pages/HomeProtoF2"));
+const HomeProtoF3 = lazy(() => import("./pages/HomeProtoF3"));
+const HomeProtoF4 = lazy(() => import("./pages/HomeProtoF4"));
+const HomePrototypes = lazy(() => import("./pages/HomePrototypes"));
+const RankingHeroProtos = lazy(() => import("./pages/RankingHeroProtos"));
+const HeroButtonsProto = lazy(() => import("./pages/HeroButtonsProto"));
+const ScoreBadgeProto = lazy(() => import("./pages/ScoreBadgeProto"));
+
+function PageLoader() {
+  return (
+    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "60vh" }}>
+      <div style={{ width: 32, height: 32, border: "3px solid #e2e8f0", borderTopColor: "#059669", borderRadius: "50%", animation: "spin 0.8s linear infinite" }} />
+      <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+    </div>
+  );
+}
 
 function Layout() {
   return (
     <LanguageProvider>
       <Header />
       <div style={{ paddingTop: 64 }}>
-        <Outlet />
+        <Suspense fallback={<PageLoader />}>
+          <Outlet />
+        </Suspense>
       </div>
       <Footer />
     </LanguageProvider>
@@ -62,30 +77,16 @@ function Layout() {
 function AppRoutes() {
   return (
     <Routes>
-      <Route path="prototypes" element={<PrototypesPage />} />
-      <Route path="logo-lab" element={<LogoLab />} />
-      <Route path="proto/ranking" element={<Layout />}>
-        <Route index element={<RankingProto />} />
-      </Route>
-      <Route path="proto/ranking-b" element={<Layout />}>
-        <Route index element={<RankingProtoB />} />
-      </Route>
-      <Route path="proto/ranking-c" element={<Layout />}>
-        <Route index element={<RankingProtoC />} />
-      </Route>
-      <Route path="proto/card" element={<Layout />}>
-        <Route index element={<CardProto />} />
-      </Route>
-      <Route path="proto/ranking-wide" element={<Layout />}>
-        <Route index element={<RankingProtoWide />} />
-      </Route>
-      <Route path="proto/light-theme" element={<Layout />}>
-        <Route index element={<LightThemeProto />} />
-      </Route>
-      <Route path="proto/buttons" element={<ButtonLogoProto />} />
-      <Route path="proto/subpages" element={<Layout />}>
-        <Route index element={<SubPagesProto />} />
-      </Route>
+      <Route path="prototypes" element={<Suspense fallback={<PageLoader />}><PrototypesPage /></Suspense>} />
+      <Route path="logo-lab" element={<Suspense fallback={<PageLoader />}><LogoLab /></Suspense>} />
+      <Route path="proto/ranking" element={<Layout />}><Route index element={<RankingProto />} /></Route>
+      <Route path="proto/ranking-b" element={<Layout />}><Route index element={<RankingProtoB />} /></Route>
+      <Route path="proto/ranking-c" element={<Layout />}><Route index element={<RankingProtoC />} /></Route>
+      <Route path="proto/card" element={<Layout />}><Route index element={<CardProto />} /></Route>
+      <Route path="proto/ranking-wide" element={<Layout />}><Route index element={<RankingProtoWide />} /></Route>
+      <Route path="proto/light-theme" element={<Layout />}><Route index element={<LightThemeProto />} /></Route>
+      <Route path="proto/buttons" element={<Suspense fallback={<PageLoader />}><ButtonLogoProto /></Suspense>} />
+      <Route path="proto/subpages" element={<Layout />}><Route index element={<SubPagesProto />} /></Route>
       <Route path="proto/home" element={<Layout />}><Route index element={<HomePrototypes />} /></Route>
       <Route path="proto/ranking-hero" element={<Layout />}><Route index element={<RankingHeroProtos />} /></Route>
       <Route path="proto/hero-buttons" element={<Layout />}><Route index element={<HeroButtonsProto />} /></Route>
@@ -96,9 +97,7 @@ function AppRoutes() {
       <Route path="proto/home-f2" element={<Layout />}><Route index element={<HomeProtoF2 />} /></Route>
       <Route path="proto/home-f3" element={<Layout />}><Route index element={<HomeProtoF3 />} /></Route>
       <Route path="proto/home-f4" element={<Layout />}><Route index element={<HomeProtoF4 />} /></Route>
-      <Route path="proto/safety" element={<Layout />}>
-        <Route index element={<SafetyProto />} />
-      </Route>
+      <Route path="proto/safety" element={<Layout />}><Route index element={<SafetyProto />} /></Route>
       <Route element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="uk" element={<Navigate to="/best-forex-brokers-uk" replace />} />

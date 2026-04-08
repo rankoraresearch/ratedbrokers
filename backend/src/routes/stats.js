@@ -1,19 +1,10 @@
 import { corsHeaders } from '../utils/cors.js';
 import { adminHeaderCSS, adminHeaderHTML, adminFooterHTML, adminHeaderScript } from '../utils/adminLayout.js';
-
-function checkApiKey(request, env) {
-  const key = request.headers.get('X-API-Key');
-  return key && key === env.API_KEY;
-}
-
-function checkDashboardKey(url, env) {
-  const key = url.searchParams.get('key');
-  return key && key === env.API_KEY;
-}
+import { checkAuth, extractKey } from '../utils/auth.js';
 
 export async function handleStats(request, env) {
   const headers = corsHeaders(request);
-  if (!checkApiKey(request, env)) {
+  if (!checkAuth(request, env)) {
     return Response.json({ error: 'Unauthorized' }, { status: 401, headers });
   }
 
@@ -54,12 +45,11 @@ function sparklineSVG(values, w, h, color) {
 
 export async function handleDashboard(request, env) {
   const url = new URL(request.url);
-  if (!checkDashboardKey(url, env)) {
+  if (!checkAuth(request, env)) {
     return new Response('Unauthorized. Add ?key=YOUR_API_KEY', { status: 401, headers: { 'Content-Type': 'text/plain' } });
   }
 
-  const key = url.searchParams.get('key');
-  const encodedKey = encodeURIComponent(key);
+  const encodedKey = encodeURIComponent(extractKey(request));
 
   const [today, yesterday, week, month, allTime, prevWeek, prevMonth,
     topBrokers, clicksByDay, clicksByDay7, clicksByDay90,

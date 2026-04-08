@@ -17,7 +17,26 @@ FRONTEND_URL = "https://ratedbrokers.com"
 [triggers]
 crons = ["0 * * * *"]
 
+# Smart Placement — run Worker close to D1 database for faster queries
+[placement]
+mode = "smart"
+
 [[d1_databases]]
+binding = "DB"
+database_name = "ratedbrokers"
+database_id = "0583b2f5-4bba-4d05-868a-1228a109668e"
+
+# ─── Staging Environment ───
+# Deploy: cd backend && npx wrangler deploy --env staging
+# Access: https://ratedbrokers-api-staging.ratedbrokers.workers.dev
+[env.staging]
+name = "ratedbrokers-api-staging"
+workers_dev = true
+
+[env.staging.vars]
+FRONTEND_URL = "https://ratedbrokers.com"
+
+[[env.staging.d1_databases]]
 binding = "DB"
 database_name = "ratedbrokers"
 database_id = "0583b2f5-4bba-4d05-868a-1228a109668e"

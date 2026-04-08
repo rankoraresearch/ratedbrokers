@@ -5,11 +5,7 @@
  */
 import { corsHeaders } from '../utils/cors.js';
 import { adminHeaderCSS, adminHeaderHTML, adminFooterHTML, adminHeaderScript } from '../utils/adminLayout.js';
-
-function checkKey(url, env) {
-  const key = url.searchParams.get('key');
-  return key && key === env.API_KEY;
-}
+import { checkAuth, extractKey } from '../utils/auth.js';
 
 function esc(str) {
   if (!str) return '';
@@ -295,7 +291,7 @@ function pageTypeForSitemap(type) {
 export async function handlePublishPages(request, env) {
   const url = new URL(request.url);
   const headers = { ...corsHeaders(request), 'Content-Type': 'application/json' };
-  if (!checkKey(url, env)) return Response.json({ error: 'Unauthorized' }, { status: 401, headers });
+  if (!checkAuth(request, env)) return Response.json({ error: 'Unauthorized' }, { status: 401, headers });
 
   await ensureSeeded(env);
 
@@ -321,7 +317,7 @@ export async function handlePublishPages(request, env) {
 export async function handlePublishUpdate(request, env, slug) {
   const url = new URL(request.url);
   const headers = { ...corsHeaders(request), 'Content-Type': 'application/json' };
-  if (!checkKey(url, env)) return Response.json({ error: 'Unauthorized' }, { status: 401, headers });
+  if (!checkAuth(request, env)) return Response.json({ error: 'Unauthorized' }, { status: 401, headers });
 
   const body = await request.json();
   const { action, scheduled_at, notes } = body;
@@ -362,7 +358,7 @@ export async function handlePublishUpdate(request, env, slug) {
 export async function handlePublishBatch(request, env) {
   const url = new URL(request.url);
   const headers = { ...corsHeaders(request), 'Content-Type': 'application/json' };
-  if (!checkKey(url, env)) return Response.json({ error: 'Unauthorized' }, { status: 401, headers });
+  if (!checkAuth(request, env)) return Response.json({ error: 'Unauthorized' }, { status: 401, headers });
 
   const { slugs, action, scheduled_at } = await request.json();
   if (!slugs || !Array.isArray(slugs) || !action) {
@@ -402,7 +398,7 @@ export async function handlePublishBatch(request, env) {
 export async function handlePublishAutoSchedule(request, env) {
   const url = new URL(request.url);
   const headers = { ...corsHeaders(request), 'Content-Type': 'application/json' };
-  if (!checkKey(url, env)) return Response.json({ error: 'Unauthorized' }, { status: 401, headers });
+  if (!checkAuth(request, env)) return Response.json({ error: 'Unauthorized' }, { status: 401, headers });
 
   await ensureSeeded(env);
 
@@ -436,7 +432,7 @@ export async function handlePublishAutoSchedule(request, env) {
 export async function handlePublishTick(request, env) {
   const url = new URL(request.url);
   const headers = { ...corsHeaders(request), 'Content-Type': 'application/json' };
-  if (!checkKey(url, env)) return Response.json({ error: 'Unauthorized' }, { status: 401, headers });
+  if (!checkAuth(request, env)) return Response.json({ error: 'Unauthorized' }, { status: 401, headers });
 
   const now = new Date().toISOString();
   const due = await env.DB.prepare(
@@ -533,13 +529,13 @@ ${urls}</urlset>`;
 
 export async function handlePublishDashboard(request, env) {
   const url = new URL(request.url);
-  if (!checkKey(url, env)) {
+  if (!checkAuth(request, env)) {
     return new Response('Unauthorized', { status: 401 });
   }
 
   await ensureSeeded(env);
 
-  const encodedKey = encodeURIComponent(url.searchParams.get('key'));
+  const encodedKey = encodeURIComponent(extractKey(request));
 
   // Stats
   const [total, published, scheduled, draft] = await Promise.all([
@@ -892,6 +888,10 @@ ${adminHeaderScript()}
 
 const API_KEY = '${encodedKey}';
 const BASE = '/api/admin/publish';
+function authFetch(url, opts = {}) {
+  opts.headers = { ...opts.headers, 'Authorization': 'Bearer ' + API_KEY };
+  return fetch(url, opts);
+}
 let currentType = '';
 let currentStatus = '';
 let currentSearch = '';
@@ -928,12 +928,12 @@ function debouncedSearch() {
 }
 
 async function fetchPages() {
-  let url = BASE + '/pages?key=' + API_KEY + '&lang=en';
+  let url = BASE + '/pages?lang=en';
   if (currentType) url += '&type=' + currentType;
   if (currentStatus) url += '&status=' + currentStatus;
   if (currentSearch) url += '&q=' + encodeURIComponent(currentSearch);
 
-  const res = await fetch(url);
+  const res = await authFetch(url);
   const data = await res.json();
   allPages = data.pages || [];
   renderTable();
@@ -1006,7 +1006,7 @@ function updateBatchBar() {
 
 // ─── Quick Actions ───
 async function quickAction(slug, action) {
-  await fetch(BASE + '/pages/' + encodeURIComponent(slug) + '?key=' + API_KEY, {
+  await authFetch(BASE + '/pages/' + encodeURIComponent(slug), {
     method: 'PUT', headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ action })
   });
@@ -1017,7 +1017,7 @@ async function quickAction(slug, action) {
 // ─── Batch ───
 async function batchAction(action) {
   if (!selectedSlugs.size) return;
-  await fetch(BASE + '/batch?key=' + API_KEY, {
+  await authFetch(BASE + '/batch', {
     method: 'POST', headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ slugs: [...selectedSlugs], action })
   });
@@ -1029,7 +1029,7 @@ async function batchAction(action) {
 async function publishDay(dateStr) {
   const dayPages = allPages.filter(p => p.status === 'scheduled' && p.scheduled_at && p.scheduled_at.startsWith(dateStr));
   if (!dayPages.length) return;
-  await fetch(BASE + '/batch?key=' + API_KEY, {
+  await authFetch(BASE + '/batch', {
     method: 'POST', headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ slugs: dayPages.map(p => p.slug), action: 'publish' })
   });
@@ -1044,7 +1044,7 @@ function closeModal(id) { document.getElementById(id).classList.remove('open'); 
 async function applyAutoSchedule() {
   const startDate = document.getElementById('scheduleStart').value;
   if (!startDate) { alert('Select start date'); return; }
-  const res = await fetch(BASE + '/auto-schedule?key=' + API_KEY, {
+  const res = await authFetch(BASE + '/auto-schedule', {
     method: 'POST', headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ startDate })
   });
@@ -1056,7 +1056,7 @@ async function applyAutoSchedule() {
 
 // ─── Publish All Due ───
 async function publishAllDue() {
-  const res = await fetch(BASE + '/tick?key=' + API_KEY, { method: 'POST' });
+  const res = await authFetch(BASE + '/tick', { method: 'POST' });
   const data = await res.json();
   toast(data.published + ' pages published');
   setTimeout(() => location.reload(), 500);

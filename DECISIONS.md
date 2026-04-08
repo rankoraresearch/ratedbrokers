@@ -412,3 +412,58 @@ Frontend → fetch /api/reviews/:slug/overrides → merge HTML over static JS �
 - Ghost Badge — аккуратно, но badge занимает лишнее место
 - Left Stripe — элегантно, но требует tooltip для понимания цвета
 - 2-Group — спорное деление на trading/investing
+
+---
+
+## 21. Auth: Bearer header + query fallback (Security Sprint, апрель 2026)
+
+**Выбор:** Centralized `checkAuth()` в `utils/auth.js` — принимает `Authorization: Bearer` header (приоритет), `X-API-Key` header, и `?key=` query param (fallback).
+
+**Почему:**
+- API Key в query string логируется в access logs, browser history, referrer headers
+- Dashboard AJAX calls переведены на `authFetch()` с Bearer header — ключ не в URL
+- HTML dashboard pages продолжают использовать `?key=` для первого GET (нельзя поставить header в адресной строке)
+- Backwards compatible — старые закладки с `?key=` продолжают работать
+
+**Отвергнуто:**
+- Полный отказ от `?key=` — сломает browser navigation к dashboards
+- Session cookies — усложнение ради админки с 1-2 пользователями
+- OAuth/JWT — overkill для internal tool
+
+---
+
+## 22. broker-content.json: protected endpoint (Security Sprint, апрель 2026)
+
+**Выбор:** Перенос из `public/data/broker-content.json` → bundled в Worker + protected API endpoint `/api/admin/broker-content`.
+
+**Почему:**
+- 339KB JSON со всем контентом был доступен публично по предсказуемому URL
+- Конкурент мог скачать все обзоры в один клик
+- Теперь: файл bundled в Worker code, доступен только через auth endpoint
+- Endpoint принимает и admin key, и expert tokens (для Review Editor)
+
+**Pipeline:** `npm run brokers:build` → `backend/src/data/broker-content.json` → `import` в Worker → `/api/admin/broker-content`
+
+---
+
+## 23. React.lazy() code splitting (Performance Sprint, апрель 2026)
+
+**Выбор:** Все страницы в App.jsx загружаются через `React.lazy()` + `Suspense` с `PageLoader` spinner.
+
+**Почему:**
+- 40+ страниц (включая 15+ прототипов) статически импортировались в один бандл
+- Каждая страница теперь — отдельный chunk, загружается по требованию
+- Initial load уменьшается (прототипы не грузятся при посещении /review/etoro)
+- Vite автоматически code-splits lazy imports
+
+**Отвергнуто:**
+- Env-flag для прототипов — сложнее, чем просто lazy load
+- Manual chunking (rollupOptions.manualChunks) — lazy() делает то же автоматически
+
+---
+
+## 24. Smart Placement + Staging (Infra Sprint, апрель 2026)
+
+**Smart Placement:** `[placement] mode = "smart"` в wrangler.toml — Workers запускаются ближе к D1, ускорение D1 queries на 30-50%.
+
+**Staging:** `[env.staging]` — preview environment для тестирования backend изменений перед production deploy. `npx wrangler deploy --env staging`.
