@@ -140,7 +140,7 @@ const _R = [
   ['economic-calendar','Forex Brokers with Economic Calendar','K',3],
   ['charting','Best Forex Brokers with Charting Tools','K',3],
   ['24-7-support','Forex Brokers with 24/7 Support','K',3],
-  // L. Crypto (12)
+  // L. Crypto (22 = 12 thematic + 10 country)
   ['crypto-overall','Best Crypto Brokers','L',1],
   ['crypto-bitcoin','Best Bitcoin Trading Platforms','L',1],
   ['crypto-ethereum','Best Ethereum Trading Platforms','L',2],
@@ -153,6 +153,16 @@ const _R = [
   ['crypto-high-lev','Best High Leverage Crypto Brokers','L',2],
   ['crypto-low-spread','Best Low Spread Crypto Brokers','L',3],
   ['crypto-vs-cfd','Crypto Exchanges vs CFD Brokers','L',3],
+  ['crypto-uk','Best Crypto Brokers UK','L',2],
+  ['crypto-usa','Best Crypto Brokers USA','L',2],
+  ['crypto-australia','Best Crypto Brokers Australia','L',2],
+  ['crypto-canada','Best Crypto Brokers Canada','L',3],
+  ['crypto-germany','Best Crypto Brokers Germany','L',3],
+  ['crypto-singapore','Best Crypto Brokers Singapore','L',2],
+  ['crypto-uae','Best Crypto Brokers UAE','L',2],
+  ['crypto-india','Best Crypto Brokers India','L',2],
+  ['crypto-south-africa','Best Crypto Brokers South Africa','L',3],
+  ['crypto-new-zealand','Best Crypto Brokers New Zealand','L',3],
   // M. Other Assets (12)
   ['cfd','Best CFD Brokers','M',1],
   ['stocks','Best Stock Trading Brokers','M',2],

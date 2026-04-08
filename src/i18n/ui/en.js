@@ -83,6 +83,11 @@ const en = {
   "mega.cryptoHighLevDesc": "Amplify crypto positions",
   "mega.cryptoLowSpread": "Lowest Spread Crypto Brokers",
   "mega.cryptoLowSpreadDesc": "Tightest crypto spreads available",
+  "mega.cryptoUK": "Crypto Brokers UK",
+  "mega.cryptoUSA": "Crypto Brokers USA",
+  "mega.cryptoSingapore": "Crypto Brokers Singapore",
+  "mega.cryptoUAE": "Crypto Brokers UAE",
+  "mega.cryptoAustralia": "Crypto Brokers Australia",
 
   // ===== MEGA MENU: GUIDES =====
   "mega.guideGettingStarted": "Getting Started",

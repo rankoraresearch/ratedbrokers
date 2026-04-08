@@ -28,6 +28,8 @@ const FOOTER_RANKINGS = [
   { label: "Best CFD Brokers", path: "/best-cfd-brokers" },
   { label: "Spread Betting Platforms", path: "/best-spread-betting-brokers" },
   { label: "Best Crypto Brokers", path: "/best-crypto-brokers" },
+  { label: "Crypto Brokers Singapore", path: "/best-crypto-brokers-singapore" },
+  { label: "Crypto Brokers UAE", path: "/best-crypto-brokers-uae" },
 ];
 
 const FOOTER_REVIEWS = [

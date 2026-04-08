@@ -56,6 +56,14 @@ const CRYPTO_BY_FEATURE = [
   { key: "cryptoApps", path: "/best-crypto-trading-apps" },
 ];
 
+const CRYPTO_BY_COUNTRY = [
+  { key: "cryptoUK", path: "/best-crypto-brokers-uk" },
+  { key: "cryptoUSA", path: "/best-crypto-brokers-usa" },
+  { key: "cryptoSingapore", path: "/best-crypto-brokers-singapore" },
+  { key: "cryptoUAE", path: "/best-crypto-brokers-uae" },
+  { key: "cryptoAustralia", path: "/best-crypto-brokers-australia" },
+];
+
 const GUIDE_GETTING_STARTED = [
   { icon: "compass", key: "guideChoose", path: "/guide/how-to-choose-a-forex-broker", color: "#059669" },
   { icon: "book-open", key: "guideBeginners", path: "/guide/how-to-start-forex-trading", color: "#2563eb" },
@@ -488,10 +496,10 @@ export default function Header() {
                   }}><ChevronDown size={12} /></span>
                 </Link>
                 {activeDropdown === "crypto" && (
-                  <div style={{ ...ddBase, left: "50%", transform: "translateX(-50%)", width: 380, padding: "20px 24px" }}
+                  <div style={{ ...ddBase, left: "50%", transform: "translateX(-50%)", width: 520, padding: "20px 24px" }}
                     onMouseEnter={() => enter("crypto")} onMouseLeave={leave}
                   >
-                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 20 }}>
                       <div>
                         <div style={secHead}>By Cryptocurrency</div>
                         {CRYPTO_BY_COIN.map((item) => (
@@ -503,6 +511,14 @@ export default function Header() {
                       <div>
                         <div style={secHead}>By Feature</div>
                         {CRYPTO_BY_FEATURE.map((item) => (
+                          <Link key={item.key} to={lp(item.path)} style={compactLink} onMouseEnter={hovCompact} onMouseLeave={unhovCompact}>
+                            {t(`mega.${item.key}`)}
+                          </Link>
+                        ))}
+                      </div>
+                      <div>
+                        <div style={secHead}>By Country</div>
+                        {CRYPTO_BY_COUNTRY.map((item) => (
                           <Link key={item.key} to={lp(item.path)} style={compactLink} onMouseEnter={hovCompact} onMouseLeave={unhovCompact}>
                             {t(`mega.${item.key}`)}
                           </Link>
@@ -846,6 +862,14 @@ export default function Header() {
                   By Feature
                 </div>
                 {CRYPTO_BY_FEATURE.map((item) => (
+                  <Link key={item.key} to={lp(item.path)} style={{
+                    display: "block", padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#1f2937", textDecoration: "none",
+                  }}>{t(`mega.${item.key}`)}</Link>
+                ))}
+                <div style={{ fontSize: 11, fontWeight: 700, color: "#1f2937", textTransform: "uppercase", letterSpacing: 1, marginTop: 10, marginBottom: 6 }}>
+                  By Country
+                </div>
+                {CRYPTO_BY_COUNTRY.map((item) => (
                   <Link key={item.key} to={lp(item.path)} style={{
                     display: "block", padding: "6px 0", fontSize: 14, fontWeight: 500, color: "#1f2937", textDecoration: "none",
                   }}>{t(`mega.${item.key}`)}</Link>

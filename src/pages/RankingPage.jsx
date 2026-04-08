@@ -520,6 +520,9 @@ export default function RankingPage() {
           name: seo?.metaTitle || `${ranking.title} ${YEAR}`,
           itemListOrder: "https://schema.org/ItemListOrderDescending",
           numberOfItems: brokersForSchema.length,
+          ...((ranking._countryName || ranking.sub === "country" || ranking.category === "country") ? {
+            areaServed: { "@type": "Country", name: ranking._countryName || ranking.title.replace(/^Best [\w\s]+ (?:Brokers|Platforms) (?:in )?/, "") },
+          } : {}),
           itemListElement: brokersForSchema.map(({ B: br, slug: s }, idx) => ({
             "@type": "ListItem",
             position: idx + 1,
@@ -695,9 +698,12 @@ export default function RankingPage() {
             <p key={i} style={{
               fontSize: 15, lineHeight: 1.7, color: "#374151",
               marginBottom: i < seo.intro.length - 1 ? 12 : 0,
-            }}>
-              {fillVars(p)}
-            </p>
+            }}
+              dangerouslySetInnerHTML={{ __html: fillVars(p)
+                .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+                .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" style="color:#059669;text-decoration:none;font-weight:500">$1</a>')
+              }}
+            />
           ))}
         </section>
       )}

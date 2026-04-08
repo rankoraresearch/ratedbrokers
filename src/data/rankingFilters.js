@@ -2,10 +2,11 @@
  * Ranking Filter Engine for RatedBrokers.com
  * Maps each ranking ID to a filter function that determines which brokers appear.
  * Sort: always by B.score descending.
- * Fallback: if filter returns <5 brokers, pad with top-scored brokers.
+ * Fallback: if filter returns <5 brokers, pad with top-scored from same vertical.
  */
 import { getAllBrokersWithData } from "./brokers/index";
 import { getCombiRankingById } from "./combinatorialRankings";
+import RANKINGS from "./rankings";
 
 // ── Filter primitives ──────────────────────────────────
 
@@ -360,6 +361,11 @@ const FILTERS = {
   "crypto-australia":  and(isCrypto, or(hasReg("ASIC"), hasTier1)),
   "crypto-canada":     and(isCrypto, hasTier1),
   "crypto-germany":    and(isCrypto, or(hasReg("BaFin"), hasReg("CySEC"), hasReg("FCA"))),
+  "crypto-singapore":    and(isCrypto, or(hasReg("MAS"), hasTier1)),
+  "crypto-uae":          and(isCrypto, or(hasReg("DFSA"), hasTier1)),
+  "crypto-india":        and(isCrypto, hasTier1),
+  "crypto-south-africa": and(isCrypto, or(hasReg("FSCA"), hasTier1)),
+  "crypto-new-zealand":  and(isCrypto, or(hasReg("FMA"), hasTier1)),
   "crypto-exchanges":  isCrypto,
   "crypto-wallets":    isCrypto,
 
@@ -483,6 +489,9 @@ function getCombiFilter(rankingId) {
 
 // ── Main API ───────────────────────────────────────────
 
+// Fast ranking lookup by ID (avoids linear scan on every fallback call)
+const _rankingById = new Map(RANKINGS.map(r => [r.id, r]));
+
 let _cachedBrokers = null;
 function loadBrokers() {
   if (!_cachedBrokers) _cachedBrokers = getAllBrokersWithData();
@@ -496,11 +505,22 @@ export function getBrokersForRanking(rankingId) {
   let filtered = brokers.filter(filterFn);
   filtered.sort((a, b) => b.B.score - a.B.score);
 
-  // Fallback: if <5 brokers matched, pad with top-scored
+  // Fallback: if <5 brokers matched, pad with top-scored from SAME vertical
   if (filtered.length < 5) {
-    const allSorted = [...brokers].sort((a, b) => b.B.score - a.B.score);
+    const ranking = _rankingById.get(rankingId) || getCombiRankingById(rankingId);
+    const vertical = ranking?.vertical;
+
+    // For verticals (crypto, stocks, options, futures, etc.) — pad only from that vertical.
+    // For forex (no vertical field) — pad from all brokers (forex is the base pool).
+    // Note: if vertical pool itself is small (e.g. futures has ~4 brokers), result may be
+    // under 10 — this is intentional: better few relevant than many irrelevant.
+    let pool = brokers;
+    if (vertical) {
+      pool = brokers.filter(b => (b.B.verticals || []).includes(vertical));
+    }
+    const poolSorted = [...pool].sort((a, b) => b.B.score - a.B.score);
     const slugSet = new Set(filtered.map((b) => b.slug));
-    for (const b of allSorted) {
+    for (const b of poolSorted) {
       if (filtered.length >= 10) break;
       if (!slugSet.has(b.slug)) {
         filtered.push(b);

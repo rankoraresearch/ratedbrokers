@@ -64,7 +64,7 @@ const HUBS = [
     color: "#f59e0b",
     category: "crypto",
     verticalKey: "crypto",
-    featuredIds: ["crypto-overall", "crypto-beginners", "crypto-btc-etf", "crypto-regulated", "crypto-uk"],
+    featuredIds: ["crypto-overall", "crypto-beginners", "crypto-btc-etf", "crypto-regulated", "crypto-uk", "crypto-singapore", "crypto-uae"],
   },
 ];
 

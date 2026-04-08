@@ -48,6 +48,8 @@ const THEMATIC_RANKINGS = [
   'education','research','trading-central','autochartist','economic-calendar','charting','24-7-support',
   'crypto-overall','crypto-bitcoin','crypto-ethereum','crypto-xrp','crypto-solana','crypto-doge',
   'crypto-altcoins','crypto-staking','crypto-copy','crypto-high-lev','crypto-low-spread','crypto-vs-cfd',
+  'crypto-uk','crypto-usa','crypto-australia','crypto-canada','crypto-germany',
+  'crypto-singapore','crypto-uae','crypto-india','crypto-south-africa','crypto-new-zealand',
   'cfd','stocks','gold','silver','oil','commodities','indices','options','futures','etf','spread-betting','bonds',
   'eurusd','gbpusd','usdjpy','audusd','usdcad','eurgbp','usdchf','nzdusd','exotic','minor',
   'sp500','nasdaq','dow','ftse','dax','nikkei',
