@@ -365,7 +365,7 @@ export default function CountryPage() {
                       </a>
                       <div style={{ flex: 1 }}>
                         <div style={{ display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap" }}>
-                          <Link to={lp(`/review/${b.slug}`)} style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 17, color: "inherit", textDecoration: "none" }}
+                          <Link to={lp(`/reviews/${b.slug}`)} style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 17, color: "inherit", textDecoration: "none" }}
                             onMouseEnter={e => e.currentTarget.style.textDecoration = "underline"}
                             onMouseLeave={e => e.currentTarget.style.textDecoration = "none"}
                           >{b.name}</Link>
@@ -427,7 +427,7 @@ export default function CountryPage() {
                     }}>{t("country.visitBroker")} {b.name} <ArrowRight size={14} style={{ verticalAlign: "middle" }} /></a>
 
                     <div style={{ display: "flex", gap: 8 }}>
-                      <Link to={lp(`/review/${b.slug}`)} style={{
+                      <Link to={lp(`/reviews/${b.slug}`)} style={{
                         flex: 1, padding: "8px 0", borderRadius: 8, textAlign: "center",
                         background: "#f1f5f9", color: "#1f2937", fontSize: 15, fontWeight: 600, textDecoration: "none",
                       }}>{t("country.readReview")}</Link>
@@ -468,7 +468,7 @@ export default function CountryPage() {
                       {/* Info */}
                       <div>
                         <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4, flexWrap: "wrap" }}>
-                          <Link to={lp(`/review/${b.slug}`)} style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: tab ? 17 : 19, color: "inherit", textDecoration: "none" }}
+                          <Link to={lp(`/reviews/${b.slug}`)} style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: tab ? 17 : 19, color: "inherit", textDecoration: "none" }}
                             onMouseEnter={e => e.currentTarget.style.textDecoration = "underline"}
                             onMouseLeave={e => e.currentTarget.style.textDecoration = "none"}
                           >{b.name}</Link>
@@ -507,7 +507,7 @@ export default function CountryPage() {
                             color: "#fff", fontWeight: 700, fontSize: 15, textDecoration: "none",
                           }}>{t("country.visitBroker")} {b.name} <ArrowRight size={14} style={{ verticalAlign: "middle" }} /></a>
                           <div style={{ display: "flex", gap: 6 }}>
-                            <Link to={lp(`/review/${b.slug}`)} style={{ flex: 1, padding: "6px 0", borderRadius: 7, textAlign: "center", background: "#f1f5f9", color: "#1f2937", fontSize: 14, fontWeight: 600, textDecoration: "none" }}>{t("home.review")}</Link>
+                            <Link to={lp(`/reviews/${b.slug}`)} style={{ flex: 1, padding: "6px 0", borderRadius: 7, textAlign: "center", background: "#f1f5f9", color: "#1f2937", fontSize: 14, fontWeight: 600, textDecoration: "none" }}>{t("home.review")}</Link>
                             <button onClick={() => toggleCompare(b.id)} style={{ flex: 1, padding: "6px 0", borderRadius: 7, background: compare.includes(b.id) ? "#1e3a5f" : "#f1f5f9", color: compare.includes(b.id) ? "#fff" : "#1f2937", fontSize: 14, fontWeight: 600, border: "none", cursor: "pointer" }}>{compare.includes(b.id) ? <Check size={14} color="#059669" /> : "Compare"}</button>
                           </div>
                         </div>
@@ -522,7 +522,7 @@ export default function CountryPage() {
                           background: "linear-gradient(135deg,#059669,#34d399)",
                           color: "#fff", fontWeight: 700, fontSize: 15, textDecoration: "none",
                         }}>{t("country.visitBroker")} {b.name} <ArrowRight size={14} style={{ verticalAlign: "middle" }} /></a>
-                        <Link to={lp(`/review/${b.slug}`)} style={{ flex: 1, padding: "10px 0", borderRadius: 8, textAlign: "center", background: "#f1f5f9", color: "#1f2937", fontSize: 15, fontWeight: 600, textDecoration: "none" }}>{t("home.review")}</Link>
+                        <Link to={lp(`/reviews/${b.slug}`)} style={{ flex: 1, padding: "10px 0", borderRadius: 8, textAlign: "center", background: "#f1f5f9", color: "#1f2937", fontSize: 15, fontWeight: 600, textDecoration: "none" }}>{t("home.review")}</Link>
                         <button onClick={() => toggleCompare(b.id)} style={{ flex: 1, padding: "10px 0", borderRadius: 8, background: compare.includes(b.id) ? "#1e3a5f" : "#f1f5f9", color: compare.includes(b.id) ? "#fff" : "#1f2937", fontSize: 15, fontWeight: 600, border: "none", cursor: "pointer" }}>{compare.includes(b.id) ? <><Check size={14} color="#059669" style={{ verticalAlign: "middle" }} /> Added</> : "Compare"}</button>
                       </div>
                     )}
@@ -678,7 +678,7 @@ export default function CountryPage() {
                       background: "linear-gradient(135deg,#059669,#34d399)",
                       color: "#fff", fontWeight: 700, fontSize: 15, textDecoration: "none",
                     }}>{t("country.visitBroker")} {b.name} <ArrowRight size={14} /></a>
-                    <Link to={lp(`/review/${b.slug}`)} style={{
+                    <Link to={lp(`/reviews/${b.slug}`)} style={{
                       display: "inline-flex", alignItems: "center", gap: 6,
                       padding: mob ? "10px 18px" : "10px 22px", borderRadius: 10,
                       background: "#f1f5f9", color: "#1f2937", fontWeight: 600, fontSize: 15, textDecoration: "none",

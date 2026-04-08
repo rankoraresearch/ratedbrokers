@@ -408,7 +408,7 @@ export default function HomeProtoA() {
                     background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: "#0f172a",
                     textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 6,
                   }}>Visit Broker <ArrowRight size={14} /></a>
-                  <Link to={`/review/${featured.slug}`} style={{
+                  <Link to={`/reviews/${featured.slug}`} style={{
                     padding: "14px 24px", borderRadius: 12, fontSize: 14, fontWeight: 600,
                     border: "2px solid #059669", color: "#059669", textDecoration: "none",
                   }}>Full Review</Link>
@@ -492,7 +492,7 @@ export default function HomeProtoA() {
               </Link>
             </div>
             {top5.map((b, i) => (
-              <Link key={b.slug} to={`/review/${b.slug}`} style={{
+              <Link key={b.slug} to={`/reviews/${b.slug}`} style={{
                 display: "flex", alignItems: "center", gap: mob ? 14 : 20,
                 padding: mob ? "16px 0" : "20px 0",
                 borderBottom: i < 4 ? "1px solid #eef0f4" : "none",

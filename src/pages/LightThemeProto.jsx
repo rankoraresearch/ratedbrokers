@@ -383,7 +383,7 @@ function LightRankCard({ broker, rank, thematic, mob, tab, theme }) {
   const [analysisOpen, setAnalysisOpen] = useState(false);
   const B = broker.B;
   const T = THEMES[theme];
-  const reviewPath = lp(`/review/${broker.slug}`);
+  const reviewPath = lp(`/reviews/${broker.slug}`);
   const visitUrl = makeVisitUrl(broker.slug, B.url);
   const hasTp = B.tp && B.tp > 0;
   const isWinner = rank === 1;

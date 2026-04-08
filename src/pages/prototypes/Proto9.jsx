@@ -69,7 +69,7 @@ export default function Proto9() {
               boxShadow: "0 8px 32px rgba(0,0,0,0.1)", overflow: "hidden", zIndex: 10,
             }}>
               {suggestions.map(br => (
-                <Link key={br.slug} to={lp(`/review/${br.slug}`)} style={{
+                <Link key={br.slug} to={lp(`/reviews/${br.slug}`)} style={{
                   display: "flex", alignItems: "center", gap: 12, padding: "12px 20px",
                   textDecoration: "none", color: "#0f172a", borderBottom: "1px solid #f1f5f9",
                 }}
@@ -92,7 +92,7 @@ export default function Proto9() {
           {["IC Markets", "Pepperstone", "IG", "eToro"].map((name, i) => {
             const br = brokers.find(b => b.B.name === name);
             return br ? (
-              <Link key={i} to={lp(`/review/${br.slug}`)} style={{
+              <Link key={i} to={lp(`/reviews/${br.slug}`)} style={{
                 padding: "6px 14px", borderRadius: 100, background: "#f1f5f9",
                 fontSize: 13, fontWeight: 600, color: "#475569", textDecoration: "none",
                 display: "flex", alignItems: "center", gap: 4,
@@ -137,7 +137,7 @@ export default function Proto9() {
         </div>
         <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "repeat(2, 1fr)", gap: 12 }}>
           {brokers.slice(0, 6).map((br, i) => (
-            <Link key={br.slug} to={lp(`/review/${br.slug}`)} style={{
+            <Link key={br.slug} to={lp(`/reviews/${br.slug}`)} style={{
               display: "flex", alignItems: "center", gap: 14, padding: "16px 20px",
               borderRadius: 12, background: "#fff", border: "1px solid #e2e8f0",
               textDecoration: "none", color: "#0f172a",

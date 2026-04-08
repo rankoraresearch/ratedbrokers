@@ -170,7 +170,7 @@ export default function RankingB() {
               fontWeight: 800, fontSize: 15, textDecoration: "none",
               display: "flex", alignItems: "center", gap: 6,
             }}>Open Account <ArrowRight size={14} /></a>
-            <Link to={lp(`/review/${brokers[0].slug}`)} style={{
+            <Link to={lp(`/reviews/${brokers[0].slug}`)} style={{
               padding: "14px 20px", borderRadius: 14, border: "1px solid #a7f3d0",
               background: "#fff", color: "#065f46", fontWeight: 600, fontSize: 14, textDecoration: "none",
             }}>Read Review</Link>
@@ -252,7 +252,7 @@ export default function RankingB() {
                         flex: mob ? 1 : undefined,
                         display: "flex", alignItems: "center", justifyContent: "center", gap: 4,
                       }}>Visit <ExternalLink size={12} /></a>
-                      <Link to={lp(`/review/${b.slug}`)} style={{
+                      <Link to={lp(`/reviews/${b.slug}`)} style={{
                         padding: mob ? "10px 0" : "10px 16px", borderRadius: 10,
                         border: "1px solid #e7e5e4", background: "#fff",
                         color: "#78716c", fontWeight: 600, fontSize: 14,

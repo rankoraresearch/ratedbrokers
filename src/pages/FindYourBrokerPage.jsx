@@ -617,7 +617,7 @@ export default function FindYourBrokerPage() {
           <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
             <WideLogo slug={top1.slug} name={B1.name} w={120} h={38} />
             <div style={{ flex: 1 }}>
-              <Link to={lp(`/review/${top1.slug}`)} style={{
+              <Link to={lp(`/reviews/${top1.slug}`)} style={{
                 fontSize: 14, fontWeight: 800, color: "#0f172a", textDecoration: "none",
                 display: "block", lineHeight: 1.2,
               }}>{B1.name}</Link>

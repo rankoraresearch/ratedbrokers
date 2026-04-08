@@ -110,7 +110,7 @@ function QuickPreviewGrid({ brokers, mob }) {
 function FullBrokerCard({ broker, rank, mob, tab, thematicBlurb }) {
   const B = broker.B;
   const visitUrl = makeVisitUrl(broker.slug, B.url);
-  const reviewPath = `/review/${broker.slug}`;
+  const reviewPath = `/reviews/${broker.slug}`;
 
   const dataPoints = [
     { label: "MIN DEPOSIT", value: B.minDep ? `$${B.minDep}` : "$0" },

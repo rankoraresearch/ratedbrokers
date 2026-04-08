@@ -83,7 +83,7 @@ function BrokerPowerCards({ mob, tab, lp, brokers }) {
                   onMouseLeave={e => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)"; }}
                 >
                   {/* Logo */}
-                  <Link to={lp(`/review/${broker.slug}`)} style={{
+                  <Link to={lp(`/reviews/${broker.slug}`)} style={{
                     width: 56, height: 56, borderRadius: 14, overflow: "hidden", flexShrink: 0,
                     boxShadow: "0 2px 8px rgba(0,0,0,0.08)", border: "1px solid rgba(0,0,0,0.04)",
                     textDecoration: "none",
@@ -92,7 +92,7 @@ function BrokerPowerCards({ mob, tab, lp, brokers }) {
                   </Link>
                   {/* Info */}
                   <div style={{ flex: 1, minWidth: 0 }}>
-                    <Link to={lp(`/review/${broker.slug}`)} style={{
+                    <Link to={lp(`/reviews/${broker.slug}`)} style={{
                       fontFamily: "'Outfit',sans-serif", fontWeight: 700, fontSize: 15,
                       letterSpacing: "-0.01em", color: "#0f172a", textDecoration: "none",
                       display: "block",
@@ -483,7 +483,7 @@ export default function Home() {
         <p style={{ textAlign: "center", fontSize: 16, color: "#1f2937", marginBottom: mob ? 24 : 36, maxWidth: 500, margin: "0 auto" }}>{t("home.allDesc", { count: allBrokersData.length })}</p>
         <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : tab ? "1fr 1fr" : "repeat(3, 1fr)", gap: mob ? 6 : 8 }}>
           {allBrokersData.map((b) => (
-            <Link key={b.slug} to={lp(`/review/${b.slug}`)} style={{
+            <Link key={b.slug} to={lp(`/reviews/${b.slug}`)} style={{
               display: "flex", alignItems: "center", gap: mob ? 10 : 14,
               padding: mob ? "8px 10px" : "10px 16px", borderRadius: 10,
               background: "#0f172a", textDecoration: "none",

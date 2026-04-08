@@ -36,7 +36,7 @@ export default function SubPageTabs({ activeTab, slug, mob, brokerName }) {
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: 0, overflowX: "auto", WebkitOverflowScrolling: "touch", scrollbarWidth: "none", msOverflowStyle: "none", position: "relative" }}>
         <div style={{ display: "flex", gap: 0, minWidth: "max-content" }}>
           <Link
-            to={`/review/${slug}`}
+            to={`/reviews/${slug}`}
             style={{
               display: "flex", alignItems: "center", gap: 5,
               padding: mob ? "12px 14px" : "14px 20px",
@@ -60,7 +60,7 @@ export default function SubPageTabs({ activeTab, slug, mob, brokerName }) {
             return (
               <Link
                 key={t.id}
-                to={`/review/${slug}/${t.id}`}
+                to={`/reviews/${slug}/${t.id}`}
                 style={{
                   display: "flex", alignItems: "center", gap: 6,
                   padding: mob ? "12px 14px" : "14px 20px",

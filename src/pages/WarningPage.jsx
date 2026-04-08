@@ -493,7 +493,7 @@ function SafeAlternatives({ slugs, mob }) {
                 display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 5,
                 width: 160, flexShrink: 0,
               }}>Visit {B.name} <ArrowRight size={13} /></a>
-            <Link to={`/review/${slugs[i]}`} style={{
+            <Link to={`/reviews/${slugs[i]}`} style={{
               fontSize: 12, fontWeight: 600, color: C.grayMuted,
               textDecoration: "none", padding: "8px 0",
               border: `1px solid ${C.border}`, borderRadius: 7,

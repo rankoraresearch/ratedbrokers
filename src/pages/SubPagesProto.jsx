@@ -167,7 +167,7 @@ function VerdictBox({ title, text, bestFor, notFor, mob }) {
       {notFor && <div style={{ display: "flex", alignItems: "flex-start", gap: 8, marginBottom: 16 }}><AlertTriangle size={16} color={ORANGE} style={{ marginTop: 3, flexShrink: 0 }} /><span style={{ fontSize: 14, color: "rgba(255,255,255,0.7)" }}><strong>Not ideal for:</strong> {notFor}</span></div>}
       <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 16 }}>
         <a href={getVisitUrl("ic-markets")} target="_blank" rel="nofollow sponsored" className="cta-orange" style={{ background: `linear-gradient(135deg, ${ORANGE}, #fbbf24)`, color: NAVY, fontSize: 14, fontWeight: 700, textDecoration: "none", padding: "12px 24px", borderRadius: 8, display: "inline-flex", alignItems: "center", gap: 6 }}>Visit {B.name} <ExternalLink size={14} /></a>
-        <Link to="/review/ic-markets" className="cta-secondary" style={{ background: "transparent", color: "#fff", border: "2px solid rgba(255,255,255,0.3)", fontSize: 14, fontWeight: 700, textDecoration: "none", padding: "10px 20px", borderRadius: 8, display: "inline-flex", alignItems: "center", gap: 6 }}>Read Full Review <ArrowRight size={14} /></Link>
+        <Link to="/reviews/ic-markets" className="cta-secondary" style={{ background: "transparent", color: "#fff", border: "2px solid rgba(255,255,255,0.3)", fontSize: 14, fontWeight: 700, textDecoration: "none", padding: "10px 20px", borderRadius: 8, display: "inline-flex", alignItems: "center", gap: 6 }}>Read Full Review <ArrowRight size={14} /></Link>
       </div>
     </Card>
   );
@@ -181,43 +181,43 @@ const MOCK_FACT_CHECKER = AUTHORS["elena-petrova"];
 /* Dynamic related links per tab + other sub-pages */
 const RELATED_MAP = {
   fees: [
-    { icon: FileText, label: "IC Markets Full Review", path: "/review/ic-markets" },
+    { icon: FileText, label: "IC Markets Full Review", path: "/reviews/ic-markets" },
     { icon: BarChart3, label: "IC Markets vs Pepperstone", path: "/compare/ic-markets-vs-pepperstone" },
     { icon: TrendingUp, label: "Best Low-Spread Forex Brokers", path: "/lowest-spread-forex-brokers" },
   ],
   "min-deposit": [
-    { icon: FileText, label: "IC Markets Full Review", path: "/review/ic-markets" },
-    { icon: Wallet, label: "IC Markets Fees & Spreads", path: "/review/ic-markets/fees" },
+    { icon: FileText, label: "IC Markets Full Review", path: "/reviews/ic-markets" },
+    { icon: Wallet, label: "IC Markets Fees & Spreads", path: "/reviews/ic-markets/fees" },
     { icon: BookOpen, label: "How to Choose a Broker", path: "/guide/how-to-choose-forex-broker" },
   ],
   platforms: [
-    { icon: FileText, label: "IC Markets Full Review", path: "/review/ic-markets" },
+    { icon: FileText, label: "IC Markets Full Review", path: "/reviews/ic-markets" },
     { icon: MonitorSmartphone, label: "Best MT4 Brokers", path: "/best-metatrader-4-brokers" },
     { icon: MonitorSmartphone, label: "Best TradingView Brokers", path: "/best-tradingview-brokers" },
   ],
   regulation: [
-    { icon: FileText, label: "IC Markets Full Review", path: "/review/ic-markets" },
+    { icon: FileText, label: "IC Markets Full Review", path: "/reviews/ic-markets" },
     { icon: Shield, label: "ASIC Regulation Guide", path: "/regulator/asic" },
     { icon: Shield, label: "CySEC Regulation Guide", path: "/regulator/cysec" },
   ],
   deposit: [
-    { icon: FileText, label: "IC Markets Full Review", path: "/review/ic-markets" },
-    { icon: Wallet, label: "IC Markets Minimum Deposit", path: "/review/ic-markets/minimum-deposit" },
-    { icon: BarChart3, label: "IC Markets Fees & Spreads", path: "/review/ic-markets/fees" },
+    { icon: FileText, label: "IC Markets Full Review", path: "/reviews/ic-markets" },
+    { icon: Wallet, label: "IC Markets Minimum Deposit", path: "/reviews/ic-markets/minimum-deposit" },
+    { icon: BarChart3, label: "IC Markets Fees & Spreads", path: "/reviews/ic-markets/fees" },
   ],
   beginners: [
-    { icon: FileText, label: "IC Markets Full Review", path: "/review/ic-markets" },
+    { icon: FileText, label: "IC Markets Full Review", path: "/reviews/ic-markets" },
     { icon: BookOpen, label: "How to Start Forex Trading", path: "/guide/how-to-start-forex-trading" },
     { icon: Users, label: "Best Brokers for Beginners", path: "/best-forex-brokers-for-beginners" },
   ],
   alternatives: [
-    { icon: FileText, label: "IC Markets Full Review", path: "/review/ic-markets" },
+    { icon: FileText, label: "IC Markets Full Review", path: "/reviews/ic-markets" },
     { icon: BarChart3, label: "IC Markets vs Pepperstone", path: "/compare/ic-markets-vs-pepperstone" },
     { icon: TrendingUp, label: "Best Forex Brokers 2026", path: "/best-forex-brokers" },
   ],
   account: [
-    { icon: FileText, label: "IC Markets Full Review", path: "/review/ic-markets" },
-    { icon: Wallet, label: "IC Markets Deposit Methods", path: "/review/ic-markets/deposit-withdrawal" },
+    { icon: FileText, label: "IC Markets Full Review", path: "/reviews/ic-markets" },
+    { icon: Wallet, label: "IC Markets Deposit Methods", path: "/reviews/ic-markets/deposit-withdrawal" },
     { icon: BookOpen, label: "How to Choose a Broker", path: "/guide/how-to-choose-forex-broker" },
   ],
 };
@@ -243,7 +243,7 @@ function RelatedLinks({ activeTab }) {
           const TabIcon = t.icon;
           const subMeta = CONTENT_MAP[t.id];
           return (
-            <Link key={i} to={`/review/ic-markets/${t.id}`} style={{ display: "flex", alignItems: "center", gap: 10, padding: "8px 0", borderBottom: i < otherTabs.length - 1 ? `1px solid ${BORDER}` : "none", textDecoration: "none", color: NAVY, fontSize: 13, fontWeight: 500 }} onMouseEnter={e => e.currentTarget.style.color = GREEN} onMouseLeave={e => e.currentTarget.style.color = NAVY}>
+            <Link key={i} to={`/reviews/ic-markets/${t.id}`} style={{ display: "flex", alignItems: "center", gap: 10, padding: "8px 0", borderBottom: i < otherTabs.length - 1 ? `1px solid ${BORDER}` : "none", textDecoration: "none", color: NAVY, fontSize: 13, fontWeight: 500 }} onMouseEnter={e => e.currentTarget.style.color = GREEN} onMouseLeave={e => e.currentTarget.style.color = NAVY}>
               <TabIcon size={14} color={GREEN} />{subMeta?.breadcrumb || t.label}
             </Link>
           );
@@ -716,7 +716,7 @@ function AlternativesContent({ mob }) {
         <P>{alt.why}</P>
         <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
           <a href={getVisitUrl(alt.slug)} target="_blank" rel="nofollow sponsored" className="cta-primary" style={{ background: `linear-gradient(135deg, ${ORANGE}, #fbbf24)`, color: NAVY, fontSize: 13, fontWeight: 700, textDecoration: "none", padding: "10px 20px", borderRadius: 8, display: "inline-flex", alignItems: "center", gap: 6 }}>Visit {alt.name} <ExternalLink size={12} /></a>
-          <Link to={`/review/${alt.slug}`} className="cta-secondary" style={{ background: "#fff", color: GREEN, border: `2px solid ${GREEN}`, fontSize: 13, fontWeight: 700, textDecoration: "none", padding: "8px 16px", borderRadius: 8, display: "inline-flex", alignItems: "center", gap: 6 }}>Read Review <ArrowRight size={12} /></Link>
+          <Link to={`/reviews/${alt.slug}`} className="cta-secondary" style={{ background: "#fff", color: GREEN, border: `2px solid ${GREEN}`, fontSize: 13, fontWeight: 700, textDecoration: "none", padding: "8px 16px", borderRadius: 8, display: "inline-flex", alignItems: "center", gap: 6 }}>Read Review <ArrowRight size={12} /></Link>
         </div>
       </Card>
     ))}
@@ -1022,10 +1022,10 @@ export default function SubPagesProto() {
         <Breadcrumb items={[
           { label: "Home", path: "/" },
           { label: "Reviews", path: "/reviews" },
-          { label: "IC Markets Review", path: "/review/ic-markets" },
+          { label: "IC Markets Review", path: "/reviews/ic-markets" },
           { label: current.breadcrumb },
         ]} />
-        <Link to="/review/ic-markets" style={{
+        <Link to="/reviews/ic-markets" style={{
           display: "inline-flex", alignItems: "center", gap: 5,
           fontSize: 12, fontWeight: 600, color: GREEN,
           textDecoration: "none", padding: "5px 12px",
@@ -1164,7 +1164,7 @@ export default function SubPagesProto() {
                   {REGS.filter(r => r.tier === 1).map((r, i) => <RegBadge key={i} reg={r.name} />)}
                 </div>
                 <a href={visitUrl} target="_blank" rel="nofollow sponsored" className="cta-orange" style={{ display: "block", background: `linear-gradient(135deg, ${ORANGE}, #fbbf24)`, color: NAVY, fontSize: 14, fontWeight: 700, textDecoration: "none", padding: "12px 0", borderRadius: 8, textAlign: "center", marginBottom: 8 }}>Visit IC Markets</a>
-                <Link to="/review/ic-markets" style={{ display: "block", fontSize: 13, color: GREEN, fontWeight: 600, textDecoration: "none" }}>Read Full Review →</Link>
+                <Link to="/reviews/ic-markets" style={{ display: "block", fontSize: 13, color: GREEN, fontWeight: 600, textDecoration: "none" }}>Read Full Review →</Link>
               </Card>
 
               {/* Key Stats */}

@@ -531,7 +531,7 @@ function RankCard({ broker, rank, variant, mob, tab, lp }) {
   const { B } = broker;
   const [cardHover, setCardHover] = useState(false);
   const [analysisOpen, setAnalysisOpen] = useState(false);
-  const reviewPath = lp(`/review/${broker.slug}`);
+  const reviewPath = lp(`/reviews/${broker.slug}`);
   const hasTp = B.tp && B.tp > 0;
   const thematic = getBrokerBlurb("forex-overall", broker.slug, broker);
 

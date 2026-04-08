@@ -527,7 +527,7 @@ export default function RankingPage() {
             "@type": "ListItem",
             position: idx + 1,
             name: br.name,
-            url: `https://ratedbrokers.com/review/${s}`,
+            url: `https://ratedbrokers.com/reviews/${s}`,
           })),
         },
       ];
@@ -830,7 +830,7 @@ export default function RankingPage() {
                 {brokers.slice(0, 10).map((broker, i) => (
                   <tr key={broker.slug} style={{ borderBottom: "1px solid #f1f5f9", background: i % 2 ? "#fafbfc" : "#fff" }}>
                     <td style={{ padding: "10px 12px" }}>
-                      <Link to={lp(`/review/${broker.slug}`)} style={{
+                      <Link to={lp(`/reviews/${broker.slug}`)} style={{
                         display: "flex", alignItems: "center", gap: 6,
                         textDecoration: "none", color: "#0f172a",
                       }}>
@@ -1033,7 +1033,7 @@ export default function RankingPage() {
                         background: "linear-gradient(135deg,#059669,#34d399)",
                         color: "#fff", fontWeight: 700, fontSize: 15, textDecoration: "none",
                       }}>Visit {b.B.name} <ArrowRight size={14} /></a>
-                      <Link to={lp(`/review/${b.slug}`)} style={{
+                      <Link to={lp(`/reviews/${b.slug}`)} style={{
                         display: "inline-flex", alignItems: "center", gap: 6,
                         padding: mob ? "10px 18px" : "10px 22px", borderRadius: 10,
                         background: "#f1f5f9", color: "#1f2937", fontWeight: 600, fontSize: 15, textDecoration: "none",

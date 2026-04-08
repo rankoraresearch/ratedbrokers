@@ -385,7 +385,7 @@ function CardShell({ rank, children }) {
 function VariantA({ broker, rank }) {
   const B = broker.B;
   const visitUrl = makeVisitUrl(broker.slug, B.url);
-  const reviewPath = `/review/${broker.slug}`;
+  const reviewPath = `/reviews/${broker.slug}`;
   const tpUrl = getTrustpilotUrl(broker.slug);
   const hasTp = B.tp && B.tp > 0 && tpUrl;
 
@@ -442,7 +442,7 @@ function makeVariant(tpStyle) {
   return function VariantX({ broker, rank }) {
     const B = broker.B;
     const visitUrl = makeVisitUrl(broker.slug, B.url);
-    const reviewPath = `/review/${broker.slug}`;
+    const reviewPath = `/reviews/${broker.slug}`;
     const tpUrl = getTrustpilotUrl(broker.slug);
     const hasTp = B.tp && B.tp > 0 && tpUrl;
 

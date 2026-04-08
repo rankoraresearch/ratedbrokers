@@ -93,7 +93,7 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug, fe
   const [analysisOpen, setAnalysisOpen] = useState(false);
   const B = broker.B;
 
-  const reviewPath = lp(`/review/${broker.slug}`);
+  const reviewPath = lp(`/reviews/${broker.slug}`);
   const visitUrl = getVisitUrl(broker.slug, B.url);
 
   const pros = B.pros || broker.PROS || [];

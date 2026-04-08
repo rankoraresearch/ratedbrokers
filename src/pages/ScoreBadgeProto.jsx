@@ -217,7 +217,7 @@ export default function ScoreBadgeProto() {
                   onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.12)"; }}
                   onMouseLeave={e => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)"; }}
                 >
-                  <Link to={`/review/${broker.slug}`} style={{
+                  <Link to={`/reviews/${broker.slug}`} style={{
                     width: 56, height: 56, borderRadius: 14, overflow: "hidden", flexShrink: 0,
                     boxShadow: "0 2px 8px rgba(0,0,0,0.08)", border: "1px solid rgba(0,0,0,0.04)",
                     textDecoration: "none",
@@ -225,7 +225,7 @@ export default function ScoreBadgeProto() {
                     <BrokerLogo slug={broker.slug} name={b.name} fallback={b.logo} size={56} shape="icon" />
                   </Link>
                   <div style={{ flex: 1, minWidth: 0 }}>
-                    <Link to={`/review/${broker.slug}`} style={{
+                    <Link to={`/reviews/${broker.slug}`} style={{
                       fontFamily: "'Outfit',sans-serif", fontWeight: 700, fontSize: 15,
                       letterSpacing: "-0.01em", color: "#0f172a", textDecoration: "none", display: "block",
                     }}>{b.name}</Link>
@@ -290,14 +290,14 @@ export default function ScoreBadgeProto() {
                     }}>#{rank}</div>
 
                     {/* Wide logo */}
-                    <Link to={`/review/${broker.slug}`} style={{ display: "flex", flexShrink: 0, textDecoration: "none" }}>
+                    <Link to={`/reviews/${broker.slug}`} style={{ display: "flex", flexShrink: 0, textDecoration: "none" }}>
                       <WideLogo slug={broker.slug} name={b.name} fallback={b.logo} w={200} h={60} />
                     </Link>
 
                     {/* Name + type */}
                     <div style={{ minWidth: 0 }}>
                       <h3 style={{ margin: 0, fontSize: 16, fontWeight: 700, display: "flex", alignItems: "center", gap: 8 }}>
-                        <Link to={`/review/${broker.slug}`} style={{
+                        <Link to={`/reviews/${broker.slug}`} style={{
                           fontFamily: "'DM Sans',sans-serif", fontWeight: 700, fontSize: 16,
                           color: "#111827", textDecoration: "none",
                         }}>{b.name}</Link>
@@ -345,7 +345,7 @@ export default function ScoreBadgeProto() {
                         background: "linear-gradient(135deg, #f59e0b, #fbbf24)",
                         color: "#0f172a", fontWeight: 700, fontSize: 14, textDecoration: "none",
                       }}>Open Account →</a>
-                      <Link to={`/review/${broker.slug}`} className="cta-secondary" style={{
+                      <Link to={`/reviews/${broker.slug}`} className="cta-secondary" style={{
                         padding: "11px 16px", borderRadius: 10, textAlign: "center",
                         background: "#fff", color: "#059669", fontWeight: 700, fontSize: 14,
                         textDecoration: "none", border: "2px solid #059669",

@@ -33,16 +33,16 @@ const FOOTER_RANKINGS = [
 ];
 
 const FOOTER_REVIEWS = [
-  { label: "IC Markets Review", path: "/review/ic-markets" },
-  { label: "Pepperstone Review", path: "/review/pepperstone" },
-  { label: "IG Review", path: "/review/ig" },
-  { label: "FP Markets Review", path: "/review/fp-markets" },
-  { label: "CMC Markets Review", path: "/review/cmc-markets" },
-  { label: "Exness Review", path: "/review/exness" },
-  { label: "XTB Review", path: "/review/xtb" },
-  { label: "eToro Review", path: "/review/etoro" },
-  { label: "Saxo Bank Review", path: "/review/saxo-bank" },
-  { label: "Interactive Brokers Review", path: "/review/interactive-brokers" },
+  { label: "IC Markets Review", path: "/reviews/ic-markets" },
+  { label: "Pepperstone Review", path: "/reviews/pepperstone" },
+  { label: "IG Review", path: "/reviews/ig" },
+  { label: "FP Markets Review", path: "/reviews/fp-markets" },
+  { label: "CMC Markets Review", path: "/reviews/cmc-markets" },
+  { label: "Exness Review", path: "/reviews/exness" },
+  { label: "XTB Review", path: "/reviews/xtb" },
+  { label: "eToro Review", path: "/reviews/etoro" },
+  { label: "Saxo Bank Review", path: "/reviews/saxo-bank" },
+  { label: "Interactive Brokers Review", path: "/reviews/interactive-brokers" },
 ];
 
 const FOOTER_GUIDES = [

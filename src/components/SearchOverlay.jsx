@@ -12,7 +12,7 @@ import Icon from "./Icon";
 const POPULAR = [
   { label: "Best Forex Brokers", path: "/best-forex-brokers" },
   { label: "Best for Beginners", path: "/best-forex-brokers-for-beginners" },
-  { label: "IC Markets", path: "/review/ic-markets" },
+  { label: "IC Markets", path: "/reviews/ic-markets" },
   { label: "What Is Forex Trading?", path: "/guide/what-is-forex-trading" },
   { label: "Copy Trading", path: "/best-copy-trading-platforms" },
 ];

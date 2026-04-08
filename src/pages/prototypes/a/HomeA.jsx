@@ -80,7 +80,7 @@ export default function HomeA() {
           {!mob && (
             <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
               {brokers.slice(0, 3).map((br, i) => (
-                <Link key={br.slug} to={lp(`/review/${br.slug}`)} style={{
+                <Link key={br.slug} to={lp(`/reviews/${br.slug}`)} style={{
                   display: "flex", alignItems: "center", gap: 16, padding: "18px 20px",
                   borderRadius: 14, background: "#f8fafc",
                   border: i === 0 ? `2px solid ${green}` : "1px solid #e2e8f0",
@@ -114,7 +114,7 @@ export default function HomeA() {
         {mob && (
           <div style={{ display: "flex", gap: 10, overflowX: "auto", marginTop: 32, padding: "4px 0" }}>
             {brokers.slice(0, 3).map((br, i) => (
-              <Link key={br.slug} to={lp(`/review/${br.slug}`)} style={{
+              <Link key={br.slug} to={lp(`/reviews/${br.slug}`)} style={{
                 minWidth: 200, padding: "16px", borderRadius: 14,
                 background: "#f8fafc", border: i === 0 ? `2px solid ${green}` : "1px solid #e2e8f0",
                 textDecoration: "none", color: "#0f172a", flexShrink: 0,
@@ -192,7 +192,7 @@ export default function HomeA() {
                 display: "flex", alignItems: "center", gap: 4,
               }}>Visit <ExternalLink size={11} /></a>
               {!mob && (
-                <Link to={lp(`/review/${br.slug}`)} style={{
+                <Link to={lp(`/reviews/${br.slug}`)} style={{
                   padding: "10px 16px", borderRadius: 8, border: "1px solid #e2e8f0",
                   color: "#64748b", fontWeight: 600, fontSize: 13, textDecoration: "none",
                 }}>Review</Link>
@@ -311,7 +311,7 @@ export default function HomeA() {
         </div>
         <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "repeat(3, 1fr)", gap: 14 }}>
           {brokers.slice(0, 3).map((br) => (
-            <Link key={br.slug} to={lp(`/review/${br.slug}`)} style={{
+            <Link key={br.slug} to={lp(`/reviews/${br.slug}`)} style={{
               padding: "20px", borderRadius: 14, border: "1px solid #e2e8f0",
               textDecoration: "none", color: "#0f172a", transition: "all 0.15s",
             }}

@@ -155,7 +155,7 @@ export default function Proto13() {
                     textAlign: "center", textDecoration: "none",
                     border: i === 0 ? "none" : "1px solid #e2e8f0",
                   }}>Visit Broker</a>
-                  <Link to={lp(`/review/${br.slug}`)} style={{
+                  <Link to={lp(`/reviews/${br.slug}`)} style={{
                     padding: "12px 16px", borderRadius: 8, border: "1px solid #e2e8f0",
                     color: "#64748b", fontWeight: 600, fontSize: 14, textDecoration: "none",
                   }}>Full Review</Link>

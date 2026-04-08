@@ -55,7 +55,7 @@ export default function Proto6() {
         </div>
 
         {top5.map((br, i) => (
-          <Link key={br.slug} to={lp(`/review/${br.slug}`)} style={{
+          <Link key={br.slug} to={lp(`/reviews/${br.slug}`)} style={{
             display: "flex", alignItems: "center", gap: mob ? 16 : 24,
             padding: mob ? "20px 0" : "28px 0",
             borderBottom: "1px solid #f4f4f5",

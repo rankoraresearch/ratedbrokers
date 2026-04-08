@@ -73,7 +73,7 @@ export default function Proto1() {
           {!mob && (
             <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
               {brokers.slice(0, 3).map((br, i) => (
-                <Link key={br.slug} to={lp(`/review/${br.slug}`)} style={{
+                <Link key={br.slug} to={lp(`/reviews/${br.slug}`)} style={{
                   display: "flex", alignItems: "center", gap: 16, padding: "18px 20px",
                   borderRadius: 14, background: "#f8fafc", border: i === 0 ? `2px solid ${green}` : "1px solid #e2e8f0",
                   textDecoration: "none", color: "#0f172a",
@@ -149,7 +149,7 @@ export default function Proto1() {
                 color: "#fff", fontWeight: 700, fontSize: 13, textDecoration: "none",
               }}>Visit</a>
               {!mob && (
-                <Link to={lp(`/review/${br.slug}`)} style={{
+                <Link to={lp(`/reviews/${br.slug}`)} style={{
                   padding: "10px 16px", borderRadius: 8, border: "1px solid #e2e8f0",
                   color: "#64748b", fontWeight: 600, fontSize: 13, textDecoration: "none",
                 }}>Review</Link>

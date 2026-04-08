@@ -36,7 +36,7 @@ export default function VerdictBox({ slug, name, score, title, text, bestFor, no
         <a href={vUrl} target="_blank" rel="nofollow sponsored" className="cta-orange" style={{ background: `linear-gradient(135deg, ${ORANGE}, #fbbf24)`, color: NAVY, fontSize: 14, fontWeight: 700, textDecoration: "none", padding: "12px 24px", borderRadius: 8, display: "inline-flex", alignItems: "center", gap: 6 }}>
           Visit {name} <ExternalLink size={14} />
         </a>
-        <Link to={`/review/${slug}`} className="cta-secondary" style={{ background: "transparent", color: "#fff", border: "2px solid rgba(255,255,255,0.3)", fontSize: 14, fontWeight: 700, textDecoration: "none", padding: "10px 20px", borderRadius: 8, display: "inline-flex", alignItems: "center", gap: 6 }}>
+        <Link to={`/reviews/${slug}`} className="cta-secondary" style={{ background: "transparent", color: "#fff", border: "2px solid rgba(255,255,255,0.3)", fontSize: 14, fontWeight: 700, textDecoration: "none", padding: "10px 20px", borderRadius: 8, display: "inline-flex", alignItems: "center", gap: 6 }}>
           Read Full Review <ArrowRight size={14} />
         </Link>
       </div>

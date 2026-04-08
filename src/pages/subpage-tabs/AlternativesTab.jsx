@@ -151,7 +151,7 @@ function FeaturedCard({ alt, rank, currentScore, mob, why }) {
           }}>
             Visit {alt.name} <ExternalLink size={13} />
           </a>
-          <Link to={`/review/${alt.slug}`} style={{
+          <Link to={`/reviews/${alt.slug}`} style={{
             fontSize: 12, color: isWinner ? "rgba(255,255,255,0.65)" : GRAY_MUTED, textDecoration: "none", fontWeight: 600,
             display: "flex", alignItems: "center", gap: 4,
           }}>

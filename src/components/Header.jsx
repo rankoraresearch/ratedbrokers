@@ -547,7 +547,7 @@ export default function Header() {
                         <div style={secHead}>{t("mega.topRated")}</div>
                         <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
                           {TOP_REVIEWS.map((b) => (
-                            <Link key={b.slug} to={lp(`/review/${b.slug}`)}
+                            <Link key={b.slug} to={lp(`/reviews/${b.slug}`)}
                               style={{ ...ddLink, justifyContent: "space-between" }}
                               onMouseEnter={hov} onMouseLeave={unhov}
                             >
@@ -574,7 +574,7 @@ export default function Header() {
                         <div style={secHead}>{t("mega.popular")}</div>
                         <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
                           {POPULAR_REVIEWS.map((b) => (
-                            <Link key={b.slug} to={lp(`/review/${b.slug}`)} style={ddLink}
+                            <Link key={b.slug} to={lp(`/reviews/${b.slug}`)} style={ddLink}
                               onMouseEnter={hov} onMouseLeave={unhov}
                             >
                               <div style={{
@@ -892,7 +892,7 @@ export default function Header() {
                   {t("mega.topRated")}
                 </div>
                 {TOP_REVIEWS.map((b) => (
-                  <Link key={b.slug} to={lp(`/review/${b.slug}`)} style={{
+                  <Link key={b.slug} to={lp(`/reviews/${b.slug}`)} style={{
                     display: "flex", alignItems: "center", justifyContent: "space-between",
                     padding: "8px 0", fontSize: 14, fontWeight: 500, color: "#1f2937", textDecoration: "none",
                   }}>
@@ -904,7 +904,7 @@ export default function Header() {
                   {t("mega.popular")}
                 </div>
                 {POPULAR_REVIEWS.map((b) => (
-                  <Link key={b.slug} to={lp(`/review/${b.slug}`)} style={{
+                  <Link key={b.slug} to={lp(`/reviews/${b.slug}`)} style={{
                     display: "block", padding: "8px 0", fontSize: 14, fontWeight: 500, color: "#1f2937", textDecoration: "none",
                   }}>{b.name}</Link>
                 ))}

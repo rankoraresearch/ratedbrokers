@@ -9,6 +9,9 @@
 /options-trading  /best-options-brokers  301
 /futures-trading  /best-futures-brokers  301
 
+# Review URL migration: /review/ → /reviews/
+/review/*  /reviews/:splat  301
+
 # Existing rules
 /favicon-preview.html  /favicon-preview.html  200
 /*    /index.html   200

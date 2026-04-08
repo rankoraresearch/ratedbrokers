@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import { BrowserRouter, Routes, Route, Navigate, Outlet } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, Outlet, useParams } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { LanguageProvider } from "./i18n/LanguageContext";
@@ -74,6 +74,12 @@ function Layout() {
   );
 }
 
+/** Redirect old /review/:slug → /reviews/:slug (preserves tab if present) */
+function ReviewRedirect() {
+  const { slug, tab } = useParams();
+  return <Navigate to={tab ? `/reviews/${slug}/${tab}` : `/reviews/${slug}`} replace />;
+}
+
 function AppRoutes() {
   return (
     <Routes>
@@ -103,8 +109,11 @@ function AppRoutes() {
         <Route path="uk" element={<Navigate to="/best-forex-brokers-uk" replace />} />
         <Route path="best-forex-brokers-by-country" element={<CountryHubPage />} />
         <Route path="best-forex-brokers-:countrySlug" element={<CountryPage />} />
-        <Route path="review/:slug" element={<BrokerReview />} />
-        <Route path="review/:slug/:tab" element={<BrokerSubPage />} />
+        <Route path="reviews/:slug" element={<BrokerReview />} />
+        <Route path="reviews/:slug/:tab" element={<BrokerSubPage />} />
+        {/* Redirect old /review/ URLs → /reviews/ */}
+        <Route path="review/:slug/:tab" element={<ReviewRedirect />} />
+        <Route path="review/:slug" element={<ReviewRedirect />} />
         <Route path="compare" element={<ComparePage />} />
         <Route path="compare/:pair" element={<BrokerComparison />} />
         <Route path="methodology" element={<Methodology />} />

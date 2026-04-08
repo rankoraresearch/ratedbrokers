@@ -21,12 +21,12 @@ export default function BrokerSubPage() {
 
   /* Invalid tab → redirect to main review */
   if (!VALID_TABS.includes(tab)) {
-    return <Navigate to={`/review/${slug}`} replace />;
+    return <Navigate to={`/reviews/${slug}`} replace />;
   }
 
   const TabRenderer = TAB_RENDERERS[tab];
   if (!TabRenderer) {
-    return <Navigate to={`/review/${slug}`} replace />;
+    return <Navigate to={`/reviews/${slug}`} replace />;
   }
 
   /* useMedia inside layout */

@@ -390,7 +390,7 @@ export default function ReviewB() {
         </h2>
         <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "repeat(3, 1fr)", gap: 12 }}>
           {brokers.slice(1, 4).map((alt) => (
-            <Link key={alt.slug} to={lp(`/review/${alt.slug}`)} style={{
+            <Link key={alt.slug} to={lp(`/reviews/${alt.slug}`)} style={{
               background: "#fff", borderRadius: 16, padding: "20px",
               border: "1px solid #e7e5e4", textDecoration: "none", color: "#1c1917",
               transition: "all 0.15s",

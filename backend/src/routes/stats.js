@@ -594,7 +594,7 @@ function renderSourcePages(){
   document.getElementById('sourcePagesTable').innerHTML=
     '<tbody>'+(SP.slice(0,10).map(s=>{
       const pg=s.source_page||'—';
-      const ic=pg.includes('/review/')?'&#x1F4DD;':pg.includes('forex')||pg.includes('ranking')?'&#x1F3C6;':'&#x1F4C4;';
+      const ic=pg.includes('/reviews/')||pg.includes('/review/')?'&#x1F4DD;':pg.includes('forex')||pg.includes('ranking')?'&#x1F3C6;':'&#x1F4C4;';
       return'<tr><td>'+ic+' '+esc(pg)+'</td><td style="text-align:right;font-variant-numeric:tabular-nums">'+s.clicks+'</td></tr>';
     }).join('')||'<tr><td class="empty" colspan="2">No sub-ID data yet</td></tr>')+'</tbody>';
 }

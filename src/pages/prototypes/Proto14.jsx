@@ -141,7 +141,7 @@ export default function Proto14() {
                     flex: 1, padding: "12px", borderRadius: 10, background: purple,
                     color: "#fff", fontWeight: 700, fontSize: 14, textAlign: "center", textDecoration: "none",
                   }}>Visit Broker</a>
-                  <Link to={lp(`/review/${br.slug}`)} style={{
+                  <Link to={lp(`/reviews/${br.slug}`)} style={{
                     padding: "12px 14px", borderRadius: 10, border: "1px solid #e5e7eb",
                     color: "#71717a", fontWeight: 600, fontSize: 14, textDecoration: "none",
                   }}>Review</Link>

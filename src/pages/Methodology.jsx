@@ -550,7 +550,7 @@ export default function MethodologyPage() {
         )}
 
         <div style={{ marginTop: 12 }}>
-          <Link to={lp("/review/ic-markets")} style={{
+          <Link to={lp("/reviews/ic-markets")} style={{
             color: "#2563eb", fontWeight: 600, textDecoration: "none", fontSize: 15,
           }}>{t("meth.readFullReview")} →</Link>
         </div>

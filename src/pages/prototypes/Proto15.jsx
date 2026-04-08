@@ -168,7 +168,7 @@ export default function Proto15() {
                 fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: 18,
                 color: i === 0 ? indigo : "#0f172a",
               }}>{br.B.score}</div>
-              <Link to={lp(`/review/${br.slug}`)} style={{
+              <Link to={lp(`/reviews/${br.slug}`)} style={{
                 padding: "8px 14px", borderRadius: 8, background: i === 0 ? indigo : "#e2e8f0",
                 color: i === 0 ? "#fff" : "#475569", fontWeight: 700, fontSize: 13, textDecoration: "none",
               }}>Review</Link>

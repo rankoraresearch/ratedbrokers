@@ -137,7 +137,7 @@ export default function Proto10() {
                   flex: 1, padding: "12px", borderRadius: 10, background: green,
                   color: "#fff", fontWeight: 700, fontSize: 14, textAlign: "center", textDecoration: "none",
                 }}>Open Account</a>
-                <Link to={lp(`/review/${br.slug}`)} style={{
+                <Link to={lp(`/reviews/${br.slug}`)} style={{
                   padding: "12px 16px", borderRadius: 10, border: "1px solid #e5e7eb",
                   color: "#6b7280", fontWeight: 600, fontSize: 14, textDecoration: "none",
                 }}>Review</Link>

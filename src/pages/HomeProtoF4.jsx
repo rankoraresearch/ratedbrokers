@@ -438,7 +438,7 @@ export default function HomeProtoF4() {
           </div>
           <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr 1fr 1fr" : "repeat(6, 1fr)", gap: mob ? 12 : 16 }}>
             {allBrokers.slice(0, mob ? 9 : 18).map(b => (
-              <Link key={b.slug} to={`/review/${b.slug}`} style={{
+              <Link key={b.slug} to={`/reviews/${b.slug}`} style={{
                 display: "flex", flexDirection: "column", alignItems: "center",
                 padding: mob ? "16px 10px" : "20px 14px",
                 background: "rgba(255,255,255,0.7)",

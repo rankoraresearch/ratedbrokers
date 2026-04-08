@@ -171,7 +171,7 @@ export default function HomeB() {
                     color: "#fff", fontWeight: 700, fontSize: 15, textAlign: "center", textDecoration: "none",
                     display: "flex", alignItems: "center", justifyContent: "center", gap: 4,
                   }}>Open Account <ArrowRight size={14} /></a>
-                  <Link to={lp(`/review/${br.slug}`)} style={{
+                  <Link to={lp(`/reviews/${br.slug}`)} style={{
                     padding: "14px 18px", borderRadius: 12, border: "1px solid #d6d3d1",
                     color: "#78716c", fontWeight: 600, fontSize: 14, textDecoration: "none",
                     background: "#fff",
@@ -293,7 +293,7 @@ export default function HomeB() {
           </div>
           <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "repeat(3, 1fr)", gap: 14 }}>
             {brokers.slice(0, 3).map((br) => (
-              <Link key={br.slug} to={lp(`/review/${br.slug}`)} style={{
+              <Link key={br.slug} to={lp(`/reviews/${br.slug}`)} style={{
                 padding: "20px", borderRadius: 16, background: cream, border: "1px solid #e5ddd4",
                 textDecoration: "none", color: "#1c1917", transition: "all 0.15s",
               }}

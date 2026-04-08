@@ -67,7 +67,7 @@ export default function TrustScorePage() {
             "@type": "ListItem",
             position: i + 1,
             name: b.name,
-            url: `https://ratedbrokers.com/review/${b.slug}`,
+            url: `https://ratedbrokers.com/reviews/${b.slug}`,
           })),
         },
       ],
@@ -350,7 +350,7 @@ function LookupSection({ cn, mob, tab, t, lp, allBrokers }) {
           </div>
 
           <div style={{ marginTop: 16 }}>
-            <Link to={lp(`/review/${selectedSlug}`)} style={{
+            <Link to={lp(`/reviews/${selectedSlug}`)} style={{
               color: "#059669", fontWeight: 600, fontSize: 15, textDecoration: "none",
               display: "inline-flex", alignItems: "center", gap: 4,
             }}>
@@ -800,7 +800,7 @@ function LeaderboardSection({ cn, mob, tab, t, lp, allBrokers }) {
                 <span style={{ fontSize: 13, color: "#1f2937" }}>{b.type}</span>
               )}
               <span style={{ textAlign: "right" }}>
-                <Link to={lp(`/review/${b.slug}`)} style={{
+                <Link to={lp(`/reviews/${b.slug}`)} style={{
                   fontSize: 14, fontWeight: 600, color: "#059669", textDecoration: "none",
                 }}>
                   {t("ts.leaderReadReview")}

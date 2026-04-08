@@ -157,7 +157,7 @@ function HeroC({ mob, tab, brokers }) {
             {/* Top 3 mini-podium */}
             <div style={{ display: "flex", gap: 10, flexShrink: 0 }}>
               {top3.map((b, i) => (
-                <Link key={b.slug} to={`/review/${b.slug}`} style={{
+                <Link key={b.slug} to={`/reviews/${b.slug}`} style={{
                   display: "flex", flexDirection: "column", alignItems: "center",
                   padding: "12px 14px", borderRadius: 12,
                   background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)",
@@ -222,7 +222,7 @@ function HeroD({ mob, tab, brokers }) {
             padding: "12px 0 4px", borderTop: "1px solid rgba(255,255,255,0.06)",
           }}>
             {top5.map((b, i) => (
-              <Link key={b.slug} to={`/review/${b.slug}`} style={{
+              <Link key={b.slug} to={`/reviews/${b.slug}`} style={{
                 display: "flex", alignItems: "center", gap: 8,
                 padding: "8px 12px", borderRadius: 8,
                 background: i === 0 ? "rgba(251,191,36,0.1)" : "rgba(255,255,255,0.04)",

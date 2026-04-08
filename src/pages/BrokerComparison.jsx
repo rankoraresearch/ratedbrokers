@@ -28,37 +28,43 @@ function sortedRegs(regs) {
   return [...regs].sort((a, b) => (a.tier || 99) - (b.tier || 99));
 }
 
-const WIDE_LIGHT_EXT = {};
 const WIDE_NEEDS_DARK_BG = new Set([
-  "degiro", "dukascopy", "fidelity", "fxpro", "ig", "interactive-brokers",
-  "naga", "spreadex", "thinkmarkets", "trading-212", "xm", "xm-v2", "xtb",
+  "dukascopy", "fxpro", "ig", "naga", "trading-212", "xm", "xm-v2",
 ]);
+const WIDE_HAS_OWN_BG = new Set(["exness"]);
+const WIDE_USE_ICON = new Set(["charles-schwab"]);
 function WideLogoLight({ slug, name, fallback, mob }) {
   const [err, setErr] = useState(false);
-  const ext = WIDE_LIGHT_EXT[slug] || "svg";
   const h = mob ? 48 : 56;
   const w = mob ? 180 : 220;
   const needsDark = WIDE_NEEDS_DARK_BG.has(slug);
-  if (err) {
+  const hasOwnBg = WIDE_HAS_OWN_BG.has(slug);
+  const useIcon = WIDE_USE_ICON.has(slug);
+  if (err || useIcon) {
     return (
-      <div style={{ display: "inline-flex", alignItems: "center", gap: 10 }}>
-        <BrokerLogo slug={slug} name={name} fallback={fallback} size={48} shape="brand" variant="gray" />
-        <span style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 18, color: "#0f172a" }}>{name}</span>
+      <div style={{
+        display: "inline-flex", alignItems: "center", justifyContent: "center",
+        height: h, width: w, borderRadius: 14,
+        background: "#f8f9fb", border: "1px solid #e2e8f0", padding: "6px 16px",
+      }}>
+        <BrokerLogo slug={slug} name={name} fallback={fallback} size={mob ? 36 : 44} shape="brand" variant="gray" />
       </div>
     );
   }
   return (
     <div style={{
       display: "inline-flex", alignItems: "center", justifyContent: "center",
-      height: h, width: w, borderRadius: 12,
-      ...(needsDark ? { background: "linear-gradient(135deg, #0f172a, #1e293b)", padding: "8px 16px" } : {}),
+      height: h, width: w, borderRadius: 14, overflow: "hidden",
+      background: hasOwnBg ? "transparent" : needsDark ? "linear-gradient(135deg, #0f172a, #1e293b)" : "#f8f9fb",
+      border: hasOwnBg || needsDark ? "none" : "1px solid #e2e8f0",
+      padding: hasOwnBg ? 0 : "8px 16px",
     }}>
       <img
-        src={`${import.meta.env.BASE_URL}logos-wide/${slug}.${ext}`}
+        src={`${import.meta.env.BASE_URL}logos-wide/${slug}.svg`}
         alt={`${name} logo`}
         loading="lazy"
         onError={() => setErr(true)}
-        style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }}
+        style={{ width: "100%", height: "100%", objectFit: hasOwnBg ? "fill" : "contain", borderRadius: hasOwnBg ? 14 : 0 }}
       />
     </div>
   );
@@ -119,7 +125,7 @@ export default function BrokerComparison() {
   if (!parsed) return <NotFoundView lp={lp} t={t} />;
 
   const [slugA, slugB] = parsed;
-  if (slugA === slugB) return <Navigate to={lp(`/review/${slugA}`)} replace />;
+  if (slugA === slugB) return <Navigate to={lp(`/reviews/${slugA}`)} replace />;
 
   const canonical = canonicalPair(slugA, slugB);
   if (pair !== canonical) return <Navigate to={lp(`/compare/${canonical}`)} replace />;
@@ -449,8 +455,8 @@ export default function BrokerComparison() {
       "@context": "https://schema.org", "@type": "ItemList",
       name: `${A.name} vs ${B.name} Comparison`,
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: A.name, url: `https://ratedbrokers.com/review/${slugA}` },
-        { "@type": "ListItem", position: 2, name: B.name, url: `https://ratedbrokers.com/review/${slugB}` },
+        { "@type": "ListItem", position: 1, name: A.name, url: `https://ratedbrokers.com/reviews/${slugA}` },
+        { "@type": "ListItem", position: 2, name: B.name, url: `https://ratedbrokers.com/reviews/${slugB}` },
       ],
     });
     document.head.appendChild(script);
@@ -521,7 +527,7 @@ export default function BrokerComparison() {
           }}>
             {/* Broker A */}
             <div style={{ padding: mob ? "24px 20px" : "32px", textAlign: "center", borderRight: mob ? "none" : "1px solid #f1f5f9", borderBottom: mob ? "1px solid #f1f5f9" : "none", display: "flex", flexDirection: "column", alignItems: "center" }}>
-              <Link to={lp(`/review/${slugA}`)} style={{ display: "inline-flex", justifyContent: "center", marginBottom: 14, textDecoration: "none" }}>
+              <Link to={lp(`/reviews/${slugA}`)} style={{ display: "inline-flex", justifyContent: "center", marginBottom: 14, textDecoration: "none" }}>
                 <WideLogoLight slug={slugA} name={A.name} fallback={A.logo} mob={mob} />
               </Link>
               <div style={{ fontSize: 14, color: "#6b7280", marginBottom: 12 }}>Est. {A.year} · {A.hq}</div>
@@ -532,7 +538,7 @@ export default function BrokerComparison() {
               <div style={{ display: "flex", gap: 4, justifyContent: "center", flexWrap: "wrap", marginBottom: 16 }}>
                 {sortedRegs(A.regs).slice(0, MAX_HERO_REGS).map(r => <RegBadge key={r.name} reg={r.name} />)}
                 {A.regs.length > MAX_HERO_REGS && (
-                  <Link to={lp(`/review/${slugA}/regulation`)} style={{ fontSize: 12, fontWeight: 700, color: "#059669", background: "#ecfdf5", padding: "3px 10px", borderRadius: 20, textDecoration: "none", display: "inline-flex", alignItems: "center" }}>+{A.regs.length - MAX_HERO_REGS} more</Link>
+                  <Link to={lp(`/reviews/${slugA}/regulation`)} style={{ fontSize: 12, fontWeight: 700, color: "#059669", background: "#ecfdf5", padding: "3px 10px", borderRadius: 20, textDecoration: "none", display: "inline-flex", alignItems: "center" }}>+{A.regs.length - MAX_HERO_REGS} more</Link>
                 )}
               </div>
               <div style={{ flex: 1 }} />
@@ -557,7 +563,7 @@ export default function BrokerComparison() {
 
             {/* Broker B */}
             <div style={{ padding: mob ? "24px 20px" : "32px", textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
-              <Link to={lp(`/review/${slugB}`)} style={{ display: "inline-flex", justifyContent: "center", marginBottom: 14, textDecoration: "none" }}>
+              <Link to={lp(`/reviews/${slugB}`)} style={{ display: "inline-flex", justifyContent: "center", marginBottom: 14, textDecoration: "none" }}>
                 <WideLogoLight slug={slugB} name={B.name} fallback={B.logo} mob={mob} />
               </Link>
               <div style={{ fontSize: 14, color: "#6b7280", marginBottom: 12 }}>Est. {B.year} · {B.hq}</div>
@@ -568,7 +574,7 @@ export default function BrokerComparison() {
               <div style={{ display: "flex", gap: 4, justifyContent: "center", flexWrap: "wrap", marginBottom: 16 }}>
                 {sortedRegs(B.regs).slice(0, MAX_HERO_REGS).map(r => <RegBadge key={r.name} reg={r.name} />)}
                 {B.regs.length > MAX_HERO_REGS && (
-                  <Link to={lp(`/review/${slugB}/regulation`)} style={{ fontSize: 12, fontWeight: 700, color: "#059669", background: "#ecfdf5", padding: "3px 10px", borderRadius: 20, textDecoration: "none", display: "inline-flex", alignItems: "center" }}>+{B.regs.length - MAX_HERO_REGS} more</Link>
+                  <Link to={lp(`/reviews/${slugB}/regulation`)} style={{ fontSize: 12, fontWeight: 700, color: "#059669", background: "#ecfdf5", padding: "3px 10px", borderRadius: 20, textDecoration: "none", display: "inline-flex", alignItems: "center" }}>+{B.regs.length - MAX_HERO_REGS} more</Link>
                 )}
               </div>
               <div style={{ flex: 1 }} />

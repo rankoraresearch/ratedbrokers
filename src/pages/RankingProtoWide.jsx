@@ -168,7 +168,7 @@ function DarkCrownCard({ broker, rank, thematic, mob, tab, ctaTheme }) {
   const lp = useLocalePath();
   const [analysisOpen, setAnalysisOpen] = useState(false);
   const B = broker.B;
-  const reviewPath = lp(`/review/${broker.slug}`);
+  const reviewPath = lp(`/reviews/${broker.slug}`);
   const visitUrl = makeVisitUrl(broker.slug, B.url);
   const hasTp = B.tp && B.tp > 0;
   const ct = CTA_THEMES[ctaTheme];

@@ -402,7 +402,7 @@ export default function HomeProtoF() {
                       padding: "12px 24px", borderRadius: 10, fontSize: 14, fontWeight: 700,
                       background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: "#0f172a", textDecoration: "none",
                     }}>Visit Broker</a>
-                    <Link to={`/review/${b.slug}`} className="cta-secondary" style={{
+                    <Link to={`/reviews/${b.slug}`} className="cta-secondary" style={{
                       padding: "12px 20px", borderRadius: 10, fontSize: 14, fontWeight: 600,
                       border: "2px solid #059669", color: "#059669", textDecoration: "none",
                     }}>Review</Link>
@@ -521,7 +521,7 @@ export default function HomeProtoF() {
             gap: mob ? 12 : 16,
           }}>
             {allBrokers.slice(0, mob ? 9 : 18).map(b => (
-              <Link key={b.slug} to={`/review/${b.slug}`} style={{
+              <Link key={b.slug} to={`/reviews/${b.slug}`} style={{
                 display: "flex", flexDirection: "column", alignItems: "center",
                 padding: mob ? "16px 10px" : "20px 14px",
                 background: "rgba(255,255,255,0.7)",

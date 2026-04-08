@@ -221,7 +221,7 @@ export default function RegulatorPage() {
                   <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
                     <a href={getVisitUrl(b.slug, b.B.url)} target="_blank" rel="noopener nofollow sponsored" style={{ display: "flex", flexShrink: 0 }}><BrokerLogo slug={b.slug} name={b.B.name} fallback={b.B.logo} size={44} shape="wide" variant="gray" /></a>
                     <div>
-                      <Link to={lp(`/review/${b.slug}`)} style={{ fontWeight: 700, fontSize: 16, color: "#0f172a", textDecoration: "none", display: "block" }}
+                      <Link to={lp(`/reviews/${b.slug}`)} style={{ fontWeight: 700, fontSize: 16, color: "#0f172a", textDecoration: "none", display: "block" }}
                         onMouseEnter={e => e.currentTarget.style.textDecoration = "underline"}
                         onMouseLeave={e => e.currentTarget.style.textDecoration = "none"}
                       >{b.B.name}</Link>
@@ -234,7 +234,7 @@ export default function RegulatorPage() {
                       padding: "4px 10px", fontFamily: "'JetBrains Mono',monospace",
                       fontSize: 16, fontWeight: 800, color: "#059669",
                     }}>{b.B.score}</div>
-                    <Link to={lp(`/review/${b.slug}`)} style={{
+                    <Link to={lp(`/reviews/${b.slug}`)} style={{
                       fontSize: 13, color: "#1e3a5f", fontWeight: 600, textDecoration: "none",
                       padding: "6px 14px", border: "1px solid #cbd5e1", borderRadius: 6,
                     }}><span style={{ display: "inline-flex", alignItems: "center", gap: 3 }}>Read Review <ArrowRight size={12} /></span></Link>

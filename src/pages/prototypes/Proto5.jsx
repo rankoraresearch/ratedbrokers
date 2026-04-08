@@ -146,7 +146,7 @@ export default function Proto5() {
                   <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
                     <BrokerLogo slug={br.slug} name={br.B.name} size={32} shape="wide" />
                     <div>
-                      <Link to={lp(`/review/${br.slug}`)} style={{ fontWeight: 700, fontSize: 14, color: "#0f172a", textDecoration: "none" }}>{br.B.name}</Link>
+                      <Link to={lp(`/reviews/${br.slug}`)} style={{ fontWeight: 700, fontSize: 14, color: "#0f172a", textDecoration: "none" }}>{br.B.name}</Link>
                       <div style={{ fontSize: 12, color: "#94a3b8" }}>{br.B.type}</div>
                     </div>
                   </div>

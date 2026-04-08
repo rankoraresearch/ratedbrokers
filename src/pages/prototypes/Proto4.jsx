@@ -83,7 +83,7 @@ export default function Proto4() {
                 <div style={{ flex: 1 }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 8 }}>
                     <BrokerLogo slug={br.slug} name={br.B.name} size={36} shape="wide" />
-                    <Link to={lp(`/review/${br.slug}`)} style={{
+                    <Link to={lp(`/reviews/${br.slug}`)} style={{
                       fontFamily: serif, fontWeight: 700, fontSize: 22, color: "#1a1a1a",
                       textDecoration: "none", borderBottom: "1px solid transparent",
                     }}
@@ -100,7 +100,7 @@ export default function Proto4() {
                     {br.B.regs?.length > 0 && ` Regulated by ${br.B.regs.slice(0, 2).map(r => r.name).join(" and ")}.`}
                   </p>
                   <div style={{ display: "flex", gap: 12 }}>
-                    <Link to={lp(`/review/${br.slug}`)} style={{ fontSize: 14, fontWeight: 700, color: red, textDecoration: "none" }}>
+                    <Link to={lp(`/reviews/${br.slug}`)} style={{ fontSize: 14, fontWeight: 700, color: red, textDecoration: "none" }}>
                       Read Full Review →
                     </Link>
                     <a href={visitUrl(br.slug)} target="_blank" rel="noopener nofollow sponsored" style={{ fontSize: 14, fontWeight: 600, color: "#6b7280", textDecoration: "none" }}>

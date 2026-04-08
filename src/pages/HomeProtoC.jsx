@@ -459,7 +459,7 @@ export default function HomeProtoC() {
               const broker = allBrokers.find(b => b.slug === f.slug);
               if (!broker) return null;
               return (
-                <Link key={f.slug} to={`/review/${f.slug}`} style={{
+                <Link key={f.slug} to={`/reviews/${f.slug}`} style={{
                   background: "rgba(255,255,255,0.7)",
                   backdropFilter: "blur(12px)",
                   borderRadius: 16, padding: mob ? "20px" : "28px",
@@ -641,7 +641,7 @@ export default function HomeProtoC() {
           }}>
             {allBrokers.slice(0, mob ? 8 : 18).map(b => {
               return (
-                <Link key={b.slug} to={`/review/${b.slug}`} style={{
+                <Link key={b.slug} to={`/reviews/${b.slug}`} style={{
                   background: "rgba(255,255,255,0.7)",
                   backdropFilter: "blur(12px)",
                   borderRadius: 14, padding: mob ? "16px" : "20px",

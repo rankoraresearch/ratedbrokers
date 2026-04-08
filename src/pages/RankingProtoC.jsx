@@ -221,7 +221,7 @@ function FilterButtons({ activeFilter, setActiveFilter, brokers, mob }) {
 function BrokerCard({ broker, rank, mob, tab, thematicBlurb }) {
   const B = broker.B;
   const visitUrl = makeVisitUrl(broker.slug, B.url);
-  const reviewPath = `/review/${broker.slug}`;
+  const reviewPath = `/reviews/${broker.slug}`;
   const [expanded, setExpanded] = useState(false);
 
   const pros = thematicBlurb?.pros || broker.PROS?.slice(0, 3) || [];
@@ -558,7 +558,7 @@ export default function RankingProtoC() {
           "@type": "ListItem",
           position: idx + 1,
           name: br.name,
-          url: `https://ratedbrokers.com/review/${s}`,
+          url: `https://ratedbrokers.com/reviews/${s}`,
         })),
       },
     ];
@@ -723,7 +723,7 @@ export default function RankingProtoC() {
                 {brokers.slice(0, 10).map((broker, i) => (
                   <tr key={broker.slug} style={{ borderBottom: "1px solid #f1f5f9", background: i % 2 ? "#fafbfc" : "#fff" }}>
                     <td style={{ padding: "10px 12px" }}>
-                      <Link to={`/review/${broker.slug}`} style={{
+                      <Link to={`/reviews/${broker.slug}`} style={{
                         display: "flex", alignItems: "center", gap: 6,
                         textDecoration: "none", color: "#0f172a",
                       }}>

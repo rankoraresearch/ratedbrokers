@@ -121,7 +121,7 @@ export default function Proto2() {
                   flex: 1, padding: "12px 0", borderRadius: 10, background: teal,
                   color: "#fff", fontWeight: 700, fontSize: 15, textAlign: "center", textDecoration: "none",
                 }}>Visit Broker</a>
-                <Link to={lp(`/review/${br.slug}`)} style={{
+                <Link to={lp(`/reviews/${br.slug}`)} style={{
                   padding: "12px 16px", borderRadius: 10, border: "1px solid #e2e8f0",
                   color: "#64748b", fontWeight: 600, fontSize: 14, textDecoration: "none",
                 }}>Review</Link>

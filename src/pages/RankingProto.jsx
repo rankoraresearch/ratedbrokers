@@ -99,7 +99,7 @@ function TrustStatsBar({ brokerCount, mob }) {
 function BrokerCard({ broker, rank, mob, tab, thematicBlurb, isWinner }) {
   const B = broker.B;
   const visitUrl = makeVisitUrl(broker.slug, B.url);
-  const reviewPath = `/review/${broker.slug}`;
+  const reviewPath = `/reviews/${broker.slug}`;
   const [expanded, setExpanded] = useState(false);
 
   const pros = thematicBlurb?.pros || broker.PROS?.slice(0, 3) || [];

@@ -186,7 +186,7 @@ function CTABlock({ B, visitUrl, sub, slug, mob }) {
         <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{ background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: "#0f172a", fontSize: 14, fontWeight: 700, textDecoration: "none", padding: "12px 28px", borderRadius: 8, boxShadow: "0 2px 8px rgba(245,158,11,0.3)", display: "flex", alignItems: "center", justifyContent: "center", gap: 6, whiteSpace: "nowrap" }}>
           Visit {B.name} <ExternalLink size={14} />
         </a>
-        <Link to={lp(`/review/${slug}`)} className="cta-secondary" style={{ color: "#059669", fontSize: 14, fontWeight: 700, textDecoration: "none", padding: "12px 20px", borderRadius: 8, border: "2px solid #059669", display: "flex", alignItems: "center", justifyContent: "center", gap: 6, whiteSpace: "nowrap" }}>
+        <Link to={lp(`/reviews/${slug}`)} className="cta-secondary" style={{ color: "#059669", fontSize: 14, fontWeight: 700, textDecoration: "none", padding: "12px 20px", borderRadius: 8, border: "2px solid #059669", display: "flex", alignItems: "center", justifyContent: "center", gap: 6, whiteSpace: "nowrap" }}>
           Full Review <ArrowRight size={14} />
         </Link>
       </div>
@@ -307,7 +307,7 @@ export default function SafetyProto() {
   const breadcrumbItems = [
     { label: "Home", path: "/" },
     { label: "Reviews", path: "/reviews" },
-    { label: B.name, path: `/review/${slug}` },
+    { label: B.name, path: `/reviews/${slug}` },
     { label: `Is ${B.name} Safe?` },
   ];
 
@@ -581,7 +581,7 @@ export default function SafetyProto() {
               {compBrokers.map((cb, i) => (
                 <tr key={cb.slug} style={{ borderBottom: i < compBrokers.length - 1 ? "1px solid #f0f4f8" : "none" }}>
                   <td style={{ padding: "12px 14px", fontWeight: 600, color: "#111827" }}>
-                    <Link to={lp(`/review/${cb.slug}`)} style={{ display: "flex", alignItems: "center", gap: 8, color: "#111827", textDecoration: "none" }}>
+                    <Link to={lp(`/reviews/${cb.slug}`)} style={{ display: "flex", alignItems: "center", gap: 8, color: "#111827", textDecoration: "none" }}>
                       <BrokerLogo slug={cb.slug} name={cb.name} size={28} shape="icon" />
                       {cb.name}
                     </Link>
@@ -665,7 +665,7 @@ export default function SafetyProto() {
           <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{ background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: "#0f172a", fontSize: 15, fontWeight: 700, textDecoration: "none", padding: "13px 28px", borderRadius: 10, boxShadow: "0 4px 12px rgba(245,158,11,0.3)", display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }}>
             Visit {B.name} <ExternalLink size={14} />
           </a>
-          <Link to={lp(`/review/${slug}`)} className="cta-secondary" style={{ color: "#fff", fontSize: 15, fontWeight: 700, textDecoration: "none", padding: "13px 24px", borderRadius: 10, border: "2px solid rgba(255,255,255,0.3)", display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }}>
+          <Link to={lp(`/reviews/${slug}`)} className="cta-secondary" style={{ color: "#fff", fontSize: 15, fontWeight: 700, textDecoration: "none", padding: "13px 24px", borderRadius: 10, border: "2px solid rgba(255,255,255,0.3)", display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }}>
             Read Full Review <ArrowRight size={14} />
           </Link>
         </div>
@@ -749,7 +749,7 @@ export default function SafetyProto() {
                 <a href={altVisitUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{ flex: 1, background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: "#0f172a", fontSize: 13, fontWeight: 700, textDecoration: "none", padding: "9px 10px", borderRadius: 8, textAlign: "center", boxShadow: "0 2px 6px rgba(245,158,11,0.2)" }}>
                   Visit
                 </a>
-                <Link to={lp(`/review/${alt.slug}`)} className="cta-secondary" style={{ flex: 1, color: "#059669", fontSize: 13, fontWeight: 700, textDecoration: "none", padding: "9px 10px", borderRadius: 8, textAlign: "center", border: "2px solid #059669" }}>
+                <Link to={lp(`/reviews/${alt.slug}`)} className="cta-secondary" style={{ flex: 1, color: "#059669", fontSize: 13, fontWeight: 700, textDecoration: "none", padding: "9px 10px", borderRadius: 8, textAlign: "center", border: "2px solid #059669" }}>
                   Review
                 </Link>
               </div>
@@ -772,7 +772,7 @@ export default function SafetyProto() {
         <div style={{ fontSize: 13, fontWeight: 600, color: "#64748b", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 12 }}>Related Pages</div>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
           {[
-            { label: `${B.name} Review`, path: `/review/${slug}` },
+            { label: `${B.name} Review`, path: `/reviews/${slug}` },
             { label: "Methodology", path: "/methodology" },
             { label: "All Reviews", path: "/reviews" },
             { label: "Best Forex Brokers", path: "/best-forex-brokers" },
@@ -901,7 +901,7 @@ export default function SafetyProto() {
               <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{ display: "block", background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: "#0f172a", fontSize: 13, fontWeight: 700, textDecoration: "none", padding: "10px", borderRadius: 8, textAlign: "center", boxShadow: "0 2px 8px rgba(245,158,11,0.2)" }}>
                 Visit {B.name}
               </a>
-              <Link to={lp(`/review/${slug}`)} style={{ display: "block", color: "#059669", fontSize: 12, fontWeight: 600, textDecoration: "none", marginTop: 8 }}>
+              <Link to={lp(`/reviews/${slug}`)} style={{ display: "block", color: "#059669", fontSize: 12, fontWeight: 600, textDecoration: "none", marginTop: 8 }}>
                 Full Review <ArrowRight size={11} style={{ verticalAlign: "middle" }} />
               </Link>
             </Card>

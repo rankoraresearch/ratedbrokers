@@ -212,7 +212,7 @@ export default function HowWeMakeMoneyPage() {
               background: i % 2 === 0 ? "#fff" : "#fafbfc",
               alignItems: "center",
             }}>
-              <Link to={lp(`/review/${b.slug}`)} style={{
+              <Link to={lp(`/reviews/${b.slug}`)} style={{
                 color: "#111827", textDecoration: "none", fontWeight: 500, fontSize: 15,
               }}>{b.name}</Link>
               <div style={{

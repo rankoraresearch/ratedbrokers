@@ -87,7 +87,7 @@ export default function ForexBrokersPage() {
           "@type": "ListItem",
           position: i + 1,
           name: b.B.name,
-          url: `https://ratedbrokers.com/review/${b.slug}`,
+          url: `https://ratedbrokers.com/reviews/${b.slug}`,
         })),
       },
       {
@@ -214,7 +214,7 @@ export default function ForexBrokersPage() {
                   fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: 15, color: "#fff",
                 }}>#{i + 1}</div>
                 <div>
-                  <Link to={lp(`/review/${b.slug}`)} style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 17, color: "inherit", textDecoration: "none" }}
+                  <Link to={lp(`/reviews/${b.slug}`)} style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 17, color: "inherit", textDecoration: "none" }}
                     onMouseEnter={e => e.currentTarget.style.textDecoration = "underline"}
                     onMouseLeave={e => e.currentTarget.style.textDecoration = "none"}
                   >{b.B.name}</Link>
@@ -327,7 +327,7 @@ export default function ForexBrokersPage() {
                       #{i + 1}
                     </td>
                     <td style={{ padding: "12px 14px" }}>
-                      <Link to={lp(`/review/${b.slug}`)} style={{ fontWeight: 700, color: "#111827", textDecoration: "none" }}>
+                      <Link to={lp(`/reviews/${b.slug}`)} style={{ fontWeight: 700, color: "#111827", textDecoration: "none" }}>
                         {b.B.name}
                       </Link>
                     </td>

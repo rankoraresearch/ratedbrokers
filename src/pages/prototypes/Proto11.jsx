@@ -112,7 +112,7 @@ export default function Proto11() {
                 color: "#fff", fontWeight: 700, fontSize: 13, textDecoration: "none",
               }}>Visit</a>
               {!mob && (
-                <Link to={lp(`/review/${br.slug}`)} style={{
+                <Link to={lp(`/reviews/${br.slug}`)} style={{
                   padding: "10px 16px", borderRadius: 8, border: "1px solid #d4cdc5",
                   color: "#7c7268", fontWeight: 600, fontSize: 13, textDecoration: "none",
                 }}>Review</Link>

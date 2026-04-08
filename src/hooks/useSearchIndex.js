@@ -15,7 +15,7 @@ export default function useSearchIndex() {
         type: "broker",
         title: b.name,
         keywords: [b.type, b.badge, b.slug.replace(/-/g, " ")].filter(Boolean).join(" "),
-        path: `/review/${b.slug}`,
+        path: `/reviews/${b.slug}`,
         meta: { score: b.score, badge: b.type },
       });
     });

@@ -98,8 +98,8 @@ export default function SubPageLayout({ data, slug, activeTab, children }) {
     const bcSchema = breadcrumbSchema([
       { label: "RatedBrokers", path: "/" },
       { label: hub.label, path: hub.path },
-      { label: `${B.name} Review`, path: `/review/${slug}` },
-      { label: meta.breadcrumb || activeTab, path: `/review/${slug}/${activeTab}` },
+      { label: `${B.name} Review`, path: `/reviews/${slug}` },
+      { label: meta.breadcrumb || activeTab, path: `/reviews/${slug}/${activeTab}` },
     ]);
     let bcEl = document.getElementById("breadcrumb-schema-subpage");
     if (!bcEl) { bcEl = document.createElement("script"); bcEl.id = "breadcrumb-schema-subpage"; bcEl.type = "application/ld+json"; document.head.appendChild(bcEl); }
@@ -148,7 +148,7 @@ export default function SubPageLayout({ data, slug, activeTab, children }) {
           return [
             { label: "RatedBrokers", path: "/" },
             { label: hub.label, path: hub.path },
-            { label: `${B.name} Review`, path: `/review/${slug}` },
+            { label: `${B.name} Review`, path: `/reviews/${slug}` },
             { label: meta.breadcrumb || activeTab },
           ];
         })()} />
@@ -236,7 +236,7 @@ export default function SubPageLayout({ data, slug, activeTab, children }) {
                 )}
                 {isAlternatives && <div style={{ fontSize: 12, color: GRAY_MUTED, marginBottom: 14 }}>{topAlt?.type}</div>}
                 <a href={sidebarVisitUrl} target="_blank" rel="nofollow sponsored" className="cta-orange" style={{ display: "block", background: `linear-gradient(135deg, ${ORANGE}, #fbbf24)`, color: NAVY, fontSize: 14, fontWeight: 700, textDecoration: "none", padding: "12px 0", borderRadius: 8, textAlign: "center", marginBottom: 8 }}>Visit {sidebarName}</a>
-                <Link to={isAlternatives ? `/review/${sidebarSlug}` : `/review/${slug}`} style={{ display: "block", fontSize: 13, color: GREEN, fontWeight: 600, textDecoration: "none" }}>{isAlternatives ? `${sidebarName} Review →` : "Read Full Review →"}</Link>
+                <Link to={isAlternatives ? `/reviews/${sidebarSlug}` : `/reviews/${slug}`} style={{ display: "block", fontSize: 13, color: GREEN, fontWeight: 600, textDecoration: "none" }}>{isAlternatives ? `${sidebarName} Review →` : "Read Full Review →"}</Link>
               </Card>
 
               <Card>
@@ -262,7 +262,7 @@ export default function SubPageLayout({ data, slug, activeTab, children }) {
                   const TabIcon = t.icon;
                   const isActive = t.id === activeTab;
                   return (
-                    <Link key={i} to={`/review/${slug}/${t.id}`} style={{
+                    <Link key={i} to={`/reviews/${slug}/${t.id}`} style={{
                       display: "flex", alignItems: "center", gap: 8, width: "100%",
                       padding: "7px 8px", borderRadius: 6,
                       background: isActive ? GREEN : "transparent",
@@ -277,7 +277,7 @@ export default function SubPageLayout({ data, slug, activeTab, children }) {
                 })}
               </Card>
 
-              <Link to={`/review/${slug}/alternatives`} style={{
+              <Link to={`/reviews/${slug}/alternatives`} style={{
                 display: "flex", alignItems: "center", gap: 8, width: "100%",
                 padding: "12px 14px", borderRadius: 8,
                 background: "#fff", border: `1px solid ${BORDER}`,

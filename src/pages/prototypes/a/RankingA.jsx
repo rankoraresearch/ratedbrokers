@@ -231,7 +231,7 @@ export default function RankingA() {
                       flex: mob ? 1 : undefined,
                       display: "flex", alignItems: "center", justifyContent: "center", gap: 6,
                     }}>Visit {b.B.name} <ExternalLink size={12} /></a>
-                    <Link to={lp(`/review/${b.slug}`)} style={{
+                    <Link to={lp(`/reviews/${b.slug}`)} style={{
                       padding: mob ? "10px 0" : "10px 16px", borderRadius: 8,
                       border: "1px solid #e2e8f0", color: "#64748b", fontWeight: 600, fontSize: 14,
                       textDecoration: "none", textAlign: "center",
