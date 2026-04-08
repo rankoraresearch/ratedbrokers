@@ -9,7 +9,8 @@ import HUBS, { getRankingsForHub } from "../data/categoryHubs";
 import { POPULAR_PAIRS_BY_VERTICAL, canonicalPair } from "../data/comparisons";
 import BrokerLogo from "../components/BrokerLogo";
 import Icon from "../components/Icon";
-import { ArrowRight, BarChart3, BookOpen, Target } from "lucide-react";
+import { ArrowRight, BarChart3, BookOpen, Target, Shield, ChevronDown, ChevronUp } from "lucide-react";
+import HOMEPAGE_SEO from "../data/homepageSeoContent";
 import CountryFlag from "../components/CountryFlag";
 import { AUTHORS } from "../data/authors";
 import AuthorAvatar from "../components/AuthorAvatar";
@@ -166,6 +167,32 @@ function BrokerPowerCards({ mob, tab, lp, brokers }) {
 
 
 // ══════════════════════════════════════════════════════
+// FAQ Accordion Item
+// ══════════════════════════════════════════════════════
+function FaqItem({ question, answer, defaultOpen = false }) {
+  const [open, setOpen] = useState(defaultOpen);
+  return (
+    <div style={{ borderBottom: "1px solid #e2e8f0" }}>
+      <button onClick={() => setOpen(!open)} style={{
+        display: "flex", alignItems: "center", justifyContent: "space-between",
+        width: "100%", padding: "18px 0", border: "none", background: "none",
+        cursor: "pointer", textAlign: "left", gap: 12,
+      }}>
+        <span style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 700, fontSize: 16, color: "#0f172a", flex: 1 }}>
+          {question}
+        </span>
+        {open ? <ChevronUp size={18} color="#64748b" /> : <ChevronDown size={18} color="#64748b" />}
+      </button>
+      {open && (
+        <p style={{ fontSize: 15, lineHeight: 1.7, color: "#475569", margin: "0 0 18px 0" }}>
+          {answer}
+        </p>
+      )}
+    </div>
+  );
+}
+
+// ══════════════════════════════════════════════════════
 // MAIN COMPONENT
 // ══════════════════════════════════════════════════════
 export default function Home() {
@@ -179,13 +206,15 @@ export default function Home() {
 
 
   useEffect(() => {
-    document.title = "Best Online Brokers 2026 \u2014 Reviews & Rankings | RatedBrokers";
+    document.title = HOMEPAGE_SEO.metaTitle;
     const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", `Compare ${allBrokersData.length}+ online brokers across forex, CFD, crypto, copy trading and more. Independent reviews, expert rankings by category, and side-by-side comparisons. Updated 2026.`);
+    if (meta) meta.setAttribute("content", HOMEPAGE_SEO.metaDescription);
     const schemas = [
       { "@context": "https://schema.org", "@type": "WebSite", name: "RatedBrokers", url: "https://ratedbrokers.com", description: "Independent online broker comparison platform. Expert reviews and rankings across forex, CFD, crypto, copy trading, and spread betting." },
       { "@context": "https://schema.org", "@type": "Organization", name: "RatedBrokers", url: "https://ratedbrokers.com", logo: "https://ratedbrokers.com/logo.png" },
       { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "RatedBrokers", item: "https://ratedbrokers.com/" }] },
+      { "@context": "https://schema.org", "@type": "CollectionPage", name: HOMEPAGE_SEO.h1, url: "https://ratedbrokers.com/", description: HOMEPAGE_SEO.metaDescription, publisher: { "@type": "Organization", name: "RatedBrokers", url: "https://ratedbrokers.com" } },
+      { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: HOMEPAGE_SEO.faq.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) },
     ];
     let scriptEl = document.querySelector('script[data-jsonld="home"]');
     if (!scriptEl) {
@@ -236,7 +265,7 @@ export default function Home() {
               fontSize: mob ? 28 : tab ? 36 : 42, lineHeight: 1.08, color: "#fff",
               marginBottom: 8, letterSpacing: "-0.04em",
             }}>
-              Find Your Perfect Broker
+              {HOMEPAGE_SEO.h1}
             </h1>
             <p style={{ fontSize: mob ? 14 : 15, color: "rgba(255,255,255,0.55)", maxWidth: 420, lineHeight: 1.6, marginBottom: mob ? 8 : 0 }}>
               {allBrokersData.length} brokers compared across 130+ data points
@@ -340,8 +369,60 @@ export default function Home() {
         </div>
       </div>
 
+      {/* ===== SEO INTRO ===== */}
+      <section style={{ ...cn, padding: mob ? "28px 16px 0" : "36px 24px 0" }}>
+        <p style={{ fontSize: mob ? 14 : 15, lineHeight: 1.7, color: "#475569", maxWidth: 800 }}>
+          {HOMEPAGE_SEO.intro.text}{" "}
+          <Link to={lp(HOMEPAGE_SEO.intro.links[0].path)} style={{ color: "#059669", fontWeight: 600, textDecoration: "none" }}>{HOMEPAGE_SEO.intro.links[0].text}</Link>
+          {" "}explains our scoring formula.{" "}
+          Learn <Link to={lp(HOMEPAGE_SEO.intro.links[1].path)} style={{ color: "#059669", fontWeight: 600, textDecoration: "none" }}>{HOMEPAGE_SEO.intro.links[1].text}</Link>.
+        </p>
+      </section>
+
       {/* ===== BROKER SHOWCASE — Power Cards ===== */}
       <BrokerPowerCards mob={mob} tab={tab} lp={lp} brokers={allBrokersData} />
+
+      {/* ===== HOW WE RATE BROKERS — SEO block ===== */}
+      <section style={{ ...cn, padding: mob ? "40px 16px" : "56px 24px" }}>
+        <h2 style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: mob ? 22 : 28, color: "#0f172a", letterSpacing: "-0.03em", marginBottom: 12 }}>
+          {HOMEPAGE_SEO.howWeRate.heading}
+        </h2>
+        <p style={{ fontSize: mob ? 14 : 15, lineHeight: 1.7, color: "#475569", maxWidth: 800, marginBottom: 24 }}>
+          {HOMEPAGE_SEO.howWeRate.intro}
+        </p>
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: mob ? "1fr" : tab ? "1fr 1fr" : "repeat(3, 1fr)",
+          gap: 14, marginBottom: 20,
+        }}>
+          {HOMEPAGE_SEO.howWeRate.categories.map((cat, i) => (
+            <div key={i} style={{
+              padding: mob ? "16px" : "20px", borderRadius: 12,
+              background: "#fff", border: "1px solid #e2e8f0",
+            }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
+                <span style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 700, fontSize: 15, color: "#0f172a" }}>{cat.name}</span>
+                <span style={{
+                  padding: "2px 8px", borderRadius: 6,
+                  background: "#ecfdf5", color: "#059669",
+                  fontFamily: "'JetBrains Mono',monospace", fontSize: 12, fontWeight: 700,
+                }}>{cat.weight}</span>
+              </div>
+              <p style={{ fontSize: 13, lineHeight: 1.6, color: "#64748b", margin: 0 }}>{cat.desc}</p>
+            </div>
+          ))}
+        </div>
+        <p style={{ fontSize: mob ? 14 : 15, lineHeight: 1.7, color: "#475569", maxWidth: 800, marginBottom: 12 }}>
+          {HOMEPAGE_SEO.howWeRate.closing}
+        </p>
+        <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
+          {HOMEPAGE_SEO.howWeRate.links.map((l, i) => (
+            <Link key={i} to={lp(l.path)} style={{ fontSize: 13, fontWeight: 600, color: "#059669", textDecoration: "none", display: "flex", alignItems: "center", gap: 4 }}>
+              {l.text} <ArrowRight size={12} />
+            </Link>
+          ))}
+        </div>
+      </section>
 
       {/* ===== REGULATED BROKERS BY COUNTRY ===== */}
       <section style={{ ...cn, padding: mob ? "40px 16px" : "60px 24px" }}>
@@ -595,6 +676,33 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== HOW TO CHOOSE AN ONLINE BROKER — SEO block ===== */}
+      <section style={{ ...cn, padding: mob ? "40px 16px" : "56px 24px" }}>
+        <h2 style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: mob ? 22 : 28, color: "#0f172a", letterSpacing: "-0.03em", marginBottom: 8 }}>
+          {HOMEPAGE_SEO.howToChoose.heading}
+        </h2>
+        <p style={{ fontSize: mob ? 14 : 15, lineHeight: 1.7, color: "#475569", maxWidth: 800, marginBottom: 24 }}>
+          {HOMEPAGE_SEO.howToChoose.intro}
+        </p>
+        <div style={{ display: "flex", flexDirection: "column", gap: 20, maxWidth: 800 }}>
+          {HOMEPAGE_SEO.howToChoose.sections.map((s, i) => (
+            <div key={i}>
+              <h3 style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 700, fontSize: mob ? 16 : 18, color: "#0f172a", marginBottom: 6 }}>
+                {s.subheading}
+              </h3>
+              <p style={{ fontSize: mob ? 14 : 15, lineHeight: 1.7, color: "#475569", margin: 0 }}>
+                {s.text}
+              </p>
+              {s.link && (
+                <Link to={lp(s.link.path)} style={{ fontSize: 13, fontWeight: 600, color: "#059669", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 4, marginTop: 6 }}>
+                  {s.link.text} <ArrowRight size={12} />
+                </Link>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* ===== ABOUT RATEDBROKERS — Navy Section ===== */}
       <section style={{
         background: "linear-gradient(180deg, #0f172a 0%, #1e293b 100%)",
@@ -738,6 +846,18 @@ export default function Home() {
               </div>
               <span style={{ fontSize: 12, fontWeight: 600, color: "#059669" }}>View Profile →</span>
             </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* ===== FAQ — SEO block with JSON-LD ===== */}
+      <section style={{ ...cn, padding: mob ? "40px 16px" : "56px 24px" }}>
+        <h2 style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: mob ? 22 : 28, color: "#0f172a", letterSpacing: "-0.03em", marginBottom: 20 }}>
+          Frequently Asked Questions
+        </h2>
+        <div style={{ maxWidth: 800, display: "flex", flexDirection: "column", gap: 0 }}>
+          {HOMEPAGE_SEO.faq.map((item, i) => (
+            <FaqItem key={i} question={item.q} answer={item.a} defaultOpen={i === 0} />
           ))}
         </div>
       </section>
