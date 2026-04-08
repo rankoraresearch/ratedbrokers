@@ -16,12 +16,53 @@ import Breadcrumb from "../components/Breadcrumb";
 import HeroBand from "../components/HeroBand";
 import AuthorCredits from "../components/AuthorCredits";
 import Icon, { ArrowRight, Check, ChevronDown } from "../components/Icon";
-import { Trophy, Handshake } from "lucide-react";
+import { Trophy, Handshake, CircleCheck, CircleX } from "lucide-react";
 import { getVisitUrl } from "../utils/visitUrl";
 import {
   getComparisonVertical, isForexPair, isStockPair, isOptionsPair, isFuturesPair,
   BREADCRUMB_MAP, getCTAText, getCTATextShort,
 } from "../utils/comparisonVertical";
+
+const MAX_HERO_REGS = 4;
+function sortedRegs(regs) {
+  return [...regs].sort((a, b) => (a.tier || 99) - (b.tier || 99));
+}
+
+const WIDE_LIGHT_EXT = {};
+const WIDE_NEEDS_DARK_BG = new Set([
+  "degiro", "dukascopy", "fidelity", "fxpro", "ig", "interactive-brokers",
+  "naga", "spreadex", "thinkmarkets", "trading-212", "xm", "xm-v2", "xtb",
+]);
+function WideLogoLight({ slug, name, fallback, mob }) {
+  const [err, setErr] = useState(false);
+  const ext = WIDE_LIGHT_EXT[slug] || "svg";
+  const h = mob ? 48 : 56;
+  const w = mob ? 180 : 220;
+  const needsDark = WIDE_NEEDS_DARK_BG.has(slug);
+  if (err) {
+    return (
+      <div style={{ display: "inline-flex", alignItems: "center", gap: 10 }}>
+        <BrokerLogo slug={slug} name={name} fallback={fallback} size={48} shape="brand" variant="gray" />
+        <span style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 18, color: "#0f172a" }}>{name}</span>
+      </div>
+    );
+  }
+  return (
+    <div style={{
+      display: "inline-flex", alignItems: "center", justifyContent: "center",
+      height: h, width: w, borderRadius: 12,
+      ...(needsDark ? { background: "linear-gradient(135deg, #0f172a, #1e293b)", padding: "8px 16px" } : {}),
+    }}>
+      <img
+        src={`${import.meta.env.BASE_URL}logos-wide/${slug}.${ext}`}
+        alt={`${name} logo`}
+        loading="lazy"
+        onError={() => setErr(true)}
+        style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }}
+      />
+    </div>
+  );
+}
 
 const CATEGORY_ICONS = {
   "Regulation & Safety": "shield",
@@ -479,9 +520,9 @@ export default function BrokerComparison() {
             display: "grid", gridTemplateColumns: mob ? "1fr" : "1fr auto 1fr", gap: 0,
           }}>
             {/* Broker A */}
-            <div style={{ padding: mob ? "24px 20px" : "32px", textAlign: "center", borderRight: mob ? "none" : "1px solid #f1f5f9", borderBottom: mob ? "1px solid #f1f5f9" : "none" }}>
-              <Link to={lp(`/review/${slugA}`)} style={{ display: "inline-flex", justifyContent: "center", marginBottom: 10, textDecoration: "none" }}>
-                <BrokerLogo slug={slugA} name={A.name} fallback={A.logo} size={72} shape="brand" variant="gray" />
+            <div style={{ padding: mob ? "24px 20px" : "32px", textAlign: "center", borderRight: mob ? "none" : "1px solid #f1f5f9", borderBottom: mob ? "1px solid #f1f5f9" : "none", display: "flex", flexDirection: "column", alignItems: "center" }}>
+              <Link to={lp(`/review/${slugA}`)} style={{ display: "inline-flex", justifyContent: "center", marginBottom: 14, textDecoration: "none" }}>
+                <WideLogoLight slug={slugA} name={A.name} fallback={A.logo} mob={mob} />
               </Link>
               <div style={{ fontSize: 14, color: "#6b7280", marginBottom: 12 }}>Est. {A.year} · {A.hq}</div>
               <div style={{ display: "flex", justifyContent: "center", marginBottom: 8 }}><ScoreBadge score={A.score} size="lg" /></div>
@@ -489,8 +530,12 @@ export default function BrokerComparison() {
                 <TrustpilotLogo size="xs" /><Stars r={A.tp} /><span style={{ fontSize: 14, color: "#374151" }}>{A.tp} ({(A.tpCount / 1000).toFixed(1)}k)</span>
               </a>
               <div style={{ display: "flex", gap: 4, justifyContent: "center", flexWrap: "wrap", marginBottom: 16 }}>
-                {A.regs.map(r => <RegBadge key={r.name} reg={r.name} />)}
+                {sortedRegs(A.regs).slice(0, MAX_HERO_REGS).map(r => <RegBadge key={r.name} reg={r.name} />)}
+                {A.regs.length > MAX_HERO_REGS && (
+                  <Link to={lp(`/review/${slugA}/regulation`)} style={{ fontSize: 12, fontWeight: 700, color: "#059669", background: "#ecfdf5", padding: "3px 10px", borderRadius: 20, textDecoration: "none", display: "inline-flex", alignItems: "center" }}>+{A.regs.length - MAX_HERO_REGS} more</Link>
+                )}
               </div>
+              <div style={{ flex: 1 }} />
               <a href={getVisitUrl(slugA, A.url)} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{
                 display: "inline-block", padding: "12px 28px", borderRadius: 10,
                 background: "linear-gradient(135deg,#f59e0b,#fbbf24)",
@@ -511,9 +556,9 @@ export default function BrokerComparison() {
             </div>
 
             {/* Broker B */}
-            <div style={{ padding: mob ? "24px 20px" : "32px", textAlign: "center" }}>
-              <Link to={lp(`/review/${slugB}`)} style={{ display: "inline-flex", justifyContent: "center", marginBottom: 10, textDecoration: "none" }}>
-                <BrokerLogo slug={slugB} name={B.name} fallback={B.logo} size={72} shape="brand" variant="gray" />
+            <div style={{ padding: mob ? "24px 20px" : "32px", textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
+              <Link to={lp(`/review/${slugB}`)} style={{ display: "inline-flex", justifyContent: "center", marginBottom: 14, textDecoration: "none" }}>
+                <WideLogoLight slug={slugB} name={B.name} fallback={B.logo} mob={mob} />
               </Link>
               <div style={{ fontSize: 14, color: "#6b7280", marginBottom: 12 }}>Est. {B.year} · {B.hq}</div>
               <div style={{ display: "flex", justifyContent: "center", marginBottom: 8 }}><ScoreBadge score={B.score} size="lg" /></div>
@@ -521,8 +566,12 @@ export default function BrokerComparison() {
                 <TrustpilotLogo size="xs" /><Stars r={B.tp} /><span style={{ fontSize: 14, color: "#374151" }}>{B.tp} ({(B.tpCount / 1000).toFixed(1)}k)</span>
               </a>
               <div style={{ display: "flex", gap: 4, justifyContent: "center", flexWrap: "wrap", marginBottom: 16 }}>
-                {B.regs.map(r => <RegBadge key={r.name} reg={r.name} />)}
+                {sortedRegs(B.regs).slice(0, MAX_HERO_REGS).map(r => <RegBadge key={r.name} reg={r.name} />)}
+                {B.regs.length > MAX_HERO_REGS && (
+                  <Link to={lp(`/review/${slugB}/regulation`)} style={{ fontSize: 12, fontWeight: 700, color: "#059669", background: "#ecfdf5", padding: "3px 10px", borderRadius: 20, textDecoration: "none", display: "inline-flex", alignItems: "center" }}>+{B.regs.length - MAX_HERO_REGS} more</Link>
+                )}
               </div>
+              <div style={{ flex: 1 }} />
               <a href={getVisitUrl(slugB, B.url)} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{
                 display: "inline-block", padding: "12px 28px", borderRadius: 10,
                 background: "linear-gradient(135deg,#f59e0b,#fbbf24)",
@@ -619,7 +668,7 @@ export default function BrokerComparison() {
           display: "flex", flexDirection: mob ? "column" : "row", alignItems: "center", justifyContent: "space-between", gap: 16,
         }}>
           <div style={{ color: "#fff" }}>
-            <div style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 20, marginBottom: 4 }}>Ready to get started?</div>
+            <div style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 20, marginBottom: 4 }}>Compare Both Platforms Side by Side</div>
             <div style={{ fontSize: 15, color: "rgba(255,255,255,0.7)" }}>{midCTA}</div>
           </div>
           <div style={{ display: "flex", gap: 12, flexShrink: 0 }}>
@@ -627,9 +676,9 @@ export default function BrokerComparison() {
               padding: "10px 22px", borderRadius: 10, background: "linear-gradient(135deg,#f59e0b,#fbbf24)", color: "#0f172a",
               fontWeight: 800, fontSize: 15, textDecoration: "none", whiteSpace: "nowrap",
             }}><span style={{ display: "inline-flex", alignItems: "center", gap: 5 }}>{A.name} <ArrowRight size={14} /></span></a>
-            <a href={getVisitUrl(slugB, B.url)} target="_blank" rel="noopener nofollow sponsored" style={{
-              padding: "10px 22px", borderRadius: 10, background: "transparent", color: "#fbbf24",
-              fontWeight: 800, fontSize: 15, textDecoration: "none", border: "2px solid rgba(251,191,36,0.5)", whiteSpace: "nowrap",
+            <a href={getVisitUrl(slugB, B.url)} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{
+              padding: "10px 22px", borderRadius: 10, background: "linear-gradient(135deg,#f59e0b,#fbbf24)", color: "#0f172a",
+              fontWeight: 800, fontSize: 15, textDecoration: "none", whiteSpace: "nowrap",
             }}><span style={{ display: "inline-flex", alignItems: "center", gap: 5 }}>{B.name} <ArrowRight size={14} /></span></a>
           </div>
         </div>
@@ -811,22 +860,36 @@ export default function BrokerComparison() {
           <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 26, marginBottom: 8 }}>{t("comp.prosConsTitle")}</h2>
           <p style={{ fontSize: 15, lineHeight: 1.7, color: "#6b7280", marginBottom: 20 }}>Key strengths and weaknesses identified during our independent analysis.</p>
           <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "1fr 1fr", gap: 20 }}>
-            {[{ b: A, data: dataA, bg: "#ecfdf5", color: "#059669" }, { b: B, data: dataB, bg: "#fef3c7", color: "#d97706" }].map((item, bi) => (
+            {[{ b: A, data: dataA, accent: "#059669", accentBg: "#ecfdf5" }, { b: B, data: dataB, accent: "#d97706", accentBg: "#fef3c7" }].map((item, bi) => (
               <div key={bi} style={{ background: "#fff", borderRadius: 14, border: "1px solid #e2e8f0", overflow: "hidden" }}>
-                <div style={{ padding: "14px 20px", fontFamily: "Outfit", fontWeight: 700, fontSize: 16, background: item.bg, color: item.color, borderBottom: "1px solid #e2e8f0" }}>{item.b.name}</div>
-                <div style={{ padding: "14px 20px" }}>
-                  <div style={{ fontSize: 13, fontWeight: 700, color: "#059669", textTransform: "uppercase", marginBottom: 8 }}>{t("review.pros")}</div>
-                  {item.data.PROS.map((p, pi) => (
-                    <div key={pi} style={{ fontSize: 14, lineHeight: 1.6, color: "#111827", padding: "3px 0", paddingLeft: 16, position: "relative" }}>
-                      <span style={{ position: "absolute", left: 0, color: "#059669" }}>+</span>{p}
-                    </div>
-                  ))}
-                  <div style={{ fontSize: 13, fontWeight: 700, color: "#dc2626", textTransform: "uppercase", marginTop: 14, marginBottom: 8 }}>{t("review.cons")}</div>
-                  {item.data.CONS.map((c, ci) => (
-                    <div key={ci} style={{ fontSize: 14, lineHeight: 1.6, color: "#111827", padding: "3px 0", paddingLeft: 16, position: "relative" }}>
-                      <span style={{ position: "absolute", left: 0, color: "#dc2626" }}>&minus;</span>{c}
-                    </div>
-                  ))}
+                <div style={{ padding: "16px 20px", fontFamily: "Outfit", fontWeight: 700, fontSize: 16, background: item.accentBg, color: item.accent, borderBottom: "1px solid #e2e8f0", display: "flex", alignItems: "center", gap: 10 }}>
+                  <BrokerLogo slug={bi === 0 ? slugA : slugB} name={item.b.name} fallback={item.b.logo} size={28} shape="icon" variant="gray" />
+                  {item.b.name}
+                </div>
+                <div style={{ padding: "18px 20px" }}>
+                  <div style={{ fontSize: 12, fontWeight: 700, color: "#059669", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 10, display: "flex", alignItems: "center", gap: 6 }}>
+                    <CircleCheck size={14} /> Strengths
+                  </div>
+                  <div style={{ display: "flex", flexDirection: "column", gap: 8, marginBottom: 18 }}>
+                    {item.data.PROS.map((p, pi) => (
+                      <div key={pi} style={{ display: "flex", alignItems: "flex-start", gap: 10, fontSize: 14, lineHeight: 1.6, color: "#111827" }}>
+                        <div style={{ width: 6, height: 6, borderRadius: "50%", background: "#059669", marginTop: 8, flexShrink: 0 }} />
+                        {p}
+                      </div>
+                    ))}
+                  </div>
+                  <div style={{ height: 1, background: "#f1f5f9", margin: "0 0 18px" }} />
+                  <div style={{ fontSize: 12, fontWeight: 700, color: "#dc2626", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 10, display: "flex", alignItems: "center", gap: 6 }}>
+                    <CircleX size={14} /> Weaknesses
+                  </div>
+                  <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                    {item.data.CONS.map((c, ci) => (
+                      <div key={ci} style={{ display: "flex", alignItems: "flex-start", gap: 10, fontSize: 14, lineHeight: 1.6, color: "#111827" }}>
+                        <div style={{ width: 6, height: 6, borderRadius: "50%", background: "#dc2626", marginTop: 8, flexShrink: 0 }} />
+                        {c}
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}
@@ -953,10 +1016,11 @@ export default function BrokerComparison() {
               color: "#0f172a", fontWeight: 800, fontSize: mob ? 14 : 16, textDecoration: "none",
               boxShadow: "0 4px 16px rgba(245,158,11,0.3)",
             }}><span style={{ display: "inline-flex", alignItems: "center", gap: 5 }}>{ctaA} <ArrowRight size={15} /></span></a>
-            <a href={getVisitUrl(slugB, B.url)} target="_blank" rel="noopener nofollow sponsored" style={{
+            <a href={getVisitUrl(slugB, B.url)} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{
               padding: mob ? "12px 24px" : "14px 32px", borderRadius: 10,
-              background: "transparent", border: "2px solid rgba(251,191,36,0.5)",
-              color: "#fbbf24", fontWeight: 800, fontSize: mob ? 14 : 16, textDecoration: "none",
+              background: "linear-gradient(135deg,#f59e0b,#fbbf24)",
+              color: "#0f172a", fontWeight: 800, fontSize: mob ? 14 : 16, textDecoration: "none",
+              boxShadow: "0 4px 16px rgba(245,158,11,0.3)",
             }}><span style={{ display: "inline-flex", alignItems: "center", gap: 5 }}>{ctaB} <ArrowRight size={15} /></span></a>
           </div>
           {(isForex || vertical === "spread-betting") && (

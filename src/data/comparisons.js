@@ -51,6 +51,7 @@ export const POPULAR_PAIRS_BY_VERTICAL = {
     { slugA: "interactive-brokers", slugB: "charles-schwab" },
     { slugA: "trading-212", slugB: "degiro" },
     { slugA: "robinhood", slugB: "moomoo" },
+    { slugA: "etoro", slugB: "robinhood" },
     { slugA: "etoro", slugB: "trading-212" },
     { slugA: "webull", slugB: "moomoo" },
     { slugA: "trade-republic", slugB: "degiro" },
@@ -87,7 +88,6 @@ export const POPULAR_PAIRS_BY_VERTICAL = {
     { slugA: "etoro", slugB: "naga" },
   ],
   crypto: [
-    { slugA: "etoro", slugB: "robinhood" },
     { slugA: "interactive-brokers", slugB: "etoro" },
     { slugA: "webull", slugB: "robinhood" },
     { slugA: "etoro", slugB: "trading-212" },
@@ -118,7 +118,7 @@ export const POPULAR_PAIRS_ALL = [
   { slugA: "tastytrade", slugB: "interactive-brokers", vertical: "options" },
   { slugA: "ninjatrader", slugB: "tradestation", vertical: "futures" },
   { slugA: "etoro", slugB: "ic-markets", vertical: "copy-trading" },
-  { slugA: "etoro", slugB: "robinhood", vertical: "crypto" },
+  { slugA: "etoro", slugB: "robinhood", vertical: "stocks" },
   { slugA: "ig", slugB: "pepperstone", vertical: "spread-betting" },
   { slugA: "exness", slugB: "ic-markets", vertical: "forex" },
 ];
