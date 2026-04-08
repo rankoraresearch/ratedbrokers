@@ -382,7 +382,7 @@ Frontend → fetch /api/reviews/:slug/overrides → merge HTML over static JS �
 
 **Почему:** Конкуренты (BrokerChooser, BestBrokers) используют зонтичный подход "online brokers". Homepage таргетирует "Best Online Brokers 2026" вместо "Best Forex Brokers".
 
-**Реализация:** 8 хабов + master hub (/online-brokers). 51 брокер. 288 тематических + 266 комбинаторных рейтингов. Homepage показывает 8 категорий в navigation bar.
+**Реализация:** Hub pages удалены (каннибализация, 07.04), ranking pages = category landing pages. 52 брокера. 293 тематических + 266 комбинаторных рейтингов. 8 категорий в navigation bar. Crypto country expansion: +5 стран (08.04).
 
 ---
 

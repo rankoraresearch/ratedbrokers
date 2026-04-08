@@ -592,6 +592,23 @@ Hero (dark) → контент → dark CTA → контент → dark scoring 
 
 ---
 
+## Crypto Country Rankings (8 апреля 2026)
+
+### `f160d22` feat: add 5 crypto country rankings
+- +5 новых crypto-страновых рейтингов: Singapore, UAE, India, South Africa, New Zealand
+- Усилены SEO-тексты 5 существующих (UK, USA, AU, CA, DE) — с 1-2 предложений до 300+ слов + 4 FAQ
+- Fallback fix: вертикально-ограниченный pad (crypto/stocks не получают forex-мусор)
+- areaServed JSON-LD для всех страновых рейтингов + _countryName поле
+- Markdown rendering в ranking intro (bold + links) через dangerouslySetInnerHTML
+- Header мега-меню: 3-колоночный crypto dropdown с "By Country" (desktop + mobile)
+- Footer: +2 crypto страны (Singapore, UAE)
+- categoryHubs: +2 featuredIds (crypto-singapore, crypto-uae)
+- Backend: +10 crypto-страновых в publish.js (sitemap) + admin rankings.js
+- Codex reviewed: 5 спринтов (10/10, 10/10, 10/10, 9/10, 9/10)
+- **Итого: 293 тематических рейтингов (было 288)**
+
+---
+
 ## Что дальше
 
 - [x] Деплой — GitHub Pages + Cloudflare Workers API

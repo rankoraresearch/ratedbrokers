@@ -74,7 +74,7 @@ Overrides хранятся в D1 (`review_overrides`), не в git. Graceful fal
 | `/` | `Home.jsx` | Homepage — Top Rated Brokers grid |
 | `/review/:slug` | `BrokerReview.jsx` | Broker review (main page) |
 | `/review/:slug/:tab` | `SubPage.jsx` | 8 deep-dive tabs (fees, regulation, etc.) |
-| `/best/:slug` | `RankingPage.jsx` | 288 thematic rankings |
+| `/best/:slug` | `RankingPage.jsx` | 293 thematic rankings |
 | `/compare/:pair` | `ComparePage.jsx` | Broker comparisons |
 | `/all-reviews` | `AllReviewsPage.jsx` | Catalog of all broker reviews |
 | `/all-rankings` | `AllRankingsPage.jsx` | Catalog of all rankings |
@@ -96,7 +96,7 @@ Overrides хранятся в D1 (`review_overrides`), не в git. Graceful fal
 |-----------|---------|
 | `content/brokers/*.md` | 52 broker YAML+MD source files |
 | `src/data/brokers/` | Auto-generated JS (gitignored) |
-| `src/data/rankings.js` | 288 ranking definitions |
+| `src/data/rankings.js` | 293 ranking definitions |
 | `src/data/rankingFilters.js` | Filter functions for broker ranking |
 | `src/data/rankingSeoContent.js` | SEO content templates for rankings |
 | `src/data/combinatorialRankings.js` | 240 country × type combinations |
@@ -173,7 +173,7 @@ const visitUrl = apiBase ? `${apiBase}/go/${slug}` : B.url;
 - **JSON-LD** на каждой странице: Review, FAQPage, BreadcrumbList, ItemList, Person
 - **Robots:** Сайт закрыт (`robots.txt: Disallow: /`, `<meta noindex>`)
 - **Sitemap:** Динамическая через API (`/api/sitemap.xml`) из published-страниц
-- **Программатический SEO:** 288 рейтингов + 240 комбинаторных + 8 хабов
+- **Программатический SEO:** 293 рейтингов + 266 комбинаторных + 8 хабов
 
 ---
 
