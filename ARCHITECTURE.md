@@ -72,14 +72,14 @@ Overrides хранятся в D1 (`review_overrides`), не в git. Graceful fal
 | Route | Component | Description |
 |-------|-----------|-------------|
 | `/` | `Home.jsx` | Homepage — Top Rated Brokers grid |
-| `/review/:slug` | `BrokerReview.jsx` | Broker review (main page) |
-| `/review/:slug/:tab` | `SubPage.jsx` | 8 deep-dive tabs (fees, regulation, etc.) |
+| `/reviews/:slug` | `BrokerReview.jsx` | Broker review (main page) |
+| `/reviews/:slug/:tab` | `SubPageLayout.jsx` | 8 deep-dive tabs (fees, regulation, etc.) |
 | `/best/:slug` | `RankingPage.jsx` | 293 thematic rankings |
 | `/compare/:pair` | `ComparePage.jsx` | Broker comparisons |
-| `/all-reviews` | `AllReviewsPage.jsx` | Catalog of all broker reviews |
-| `/all-rankings` | `AllRankingsPage.jsx` | Catalog of all rankings |
-| `/country/:slug` | `CountryPage.jsx` | Country-specific broker recommendations |
-| `/forex-brokers` | `CategoryHubPage.jsx` | Category hub (Forex, Stocks, etc.) |
+| `/reviews` | `AllReviewsPage.jsx` | Catalog of all broker reviews (hybrid hub) |
+| `/rankings` | `AllRankingsPage.jsx` | Catalog of all rankings |
+| `/best-forex-brokers-:country` | `CountryPage.jsx` | Country-specific broker recommendations |
+| `/best-forex-brokers` | `RankingPage.jsx` | Head ranking (hub pages deleted, rankings serve as hubs) |
 | `/guide/:slug` | `GuidePage.jsx` | Educational guides |
 | `/regulator/:slug` | `RegulatorPage.jsx` | Regulator detail pages |
 | `/platform/:slug` | `PlatformPage.jsx` | Trading platform pages |

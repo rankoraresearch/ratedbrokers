@@ -111,18 +111,21 @@
 
 ## Breadcrumb по типу
 
-Определяется полем `B.verticals[]` → первый match из HUB_MAP:
+Определяется функцией `getBrokerHub(B.verticals)` в `src/data/categoryHubs.js`. Берёт `verticals[0]` (первый элемент массива = primary vertical).
 
-| Вертикаль в B.verticals | Hub Label | Hub Path |
-|--------------------------|-----------|----------|
-| forex (default) | Forex Brokers | /forex-brokers |
-| stocks | Stock Brokers | /stock-trading |
-| options | Options Brokers | /options-trading |
-| futures | Futures Brokers | /futures-trading |
-| crypto | Crypto Brokers | /crypto-trading |
-| (prop — будущее) | Prop Firms | /prop-trading-firms |
+| Вертикаль в B.verticals[0] | Hub Label | Hub Path |
+|-----------------------------|-----------|----------|
+| forex (default/fallback) | Forex Brokers | /best-forex-brokers |
+| stocks | Stock Brokers | /best-stock-brokers |
+| options | Options Brokers | /best-options-brokers |
+| futures | Futures Brokers | /best-futures-brokers |
+| crypto | Crypto Brokers | /best-crypto-brokers |
+| cfd | CFD Brokers | /best-cfd-brokers |
+| copy-trading | Copy Trading | /best-copy-trading-platforms |
+| spread-betting | Spread Betting | /best-spread-betting-brokers |
 
-Приоритет: stocks > options > futures > crypto > forex (для мульти-тип брокеров показываем primary вертикаль)
+Приоритет определяется порядком в MD-файле брокера: `verticals: [forex, cfd, ...]` → primary = forex.
+URL обзоров: `/reviews/{slug}` (ранее `/review/{slug}`, 301 redirect сохранён).
 
 ---
 

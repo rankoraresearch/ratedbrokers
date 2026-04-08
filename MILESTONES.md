@@ -447,8 +447,8 @@
 - [ ] **15.7** Regression — старые страницы НЕ сломаны:
   - `/best-forex-brokers` — рейтинг (не хаб) рендерится
   - `/best-ecn-forex-brokers-in-uk` — комбинаторный работает
-  - `/review/ic-markets` — ревью не затронуто
-  - `/review/ic-markets/fees` — subpage работает
+  - `/reviews/ic-markets` — ревью не затронуто
+  - `/reviews/ic-markets/fees` — subpage работает
 - [ ] **15.8** `npm run build` — 0 ошибок, 0 warnings
 - [ ] **15.9** Breadcrumbs корректны на всех типах страниц
 - [ ] **15.10** Footer: все новые ссылки работают
@@ -676,7 +676,7 @@ Sprint 2 ──┤→ Sprint 3 → Sprint 5 → Sprint 6 → Sprint 7 → Sprint
 
 - [ ] **P2.12.1** Все новые рейтинги — открываются, фильтры возвращают ≥ 3 брокера
 - [ ] **P2.12.2** 3 хаба — все breakpoints
-- [ ] **P2.12.3** 19 новых ревью — `/review/{slug}` открывается
+- [ ] **P2.12.3** 19 новых ревью — `/reviews/{slug}` открывается
 - [ ] **P2.12.4** Regression: старые страницы не сломаны
 - [ ] **P2.12.5** `npm run build` — 0 ошибок
 - [ ] **P2.12.6** Slug uniqueness audit
@@ -784,7 +784,7 @@ P2.7 (stock rankings) + P2.8 (options) + P2.9 (futures) → P2.10 (hubs) → P2.
 - [ ] **P2.5.5.1** Добавить `subpages:` YAML блок для каждого из 13 брокеров
   - Минимум: fees, platforms, regulation табы
   - Данные для stock/options/futures-специфичных полей
-- [ ] **P2.5.5.2** Проверить что `/review/{slug}/fees`, `/review/{slug}/platforms` работают
+- [ ] **P2.5.5.2** Проверить что `/reviews/{slug}/fees`, `/reviews/{slug}/platforms` работают
 
 **Файлы:** `content/brokers/*.md` (13 файлов)
 
@@ -862,7 +862,7 @@ P2.7 (stock rankings) + P2.8 (options) + P2.9 (futures) → P2.10 (hubs) → P2.
 
 - [ ] **P3.3.1** Route: `/propfirm/:slug` → PropFirmReview
 - [ ] **P3.3.2** Импорт PropFirmReview в App.jsx
-- [ ] **P3.3.3** Убедиться что не конфликтует с `/review/:slug`
+- [ ] **P3.3.3** Убедиться что не конфликтует с `/reviews/:slug`
 
 **Файлы:** `src/App.jsx`
 

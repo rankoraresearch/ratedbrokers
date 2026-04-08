@@ -609,6 +609,19 @@ Hero (dark) → контент → dark CTA → контент → dark scoring 
 
 ---
 
+## Текущее состояние (9 апреля 2026)
+
+| Метрика | Значение |
+|---------|----------|
+| Брокеров | 52 |
+| Стран (Forex) | 43 |
+| Тематических рейтингов | 293 |
+| Комбинаторных рейтингов | 266 |
+| Subpages | 416 (52 × 8 табов) |
+| Гайдов | 25 |
+| URL обзоров | `/reviews/{slug}` (бывш. `/review/{slug}`, 301 redirect) |
+| Breadcrumb hub | `getBrokerHub(verticals[0])` в `categoryHubs.js` |
+
 ## Что дальше
 
 - [x] Деплой — GitHub Pages + Cloudflare Workers API
