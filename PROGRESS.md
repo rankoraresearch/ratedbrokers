@@ -549,6 +549,49 @@ Hero (dark) → контент → dark CTA → контент → dark scoring 
 
 ---
 
+## Compare Pages Redesign — мультивертикальность (2-7 апреля 2026)
+
+### ComparePage (/compare) — полный редизайн
+- HeroBand gradient с белой picker-карточкой (глубокая тень, оранжевый VS circle)
+- 8 pill-табов вертикалей: All / Forex & CFD / Stocks & ETF / Options / Futures / Copy Trading / Crypto / Spread Betting
+- 70+ popular pairs по всем вертикалям (Schwab vs Fidelity, NinjaTrader vs TradeStation и т.д.)
+- Picker фильтрует дропдауны по выбранной вертикали
+- Dot + Text badge (цветная точка 6px + серый текст) — выбран из 6 прототипов
+- Accordion "All Comparisons" группировка по брокеру
+- Premium dark "Why Compare" карточки
+- AuthorCredits + trust stats в hero
+
+### BrokerComparison (/compare/:pair) — мультивертикальный рефактор
+- HeroBand gradient с белой VS-карточкой
+- Orange CTA на всех кнопках (было зелёный/синий)
+- **FIX**: Verdict CTA href=item.b.url → getVisitUrl() — потерянный affiliate трекинг
+- **FIX**: NaN для stock-брокеров (parseFloat("N/A"))
+- Vertical-adaptive: Spread Table → Commission Table для stocks/options/futures
+- Vertical-adaptive: Feature Table (Fractional Shares, DRIP, IPO Access, Extended Hours для stocks)
+- Vertical-adaptive: FAQ, verdict, CTA text, breadcrumb, meta description, hero description
+- Category cards: winner left border + score progress bar
+- Чередование backgrounds между секциями
+- CFD disclaimer только для forex/cfd/spread-betting
+
+### Утилиты
+- `src/utils/comparisonVertical.js` — getComparisonVertical (с hintVertical), BREADCRUMB_MAP, getCTAText
+- `src/data/comparisons.js` — VERTICALS, POPULAR_PAIRS_BY_VERTICAL (7 вертикалей), FEATURED_PAIRS (all verticals union)
+
+### Codex Review — 4 раунда
+- Round 1: FEATURED_PAIRS forex-only → all verticals union, "generic" fallback
+- Round 2: VERTICAL_PRIORITY reorder, parseFee + pickCheaper, midCTA checks real commissions
+- Round 3: snake_case → camelCase (11 полей), hintVertical from curated pair data
+- Round 4: duplicate pair vertical resolution (shared vertical preference), honest labels
+
+### Коммиты
+- `8c4fcd1` feat: compare pages redesign — multi-vertical, premium UI, adaptive content
+- `cb53b82` fix: codex review — 4 findings resolved
+- `d597643` fix: codex review round 2 — 4 findings resolved
+- `d021f6a` fix: codex review round 3 — snake_case→camelCase, vertical hints, labels
+- `e64a900` fix: codex review round 4 — duplicate pair vertical + honest labels
+
+---
+
 ## Что дальше
 
 - [x] Деплой — GitHub Pages + Cloudflare Workers API

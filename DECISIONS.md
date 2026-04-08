@@ -400,7 +400,7 @@ Frontend → fetch /api/reviews/:slug/overrides → merge HTML over static JS �
 
 ---
 
-## 18. Vertical badge — Dot + Text (M4)
+## 20. Vertical badge — Dot + Text (M4)
 
 **Выбор:** Цветная точка 6px + серый uppercase текст вместо цветного залитого badge.
 
