@@ -169,11 +169,13 @@ function BrokerPowerCards({ mob, tab, lp, brokers }) {
 // ══════════════════════════════════════════════════════
 // FAQ Accordion Item
 // ══════════════════════════════════════════════════════
+let faqIdCounter = 0;
 function FaqItem({ question, answer, defaultOpen = false }) {
   const [open, setOpen] = useState(defaultOpen);
+  const [id] = useState(() => `faq-${++faqIdCounter}`);
   return (
     <div style={{ borderBottom: "1px solid #e2e8f0" }}>
-      <button onClick={() => setOpen(!open)} style={{
+      <button onClick={() => setOpen(!open)} aria-expanded={open} aria-controls={id} style={{
         display: "flex", alignItems: "center", justifyContent: "space-between",
         width: "100%", padding: "18px 0", border: "none", background: "none",
         cursor: "pointer", textAlign: "left", gap: 12,
@@ -184,7 +186,7 @@ function FaqItem({ question, answer, defaultOpen = false }) {
         {open ? <ChevronUp size={18} color="#64748b" /> : <ChevronDown size={18} color="#64748b" />}
       </button>
       {open && (
-        <p style={{ fontSize: 15, lineHeight: 1.7, color: "#475569", margin: "0 0 18px 0" }}>
+        <p id={id} role="region" style={{ fontSize: 15, lineHeight: 1.7, color: "#475569", margin: "0 0 18px 0" }}>
           {answer}
         </p>
       )}

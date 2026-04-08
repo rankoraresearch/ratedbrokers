@@ -17,11 +17,11 @@ const HOMEPAGE_SEO = {
   // ─── H1 + meta ────────────────────────────────────────
   h1: `Best Online Brokers ${YEAR} — Expert Ratings & Reviews`,
   metaTitle: `Best Online Brokers ${YEAR}: Compared & Rated | RatedBrokers`,
-  metaDescription: `Compare 51+ online brokers across forex, stocks, crypto, options, and futures. Independent expert reviews, side-by-side comparisons, and rankings updated quarterly.`,
+  metaDescription: `Compare top online brokers across forex, stocks, crypto, options, and futures. Independent expert reviews, side-by-side comparisons, and rankings updated quarterly.`,
 
   // ─── INTRO (80-100 words, between hero and Top Rated) ─
   intro: {
-    text: `RatedBrokers is an independent broker comparison platform. We evaluate online brokers across forex, stocks, crypto, options, and futures — scoring each one on regulation, costs, reputation, transparency, platforms, and execution. Every broker on our site holds at least one Tier-1 regulatory license. Our rankings are based on data, not payments: brokers cannot pay for placement or influence their scores. Below you will find our highest-rated brokers for ${YEAR}, updated quarterly.`,
+    text: `RatedBrokers is an independent broker comparison platform. We evaluate online brokers across forex, stocks, crypto, options, and futures — scoring each one on regulation, costs, reputation, transparency, platforms, and execution. We prioritize brokers with Tier-1 regulatory licenses and apply strict eligibility criteria. Our rankings are based on data, not payments: brokers cannot pay for placement or influence their scores. Below you will find our highest-rated brokers for ${YEAR}, updated quarterly.`,
     links: [
       { text: "Our full methodology", path: "/methodology" },
       { text: "how we make money", path: "/how-we-make-money" },
@@ -36,7 +36,7 @@ const HOMEPAGE_SEO = {
       {
         name: "Regulation & Safety",
         weight: "30%",
-        desc: "We verify every license number directly on the regulator's public database. Brokers must hold at least one Tier-1 license (FCA, ASIC, NFA/CFTC, FINMA, MAS, BaFin, or CySEC) to be listed. This is a knockout criterion — no exceptions.",
+        desc: "We verify every license number directly on the regulator's public database. We prioritize brokers holding Tier-1 licenses (FCA, ASIC, NFA/CFTC, FINMA, MAS, BaFin, or CySEC). Regulation carries the highest weight in our scoring formula.",
       },
       {
         name: "Trading Costs",
@@ -117,7 +117,7 @@ const HOMEPAGE_SEO = {
     },
     {
       q: "Are the brokers on RatedBrokers regulated?",
-      a: `Yes. Every broker listed on RatedBrokers holds at least one Tier-1 regulatory license from authorities like the FCA (UK), ASIC (Australia), NFA/CFTC (US), FINMA (Switzerland), MAS (Singapore), BaFin (Germany), or CySEC (EU/MiFID). Brokers with only Tier-2 or Tier-3 offshore licenses are not eligible for listing, regardless of their other qualities. We verify each license number directly on the regulator's public database.`,
+      a: `Yes. Every broker listed on RatedBrokers is regulated by at least one recognized financial authority. We prioritize brokers holding Tier-1 licenses from the FCA (UK), ASIC (Australia), NFA/CFTC (US), FINMA (Switzerland), MAS (Singapore), BaFin (Germany), or CySEC (EU/MiFID). Regulation carries the highest weight (30%) in our scoring formula. We verify each license number directly on the regulator's public database.`,
     },
     {
       q: `What is the best online broker for beginners in ${YEAR}?`,
