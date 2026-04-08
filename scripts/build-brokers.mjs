@@ -296,6 +296,7 @@ function generateIndexJS(slugs) {
   lines.push("    type: data.B.type,");
   lines.push("    spread: data.B.spread,");
   lines.push("    badge: data.B.badge,");
+  lines.push("    verticals: data.B.verticals || [],");
   lines.push("  }));");
   lines.push("}");
   lines.push("");
