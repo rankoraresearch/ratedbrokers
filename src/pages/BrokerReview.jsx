@@ -18,7 +18,7 @@ import { getPlatformSlugByName } from "../data/platforms/index";
 import Breadcrumb, { breadcrumbSchema } from "../components/Breadcrumb";
 import { getBrokerHub } from "../data/categoryHubs";
 import Icon from "../components/Icon";
-import { Check, X as XIcon, ArrowRight, ChevronRight, ChevronDown, ArrowUpRight, BarChart3, Wallet, MonitorSmartphone, Shield, ArrowUpDown, BookOpen, Users, UserCheck } from "lucide-react";
+import { Check, X as XIcon, ArrowRight, ChevronRight, ChevronDown, ArrowUpRight, BarChart3, Wallet, MonitorSmartphone, Shield, ArrowUpDown, BookOpen, Users, UserCheck, CircleCheck, CircleX } from "lucide-react";
 import HeroBand from "../components/HeroBand";
 import { getVisitUrl } from "../utils/visitUrl";
 
@@ -403,14 +403,26 @@ export default function BrokerReview() {
 
           {/* PROS & CONS */}
           <H2 id="pros-&-cons">{t("toc.proscons")}</H2>
-          <div style={{display:"grid",gridTemplateColumns:mob?"1fr":"1fr 1fr",gap:14,marginBottom:16}}>
-            <div style={{background:"#f0fdf4",border:"1px solid #bbf7d0",borderRadius:12,padding:"20px"}}>
-              <div style={{fontFamily:"Outfit",fontWeight:700,fontSize:15,color:"#059669",marginBottom:12}}>{t("review.pros")}</div>
-              {pros.map((p,i)=><div key={i} style={{fontSize:14,color:"#111827",marginBottom:8,paddingLeft:16,position:"relative",lineHeight:1.5}}><span style={{position:"absolute",left:0,color:"#059669"}}>{"\u2022"}</span>{p}</div>)}
+          <div style={{display:"grid",gridTemplateColumns:mob?"1fr":"1fr 1fr",gap:16,marginBottom:16}}>
+            <div style={{background:"#fff",borderRadius:14,border:"1px solid #e2e8f0",overflow:"hidden"}}>
+              <div style={{padding:"14px 20px",background:"#ecfdf5",borderBottom:"1px solid #e2e8f0"}}>
+                <div style={{fontSize:12,fontWeight:700,color:"#059669",textTransform:"uppercase",letterSpacing:"0.05em",display:"flex",alignItems:"center",gap:6}}>
+                  <CircleCheck size={14} /> {t("review.pros")}
+                </div>
+              </div>
+              <div style={{padding:"18px 20px",display:"flex",flexDirection:"column",gap:8}}>
+                {pros.map((p,i)=><div key={i} style={{display:"flex",alignItems:"flex-start",gap:10,fontSize:14,lineHeight:1.6,color:"#111827"}}><div style={{width:6,height:6,borderRadius:"50%",background:"#059669",marginTop:8,flexShrink:0}} />{p}</div>)}
+              </div>
             </div>
-            <div style={{background:"#fef2f2",border:"1px solid #fecaca",borderRadius:12,padding:"20px"}}>
-              <div style={{fontFamily:"Outfit",fontWeight:700,fontSize:15,color:"#dc2626",marginBottom:12}}>{t("review.cons")}</div>
-              {cons.map((c,i)=><div key={i} style={{fontSize:14,color:"#111827",marginBottom:8,paddingLeft:16,position:"relative",lineHeight:1.5}}><span style={{position:"absolute",left:0,color:"#dc2626"}}>{"\u2022"}</span>{c}</div>)}
+            <div style={{background:"#fff",borderRadius:14,border:"1px solid #e2e8f0",overflow:"hidden"}}>
+              <div style={{padding:"14px 20px",background:"#fef2f2",borderBottom:"1px solid #e2e8f0"}}>
+                <div style={{fontSize:12,fontWeight:700,color:"#dc2626",textTransform:"uppercase",letterSpacing:"0.05em",display:"flex",alignItems:"center",gap:6}}>
+                  <CircleX size={14} /> {t("review.cons")}
+                </div>
+              </div>
+              <div style={{padding:"18px 20px",display:"flex",flexDirection:"column",gap:8}}>
+                {cons.map((c,i)=><div key={i} style={{display:"flex",alignItems:"flex-start",gap:10,fontSize:14,lineHeight:1.6,color:"#111827"}}><div style={{width:6,height:6,borderRadius:"50%",background:"#dc2626",marginTop:8,flexShrink:0}} />{c}</div>)}
+              </div>
             </div>
           </div>
 
