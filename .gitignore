@@ -41,3 +41,8 @@ research/
 !public/favicon-preview.html
 risk-warnings.md
 uk-snapshot.md
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
