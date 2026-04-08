@@ -568,23 +568,20 @@ export default function Home() {
           Compare brokers head-to-head across forex, stocks, crypto, and more — scores, fees, and regulation side by side.
         </p>
 
-        {/* Vertical category labels — driven from VERTICALS source of truth */}
+        {/* Vertical category labels — icons + labels from VERTICALS, colors from VERT_COLORS */}
         <div style={{ display: "flex", gap: 8, marginBottom: 20, flexWrap: "wrap" }}>
-          {[
-            { key: "forex", color: "#059669" },
-            { key: "stocks", color: "#2563eb" },
-            { key: "crypto", color: "#f59e0b" },
-          ].map(v => {
-            const vert = VERTICALS.find(vt => vt.key === v.key);
+          {["forex", "stocks", "crypto"].map(key => {
+            const vert = VERTICALS.find(v => v.key === key);
+            const color = VERTICAL_MAP[key]?.color || "#64748b";
             return (
-              <span key={v.key} style={{
+              <span key={key} style={{
                 padding: "4px 12px", borderRadius: 6,
-                background: `${v.color}12`, border: `1px solid ${v.color}30`,
-                color: v.color, fontSize: 12, fontWeight: 700,
+                background: `${color}12`, border: `1px solid ${color}30`,
+                color, fontSize: 12, fontWeight: 700,
                 display: "inline-flex", alignItems: "center", gap: 5,
               }}>
                 {vert && <Icon name={vert.icon} size={13} />}
-                {vert ? vert.label : v.key}
+                {vert ? vert.label : key}
               </span>
             );
           })}
@@ -778,12 +775,23 @@ export default function Home() {
             <Link key={a.id} to={lp(`/author/${a.id}`)} style={{
               display: "flex", flexDirection: "column", alignItems: "center", gap: 10,
               padding: mob ? "20px 12px" : "24px 16px", borderRadius: 14,
-              background: "#fff", border: "1px solid #e2e8f0",
+              background: "#fff",
+              border: a.isFounder ? "2px solid #059669" : "1px solid #e2e8f0",
               textDecoration: "none", color: "#111827", transition: "all 0.2s",
+              position: "relative",
             }}
               onMouseEnter={e => { e.currentTarget.style.borderColor = "#a7f3d0"; e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 4px 16px rgba(5,150,105,0.08)"; }}
-              onMouseLeave={e => { e.currentTarget.style.borderColor = "#e2e8f0"; e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "none"; }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = a.isFounder ? "#059669" : "#e2e8f0"; e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "none"; }}
             >
+              {a.isFounder && (
+                <span style={{
+                  position: "absolute", top: -8, left: "50%", transform: "translateX(-50%)",
+                  padding: "2px 8px", borderRadius: 4,
+                  background: "#059669", color: "#fff",
+                  fontSize: 9, fontWeight: 800, letterSpacing: "0.05em", textTransform: "uppercase",
+                  whiteSpace: "nowrap",
+                }}>Founder</span>
+              )}
               <AuthorAvatar author={a} size={mob ? 48 : 56} showVerified />
               <div style={{ textAlign: "center" }}>
                 <div style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 700, fontSize: mob ? 13 : 15 }}>{a.name}</div>
