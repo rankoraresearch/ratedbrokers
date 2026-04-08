@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useId } from "react";
 import { Link } from "react-router-dom";
 import { useMedia } from "../hooks/useMedia";
 import { useTranslation } from "../i18n/LanguageContext";
@@ -169,10 +169,9 @@ function BrokerPowerCards({ mob, tab, lp, brokers }) {
 // ══════════════════════════════════════════════════════
 // FAQ Accordion Item
 // ══════════════════════════════════════════════════════
-let faqIdCounter = 0;
 function FaqItem({ question, answer, defaultOpen = false }) {
   const [open, setOpen] = useState(defaultOpen);
-  const [id] = useState(() => `faq-${++faqIdCounter}`);
+  const id = useId();
   return (
     <div style={{ borderBottom: "1px solid #e2e8f0" }}>
       <button onClick={() => setOpen(!open)} aria-expanded={open} aria-controls={id} style={{

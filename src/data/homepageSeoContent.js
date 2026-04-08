@@ -113,7 +113,7 @@ const HOMEPAGE_SEO = {
     },
     {
       q: `How does RatedBrokers rate brokers?`,
-      a: `We use a weighted scoring formula across 6 categories: Regulation & Safety (30%), Trading Costs (20%), User Reputation (15%), Broker Transparency (15%), Platforms & Tools (15%), and Execution Model (5%). Every broker must hold at least one Tier-1 regulatory license to be listed — this is a non-negotiable knockout criterion. We verify licenses directly on regulator databases, collect spread and fee data from multiple sources, and aggregate user reviews from Trustpilot and other platforms. Scores are updated quarterly.`,
+      a: `We use a weighted scoring formula across 6 categories: Regulation & Safety (30%), Trading Costs (20%), User Reputation (15%), Broker Transparency (15%), Platforms & Tools (15%), and Execution Model (5%). We prioritize brokers holding Tier-1 regulatory licenses, and regulation carries the highest weight in our formula. We verify licenses directly on regulator databases, collect spread and fee data from multiple sources, and aggregate user reviews from Trustpilot and other platforms. Scores are updated quarterly.`,
     },
     {
       q: "Are the brokers on RatedBrokers regulated?",
@@ -129,7 +129,7 @@ const HOMEPAGE_SEO = {
     },
     {
       q: "Does RatedBrokers receive compensation from brokers?",
-      a: `Yes — we earn a commission when you open an account through our affiliate links. This is standard in the broker comparison industry and is how we fund our research. However, compensation never influences our rankings, scores, or reviews. Brokers cannot pay for higher placement or better ratings. Our scoring formula is published publicly, and every score is reproducible from the underlying data. We disclose this relationship on every page.`,
+      a: `Yes — we earn a commission when you open an account through our affiliate links. This is standard in the broker comparison industry and is how we fund our research. However, compensation never influences our rankings, scores, or reviews. Brokers cannot pay for higher placement or better ratings. Our scoring formula is published publicly on our methodology page. We disclose this relationship on every page.`,
     },
   ],
 };
