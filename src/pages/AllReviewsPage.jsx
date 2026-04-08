@@ -6,6 +6,7 @@ import { useLocalePath } from "../i18n/useLocalePath";
 import { getAllBrokers } from "../data/brokers";
 import { ArrowRight } from "../components/Icon";
 import BrokerLogo from "../components/BrokerLogo";
+import { breadcrumbSchema } from "../components/Breadcrumb";
 
 const YEAR = "2026";
 
@@ -55,14 +56,12 @@ export default function AllReviewsPage() {
     <div style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb", minHeight: "100vh" }}>
 
       {/* JSON-LD Breadcrumb */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "RatedBrokers", "item": "https://ratedbrokers.com/" },
-          { "@type": "ListItem", "position": 2, "name": "Forex Brokers", "item": "https://ratedbrokers.com/best-forex-brokers" },
-        ],
-      })}} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
+        breadcrumbSchema([
+          { label: "RatedBrokers", path: "/" },
+          { label: "All Broker Reviews", path: "/reviews" },
+        ])
+      )}} />
 
       {/* HERO */}
       <section style={{

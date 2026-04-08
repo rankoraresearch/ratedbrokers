@@ -87,6 +87,7 @@ export default function PlatformPage() {
       },
       breadcrumbSchema([
         { label: "RatedBrokers", path: "/" },
+        { label: "Trading Platforms" },
         { label: platform.platformName, path: `/platform/${slug}` },
       ]),
     ];
@@ -141,6 +142,7 @@ export default function PlatformPage() {
       <div style={{ ...cn, padding: mob ? "10px 16px" : "14px 24px" }}>
         <Breadcrumb items={[
           { label: "RatedBrokers", path: "/" },
+          { label: "Trading Platforms" },
           { label: platform.platformName },
         ]} />
       </div>

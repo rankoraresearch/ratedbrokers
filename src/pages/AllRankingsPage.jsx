@@ -6,6 +6,7 @@ import RANKINGS from "../data/rankings";
 import { COMBINATORIAL_RANKINGS } from "../data/combinatorialRankings";
 import { getBrokerCountForRanking } from "../data/rankingFilters";
 import Icon, { ArrowRight } from "../components/Icon";
+import Breadcrumb, { breadcrumbSchema } from "../components/Breadcrumb";
 
 const YEAR = "2026";
 
@@ -104,6 +105,22 @@ export default function AllRankingsPage() {
 
   return (
     <div style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb", minHeight: "100vh" }}>
+
+      {/* JSON-LD Breadcrumb */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(
+        breadcrumbSchema([
+          { label: "RatedBrokers", path: "/" },
+          { label: "All Rankings", path: "/rankings" },
+        ])
+      )}} />
+
+      {/* Breadcrumbs */}
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: mob ? "10px 16px" : "14px 24px" }}>
+        <Breadcrumb items={[
+          { label: "RatedBrokers", path: "/" },
+          { label: "All Rankings" },
+        ]} />
+      </div>
 
       {/* HEADER */}
       <section style={{

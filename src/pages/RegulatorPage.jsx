@@ -70,6 +70,7 @@ export default function RegulatorPage() {
       },
       breadcrumbSchema([
         { label: "RatedBrokers", path: "/" },
+        { label: "Regulators" },
         { label: reg.fullName, path: `/regulator/${slug}` },
       ]),
     ];
@@ -103,6 +104,7 @@ export default function RegulatorPage() {
       <div style={{ ...cn, padding: mob ? "10px 16px" : "14px 24px" }}>
         <Breadcrumb items={[
           { label: "RatedBrokers", path: "/" },
+          { label: "Regulators" },
           { label: reg.fullName },
         ]} />
       </div>

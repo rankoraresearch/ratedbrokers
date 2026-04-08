@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import HeroBand from "../HeroBand";
-import Breadcrumb from "../Breadcrumb";
+import Breadcrumb, { breadcrumbSchema } from "../Breadcrumb";
+import { getBrokerHub } from "../../data/categoryHubs";
 import BrokerLogo from "../BrokerLogo";
 import RegBadge from "../RegBadge";
 import ScoreBadge from "../ScoreBadge";
@@ -91,6 +92,21 @@ export default function SubPageLayout({ data, slug, activeTab, children }) {
 
   useEffect(() => { window.scrollTo({ top: 0, behavior: "smooth" }); }, [activeTab]);
 
+  /* SEO: breadcrumb JSON-LD */
+  useEffect(() => {
+    const hub = getBrokerHub(B.verticals);
+    const bcSchema = breadcrumbSchema([
+      { label: "RatedBrokers", path: "/" },
+      { label: hub.label, path: hub.path },
+      { label: `${B.name} Review`, path: `/review/${slug}` },
+      { label: meta.breadcrumb || activeTab, path: `/review/${slug}/${activeTab}` },
+    ]);
+    let bcEl = document.getElementById("breadcrumb-schema-subpage");
+    if (!bcEl) { bcEl = document.createElement("script"); bcEl.id = "breadcrumb-schema-subpage"; bcEl.type = "application/ld+json"; document.head.appendChild(bcEl); }
+    bcEl.textContent = JSON.stringify(bcSchema);
+    return () => { const el = document.getElementById("breadcrumb-schema-subpage"); if (el) el.remove(); };
+  }, [slug, activeTab]);
+
   /* SEO: title + meta + JSON-LD */
   useEffect(() => {
     if (isRegulation) {
@@ -127,12 +143,15 @@ export default function SubPageLayout({ data, slug, activeTab, children }) {
     <div style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb", minHeight: "100vh", color: "#111827" }}>
       {/* Breadcrumbs */}
       <div style={{ ...cn, padding: mob ? "10px 16px" : "14px 24px" }}>
-        <Breadcrumb items={[
-          { label: "Home", path: "/" },
-          { label: "Reviews", path: "/reviews" },
-          { label: `${B.name} Review`, path: `/review/${slug}` },
-          { label: meta.breadcrumb || activeTab },
-        ]} />
+        <Breadcrumb items={(() => {
+          const hub = getBrokerHub(B.verticals);
+          return [
+            { label: "RatedBrokers", path: "/" },
+            { label: hub.label, path: hub.path },
+            { label: `${B.name} Review`, path: `/review/${slug}` },
+            { label: meta.breadcrumb || activeTab },
+          ];
+        })()} />
       </div>
 
       {/* Hero Band */}

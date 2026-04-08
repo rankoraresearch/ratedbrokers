@@ -16,6 +16,7 @@ import { getTrustpilotUrl } from "../data/trustpilot-links";
 import TrustpilotLogo from "../components/TrustpilotLogo";
 import { getPlatformSlugByName } from "../data/platforms/index";
 import Breadcrumb, { breadcrumbSchema } from "../components/Breadcrumb";
+import { getBrokerHub } from "../data/categoryHubs";
 import Icon from "../components/Icon";
 import { Check, X as XIcon, ArrowRight, ChevronRight, ChevronDown, ArrowUpRight, BarChart3, Wallet, MonitorSmartphone, Shield, ArrowUpDown, BookOpen, Users, UserCheck } from "lucide-react";
 import HeroBand from "../components/HeroBand";
@@ -165,10 +166,8 @@ export default function BrokerReview() {
           dateModified: "2026-02-28",
         },
         breadcrumbSchema((() => {
-          const HUB_MAP_LD = { stocks: { l: "Stock Brokers", p: "/best-stock-brokers" }, options: { l: "Options Brokers", p: "/best-options-brokers" }, futures: { l: "Futures Brokers", p: "/best-futures-brokers" }, crypto: { l: "Crypto Brokers", p: "/best-crypto-brokers" }, "copy-trading": { l: "Copy Trading", p: "/best-copy-trading-platforms" }, "spread-betting": { l: "Spread Betting", p: "/best-spread-betting-brokers" }, cfd: { l: "CFD Brokers", p: "/best-cfd-brokers" } };
-          const v = data.B.verticals || [];
-          const h = HUB_MAP_LD[v.find(x => HUB_MAP_LD[x])] || { l: "Forex Brokers", p: "/best-forex-brokers" };
-          return [{ label: "RatedBrokers", path: "/" }, { label: h.l, path: h.p }, { label: `${data.B.name} Review`, path: `/review/${slug}` }];
+          const hub = getBrokerHub(data.B.verticals);
+          return [{ label: "RatedBrokers", path: "/" }, { label: hub.label, path: hub.path }, { label: `${data.B.name} Review`, path: `/review/${slug}` }];
         })()),
       ];
       let el = document.querySelector('script[data-jsonld="review"]');
@@ -257,17 +256,7 @@ export default function BrokerReview() {
       {/* Breadcrumbs */}
       <div style={{...cn, padding: mob ? "10px 16px" : "14px 24px"}}>
         <Breadcrumb items={(() => {
-          const HUB_MAP = {
-            stocks: { label: "Stock Brokers", path: "/best-stock-brokers" },
-            options: { label: "Options Brokers", path: "/best-options-brokers" },
-            futures: { label: "Futures Brokers", path: "/best-futures-brokers" },
-            crypto: { label: "Crypto Brokers", path: "/best-crypto-brokers" },
-            "copy-trading": { label: "Copy Trading", path: "/best-copy-trading-platforms" },
-            "spread-betting": { label: "Spread Betting", path: "/best-spread-betting-brokers" },
-            cfd: { label: "CFD Brokers", path: "/best-cfd-brokers" },
-          };
-          const verts = B.verticals || [];
-          const hub = HUB_MAP[verts.find(v => HUB_MAP[v])] || { label: "Forex Brokers", path: "/best-forex-brokers" };
+          const hub = getBrokerHub(B.verticals);
           return [
             { label: "RatedBrokers", path: "/" },
             { label: hub.label, path: hub.path },

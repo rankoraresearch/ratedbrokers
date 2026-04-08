@@ -68,33 +68,7 @@ const HUBS = [
   },
 ];
 
-/**
- * Get hub config by slug
- */
-export function getHubBySlug(slug) {
-  return HUBS.find(h => h.slug === slug) || null;
-}
-
-/**
- * Get all rankings belonging to a hub's category
- */
-export function getRankingsForHub(hub) {
-  // Hub rankings = rankings with matching category OR matching vertical field
-  return RANKINGS.filter(r =>
-    r.category === hub.category || r.vertical === hub.verticalKey
-  );
-}
-
-/**
- * Get featured rankings for a hub (ordered)
- */
-export function getFeaturedRankings(hub) {
-  return hub.featuredIds
-    .map(id => RANKINGS.find(r => r.id === id))
-    .filter(Boolean);
-}
-
-// Phase 2 hubs
+// Phase 2 hubs (stocks, options, futures)
 HUBS.push(
   {
     slug: "stocks",
@@ -133,5 +107,46 @@ HUBS.push(
     featuredIds: ["futures", "futures-beginners", "futures-micro", "futures-low-fee", "futures-usa"],
   }
 );
+
+// ── Lookup functions (all HUBS entries available) ──
+
+/**
+ * Get hub config by slug
+ */
+export function getHubBySlug(slug) {
+  return HUBS.find(h => h.slug === slug) || null;
+}
+
+/**
+ * Get all rankings belonging to a hub's category
+ */
+export function getRankingsForHub(hub) {
+  return RANKINGS.filter(r =>
+    r.category === hub.category || r.vertical === hub.verticalKey
+  );
+}
+
+/**
+ * Get featured rankings for a hub (ordered)
+ */
+export function getFeaturedRankings(hub) {
+  return hub.featuredIds
+    .map(id => RANKINGS.find(r => r.id === id))
+    .filter(Boolean);
+}
+
+/**
+ * Get the primary hub for a broker based on its verticals[0].
+ * Used for breadcrumbs (BrokerReview, SubPageLayout).
+ * @param {string[]} verticals - broker verticals array (from B.verticals)
+ * @returns {{ label: string, path: string }}
+ */
+const _FOREX_FALLBACK = { label: "Forex Brokers", path: "/best-forex-brokers" };
+export function getBrokerHub(verticals) {
+  const key = verticals?.[0];
+  if (!key) return _FOREX_FALLBACK;
+  const hub = HUBS.find(h => h.verticalKey === key || h.category === key);
+  return hub ? { label: hub.name, path: hub.path } : _FOREX_FALLBACK;
+}
 
 export default HUBS;

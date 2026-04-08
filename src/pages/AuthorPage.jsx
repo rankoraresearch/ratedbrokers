@@ -40,9 +40,21 @@ export default function AuthorPage() {
     }
     scriptEl.textContent = JSON.stringify(jsonLd);
 
+    // Breadcrumb JSON-LD
+    const bcSchema = breadcrumbSchema([
+      { label: "RatedBrokers", path: "/" },
+      { label: "Our Experts", path: "/about" },
+      { label: author.name, path: `/author/${slug}` },
+    ]);
+    let bcEl = document.getElementById("breadcrumb-schema-author");
+    if (!bcEl) { bcEl = document.createElement("script"); bcEl.id = "breadcrumb-schema-author"; bcEl.type = "application/ld+json"; document.head.appendChild(bcEl); }
+    bcEl.textContent = JSON.stringify(bcSchema);
+
     return () => {
       const el = document.querySelector('script[data-jsonld="author"]');
       if (el) el.remove();
+      const bc = document.getElementById("breadcrumb-schema-author");
+      if (bc) bc.remove();
     };
   }, [author]);
 
@@ -66,8 +78,8 @@ export default function AuthorPage() {
   }
 
   const crumbs = [
-    { label: "Home", path: "/" },
-    { label: "Our Experts", path: null },
+    { label: "RatedBrokers", path: "/" },
+    { label: "Our Experts", path: "/about" },
     { label: author.name },
   ];
 
