@@ -165,7 +165,7 @@ export default function AllReviewsPage() {
         {/* C6 Ticker — dark rows, wide-dark logos, score colored */}
         <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : tab ? "1fr 1fr" : "repeat(3, 1fr)", gap: mob ? 6 : 8 }}>
           {filtered.map((b) => (
-            <Link key={b.slug} to={lp(`/review/${b.slug}`)} style={{
+            <Link key={b.slug} to={lp(`/reviews/${b.slug}`)} style={{
               display: "flex", alignItems: "center", gap: mob ? 10 : 14,
               padding: mob ? "8px 10px" : "10px 16px", borderRadius: 10,
               background: "#0f172a", textDecoration: "none",
