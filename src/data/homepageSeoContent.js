@@ -3,6 +3,10 @@
  * Structured for i18n-readiness — each section is a keyed object.
  * Internal links are represented as {text, path} pairs, rendered inline by Home.jsx.
  *
+ * Note: Site is currently English-only (i18n was removed in M2.5).
+ * When multi-language support is added, wrap this in a locale-keyed map:
+ *   { en: HOMEPAGE_SEO, de: HOMEPAGE_SEO_DE, ... }
+ *
  * Target keyword: "best online brokers"
  * Total word count: ~1,300-1,500 words across 4 blocks (sandwich pattern)
  */
@@ -117,11 +121,11 @@ const HOMEPAGE_SEO = {
     },
     {
       q: `What is the best online broker for beginners in ${YEAR}?`,
-      a: `For beginners, we recommend brokers that combine strong regulation, low minimum deposits, educational resources, and user-friendly platforms. eToro, IG, and Capital.com consistently score well for new traders due to their intuitive interfaces and comprehensive learning materials. However, the best choice depends on what you want to trade and where you are located — regulation varies by country, and some brokers restrict features in certain regions.`,
+      a: `For beginners, we recommend brokers that combine strong regulation, low minimum deposits, educational resources, and user-friendly platforms. The best choice depends on what you want to trade and where you are located — regulation varies by country, and some brokers restrict features in certain regions. See our dedicated ranking of the best brokers for beginners, updated quarterly based on our scoring methodology.`,
     },
     {
       q: "How much money do I need to start trading?",
-      a: `Minimum deposits vary widely by broker — from $0 at brokers like IG and eToro (for certain account types) to $200-$500 at most forex brokers, up to $10,000+ for premium accounts. Realistically, starting with $500-$1,000 gives you enough margin for proper risk management without overexposing your capital on any single trade. Many brokers offer free demo accounts so you can practice without risking real money.`,
+      a: `Minimum deposits vary widely by broker — from $0 at some brokers (for certain account types) to $200-$500 at most forex brokers, up to $10,000+ for premium accounts. Realistically, starting with $500-$1,000 gives you enough margin for proper risk management without overexposing your capital on any single trade. Many brokers offer free demo accounts so you can practice without risking real money. Check individual broker reviews for exact deposit requirements.`,
     },
     {
       q: "Does RatedBrokers receive compensation from brokers?",

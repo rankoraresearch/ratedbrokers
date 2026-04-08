@@ -9,7 +9,7 @@ import HUBS, { getRankingsForHub } from "../data/categoryHubs";
 import { POPULAR_PAIRS_BY_VERTICAL, canonicalPair } from "../data/comparisons";
 import BrokerLogo from "../components/BrokerLogo";
 import Icon from "../components/Icon";
-import { ArrowRight, BarChart3, BookOpen, Target, Shield, ChevronDown, ChevronUp } from "lucide-react";
+import { ArrowRight, BarChart3, BookOpen, Target, ChevronDown, ChevronUp } from "lucide-react";
 import HOMEPAGE_SEO from "../data/homepageSeoContent";
 import CountryFlag from "../components/CountryFlag";
 import { AUTHORS } from "../data/authors";
