@@ -14,7 +14,7 @@ import HOMEPAGE_SEO from "../data/homepageSeoContent";
 import CountryFlag from "../components/CountryFlag";
 import { AUTHORS } from "../data/authors";
 import AuthorAvatar from "../components/AuthorAvatar";
-import HeroWave from "../components/HeroWave";
+
 
 // ══════════════════════════════════════════════════════
 // DATA
@@ -30,16 +30,8 @@ const COUNTRIES = [
   { code: "ZA", name: "South Africa", reg: "FSCA", path: "/best-forex-brokers-south-africa", verticals: ["Forex", "CFD", "Crypto", "Copy Trading"] },
 ];
 
-const COMPARISONS = [
-  { a: "IC Markets", b: "Pepperstone", path: "/compare/ic-markets-vs-pepperstone" },
-  { a: "IG", b: "CMC Markets", path: "/compare/cmc-markets-vs-ig" },
-  { a: "eToro", b: "XTB", path: "/compare/etoro-vs-xtb" },
-  { a: "Saxo Bank", b: "OANDA", path: "/compare/oanda-vs-saxo-bank" },
-];
-
 // ── Helpers ──
 const scoreColor = (s) => s >= 9.0 ? "#059669" : s >= 8.0 ? "#2563eb" : "#d97706";
-const scoreLabel = (s) => s >= 9.5 ? "Excellent" : s >= 9.0 ? "Great" : s >= 8.5 ? "Very Good" : "Good";
 import { getVisitUrl } from "../utils/visitUrl";
 
 // ══════════════════════════════════════════════════════
@@ -151,7 +143,7 @@ function BrokerPowerCards({ mob, tab, lp, brokers }) {
           {[
             { n: "130+", l: "Data Points Per Broker" },
             { n: "100%", l: "Independent Rankings" },
-            { n: "Real $", l: "Money Testing" },
+            { n: "51+", l: "Brokers Rated" },
             { n: "Q1 2026", l: "Last Updated" },
           ].map((s, i) => (
             <div key={i} style={{ textAlign: "center" }}>
@@ -227,19 +219,6 @@ export default function Home() {
     scriptEl.textContent = JSON.stringify(schemas);
     return () => { const el = document.querySelector('script[data-jsonld="home"]'); if (el) el.remove(); };
   }, []);
-
-  // ── Umbrella Categories (dev-only blueprint, aligned with ranking URLs) ──
-  const UMBRELLA_CATEGORIES = [
-    { name: "Forex Brokers", slug: "best-forex-brokers", icon: "trending-up", count: 205, phase: 1, status: "done" },
-    { name: "CFD Brokers", slug: "best-cfd-brokers", icon: "bar-chart-3", count: 25, phase: 1, status: "new" },
-    { name: "Copy Trading", slug: "best-copy-trading-platforms", icon: "handshake", count: 12, phase: 1, status: "new" },
-    { name: "Spread Betting", slug: "best-spread-betting-brokers", icon: "target", count: 9, phase: 1, status: "new" },
-    { name: "Crypto Brokers", slug: "best-crypto-brokers", icon: "bitcoin", count: 26, phase: 1, status: "partial" },
-    { name: "Stock Brokers", slug: "best-stock-brokers", icon: "building-2", count: 15, phase: 2, status: "new" },
-    { name: "Options Brokers", slug: "best-options-brokers", icon: "layers", count: 9, phase: 2, status: "new" },
-    { name: "Futures Brokers", slug: "best-futures-brokers", icon: "timer", count: 10, phase: 2, status: "new" },
-    { name: "Prop Firms", slug: "prop-firms", icon: "rocket", count: 17, phase: 3, status: "future" },
-  ];
 
   return (
     <div style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb", minHeight: "100vh" }}>
@@ -735,7 +714,7 @@ export default function Home() {
               Independent Research. No Paid Placements.
             </h2>
             <p style={{ fontSize: mob ? 15 : 17, lineHeight: 1.7, color: "#cbd5e1" }}>
-              Every broker on RatedBrokers is scored across 6 weighted categories using real accounts, real money, and real trades. We earn commissions when you open an account — but this never influences our rankings or reviews.
+              Our analysts score brokers across 6 weighted categories using publicly available data, regulatory filings, and aggregated user reviews. We earn commissions when you open an account — but this never influences our rankings or reviews.
             </p>
           </div>
 
