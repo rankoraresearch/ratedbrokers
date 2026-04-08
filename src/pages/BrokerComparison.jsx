@@ -28,13 +28,15 @@ function sortedRegs(regs) {
   return [...regs].sort((a, b) => (a.tier || 99) - (b.tier || 99));
 }
 
+const WIDE_LIGHT_EXT = { "fxpro": "jpg" };
 const WIDE_NEEDS_DARK_BG = new Set([
-  "dukascopy", "fxpro", "ig", "naga", "trading-212", "xm", "xm-v2",
+  "dukascopy", "ig", "naga", "trading-212", "xm", "xm-v2",
 ]);
-const WIDE_HAS_OWN_BG = new Set(["exness", "charles-schwab"]);
+const WIDE_HAS_OWN_BG = new Set(["exness", "charles-schwab", "fxpro"]);
 const WIDE_USE_ICON = new Set([]);
 function WideLogoLight({ slug, name, fallback, mob }) {
   const [err, setErr] = useState(false);
+  const ext = WIDE_LIGHT_EXT[slug] || "svg";
   const h = mob ? 48 : 56;
   const w = mob ? 180 : 220;
   const needsDark = WIDE_NEEDS_DARK_BG.has(slug);
@@ -60,7 +62,7 @@ function WideLogoLight({ slug, name, fallback, mob }) {
       padding: hasOwnBg ? 0 : "8px 16px",
     }}>
       <img
-        src={`${import.meta.env.BASE_URL}logos-wide/${slug}.svg`}
+        src={`${import.meta.env.BASE_URL}logos-wide/${slug}.${ext}`}
         alt={`${name} logo`}
         loading="lazy"
         onError={() => setErr(true)}
