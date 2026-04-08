@@ -181,6 +181,7 @@ const visitUrl = apiBase ? `${apiBase}/go/${slug}` : B.url;
 
 | File | Content |
 |------|---------|
+| [`IMPROVEMENTS.md`](IMPROVEMENTS.md) | Improvement tracker: done + planned, Frontend/Backend/Admin relationships |
 | [`backend/README.md`](backend/README.md) | Full API reference, DB schema, deployment |
 | [`ADMIN-GUIDE.md`](ADMIN-GUIDE.md) | Admin panel — 7 sections guide |
 | [`REVIEW-EDITOR-GUIDE.md`](REVIEW-EDITOR-GUIDE.md) | Review Editor instructions (EN/RU) |

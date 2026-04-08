@@ -73,6 +73,7 @@ HH:MM — действие — результат
 | `ARCHITECTURE.md` | Frontend structure, data pipeline, routing, deployment |
 | `ADMIN-GUIDE.md` | Руководство по 7 разделам админ-панели |
 | `REVIEW-EDITOR-GUIDE.md` | Инструкция по Review Editor (EN/RU) |
+| `IMPROVEMENTS.md` | Трекер улучшений: выполненные + запланированные, связь Frontend/Backend/Admin |
 | `backend/README.md` | API reference, D1 schema, все 40+ endpoints |
 
 ## Стек и правила кода
