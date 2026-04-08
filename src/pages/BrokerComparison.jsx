@@ -64,7 +64,7 @@ function WideLogoLight({ slug, name, fallback, mob }) {
         alt={`${name} logo`}
         loading="lazy"
         onError={() => setErr(true)}
-        style={{ width: "100%", height: "100%", objectFit: hasOwnBg ? "fill" : "contain", borderRadius: hasOwnBg ? 14 : 0 }}
+        style={{ width: "100%", height: "100%", objectFit: hasOwnBg ? "cover" : "contain", borderRadius: hasOwnBg ? 14 : 0, display: "block" }}
       />
     </div>
   );
