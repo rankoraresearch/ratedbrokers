@@ -12,12 +12,14 @@ import { ChevronDown, Check, X as XIcon, ExternalLink } from "lucide-react";
 /* ── Wide logo maps — dark variant (white text on navy) ── */
 const WIDE_EXT = {}; /* override for brokers without vector SVG */
 const LOGO_BG_DEFAULT = "linear-gradient(135deg, #0a2018, #0f172a)";
+const RANK_WIDE_HAS_OWN_BG = new Set(["charles-schwab", "exness"]);
 
 /* ── Wide wordmark logo ── */
 function WideLogo({ slug, name, fallback, w = 200, h = 64, radius = 12 }) {
   const [err, setErr] = useState(false);
   const ext = WIDE_EXT[slug] || "svg";
   const bg = LOGO_BG_DEFAULT;
+  const hasOwnBg = RANK_WIDE_HAS_OWN_BG.has(slug);
   if (err) {
     return (
       <div style={{ background: bg, borderRadius: radius, padding: 4, display: "inline-flex" }}>
@@ -29,17 +31,18 @@ function WideLogo({ slug, name, fallback, w = 200, h = 64, radius = 12 }) {
     <div style={{
       borderRadius: radius, overflow: "hidden", display: "inline-flex",
       alignItems: "center", justifyContent: "center",
-      height: h, width: w, flexShrink: 0, background: bg,
-      border: "1px solid #1a3d30",
+      height: h, width: w, flexShrink: 0,
+      background: hasOwnBg ? "transparent" : bg,
+      border: hasOwnBg ? "none" : "1px solid #1a3d30",
     }}>
       <img
         src={`${import.meta.env.BASE_URL}logos-wide-dark/${slug}.${ext}`}
         alt={`${name} logo`}
         loading="lazy"
         onError={() => setErr(true)}
-        style={{
-          width: "70%", height: "70%", objectFit: "contain",
-        }}
+        style={hasOwnBg
+          ? { width: "100%", height: "100%", objectFit: "cover", borderRadius: radius }
+          : { width: "70%", height: "70%", objectFit: "contain" }}
       />
     </div>
   );

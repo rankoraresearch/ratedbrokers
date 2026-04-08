@@ -31,8 +31,8 @@ function sortedRegs(regs) {
 const WIDE_NEEDS_DARK_BG = new Set([
   "dukascopy", "fxpro", "ig", "naga", "trading-212", "xm", "xm-v2",
 ]);
-const WIDE_HAS_OWN_BG = new Set(["exness"]);
-const WIDE_USE_ICON = new Set(["charles-schwab"]);
+const WIDE_HAS_OWN_BG = new Set(["exness", "charles-schwab"]);
+const WIDE_USE_ICON = new Set([]);
 function WideLogoLight({ slug, name, fallback, mob }) {
   const [err, setErr] = useState(false);
   const h = mob ? 48 : 56;

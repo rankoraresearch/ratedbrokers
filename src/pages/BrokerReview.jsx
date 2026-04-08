@@ -31,13 +31,13 @@ function Card({children,style={}}){ return <div style={{background:"#fff",border
 /* Wide rectangular wordmark logo for review hero.
    Uses logos-wide-dark/ (white text SVGs on navy bg). */
 const WIDE_EXT = {}; /* override for brokers without vector SVG */
-const LOGO_BG_DEFAULT = "#0f172a";
+const WIDE_DARK_HAS_OWN_BG = new Set(["charles-schwab", "exness"]);
 function WideLogo({ slug, name, fallback, mob }) {
   const [err, setErr] = useState(false);
   const ext = WIDE_EXT[slug] || "svg";
   const h = mob ? 64 : 88;
   const w = mob ? 200 : 280;
-  const bg = LOGO_BG_DEFAULT;
+  const hasOwnBg = WIDE_DARK_HAS_OWN_BG.has(slug);
   if (err) {
     return (
       <div style={{ background: "#fff", borderRadius: 14, padding: 4, display: "inline-flex" }}>
@@ -46,13 +46,20 @@ function WideLogo({ slug, name, fallback, mob }) {
     );
   }
   return (
-    <div style={{ borderRadius: 14, overflow: "hidden", display: "inline-flex", alignItems: "center", justifyContent: "center", height: h, width: w, flexShrink: 0, background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.12)" }}>
+    <div style={{
+      borderRadius: 14, overflow: "hidden", display: "inline-flex", alignItems: "center", justifyContent: "center",
+      height: h, width: w, flexShrink: 0,
+      background: hasOwnBg ? "transparent" : "rgba(255,255,255,0.08)",
+      border: hasOwnBg ? "none" : "1px solid rgba(255,255,255,0.12)",
+    }}>
       <img
         src={`${import.meta.env.BASE_URL}logos-wide-dark/${slug}.${ext}`}
         alt={`${name} logo`}
         loading="lazy"
         onError={() => setErr(true)}
-        style={{ width: "70%", height: "70%", objectFit: "contain" }}
+        style={hasOwnBg
+          ? { width: "100%", height: "100%", objectFit: "cover", borderRadius: 14 }
+          : { width: "70%", height: "70%", objectFit: "contain" }}
       />
     </div>
   );

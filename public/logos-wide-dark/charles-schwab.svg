@@ -1,9 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 60" width="320" height="60">
-  <defs>
-    <clipPath id="iconClip"><rect x="2" y="2" width="56" height="56" rx="10"/></clipPath>
-  </defs>
-  <image x="2" y="2" width="56" height="56" clip-path="url(#iconClip)" href="../logos/charles-schwab.png" />
-  <text x="68" y="27" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="16" font-weight="700" fill="#ffffff" letter-spacing="-0.3">Charles</text>
-  <text x="68" y="48" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="16" font-weight="700" fill="#ffffff" letter-spacing="-0.3">Schwab</text>
-  <text x="130" y="48" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="10" font-weight="400" fill="#00a0df">®</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="280" height="88" viewBox="0 0 280 88">
+  <rect width="280" height="88" rx="14" fill="#0080c6"/>
+  <text x="140" y="36" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="14" font-weight="400" font-style="italic" fill="rgba(255,255,255,0.8)" letter-spacing="3">Charles</text>
+  <text x="140" y="62" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="22" font-weight="700" fill="#ffffff" letter-spacing="4">SCHWAB</text>
 </svg>
