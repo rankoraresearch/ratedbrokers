@@ -6,7 +6,7 @@ import { useLocalePath } from "../i18n/useLocalePath";
 import { getAllBrokersWithData } from "../data/brokers";
 import RANKINGS from "../data/rankings";
 import HUBS, { getRankingsForHub } from "../data/categoryHubs";
-import { POPULAR_PAIRS_BY_VERTICAL, canonicalPair } from "../data/comparisons";
+import { POPULAR_PAIRS_BY_VERTICAL, canonicalPair, VERTICALS } from "../data/comparisons";
 import BrokerLogo from "../components/BrokerLogo";
 import Icon from "../components/Icon";
 import { ArrowRight, BarChart3, BookOpen, Target, ChevronDown, ChevronUp } from "lucide-react";
@@ -568,19 +568,26 @@ export default function Home() {
           Compare brokers head-to-head across forex, stocks, crypto, and more — scores, fees, and regulation side by side.
         </p>
 
-        {/* Vertical category labels */}
+        {/* Vertical category labels — driven from VERTICALS source of truth */}
         <div style={{ display: "flex", gap: 8, marginBottom: 20, flexWrap: "wrap" }}>
           {[
-            { key: "forex", label: "Forex", color: "#059669" },
-            { key: "stocks", label: "Stocks", color: "#2563eb" },
-            { key: "crypto", label: "Crypto", color: "#f59e0b" },
-          ].map(v => (
-            <span key={v.key} style={{
-              padding: "4px 12px", borderRadius: 6,
-              background: `${v.color}12`, border: `1px solid ${v.color}30`,
-              color: v.color, fontSize: 12, fontWeight: 700,
-            }}>{v.label}</span>
-          ))}
+            { key: "forex", color: "#059669" },
+            { key: "stocks", color: "#2563eb" },
+            { key: "crypto", color: "#f59e0b" },
+          ].map(v => {
+            const vert = VERTICALS.find(vt => vt.key === v.key);
+            return (
+              <span key={v.key} style={{
+                padding: "4px 12px", borderRadius: 6,
+                background: `${v.color}12`, border: `1px solid ${v.color}30`,
+                color: v.color, fontSize: 12, fontWeight: 700,
+                display: "inline-flex", alignItems: "center", gap: 5,
+              }}>
+                {vert && <Icon name={vert.icon} size={13} />}
+                {vert ? vert.label : v.key}
+              </span>
+            );
+          })}
         </div>
 
         <div style={{
@@ -758,53 +765,16 @@ export default function Home() {
           Every review is written, peer-reviewed, and fact-checked by certified industry professionals with real trading experience.
         </p>
 
-        {/* Founder hero card */}
-        {(() => {
-          const founder = Object.values(AUTHORS).find(a => a.isFounder);
-          if (!founder) return null;
-          return (
-            <Link to={lp(`/author/${founder.id}`)} style={{
-              display: "flex", alignItems: "center", gap: mob ? 16 : 24,
-              padding: mob ? "20px 16px" : "28px 32px",
-              borderRadius: 16, marginBottom: 16,
-              background: "linear-gradient(135deg, #0a1628, #0f172a)",
-              border: "1px solid rgba(52,211,153,0.2)",
-              borderLeft: "4px solid #059669",
-              textDecoration: "none", transition: "all 0.2s",
-            }}
-              onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(52,211,153,0.5)"; e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 8px 24px rgba(0,0,0,0.2)"; }}
-              onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(52,211,153,0.2)"; e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "none"; }}
-            >
-              <div style={{ flexShrink: 0 }}>
-                <AuthorAvatar author={founder} size={mob ? 64 : 80} showVerified />
-              </div>
-              <div style={{ flex: 1 }}>
-                <span style={{
-                  display: "inline-block", marginBottom: 8,
-                  padding: "3px 10px", borderRadius: 6,
-                  background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: "#0f172a",
-                  fontSize: 10, fontWeight: 800, letterSpacing: "0.06em", textTransform: "uppercase",
-                }}>FOUNDER & EDITOR-IN-CHIEF</span>
-                <div style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: mob ? 18 : 24, color: "#f8fafc" }}>{founder.name}</div>
-                <div style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 12, color: "#34d399", marginTop: 4 }}>
-                  {founder.exp} experience
-                </div>
-                <p style={{ fontSize: mob ? 13 : 15, color: "#94a3b8", fontStyle: "italic", marginTop: 8, lineHeight: 1.6 }}>
-                  "{founder.shortBio}"
-                </p>
-              </div>
-              <ArrowRight size={20} color="#94a3b8" style={{ flexShrink: 0 }} />
-            </Link>
-          );
-        })()}
-
-        {/* Analyst grid */}
+        {/* All team members — equal cards, founder first */}
         <div style={{
           display: "grid",
-          gridTemplateColumns: mob ? "1fr 1fr" : "repeat(4, 1fr)",
+          gridTemplateColumns: mob ? "1fr 1fr" : tab ? "repeat(3, 1fr)" : "repeat(5, 1fr)",
           gap: 12,
         }}>
-          {Object.values(AUTHORS).filter(a => !a.isFounder).map((a) => (
+          {[
+            ...Object.values(AUTHORS).filter(a => a.isFounder),
+            ...Object.values(AUTHORS).filter(a => !a.isFounder),
+          ].map((a) => (
             <Link key={a.id} to={lp(`/author/${a.id}`)} style={{
               display: "flex", flexDirection: "column", alignItems: "center", gap: 10,
               padding: mob ? "20px 12px" : "24px 16px", borderRadius: 14,
@@ -818,7 +788,7 @@ export default function Home() {
               <div style={{ textAlign: "center" }}>
                 <div style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 700, fontSize: mob ? 13 : 15 }}>{a.name}</div>
                 <div style={{ fontSize: 13, color: "#64748b", marginTop: 2 }}>{a.role}</div>
-                {a.credentials.length > 0 && (
+                {a.credentials && a.credentials.length > 0 && (
                   <div style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11, color: "#059669", fontWeight: 700, marginTop: 4 }}>
                     {a.credentials.join(" · ")}
                   </div>
