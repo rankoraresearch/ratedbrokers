@@ -28,28 +28,30 @@ const BrokerSubPage = lazy(() => import("./pages/BrokerSubPage"));
 const WarningPage = lazy(() => import("./pages/WarningPage"));
 const FindYourBrokerPage = lazy(() => import("./pages/FindYourBrokerPage"));
 
-// ─── Prototypes (lazy, dev-only chunks) ───
-const PrototypesPage = lazy(() => import("./pages/prototypes/PrototypesPage"));
-const LogoLab = lazy(() => import("./pages/LogoLabDotCom"));
-const RankingProto = lazy(() => import("./pages/RankingProto"));
-const RankingProtoB = lazy(() => import("./pages/RankingProtoB"));
-const RankingProtoC = lazy(() => import("./pages/RankingProtoC"));
-const CardProto = lazy(() => import("./pages/CardProto"));
-const RankingProtoWide = lazy(() => import("./pages/RankingProtoWide"));
-const LightThemeProto = lazy(() => import("./pages/LightThemeProto"));
-const ButtonLogoProto = lazy(() => import("./pages/ButtonLogoProto"));
-const SubPagesProto = lazy(() => import("./pages/SubPagesProto"));
-const SafetyProto = lazy(() => import("./pages/SafetyProto"));
-const HomeProtoA = lazy(() => import("./pages/HomeProtoA"));
-const HomeProtoC = lazy(() => import("./pages/HomeProtoC"));
-const HomeProtoF = lazy(() => import("./pages/HomeProtoF"));
-const HomeProtoF2 = lazy(() => import("./pages/HomeProtoF2"));
-const HomeProtoF3 = lazy(() => import("./pages/HomeProtoF3"));
-const HomeProtoF4 = lazy(() => import("./pages/HomeProtoF4"));
-const HomePrototypes = lazy(() => import("./pages/HomePrototypes"));
-const RankingHeroProtos = lazy(() => import("./pages/RankingHeroProtos"));
-const HeroButtonsProto = lazy(() => import("./pages/HeroButtonsProto"));
-const ScoreBadgeProto = lazy(() => import("./pages/ScoreBadgeProto"));
+const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
+
+// ─── Prototypes (lazy, dev-only — excluded from production bundle) ───
+const PrototypesPage = import.meta.env.DEV ? lazy(() => import("./pages/prototypes/PrototypesPage")) : null;
+const LogoLab = import.meta.env.DEV ? lazy(() => import("./pages/LogoLabDotCom")) : null;
+const RankingProto = import.meta.env.DEV ? lazy(() => import("./pages/RankingProto")) : null;
+const RankingProtoB = import.meta.env.DEV ? lazy(() => import("./pages/RankingProtoB")) : null;
+const RankingProtoC = import.meta.env.DEV ? lazy(() => import("./pages/RankingProtoC")) : null;
+const CardProto = import.meta.env.DEV ? lazy(() => import("./pages/CardProto")) : null;
+const RankingProtoWide = import.meta.env.DEV ? lazy(() => import("./pages/RankingProtoWide")) : null;
+const LightThemeProto = import.meta.env.DEV ? lazy(() => import("./pages/LightThemeProto")) : null;
+const ButtonLogoProto = import.meta.env.DEV ? lazy(() => import("./pages/ButtonLogoProto")) : null;
+const SubPagesProto = import.meta.env.DEV ? lazy(() => import("./pages/SubPagesProto")) : null;
+const SafetyProto = import.meta.env.DEV ? lazy(() => import("./pages/SafetyProto")) : null;
+const HomeProtoA = import.meta.env.DEV ? lazy(() => import("./pages/HomeProtoA")) : null;
+const HomeProtoC = import.meta.env.DEV ? lazy(() => import("./pages/HomeProtoC")) : null;
+const HomeProtoF = import.meta.env.DEV ? lazy(() => import("./pages/HomeProtoF")) : null;
+const HomeProtoF2 = import.meta.env.DEV ? lazy(() => import("./pages/HomeProtoF2")) : null;
+const HomeProtoF3 = import.meta.env.DEV ? lazy(() => import("./pages/HomeProtoF3")) : null;
+const HomeProtoF4 = import.meta.env.DEV ? lazy(() => import("./pages/HomeProtoF4")) : null;
+const HomePrototypes = import.meta.env.DEV ? lazy(() => import("./pages/HomePrototypes")) : null;
+const RankingHeroProtos = import.meta.env.DEV ? lazy(() => import("./pages/RankingHeroProtos")) : null;
+const HeroButtonsProto = import.meta.env.DEV ? lazy(() => import("./pages/HeroButtonsProto")) : null;
+const ScoreBadgeProto = import.meta.env.DEV ? lazy(() => import("./pages/ScoreBadgeProto")) : null;
 
 function PageLoader() {
   return (
@@ -83,27 +85,30 @@ function ReviewRedirect() {
 function AppRoutes() {
   return (
     <Routes>
-      <Route path="prototypes" element={<Suspense fallback={<PageLoader />}><PrototypesPage /></Suspense>} />
-      <Route path="logo-lab" element={<Suspense fallback={<PageLoader />}><LogoLab /></Suspense>} />
-      <Route path="proto/ranking" element={<Layout />}><Route index element={<RankingProto />} /></Route>
-      <Route path="proto/ranking-b" element={<Layout />}><Route index element={<RankingProtoB />} /></Route>
-      <Route path="proto/ranking-c" element={<Layout />}><Route index element={<RankingProtoC />} /></Route>
-      <Route path="proto/card" element={<Layout />}><Route index element={<CardProto />} /></Route>
-      <Route path="proto/ranking-wide" element={<Layout />}><Route index element={<RankingProtoWide />} /></Route>
-      <Route path="proto/light-theme" element={<Layout />}><Route index element={<LightThemeProto />} /></Route>
-      <Route path="proto/buttons" element={<Suspense fallback={<PageLoader />}><ButtonLogoProto /></Suspense>} />
-      <Route path="proto/subpages" element={<Layout />}><Route index element={<SubPagesProto />} /></Route>
-      <Route path="proto/home" element={<Layout />}><Route index element={<HomePrototypes />} /></Route>
-      <Route path="proto/ranking-hero" element={<Layout />}><Route index element={<RankingHeroProtos />} /></Route>
-      <Route path="proto/hero-buttons" element={<Layout />}><Route index element={<HeroButtonsProto />} /></Route>
-      <Route path="proto/score-badge" element={<Layout />}><Route index element={<ScoreBadgeProto />} /></Route>
-      <Route path="proto/home-a" element={<Layout />}><Route index element={<HomeProtoA />} /></Route>
-      <Route path="proto/home-c" element={<Layout />}><Route index element={<HomeProtoC />} /></Route>
-      <Route path="proto/home-f" element={<Layout />}><Route index element={<HomeProtoF />} /></Route>
-      <Route path="proto/home-f2" element={<Layout />}><Route index element={<HomeProtoF2 />} /></Route>
-      <Route path="proto/home-f3" element={<Layout />}><Route index element={<HomeProtoF3 />} /></Route>
-      <Route path="proto/home-f4" element={<Layout />}><Route index element={<HomeProtoF4 />} /></Route>
-      <Route path="proto/safety" element={<Layout />}><Route index element={<SafetyProto />} /></Route>
+      {/* ─── Prototypes (dev-only, gated by import.meta.env.DEV) ─── */}
+      {import.meta.env.DEV && <>
+        <Route path="prototypes" element={<Suspense fallback={<PageLoader />}><PrototypesPage /></Suspense>} />
+        <Route path="logo-lab" element={<Suspense fallback={<PageLoader />}><LogoLab /></Suspense>} />
+        <Route path="proto/ranking" element={<Layout />}><Route index element={<RankingProto />} /></Route>
+        <Route path="proto/ranking-b" element={<Layout />}><Route index element={<RankingProtoB />} /></Route>
+        <Route path="proto/ranking-c" element={<Layout />}><Route index element={<RankingProtoC />} /></Route>
+        <Route path="proto/card" element={<Layout />}><Route index element={<CardProto />} /></Route>
+        <Route path="proto/ranking-wide" element={<Layout />}><Route index element={<RankingProtoWide />} /></Route>
+        <Route path="proto/light-theme" element={<Layout />}><Route index element={<LightThemeProto />} /></Route>
+        <Route path="proto/buttons" element={<Suspense fallback={<PageLoader />}><ButtonLogoProto /></Suspense>} />
+        <Route path="proto/subpages" element={<Layout />}><Route index element={<SubPagesProto />} /></Route>
+        <Route path="proto/home" element={<Layout />}><Route index element={<HomePrototypes />} /></Route>
+        <Route path="proto/ranking-hero" element={<Layout />}><Route index element={<RankingHeroProtos />} /></Route>
+        <Route path="proto/hero-buttons" element={<Layout />}><Route index element={<HeroButtonsProto />} /></Route>
+        <Route path="proto/score-badge" element={<Layout />}><Route index element={<ScoreBadgeProto />} /></Route>
+        <Route path="proto/home-a" element={<Layout />}><Route index element={<HomeProtoA />} /></Route>
+        <Route path="proto/home-c" element={<Layout />}><Route index element={<HomeProtoC />} /></Route>
+        <Route path="proto/home-f" element={<Layout />}><Route index element={<HomeProtoF />} /></Route>
+        <Route path="proto/home-f2" element={<Layout />}><Route index element={<HomeProtoF2 />} /></Route>
+        <Route path="proto/home-f3" element={<Layout />}><Route index element={<HomeProtoF3 />} /></Route>
+        <Route path="proto/home-f4" element={<Layout />}><Route index element={<HomeProtoF4 />} /></Route>
+        <Route path="proto/safety" element={<Layout />}><Route index element={<SafetyProto />} /></Route>
+      </>}
       <Route element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="uk" element={<Navigate to="/best-forex-brokers-uk" replace />} />
@@ -141,6 +146,7 @@ function AppRoutes() {
         <Route path="options-trading" element={<Navigate to="/best-options-brokers" replace />} />
         <Route path="futures-trading" element={<Navigate to="/best-futures-brokers" replace />} />
         <Route path=":slug" element={<RankingPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
   );

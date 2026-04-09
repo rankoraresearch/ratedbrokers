@@ -15,6 +15,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { useMedia } from "../hooks/useMedia";
+import NotFoundPage from "./NotFoundPage";
 import { useLocalePath } from "../i18n/useLocalePath";
 import RANKINGS, { getRankingBySlug, getRankingsByCategory, getRankingsBySub } from "../data/rankings";
 import { getBrokersForRanking, fetchRankingOverrides, applyOverrides } from "../data/rankingFilters";
@@ -555,7 +556,7 @@ export default function RankingPage() {
     }
   }, [ranking?.id]);
 
-  if (!ranking) return <Navigate to="/" replace />;
+  if (!ranking) return <NotFoundPage />;
 
   const baseBrokers = getBrokersForRanking(ranking.id);
   const brokers = applyOverrides(baseBrokers, overrides);
