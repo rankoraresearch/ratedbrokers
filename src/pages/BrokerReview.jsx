@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { getBrokerData } from "../data/brokers/index";
 import { useTranslation } from "../i18n/LanguageContext";
 import { useLocalePath } from "../i18n/useLocalePath";
+import { useMedia } from "../hooks/useMedia";
 import { getAuthorByName, getFactChecker, getReviewerForAuthor, getEditor } from "../data/authors";
 import AuthorCredits from "../components/AuthorCredits";
 import AuthorBioCard from "../components/AuthorBioCard";
@@ -65,11 +66,7 @@ function WideLogo({ slug, name, fallback, mob }) {
   );
 }
 
-function useMedia() {
-  const [w, setW] = useState(typeof window !== "undefined" ? window.innerWidth : 1200);
-  useEffect(() => { const fn = () => setW(window.innerWidth); window.addEventListener("resize", fn); return () => window.removeEventListener("resize", fn); }, []);
-  return { mob: w < 640, tab: w >= 640 && w < 1024, desk: w >= 1024 };
-}
+// useMedia — imported via hooks/useMedia
 
 const DEEP_DIVE_TABS = [
   {id:"fees",label:"Fees & Spreads",Icon:BarChart3},
