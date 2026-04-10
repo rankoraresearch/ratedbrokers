@@ -1,20 +1,27 @@
 import { corsHeaders } from '../utils/cors.js';
 
-// Simple in-memory rate limiter: 10 messages per hour per IP
-// Map resets on Worker restart (cold start), which is acceptable for basic protection.
-const rateLimitMap = new Map();
+// Cache API rate limiter: 10 messages per hour per IP.
+// Survives Worker restarts (unlike in-memory Map).
 const RATE_LIMIT = 10;
-const RATE_WINDOW_MS = 60 * 60 * 1000; // 1 hour
+const RATE_WINDOW_SECONDS = 3600; // 1 hour
 
-function isRateLimited(ip) {
-  const now = Date.now();
-  const entry = rateLimitMap.get(ip);
-  if (!entry || now - entry.start > RATE_WINDOW_MS) {
-    rateLimitMap.set(ip, { start: now, count: 1 });
-    return false;
+async function isRateLimited(ip) {
+  const cache = caches.default;
+  const cacheKey = new Request(`https://rate-limit.internal/contact/${ip}`);
+
+  const cached = await cache.match(cacheKey);
+  let count = 1;
+  if (cached) {
+    count = parseInt(await cached.text(), 10) + 1;
   }
-  entry.count++;
-  if (entry.count > RATE_LIMIT) return true;
+
+  if (count > RATE_LIMIT) return true;
+
+  // Update count in cache with TTL
+  const response = new Response(String(count), {
+    headers: { 'Cache-Control': `max-age=${RATE_WINDOW_SECONDS}` },
+  });
+  await cache.put(cacheKey, response);
   return false;
 }
 
@@ -23,7 +30,7 @@ export async function handleContact(request, env) {
 
   // Rate limit check
   const ip = request.headers.get('cf-connecting-ip') || request.headers.get('x-forwarded-for') || 'unknown';
-  if (isRateLimited(ip)) {
+  if (await isRateLimited(ip)) {
     return Response.json(
       { error: 'Too many requests. Please try again later.' },
       { status: 429, headers }

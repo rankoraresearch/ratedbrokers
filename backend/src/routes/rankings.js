@@ -344,9 +344,17 @@ export async function handleRankingOrderUpdate(request, env, rankingId) {
   }
 
   // Validate entries
+  const totalItems = body.length;
   for (const item of body) {
     if (!item.slug || typeof item.slug !== 'string') {
       return Response.json({ error: 'Each item must have a slug' }, { status: 400, headers });
+    }
+    // Validate position range
+    if (item.position !== undefined && item.position !== null) {
+      const pos = Number(item.position);
+      if (!Number.isInteger(pos) || pos < 1 || pos > totalItems) {
+        return Response.json({ error: `Invalid position ${item.position} for ${item.slug}. Must be 1-${totalItems}.` }, { status: 400, headers });
+      }
     }
   }
 

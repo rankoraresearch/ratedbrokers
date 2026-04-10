@@ -2,6 +2,11 @@
  * Centralized auth — accepts both Authorization header and ?key= query param.
  * Header is preferred (more secure), query param kept for backwards compatibility
  * (browser navigation to HTML dashboards can't set headers).
+ *
+ * TODO: Migrate to session cookies for admin HTML dashboards.
+ * ?key= in URL is visible in server logs, browser history, and Referer headers.
+ * Plan: authenticate via header → set HttpOnly cookie → dashboards use cookie.
+ * Requires updating all admin HTML pages to read auth from cookie instead of ?key=.
  */
 
 export function checkAuth(request, env) {
