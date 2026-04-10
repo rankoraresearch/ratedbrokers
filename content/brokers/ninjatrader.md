@@ -205,3 +205,64 @@ Funding is available via ACH bank transfer, wire transfer, and in some cases cre
 
 A competitive choice for futures traders seeking low commissions and access to CME Group products.
 
+subpages:
+  fees:
+    quick_answer: "NinjaTrader: Micro futures from $0.09/contract (free platform tier). Standard futures: $0.35-$0.59 depending on platform tier. Free platform tier available."
+    tab_score: 9
+    pros:
+      - "Micro futures from $0.09/contract — cheapest available"
+      - "Free platform tier for basic features"
+      - "Lifetime license option ($1,099) eliminates monthly fees"
+      - "No account maintenance fees"
+    cons:
+      - "Advanced features require paid license ($99-$225/mo)"
+      - "Stock/options not available"
+      - "Lifetime license is expensive upfront"
+  regulation:
+    quick_answer: "NinjaTrader LLC: NFA member, CFTC registered. Futures Commission Merchant (FCM). Client funds in segregated accounts at major US banks."
+    tab_score: 8.5
+    pros:
+      - "NFA/CFTC registered FCM"
+      - "Segregated funds at US banks"
+      - "Operating since 2003"
+      - "Dedicated futures-only focus"
+    cons:
+      - "Futures-only — no SEC/FINRA registration"
+      - "Smaller than IB or Schwab"
+      - "Limited to futures products"
+  platforms:
+    quick_answer: "NinjaTrader platform: advanced charting, DOM (Depth of Market), Market Replay, NinjaScript (C#) for custom indicators/strategies. Desktop-focused."
+    tab_score: 9.5
+    pros:
+      - "Best futures charting platform"
+      - "DOM — professional order flow analysis"
+      - "Market Replay — replay historical sessions"
+      - "NinjaScript C# — full automation capability"
+    cons:
+      - "Windows-only desktop platform"
+      - "Steep learning curve"
+      - "No mobile app from NinjaTrader directly"
+      - "Outdated UI compared to modern platforms"
+  deposit:
+    quick_answer: "ACH free (2-3 days), wire, check. Minimum deposit: varies ($50 for micro accounts, $400 for standard)."
+    tab_score: 7
+    pros:
+      - "Free ACH"
+      - "Low minimums for micro accounts"
+    cons:
+      - "No instant deposit"
+      - "Wire fees may apply"
+      - "Check processing slow"
+  beginners:
+    quick_answer: "NinjaTrader offers free simulation with Market Replay and educational webinars. Great for learning futures, but NOT for stock beginners."
+    tab_score: 6.5
+    pros:
+      - "Free simulation mode"
+      - "Market Replay for learning"
+      - "Educational webinars weekly"
+      - "Active community forums"
+    cons:
+      - "Futures-only — not for stock beginners"
+      - "Platform is complex"
+      - "Assumes futures market knowledge"
+      - "No structured beginner courses"

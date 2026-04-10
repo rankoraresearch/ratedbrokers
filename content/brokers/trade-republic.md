@@ -206,3 +206,64 @@ SEPA bank transfers are free and typically settle in 1-2 business days. Some ins
 
 A good option for European investors seeking simple, low-cost access to global markets through a regulated platform.
 
+subpages:
+  fees:
+    quick_answer: "Trade Republic: €1 flat fee per trade (stocks, ETFs, crypto, derivatives). Savings plans: €0. Interest on cash: 2.5% (as of 2025). No custody fee."
+    tab_score: 8
+    pros:
+      - "€1 flat fee — simple and transparent"
+      - "€0 for savings plans (2,600+ plans)"
+      - "2.5% interest on uninvested cash"
+      - "No custody or maintenance fees"
+    cons:
+      - "€1 per trade adds up for active traders"
+      - "No commission-free stock trading"
+      - "Limited to German/EU markets mainly"
+  regulation:
+    quick_answer: "Trade Republic Bank GmbH: regulated by BaFin (German banking license). Deposit protection: €100,000 via EdB. Securities held by HSBC Germany."
+    tab_score: 9
+    pros:
+      - "BaFin banking license — highest tier in Germany"
+      - "€100K deposit protection via EdB"
+      - "Securities held by HSBC (custodian)"
+      - "EU MiFID II compliant"
+    cons:
+      - "No FCA license — limited UK access"
+      - "Newer institution (founded 2015)"
+      - "Single-market focus (EU)"
+  platforms:
+    quick_answer: "Mobile-first app (iOS/Android) and web. Minimalist design. Savings plan automation, fractional shares, crypto. No desktop platform."
+    tab_score: 7
+    pros:
+      - "Beautiful minimalist mobile app"
+      - "Automated savings plans"
+      - "Fractional shares from €1"
+      - "Crypto trading built-in"
+    cons:
+      - "No desktop platform"
+      - "Very basic charting"
+      - "No API or advanced tools"
+      - "Limited order types"
+  deposit:
+    quick_answer: "SEPA transfer (free, 1-2 days), Apple Pay, Google Pay. No minimum deposit."
+    tab_score: 8.5
+    pros:
+      - "Free SEPA transfers"
+      - "Apple Pay and Google Pay"
+      - "No minimum deposit"
+    cons:
+      - "No credit card deposits"
+      - "No PayPal"
+      - "SEPA only — non-EU transfers expensive"
+  beginners:
+    quick_answer: "Trade Republic is designed for beginners. Savings plans from €1/month, clean interface, fractional shares. Limited educational content but the simplicity IS the education."
+    tab_score: 8.5
+    pros:
+      - "Savings plans from €1/month"
+      - "Simplest investing interface in Europe"
+      - "Fractional shares for any budget"
+      - "2.5% cash interest while you learn"
+    cons:
+      - "Very limited educational resources"
+      - "No paper trading"
+      - "Not suitable for active trading"

@@ -227,3 +227,59 @@ Multiple funding methods are supported including ACH bank transfers (free, 1-3 d
 
 A solid choice for stock and ETF investors seeking regulated, commission-free trading with quality research tools.
 
+subpages:
+  fees:
+    quick_answer: "TradeStation: $0 stocks/ETFs. Options: $0.60/contract. Futures: $1.50/contract. EasyLanguage for strategy development included."
+    tab_score: 8
+    pros:
+      - "$0 stock/ETF commissions"
+      - "$0.60 options — slightly below average"
+      - "Futures available at $1.50"
+      - "EasyLanguage included — no extra cost"
+    cons:
+      - "Futures $1.50 more than NinjaTrader"
+      - "$10 inactivity fee if <$2K equity and no trades in 12 months"
+      - "Crypto 0.12% fee"
+  regulation:
+    quick_answer: "TradeStation Securities: SEC + FINRA. TradeStation Futures: NFA/CFTC. SIPC $500K. Operating since 1982. Acquired by Monex Group (Japan) in 2011."
+    tab_score: 8.5
+    pros:
+      - "SEC + FINRA + NFA/CFTC"
+      - "SIPC $500K"
+      - "Operating since 1982"
+      - "Monex Group backing"
+    cons:
+      - "Japanese parent company"
+      - "Smaller than top-tier US brokers"
+  platforms:
+    quick_answer: "TradeStation desktop (Windows), web, mobile. EasyLanguage for custom strategies. RadarScreen, Matrix, OptionStation Pro."
+    tab_score: 8.5
+    pros:
+      - "EasyLanguage — best strategy development for non-programmers"
+      - "RadarScreen real-time scanning"
+      - "OptionStation Pro for options analysis"
+      - "API access for developers"
+    cons:
+      - "Desktop is Windows-only"
+      - "Web platform has fewer features"
+      - "Learning curve for EasyLanguage"
+  deposit:
+    quick_answer: "ACH free. Wire free incoming. Minimum $0 for TS Select, $2K for TS Go."
+    tab_score: 7.5
+    pros:
+      - "Free ACH"
+      - "No minimum for TS Select"
+    cons:
+      - "$2K minimum for TS Go"
+      - "No PayPal or instant deposit"
+  beginners:
+    quick_answer: "TradeStation offers YouCanTrade education platform, paper trading, and simulated accounts. Better for intermediate traders who want to learn strategy development."
+    tab_score: 6.5
+    pros:
+      - "YouCanTrade education platform"
+      - "Paper trading available"
+      - "EasyLanguage for learning strategies"
+    cons:
+      - "Platform intimidating for beginners"
+      - "Not mobile-first"
+      - "Better suited for intermediate+"

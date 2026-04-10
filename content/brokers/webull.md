@@ -223,3 +223,60 @@ Multiple funding methods are supported including ACH bank transfers (free, 1-3 d
 
 A solid choice for stock and ETF investors seeking regulated, commission-free trading with quality research tools.
 
+subpages:
+  fees:
+    quick_answer: "Webull: $0 stocks/ETFs/options. Options per-contract: $0. Futures: $0.50/contract (micro) to $1.50 (standard). No account minimums."
+    tab_score: 9
+    pros:
+      - "$0 commissions on stocks, ETFs, options"
+      - "$0 per-contract fee on options"
+      - "Competitive futures pricing"
+      - "No account minimum or maintenance fees"
+    cons:
+      - "PFOF for revenue — execution concerns"
+      - "Margin rates higher than IB"
+      - "Limited mutual fund access"
+  regulation:
+    quick_answer: "Webull Financial LLC: SEC + FINRA registered. SIPC $500K. Not publicly traded. Owned by Fumi Technology (China-based parent)."
+    tab_score: 7.5
+    pros:
+      - "SEC + FINRA regulated"
+      - "SIPC $500K coverage"
+      - "US-based brokerage entity"
+    cons:
+      - "Chinese parent company raises some concerns"
+      - "Smaller AUM than Schwab/Fidelity"
+      - "Not publicly traded — less transparency"
+  platforms:
+    quick_answer: "Webull desktop, web, and mobile. Advanced charting with 50+ indicators, paper trading, extended hours 4am-8pm ET. Level 2 data (Nasdaq TotalView)."
+    tab_score: 8.5
+    pros:
+      - "Advanced charting with 50+ indicators"
+      - "Paper trading built-in"
+      - "Extended hours trading 4am-8pm ET"
+      - "Level II Nasdaq TotalView data"
+    cons:
+      - "No TradingView integration"
+      - "No API for algo trading"
+      - "Desktop app less polished than thinkorswim"
+  deposit:
+    quick_answer: "ACH free (1-5 days, instant up to $2K). Wire free incoming. No minimum deposit."
+    tab_score: 8
+    pros:
+      - "Free ACH"
+      - "Instant deposit up to $2K"
+      - "No minimum deposit"
+    cons:
+      - "No PayPal or debit card"
+      - "Wire out $25"
+  beginners:
+    quick_answer: "Webull offers paper trading, community features, and educational articles. More advanced than Robinhood but steeper learning curve."
+    tab_score: 7.5
+    pros:
+      - "Paper trading for practice"
+      - "Community discussion features"
+      - "Advanced charting accessible to learners"
+    cons:
+      - "More complex than Robinhood"
+      - "Limited structured education"
+      - "No phone support"

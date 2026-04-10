@@ -220,3 +220,62 @@ ACH bank transfer (free, 1-4 business days), wire transfer (free incoming, same 
 
 tastytrade is the #1 choice for dedicated options traders. The capped pricing ($10/leg max), purpose-built platform, and $0 closing fees make it unmatched for derivatives-focused strategies.
 
+subpages:
+  fees:
+    quick_answer: "tastytrade: $0 stocks. Options: $1.00/contract (capped at $10/leg). Futures: $1.25/contract. Crypto: 1% spread. Designed to keep options costs low with the cap."
+    tab_score: 8
+    pros:
+      - "$1.00 options capped at $10/leg — cheapest for multi-leg"
+      - "$0 stock commissions"
+      - "Futures $1.25 — competitive"
+      - "No closing commission on options"
+    cons:
+      - "$1.00/contract higher than Schwab $0.65 for single legs"
+      - "Crypto spread 1% — expensive"
+      - "No commission-free period for new accounts"
+  regulation:
+    quick_answer: "tastytrade Inc: SEC + FINRA. SIPC $500K. Founded by Tom Sosnoff (TD Ameritrade thinkorswim creator). Acquired by IG Group in 2021."
+    tab_score: 8.5
+    pros:
+      - "SEC + FINRA registered"
+      - "SIPC $500K"
+      - "IG Group backing (LSE-listed)"
+      - "Founded by thinkorswim creator"
+    cons:
+      - "Smaller than Schwab/Fidelity"
+      - "IG Group ownership adds complexity"
+  platforms:
+    quick_answer: "tastytrade platform (desktop/web/mobile). Purpose-built for options with the curve, follow feed, and strategy visualization. Unique approach to options trading."
+    tab_score: 8.5
+    pros:
+      - "Best options-focused UI in industry"
+      - "The curve — unique probability visualization"
+      - "Follow feed — social trading for options"
+      - "Streamlined multi-leg order entry"
+    cons:
+      - "Not suitable for stock-only investors"
+      - "No TradingView or MT4"
+      - "Learning curve for platform-specific features"
+  deposit:
+    quick_answer: "ACH free, wire free incoming. No minimum deposit. Account transfer (ACATS) free."
+    tab_score: 8
+    pros:
+      - "Free ACH and incoming wire"
+      - "No minimum deposit"
+      - "Free ACATS transfers"
+    cons:
+      - "No PayPal or instant deposit"
+      - "$25 outgoing wire"
+      - "Limited funding methods"
+  beginners:
+    quick_answer: "tastytrade has the best options education in the industry — tastylive network with daily shows, courses, and the Learn Center. Not for stock beginners."
+    tab_score: 7
+    pros:
+      - "tastylive — daily educational shows"
+      - "Best options education available"
+      - "Paper trading available"
+      - "Active community"
+    cons:
+      - "Options-focused — not for stock beginners"
+      - "Platform assumes options knowledge"
+      - "Can be overwhelming without context"

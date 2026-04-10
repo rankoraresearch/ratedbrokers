@@ -219,3 +219,67 @@ SEPA bank transfers are free and typically settle in 1-2 business days. Some ins
 
 A good option for European investors seeking simple, low-cost access to global markets through a regulated platform.
 
+subpages:
+  fees:
+    quick_answer: "DEGIRO charges €0 for selected ETF core list, €1 flat fee for US stocks, and €3.90 for European stocks. No custody fee, no inactivity fee. Options: €0.75/contract. One of the cheapest European brokers."
+    tab_score: 8.5
+    pros:
+      - "€0 commission on 200+ core ETFs"
+      - "€1 flat fee for US stocks — cheapest in Europe"
+      - "No custody, maintenance, or inactivity fees"
+      - "€0.75 options contract — competitive for Europe"
+    cons:
+      - "€3.90 for European stocks — not zero"
+      - "No forex or CFD trading"
+      - "Currency conversion fee 0.25% (auto-conversion)"
+      - "No fractional shares"
+  regulation:
+    quick_answer: "DEGIRO is regulated by AFM (Netherlands) and BaFin (Germany) as flatexDEGIRO AG. Client funds held at flatexDEGIRO Bank under German banking license. Investor protection: €20,000 under Dutch scheme."
+    tab_score: 8
+    pros:
+      - "AFM + BaFin dual regulation"
+      - "German banking license for fund custody"
+      - "€20,000 investor compensation scheme"
+      - "Listed company (flatexDEGIRO AG on XETRA)"
+    cons:
+      - "No UK FCA regulation — not available post-Brexit UK"
+      - "€20K compensation lower than US $500K SIPC"
+      - "Complex entity structure across EU countries"
+  platforms:
+    quick_answer: "DEGIRO WebTrader (browser-based) and mobile app. Clean, simple interface focused on long-term investing. Basic charting, order types, and portfolio analytics. No desktop platform or API."
+    tab_score: 6.5
+    pros:
+      - "Clean, distraction-free interface"
+      - "Mobile app well-rated (4.5★)"
+      - "Portfolio analytics and P&L tracking"
+      - "Fast order execution"
+    cons:
+      - "Very basic charting — no technical analysis tools"
+      - "No desktop platform or TradingView"
+      - "No API access"
+      - "Limited order types — no trailing stops"
+  deposit:
+    quick_answer: "Bank transfer only (SEPA free, 1-2 days). iDEAL (NL, instant), Sofort (DE/AT, instant). No credit card, PayPal, or crypto deposits. No minimum deposit."
+    tab_score: 7
+    pros:
+      - "SEPA transfers free"
+      - "iDEAL instant for Dutch users"
+      - "Sofort instant for German users"
+      - "No minimum deposit"
+    cons:
+      - "No credit card or PayPal"
+      - "Bank transfer only — can take 1-2 days"
+      - "No instant deposit for most countries"
+  beginners:
+    quick_answer: "DEGIRO Investor Academy offers basic courses. Interface is beginner-friendly. Core ETF selection free. But limited research tools and no paper trading make it less educational than Fidelity/Schwab."
+    tab_score: 7
+    pros:
+      - "Simple, clean interface ideal for beginners"
+      - "Free core ETFs — great for starting investors"
+      - "Low fees reduce barrier to entry"
+      - "Investor Academy educational content"
+    cons:
+      - "No paper trading"
+      - "Very limited research and analysis tools"
+      - "No phone support in most countries"
+      - "Not suitable for active trading education"

@@ -216,3 +216,61 @@ Multiple funding methods are supported including ACH bank transfers (free, 1-3 d
 
 A solid choice for stock and ETF investors seeking regulated, commission-free trading with quality research tools.
 
+subpages:
+  fees:
+    quick_answer: "E*TRADE (now Morgan Stanley): $0 stocks/ETFs. Options: $0.65/contract ($0.50 for 30+ trades/quarter). Futures: $1.50/contract. Managed portfolios from 0.30% AUM."
+    tab_score: 8.5
+    pros:
+      - "$0 stock/ETF commissions"
+      - "$0.50 options for active traders (30+/quarter)"
+      - "Managed portfolio options from 0.30%"
+      - "No account minimum for brokerage"
+    cons:
+      - "$0.65 base options fee — higher than Robinhood $0"
+      - "Futures $1.50/contract — more expensive than NinjaTrader"
+      - "Mutual fund transaction fees on some funds"
+  regulation:
+    quick_answer: "E*TRADE Securities LLC: SEC + FINRA. SIPC $500K. Now part of Morgan Stanley (acquired 2020). One of the most established US brokerages since 1982."
+    tab_score: 9.5
+    pros:
+      - "SEC + FINRA"
+      - "Part of Morgan Stanley"
+      - "SIPC + excess coverage"
+      - "Operating since 1982"
+    cons:
+      - "Morgan Stanley integration ongoing"
+      - "Complex entity structure post-merger"
+  platforms:
+    quick_answer: "Power E*TRADE (web/mobile) for active trading. E*TRADE.com for investing. Power E*TRADE has options chain, strategy screener, risk analysis. No desktop-only platform."
+    tab_score: 8
+    pros:
+      - "Power E*TRADE — excellent options platform"
+      - "Options strategy screener and P&L analyzer"
+      - "Clean web-based interface"
+      - "Mobile app well-integrated"
+    cons:
+      - "No standalone desktop platform"
+      - "No TradingView or MT4"
+      - "Charting less advanced than thinkorswim"
+  deposit:
+    quick_answer: "ACH free (1-3 days), wire (free incoming, $25 out), check, account transfer (ACATS free)."
+    tab_score: 8
+    pros:
+      - "Free ACH"
+      - "Free ACATS transfers"
+      - "Check deposit via mobile"
+    cons:
+      - "$25 outgoing wire"
+      - "No PayPal or instant deposit"
+  beginners:
+    quick_answer: "E*TRADE Knowledge section, Power E*TRADE demo, and Morgan Stanley research access. Solid for options education specifically."
+    tab_score: 7.5
+    pros:
+      - "Strong options education content"
+      - "Power E*TRADE paper trading"
+      - "Morgan Stanley research access"
+      - "Phone support available"
+    cons:
+      - "Platform can overwhelm beginners"
+      - "Education focused on options, less on basics"
+      - "Website navigation complex"

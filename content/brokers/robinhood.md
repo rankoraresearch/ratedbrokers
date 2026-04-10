@@ -221,3 +221,77 @@ ACH bank transfer (free, 1-5 business days with up to $1,000 instant deposit), w
 
 Robinhood is the best choice for US beginners who want the simplest, cheapest way to start investing in stocks, crypto, and options. For serious research and advanced tools, look at Schwab or Fidelity.
 
+subpages:
+  fees:
+    quick_answer: "Robinhood charges /bin/zsh commissions on stocks, ETFs, options (including per-contract), and crypto. Futures cost /bin/zsh.50/contract with Gold (/bin/zsh.75 standard). No account maintenance, inactivity, or withdrawal fees. Revenue comes from PFOF and margin interest."
+    tab_score: 9.5
+    pros:
+      - "/bin/zsh commissions on everything — stocks, ETFs, options, and crypto"
+      - "No per-contract fee on options — unique among major brokers"
+      - "No account maintenance, inactivity, or minimum balance fees"
+      - "Futures at /bin/zsh.50/contract with Gold — competitive for retail traders"
+    cons:
+      - "Payment for order flow (PFOF) may result in slightly worse execution prices"
+      - "Wire transfers cost  (incoming) and /bin/zsh outgoing with Gold"
+      - "Margin rates higher than Interactive Brokers for large balances"
+    verdict_title: "Zero Commission Everything — But Watch PFOF"
+    verdict_text: "Robinhood is the cheapest option for casual US investors. Zero commissions across all asset classes is unmatched. The trade-off is PFOF-based revenue, which some studies suggest costs retail traders 0.5-1 pip on execution. For buy-and-hold investors trading in small sizes, the savings far outweigh any execution cost. Active traders executing large orders should consider IB's tiered pricing."
+    best_for: "Beginners and buy-and-hold investors who want the absolute lowest explicit costs"
+    not_for: "Active day traders executing large block orders where execution quality matters"
+  regulation:
+    quick_answer: "Robinhood Financial LLC is registered with SEC and FINRA (member since 2013). SIPC protection covers up to ,000 per customer. Robinhood is publicly traded on NASDAQ (HOOD), providing financial transparency through quarterly SEC filings."
+    tab_score: 8.5
+    pros:
+      - "SEC + FINRA dual registration — US Tier-1 regulation"
+      - "SIPC coverage: ,000 per customer (,000 cash limit)"
+      - "Publicly traded (HOOD) — quarterly financial disclosures mandatory"
+      - "Excess SIPC insurance through Lloyd's of London for additional protection"
+    cons:
+      - "M FINRA fine in 2021 for misleading customers and system outages"
+      - "GameStop trading restrictions in 2021 raised questions about order routing"
+      - "No international regulation — US-only operation"
+    verdict_title: "Properly Regulated With a Checkered Past"
+    verdict_text: "Robinhood meets all US regulatory requirements and provides strong fund protection. The 2021 FINRA fine and GameStop incident damaged trust, but the company has since improved infrastructure and transparency. As a public company, financial health is auditable. For US investors, fund safety is not a concern."
+    best_for: "US investors who want regulated protection with K SIPC coverage"
+    not_for: "International traders — Robinhood is US-only"
+  platforms:
+    quick_answer: "Robinhood offers three platforms: the flagship mobile app (iOS/Android), web platform, and Robinhood Legend (desktop, launched 2025). Legend adds advanced charting, customizable layouts, and options chain visualization. No MT4/MT5 or third-party platform support."
+    tab_score: 7.5
+    pros:
+      - "Mobile app is the gold standard for simplicity — perfect for beginners"
+      - "Robinhood Legend desktop platform with advanced charting (launched 2025)"
+      - "Clean UI with one-swipe trading and real-time notifications"
+      - "Paper trading available for risk-free practice"
+    cons:
+      - "No MetaTrader, TradingView, or third-party platform integration"
+      - "Legend is new — still maturing compared to thinkorswim or TWS"
+      - "Limited technical indicators vs professional platforms"
+      - "No API access for algorithmic trading"
+    verdict_title: "Best Mobile UX, Growing Desktop Capabilities"
+    verdict_text: "Robinhood's mobile app is unmatched for ease of use. Legend closes the gap with Schwab and Fidelity on desktop but isn't there yet for advanced traders. If your primary screen is a phone, Robinhood is the best experience in US brokerage."
+    best_for: "Mobile-first traders and beginners who value simplicity"
+    not_for: "Advanced technical traders who need TradingView or 100+ indicators"
+  deposit:
+    quick_answer: "Robinhood accepts ACH bank transfers (free, 1-5 days with up to ,000 instant), wire transfers (free with Gold), and debit card (1.5% fee, instant). No minimum deposit. Instant deposit gives immediate buying power up to ,000 (,000 with Gold)."
+    tab_score: 8
+    pros:
+      - "ACH transfers completely free"
+      - "Instant deposit up to ,000 (,000 with Gold)"
+      - "No minimum deposit requirement"
+      - "Debit card deposits for instant access"
+    cons:
+      - "Debit card deposits have 1.5% fee"
+      - "Wire transfers require Gold subscription for free"
+      - "No credit card or PayPal support"
+  beginners:
+    quick_answer: "Robinhood is the best US broker for absolute beginners. /bin/zsh minimum deposit, /bin/zsh commissions, fractional shares from , clean mobile interface, and Snacks newsletter for market education. The simplicity that makes it great for beginners is also its limitation for growing traders."
+    tab_score: 9
+    pros:
+      - "Simplest onboarding in US brokerage — 8 minutes to live account"
+      - "Fractional shares from  — invest in any stock regardless of price"
+      - "Clean, distraction-free mobile interface"
+      - "Robinhood Snacks — digestible daily market newsletter"
+    cons:
+      - "Limited educational depth vs Fidelity Learning Center or Schwab"
+      - "Risk of oversimplification — trading feels like a game"
+      - "No paper trading on mobile (desktop only via Legend)"
