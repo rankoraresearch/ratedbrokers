@@ -94,11 +94,11 @@ function CategoryNav({ mob }) {
             {row.links.map(ql => (
               <Link key={ql.path} to={ql.path} style={{
                 display: "inline-flex", alignItems: "center", justifyContent: "center",
-                padding: "5px 0", borderRadius: 8,
+                padding: "6px 13px", borderRadius: 8,
                 background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)",
                 color: "rgba(255,255,255,0.65)", fontSize: 11, fontWeight: 600,
                 textDecoration: "none", whiteSpace: "nowrap", transition: "all 0.15s",
-                ...(mob ? { padding: "5px 13px" } : { flex: 1 }),
+                ...(mob ? {} : { flex: 1 }),
               }}
                 onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.12)"; e.currentTarget.style.color = "#fff"; }}
                 onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.06)"; e.currentTarget.style.color = "rgba(255,255,255,0.65)"; }}
