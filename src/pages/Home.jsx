@@ -50,17 +50,13 @@ function CategoryNav({ mob }) {
   return (
     <>
       {/* Quick Links strip */}
-      <div style={{ background: "#0f172a", borderBottom: "1px solid rgba(255,255,255,0.06)", padding: mob ? "10px 16px" : "14px 28px", overflowX: mob ? "auto" : "visible", WebkitOverflowScrolling: "touch" }}>
-        <div style={{
-          maxWidth: 1200, margin: "0 auto", padding: mob ? "0 4px" : "0 32px",
-          display: "flex", gap: mob ? 8 : 10, alignItems: "center",
-          ...(mob ? { minWidth: "max-content" } : { flexWrap: "wrap", justifyContent: "center" }),
-        }}>
-          <span style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 10, fontWeight: 600, color: "rgba(255,255,255,0.25)", letterSpacing: "0.08em", textTransform: "uppercase", whiteSpace: "nowrap", marginRight: mob ? 4 : 2 }}>Popular</span>
-          {QUICK_LINKS.map(ql => (
-            <Link key={ql.path} to={ql.path} style={{ display: "inline-flex", alignItems: "center", padding: "6px 14px", borderRadius: 8, background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.60)", fontSize: 12, fontWeight: 600, textDecoration: "none", whiteSpace: "nowrap", transition: "all 0.15s" }}
-              onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.12)"; e.currentTarget.style.color = "#fff"; }}
-              onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.06)"; e.currentTarget.style.color = "rgba(255,255,255,0.60)"; }}
+      <div style={{ background: "#0f172a", borderBottom: "1px solid rgba(255,255,255,0.06)", padding: mob ? "10px 16px" : "12px 0", overflowX: "auto", WebkitOverflowScrolling: "touch" }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 0, minWidth: "max-content", padding: mob ? "0 4px" : "0 24px" }}>
+          <span style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 10, fontWeight: 600, color: "rgba(255,255,255,0.25)", letterSpacing: "0.08em", textTransform: "uppercase", whiteSpace: "nowrap", padding: "0 12px" }}>Popular</span>
+          {QUICK_LINKS.map((ql, i) => (
+            <Link key={ql.path} to={ql.path} style={{ display: "inline-flex", alignItems: "center", padding: mob ? "6px 12px" : "7px 16px", color: "rgba(255,255,255,0.55)", fontSize: 12, fontWeight: 600, textDecoration: "none", whiteSpace: "nowrap", transition: "all 0.15s", borderRight: i < QUICK_LINKS.length - 1 ? "1px solid rgba(255,255,255,0.08)" : "none" }}
+              onMouseEnter={e => { e.currentTarget.style.color = "#fff"; e.currentTarget.style.background = "rgba(255,255,255,0.06)"; }}
+              onMouseLeave={e => { e.currentTarget.style.color = "rgba(255,255,255,0.55)"; e.currentTarget.style.background = "transparent"; }}
             >{ql.label}</Link>
           ))}
         </div>
