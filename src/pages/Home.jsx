@@ -30,14 +30,11 @@ const QUICK_LINKS = [
   { label: "Low Spread", path: "/lowest-spread-forex-brokers" },
   { label: "ECN Brokers", path: "/best-ecn-forex-brokers" },
   { label: "Scalping", path: "/best-forex-brokers-for-scalping" },
-  { label: "Day Trading", path: "/best-forex-brokers-for-day-trading" },
-  { label: "High Leverage", path: "/best-high-leverage-forex-brokers" },
   { label: "MT5 Brokers", path: "/best-mt5-forex-brokers" },
   { label: "Regulated", path: "/best-regulated-forex-brokers" },
   { label: "Demo Accounts", path: "/best-forex-demo-accounts" },
   { label: "Mobile Trading", path: "/best-forex-trading-apps" },
   { label: "Zero Spread", path: "/zero-spread-forex-brokers" },
-  { label: "By Country", path: "/best-forex-brokers-by-country" },
 ];
 
 function CategoryNav({ mob }) {
