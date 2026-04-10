@@ -27,6 +27,8 @@ const AuthorPage = lazy(() => import("./pages/AuthorPage"));
 const BrokerSubPage = lazy(() => import("./pages/BrokerSubPage"));
 const WarningPage = lazy(() => import("./pages/WarningPage"));
 const FindYourBrokerPage = lazy(() => import("./pages/FindYourBrokerPage"));
+const PrivacyPage = lazy(() => import("./pages/PrivacyPage"));
+const TermsPage = lazy(() => import("./pages/TermsPage"));
 
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 
@@ -135,6 +137,8 @@ function AppRoutes() {
         <Route path="platform/:slug" element={<PlatformPage />} />
         <Route path="warnings/:slug" element={<WarningPage />} />
         <Route path="find-your-broker" element={<FindYourBrokerPage />} />
+        <Route path="privacy" element={<PrivacyPage />} />
+        <Route path="terms" element={<TermsPage />} />
         {/* Redirects: old hub pages → ranking pages (URL migration) */}
         <Route path="online-brokers" element={<Navigate to="/" replace />} />
         <Route path="forex-brokers" element={<Navigate to="/best-forex-brokers" replace />} />
