@@ -69,6 +69,10 @@ promo: Copy top traders automatically — social trading leader
 badge: Best for Copy Trading 2026
 risk_warning: "51% of retail investor accounts lose money when trading CFDs with this provider."
 
+payment_methods: [visa, mastercard, bank-transfer, skrill, neteller, paypal, sofort, ideal, trustly]
+account_types: [standard, demo, islamic, pro]
+features: [education-hub, research-tools, charting, negative-balance-protection, no-inactivity-fee]
+
 scores:
   - name: "Regulation & Safety"
     score: 10.0

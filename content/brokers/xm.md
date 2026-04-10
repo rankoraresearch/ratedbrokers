@@ -63,6 +63,10 @@ promo: $5 minimum deposit — trade micro lots from 0.01
 badge: Best for Beginners 2026
 risk_warning: "74.07% of retail investor accounts lose money when trading CFDs with this provider."
 
+payment_methods: [visa, mastercard, bank-transfer, skrill, neteller, crypto]
+account_types: [micro, standard, zero, demo, islamic, shares]
+features: [free-vps, education-hub, research-tools, economic-calendar, negative-balance-protection, charting, free-deposits, free-withdrawals, no-inactivity-fee, welcome-bonus, deposit-bonus, loyalty-program]
+
 scores:
   - name: "Regulation & Safety"
     score: 8.6

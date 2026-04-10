@@ -47,6 +47,10 @@ promo: "0.0 pip raw spreads — no markup"
 badge: "Editor's Choice 2026"
 risk_warning: "70.53% of retail investor accounts lose money when trading CFDs with this provider."
 
+payment_methods: [visa, mastercard, bank-transfer, skrill, neteller, paypal, crypto, poli, fasapay]
+account_types: [standard, raw, demo, islamic]
+features: [free-vps, trading-api, autochartist, economic-calendar, negative-balance-protection, education-hub, research-tools, charting, free-deposits]
+
 scores:
   - name: "Regulation & Safety"
     score: 9.6

@@ -125,6 +125,10 @@ function buildDataObject(fm, content) {
       dayTradeMargins: fm.day_trade_margins ?? null,
       domTrading: fm.dom_trading ?? null,
       futuresPlatforms: fm.futures_platforms || null,
+      // Structured data fields (Sprint 9) — empty = pass in filter logic
+      paymentMethods: fm.payment_methods || [],
+      accountTypes: fm.account_types || [],
+      features: fm.features || [],
     },
     SCORES: (fm.scores || []).map((s) => ({
       name: s.name,

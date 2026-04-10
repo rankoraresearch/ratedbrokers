@@ -67,6 +67,22 @@ const isFutures = hasVertical("futures");
 const and = (...fns) => (b) => fns.every((fn) => fn(b));
 const or = (...fns) => (b) => fns.some((fn) => fn(b));
 
+// ── "Empty = pass" structured-data filters (Sprint 9) ──
+// When field is not yet populated, broker stays in ranking (backwards-compatible).
+// As data is added to YAML files, rankings become progressively more accurate.
+const hasPay = (method) => (b) => {
+  const pm = b.B.paymentMethods;
+  return !pm || pm.length === 0 || pm.includes(method);
+};
+const hasAcct = (type) => (b) => {
+  const at = b.B.accountTypes;
+  return !at || at.length === 0 || at.includes(type);
+};
+const hasFeat = (feat) => (b) => {
+  const f = b.B.features;
+  return !f || f.length === 0 || f.includes(feat);
+};
+
 // ── Ranking filter map ─────────────────────────────────
 
 const FILTERS = {
@@ -95,12 +111,12 @@ const FILTERS = {
   "zero-spread": spreadZero,
   "low-commission": (b) => isECN(b) || isSTP(b),
   "low-cost": (b) => spreadUnder(0.5)(b) || isECN(b),
-  "no-hidden-fees": all,
-  "no-inactivity-fee": all,
-  "free-deposits": all,
-  "free-withdrawals": all,
-  "instant-withdrawal": all,
-  "cashback": all,
+  "no-hidden-fees": hasFeat("no-hidden-fees"),
+  "no-inactivity-fee": hasFeat("no-inactivity-fee"),
+  "free-deposits": hasFeat("free-deposits"),
+  "free-withdrawals": hasFeat("free-withdrawals"),
+  "instant-withdrawal": hasFeat("instant-withdrawal"),
+  "cashback": hasFeat("cashback"),
   "no-requotes": (b) => isECN(b) || isSTP(b),
   "low-slippage": (b) => isECN(b) || isSTP(b),
 
@@ -116,14 +132,14 @@ const FILTERS = {
   // D. BY ACCOUNT TYPE (10)
   "micro-accounts": (b) => minDepUnder(100)(b) || b.B.score >= 8.0,
   "cent-accounts": (b) => minDepUnder(10)(b) || b.B.score >= 8.0,
-  "standard-accounts": all,
-  "demo-accounts": all,
-  "pamm-accounts": all,
-  "mam-accounts": all,
-  "managed-accounts": all,
+  "standard-accounts": all, // legitimate: universal account type
+  "demo-accounts": hasAcct("demo"),
+  "pamm-accounts": hasAcct("pamm"),
+  "mam-accounts": hasAcct("mam"),
+  "managed-accounts": hasAcct("managed"),
   "large-accounts": (b) => b.B.score >= 8.5,
   "small-accounts": minDepUnder(100),
-  "islamic-accounts": all,
+  "islamic-accounts": hasAcct("islamic"),
 
   // E. BY MINIMUM DEPOSIT (7)
   "no-min-deposit": minDepZero,
@@ -143,12 +159,12 @@ const FILTERS = {
   "leverage-1000": leverageAtLeast(1000),
   "unlimited-leverage": (b) => leverageNum(b) >= 1000 || /unlimited/i.test(b.B.leverage),
 
-  // G. BY BONUS (5)
-  "bonus": all,
-  "no-deposit-bonus": all,
-  "deposit-bonus": all,
-  "welcome-bonus": all,
-  "loyalty-program": all,
+  // G. BY BONUS (5) — Sprint 10 will add promotions field. Using hasFeat for now.
+  "bonus": hasFeat("bonus"),
+  "no-deposit-bonus": hasFeat("no-deposit-bonus"),
+  "deposit-bonus": hasFeat("deposit-bonus"),
+  "welcome-bonus": hasFeat("welcome-bonus"),
+  "loyalty-program": hasFeat("loyalty-program"),
 
   // H. BY PLATFORM (10)
   "mt4": hasPlatform("MetaTrader 4"),
@@ -161,58 +177,58 @@ const FILTERS = {
   "proprietary": (b) => b.B.platforms.some((p) =>
     !/metatrader|ctrader|tradingview|ninjatrader|zulutrade|prorealtime/i.test(p)
   ),
-  "trading-api": all,
-  "free-vps": all,
+  "trading-api": hasFeat("trading-api"),
+  "free-vps": hasFeat("free-vps"),
 
-  // I. MOBILE APPS (5)
-  "trading-apps": all,
-  "apps-iphone": all,
-  "apps-android": all,
-  "crypto-apps": all,
-  "stock-apps": all,
+  // I. MOBILE APPS (5) — Sprint 10 will add mobile_apps field for iphone/android
+  "trading-apps": all, // legitimate: all brokers have apps
+  "apps-iphone": all, // Sprint 10: mobile_apps field
+  "apps-android": all, // Sprint 10: mobile_apps field
+  "crypto-apps": isCrypto, // was: all → showed non-crypto brokers
+  "stock-apps": isStocks, // was: all → showed non-stock brokers
 
   // J. TRUST (5)
   "safest": (b) => hasTier1(b) && b.B.score >= 8.5,
   "regulated": hasTier1,
-  "negative-balance": all,
-  "guaranteed-stop-loss": all,
+  "negative-balance": hasFeat("negative-balance-protection"),
+  "guaranteed-stop-loss": hasFeat("guaranteed-stop-loss"),
   "segregated-accounts": hasTier1,
 
-  // K. TOOLS (7)
-  "education": all,
-  "research": all,
-  "trading-central": all,
-  "autochartist": all,
-  "economic-calendar": all,
-  "charting": all,
-  "24-7-support": all,
+  // K. TOOLS (7) — using hasFeat with "empty = pass" pattern
+  "education": hasFeat("education-hub"),
+  "research": hasFeat("research-tools"),
+  "trading-central": hasFeat("trading-central"),
+  "autochartist": hasFeat("autochartist"),
+  "economic-calendar": hasFeat("economic-calendar"),
+  "charting": hasFeat("charting"),
+  "24-7-support": hasFeat("24-7-support"),
 
-  // L. CRYPTO (12)
-  "crypto-overall": all,
-  "crypto-bitcoin": all,
-  "crypto-ethereum": all,
-  "crypto-xrp": all,
-  "crypto-solana": all,
-  "crypto-doge": all,
-  "crypto-altcoins": all,
-  "crypto-staking": all,
-  "crypto-copy": hasCopyTrading,
-  "crypto-high-lev": leverageAtLeast(100),
-  "crypto-low-spread": (b) => spreadUnder(0.5)(b) || isECN(b),
+  // L. CRYPTO (12) — filtered by crypto vertical (was: all → showed all 51 brokers)
+  "crypto-overall": isCrypto,
+  "crypto-bitcoin": isCrypto,
+  "crypto-ethereum": isCrypto,
+  "crypto-xrp": isCrypto,
+  "crypto-solana": isCrypto,
+  "crypto-doge": isCrypto,
+  "crypto-altcoins": isCrypto,
+  "crypto-staking": isCrypto,
+  "crypto-copy": and(isCrypto, hasCopyTrading),
+  "crypto-high-lev": and(isCrypto, leverageAtLeast(100)),
+  "crypto-low-spread": and(isCrypto, (b) => spreadUnder(0.5)(b) || isECN(b)),
 
-  // M. ASSETS (12)
-  "cfd": all,
-  "stocks": all,
-  "gold": all,
-  "silver": all,
-  "oil": all,
-  "commodities": all,
-  "indices": all,
-  "options": all,
-  "futures": all,
-  "etf": all,
+  // M. ASSETS (12) — filtered by vertical where applicable
+  // Note: "cfd" duplicate removed (lives in section U as cfd-* rankings)
+  "stocks": isStocks,
+  "gold": all, // legitimate: most CFD brokers offer gold — Sprint 10 will add assets field
+  "silver": all, // legitimate: most CFD brokers offer silver
+  "oil": all, // legitimate: most CFD brokers offer oil
+  "commodities": all, // legitimate: broad category
+  "indices": all, // legitimate: all CFD brokers offer indices
+  "options": isOptions,
+  "futures": isFutures,
+  "etf": all, // Sprint 10: assets field
   "spread-betting": (b) => hasReg("FCA")(b) || /spread.*bet/i.test(b.B.type),
-  "bonds": all,
+  "bonds": all, // Sprint 10: assets field
 
   // N. PAIRS (10)
   "eurusd": all,
@@ -234,21 +250,21 @@ const FILTERS = {
   "dax": all,
   "nikkei": all,
 
-  // P. PAYMENT (14)
-  "pay-paypal": all,
-  "pay-skrill": all,
-  "pay-neteller": all,
-  "pay-bitcoin": all,
-  "pay-crypto": all,
-  "pay-credit-card": all,
-  "pay-visa": all,
-  "pay-bank-transfer": all,
-  "pay-apple-pay": all,
-  "pay-google-pay": all,
-  "pay-perfect-money": all,
-  "pay-webmoney": all,
-  "pay-upi": all,
-  "pay-pix": all,
+  // P. PAYMENT (14) — using hasPay with "empty = pass" pattern
+  "pay-paypal": hasPay("paypal"),
+  "pay-skrill": hasPay("skrill"),
+  "pay-neteller": hasPay("neteller"),
+  "pay-bitcoin": or(hasPay("bitcoin"), hasPay("crypto")), // bitcoin is subset of crypto
+  "pay-crypto": hasPay("crypto"),
+  "pay-credit-card": or(hasPay("visa"), hasPay("mastercard")),
+  "pay-visa": hasPay("visa"),
+  "pay-bank-transfer": hasPay("bank-transfer"),
+  "pay-apple-pay": hasPay("apple-pay"),
+  "pay-google-pay": hasPay("google-pay"),
+  "pay-perfect-money": hasPay("perfect-money"),
+  "pay-webmoney": hasPay("webmoney"),
+  "pay-upi": hasPay("upi"),
+  "pay-pix": hasPay("pix"),
 
   // Q. REGULATOR (10)
   "reg-fca": hasReg("FCA"),
@@ -305,11 +321,11 @@ const FILTERS = {
   "geo-south-korea": hasTier1,
   "geo-oman": all,
 
-  // T. NEW THEMATIC (4)
-  "natural-gas": all,
-  "real-stocks": all,
-  "multi-asset": all,
-  "no-kyc": all,
+  // T. NEW THEMATIC (4) — Sprint 10: assets field for natural-gas, real-stocks
+  "natural-gas": all, // Sprint 10: assets field
+  "real-stocks": isStocks, // must have stocks vertical
+  "multi-asset": all, // legitimate: broad category
+  "no-kyc": hasFeat("no-kyc"),
 
   // ═══════════════════════════════════════════════════════════════
   // U. CFD BROKERS (7) — M4 Umbrella
@@ -380,14 +396,14 @@ const FILTERS = {
   "reg-fsa":           hasReg("FSA"),
   "reg-ifsc":          hasReg("IFSC"),
   "reg-vfsc":          hasReg("VFSC"),
-  "forex-mac":         all,
-  "pair-usdcny":       all,
+  "forex-mac":         hasFeat("mac-app"),
+  "pair-usdcny":       all, // legitimate: most forex brokers offer USD/CNY
   "leverage-50":       and(leverageAtLeast(50), (b) => leverageNum(b) <= 100),
   "leverage-300":      and(leverageAtLeast(300), (b) => leverageNum(b) <= 500),
   "forex-courses":     scoreAbove(8.0),
   "forex-charts":      or(hasPlatform("TradingView"), hasPlatform("cTrader")),
-  "pay-amex":          all,
-  "pay-trustly":       all,
+  "pay-amex":          hasPay("amex"),
+  "pay-trustly":       hasPay("trustly"),
 
   // ═══════════════════════════════════════════════════════════════
   // Z. STOCK BROKERS (15) — M4 Phase 2

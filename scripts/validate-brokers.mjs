@@ -21,6 +21,11 @@ const REQUIRED_SECTIONS = ["Overview", "Scoring", "Verdict"];
 // Valid statuses
 const VALID_STATUSES = ["active", "suspended", "under-review"];
 
+// Valid enum values for structured data fields (Sprint 9)
+const VALID_PAYMENT_METHODS = new Set(["paypal", "skrill", "neteller", "crypto", "bitcoin", "visa", "mastercard", "bank-transfer", "apple-pay", "google-pay", "perfect-money", "webmoney", "upi", "pix", "amex", "trustly", "sofort", "ideal", "giropay", "poli", "fasapay", "sticpay"]);
+const VALID_ACCOUNT_TYPES = new Set(["standard", "micro", "cent", "demo", "islamic", "pamm", "mam", "managed", "pro", "vip", "shares", "zero", "raw"]);
+const VALID_FEATURES = new Set(["free-vps", "trading-api", "autochartist", "trading-central", "24-7-support", "economic-calendar", "negative-balance-protection", "guaranteed-stop-loss", "education-hub", "research-tools", "cashback", "charting", "no-kyc", "mac-app", "no-hidden-fees", "no-inactivity-fee", "free-deposits", "free-withdrawals", "instant-withdrawal", "bonus", "no-deposit-bonus", "deposit-bonus", "welcome-bonus", "loyalty-program"]);
+
 /**
  * Validate a single broker MD file.
  * Returns array of error messages (empty = valid).
@@ -114,6 +119,29 @@ function validateBroker(filePath, allSlugs) {
         errors.push(
           `spreads[${i}] (${sp.pair}): ${sp.values.length} values, expected ${numCompetitors} (spread_competitors count)`
         );
+      }
+    }
+  }
+
+  // --- Structured data enum validation (Sprint 9) ---
+  if (Array.isArray(fm.payment_methods)) {
+    for (const pm of fm.payment_methods) {
+      if (!VALID_PAYMENT_METHODS.has(pm)) {
+        errors.push(`unknown payment_method: "${pm}" (valid: ${[...VALID_PAYMENT_METHODS].join(", ")})`);
+      }
+    }
+  }
+  if (Array.isArray(fm.account_types)) {
+    for (const at of fm.account_types) {
+      if (!VALID_ACCOUNT_TYPES.has(at)) {
+        errors.push(`unknown account_type: "${at}" (valid: ${[...VALID_ACCOUNT_TYPES].join(", ")})`);
+      }
+    }
+  }
+  if (Array.isArray(fm.features)) {
+    for (const f of fm.features) {
+      if (!VALID_FEATURES.has(f)) {
+        errors.push(`unknown feature: "${f}" (valid: ${[...VALID_FEATURES].join(", ")})`);
       }
     }
   }
