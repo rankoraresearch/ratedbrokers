@@ -480,6 +480,14 @@ export default function Home() {
             </Link>
           ))}
         </div>
+        <div style={{ textAlign: "center", marginTop: 20 }}>
+          <Link to={lp("/best-forex-brokers-by-country")} style={{
+            fontSize: 14, fontWeight: 600, color: "#059669",
+            textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 4,
+          }}>
+            View All 43+ Countries <ArrowRight size={14} />
+          </Link>
+        </div>
       </section>
 
 

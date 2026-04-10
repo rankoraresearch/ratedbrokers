@@ -385,6 +385,7 @@ export default function Header() {
               </button>
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
+                aria-label={menuOpen ? "Close menu" : "Open menu"}
                 style={{ background: "none", border: "none", color: "#1f2937", padding: "4px 8px", cursor: "pointer", display: "inline-flex", alignItems: "center" }}
               >{menuOpen ? <XIcon size={24} /> : <MenuIcon size={24} />}</button>
             </div>

@@ -192,7 +192,7 @@ function FilterButtons({ activeFilter, setActiveFilter, brokers, mob }) {
 // ═══════════════════════════════════════════════════════════
 function SpreadChart({ brokers, mob }) {
   const top8 = brokers.slice(0, 8);
-  const maxSpread = 1.2;
+  const maxSpread = Math.max(...top8.map(b => parseFloat(b.B.avgSpread || b.B.spread || "0.5")), 1.2);
   return (
     <div role="img" aria-label="Spread comparison chart" style={{ display: "flex", flexDirection: "column", gap: 8 }}>
       {top8.map((broker, i) => {
@@ -1092,6 +1092,21 @@ export default function RankingPage() {
           </div>
         </section>
       )}
+
+      {/* Quiz CTA */}
+      <section style={{ ...cn, paddingBottom: 20 }}>
+        <Link to={lp("/find-your-broker")} style={{
+          display: "flex", alignItems: "center", justifyContent: "space-between",
+          padding: mob ? "16px 20px" : "20px 28px", borderRadius: 12,
+          background: "linear-gradient(135deg, #ecfdf5, #d1fae5)",
+          border: "1px solid #a7f3d0", textDecoration: "none", transition: "all 0.2s",
+        }}>
+          <div>
+            <div style={{ fontSize: mob ? 15 : 17, fontWeight: 700, color: "#047857" }}>Not sure which broker is right for you?</div>
+            <div style={{ fontSize: 13, color: "#059669", marginTop: 2 }}>Take our free 60-second quiz for a personalized recommendation →</div>
+          </div>
+        </Link>
+      </section>
 
       {/* FAQ */}
       {seo.faq && seo.faq.length > 0 && !educationData?.faq?.length && (
