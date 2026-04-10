@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback, lazy, Suspense } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useMedia } from "../hooks/useMedia";
 import { useTranslation } from "../i18n/LanguageContext";
@@ -6,7 +6,7 @@ import { useLocalePath } from "../i18n/useLocalePath";
 import Icon, { IconBox } from "./Icon";
 import CountryFlag from "./CountryFlag";
 import { ChevronDown, X as XIcon, Menu as MenuIcon, ArrowRight, Search as SearchIcon, Shield, CalendarCheck, Globe } from "lucide-react";
-import SearchOverlay from "./SearchOverlay";
+const SearchOverlay = lazy(() => import("./SearchOverlay"));
 
 /* ── Data ───────────────────────────────────────────── */
 
@@ -1029,7 +1029,7 @@ export default function Header() {
 
         </nav>
       )}
-      {searchOpen && <SearchOverlay onClose={() => setSearchOpen(false)} />}
+      {searchOpen && <Suspense fallback={null}><SearchOverlay onClose={() => setSearchOpen(false)} /></Suspense>}
     </header>
   );
 }
