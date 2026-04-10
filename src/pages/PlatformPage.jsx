@@ -72,7 +72,7 @@ export default function PlatformPage() {
         headline: platform.hero.h1,
         description: platform.meta.description,
         datePublished: "2026-01-20",
-        dateModified: "2026-02-28",
+        dateModified: new Date().toISOString().split("T")[0],
         author: authorJsonLd,
         publisher: { "@type": "Organization", name: "RatedBrokers", url: "https://ratedbrokers.com" },
       },

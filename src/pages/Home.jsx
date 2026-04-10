@@ -1,6 +1,7 @@
 import { useState, useEffect, useId } from "react";
 import { Link } from "react-router-dom";
 import { useMedia } from "../hooks/useMedia";
+import { useSEO } from "../hooks/useSEO";
 import { useTranslation } from "../i18n/LanguageContext";
 import { useLocalePath } from "../i18n/useLocalePath";
 import { getAllBrokersWithData } from "../data/brokers";
@@ -195,6 +196,12 @@ export default function Home() {
   const cn = { maxWidth: 1200, margin: "0 auto", padding: mob ? "0 16px" : "0 24px" };
 
   const allBrokersData = getAllBrokersWithData().sort((a, b) => b.B.score - a.B.score);
+
+  useSEO({
+    title: HOMEPAGE_SEO.metaTitle,
+    description: HOMEPAGE_SEO.metaDescription,
+    path: "/",
+  });
 
   useEffect(() => {
     document.title = HOMEPAGE_SEO.metaTitle;

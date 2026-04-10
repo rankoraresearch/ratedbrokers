@@ -32,7 +32,7 @@ export default function HowWeMakeMoneyPage() {
           author: { "@type": "Organization", name: "RatedBrokers" },
           publisher: { "@type": "Organization", name: "RatedBrokers", url: "https://ratedbrokers.com" },
           datePublished: "2025-06-01",
-          dateModified: "2026-03-01",
+          dateModified: new Date().toISOString().split("T")[0],
         },
         {
           "@type": "FAQPage",

@@ -1,2 +1,4 @@
 User-agent: *
 Disallow: /
+
+Sitemap: https://ratedbrokers.com/api/sitemap.xml

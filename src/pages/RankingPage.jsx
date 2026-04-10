@@ -15,6 +15,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { useMedia } from "../hooks/useMedia";
+import { useSEO } from "../hooks/useSEO";
 import NotFoundPage from "./NotFoundPage";
 import { useLocalePath } from "../i18n/useLocalePath";
 import RANKINGS, { getRankingBySlug, getRankingsByCategory, getRankingsBySub } from "../data/rankings";
@@ -432,6 +433,14 @@ export default function RankingPage() {
 
   const fullSlug = "/" + slug;
   const ranking = getRankingBySlug(fullSlug);
+
+  // SEO: canonical, OG, Twitter Card
+  const seoContent = ranking ? SEO_CONTENT[ranking.id] : null;
+  useSEO({
+    title: seoContent?.metaTitle || (ranking ? `${ranking.title} ${YEAR} | RatedBrokers` : "Not Found"),
+    description: seoContent?.metaDesc || "",
+    path: ranking ? ranking.slug : null,
+  });
 
   // JSON-LD + meta
   useEffect(() => {

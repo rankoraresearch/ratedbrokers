@@ -79,6 +79,7 @@ function buildDataObject(fm, content) {
       logo: fm.logo,
       url: fm.url,
       score: fm.score,
+      lastVerified: fm.last_verified || "2026-03-31",
       verdict: fm.verdict,
       tp: fm.tp,
       tpCount: fm.tp_count,

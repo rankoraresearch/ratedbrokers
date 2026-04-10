@@ -4,6 +4,7 @@ import { getBrokerData } from "../data/brokers/index";
 import { useTranslation } from "../i18n/LanguageContext";
 import { useLocalePath } from "../i18n/useLocalePath";
 import { useMedia } from "../hooks/useMedia";
+import { useSEO } from "../hooks/useSEO";
 import { getAuthorByName, getFactChecker, getReviewerForAuthor, getEditor } from "../data/authors";
 import AuthorCredits from "../components/AuthorCredits";
 import AuthorBioCard from "../components/AuthorBioCard";
@@ -109,6 +110,15 @@ export default function BrokerReview() {
   const [overridesReady, setOverridesReady] = useState(false);
   const cn = {maxWidth:1200,margin:"0 auto",padding:mob?"0 16px":"0 24px"};
 
+  // SEO: canonical, OG, Twitter Card
+  const verts = data?.B?.verticals || [];
+  const titleSuffix = verts.includes("stocks") && !verts.includes("forex") ? "Commissions, Pros & Cons" : "Fees, Pros & Cons";
+  useSEO({
+    title: data ? `${data.B.name} Review 2026: ${titleSuffix} | RatedBrokers` : "Broker Not Found | RatedBrokers",
+    description: data ? `Is ${data.B.name} any good? Score: ${data.B.score}/10. Full expert review 2026.` : "",
+    path: data ? `/reviews/${slug}` : null,
+  });
+
   useEffect(()=>{
     const fn=()=>setStickyVisible(window.scrollY>500);
     window.addEventListener("scroll",fn);
@@ -167,7 +177,7 @@ export default function BrokerReview() {
           reviewRating: { "@type": "Rating", ratingValue: data.B.score, bestRating: 10 },
           publisher: { "@type": "Organization", name: "RatedBrokers", url: "https://ratedbrokers.com" },
           datePublished: "2026-01-15",
-          dateModified: "2026-02-28",
+          dateModified: data.B.lastVerified || new Date().toISOString().split("T")[0],
         },
         breadcrumbSchema((() => {
           const hub = getBrokerHub(data.B.verticals);
