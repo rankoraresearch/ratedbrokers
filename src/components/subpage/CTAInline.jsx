@@ -12,7 +12,7 @@ export default function CTAInline({ slug, name, promo, label, sub, mob }) {
         {sub && <div style={{ fontSize: 13, color: "rgba(255,255,255,0.7)", fontWeight: 600 }}>{sub}</div>}
         {promo && <div style={{ fontSize: 14, color: "#34d399", fontWeight: 600, marginTop: 2, display: "flex", alignItems: "center", gap: 4 }}><Zap size={14} color={ORANGE} /> {promo}</div>}
       </div>
-      <a href={vUrl} target="_blank" rel="nofollow sponsored" className="cta-orange" style={{ background: `linear-gradient(135deg, ${ORANGE}, #fbbf24)`, color: NAVY, fontSize: 14, fontWeight: 700, textDecoration: "none", padding: "12px 28px", borderRadius: 8, boxShadow: "0 2px 8px rgba(245,158,11,0.3)", display: "inline-flex", alignItems: "center", gap: 6, whiteSpace: "nowrap", flexShrink: 0, justifyContent: "center" }}>
+      <a href={vUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{ background: `linear-gradient(135deg, ${ORANGE}, #fbbf24)`, color: NAVY, fontSize: 14, fontWeight: 700, textDecoration: "none", padding: "12px 28px", borderRadius: 8, boxShadow: "0 2px 8px rgba(245,158,11,0.3)", display: "inline-flex", alignItems: "center", gap: 6, whiteSpace: "nowrap", flexShrink: 0, justifyContent: "center" }}>
         {label || `Visit ${name}`} <ExternalLink size={14} />
       </a>
     </div>
