@@ -47,31 +47,27 @@ function CategoryNav({ mob }) {
 
   return (
     <>
-      {/* Quick Links — 4 mixed pill strips */}
-      <div style={{ background: "#0f172a", borderBottom: "1px solid rgba(255,255,255,0.06)", padding: mob ? "10px 16px 6px" : "12px 28px 8px" }}>
-        {PILL_ROWS.map((row, ri) => (
-          <div key={ri} style={{
-            maxWidth: 1200, margin: "0 auto", padding: mob ? "0 4px" : "0 32px",
-            display: "flex", alignItems: "center", gap: mob ? 8 : 6, marginBottom: mob ? 6 : 6,
-            ...(mob ? { minWidth: "max-content", overflowX: "auto", WebkitOverflowScrolling: "touch" } : {}),
-          }}>
-            {ri === 0 && <span style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 10, fontWeight: 600, color: "rgba(255,255,255,0.25)", letterSpacing: "0.08em", textTransform: "uppercase", whiteSpace: "nowrap", flexShrink: 0, minWidth: mob ? undefined : 68 }}>Popular:</span>}
-            {ri > 0 && !mob && <span style={{ minWidth: 68, flexShrink: 0 }} />}
-            {row.links.map(ql => (
-              <Link key={ql.path} to={ql.path} style={{
-                display: "inline-flex", alignItems: "center", justifyContent: "center",
-                padding: "6px 13px", borderRadius: 8,
-                background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)",
-                color: "rgba(255,255,255,0.65)", fontSize: 11, fontWeight: 600,
-                textDecoration: "none", whiteSpace: "nowrap", transition: "all 0.15s",
-                ...(mob ? {} : { flex: 1 }),
-              }}
-                onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.12)"; e.currentTarget.style.color = "#fff"; }}
-                onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.06)"; e.currentTarget.style.color = "rgba(255,255,255,0.65)"; }}
-              >{ql.label}</Link>
-            ))}
-          </div>
-        ))}
+      {/* Quick Links — single pill strip */}
+      <div style={{ background: "#0f172a", borderBottom: "1px solid rgba(255,255,255,0.06)", padding: mob ? "10px 16px" : "12px 28px", overflowX: mob ? "auto" : "hidden", WebkitOverflowScrolling: "touch" }}>
+        <div style={{
+          maxWidth: 1200, margin: "0 auto", padding: mob ? "0 4px" : "0 32px",
+          display: "flex", alignItems: "center", gap: mob ? 8 : 6,
+          ...(mob ? { minWidth: "max-content" } : {}),
+        }}>
+          {PILL_ROWS[0].links.map(ql => (
+            <Link key={ql.path} to={ql.path} style={{
+              display: "inline-flex", alignItems: "center", justifyContent: "center",
+              padding: "6px 13px", borderRadius: 8,
+              background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)",
+              color: "rgba(255,255,255,0.65)", fontSize: 11, fontWeight: 600,
+              textDecoration: "none", whiteSpace: "nowrap", transition: "all 0.15s",
+              ...(mob ? {} : { flex: 1 }),
+            }}
+              onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.12)"; e.currentTarget.style.color = "#fff"; }}
+              onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.06)"; e.currentTarget.style.color = "rgba(255,255,255,0.65)"; }}
+            >{ql.label}</Link>
+          ))}
+        </div>
       </div>
       {/* 8 Category Buttons — Frost+Arrow */}
       <div style={{ background: "#0f172a", padding: mob ? "14px 16px" : "18px 28px", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
