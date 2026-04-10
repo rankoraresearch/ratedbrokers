@@ -52,6 +52,10 @@ promo: Copy trading + options trading — regulated in 9 jurisdictions
 badge: ""
 risk_warning: "71% of retail investor accounts lose money when trading CFDs with this provider."
 
+payment_methods: [visa, mastercard, bank-transfer, paypal, skrill, neteller]
+account_types: [standard, demo, islamic, pro]
+features: [education-hub, research-tools, trading-central, economic-calendar, negative-balance-protection, charting]
+
 scores:
   - name: "Regulation & Safety"
     score: 9.8

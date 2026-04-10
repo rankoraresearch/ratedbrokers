@@ -55,6 +55,10 @@ promo: Trade with a trusted US-regulated broker — 20+ years of excellence
 badge: ""
 risk_warning: "74% of retail investor accounts lose money when trading CFDs with this provider."
 
+payment_methods: [visa, mastercard, bank-transfer]
+account_types: [standard, demo, raw]
+features: [trading-api, trading-central, research-tools, economic-calendar, negative-balance-protection, education-hub, charting]
+
 scores:
   - name: "Regulation & Safety"
     score: 10.0

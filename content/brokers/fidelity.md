@@ -42,6 +42,10 @@ promo: "$0 commissions + fractional shares from $1"
 badge: null
 risk_warning: "Investing involves risk, including risk of loss. Past performance is no guarantee of future results."
 
+payment_methods: [bank-transfer]
+account_types: [standard]
+features: [research-tools, education-hub, economic-calendar, charting, no-inactivity-fee]
+
 scores:
   - name: "Regulation & Safety"
     score: 9.9

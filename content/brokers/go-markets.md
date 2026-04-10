@@ -47,6 +47,10 @@ promo: ASIC + CySEC regulated — 19 years of operation — cTrader ECN
 badge: ""
 risk_warning: CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage.
 
+payment_methods: [visa, mastercard, bank-transfer, skrill, neteller, poli]
+account_types: [standard, raw, demo]
+features: [free-vps, autochartist, economic-calendar, negative-balance-protection, education-hub]
+
 scores:
   - name: "Regulation & Safety"
     score: 9.6

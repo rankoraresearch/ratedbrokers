@@ -43,6 +43,10 @@ promo: "Commission-free stocks, ETFs & options"
 badge: null
 risk_warning: "Investing involves risk, including possible loss of principal. Past performance is no guarantee of future results."
 
+payment_methods: [bank-transfer]
+account_types: [standard, demo]
+features: [research-tools, education-hub, economic-calendar, charting, negative-balance-protection]
+
 scores:
   - name: "Regulation & Safety"
     score: 9.8

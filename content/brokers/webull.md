@@ -54,6 +54,10 @@ promo: "Commission-free with advanced charting tools"
 badge: null
 risk_warning: "Securities trading offered by Webull Financial LLC, member SIPC, FINRA. All investments involve risk."
 
+payment_methods: [bank-transfer]
+account_types: [standard, demo]
+features: [education-hub, charting, research-tools, free-deposits, no-inactivity-fee]
+
 scores:
   - name: "Regulation & Safety"
     score: 9.2

@@ -44,6 +44,10 @@ promo: "26,000+ instruments — True ECN — $0 minimum deposit"
 badge: ""
 risk_warning: CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage.
 
+payment_methods: [visa, mastercard, bank-transfer, skrill, neteller, crypto]
+account_types: [standard, raw, demo, islamic]
+features: [free-vps, trading-api, autochartist, negative-balance-protection, education-hub]
+
 scores:
   - name: "Regulation & Safety"
     score: 6.6

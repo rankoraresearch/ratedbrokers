@@ -50,6 +50,10 @@ promo: ThinkTrader platform — 80+ indicators · $0 minimum deposit
 badge: ""
 risk_warning: "71.89% of retail investor accounts lose money when trading CFDs with this provider."
 
+payment_methods: [visa, mastercard, bank-transfer, skrill, neteller, paypal]
+account_types: [standard, raw, demo, islamic]
+features: [free-vps, autochartist, economic-calendar, negative-balance-protection, education-hub, charting, free-deposits]
+
 scores:
   - name: "Regulation & Safety"
     score: 9.6

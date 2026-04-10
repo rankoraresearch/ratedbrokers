@@ -42,6 +42,10 @@ promo: "$50 micro day trade margins — start futures with minimal capital"
 badge: null
 risk_warning: "Futures trading contains substantial risk of loss and is not appropriate for all investors."
 
+payment_methods: [bank-transfer]
+account_types: [standard, demo]
+features: [trading-api, charting, education-hub]
+
 scores:
   - name: "Regulation & Safety"
     score: 9.0

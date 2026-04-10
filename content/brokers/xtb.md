@@ -49,6 +49,10 @@ promo: Zero-commission stock trading — award-winning xStation 5
 badge: ""
 risk_warning: "76% of retail investor accounts lose money when trading CFDs with this provider."
 
+payment_methods: [visa, mastercard, bank-transfer, paypal, skrill]
+account_types: [standard, demo, islamic]
+features: [trading-api, research-tools, economic-calendar, negative-balance-protection, education-hub, charting, no-inactivity-fee]
+
 scores:
   - name: "Regulation & Safety"
     score: 9.7

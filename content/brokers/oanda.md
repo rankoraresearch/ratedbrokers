@@ -50,6 +50,10 @@ promo: US-regulated forex trading · No minimum deposit
 badge: Best for US Traders 2026
 risk_warning: "74.7% of retail investor accounts lose money when trading CFDs with this provider."
 
+payment_methods: [visa, mastercard, bank-transfer, paypal]
+account_types: [standard, demo]
+features: [trading-api, research-tools, economic-calendar, negative-balance-protection, education-hub, charting]
+
 scores:
   - name: "Regulation & Safety"
     score: 9.9

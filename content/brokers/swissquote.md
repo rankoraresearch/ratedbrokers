@@ -63,6 +63,10 @@ promo: Swiss banking safety — 3 million+ tradable products
 badge: ""
 risk_warning: "60.93% of retail investor accounts lose money when trading CFDs with this provider."
 
+payment_methods: [bank-transfer]
+account_types: [standard, demo, pro]
+features: [trading-api, autochartist, economic-calendar, negative-balance-protection, education-hub, research-tools, charting]
+
 scores:
   - name: "Regulation & Safety"
     score: 9.7

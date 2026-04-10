@@ -46,6 +46,10 @@ promo: "Options capped at $10/leg — built for derivatives traders"
 badge: null
 risk_warning: "Options involve risk and are not suitable for all investors. Futures trading involves substantial risk of loss."
 
+payment_methods: [bank-transfer]
+account_types: [standard, demo]
+features: [education-hub, charting, research-tools]
+
 scores:
   - name: "Regulation & Safety"
     score: 9.5

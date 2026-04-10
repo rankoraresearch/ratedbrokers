@@ -46,6 +46,10 @@ promo: Unlimited leverage · Instant withdrawals 24/7
 badge: Best for High Leverage 2026
 risk_warning: CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage.
 
+payment_methods: [visa, mastercard, bank-transfer, skrill, neteller, perfect-money, crypto]
+account_types: [standard, raw, zero, demo, islamic, pro]
+features: [free-vps, trading-api, economic-calendar, negative-balance-protection, education-hub, free-deposits, free-withdrawals, instant-withdrawal]
+
 scores:
   - name: "Regulation & Safety"
     score: 9.6

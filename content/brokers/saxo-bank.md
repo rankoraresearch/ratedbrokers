@@ -67,6 +67,10 @@ promo: "71,000+ instruments — the broadest market access anywhere"
 badge: Best for Professionals 2026
 risk_warning: "65% of retail investor accounts lose money when trading CFDs with this provider."
 
+payment_methods: [visa, mastercard, bank-transfer]
+account_types: [standard, demo, pro, vip]
+features: [trading-api, research-tools, economic-calendar, negative-balance-protection, education-hub, charting]
+
 scores:
   - name: "Regulation & Safety"
     score: 9.9

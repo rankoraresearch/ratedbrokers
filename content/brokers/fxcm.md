@@ -46,6 +46,10 @@ promo: Agency-model execution — no dealing desk intervention
 badge: ""
 risk_warning: "70% of retail investor accounts lose money when trading CFDs with this provider."
 
+payment_methods: [visa, mastercard, bank-transfer, skrill]
+account_types: [standard, demo]
+features: [trading-api, trading-central, economic-calendar, negative-balance-protection, education-hub, charting]
+
 scores:
   - name: "Regulation & Safety"
     score: 9.8

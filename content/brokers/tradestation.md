@@ -51,6 +51,10 @@ promo: "EasyLanguage automation + TITAN X next-gen platform"
 badge: null
 risk_warning: "Securities, futures, and options trading involves risk. Past performance is not indicative of future results."
 
+payment_methods: [bank-transfer]
+account_types: [standard, demo]
+features: [trading-api, research-tools, education-hub, charting]
+
 scores:
   - name: "Regulation & Safety"
     score: 9.5

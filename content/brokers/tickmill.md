@@ -45,6 +45,10 @@ promo: Lowest ECN commissions — $4 round-turn per lot
 badge: Lowest Commission 2026
 risk_warning: "73% of retail investor accounts lose money when trading CFDs with this provider."
 
+payment_methods: [visa, mastercard, bank-transfer, skrill, neteller, crypto]
+account_types: [standard, raw, demo, islamic]
+features: [free-vps, autochartist, economic-calendar, negative-balance-protection, education-hub]
+
 scores:
   - name: "Regulation & Safety"
     score: 9.5

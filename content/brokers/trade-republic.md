@@ -41,6 +41,10 @@ promo: "€1 trades, free savings plans, 3.75% on cash"
 badge: null
 risk_warning: "When investing, your capital is at risk and you may get back less than invested."
 
+payment_methods: [bank-transfer, apple-pay, google-pay]
+account_types: [standard]
+features: [education-hub, no-inactivity-fee, free-deposits]
+
 scores:
   - name: "Regulation & Safety"
     score: 9.5

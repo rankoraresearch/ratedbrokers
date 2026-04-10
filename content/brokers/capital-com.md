@@ -51,6 +51,10 @@ promo: "AI-powered trading insights — 3,700+ instruments — commission-free C
 badge: ""
 risk_warning: "75% of retail investor accounts lose money when trading spread bets and CFDs with this provider."
 
+payment_methods: [visa, mastercard, bank-transfer, apple-pay, google-pay, skrill, neteller]
+account_types: [standard, demo]
+features: [education-hub, research-tools, economic-calendar, negative-balance-protection, charting]
+
 scores:
   - name: "Regulation & Safety"
     score: 9.8

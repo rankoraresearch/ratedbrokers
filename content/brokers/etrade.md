@@ -42,6 +42,10 @@ promo: "Morgan Stanley IPO access for qualifying accounts"
 badge: null
 risk_warning: "Securities products offered by E*TRADE Securities LLC, Member SIPC, FINRA. Investing involves risk, including possible loss of principal."
 
+payment_methods: [bank-transfer]
+account_types: [standard, demo]
+features: [research-tools, education-hub, economic-calendar, charting]
+
 scores:
   - name: "Regulation & Safety"
     score: 9.7

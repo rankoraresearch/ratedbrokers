@@ -50,6 +50,10 @@ promo: Commission-free stock trading — 4M+ users worldwide
 badge: ""
 risk_warning: "73% of retail investor accounts lose money when trading CFDs with this provider."
 
+payment_methods: [visa, mastercard, bank-transfer, google-pay, apple-pay, skrill]
+account_types: [standard, demo]
+features: [education-hub, negative-balance-protection, charting, free-deposits, no-inactivity-fee]
+
 scores:
   - name: "Regulation & Safety"
     score: 9.6

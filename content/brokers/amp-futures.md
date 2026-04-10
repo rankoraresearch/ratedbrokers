@@ -46,6 +46,10 @@ promo: "$100 min deposit, 50+ platform choices"
 badge: null
 risk_warning: "There is a substantial risk of loss in trading commodity futures. Past results are not indicative of future results."
 
+payment_methods: [bank-transfer, visa]
+account_types: [standard, demo]
+features: [trading-api, charting, 24-7-support, free-deposits]
+
 scores:
   - name: "Regulation & Safety"
     score: 9.0

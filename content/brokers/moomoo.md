@@ -54,6 +54,10 @@ promo: "Free Level 2 data + advanced analytics"
 badge: null
 risk_warning: "Securities offered by Moomoo Financial Inc., member FINRA/SIPC. Investing involves risk."
 
+payment_methods: [bank-transfer]
+account_types: [standard, demo]
+features: [research-tools, education-hub, charting]
+
 scores:
   - name: "Regulation & Safety"
     score: 9.3

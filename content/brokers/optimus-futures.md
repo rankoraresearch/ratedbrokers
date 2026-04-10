@@ -44,6 +44,10 @@ promo: "Personal broker assistance + competitive micro pricing"
 badge: null
 risk_warning: "There is a substantial risk of loss in futures trading. Past performance is not indicative of future results."
 
+payment_methods: [bank-transfer]
+account_types: [standard, demo]
+features: [trading-api, charting, 24-7-support]
+
 scores:
   - name: "Regulation & Safety"
     score: 9.0

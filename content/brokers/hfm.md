@@ -50,6 +50,10 @@ promo: "1:2000 leverage · Zero-spread accounts · Copy trading"
 badge: ""
 risk_warning: "70.51% of retail investor accounts lose money when trading CFDs with this provider."
 
+payment_methods: [visa, mastercard, bank-transfer, skrill, neteller, crypto]
+account_types: [micro, standard, zero, demo, islamic]
+features: [free-vps, autochartist, economic-calendar, negative-balance-protection, education-hub, charting, welcome-bonus, deposit-bonus]
+
 scores:
   - name: "Regulation & Safety"
     score: 9.6

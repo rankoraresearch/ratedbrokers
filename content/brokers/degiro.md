@@ -41,6 +41,10 @@ promo: "Invest globally from €0 — 50+ exchanges"
 badge: null
 risk_warning: "Investing involves risk of loss. The value of your investments may go up or down, and you may get back less than you invest."
 
+payment_methods: [bank-transfer, ideal, sofort]
+account_types: [standard]
+features: [education-hub, no-inactivity-fee]
+
 scores:
   - name: "Regulation & Safety"
     score: 9.5

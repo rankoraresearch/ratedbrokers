@@ -54,6 +54,10 @@ promo: "CFD trading with zero commission — 2,800+ instruments"
 badge: ""
 risk_warning: "82% of retail investor accounts lose money when trading CFDs with this provider."
 
+payment_methods: [visa, mastercard, bank-transfer, paypal, skrill, apple-pay]
+account_types: [standard, demo]
+features: [economic-calendar, negative-balance-protection, guaranteed-stop-loss, education-hub]
+
 scores:
   - name: "Regulation & Safety"
     score: 10.0

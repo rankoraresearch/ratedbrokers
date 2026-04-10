@@ -49,6 +49,10 @@ promo: "ASIC + FCA regulated — $0 minimum — Free VPS & Autochartist"
 badge: ""
 risk_warning: "69.6% of retail investor accounts lose money when trading CFDs with this provider."
 
+payment_methods: [visa, mastercard, bank-transfer, skrill, neteller, poli]
+account_types: [standard, pro, demo, islamic]
+features: [free-vps, autochartist, economic-calendar, negative-balance-protection, education-hub]
+
 scores:
   - name: "Regulation & Safety"
     score: 9.6

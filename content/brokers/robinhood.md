@@ -42,6 +42,10 @@ promo: "Commission-free everything — stocks, options, crypto, futures"
 badge: null
 risk_warning: "All investments involve risk, including the possible loss of capital. Securities trading offered through Robinhood Financial LLC, member FINRA/SIPC."
 
+payment_methods: [bank-transfer, visa]
+account_types: [standard]
+features: [education-hub, charting, no-inactivity-fee, free-deposits, instant-withdrawal]
+
 scores:
   - name: "Regulation & Safety"
     score: 9.0
