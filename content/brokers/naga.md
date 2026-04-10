@@ -47,6 +47,10 @@ promo: Social trading platform — Copy top traders — Stocks + Crypto + CFDs
 badge: ""
 risk_warning: "86.44% of retail investor accounts lose money when trading CFDs with this provider."
 
+payment_methods: [visa, mastercard, bank-transfer, skrill, neteller, crypto, apple-pay]
+account_types: [standard, demo]
+features: [education-hub, negative-balance-protection, charting]
+
 scores:
   - name: "Regulation & Safety"
     score: 9.6

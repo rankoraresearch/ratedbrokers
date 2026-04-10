@@ -47,6 +47,10 @@ promo: "0.0 pip ECN spreads + IRESS DMA platform"
 badge: Best ECN Broker 2026
 risk_warning: "73.85% of retail investor accounts lose money when trading CFDs with this provider."
 
+payment_methods: [visa, mastercard, bank-transfer, skrill, neteller, fasapay, crypto]
+account_types: [standard, raw, demo, islamic]
+features: [free-vps, trading-api, autochartist, economic-calendar, negative-balance-protection, education-hub, charting, free-deposits]
+
 scores:
   - name: "Regulation & Safety"
     score: 9.6

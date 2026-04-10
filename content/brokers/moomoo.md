@@ -54,6 +54,10 @@ promo: "Free Level 2 data + advanced analytics"
 badge: null
 risk_warning: "Securities offered by Moomoo Financial Inc., member FINRA/SIPC. Investing involves risk."
 
+payment_methods: [bank-transfer]
+account_types: [standard, demo]
+features: [research-tools, education-hub, charting]
+
 scores:
   - name: "Regulation & Safety"
     score: 9.3
@@ -217,3 +221,61 @@ Multiple funding methods are supported including ACH bank transfers (free, 1-3 d
 
 A solid choice for stock and ETF investors seeking regulated, commission-free trading with quality research tools.
 
+subpages:
+  fees:
+    quick_answer: "Moomoo: $0 stocks/ETFs/options ($0.65 per-contract waived for 90 days). No account minimum. Competitive margin rates."
+    tab_score: 8.5
+    pros:
+      - "$0 stock/ETF commissions"
+      - "$0.65 options (90-day free promo)"
+      - "No account minimum"
+      - "Competitive margin rates"
+    cons:
+      - "Options $0.65 after promo period"
+      - "Futures not available"
+      - "PFOF revenue model"
+  regulation:
+    quick_answer: "Moomoo Financial Inc: SEC + FINRA. SIPC $500K. Subsidiary of Futu Holdings (NASDAQ: FUTU). Hong Kong SFC regulated parent."
+    tab_score: 7.5
+    pros:
+      - "SEC + FINRA regulated"
+      - "SIPC $500K coverage"
+      - "Parent listed on NASDAQ (FUTU)"
+    cons:
+      - "Chinese-origin parent company"
+      - "Smaller US presence than established brokers"
+      - "Limited track record in US market"
+  platforms:
+    quick_answer: "Moomoo desktop, web, and mobile. 100+ indicators, Level II data, paper trading, AI-powered insights. One of the best charting experiences for free."
+    tab_score: 9
+    pros:
+      - "100+ technical indicators — free"
+      - "Level II data included free"
+      - "Paper trading built-in"
+      - "AI-powered market insights"
+    cons:
+      - "Can be overwhelming for beginners"
+      - "No TradingView integration"
+      - "No API access"
+  deposit:
+    quick_answer: "ACH free (1-5 days). Wire transfer. No minimum deposit."
+    tab_score: 7.5
+    pros:
+      - "Free ACH"
+      - "No minimum deposit"
+    cons:
+      - "No instant deposit"
+      - "No PayPal or debit card"
+      - "Wire out fees apply"
+  beginners:
+    quick_answer: "Moomoo offers paper trading, educational videos, and community features. Advanced charting available from day one. Good for motivated beginners who want to learn technical analysis."
+    tab_score: 7.5
+    pros:
+      - "Paper trading"
+      - "Educational video library"
+      - "Community features"
+      - "Free advanced charting"
+    cons:
+      - "Interface complexity for beginners"
+      - "Better suited for motivated self-learners"
+      - "Limited structured courses"

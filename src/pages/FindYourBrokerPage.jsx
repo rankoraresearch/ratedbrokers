@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { useMedia } from "../hooks/useMedia";
 import { useLocalePath } from "../i18n/useLocalePath";
-import { QUIZ_QUESTIONS, POPULAR_COUNTRIES, CONTEXTUAL_TIPS, matchBrokers, detectCountry } from "../utils/quizMatching";
+import { QUIZ_QUESTIONS, POPULAR_COUNTRIES, CONTEXTUAL_TIPS, matchBrokers, detectCountry, getWeakPoint, getUserProfile } from "../utils/quizMatching";
 import { getVisitUrl } from "../utils/visitUrl";
 import { getTrustpilotUrl } from "../data/trustpilot-links";
 import ScoreBadge from "../components/ScoreBadge";
@@ -93,36 +93,94 @@ export default function FindYourBrokerPage() {
   const currentQ = QUIZ_QUESTIONS[step] || null;
 
   // GeoIP auto-detect
+  const [geoCode, setGeoCode] = useState(null);
+  const [geoManualOverride, setGeoManualOverride] = useState(false);
   useEffect(() => {
-    detectCountry().then((code) => {
-      if (code && !answers.country) {
-        setAnswers((prev) => ({ ...prev, country: code }));
-        setGeoDetected(true);
-      }
-    });
+    detectCountry().then((code) => { if (code) setGeoCode(code); });
   }, []);
+  useEffect(() => {
+    if (!geoCode) return;
+    setAnswers((prev) => prev.country ? prev : { ...prev, country: geoCode });
+  }, [geoCode]);
+  useEffect(() => {
+    setGeoDetected(!!geoCode && answers.country === geoCode && !geoManualOverride);
+  }, [geoCode, answers.country, geoManualOverride]);
 
   useEffect(() => { window.scrollTo({ top: 0, behavior: "smooth" }); }, [step]);
 
   // SEO
+  // SEO: title, description, canonical (Sprint 4)
   useEffect(() => {
-    document.title = "Find Your Broker — Personalized Broker Matching | RatedBrokers";
+    const prevTitle = document.title;
     const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", "Answer 6 quick questions and get matched with the best broker for your trading style, experience, and budget. Expert-tested, data-driven results.");
+    const prevDesc = meta?.getAttribute("content") || "";
+    document.title = "Find Your Broker — Personalized Broker Matching | RatedBrokers";
+    if (meta) meta.setAttribute("content", "Answer 6 quick questions about your trading style, experience, budget, and frequency — and get matched with the best broker from 50+ expert-tested options.");
+    // Canonical — track if we created or reused, restore prev href on unmount
+    let canonical = document.querySelector('link[rel="canonical"]');
+    const canonicalIsNew = !canonical;
+    const prevCanonicalHref = canonical?.href || "";
+    if (!canonical) { canonical = document.createElement("link"); canonical.rel = "canonical"; document.head.appendChild(canonical); }
+    canonical.href = "https://ratedbrokers.com/find-your-broker";
+    // OG meta tags for social sharing
+    const ogTags = [
+      { property: "og:title", content: "Find Your Perfect Broker — Free Quiz | RatedBrokers" },
+      { property: "og:description", content: "Answer 6 questions and get matched with the best broker for your trading style. Expert-tested, data-driven results." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://ratedbrokers.com/find-your-broker" },
+    ];
+    const createdOg = ogTags.map(({ property, content }) => {
+      let tag = document.querySelector(`meta[property="${property}"]`);
+      const isNew = !tag;
+      const prevContent = tag?.getAttribute("content") || "";
+      if (!tag) { tag = document.createElement("meta"); tag.setAttribute("property", property); document.head.appendChild(tag); }
+      tag.setAttribute("content", content);
+      return { tag, isNew, prevContent };
+    });
+    return () => {
+      document.title = prevTitle;
+      if (meta) meta.setAttribute("content", prevDesc);
+      if (canonicalIsNew) { if (canonical.parentNode) canonical.parentNode.removeChild(canonical); }
+      else { canonical.href = prevCanonicalHref; }
+      createdOg.forEach(({ tag, isNew, prevContent }) => {
+        if (isNew) { if (tag.parentNode) tag.parentNode.removeChild(tag); }
+        else { tag.setAttribute("content", prevContent); }
+      });
+    };
   }, []);
 
-  // JSON-LD
+  // Shared FAQ data — used for both JSON-LD and visual FAQ section
+  const QUIZ_FAQ = [
+    { q: "How does the Find Your Broker quiz work?", a: "Our quiz asks 6 targeted questions about your trading preferences, experience, budget, and trading frequency. Our algorithm then scores all 50+ brokers against your answers and ranks them by match percentage." },
+    { q: "Is the broker matching tool free?", a: "Yes, completely free with no registration required. We earn revenue through affiliate partnerships with brokers we recommend, but your results are 100% based on our independent scoring methodology. We never accept payment to boost a broker's position." },
+    { q: "How many brokers does the quiz compare?", a: "The quiz evaluates all 50+ brokers in our database, each independently tested and scored across 6 categories: Regulation, Costs, Trustpilot, Expert Evaluation, Trading Frequency Fit, and Execution." },
+    { q: "Can I retake the quiz with different answers?", a: "Absolutely. Click 'Start Over' at any point to restart the quiz. You can also go back to any previous question using the Back button. Your live results in the sidebar update in real-time as you modify your answers." },
+    { q: "What data do you use to score brokers?", a: "We collect data across 6 dimensions: regulatory licenses and tier classification, trading costs (spreads and commissions), Trustpilot user ratings, our proprietary expert evaluation, trading frequency fit, and execution quality. All data is verified firsthand." },
+    { q: "Do brokers pay to be listed?", a: "No. Our rankings are based entirely on our independent methodology. We may earn affiliate commissions when you open an account through our links, but this never influences broker placement or match percentages." },
+    { q: "How often are results updated?", a: "Our broker data is reviewed and updated monthly. Regulatory changes, fee updates, and platform additions are reflected as soon as they are verified by our team." },
+    { q: "Is this tool free to use?", a: "Yes, the Find Your Broker quiz is completely free with no signup required. You can use it as many times as you like to compare different trading scenarios." },
+  ];
+
+  // JSON-LD: FAQ + BreadcrumbList + HowTo schemas
   useEffect(() => {
-    const faqItems = [
-      { q: "How does the Find Your Broker quiz work?", a: "Our quiz asks 6 targeted questions about your trading preferences, experience, and budget. Our algorithm then scores all 50+ brokers against your answers and ranks them by match percentage." },
-      { q: "Is the broker matching tool free?", a: "Yes, completely free. We earn revenue through affiliate partnerships with brokers, but your results are unbiased and based on our independent scoring methodology." },
-      { q: "How many brokers does the quiz compare?", a: "The quiz evaluates all 50+ brokers in our database, each independently tested and scored across 6 categories: Regulation, Costs, Trustpilot, Expert Evaluation, Platform, and Execution." },
-      { q: "Can I retake the quiz with different answers?", a: "Absolutely. Click 'Start Over' at any time to retake the quiz. Your results update in real-time as you answer each question." },
+    const schemas = [
+      { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: QUIZ_FAQ.map((item) => ({ "@type": "Question", name: item.q, acceptedAnswer: { "@type": "Answer", text: item.a } })) },
+      { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://ratedbrokers.com/" },
+        { "@type": "ListItem", position: 2, name: "Find Your Broker", item: "https://ratedbrokers.com/find-your-broker" },
+      ]},
+      { "@context": "https://schema.org", "@type": "HowTo", name: "How to Find Your Perfect Broker", description: "Answer 6 quick questions to get matched with the best broker for your trading needs.", step: [
+        { "@type": "HowToStep", position: 1, name: "Select your country", text: "Tell us where you are based so we can prioritize locally regulated brokers." },
+        { "@type": "HowToStep", position: 2, name: "Choose your assets", text: "Select the markets you want to trade: forex, stocks, crypto, and more." },
+        { "@type": "HowToStep", position: 3, name: "Set your experience level", text: "Are you a beginner, intermediate, or professional trader?" },
+        { "@type": "HowToStep", position: 4, name: "Enter your budget", text: "How much do you plan to deposit? This filters brokers by minimum requirements." },
+        { "@type": "HowToStep", position: 5, name: "Pick your priority", text: "What matters most: lowest costs, maximum safety, best platform, or fast execution?" },
+        { "@type": "HowToStep", position: 6, name: "Set your trading frequency", text: "How often do you trade? This helps match the right cost structure." },
+      ]},
     ];
-    const schema = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqItems.map((item) => ({ "@type": "Question", name: item.q, acceptedAnswer: { "@type": "Answer", text: item.a } })) };
     let el = document.getElementById("quiz-faq-jsonld");
     if (!el) { el = document.createElement("script"); el.id = "quiz-faq-jsonld"; el.type = "application/ld+json"; document.head.appendChild(el); }
-    el.textContent = JSON.stringify(schema);
+    el.textContent = JSON.stringify(schemas);
     return () => { if (el.parentNode) el.parentNode.removeChild(el); };
   }, []);
 
@@ -150,8 +208,15 @@ export default function FindYourBrokerPage() {
     setTransitioning(true);
     setTimeout(() => { setStep((s) => s - 1); setTransitioning(false); setInfoOpen(null); }, 200);
   }
-  function restart() { setStep(0); setAnswers({}); setInfoOpen(null); setGeoDetected(false); setRiskExpanded({}); }
-  function setAnswer(qId, value) { setAnswers((prev) => ({ ...prev, [qId]: value })); }
+  function restart() {
+    setStep(0); setInfoOpen(null); setRiskExpanded({});
+    setGeoManualOverride(false);
+    setAnswers(geoCode ? { country: geoCode } : {});
+  }
+  function setAnswer(qId, value) {
+    if (qId === "country") setGeoManualOverride(true);
+    setAnswers((prev) => ({ ...prev, [qId]: value }));
+  }
   function toggleMulti(qId, value) {
     setAnswers((prev) => {
       const arr = prev[qId] || [];
@@ -173,21 +238,24 @@ export default function FindYourBrokerPage() {
     Object.entries(answers).forEach(([k, v]) => {
       params.set(k, Array.isArray(v) ? v.join(",") : v);
     });
-    return `${window.location.origin}/find-your-broker?${params.toString()}`;
+    return `${window.location.origin}${import.meta.env.BASE_URL}find-your-broker?${params.toString()}`;
   }
   function copyShare() {
     navigator.clipboard.writeText(getShareUrl()).catch(() => {});
   }
 
-  // Load from URL params on mount (Sprint 12.4)
+  // Load from URL params on mount
+  const BUDGET_MIGRATION = { micro: "under50", small: "200-500", medium: "1k-5k", large: "5k-50k" };
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     if (params.size === 0) return;
     const loaded = {};
     for (const [k, v] of params.entries()) {
+      if (k === "platform") continue; // Skip deprecated param from old share URLs
       const q = QUIZ_QUESTIONS.find((q) => q.id === k);
       if (!q) continue;
-      loaded[k] = q.type === "multi" ? v.split(",") : v;
+      const val = k === "budget" && BUDGET_MIGRATION[v] ? BUDGET_MIGRATION[v] : v;
+      loaded[k] = q.type === "multi" ? val.split(",") : val;
     }
     if (Object.keys(loaded).length > 0) {
       setAnswers(loaded);
@@ -400,7 +468,7 @@ export default function FindYourBrokerPage() {
             {currentQ.options.map((opt) => {
               const selected = answers[currentQ.id] === opt.value;
               return (
-                <button key={opt.value} onClick={() => setAnswer(currentQ.id, opt.value)}
+                <button key={opt.value} role="radio" aria-checked={selected} onClick={() => setAnswer(currentQ.id, opt.value)}
                   style={{
                     display: "flex", alignItems: "center", gap: 14,
                     padding: mob ? "14px 16px" : "16px 20px", borderRadius: 12,
@@ -440,7 +508,7 @@ export default function FindYourBrokerPage() {
               const arr = answers[currentQ.id] || [];
               const selected = arr.includes(opt.value);
               return (
-                <button key={opt.value} onClick={() => toggleMulti(currentQ.id, opt.value)}
+                <button key={opt.value} role="checkbox" aria-checked={selected} onClick={() => toggleMulti(currentQ.id, opt.value)}
                   style={{
                     display: "flex", alignItems: "center", gap: 12,
                     padding: mob ? "12px 14px" : "14px 18px", borderRadius: 12,
@@ -683,7 +751,7 @@ export default function FindYourBrokerPage() {
               boxShadow: "0 2px 8px rgba(245,158,11,0.25)",
             }}
           >
-            Visit {B1.name} <ArrowRight size={13} style={{ verticalAlign: "middle", marginLeft: 2 }} />
+            Open Account <ArrowRight size={13} style={{ verticalAlign: "middle", marginLeft: 2 }} />
           </a>
         </div>
 
@@ -739,7 +807,7 @@ export default function FindYourBrokerPage() {
           textAlign: "center",
         }}>
           <span style={{ fontSize: 10, color: "#94a3b8", fontWeight: 500 }}>
-            Independent analysis of 51 expert-tested brokers
+            Independent analysis of {results.length} expert-tested brokers
           </span>
         </div>
       </div>
@@ -750,7 +818,7 @@ export default function FindYourBrokerPage() {
   const ShimmerLoading = () => {
     const [counter, setCounter] = useState(0);
     useEffect(() => {
-      const iv = setInterval(() => setCounter((c) => Math.min(c + 1, 51)), 15);
+      const iv = setInterval(() => setCounter((c) => Math.min(c + 1, results.length)), 15);
       return () => clearInterval(iv);
     }, []);
     return (
@@ -773,7 +841,7 @@ export default function FindYourBrokerPage() {
           width: "100%", height: 4, borderRadius: 2, background: "#e2e8f0", overflow: "hidden",
         }}>
           <div style={{
-            width: `${Math.min(counter / 51 * 100, 100)}%`, height: "100%",
+            width: `${results.length > 0 ? Math.min(counter / results.length * 100, 100) : 0}%`, height: "100%",
             background: "linear-gradient(90deg, #059669, #34d399)",
             borderRadius: 2, transition: "width 0.1s",
           }} />
@@ -803,7 +871,7 @@ export default function FindYourBrokerPage() {
           }}>
             <thead>
               <tr style={{ background: "#f8fafc" }}>
-                {["", "Score", "Spread", "Min Dep", "Trustpilot", ""].map((h, i) => (
+                {["", "Score", "Spread", "Min Dep", "Trustpilot", "", "Review"].map((h, i) => (
                   <th key={i} style={{
                     padding: "10px 14px", fontSize: 11, fontWeight: 700, color: "#64748b",
                     textTransform: "uppercase", letterSpacing: 0.5, textAlign: i === 0 ? "left" : "center",
@@ -854,7 +922,10 @@ export default function FindYourBrokerPage() {
                           color: "#0f172a", fontWeight: 700, fontSize: 12,
                           textDecoration: "none", whiteSpace: "nowrap",
                         }}
-                      >Visit</a>
+                      >Visit Broker →</a>
+                    </td>
+                    <td style={{ textAlign: "center", padding: "12px 8px" }}>
+                      <Link to={lp(`/reviews/${r.slug}`)} style={{ fontSize: 12, fontWeight: 600, color: "#059669", textDecoration: "none" }}>Review</Link>
                     </td>
                   </tr>
                 );
@@ -891,8 +962,16 @@ export default function FindYourBrokerPage() {
             Your Top Broker Matches
           </h1>
           <p style={{ fontSize: mob ? 13 : 15, color: "#94a3b8", margin: 0 }}>
-            Personalized results based on your {Object.keys(answers).length} answers. Click any broker to visit their site.
+            Personalized results based on your {Object.keys(answers).length} answers
           </p>
+          {(() => { const profile = getUserProfile(answers); return profile ? (
+            <span style={{
+              display: "inline-block", marginTop: 8, padding: "4px 12px", borderRadius: 16,
+              fontSize: 12, fontWeight: 600,
+              background: "rgba(5,150,105,0.12)", color: "#34d399",
+              border: "1px solid rgba(52,211,153,0.25)",
+            }}>{profile}</span>
+          ) : null; })()}
         </div>
         <div style={{ display: "flex", gap: 8, flexShrink: 0, flexWrap: "wrap" }}>
           <button onClick={restart} style={{
@@ -911,16 +990,21 @@ export default function FindYourBrokerPage() {
           }}>
             <Share2 size={12} /> Share
           </button>
-          <Link to={lp("/compare")} style={{
-            padding: "8px 14px", borderRadius: 8,
-            background: "rgba(52,211,153,0.12)", border: "1px solid rgba(52,211,153,0.25)",
-            color: "#34d399", fontSize: 12, fontWeight: 600, textDecoration: "none",
-            display: "flex", alignItems: "center", gap: 5, whiteSpace: "nowrap",
-          }}>
-            Compare <ArrowRight size={12} />
-          </Link>
+          {topResults.length >= 2 && (
+            <Link to={lp(`/compare/${topResults[0].slug}-vs-${topResults[1].slug}`)} style={{
+              padding: "8px 14px", borderRadius: 8,
+              background: "rgba(52,211,153,0.12)", border: "1px solid rgba(52,211,153,0.25)",
+              color: "#34d399", fontSize: 12, fontWeight: 600, textDecoration: "none",
+              display: "flex", alignItems: "center", gap: 5, whiteSpace: "nowrap",
+            }}>
+              Compare Top 2 <ArrowRight size={12} />
+            </Link>
+          )}
         </div>
       </div>
+
+      {/* Quick Compare — Top 3 */}
+      <QuickCompareTable />
 
       {/* ── Compact broker list — each row clicks to broker site ── */}
       <div style={{
@@ -947,74 +1031,77 @@ export default function FindYourBrokerPage() {
             const B = r.broker.B;
             const visitUrl = getVisitUrl(r.slug, B.url);
             const isTop3 = i < 3;
+            const defaultBg = i === 0 ? "linear-gradient(135deg, rgba(236,253,245,0.5), rgba(209,250,229,0.3))" : "#fff";
             return (
-              <a key={r.slug} href={visitUrl} target="_blank" rel="noopener nofollow sponsored"
-                className="quiz-fade-in"
-                style={{
-                  display: "flex", alignItems: "center", gap: mob ? 10 : 12,
-                  padding: mob ? "10px 16px" : "12px 24px",
-                  textDecoration: "none", cursor: "pointer",
-                  borderBottom: "1px solid rgba(0,0,0,0.04)",
-                  background: i === 0 ? "linear-gradient(135deg, rgba(236,253,245,0.5), rgba(209,250,229,0.3))" : "#fff",
-                  transition: "all 0.2s",
-                  opacity: 0,
-                  animationDelay: `${i * 0.06}s`,
-                }}
-                onMouseEnter={(e) => { e.currentTarget.style.background = "#f0fdf4"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.background = i === 0 ? "linear-gradient(135deg, rgba(236,253,245,0.5), rgba(209,250,229,0.3))" : "#fff"; }}
-              >
-                {/* Rank */}
-                <div style={{
-                  width: mob ? 26 : 30, height: mob ? 26 : 30, borderRadius: 8, flexShrink: 0,
-                  background: isTop3 ? "linear-gradient(135deg, #059669, #047857)" : "#f1f5f9",
-                  boxShadow: isTop3 ? "0 2px 6px rgba(5,150,105,0.25)" : "none",
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                  fontSize: mob ? 11 : 12, fontWeight: 800, color: isTop3 ? "#fff" : "#64748b",
-                }}>{i + 1}</div>
-
-                {/* Logo */}
-                <BrokerLogo slug={r.slug} name={B.name} size={mob ? 32 : 36} shape="icon" />
-
-                {/* Name + score */}
-                <div style={{ flex: 1, minWidth: 0 }}>
+              <div key={r.slug} style={{ borderBottom: "1px solid rgba(0,0,0,0.04)" }}>
+                <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored"
+                  className="quiz-fade-in"
+                  style={{
+                    display: "flex", alignItems: "center", gap: mob ? 10 : 12,
+                    padding: mob ? "10px 16px" : "12px 24px",
+                    paddingBottom: 4,
+                    textDecoration: "none", cursor: "pointer",
+                    background: defaultBg,
+                    transition: "all 0.2s",
+                    opacity: 0,
+                    animationDelay: `${i * 0.06}s`,
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.background = "#f0fdf4"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.background = defaultBg; }}
+                >
                   <div style={{
-                    fontSize: mob ? 14 : 15, fontWeight: 700, color: "#0f172a",
-                    whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis",
-                  }}>
-                    {B.name}
-                    {i === 0 && <span style={{
-                      marginLeft: 6, fontSize: 10, fontWeight: 800, color: "#92400e",
-                      background: "linear-gradient(135deg, #fde68a, #fbbf24)", padding: "1px 6px",
-                      borderRadius: 4, verticalAlign: "middle", textTransform: "uppercase",
-                    }}>Best Match</span>}
-                  </div>
-                  <div style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 2 }}>
-                    <div style={{ display: "flex", alignItems: "center", gap: 3 }}>
-                      <Star size={mob ? 10 : 11} color="#059669" fill="#059669" />
-                      <span style={{ fontSize: mob ? 12 : 13, fontWeight: 700, color: "#059669" }}>{B.score}</span>
+                    width: mob ? 26 : 30, height: mob ? 26 : 30, borderRadius: 8, flexShrink: 0,
+                    background: isTop3 ? "linear-gradient(135deg, #059669, #047857)" : "#f1f5f9",
+                    boxShadow: isTop3 ? "0 2px 6px rgba(5,150,105,0.25)" : "none",
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    fontSize: mob ? 11 : 12, fontWeight: 800, color: isTop3 ? "#fff" : "#64748b",
+                  }}>{i + 1}</div>
+                  <BrokerLogo slug={r.slug} name={B.name} size={mob ? 32 : 36} shape="icon" />
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{
+                      fontSize: mob ? 14 : 15, fontWeight: 700, color: "#0f172a",
+                      whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis",
+                    }}>
+                      {B.name}
+                      {i === 0 && <span style={{
+                        marginLeft: 6, fontSize: 10, fontWeight: 800, color: "#92400e",
+                        background: "linear-gradient(135deg, #fde68a, #fbbf24)", padding: "1px 6px",
+                        borderRadius: 4, verticalAlign: "middle", textTransform: "uppercase",
+                      }}>Best Match</span>}
                     </div>
-                    {!mob && B.regs.length > 0 && (
+                    <div style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 2 }}>
                       <div style={{ display: "flex", alignItems: "center", gap: 3 }}>
-                        <span style={{ color: "#d1d5db" }}>·</span>
-                        <span style={{ fontSize: 11, color: "#64748b" }}>{B.regs.slice(0, 2).map((reg) => reg.name).join(", ")}</span>
+                        <Star size={mob ? 10 : 11} color="#059669" fill="#059669" />
+                        <span style={{ fontSize: mob ? 12 : 13, fontWeight: 700, color: "#059669" }}>{B.score}</span>
                       </div>
-                    )}
+                      {!mob && B.regs.length > 0 && (
+                        <div style={{ display: "flex", alignItems: "center", gap: 3 }}>
+                          <span style={{ color: "#d1d5db" }}>·</span>
+                          <span style={{ fontSize: 11, color: "#64748b" }}>{B.regs.slice(0, 2).map((reg) => reg.name).join(", ")}</span>
+                        </div>
+                      )}
+                    </div>
                   </div>
+                  <div style={{
+                    fontFamily: "'JetBrains Mono',monospace",
+                    fontSize: mob ? 13 : 14, fontWeight: 800,
+                    color: r.matchPct >= 80 ? "#059669" : r.matchPct >= 60 ? "#2563eb" : "#d97706",
+                    minWidth: 42, textAlign: "right",
+                  }}>{r.matchPct}%</div>
+                  <ChevronRight size={mob ? 14 : 16} color="#cbd5e1" style={{ flexShrink: 0 }} />
+                </a>
+                <div style={{ padding: mob ? "2px 16px 8px 58px" : "2px 24px 8px 66px", display: "flex", flexDirection: "column", gap: 2 }}>
+                  <Link to={lp(`/reviews/${r.slug}`)} style={{ fontSize: 12, fontWeight: 600, color: "#059669", textDecoration: "none" }}>Read Review →</Link>
+                  {isTop3 && (() => { const wp = getWeakPoint(r.broker, answers); return wp ? (
+                    <div style={{ display: "flex", alignItems: "flex-start", gap: 4, fontSize: 11, color: "#94a3b8", lineHeight: 1.4 }}>
+                      <Info size={11} style={{ flexShrink: 0, marginTop: 1 }} /><span>{wp}</span>
+                    </div>
+                  ) : null; })()}
+                  {B.riskWarning && (B.verticals || []).some(v => ["forex", "cfd", "crypto", "spread-betting"].includes(v)) && (
+                    <div style={{ fontSize: 11, lineHeight: 1.3, color: "#94a3b8" }}>{B.riskWarning}</div>
+                  )}
                 </div>
-
-                {/* Match % */}
-                <div style={{
-                  fontFamily: "'JetBrains Mono',monospace",
-                  fontSize: mob ? 13 : 14, fontWeight: 800,
-                  color: r.matchPct >= 80 ? "#059669" : r.matchPct >= 60 ? "#2563eb" : "#d97706",
-                  minWidth: 42, textAlign: "right",
-                }}>{r.matchPct}%</div>
-
-                {/* Chevron */}
-                <ChevronRight size={mob ? 14 : 16} color="#cbd5e1" style={{
-                  flexShrink: 0, transition: "transform 0.2s, color 0.2s",
-                }} />
-              </a>
+              </div>
             );
           })}
         </div>
@@ -1030,34 +1117,66 @@ export default function FindYourBrokerPage() {
           background: "#fff", boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.08)", color: "#111827",
           textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 6,
         }}>Browse All Rankings <ArrowRight size={14} /></Link>
-        <Link to={lp("/compare")} style={{
-          padding: "10px 20px", borderRadius: 10, fontSize: 13, fontWeight: 700,
-          background: "#fff", boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.08)", color: "#111827",
-          textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 6,
-        }}>Compare Brokers <ArrowRight size={14} /></Link>
+        {topResults.length >= 2 && (
+          <Link to={lp(`/compare/${topResults[0].slug}-vs-${topResults[1].slug}`)} className="cta-secondary" style={{
+            padding: "10px 20px", borderRadius: 10, fontSize: 13, fontWeight: 700,
+            background: "#fff", border: "2px solid #059669", color: "#059669",
+            textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 6,
+          }}>Compare Your Top 2 <ArrowRight size={14} /></Link>
+        )}
+      </div>
+
+      {/* Methodology + Trust */}
+      <div style={{ marginTop: 20, padding: mob ? "20px 16px" : "24px 28px", ...cardStyle, background: "#f8fafc" }}>
+        <h2 style={{ fontFamily: "'Outfit',sans-serif", fontSize: mob ? 16 : 18, fontWeight: 800, color: "#0f172a", margin: "0 0 10px" }}>
+          How We Match You With Brokers
+        </h2>
+        <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr 1fr" : "repeat(4, 1fr)", gap: 12, marginBottom: 12 }}>
+          {[
+            { n: `${results.length}`, l: "Brokers analyzed" },
+            { n: "6", l: "Scoring categories" },
+            { n: "100", l: "Point matching scale" },
+            { n: "Monthly", l: "Data updates" },
+          ].map((s, i) => (
+            <div key={i} style={{ textAlign: "center", padding: "10px 0" }}>
+              <div style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 20, fontWeight: 800, color: "#059669" }}>{s.n}</div>
+              <div style={{ fontSize: 11, color: "#64748b", marginTop: 2 }}>{s.l}</div>
+            </div>
+          ))}
+        </div>
+        <div style={{ fontSize: 12, color: "#94a3b8", lineHeight: 1.5 }}>
+          Data verified: {new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" })}. We may receive compensation from featured brokers. This does not influence our scoring methodology or your quiz results.
+        </div>
       </div>
 
       <FAQSection />
+
+      {/* SEO content block */}
+      <div style={{ marginTop: 32, padding: mob ? "24px 16px" : "32px 28px", ...cardStyle }}>
+        <h2 style={{ fontFamily: "'Outfit',sans-serif", fontSize: mob ? 18 : 22, fontWeight: 800, color: "#0f172a", margin: "0 0 14px" }}>
+          How to Choose the Right Broker
+        </h2>
+        <div style={{ fontSize: 15, lineHeight: 1.8, color: "#374151" }}>
+          <p style={{ margin: "0 0 12px" }}>Choosing the right online broker is one of the most important decisions for any trader or investor. The wrong choice can cost you money through higher fees, poor execution, or inadequate regulatory protection. Our Find Your Broker quiz simplifies this process by matching your specific needs against our database of {results.length} expert-tested brokers.</p>
+          <p style={{ margin: "0 0 12px" }}>We evaluate each broker across six key dimensions: regulatory compliance (including Tier-1 licenses from FCA, ASIC, and CySEC), trading costs (spreads and commissions), user satisfaction (Trustpilot ratings), platform quality, execution speed, and suitability for different experience levels. This multi-dimensional approach ensures you get a truly personalized recommendation.</p>
+          <p style={{ margin: "0 0 12px" }}>Unlike generic "best broker" lists, our quiz adapts to your individual profile. A beginner in the UK with a $200 budget will see completely different results than a professional day trader in Australia managing $50,000. Your country, trading frequency, risk tolerance, and priorities all factor into the match percentage you see next to each broker.</p>
+          <p style={{ margin: 0, fontWeight: 600 }}>Our data is updated monthly, and every broker in our database has been independently tested by our team. We earn commissions through affiliate partnerships, but this never influences our scoring methodology or your quiz results.</p>
+        </div>
+      </div>
     </div>
   );
 
-  /* ═══ FAQ Section ═══ */
+  /* ═══ FAQ Section — uses shared QUIZ_FAQ array ═══ */
   const FAQSection = () => {
     const [openFaq, setOpenFaq] = useState(null);
-    const faqs = [
-      { q: "How does the Find Your Broker quiz work?", a: "Our quiz asks 6 targeted questions about your trading preferences, experience level, budget, and platform preferences. Our matching algorithm then evaluates all 50+ brokers in our database — each independently tested and scored across 6 categories — and ranks them by how well they match your specific needs." },
-      { q: "Is the broker matching tool free?", a: "Yes, completely free with no registration required. We earn revenue through affiliate partnerships with the brokers we recommend, but your results are 100% based on our independent scoring methodology. We never accept payment to boost a broker's position." },
-      { q: "How accurate are the match percentages?", a: "Match percentages reflect how well each broker aligns with your stated preferences across 6 dimensions: regulation, trading instruments, experience fit, budget, priority criteria, and platform support. A 90%+ match means the broker excels in almost every area you care about." },
-      { q: "Can I retake the quiz with different answers?", a: "Absolutely. Click 'Start Over' at any point to restart the quiz. You can also go back to any previous question using the Back button. Your live results in the sidebar update in real-time as you modify your answers." },
-    ];
     return (
       <div style={{ marginTop: 32, padding: mob ? "24px 16px" : "32px 28px", ...cardStyle }}>
         <h2 style={{ fontFamily: "'Outfit',sans-serif", fontSize: mob ? 20 : 24, fontWeight: 800, color: "#0f172a", margin: "0 0 16px" }}>
           Frequently Asked Questions
         </h2>
-        {faqs.map((faq, i) => (
-          <div key={i} style={{ borderBottom: i < faqs.length - 1 ? "1px solid #f1f5f9" : "none" }}>
-            <button onClick={() => setOpenFaq(openFaq === i ? null : i)}
+        {QUIZ_FAQ.map((faq, i) => (
+          <div key={i} style={{ borderBottom: i < QUIZ_FAQ.length - 1 ? "1px solid #f1f5f9" : "none" }}>
+            <button aria-expanded={openFaq === i} onClick={() => setOpenFaq(openFaq === i ? null : i)}
               style={{
                 display: "flex", alignItems: "center", justifyContent: "space-between",
                 width: "100%", padding: "14px 0", background: "none", border: "none",

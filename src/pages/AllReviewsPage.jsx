@@ -11,12 +11,14 @@ import HUBS from "../data/categoryHubs";
 const YEAR = "2026";
 const scoreColor = (s) => s >= 9.0 ? "#059669" : s >= 8.0 ? "#2563eb" : "#d97706";
 
-const REVIEWS_FAQ = [
-  { q: "How many brokers does RatedBrokers review?", a: "We currently review 51+ online brokers across forex, stocks, crypto, options, futures, CFD, copy trading, and spread betting. We add new brokers quarterly as the market evolves." },
-  { q: "How are broker reviews scored?", a: "Each broker is scored across 6 weighted categories: Regulation & Safety (30%), Trading Costs (20%), User Reputation (15%), Broker Transparency (15%), Platforms & Tools (15%), and Execution Model (5%). We prioritize brokers holding Tier-1 regulatory licenses." },
-  { q: "Are RatedBrokers reviews independent?", a: "Yes. We earn commissions through affiliate links when you open an account, but this never influences scores or rankings. Brokers cannot pay for higher ratings. Our scoring formula is published on our methodology page." },
-  { q: "How often are reviews updated?", a: "We re-evaluate every listed broker quarterly. When conditions change — new fees, regulatory actions, platform updates — scores are adjusted and rankings updated accordingly." },
-];
+function getReviewsFaq(count) {
+  return [
+    { q: "How many brokers does RatedBrokers review?", a: `We currently review ${count}+ online brokers across forex, stocks, crypto, options, futures, CFD, copy trading, and spread betting. We add new brokers quarterly as the market evolves.` },
+    { q: "How are broker reviews scored?", a: "Each broker is scored across 6 weighted categories: Regulation & Safety (30%), Trading Costs (20%), User Reputation (15%), Broker Transparency (15%), Platforms & Tools (15%), and Execution Model (5%). We prioritize brokers holding Tier-1 regulatory licenses." },
+    { q: "Are RatedBrokers reviews independent?", a: "Yes. We earn commissions through affiliate links when you open an account, but this never influences scores or rankings. Brokers cannot pay for higher ratings. Our scoring formula is published on our methodology page." },
+    { q: "How often are reviews updated?", a: "We re-evaluate every listed broker quarterly. When conditions change — new fees, regulatory actions, platform updates — scores are adjusted and rankings updated accordingly." },
+  ];
+}
 
 function FaqItem({ question, answer, defaultOpen = false }) {
   const [open, setOpen] = useState(defaultOpen);
@@ -96,7 +98,7 @@ export default function AllReviewsPage() {
         {
           "@context": "https://schema.org",
           "@type": "FAQPage",
-          mainEntity: REVIEWS_FAQ.map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+          mainEntity: getReviewsFaq(allBrokers.length).map(f => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
         },
       ])}} />
 
@@ -221,7 +223,7 @@ export default function AllReviewsPage() {
           Frequently Asked Questions
         </h2>
         <div style={{ maxWidth: 800, display: "flex", flexDirection: "column", gap: 0 }}>
-          {REVIEWS_FAQ.map((item, i) => (
+          {getReviewsFaq(allBrokers.length).map((item, i) => (
             <FaqItem key={i} question={item.q} answer={item.a} defaultOpen={i === 0} />
           ))}
         </div>

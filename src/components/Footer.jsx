@@ -12,6 +12,11 @@ import {
   AlertTriangle,
   Info,
 } from "lucide-react";
+import { getAllBrokers } from "../data/brokers";
+
+/* ── Dynamic stats ── */
+const BROKER_COUNT = getAllBrokers().length;
+const CURRENT_QUARTER = `Q${Math.ceil((new Date().getMonth() + 1) / 3)} ${new Date().getFullYear()}`;
 
 /* ── Data arrays (outside component for perf) ── */
 
@@ -84,11 +89,11 @@ const FOOTER_COMPANY = [
   { label: "methodology", path: "/methodology", isLink: true },
   { label: "trustScore", path: "/trust-score", isLink: true },
   { label: "howWeMakeMoney", path: "/how-we-make-money", isLink: true },
-  { label: "allRankings", path: "/best-forex-brokers", isLink: true },
+  { label: "allRankings", path: "/rankings", isLink: true },
   { label: "aboutUs", path: "/about", isLink: true },
   { label: "contact", path: "/contact", isLink: true },
-  { label: "privacy", path: "#", isLink: false },
-  { label: "terms", path: "#", isLink: false },
+  { label: "privacy", path: "/privacy", isLink: true },
+  { label: "terms", path: "/terms", isLink: true },
 ];
 
 /* ── Styles ── */
@@ -189,9 +194,9 @@ export default function Footer() {
             {/* Trust stats */}
             <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginBottom: 12 }}>
               {[
-                { Icon: Shield, text: "36 Brokers Tested" },
+                { Icon: Shield, text: `${BROKER_COUNT} Brokers Tested` },
                 { Icon: FlaskConical, text: "500+ Real Trades" },
-                { Icon: CalendarCheck, text: "Updated Q1 2026" },
+                { Icon: CalendarCheck, text: `Updated ${CURRENT_QUARTER}` },
               ].map(({ Icon, text }) => (
                 <div key={text} style={{ display: "flex", alignItems: "center", gap: 6 }}>
                   <Icon size={14} color="#34d399" />
@@ -210,7 +215,7 @@ export default function Footer() {
             {FOOTER_RANKINGS.map(({ label, path }) => (
               <HoverLink key={path} to={lp(path)}>{label}</HoverLink>
             ))}
-            <HoverLink to={lp("/best-forex-brokers")} style={{ color: "#34d399", fontWeight: 600, marginTop: 4 }}>
+            <HoverLink to={lp("/rankings")} style={{ color: "#34d399", fontWeight: 600, marginTop: 4 }}>
               {t("footer.allRankings")} {arrowIcon}
             </HoverLink>
           </div>
@@ -365,7 +370,7 @@ export default function Footer() {
             {t("footer.copy")}
           </span>
           <span style={{ fontSize: 13, color: "#94a3b8" }}>
-            36 brokers independently researched and expert-scored
+            {BROKER_COUNT} brokers independently researched and expert-scored
           </span>
         </div>
       </div>

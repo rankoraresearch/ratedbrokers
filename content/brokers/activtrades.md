@@ -51,6 +51,10 @@ promo: "25+ years of trust — $0 minimum deposit, free premium insurance"
 badge: ""
 risk_warning: "65% of retail investor accounts lose money when trading CFDs with this provider."
 
+payment_methods: [visa, mastercard, bank-transfer, paypal, skrill, neteller]
+account_types: [standard, demo, pro]
+features: [free-vps, economic-calendar, negative-balance-protection, education-hub, charting, guaranteed-stop-loss]
+
 scores:
   - name: "Regulation & Safety"
     score: 9.6

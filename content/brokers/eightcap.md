@@ -50,6 +50,10 @@ promo: Raw spreads from 0.0 pips + TradingView integration
 badge: ""
 risk_warning: "76.09% of retail investor accounts lose money when trading CFDs with this provider."
 
+payment_methods: [visa, mastercard, bank-transfer, skrill, neteller, crypto]
+account_types: [standard, raw, demo]
+features: [trading-api, economic-calendar, negative-balance-protection, education-hub, charting, free-deposits]
+
 scores:
   - name: "Regulation & Safety"
     score: 9.8

@@ -30,7 +30,7 @@ function sortedRegs(regs) {
 
 const WIDE_LIGHT_EXT = { "fxpro": "jpg" };
 const WIDE_NEEDS_DARK_BG = new Set([
-  "dukascopy", "ig", "naga", "trading-212", "xm", "xm-v2",
+  "dukascopy", "ig", "naga", "trading-212", "xm",
 ]);
 const WIDE_HAS_OWN_BG = new Set(["exness", "charles-schwab", "fxpro"]);
 const WIDE_USE_ICON = new Set([]);

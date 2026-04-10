@@ -43,6 +43,10 @@ promo: "12,000+ instruments — 1:2000 leverage — CopyFX social trading"
 badge: ""
 risk_warning: CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage.
 
+payment_methods: [visa, mastercard, bank-transfer, skrill, neteller, crypto, perfect-money]
+account_types: [micro, standard, raw, demo, islamic, pro]
+features: [free-vps, trading-api, autochartist, economic-calendar, negative-balance-protection, education-hub, cashback, welcome-bonus]
+
 scores:
   - name: "Regulation & Safety"
     score: 7.5

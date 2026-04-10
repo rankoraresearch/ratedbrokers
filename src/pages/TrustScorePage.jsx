@@ -643,10 +643,10 @@ function DistributionSection({ cn, mob, t, allBrokers }) {
   return (
     <section style={{ ...cn, marginBottom: 48 }}>
       <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 28, marginBottom: 6 }}>
-        {t("ts.distTitle")}
+        {t("ts.distTitle", { count: allBrokers.length })}
       </h2>
       <p style={{ fontSize: 16, color: "#1f2937", marginBottom: 20, maxWidth: 700 }}>
-        {t("ts.distDesc")}
+        {t("ts.distDesc", { count: allBrokers.length })}
       </p>
 
       {/* Summary stats */}

@@ -46,6 +46,10 @@ promo: "$2/lot commission — 1:2000 leverage — FXTM Invest copy trading"
 badge: ""
 risk_warning: "81% of retail investor accounts lose money when trading CFDs with this provider."
 
+payment_methods: [visa, mastercard, bank-transfer, skrill, neteller, crypto]
+account_types: [standard, micro, zero, demo, islamic]
+features: [free-vps, education-hub, economic-calendar, negative-balance-protection, charting, welcome-bonus]
+
 scores:
   - name: "Regulation & Safety"
     score: 9.5

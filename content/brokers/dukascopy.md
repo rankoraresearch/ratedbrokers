@@ -37,6 +37,10 @@ promo: Swiss ECN bank — raw spreads on SWFX marketplace
 badge: ""
 risk_warning: "65% of retail investor accounts lose money when trading CFDs with this provider."
 
+payment_methods: [visa, mastercard, bank-transfer, crypto]
+account_types: [standard, demo]
+features: [trading-api, research-tools, economic-calendar, negative-balance-protection, education-hub, charting]
+
 scores:
   - name: "Regulation & Safety"
     score: 8.5

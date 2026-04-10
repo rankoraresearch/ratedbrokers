@@ -50,6 +50,10 @@ promo: "$25 minimum deposit — 8,000+ instruments with MT4/MT5"
 badge: ""
 risk_warning: "76% of retail investor accounts lose money when trading CFDs with this provider."
 
+payment_methods: [visa, mastercard, bank-transfer, skrill, neteller]
+account_types: [standard, zero, demo, islamic, pro]
+features: [free-vps, education-hub, research-tools, economic-calendar, negative-balance-protection, charting, free-deposits]
+
 scores:
   - name: "Regulation & Safety"
     score: 9.8

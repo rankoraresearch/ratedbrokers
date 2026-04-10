@@ -47,6 +47,10 @@ promo: $4.50/lot — Lowest ECN commission from ASIC broker — $0 minimum
 badge: Cheapest ECN
 risk_warning: CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage.
 
+payment_methods: [visa, mastercard, bank-transfer, skrill, neteller, crypto]
+account_types: [standard, zero, demo]
+features: [free-vps, economic-calendar, negative-balance-protection, charting, free-deposits, no-inactivity-fee]
+
 scores:
   - name: "Regulation & Safety"
     score: 7.9

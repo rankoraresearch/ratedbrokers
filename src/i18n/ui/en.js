@@ -12,8 +12,8 @@ const en = {
   "nav.rankings": "Rankings",
   "nav.methodology": "Methodology",
   "nav.findBroker": "Find Your Broker",
-  "nav.brokersTested": "36 Brokers Tested",
-  "nav.updatedQ": "Updated Q1 2026",
+  "nav.brokersTested": "{count} Brokers Tested",
+  "nav.updatedQ": "Updated {quarter}",
 
   // ===== MEGA MENU =====
   "mega.byCategory": "By Category",
@@ -703,8 +703,8 @@ const en = {
   "ts.criteriaSubWeight": "Weight",
 
   // Trust Score: Score Distribution
-  "ts.distTitle": "Score Distribution: All 36 Brokers",
-  "ts.distDesc": "Visual overview of how our 36 reviewed brokers are distributed across the scoring spectrum.",
+  "ts.distTitle": "Score Distribution: All {count} Brokers",
+  "ts.distDesc": "Visual overview of how our {count} reviewed brokers are distributed across the scoring spectrum.",
   "ts.distHighest": "Highest",
   "ts.distLowest": "Lowest",
   "ts.distMedian": "Median",

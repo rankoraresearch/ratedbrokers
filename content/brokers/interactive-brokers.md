@@ -79,6 +79,10 @@ promo: Access 150+ global markets from a single account
 badge: ""
 risk_warning: CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage.
 
+payment_methods: [bank-transfer]
+account_types: [standard, demo, pro]
+features: [trading-api, research-tools, economic-calendar, negative-balance-protection, education-hub, charting, no-inactivity-fee]
+
 scores:
   - name: "Regulation & Safety"
     score: 10.0

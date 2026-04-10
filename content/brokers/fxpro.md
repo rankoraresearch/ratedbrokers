@@ -51,6 +51,10 @@ promo: "4 platforms · NDD execution · FCA + CySEC regulated"
 badge: ""
 risk_warning: "73.12% of retail investor accounts lose money when trading CFDs with this provider."
 
+payment_methods: [visa, mastercard, bank-transfer, paypal, skrill, neteller]
+account_types: [standard, raw, demo, pro]
+features: [free-vps, trading-api, economic-calendar, negative-balance-protection, education-hub, charting, free-deposits]
+
 scores:
   - name: "Regulation & Safety"
     score: 9.6

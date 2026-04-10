@@ -46,6 +46,10 @@ promo: Raw ECN spreads from 0.0 pips — $50 minimum deposit
 badge: ""
 risk_warning: CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage.
 
+payment_methods: [visa, mastercard, bank-transfer, skrill, neteller, crypto]
+account_types: [standard, raw, demo, islamic, pro]
+features: [free-vps, trading-api, autochartist, economic-calendar, negative-balance-protection, education-hub, charting, free-deposits, welcome-bonus]
+
 scores:
   - name: "Regulation & Safety"
     score: 9.5

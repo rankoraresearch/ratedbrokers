@@ -191,3 +191,49 @@ UI: Server-rendered HTML + Chart.js + Quill v2 (CDN)
 - `npm run build` — проверить frontend
 - `cd backend && npx wrangler deploy --env staging` — протестировать backend
 - Обновить этот файл + `logs/YYYY-MM.md`
+
+---
+
+## Грандиозный аудит (10 апреля 2026)
+
+### Выполнено (27 из 32 findings)
+
+| # | Finding | Severity | Sprint | Status |
+|---|---------|----------|--------|--------|
+| C1 | "36 Brokers" hardcoded | CRITICAL | 1 | ✅ Fixed: dynamic count |
+| C2 | "Q1 2026" hardcoded | CRITICAL | 1 | ✅ Fixed: dynamic quarter |
+| C3 | No canonical tags | CRITICAL | 3 | ✅ Fixed: useSEO hook |
+| C4 | No OG/Twitter meta | CRITICAL | 3 | ✅ Fixed: useSEO hook |
+| C5 | 121 filters = all | CRITICAL | 9-11 | ✅ Partial: 47 fixed + 29 legitimate + schema for rest |
+| C6 | dateModified hardcoded | CRITICAL | 3 | ✅ Fixed: 7 files → dynamic |
+| C7 | 13 brokers no subpages | CRITICAL | 12-14 | ✅ Fixed: 12 brokers + IB already had |
+| B1 | xm-v2 duplicate | BUG | 1 | ✅ Fixed: merged → xm.md |
+| B2 | No 404 page | BUG | 2 | ✅ Fixed: NotFoundPage |
+| B3 | Proto in production | BUG | 2 | ✅ Fixed: DEV-gated |
+| B4 | Privacy/Terms = # | BUG | 4 | ✅ Fixed: real pages |
+| B5 | CTA B.url fallback | BUG | 5 | ✅ Fixed: visitUrl only |
+| B6 | Banner 210KB | BUG | 6 | ✅ Fixed: chunk optimization |
+| B7 | Main bundle 2.1MB | BUG | 6 | ✅ Fixed: 1,127KB (-47%) |
+| B8 | useMedia duplicated | BUG | 1 | ✅ Fixed: shared hook |
+| W1 | Missing noopener | WARNING | 5 | ✅ Fixed |
+| W2 | In-memory rate limit | WARNING | 7 | ✅ Fixed: Cache API |
+| W3 | API key in query | WARNING | 7 | ⏳ Deferred: TODO added |
+| W4 | Position validation | WARNING | 7 | ✅ Fixed |
+| W5 | CORS localhost | WARNING | 7 | ✅ Fixed: env variable |
+| W6 | SpreadChart max | WARNING | 8 | ✅ Fixed: dynamic |
+| W7 | xm-v2 in comparison | WARNING | 1 | ✅ Fixed |
+| W8 | Footer wrong link | WARNING | 1 | ✅ Fixed |
+| W9 | Homepage 8 countries | WARNING | 8 | ✅ Fixed: "View All" link |
+| I1 | Methodology dates | INFO | 3 | ✅ Fixed |
+| I3 | Sitemap in robots | INFO | 3 | ✅ Fixed |
+| I5 | "51+" hardcoded | INFO | 1 | ✅ Fixed |
+
+### Отложено (5 findings)
+
+| # | Finding | Reason |
+|---|---------|--------|
+| W3 | API key cookies | Requires admin HTML rewrite — TODO in auth.js |
+| W10 | rankingThematic 321KB | Bundle phase 2 — needs data architecture change |
+| I2 | HowWeMakeMoney count | Low priority |
+| I4 | Compare JSON-LD | Partially done (Sprint 8 added FinancialService schema) |
+| I6 | Aria-labels | Partially done (burger menu). Full axe-core audit needed |

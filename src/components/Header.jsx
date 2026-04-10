@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback, lazy, Suspense } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useMedia } from "../hooks/useMedia";
 import { useTranslation } from "../i18n/LanguageContext";
@@ -6,7 +6,7 @@ import { useLocalePath } from "../i18n/useLocalePath";
 import Icon, { IconBox } from "./Icon";
 import CountryFlag from "./CountryFlag";
 import { ChevronDown, X as XIcon, Menu as MenuIcon, ArrowRight, Search as SearchIcon, Shield, CalendarCheck, Globe } from "lucide-react";
-import SearchOverlay from "./SearchOverlay";
+const SearchOverlay = lazy(() => import("./SearchOverlay"));
 
 /* ── Data ───────────────────────────────────────────── */
 
@@ -385,6 +385,7 @@ export default function Header() {
               </button>
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
+                aria-label={menuOpen ? "Close menu" : "Open menu"}
                 style={{ background: "none", border: "none", color: "#1f2937", padding: "4px 8px", cursor: "pointer", display: "inline-flex", alignItems: "center" }}
               >{menuOpen ? <XIcon size={24} /> : <MenuIcon size={24} />}</button>
             </div>
@@ -1029,7 +1030,7 @@ export default function Header() {
 
         </nav>
       )}
-      {searchOpen && <SearchOverlay onClose={() => setSearchOpen(false)} />}
+      {searchOpen && <Suspense fallback={null}><SearchOverlay onClose={() => setSearchOpen(false)} /></Suspense>}
     </header>
   );
 }

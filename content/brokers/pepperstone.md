@@ -64,6 +64,10 @@ promo: $0 minimum deposit — start trading instantly
 badge: Best Overall 2026
 risk_warning: "75.5% of retail investor accounts lose money when trading CFDs with this provider."
 
+payment_methods: [visa, mastercard, bank-transfer, skrill, neteller, paypal, crypto, poli]
+account_types: [standard, raw, demo, islamic]
+features: [free-vps, trading-api, autochartist, trading-central, economic-calendar, negative-balance-protection, education-hub, research-tools, charting, free-deposits, free-withdrawals]
+
 scores:
   - name: "Regulation & Safety"
     score: 10.0

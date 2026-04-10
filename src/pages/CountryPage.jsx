@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { useTranslation } from "../i18n/LanguageContext";
 import { useLocalePath } from "../i18n/useLocalePath";
+import { useMedia } from "../hooks/useMedia";
 import RegBadge from "../components/RegBadge";
 import BrokerLogo from "../components/BrokerLogo";
 import { getTrustpilotUrl } from "../data/trustpilot-links";
@@ -18,16 +19,7 @@ import { getVisitUrl } from "../utils/visitUrl";
 
 // ============================
 // RESPONSIVE HOOK
-// ============================
-function useMedia() {
-  const [w, setW] = useState(typeof window !== "undefined" ? window.innerWidth : 1200);
-  useEffect(() => {
-    const fn = () => setW(window.innerWidth);
-    window.addEventListener("resize", fn);
-    return () => window.removeEventListener("resize", fn);
-  }, []);
-  return { mob: w < 640, tab: w >= 640 && w < 1024, desk: w >= 1024 };
-}
+// useMedia — imported from hooks/useMedia
 
 // ============================
 // SHARED COMPONENTS

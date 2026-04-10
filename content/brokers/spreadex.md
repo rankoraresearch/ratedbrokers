@@ -37,6 +37,10 @@ promo: Tax-free spread betting — UK specialist since 1999
 badge: UK Specialist
 risk_warning: "80% of retail investor accounts lose money when trading spread bets and CFDs with this provider."
 
+payment_methods: [visa, mastercard, bank-transfer, apple-pay, google-pay]
+account_types: [standard, demo]
+features: [economic-calendar, negative-balance-protection, education-hub, charting]
+
 scores:
   - name: "Regulation & Safety"
     score: 8.1

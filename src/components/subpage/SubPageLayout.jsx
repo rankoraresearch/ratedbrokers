@@ -184,7 +184,7 @@ export default function SubPageLayout({ data, slug, activeTab, children }) {
                 </div>
               ))}
             </div>
-            {mob && <a href={visitUrl} target="_blank" rel="nofollow sponsored" className="cta-orange" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 6, background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: NAVY, fontSize: 15, fontWeight: 700, textDecoration: "none", padding: "12px", borderRadius: 10, marginTop: 14, boxShadow: "0 4px 12px rgba(245,158,11,0.3)" }}>Visit {B.name} <ArrowRight size={14} /></a>}
+            {mob && <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 6, background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: NAVY, fontSize: 15, fontWeight: 700, textDecoration: "none", padding: "12px", borderRadius: 10, marginTop: 14, boxShadow: "0 4px 12px rgba(245,158,11,0.3)" }}>Visit {B.name} <ArrowRight size={14} /></a>}
           </div>
           {!mob && (
             <div style={{ width: tab ? 220 : 280, flexShrink: 0, background: "rgba(255,255,255,0.08)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 16, padding: tab ? "18px" : "22px", textAlign: "center" }}>
@@ -192,7 +192,7 @@ export default function SubPageLayout({ data, slug, activeTab, children }) {
               <div style={{ fontFamily: "'JetBrains Mono'", fontSize: 40, fontWeight: 800, color: "#34d399", lineHeight: 1 }}>{B.score}</div>
               <div style={{ fontSize: 13, color: "#34d399", fontWeight: 600, marginBottom: 10 }}>{B.verdict}</div>
               {B.promo && <div style={{ fontSize: 12, color: "rgba(255,255,255,0.7)", background: "rgba(255,255,255,0.08)", borderRadius: 6, padding: "5px 8px", marginBottom: 12, display: "flex", alignItems: "center", gap: 4 }}><Zap size={13} color={ORANGE} /> {B.promo}</div>}
-              <a href={visitUrl} target="_blank" rel="nofollow sponsored" className="cta-orange" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 6, background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: NAVY, fontSize: 16, fontWeight: 700, textDecoration: "none", padding: "13px 24px", borderRadius: 10, width: "100%", boxShadow: "0 4px 12px rgba(245,158,11,0.3)" }}>Visit {B.name} <ExternalLink size={14} /></a>
+              <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 6, background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: NAVY, fontSize: 16, fontWeight: 700, textDecoration: "none", padding: "13px 24px", borderRadius: 10, width: "100%", boxShadow: "0 4px 12px rgba(245,158,11,0.3)" }}>Visit {B.name} <ExternalLink size={14} /></a>
               <div style={{ fontSize: 11, color: "rgba(255,255,255,0.4)", marginTop: 8 }}>70.53% of retail investors lose money</div>
             </div>
           )}
@@ -235,7 +235,7 @@ export default function SubPageLayout({ data, slug, activeTab, children }) {
                   </div>
                 )}
                 {isAlternatives && <div style={{ fontSize: 12, color: GRAY_MUTED, marginBottom: 14 }}>{topAlt?.type}</div>}
-                <a href={sidebarVisitUrl} target="_blank" rel="nofollow sponsored" className="cta-orange" style={{ display: "block", background: `linear-gradient(135deg, ${ORANGE}, #fbbf24)`, color: NAVY, fontSize: 14, fontWeight: 700, textDecoration: "none", padding: "12px 0", borderRadius: 8, textAlign: "center", marginBottom: 8 }}>Visit {sidebarName}</a>
+                <a href={sidebarVisitUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{ display: "block", background: `linear-gradient(135deg, ${ORANGE}, #fbbf24)`, color: NAVY, fontSize: 14, fontWeight: 700, textDecoration: "none", padding: "12px 0", borderRadius: 8, textAlign: "center", marginBottom: 8 }}>Visit {sidebarName}</a>
                 <Link to={isAlternatives ? `/reviews/${sidebarSlug}` : `/reviews/${slug}`} style={{ display: "block", fontSize: 13, color: GREEN, fontWeight: 600, textDecoration: "none" }}>{isAlternatives ? `${sidebarName} Review →` : "Read Full Review →"}</Link>
               </Card>
 
@@ -311,7 +311,7 @@ export default function SubPageLayout({ data, slug, activeTab, children }) {
               <div style={{ fontSize: 11, color: "rgba(255,255,255,0.5)" }}>{isAlternatives ? `#1 ${B.name} Alternative` : `Score: ${B.score}/10`}</div>
             </div>
           </div>
-          <a href={sidebarVisitUrl} target="_blank" rel="nofollow sponsored" className="cta-orange" style={{ background: `linear-gradient(135deg, ${ORANGE}, #fbbf24)`, color: NAVY, fontSize: 13, fontWeight: 700, textDecoration: "none", padding: "10px 20px", borderRadius: 8, display: "inline-flex", alignItems: "center", gap: 4 }}>Visit {sidebarName.length > 12 ? "Broker" : sidebarName} <ExternalLink size={12} /></a>
+          <a href={sidebarVisitUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{ background: `linear-gradient(135deg, ${ORANGE}, #fbbf24)`, color: NAVY, fontSize: 13, fontWeight: 700, textDecoration: "none", padding: "10px 20px", borderRadius: 8, display: "inline-flex", alignItems: "center", gap: 4 }}>Visit {sidebarName.length > 12 ? "Broker" : sidebarName} <ExternalLink size={12} /></a>
         </div>
       )}
     </div>

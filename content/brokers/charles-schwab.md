@@ -43,6 +43,10 @@ promo: "Commission-free stocks, ETFs & options"
 badge: null
 risk_warning: "Investing involves risk, including possible loss of principal. Past performance is no guarantee of future results."
 
+payment_methods: [bank-transfer]
+account_types: [standard, demo]
+features: [research-tools, education-hub, economic-calendar, charting, negative-balance-protection]
+
 scores:
   - name: "Regulation & Safety"
     score: 9.8
@@ -220,3 +224,66 @@ Multiple funding methods are supported including ACH bank transfers (free, 1-3 d
 
 A solid choice for stock and ETF investors seeking regulated, commission-free trading with quality research tools.
 
+subpages:
+  fees:
+    quick_answer: "Schwab charges $0 for stocks, ETFs, and options base. Options: $0.65/contract. Futures: $2.25/contract (includes exchange fees). Schwab Intelligent Portfolios (robo): no advisory fee."
+    tab_score: 8.5
+    pros:
+      - "$0 stock and ETF commissions"
+      - "Futures available at $2.25/contract"
+      - "Schwab Intelligent Portfolios — no advisory fee"
+      - "No account minimums since TD Ameritrade merger"
+    cons:
+      - "$0.65 options contract fee — same as most"
+      - "Margin rates not the lowest for large accounts"
+      - "Mutual fund transaction fees on non-Schwab funds"
+    verdict_title: "Full-Service at Discount Pricing"
+    verdict_text: "Schwab combines TD Ameritrade's trading tools with Schwab's banking and wealth management — all at $0 base commissions."
+    best_for: "All-in-one investors who want banking + brokerage + advisory"
+    not_for: "Cost-sensitive options traders who want sub-$0.50 contracts"
+  regulation:
+    quick_answer: "Charles Schwab Corporation: SEC, FINRA, SIPC ($500K). Banking subsidiary: FDIC insured. $8.5T+ in client assets. Publicly traded (SCHW). Acquired TD Ameritrade in 2024."
+    tab_score: 9.5
+    pros:
+      - "SEC + FINRA + FDIC (banking)"
+      - "SIPC + excess coverage"
+      - "$8.5T AUM — largest US brokerage"
+      - "Publicly traded (SCHW) — full transparency"
+    cons:
+      - "TD Ameritrade integration ongoing — some legacy issues"
+      - "Size doesn't prevent regulatory risk (Wells Fargo example)"
+  platforms:
+    quick_answer: "thinkorswim (desktop/web/mobile) is the flagship — acquired from TD Ameritrade. Advanced charting, options chain, ThinkScript custom studies. Schwab.com for basic trading. Schwab mobile app for on-the-go."
+    tab_score: 9
+    pros:
+      - "thinkorswim — industry-leading charting and analysis"
+      - "ThinkScript custom indicator language"
+      - "Paper trading (paperMoney) — best simulation in industry"
+      - "Mobile thinkorswim with full desktop features"
+    cons:
+      - "thinkorswim learning curve is steep"
+      - "Two platforms to choose between (Schwab vs thinkorswim)"
+      - "No TradingView direct integration"
+  deposit:
+    quick_answer: "ACH (free, 1-3 days), wire (free incoming, $25 outgoing), mobile check deposit, Schwab brokerage account linked to Schwab Bank checking."
+    tab_score: 8.5
+    pros:
+      - "Free ACH transfers"
+      - "Schwab Bank integration — instant transfers"
+      - "Mobile check deposit"
+      - "No minimum deposit"
+    cons:
+      - "$25 outgoing wire fee"
+      - "No PayPal, Skrill, or crypto deposits"
+  beginners:
+    quick_answer: "Schwab merges TD Ameritrade's education with its own resources. Immersive Curriculum courses, in-branch consultations at 300+ locations, paper trading via thinkorswim paperMoney."
+    tab_score: 8.5
+    pros:
+      - "300+ physical branch locations for in-person help"
+      - "thinkorswim paperMoney — best paper trading"
+      - "Structured learning paths from beginner to advanced"
+      - "24/7 phone support"
+    cons:
+      - "thinkorswim overwhelming for complete beginners"
+      - "Two platforms creates confusion for new users"
+      - "Website navigation complex after TDA merger"

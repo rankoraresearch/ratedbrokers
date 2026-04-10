@@ -44,6 +44,10 @@ promo: "Personal broker assistance + competitive micro pricing"
 badge: null
 risk_warning: "There is a substantial risk of loss in futures trading. Past performance is not indicative of future results."
 
+payment_methods: [bank-transfer]
+account_types: [standard, demo]
+features: [trading-api, charting, 24-7-support]
+
 scores:
   - name: "Regulation & Safety"
     score: 9.0
@@ -201,3 +205,60 @@ Funding is available via ACH bank transfer, wire transfer, and in some cases cre
 
 A competitive choice for futures traders seeking low commissions and access to CME Group products.
 
+subpages:
+  fees:
+    quick_answer: "Optimus Futures: Micro E-mini from $0.10/contract on some platforms. Standard from $0.50. Multi-platform pricing varies. Free platform tiers on Rithmic and CQG."
+    tab_score: 9
+    pros:
+      - "$0.10 micro futures on some platforms"
+      - "Multiple platform pricing options"
+      - "Free platform tiers available"
+      - "Volume discounts for active traders"
+    cons:
+      - "Pricing varies by platform — confusing"
+      - "Per-exchange fees extra"
+      - "No stocks or options"
+  regulation:
+    quick_answer: "Optimus Futures LLC: NFA member, CFTC registered. Introducing broker clearing through multiple FCMs. Client funds segregated."
+    tab_score: 7.5
+    pros:
+      - "NFA/CFTC registered"
+      - "Multiple FCM clearing options"
+      - "Segregated client funds"
+    cons:
+      - "Introducing broker — not direct FCM"
+      - "Smaller firm"
+      - "Depends on clearing partner"
+  platforms:
+    quick_answer: "CQG, Rithmic, Trading Technologies, Sierra Chart, NinjaTrader, MultiCharts, Bookmap. Multi-platform with dedicated setup support."
+    tab_score: 8.5
+    pros:
+      - "Multiple platform choices"
+      - "Dedicated setup assistance"
+      - "Bookmap for order flow"
+      - "Sierra Chart for advanced analysis"
+    cons:
+      - "Platform selection complexity"
+      - "Some require separate subscription"
+      - "No proprietary tools"
+  deposit:
+    quick_answer: "ACH free, wire. Min deposit $500 for standard accounts."
+    tab_score: 7
+    pros:
+      - "Free ACH"
+      - "Multiple FCM options"
+    cons:
+      - "$500 minimum"
+      - "Wire fees may apply"
+      - "No credit card deposits"
+  beginners:
+    quick_answer: "Optimus offers free demo, blog education, and personal support. Known for excellent customer service. Best for futures beginners who want human guidance."
+    tab_score: 7
+    pros:
+      - "Excellent personal support — human-first"
+      - "Free demo accounts"
+      - "Educational blog and guides"
+    cons:
+      - "Futures-only"
+      - "Platform complexity"
+      - "No structured courses"

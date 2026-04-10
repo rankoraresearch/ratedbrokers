@@ -38,6 +38,10 @@ promo: Zero-spread trading — commission-based model from $10
 badge: ""
 risk_warning: "73.77% of retail investor accounts lose money when trading CFDs with this provider."
 
+payment_methods: [visa, mastercard, bank-transfer, skrill, neteller, crypto]
+account_types: [standard, demo]
+features: [education-hub, negative-balance-protection, charting]
+
 scores:
   - name: "Regulation & Safety"
     score: 7.6

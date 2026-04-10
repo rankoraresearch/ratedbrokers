@@ -46,6 +46,10 @@ promo: "$100 min deposit, 50+ platform choices"
 badge: null
 risk_warning: "There is a substantial risk of loss in trading commodity futures. Past results are not indicative of future results."
 
+payment_methods: [bank-transfer, visa]
+account_types: [standard, demo]
+features: [trading-api, charting, 24-7-support, free-deposits]
+
 scores:
   - name: "Regulation & Safety"
     score: 9.0
@@ -203,3 +207,60 @@ Funding is available via ACH bank transfer, wire transfer, and in some cases cre
 
 A competitive choice for futures traders seeking low commissions and access to CME Group products.
 
+subpages:
+  fees:
+    quick_answer: "AMP Futures: Micro E-mini from $0.25/contract. Full-size from $0.59/contract. 14+ platforms available. Some of the lowest futures commissions globally."
+    tab_score: 9.5
+    pros:
+      - "$0.25 micro futures — among lowest in industry"
+      - "14+ platform choices"
+      - "No monthly platform fees on several options"
+      - "Volume discounts available"
+    cons:
+      - "Per-exchange fees added on top"
+      - "Complex pricing across platforms"
+      - "No stocks or options"
+  regulation:
+    quick_answer: "AMP Global (USA) LLC: NFA member, CFTC registered. SIPC not applicable (futures-only). Client funds segregated at major US banks."
+    tab_score: 8
+    pros:
+      - "NFA/CFTC registered"
+      - "Segregated client funds"
+      - "Operating since 2009"
+    cons:
+      - "Futures-only"
+      - "Smaller firm"
+      - "No SIPC (not applicable to futures)"
+  platforms:
+    quick_answer: "AMP offers 14+ platforms: CQG, Trading Technologies (TT), Sierra Chart, Rithmic, NinjaTrader, MultiCharts, and more. Choose your platform."
+    tab_score: 9
+    pros:
+      - "14+ platform choices — most in industry"
+      - "CQG and TT for professional execution"
+      - "Sierra Chart for advanced charting"
+      - "Free platform options available"
+    cons:
+      - "Platform choice complexity"
+      - "Some platforms have separate fees"
+      - "No proprietary platform"
+  deposit:
+    quick_answer: "ACH free, wire, credit card (Visa). Min deposit $100 for micro accounts."
+    tab_score: 7.5
+    pros:
+      - "Free ACH"
+      - "Credit card deposits accepted"
+      - "Low $100 minimum for micros"
+    cons:
+      - "Wire fees may apply"
+      - "Limited funding options"
+  beginners:
+    quick_answer: "AMP provides free demo accounts, video tutorials, and responsive support. Best for futures beginners who want platform flexibility, not stock beginners."
+    tab_score: 6
+    pros:
+      - "Free demo on any platform"
+      - "24/5 live support"
+      - "Video tutorials available"
+    cons:
+      - "Futures-only"
+      - "Platform selection overwhelming"
+      - "No structured courses"

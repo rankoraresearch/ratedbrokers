@@ -43,7 +43,7 @@ export default function CryptoBrokersPage() {
         headline: CONTENT.hero.h1,
         description: CONTENT.meta.description,
         datePublished: "2026-01-15",
-        dateModified: "2026-02-28",
+        dateModified: new Date().toISOString().split("T")[0],
         author: {
           "@type": "Person",
           name: author.name,

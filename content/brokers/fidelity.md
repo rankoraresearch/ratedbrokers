@@ -42,6 +42,10 @@ promo: "$0 commissions + fractional shares from $1"
 badge: null
 risk_warning: "Investing involves risk, including risk of loss. Past performance is no guarantee of future results."
 
+payment_methods: [bank-transfer]
+account_types: [standard]
+features: [research-tools, education-hub, economic-calendar, charting, no-inactivity-fee]
+
 scores:
   - name: "Regulation & Safety"
     score: 9.9
@@ -213,3 +217,71 @@ Multiple funding methods are supported including ACH bank transfers (free, 1-3 d
 
 A solid choice for stock and ETF investors seeking regulated, commission-free trading with quality research tools.
 
+subpages:
+  fees:
+    quick_answer: "Fidelity charges $0 for stock, ETF, and options trades. Options contract fee: $0.65. No account minimums or maintenance fees. Fidelity Zero index funds have 0% expense ratios."
+    tab_score: 9
+    pros:
+      - "$0 stock and ETF commissions"
+      - "Zero-expense-ratio index funds (FZROX, FZILX)"
+      - "No account minimums or maintenance fees"
+      - "$0.65 options contract — competitive"
+    cons:
+      - "Futures not available"
+      - "Margin rates higher than IB for large balances"
+      - "International stock access limited"
+    verdict_title: "Best Value for Long-Term Investors"
+    verdict_text: "Fidelity offers the most complete value package for US investors. Zero-fee index funds are unique. The combination of $0 trades, no minimums, and world-class research makes it the top choice for buy-and-hold."
+    best_for: "Long-term investors, index fund enthusiasts, retirement savers"
+    not_for: "Active futures traders or international market access seekers"
+  regulation:
+    quick_answer: "Fidelity Brokerage Services LLC is SEC and FINRA registered. SIPC coverage: $500K. Excess coverage through Lloyd's. Fidelity manages $12+ trillion in assets — one of the world's largest financial institutions."
+    tab_score: 9.8
+    pros:
+      - "SEC + FINRA dual registration"
+      - "SIPC + excess coverage via Lloyd's"
+      - "$12T+ AUM — systemically important institution"
+      - "No major regulatory fines or incidents"
+    cons:
+      - "US-only brokerage operation"
+      - "Not publicly traded — less transparency than Schwab"
+    verdict_title: "Fortress-Level Safety"
+    verdict_text: "Fidelity is one of the safest brokerages in the world. $12T in client assets, zero regulatory incidents, and comprehensive insurance make fund safety a non-issue."
+    best_for: "Investors prioritizing absolute fund safety"
+    not_for: "International traders — US only"
+  platforms:
+    quick_answer: "Fidelity.com (web), Active Trader Pro (desktop), and Fidelity mobile app. Active Trader Pro offers Level II data, options chain, and multi-leg order entry. No MT4/TradingView integration."
+    tab_score: 8
+    pros:
+      - "Active Trader Pro — robust desktop platform"
+      - "Mobile app rated 4.7★ on App Store"
+      - "7,000+ fractional shares available"
+      - "Screeners and research tools integrated"
+    cons:
+      - "No TradingView or third-party platform support"
+      - "Active Trader Pro UI feels dated vs thinkorswim"
+      - "No web-based advanced charting"
+  deposit:
+    quick_answer: "ACH bank transfer (free, 1-3 days), wire ($0 incoming, $10 outgoing), check deposit via mobile app. No minimum deposit. EFT instant deposit available."
+    tab_score: 8.5
+    pros:
+      - "Free ACH transfers"
+      - "Mobile check deposit"
+      - "No minimum deposit"
+      - "EFT instant buying power"
+    cons:
+      - "$10 outgoing wire fee"
+      - "No debit card or PayPal deposits"
+      - "International transfers limited"
+  beginners:
+    quick_answer: "Fidelity Learning Center is the best educational resource in US brokerage. Structured courses from investing basics to advanced options. Youth accounts (13+), 7K+ fractional shares from $1, and paper trading."
+    tab_score: 9.2
+    pros:
+      - "Fidelity Learning Center — best-in-class education"
+      - "7,000+ fractional shares from $1"
+      - "Youth accounts for ages 13-17"
+      - "24/7 customer support — best-rated in industry"
+    cons:
+      - "Interface more complex than Robinhood"
+      - "Can feel overwhelming for absolute beginners"
+      - "No social/copy trading features"

@@ -51,6 +51,10 @@ promo: "40+ years of UK trading — part of NASDAQ-listed StoneX Group"
 badge: null
 risk_warning: "69% of retail investor accounts lose money when trading CFDs with this provider."
 
+payment_methods: [visa, mastercard, bank-transfer, paypal]
+account_types: [standard, demo]
+features: [trading-api, research-tools, economic-calendar, negative-balance-protection, education-hub, charting]
+
 scores:
   - name: "Regulation & Safety"
     score: 9.8

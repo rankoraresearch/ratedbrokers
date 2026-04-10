@@ -64,6 +64,10 @@ promo: "50+ years of trust — World's No.1 CFD provider"
 badge: Most Trusted 2026
 risk_warning: "69% of retail investor accounts lose money when trading CFDs with this provider."
 
+payment_methods: [visa, mastercard, bank-transfer, paypal, apple-pay]
+account_types: [standard, demo, pro]
+features: [trading-api, trading-central, autochartist, economic-calendar, negative-balance-protection, guaranteed-stop-loss, education-hub, research-tools, charting, free-deposits, 24-7-support]
+
 scores:
   - name: "Regulation & Safety"
     score: 10.0
