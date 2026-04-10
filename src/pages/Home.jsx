@@ -31,57 +31,86 @@ const QUICK_LINKS = [
   { label: "ECN Brokers", path: "/best-ecn-forex-brokers" },
   { label: "Scalping", path: "/best-forex-brokers-for-scalping" },
   { label: "Day Trading", path: "/best-forex-brokers-for-day-trading" },
-  { label: "Copy Trading", path: "/best-copy-trading-platforms" },
-  { label: "MT4 Brokers", path: "/best-mt4-forex-brokers" },
-  { label: "MT5 Brokers", path: "/best-mt5-forex-brokers" },
-  { label: "Zero Spread", path: "/zero-spread-forex-brokers" },
   { label: "High Leverage", path: "/best-high-leverage-forex-brokers" },
+  { label: "MT5 Brokers", path: "/best-mt5-forex-brokers" },
+  { label: "Regulated", path: "/best-regulated-forex-brokers" },
+  { label: "Demo Accounts", path: "/best-forex-demo-accounts" },
+  { label: "Mobile Trading", path: "/best-forex-trading-apps" },
+  { label: "Zero Spread", path: "/zero-spread-forex-brokers" },
+  { label: "By Country", path: "/best-forex-brokers-by-country" },
 ];
 
-function CategoryNav({ mob, variant }) {
+function CategoryNav({ mob }) {
   const hubsData = HUBS.map(hub => ({
-    ...hub, count: getRankingsForHub(hub).length,
-    iconName: hub.slug === "futures" ? "timer" : hub.icon,
+    ...hub,
     IconComp: CAT_ICONS[hub.slug] || ArrowRight,
   }));
-  const gridInner = () => ({
-    maxWidth: 1200, margin: "0 auto", padding: mob ? "0 4px" : "0 32px",
-    display: "grid", gridTemplateColumns: mob ? "repeat(2, 1fr)" : "repeat(4, 1fr)", gap: mob ? 8 : 10,
-  });
   const hex2rgb = (h) => `${parseInt(h.slice(1,3),16)},${parseInt(h.slice(3,5),16)},${parseInt(h.slice(5,7),16)}`;
-  const QuickStrip = () => (
-    <div style={{ background: "#0f172a", borderBottom: "1px solid rgba(255,255,255,0.06)", padding: mob ? "10px 16px" : "11px 28px", overflowX: "auto", WebkitOverflowScrolling: "touch" }}>
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: mob ? "0 4px" : "0 32px", display: "flex", gap: 8, minWidth: "max-content", alignItems: "center" }}>
-        <span style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 10, fontWeight: 600, color: "rgba(255,255,255,0.25)", letterSpacing: "0.08em", textTransform: "uppercase", whiteSpace: "nowrap", marginRight: 4 }}>Popular</span>
-        {QUICK_LINKS.map(ql => (
-          <Link key={ql.path} to={ql.path} style={{ display: "inline-flex", alignItems: "center", padding: "6px 13px", borderRadius: 8, background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.65)", fontSize: 11, fontWeight: 600, textDecoration: "none", whiteSpace: "nowrap", transition: "all 0.15s" }}
-            onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.12)"; e.currentTarget.style.color = "#fff"; }}
-            onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.06)"; e.currentTarget.style.color = "rgba(255,255,255,0.65)"; }}
-          >{ql.label}</Link>
-        ))}
-      </div>
-    </div>
-  );
 
-  // ─── 0: Current (original) ───
-  if (variant === "0") return (
-    <div style={{ background: "#0f172a", borderBottom: "1px solid rgba(255,255,255,0.06)", padding: mob ? "10px 16px" : "12px 28px", overflowX: "auto", WebkitOverflowScrolling: "touch" }}>
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: mob ? "0 20px" : "0 32px", display: "flex", gap: 8, minWidth: "max-content" }}>
-        {hubsData.map(hub => (
-          <Link key={hub.slug} to={hub.path} style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "7px 14px", borderRadius: 8, background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.7)", fontSize: 12, fontWeight: 600, textDecoration: "none", whiteSpace: "nowrap", transition: "all 0.15s" }}
-            onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.12)"; e.currentTarget.style.color = "#fff"; }}
-            onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.06)"; e.currentTarget.style.color = "rgba(255,255,255,0.7)"; }}
-          >
-            <Icon name={hub.iconName} size={13} />{hub.name}
-            <span style={{ fontSize: 10, opacity: 0.5 }}>{hub.count}</span>
-          </Link>
-        ))}
+  return (
+    <>
+      {/* Quick Links strip */}
+      <div style={{ background: "#0f172a", borderBottom: "1px solid rgba(255,255,255,0.06)", padding: mob ? "10px 16px" : "11px 28px", overflowX: "auto", WebkitOverflowScrolling: "touch" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: mob ? "0 4px" : "0 32px", display: "flex", gap: 8, minWidth: "max-content", alignItems: "center" }}>
+          <span style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 10, fontWeight: 600, color: "rgba(255,255,255,0.25)", letterSpacing: "0.08em", textTransform: "uppercase", whiteSpace: "nowrap", marginRight: 4 }}>Popular</span>
+          {QUICK_LINKS.map(ql => (
+            <Link key={ql.path} to={ql.path} style={{ display: "inline-flex", alignItems: "center", padding: "6px 13px", borderRadius: 8, background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.65)", fontSize: 11, fontWeight: 600, textDecoration: "none", whiteSpace: "nowrap", transition: "all 0.15s" }}
+              onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.12)"; e.currentTarget.style.color = "#fff"; }}
+              onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.06)"; e.currentTarget.style.color = "rgba(255,255,255,0.65)"; }}
+            >{ql.label}</Link>
+          ))}
+        </div>
       </div>
-    </div>
+      {/* 8 Category Buttons — Frost+Arrow */}
+      <div style={{ background: "#0f172a", padding: mob ? "14px 16px" : "18px 28px", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: mob ? "0 4px" : "0 32px", display: "grid", gridTemplateColumns: mob ? "repeat(2, 1fr)" : "repeat(4, 1fr)", gap: mob ? 8 : 10 }}>
+          {hubsData.map(hub => {
+            const Ic = hub.IconComp;
+            const c = IC[hub.slug] || "#94a3b8";
+            const rgb = hex2rgb(c);
+            return (
+              <Link key={hub.slug} to={hub.path} style={{
+                display: "flex", alignItems: "center", gap: 10,
+                height: mob ? 48 : 52, padding: mob ? "0 14px 0 16px" : "0 18px 0 22px",
+                background: "rgba(255,255,255,0.08)", backdropFilter: "blur(10px)",
+                borderTop: "1px solid rgba(255,255,255,0.14)", borderRight: "1px solid rgba(255,255,255,0.14)",
+                borderBottom: "1px solid rgba(255,255,255,0.14)", borderLeft: `3px solid ${c}`,
+                borderRadius: 10, boxShadow: "0 1px 3px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.06)",
+                textDecoration: "none", transition: "background 0.18s, transform 0.18s, box-shadow 0.18s",
+              }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.background = "rgba(255,255,255,0.13)";
+                  e.currentTarget.style.borderTopColor = "rgba(255,255,255,0.24)";
+                  e.currentTarget.style.borderRightColor = "rgba(255,255,255,0.24)";
+                  e.currentTarget.style.borderBottomColor = "rgba(255,255,255,0.24)";
+                  e.currentTarget.style.borderLeft = `3px solid ${c}`;
+                  e.currentTarget.style.transform = "translateY(-1px)";
+                  e.currentTarget.style.boxShadow = `0 4px 16px rgba(0,0,0,0.35), -2px 0 10px rgba(${rgb},0.12)`;
+                  const arr = e.currentTarget.querySelector("[data-arr]");
+                  if (arr) { arr.style.color = `rgba(${rgb},0.80)`; arr.style.transform = "translateX(3px)"; }
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.background = "rgba(255,255,255,0.08)";
+                  e.currentTarget.style.borderTopColor = "rgba(255,255,255,0.14)";
+                  e.currentTarget.style.borderRightColor = "rgba(255,255,255,0.14)";
+                  e.currentTarget.style.borderBottomColor = "rgba(255,255,255,0.14)";
+                  e.currentTarget.style.borderLeft = `3px solid ${c}`;
+                  e.currentTarget.style.transform = "none";
+                  e.currentTarget.style.boxShadow = "0 1px 3px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.06)";
+                  const arr = e.currentTarget.querySelector("[data-arr]");
+                  if (arr) { arr.style.color = "rgba(255,255,255,0.15)"; arr.style.transform = "none"; }
+                }}
+              >
+                <Ic size={17} strokeWidth={1.75} style={{ color: c, flexShrink: 0, opacity: 0.85 }} />
+                <span style={{ fontFamily: "'Outfit',sans-serif", fontSize: mob ? 14 : 15, fontWeight: 700, color: "#f8fafc", flex: 1 }}>{hub.name}</span>
+                <span data-arr style={{ fontSize: 14, color: "rgba(255,255,255,0.15)", flexShrink: 0, transition: "color 0.18s, transform 0.18s", fontWeight: 700 }}>&#8594;</span>
+              </Link>
+            );
+          })}
+        </div>
+      </div>
+    </>
   );
-
-  // ─── 33: Frost + Arrow — glass bg, inline icon, left bar, arrow on hover ───
-  if (variant === "33") return (<><QuickStrip /><div style={{ background: "#0f172a", padding: mob ? "14px 16px" : "18px 28px", borderBottom: "1px solid rgba(255,255,255,0.06)" }}><div style={gridInner()}>{hubsData.map(hub => { const Ic = hub.IconComp; const c = IC[hub.slug] || "#94a3b8"; const rgb = hex2rgb(c); return (<Link key={hub.slug} to={hub.path} style={{ display: "flex", alignItems: "center", gap: 10, height: mob ? 48 : 52, padding: mob ? "0 14px 0 16px" : "0 18px 0 22px", background: "rgba(255,255,255,0.08)", backdropFilter: "blur(10px)", borderTop: "1px solid rgba(255,255,255,0.14)", borderRight: "1px solid rgba(255,255,255,0.14)", borderBottom: "1px solid rgba(255,255,255,0.14)", borderLeft: `3px solid ${c}`, borderRadius: 10, boxShadow: "0 1px 3px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.06)", textDecoration: "none", transition: "background 0.18s, transform 0.18s, box-shadow 0.18s" }} onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.13)"; e.currentTarget.style.borderTopColor = "rgba(255,255,255,0.24)"; e.currentTarget.style.borderRightColor = "rgba(255,255,255,0.24)"; e.currentTarget.style.borderBottomColor = "rgba(255,255,255,0.24)"; e.currentTarget.style.borderLeft = `3px solid ${c}`; e.currentTarget.style.transform = "translateY(-1px)"; e.currentTarget.style.boxShadow = `0 4px 16px rgba(0,0,0,0.35), -2px 0 10px rgba(${rgb},0.12)`; const arr = e.currentTarget.querySelector("[data-arr]"); if(arr){ arr.style.color = `rgba(${rgb},0.80)`; arr.style.transform = "translateX(3px)"; } }} onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.08)"; e.currentTarget.style.borderTopColor = "rgba(255,255,255,0.14)"; e.currentTarget.style.borderRightColor = "rgba(255,255,255,0.14)"; e.currentTarget.style.borderBottomColor = "rgba(255,255,255,0.14)"; e.currentTarget.style.borderLeft = `3px solid ${c}`; e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "0 1px 3px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.06)"; const arr = e.currentTarget.querySelector("[data-arr]"); if(arr){ arr.style.color = "rgba(255,255,255,0.15)"; arr.style.transform = "none"; } }}><Ic size={17} strokeWidth={1.75} style={{ color: c, flexShrink: 0, opacity: 0.85 }} /><span style={{ fontFamily: "'Outfit',sans-serif", fontSize: mob ? 14 : 15, fontWeight: 700, color: "#f8fafc", flex: 1 }}>{hub.name}</span><span data-arr style={{ fontSize: 14, color: "rgba(255,255,255,0.15)", flexShrink: 0, transition: "color 0.18s, transform 0.18s", fontWeight: 700 }}>&#8594;</span></Link>); })}</div></div></>);
 }
 
 // ══════════════════════════════════════════════════════
@@ -261,7 +290,6 @@ export default function Home() {
   const { t } = useTranslation();
   const lp = useLocalePath();
   const cn = { maxWidth: 1200, margin: "0 auto", padding: mob ? "0 16px" : "0 24px" };
-  const [catNavVariant, setCatNavVariant] = useState("33");
 
   const allBrokersData = getAllBrokersWithData().sort((a, b) => b.B.score - a.B.score);
 
@@ -397,23 +425,7 @@ export default function Home() {
       </section>
 
       {/* ===== CATEGORY NAV ===== */}
-      <CategoryNav mob={mob} variant={catNavVariant} />
-      {import.meta.env.DEV && (
-        <div style={{ background: "#fff", borderBottom: "1px solid #e2e8f0", padding: mob ? "8px 12px" : "8px 28px", display: "flex", alignItems: "center", gap: 8, justifyContent: "center", flexWrap: "wrap" }}>
-          <span style={{ fontSize: 11, color: "#94a3b8", fontWeight: 600, marginRight: 4 }}>NAV:</span>
-          {[
-            { k: "0", l: "Current" },
-            { k: "33", l: "Frost+Arrow" },
-          ].map(({ k, l }) => (
-            <button key={k} onClick={() => setCatNavVariant(k)} style={{
-              padding: "4px 10px", borderRadius: 6, fontSize: 11, fontWeight: 700, cursor: "pointer",
-              border: catNavVariant === k ? "2px solid #059669" : "1px solid #e2e8f0",
-              background: catNavVariant === k ? "#ecfdf5" : "#fff",
-              color: catNavVariant === k ? "#059669" : "#64748b",
-            }}>{l}</button>
-          ))}
-        </div>
-      )}
+      <CategoryNav mob={mob} />
 
       {/* ===== SEO INTRO ===== */}
       <section style={{ ...cn, padding: mob ? "28px 16px 0" : "36px 24px 0" }}>
