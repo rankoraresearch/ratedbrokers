@@ -30,11 +30,14 @@ const QUICK_LINKS = [
   { label: "Low Spread", path: "/lowest-spread-forex-brokers" },
   { label: "ECN Brokers", path: "/best-ecn-forex-brokers" },
   { label: "Scalping", path: "/best-forex-brokers-for-scalping" },
-  { label: "MT5 Brokers", path: "/best-mt5-forex-brokers" },
   { label: "Regulated", path: "/best-regulated-forex-brokers" },
+  { label: "Trading Apps", path: "/best-forex-trading-apps" },
+  { label: "MT5 Brokers", path: "/best-mt5-forex-brokers" },
   { label: "Demo Accounts", path: "/best-forex-demo-accounts" },
-  { label: "Mobile Trading", path: "/best-forex-trading-apps" },
   { label: "Zero Spread", path: "/zero-spread-forex-brokers" },
+  { label: "Day Trading", path: "/best-forex-brokers-for-day-trading" },
+  { label: "By Country", path: "/best-forex-brokers-by-country" },
+  { label: "All Rankings", path: "/rankings" },
 ];
 
 function CategoryNav({ mob }) {
@@ -47,13 +50,17 @@ function CategoryNav({ mob }) {
   return (
     <>
       {/* Quick Links strip */}
-      <div style={{ background: "#0f172a", borderBottom: "1px solid rgba(255,255,255,0.06)", padding: mob ? "10px 16px" : "11px 28px", overflowX: "auto", WebkitOverflowScrolling: "touch" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", padding: mob ? "0 4px" : "0 32px", display: "flex", gap: 8, minWidth: "max-content", alignItems: "center" }}>
-          <span style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 10, fontWeight: 600, color: "rgba(255,255,255,0.25)", letterSpacing: "0.08em", textTransform: "uppercase", whiteSpace: "nowrap", marginRight: 4 }}>Popular</span>
+      <div style={{ background: "#0f172a", borderBottom: "1px solid rgba(255,255,255,0.06)", padding: mob ? "10px 16px" : "14px 28px", overflowX: mob ? "auto" : "visible", WebkitOverflowScrolling: "touch" }}>
+        <div style={{
+          maxWidth: 1200, margin: "0 auto", padding: mob ? "0 4px" : "0 32px",
+          display: "flex", gap: mob ? 8 : 10, alignItems: "center",
+          ...(mob ? { minWidth: "max-content" } : { flexWrap: "wrap", justifyContent: "center" }),
+        }}>
+          <span style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 10, fontWeight: 600, color: "rgba(255,255,255,0.25)", letterSpacing: "0.08em", textTransform: "uppercase", whiteSpace: "nowrap", marginRight: mob ? 4 : 2 }}>Popular</span>
           {QUICK_LINKS.map(ql => (
-            <Link key={ql.path} to={ql.path} style={{ display: "inline-flex", alignItems: "center", padding: "6px 13px", borderRadius: 8, background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.65)", fontSize: 11, fontWeight: 600, textDecoration: "none", whiteSpace: "nowrap", transition: "all 0.15s" }}
+            <Link key={ql.path} to={ql.path} style={{ display: "inline-flex", alignItems: "center", padding: "6px 14px", borderRadius: 8, background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.60)", fontSize: 12, fontWeight: 600, textDecoration: "none", whiteSpace: "nowrap", transition: "all 0.15s" }}
               onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.12)"; e.currentTarget.style.color = "#fff"; }}
-              onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.06)"; e.currentTarget.style.color = "rgba(255,255,255,0.65)"; }}
+              onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.06)"; e.currentTarget.style.color = "rgba(255,255,255,0.60)"; }}
             >{ql.label}</Link>
           ))}
         </div>
