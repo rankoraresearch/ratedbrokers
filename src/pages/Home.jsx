@@ -25,16 +25,49 @@ const CAT_ICONS = {
   "spread-betting": Dices, crypto: Bitcoin, stocks: TrendingUp, options: GitBranch, futures: Hourglass,
 };
 const IC = { forex: "#fbbf24", cfd: "#60a5fa", "copy-trading": "#34d399", "spread-betting": "#f87171", crypto: "#f59e0b", stocks: "#38bdf8", options: "#a78bfa", futures: "#94a3b8" };
-const QUICK_LINKS = [
-  { label: "Beginners", path: "/best-forex-brokers-for-beginners" },
-  { label: "Low Spread", path: "/lowest-spread-forex-brokers" },
-  { label: "ECN", path: "/best-ecn-forex-brokers" },
-  { label: "Scalping", path: "/best-forex-brokers-for-scalping" },
-  { label: "MT5", path: "/best-mt5-forex-brokers" },
-  { label: "Regulated", path: "/best-regulated-forex-brokers" },
-  { label: "Demo", path: "/best-forex-demo-accounts" },
-  { label: "Mobile Apps", path: "/best-forex-trading-apps" },
-  { label: "Zero Spread", path: "/zero-spread-forex-brokers" },
+const PILL_ROWS = [
+  { label: "Trending:", links: [
+    { label: "For Beginners", path: "/best-forex-brokers-for-beginners" },
+    { label: "Low Spread", path: "/lowest-spread-forex-brokers" },
+    { label: "ECN Brokers", path: "/best-ecn-forex-brokers" },
+    { label: "Scalping", path: "/best-forex-brokers-for-scalping" },
+    { label: "MT5 Brokers", path: "/best-mt5-forex-brokers" },
+    { label: "Regulated", path: "/best-regulated-forex-brokers" },
+    { label: "Demo Accounts", path: "/best-forex-demo-accounts" },
+    { label: "Trading Apps", path: "/best-forex-trading-apps" },
+    { label: "Zero Spread", path: "/zero-spread-forex-brokers" },
+  ]},
+  { label: "Top Reviews:", links: [
+    { label: "IC Markets", path: "/reviews/ic-markets" },
+    { label: "XM", path: "/reviews/xm" },
+    { label: "Pepperstone", path: "/reviews/pepperstone" },
+    { label: "eToro", path: "/reviews/etoro" },
+    { label: "OANDA", path: "/reviews/oanda" },
+    { label: "Plus500", path: "/reviews/plus500" },
+    { label: "IG", path: "/reviews/ig" },
+    { label: "Exness", path: "/reviews/exness" },
+    { label: "FP Markets", path: "/reviews/fp-markets" },
+  ]},
+  { label: "By Country:", links: [
+    { label: "UK", path: "/best-forex-brokers-uk" },
+    { label: "USA", path: "/best-forex-brokers-usa" },
+    { label: "Australia", path: "/best-forex-brokers-australia" },
+    { label: "Germany", path: "/best-forex-brokers-germany" },
+    { label: "Canada", path: "/best-forex-brokers-canada" },
+    { label: "UAE", path: "/best-forex-brokers-uae" },
+    { label: "Singapore", path: "/best-forex-brokers-singapore" },
+    { label: "South Africa", path: "/best-forex-brokers-south-africa" },
+    { label: "India", path: "/best-forex-brokers-india" },
+  ]},
+  { label: "Compare:", links: [
+    { label: "IC Markets vs XM", path: "/compare/ic-markets-vs-xm" },
+    { label: "eToro vs Plus500", path: "/compare/etoro-vs-plus500" },
+    { label: "Pepperstone vs IC Markets", path: "/compare/ic-markets-vs-pepperstone" },
+    { label: "XM vs Exness", path: "/compare/exness-vs-xm" },
+    { label: "IG vs OANDA", path: "/compare/ig-vs-oanda" },
+    { label: "Fidelity vs Schwab", path: "/compare/charles-schwab-vs-fidelity" },
+    { label: "Robinhood vs Webull", path: "/compare/robinhood-vs-webull" },
+  ]},
 ];
 
 function CategoryNav({ mob }) {
@@ -46,30 +79,31 @@ function CategoryNav({ mob }) {
 
   return (
     <>
-      {/* Quick Links strip */}
-      <div style={{ background: "#0f172a", borderBottom: "1px solid rgba(255,255,255,0.06)", padding: mob ? "10px 16px" : "12px 28px", overflowX: mob ? "auto" : "hidden", WebkitOverflowScrolling: "touch" }}>
-        <div style={{
-          maxWidth: 1200, margin: "0 auto", padding: mob ? "0 4px" : "0 32px",
-          display: "flex", alignItems: "center", gap: mob ? 8 : 6,
-          ...(mob ? { minWidth: "max-content" } : {}),
-        }}>
-          <span style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 10, fontWeight: 600, color: "rgba(255,255,255,0.25)", letterSpacing: "0.08em", textTransform: "uppercase", whiteSpace: "nowrap", flexShrink: 0 }}>Popular:</span>
-          {QUICK_LINKS.map(ql => (
-            <Link key={ql.path} to={ql.path} style={{
-              display: "inline-flex", alignItems: "center", justifyContent: "center",
-              padding: "6px 0", borderRadius: 8,
-              background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)",
-              color: "rgba(255,255,255,0.65)", fontSize: 11, fontWeight: 600,
-              textDecoration: "none", whiteSpace: "nowrap", transition: "all 0.15s",
-              ...(mob ? {} : { flex: 1 }),
-              ...(mob ? { padding: "6px 13px" } : {}),
-            }}
-              onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.12)"; e.currentTarget.style.color = "#fff"; }}
-              onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.06)"; e.currentTarget.style.color = "rgba(255,255,255,0.65)"; }}
-            >{ql.label}</Link>
-          ))}
+      {/* Quick Links — multi-row pill strips */}
+      {PILL_ROWS.map((row, ri) => (
+        <div key={ri} style={{ background: "#0f172a", borderBottom: "1px solid rgba(255,255,255,0.06)", padding: mob ? "8px 16px" : "10px 28px", overflowX: mob ? "auto" : "hidden", WebkitOverflowScrolling: "touch" }}>
+          <div style={{
+            maxWidth: 1200, margin: "0 auto", padding: mob ? "0 4px" : "0 32px",
+            display: "flex", alignItems: "center", gap: mob ? 8 : 6,
+            ...(mob ? { minWidth: "max-content" } : {}),
+          }}>
+            <span style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 10, fontWeight: 600, color: "rgba(255,255,255,0.25)", letterSpacing: "0.08em", textTransform: "uppercase", whiteSpace: "nowrap", flexShrink: 0, minWidth: mob ? undefined : 80 }}>{row.label}</span>
+            {row.links.map(ql => (
+              <Link key={ql.path} to={ql.path} style={{
+                display: "inline-flex", alignItems: "center", justifyContent: "center",
+                padding: "5px 0", borderRadius: 8,
+                background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)",
+                color: "rgba(255,255,255,0.65)", fontSize: 11, fontWeight: 600,
+                textDecoration: "none", whiteSpace: "nowrap", transition: "all 0.15s",
+                ...(mob ? { padding: "5px 13px" } : { flex: 1 }),
+              }}
+                onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.12)"; e.currentTarget.style.color = "#fff"; }}
+                onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.06)"; e.currentTarget.style.color = "rgba(255,255,255,0.65)"; }}
+              >{ql.label}</Link>
+            ))}
+          </div>
         </div>
-      </div>
+      ))}
       {/* 8 Category Buttons — Frost+Arrow */}
       <div style={{ background: "#0f172a", padding: mob ? "14px 16px" : "18px 28px", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: mob ? "0 4px" : "0 32px", display: "grid", gridTemplateColumns: mob ? "repeat(2, 1fr)" : "repeat(4, 1fr)", gap: mob ? 8 : 10 }}>
