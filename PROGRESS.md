@@ -635,8 +635,105 @@ Hero (dark) → контент → dark CTA → контент → dark scoring 
 - [ ] Sub-Pages: IC Markets пилотный YAML-контент (8 табов)
 - [ ] Sub-Pages: контент для остальных 37 брокеров
 - [ ] Навигация: якоря на review vs sub-page табы (UX гармонизация)
-- [ ] OG-теги и мета-изображения для соцсетей
+- [x] OG-теги для квиза Find Your Broker
+### `7766249` Quiz 2.0 — 5 sprints (10 апреля 2026)
+- GeoIP race condition fix + share URL basename fix
+- Risk warnings подключены к UI квиза (CFD-gated)
+- QuickCompareTable включён в результаты
+- Platform вопрос → Trading Frequency (daily/weekly/monthly/yearly)
+- Budget: 4 → 8 диапазонов
+- 12 стран получили маппинг регуляторов (IN, MY, PH, NG, KE, TR, BR, PK, SA, KW, QA, PL)
+- "Read Review →" ссылки в Top 10 + QuickCompare
+- Compare deep links /compare/{slug1}-vs-{slug2}
+- Weak Points "Consider:" для Top 3 (getWeakPoint)
+- User Profile Label (getUserProfile)
+- Canonical + BreadcrumbList + HowTo JSON-LD schemas
+- FAQ dedup (единый QUIZ_FAQ × 8 вопросов)
+- SEO content block + Methodology section + Advertiser Disclosure
+- OG meta tags с cleanup
+- Match % floor: 15% → 5%
+- ARIA: role=radio/checkbox, aria-checked, aria-expanded
+- Codex reviewed: 9-10/10 на каждый спринт
+
 - [ ] Google Search Console + Analytics
 - [ ] Контентный аудит: уникальность текстов, keyword density
 - [ ] Бэклинк-стратегия
 - [ ] Мониторинг позиций (Ahrefs / SEMrush)
+
+---
+
+## Грандиозный аудит + 14 спринтов исправлений (10 апреля 2026)
+
+Полный аудит сайта: 32 finding (7 CRITICAL, 8 BUG, 10 WARNING, 7 INFO).
+Codex-reviewed: каждый спринт 10/10 перед реализацией.
+Ветка: `audit-fixes-2026-04-10`
+
+### `9095405` Sprint 1: Data Cleanup
+- xm-v2.md merged → xm.md, удалён дубль (51 broker → 51 unique)
+- Footer: "36 Brokers" → dynamic `getAllBrokers().length`
+- Footer: "Updated Q1 2026" → dynamic `Q${quarter} ${year}`
+- Footer: "All Rankings" обе ссылки → `/rankings`
+- Footer: Privacy/Terms → `/privacy`, `/terms` (isLink: true)
+- AllReviewsPage FAQ: "51+" → dynamic count
+- TrustScorePage: distribution title → dynamic `{count}`
+- BrokerReview + CountryPage: убраны локальные useMedia()
+
+### `e820c44` Sprint 2: Routing & 404
+- NotFoundPage.jsx: branded 404 с ссылками на Home/Rankings/Reviews/Quiz
+- RankingPage: invalid slugs → NotFoundPage (вместо redirect на /)
+- App.jsx: `<Route path="*">` fallback
+- 21 proto route gated `import.meta.env.DEV` — исключены из production bundle
+
+### `75bfe85` Sprint 3: SEO Foundation
+- `src/hooks/useSEO.js`: canonical + OG + Twitter Card с cleanup на unmount
+- `lastVerified` добавлен в build pipeline (fallback: 2026-03-31)
+- Hardcoded dateModified → dynamic в 7 файлах
+- `Sitemap:` добавлен в robots.txt
+- useSEO интегрирован в Home, BrokerReview, RankingPage
+
+### `64b06d1` Sprint 4: Legal Pages
+- PrivacyPage.jsx + TermsPage.jsx (draft pending legal review)
+- Routes: `/privacy`, `/terms`
+
+### `77935a9` Sprint 5: CTA & Rel Audit
+- CTA fallback: `visitUrl || B.url` → `visitUrl` (safe: getVisitUrl always returns URL)
+- `noopener` добавлен ко всем `rel="nofollow sponsored"` в production
+
+### `45002e8` Sprint 6: Bundle Optimization Phase 1
+- **Main bundle: 2,109KB → 1,127KB (-47%)**
+- fuse.js → separate chunk (18KB, loaded only with search)
+- SearchOverlay → lazy loaded (8KB)
+
+### `ccd5821` Sprint 7: Backend Hardening
+- Rate limiter: in-memory Map → Cloudflare Cache API
+- Ranking overrides: position validation (1-N range)
+- CORS: ALLOWED_ORIGINS env variable
+- Auth: TODO для cookie migration
+
+### `9110c91` Sprint 8: UX Polish
+- SpreadChart: dynamic maxSpread
+- Homepage: "View All 43+ Countries" link
+- Header: aria-label на burger menu
+
+### `8f56d93` Sprint 9: Ranking Filters Phase A
+- 13 vertical bugs fixed (crypto-overall/bitcoin/etc → isCrypto)
+- "empty = pass" filter helpers: hasPay(), hasAcct(), hasFeat()
+- 3 new YAML fields: payment_methods, account_types, features
+- Enum validation в validate-brokers.mjs
+- 34 filters updated (16 payment + 5 account + 13 features)
+- 5 pilot brokers populated
+
+### `477160e` Sprint 10: Ranking Filters Phase B
+- Structured data для всех 51 брокеров
+- payment_methods, account_types, features заполнены
+
+### `c635616` Sprint 11: SEO Content
+- 38 geo-country ranking pages получили expert SEO content
+- Все 293 рейтинга теперь имеют SEO текст
+
+### `86fb443` Sprint 12-14: New Broker Subpages
+- 12 брокеров получили 5-tab subpages (fees, regulation, platforms, deposit, beginners)
+- Expert E-E-A-T контент с конкретными данными
+- Phase A: Robinhood, Fidelity, Charles Schwab, DEGIRO
+- Phase B: Webull, E*TRADE, Trade Republic, Moomoo
+- Phase C: tastytrade, NinjaTrader, TradeStation, AMP Futures, Optimus Futures
