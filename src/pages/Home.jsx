@@ -48,7 +48,7 @@ function CategoryNav({ mob }) {
   return (
     <>
       {/* Quick Links — single pill strip */}
-      <div style={{ background: "#0f172a", borderBottom: "1px solid rgba(255,255,255,0.06)", padding: mob ? "10px 16px" : "12px 28px", overflowX: mob ? "auto" : "hidden", WebkitOverflowScrolling: "touch" }}>
+      <div style={{ background: "#1e293b", borderBottom: "1px solid rgba(255,255,255,0.06)", padding: mob ? "10px 16px" : "12px 28px", overflowX: mob ? "auto" : "hidden", WebkitOverflowScrolling: "touch" }}>
         <div style={{
           maxWidth: 1200, margin: "0 auto", padding: mob ? "0 4px" : "0 32px",
           display: "flex", alignItems: "center", gap: mob ? 8 : 6,
