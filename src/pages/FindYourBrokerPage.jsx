@@ -255,7 +255,7 @@ export default function FindYourBrokerPage() {
     background: "#fff", borderRadius: 14,
     border: "none",
     boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.06), 0 4px 24px rgba(0,0,0,0.05)",
-    overflow: "visible",
+    overflow: "hidden",
   };
 
   // Dynamic USP based on answers (Sprint v3)
@@ -355,6 +355,7 @@ export default function FindYourBrokerPage() {
     return (
       <div style={{
         ...cardStyle,
+        overflow: "visible",
         padding: mob ? "24px 20px 20px" : "36px 40px 32px",
         opacity: transitioning ? 0 : 1,
         transform: transitioning ? "translateX(20px)" : "translateX(0)",
@@ -892,7 +893,7 @@ export default function FindYourBrokerPage() {
       </div>
 
       {/* ── Quick Compare — Top 3 ── */}
-      <div style={{ ...cardStyle, marginBottom: 20, padding: mob ? "16px" : "20px 24px", overflow: "visible" }}>
+      <div style={{ ...cardStyle, marginBottom: 20, padding: mob ? "16px" : "20px 24px" }}>
         <h2 style={{ fontFamily: "'Outfit',sans-serif", fontSize: mob ? 18 : 20, fontWeight: 800, color: "#0f172a", margin: "0 0 14px" }}>
           Quick Compare — Your Top 3
         </h2>
