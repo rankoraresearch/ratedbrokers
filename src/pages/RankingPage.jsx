@@ -90,10 +90,18 @@ function QuickBrokerGrid({ brokers, mob }) {
             }}>{i + 1}</div>
             <BrokerLogo slug={broker.slug} name={B.name} fallback={B.logo} size={mob ? 52 : 48} shape="icon" />
             <div style={{ flex: 1, minWidth: 0 }}>
-              <div style={{
-                fontWeight: 600, fontSize: mob ? 17 : 15, color: "#0f172a",
-                overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
-              }}>{B.name}</div>
+              <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                <span style={{
+                  fontWeight: 600, fontSize: mob ? 17 : 15, color: "#0f172a",
+                  overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
+                }}>{B.name}</span>
+                <span style={{
+                  fontFamily: "'JetBrains Mono',monospace", fontSize: 11, fontWeight: 800, flexShrink: 0,
+                  color: B.score >= 9.0 ? "#059669" : B.score >= 8.0 ? "#2563eb" : "#d97706",
+                  background: B.score >= 9.0 ? "#ecfdf5" : B.score >= 8.0 ? "#eff6ff" : "#fffbeb",
+                  padding: "1px 5px", borderRadius: 4,
+                }}>{B.score}</span>
+              </div>
               <div className="d2k-risk" style={{
                 fontSize: mob ? 10 : 9, color: "#6b7280", lineHeight: 1.3,
                 whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis",
