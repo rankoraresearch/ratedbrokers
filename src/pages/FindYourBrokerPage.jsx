@@ -555,12 +555,32 @@ export default function FindYourBrokerPage() {
           </div>
         )}
 
+        {/* Contextual tip — all steps */}
+        {CONTEXTUAL_TIPS[currentQ.id] && (
+          <div style={{
+            marginTop: 16, padding: "10px 14px", borderRadius: 10,
+            background: "#f8fafc",
+            boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.04)",
+            fontSize: 13, color: "#64748b", fontWeight: 500,
+            display: "flex", alignItems: "center", gap: 8,
+          }}>
+            <Sparkles size={14} color="#f59e0b" style={{ flexShrink: 0 }} />
+            {CONTEXTUAL_TIPS[currentQ.id] || "Your answers help us find your perfect broker match."}
+          </div>
+        )}
+
+        {/* Mobile mini preview */}
+        {(mob || tab) && <MobileMiniPreview />}
+
+        {/* Spacer for fixed nav on mobile */}
+        {mob && <div style={{ height: 64 }} />}
+
         {/* ── Navigation — fixed bottom on mobile, sticky on desktop ── */}
         <div style={{
           display: "flex", justifyContent: "space-between", alignItems: "center",
           ...(mob ? {
             position: "fixed", bottom: 0, left: 0, right: 0,
-            padding: "12px 16px", paddingBottom: "max(12px, env(safe-area-inset-bottom))",
+            padding: "10px 16px", paddingBottom: "max(10px, env(safe-area-inset-bottom))",
             background: "#fff", zIndex: 50,
             boxShadow: "0 -4px 16px rgba(0,0,0,0.08)",
             borderTop: "1px solid #e2e8f0",
@@ -574,7 +594,7 @@ export default function FindYourBrokerPage() {
           <button onClick={goBack} disabled={step === 0}
             style={{
               display: "flex", alignItems: "center", gap: 6,
-              padding: mob ? "12px 16px" : "10px 16px", borderRadius: 10,
+              padding: mob ? "10px 14px" : "10px 16px", borderRadius: 10,
               background: step === 0 ? "#f8fafc" : "#fff",
               border: "1px solid #e2e8f0", cursor: step === 0 ? "default" : "pointer",
               fontSize: 14, fontWeight: 600, color: step === 0 ? "#94a3b8" : "#111827",
@@ -610,23 +630,6 @@ export default function FindYourBrokerPage() {
             {step === totalSteps - 1 ? <ArrowRight size={16} /> : <ChevronRight size={16} />}
           </button>
         </div>
-
-        {/* Contextual tip — all steps */}
-        {CONTEXTUAL_TIPS[currentQ.id] && (
-          <div style={{
-            marginTop: 16, padding: "10px 14px", borderRadius: 10,
-            background: "#f8fafc",
-            boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.04)",
-            fontSize: 13, color: "#64748b", fontWeight: 500,
-            display: "flex", alignItems: "center", gap: 8,
-          }}>
-            <Sparkles size={14} color="#f59e0b" style={{ flexShrink: 0 }} />
-            {CONTEXTUAL_TIPS[currentQ.id] || "Your answers help us find your perfect broker match."}
-          </div>
-        )}
-
-        {/* Mobile mini preview (Sprint 11.1) */}
-        {(mob || tab) && <MobileMiniPreview />}
       </div>
     );
   };
