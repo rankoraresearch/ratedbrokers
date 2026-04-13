@@ -50,6 +50,38 @@ img { max-width: 100%; height: auto; }
   box-shadow: 0 8px 24px rgba(245,158,11,0.4) !important;
 }
 
+/* ── Link standards ── */
+/* Standalone: "See all rankings →", "Read methodology →" */
+.link-green {
+  color: #059669;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.link-green:hover {
+  color: #f59e0b;
+}
+.link-green .link-arrow {
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+.link-green:hover .link-arrow {
+  transform: translateX(3px);
+  color: #f59e0b;
+}
+/* Inline: links inside paragraphs */
+.link-inline {
+  color: #059669;
+  font-weight: 600;
+  text-decoration: none;
+  transition: text-decoration-color 0.15s ease;
+  text-underline-offset: 3px;
+}
+.link-inline:hover {
+  text-decoration: underline;
+  text-decoration-color: #059669;
+}
+
 /* ── D2k broker row — border + shadow on hover, BrokerChooser-style ── */
 .d2k-row {
   border: 1.5px solid transparent;

@@ -21,18 +21,13 @@ import AuthorAvatar from "../components/AuthorAvatar";
 // CATEGORY NAV — Variants with switcher
 // ══════════════════════════════════════════════════════
 const RATE_CAT_META = {
-  "Regulation & Safety": { color: "#059669", bg: "#ecfdf5", icon: "shield" },
-  "Trading Costs": { color: "#2563eb", bg: "#eff6ff", icon: "dollar-sign" },
-  "User Reputation": { color: "#16a34a", bg: "#f0fdf4", icon: "star" },
-  "Broker Transparency": { color: "#7c3aed", bg: "#f5f3ff", icon: "eye" },
-  "Platforms & Tools": { color: "#0284c7", bg: "#f0f9ff", icon: "monitor" },
-  "Execution Model": { color: "#d97706", bg: "#fffbeb", icon: "zap" },
+  "Regulation & Safety": { color: "#059669", icon: "shield" },
+  "Trading Costs": { color: "#2563eb", icon: "dollar-sign" },
+  "User Reputation": { color: "#00B67A", icon: "star" },
+  "Broker Transparency": { color: "#7c3aed", icon: "eye" },
+  "Platforms & Tools": { color: "#0ea5e9", icon: "monitor" },
+  "Execution Model": { color: "#f59e0b", icon: "zap" },
 };
-const RATE_NAV = [
-  { icon: "bar-chart-3", title: "Scoring Methodology", path: "/methodology" },
-  { icon: "book-open", title: "About RatedBrokers", path: "/about" },
-  { icon: "shield", title: "Trust & Transparency", path: "/trust-score" },
-];
 const CAT_ICONS = {
   forex: ArrowRightLeft, cfd: ChartCandlestick, "copy-trading": Users,
   "spread-betting": Dices, crypto: Bitcoin, stocks: TrendingUp, options: GitBranch, futures: Hourglass,
@@ -209,8 +204,8 @@ function BrokerPowerCards({ mob, tab, lp, brokers }) {
             <h2 style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: mob ? 22 : 28, color: "#0f172a", letterSpacing: "-0.03em" }}>
               Top Rated Brokers
             </h2>
-            <Link to={lp("/reviews")} style={{ fontSize: 13, fontWeight: 600, color: "#059669", textDecoration: "none", display: "flex", alignItems: "center", gap: 4 }}>
-              All {brokers.length} reviews <ArrowRight size={12} />
+            <Link to={lp("/reviews")} className="link-green" style={{ display: "flex", alignItems: "center", gap: 4 }}>
+              All {brokers.length} reviews <ArrowRight size={12} className="link-arrow" />
             </Link>
           </div>
           <div style={{
@@ -485,84 +480,67 @@ export default function Home() {
       <section style={{ ...cn, padding: mob ? "28px 16px 0" : "36px 24px 0" }}>
         <p style={{ fontSize: mob ? 14 : 15, lineHeight: 1.7, color: "#475569", maxWidth: 800 }}>
           {HOMEPAGE_SEO.intro.text}{" "}
-          <Link to={lp(HOMEPAGE_SEO.intro.links[0].path)} style={{ color: "#059669", fontWeight: 600, textDecoration: "none" }}>{HOMEPAGE_SEO.intro.links[0].text}</Link>
+          <Link to={lp(HOMEPAGE_SEO.intro.links[0].path)} className="link-inline">{HOMEPAGE_SEO.intro.links[0].text}</Link>
           {" "}explains our scoring formula.{" "}
-          Learn <Link to={lp(HOMEPAGE_SEO.intro.links[1].path)} style={{ color: "#059669", fontWeight: 600, textDecoration: "none" }}>{HOMEPAGE_SEO.intro.links[1].text}</Link>.
+          Learn <Link to={lp(HOMEPAGE_SEO.intro.links[1].path)} className="link-inline">{HOMEPAGE_SEO.intro.links[1].text}</Link>.
         </p>
       </section>
 
       {/* ===== BROKER SHOWCASE — Power Cards ===== */}
       <BrokerPowerCards mob={mob} tab={tab} lp={lp} brokers={allBrokersData} />
 
-      {/* ===== HOW WE RATE BROKERS — SEO block (A5 Left Accent) ===== */}
-      <section style={{ background: "#f8fafc", padding: mob ? "40px 16px" : "56px 24px" }}>
-        <div style={cn}>
-          <h2 style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: mob ? 22 : 28, color: "#0f172a", letterSpacing: "-0.03em", marginBottom: 12 }}>
-            {HOMEPAGE_SEO.howWeRate.heading}
-          </h2>
-          <p style={{ fontSize: mob ? 14 : 15, lineHeight: 1.7, color: "#475569", maxWidth: 800, marginBottom: 28 }}>
-            {HOMEPAGE_SEO.howWeRate.intro}
-          </p>
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: mob ? "1fr" : tab ? "1fr 1fr" : "repeat(3, 1fr)",
-            gap: mob ? 12 : 16, marginBottom: 24,
-          }}>
-            {HOMEPAGE_SEO.howWeRate.categories.map((cat, i) => {
-              const m = RATE_CAT_META[cat.name] || { color: "#059669", bg: "#ecfdf5", icon: "shield" };
-              const weightNum = parseInt(cat.weight);
-              return (
-                <div key={i} style={{
-                  borderRadius: 14, background: "#fff",
-                  border: "1px solid #f1f5f9", borderLeft: `3px solid ${m.color}`,
-                  boxShadow: "0 1px 3px rgba(0,0,0,0.05)",
-                  overflow: "hidden", transition: "all 0.2s ease",
-                }}
-                  onMouseEnter={e => { e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.08)"; e.currentTarget.style.transform = "translateY(-2px)"; }}
-                  onMouseLeave={e => { e.currentTarget.style.boxShadow = "0 1px 3px rgba(0,0,0,0.05)"; e.currentTarget.style.transform = "none"; }}
-                >
-                  <div style={{ padding: mob ? "18px 16px" : "22px 20px" }}>
-                    <div style={{ display: "flex", alignItems: "flex-start", gap: 14, marginBottom: 14 }}>
-                      <div style={{
-                        width: 42, height: 42, borderRadius: 11,
-                        background: m.bg,
-                        display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
-                      }}>
-                        <Icon name={m.icon} size={20} color={m.color} />
-                      </div>
-                      <div style={{ flex: 1 }}>
-                        <div style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 700, fontSize: 15, color: "#0f172a", lineHeight: 1.3 }}>{cat.name}</div>
-                        <div style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 12, fontWeight: 600, color: m.color, marginTop: 3 }}>{cat.weight} weight</div>
-                      </div>
-                    </div>
-                    <p style={{ fontSize: 13, lineHeight: 1.65, color: "#64748b", margin: 0 }}>{cat.desc}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-          <p style={{ fontSize: mob ? 14 : 15, lineHeight: 1.7, color: "#475569", maxWidth: 800, marginBottom: 8 }}>
-            {HOMEPAGE_SEO.howWeRate.closing}
-          </p>
-          <div style={{
-            display: "flex", gap: mob ? 12 : 20, flexWrap: "wrap",
-            alignItems: "center",
-            padding: "16px 0 0", borderTop: "1px solid #f1f5f9", marginTop: 8,
-          }}>
-            {RATE_NAV.map((l, i) => (
-              <Link key={i} to={lp(l.path)} style={{
-                display: "inline-flex", alignItems: "center", gap: 6,
-                fontSize: 13, fontWeight: 600, color: "#059669", textDecoration: "none",
+      {/* ===== HOW WE RATE BROKERS — SEO block (V3 Hybrid) ===== */}
+      <section style={{ ...cn, padding: mob ? "40px 16px" : "56px 24px" }}>
+        <h2 style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: mob ? 22 : 28, color: "#0f172a", letterSpacing: "-0.03em", marginBottom: 12 }}>
+          {HOMEPAGE_SEO.howWeRate.heading}
+        </h2>
+        <p style={{ fontSize: mob ? 14 : 15, lineHeight: 1.7, color: "#475569", maxWidth: 800, marginBottom: 24 }}>
+          {HOMEPAGE_SEO.howWeRate.intro}
+        </p>
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: mob ? "1fr" : tab ? "1fr 1fr" : "repeat(3, 1fr)",
+          gap: 14, marginBottom: 20,
+        }}>
+          {HOMEPAGE_SEO.howWeRate.categories.map((cat, i) => {
+            const m = RATE_CAT_META[cat.name] || { color: "#059669", icon: "shield" };
+            const weightNum = parseInt(cat.weight);
+            return (
+              <div key={i} style={{
+                padding: mob ? "16px" : "20px", borderRadius: 14,
+                background: "#fff", border: "1px solid #e2e8f0",
+                boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)",
+                transition: "all 0.2s",
               }}
-                onMouseEnter={e => { e.currentTarget.style.color = "#047857"; }}
-                onMouseLeave={e => { e.currentTarget.style.color = "#059669"; }}
+                onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.12)"; e.currentTarget.style.borderColor = "#059669"; }}
+                onMouseLeave={e => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)"; e.currentTarget.style.borderColor = "#e2e8f0"; }}
               >
-                <Icon name={l.icon} size={14} color="#059669" />
-                {l.title}
-                <ArrowRight size={12} />
-              </Link>
-            ))}
-          </div>
+                <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
+                  <Icon name={m.icon} size={24} color={m.color} />
+                  <span style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 700, fontSize: 15, color: "#0f172a", flex: 1 }}>{cat.name}</span>
+                  <span style={{
+                    padding: "3px 10px", borderRadius: 6,
+                    background: m.color + "14", color: m.color,
+                    fontFamily: "'JetBrains Mono',monospace", fontSize: 13, fontWeight: 800,
+                  }}>{cat.weight}</span>
+                </div>
+                <div style={{ height: 4, borderRadius: 2, background: "#f1f5f9", overflow: "hidden", marginBottom: 12 }}>
+                  <div style={{ width: `${(weightNum / 30) * 100}%`, height: "100%", borderRadius: 2, background: m.color, opacity: 0.6 }} />
+                </div>
+                <p style={{ fontSize: 13, lineHeight: 1.6, color: "#64748b", margin: 0 }}>{cat.desc}</p>
+              </div>
+            );
+          })}
+        </div>
+        <p style={{ fontSize: mob ? 14 : 15, lineHeight: 1.7, color: "#475569", maxWidth: 800, marginBottom: 12 }}>
+          {HOMEPAGE_SEO.howWeRate.closing}
+        </p>
+        <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
+          {HOMEPAGE_SEO.howWeRate.links.map((l, i) => (
+            <Link key={i} to={lp(l.path)} className="link-green" style={{ display: "flex", alignItems: "center", gap: 4 }}>
+              {l.text} <ArrowRight size={12} className="link-arrow" />
+            </Link>
+          ))}
         </div>
       </section>
 
@@ -572,8 +550,8 @@ export default function Home() {
           <h2 style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: mob ? 22 : 30, color: "#0f172a", letterSpacing: "-0.03em" }}>
             Regulated Brokers by Country
           </h2>
-          <Link to={lp("/best-forex-brokers-by-country")} style={{ fontSize: 13, fontWeight: 600, color: "#059669", textDecoration: "none", display: "flex", alignItems: "center", gap: 4 }}>
-            All 45 Forex Countries <ArrowRight size={12} />
+          <Link to={lp("/best-forex-brokers-by-country")} className="link-green" style={{ display: "flex", alignItems: "center", gap: 4 }}>
+            All 45 Forex Countries <ArrowRight size={12} className="link-arrow" />
           </Link>
         </div>
         <p style={{ fontSize: 15, color: "#64748b", marginBottom: mob ? 20 : 28, maxWidth: 600 }}>
@@ -647,18 +625,14 @@ export default function Home() {
         </div>
         {mob && <div style={{ textAlign: "center", marginTop: 8, fontSize: 11, color: "#94a3b8", fontWeight: 600 }}>Swipe to see more countries →</div>}
         <div style={{ textAlign: "center", marginTop: 20 }}>
-          <Link to={lp("/best-forex-brokers-by-country")} style={{
-            fontSize: 14, fontWeight: 600, color: "#059669",
-            textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 4,
-          }}>
-            Browse All 45 Forex Countries <ArrowRight size={14} />
+          <Link to={lp("/best-forex-brokers-by-country")} className="link-green" style={{ display: "inline-flex", alignItems: "center", gap: 4 }}>
+            Browse All 45 Forex Countries <ArrowRight size={14} className="link-arrow" />
           </Link>
         </div>
       </section>
 
 
       {/* ===== ALL BROKER REVIEWS ===== */}
-      /* ─── Variant C6: Ticker 3-col — wider rows, more breathing room, subtle separator ─── */
       <section style={{ ...cn, padding: mob ? "40px 16px" : "60px 24px" }}>
         <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 30, textAlign: "center", marginBottom: 8 }}>{t("home.allTitle")}</h2>
         <p style={{ textAlign: "center", fontSize: 16, color: "#1f2937", marginBottom: mob ? 24 : 36, maxWidth: 500, margin: "0 auto" }}>{t("home.allDesc", { count: allBrokersData.length })}</p>
@@ -696,8 +670,8 @@ export default function Home() {
           <h2 style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: mob ? 22 : 30, color: "#0f172a", letterSpacing: "-0.03em" }}>
             Side-by-Side Comparisons
           </h2>
-          <Link to={lp("/compare")} style={{ fontSize: 13, fontWeight: 600, color: "#059669", textDecoration: "none", display: "flex", alignItems: "center", gap: 4 }}>
-            Compare any two <ArrowRight size={12} />
+          <Link to={lp("/compare")} className="link-green" style={{ display: "flex", alignItems: "center", gap: 4 }}>
+            Compare any two <ArrowRight size={12} className="link-arrow" />
           </Link>
         </div>
         <p style={{ fontSize: 15, color: "#64748b", marginBottom: 24, maxWidth: 600 }}>
@@ -814,8 +788,8 @@ export default function Home() {
                 {s.text}
               </p>
               {s.link && (
-                <Link to={lp(s.link.path)} style={{ fontSize: 13, fontWeight: 600, color: "#059669", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 4, marginTop: 6 }}>
-                  {s.link.text} <ArrowRight size={12} />
+                <Link to={lp(s.link.path)} className="link-green" style={{ display: "inline-flex", alignItems: "center", gap: 4, marginTop: 6 }}>
+                  {s.link.text} <ArrowRight size={12} className="link-arrow" />
                 </Link>
               )}
             </div>
