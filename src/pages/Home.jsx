@@ -396,7 +396,7 @@ export default function Home() {
               }}>
                 <Target size={14} /> Find Your Broker
               </Link>
-              <Link to="/compare" style={{
+              {!mob && <Link to="/compare" style={{
                 padding: "10px 18px", borderRadius: 10, fontSize: 13, fontWeight: 600,
                 background: "rgba(30,41,59,0.8)", backdropFilter: "blur(8px)",
                 border: "1px solid rgba(255,255,255,0.15)", color: "#e2e8f0",
@@ -407,8 +407,8 @@ export default function Home() {
                 onMouseLeave={e => { e.currentTarget.style.background = "rgba(30,41,59,0.8)"; e.currentTarget.style.color = "#e2e8f0"; }}
               >
                 <BarChart3 size={14} /> Compare Brokers
-              </Link>
-              <Link to="/methodology" style={{
+              </Link>}
+              {!mob && <Link to="/methodology" style={{
                 padding: "10px 18px", borderRadius: 10, fontSize: 13, fontWeight: 600,
                 background: "rgba(30,41,59,0.8)", backdropFilter: "blur(8px)",
                 border: "1px solid rgba(255,255,255,0.15)", color: "#e2e8f0",
@@ -419,7 +419,7 @@ export default function Home() {
                 onMouseLeave={e => { e.currentTarget.style.background = "rgba(30,41,59,0.8)"; e.currentTarget.style.color = "#e2e8f0"; }}
               >
                 <BookOpen size={14} /> Our Methodology
-              </Link>
+              </Link>}
               <Link to="/rankings" className="cta-orange" style={{
                 padding: "10px 24px", borderRadius: 10, fontSize: 13, fontWeight: 700,
                 background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: "#0f172a", textDecoration: "none",
