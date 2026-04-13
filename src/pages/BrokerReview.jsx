@@ -352,17 +352,6 @@ export default function BrokerReview() {
         </div>
       </HeroBand>
 
-      {/* H7: Quick Facts on mobile (data not in hero stats) */}
-      {mob&&<div style={{...cn,paddingTop:12}}>
-        <div style={{background:"#fff",border:"1px solid #e8ecf1",borderRadius:12,padding:16}}>
-          <div style={{fontFamily:"Outfit",fontSize:13,fontWeight:700,marginBottom:10}}>{t("review.quickFacts")}</div>
-          {[{l:t("review.founded"),v:B.year},{l:t("review.hq"),v:B.hq},{l:t("review.type"),v:B.type},...(B.leverage&&B.leverage!=="N/A"?[{l:t("review.leverage"),v:B.leverage}]:[]),{l:t("review.instruments"),v:B.instruments}].map((x,i,arr)=><div key={i} style={{display:"flex",justifyContent:"space-between",padding:"5px 0",borderBottom:i<arr.length-1?"1px solid #f0f4f8":"none"}}>
-            <span style={{fontSize:13,color:"#64748b"}}>{x.l}</span>
-            <span style={{fontSize:13,color:"#111827",fontWeight:600}}>{x.v}</span>
-          </div>)}
-        </div>
-      </div>}
-
       {/* COLLAPSIBLE TOC — mobile + tablet */}
       {(mob || tab) && (
         <div style={{...cn, paddingTop: 16, paddingBottom: 0}}>
@@ -410,6 +399,15 @@ export default function BrokerReview() {
           <H2 id="overview">{t("review.overview", { name: B.name })}</H2>
           {htmlOverrides.overview ? <HtmlContent html={htmlOverrides.overview}/> : (content.overview || []).map((p,i)=><P key={i}>{p}</P>)}
           <CTA B={B} visitUrl={visitUrl} sub={t("review.readyToTrade", { name: B.name })} mob={mob} />
+
+          {/* H7: Quick Facts on mobile — after Overview */}
+          {mob&&<Card style={{padding:16,marginBottom:8}}>
+            <div style={{fontFamily:"Outfit",fontSize:13,fontWeight:700,marginBottom:10}}>{t("review.quickFacts")}</div>
+            {[{l:t("review.founded"),v:B.year},{l:t("review.hq"),v:B.hq},{l:t("review.type"),v:B.type},...(B.leverage&&B.leverage!=="N/A"?[{l:t("review.leverage"),v:B.leverage}]:[]),{l:t("review.instruments"),v:B.instruments}].map((x,i,arr)=><div key={i} style={{display:"flex",justifyContent:"space-between",padding:"5px 0",borderBottom:i<arr.length-1?"1px solid #f0f4f8":"none"}}>
+              <span style={{fontSize:13,color:"#64748b"}}>{x.l}</span>
+              <span style={{fontSize:13,color:"#111827",fontWeight:600}}>{x.v}</span>
+            </div>)}
+          </Card>}
 
           {/* SCORES */}
           <H2 id="scoring-breakdown">{t("review.scoringBreakdown")}</H2>
