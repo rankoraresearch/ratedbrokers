@@ -306,7 +306,7 @@ export default function FindYourBrokerPage() {
     const top3 = topResults.slice(0, 3);
     if (top3.length === 0) return null;
     return (
-      <div style={{ marginTop: 12 }}>
+      <div className="d2k-list" style={{ marginTop: 12 }}>
         <div style={{ fontSize: 10, fontWeight: 600, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 0.8, marginBottom: 6, padding: "0 2px" }}>Your top matches</div>
         {top3.map((r, i) => {
           const B = r.broker.B;
@@ -639,7 +639,7 @@ export default function FindYourBrokerPage() {
         </div>
 
         {/* ── D2k Border Only rows ── */}
-        <div style={{ padding: "6px 8px" }}>
+        <div className="d2k-list" style={{ padding: "6px 8px" }}>
           {top5.map((r, i) => {
             const B = r.broker.B;
             const rw = B.riskWarning && (B.verticals || []).some(v => ["forex", "cfd", "crypto", "spread-betting"].includes(v)) ? B.riskWarning : null;
@@ -946,7 +946,7 @@ export default function FindYourBrokerPage() {
           <span style={{ fontSize: 11, color: "#94a3b8" }}>Ranked by match score</span>
         </div>
 
-        <div style={{
+        <div className="d2k-list" style={{
           padding: "6px 8px",
           display: mob ? "block" : "grid",
           gridTemplateColumns: mob ? undefined : "1fr 1fr",

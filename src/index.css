@@ -53,10 +53,17 @@ img { max-width: 100%; height: auto; }
 /* ── D2k broker row — border on hover/active, no JS state needed ── */
 .d2k-row {
   border: 1.5px solid transparent;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, opacity 0.2s;
 }
 .d2k-row:hover, .d2k-row:active {
   border-color: #059669;
+}
+/* Dim siblings when one row is hovered */
+.d2k-list:hover .d2k-row {
+  opacity: 0.45;
+}
+.d2k-list:hover .d2k-row:hover {
+  opacity: 1;
 }
 .d2k-row .d2k-arrow {
   transition: color 0.2s, transform 0.2s;
