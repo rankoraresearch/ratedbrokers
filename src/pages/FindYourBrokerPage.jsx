@@ -893,57 +893,15 @@ export default function FindYourBrokerPage() {
         </div>
       </div>
 
-      {/* ── Quick Compare — Top 3 ── */}
-      <div style={{ ...cardStyle, marginBottom: 20, padding: mob ? "16px" : "20px 24px" }}>
-        <h2 style={{ fontFamily: "'Outfit',sans-serif", fontSize: mob ? 18 : 20, fontWeight: 800, color: "#0f172a", margin: "0 0 14px" }}>
-          Quick Compare — Your Top 3
-        </h2>
-        <div style={{ display: "flex", flexDirection: mob ? "column" : "row", gap: mob ? 10 : 12 }}>
-          {topResults.slice(0, 3).map((r, i) => {
-            const B = r.broker.B;
-            return (
-              <div key={r.slug} style={{
-                flex: 1, minWidth: 0, padding: 14, borderRadius: 12,
-                border: i === 0 ? "1.5px solid rgba(5,150,105,0.15)" : "1.5px solid #e2e8f0",
-                background: i === 0 ? "rgba(236,253,245,0.4)" : "#fff",
-              }}>
-                <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 10 }}>
-                  <BrokerLogo slug={r.slug} name={B.name} size={48} shape="icon" />
-                  <div style={{ flex: 1 }}>
-                    <div style={{ fontWeight: 700, fontSize: 15 }}>{B.name}</div>
-                    <div style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 12, fontWeight: 800, color: "#059669" }}>{r.matchPct}% match</div>
-                  </div>
-                  <ScoreBadge score={B.score} size="md" />
-                </div>
-                <div style={{ display: "flex", gap: mob ? 6 : 8, fontSize: 12, color: "#64748b", marginBottom: 12, flexWrap: "wrap" }}>
-                  <span>Spread: <strong style={{ color: "#111827" }}>{B.spread}</strong></span>
-                  <span>Min: <strong style={{ color: "#111827" }}>{B.minDep === 0 ? "$0" : `$${B.minDep}`}</strong></span>
-                  {B.tp > 0 && <span>TP: <strong style={{ color: "#111827" }}>{B.tp}/5</strong></span>}
-                </div>
-                <a href={getVisitUrl(r.slug, B.url)} target="_blank" rel="noopener nofollow sponsored" className="cta-primary"
-                  style={{
-                    display: "block", padding: "10px 0", borderRadius: 8, textAlign: "center",
-                    background: "linear-gradient(135deg, #f59e0b, #fbbf24)",
-                    color: "#0f172a", fontWeight: 700, fontSize: 13,
-                    textDecoration: "none",
-                    boxShadow: "0 2px 6px rgba(245,158,11,0.2)",
-                  }}
-                >Visit {B.name}</a>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-
       {/* ── D2k Top 10 list ── */}
       <div style={{ ...cardStyle, overflow: "hidden" }}>
         <div style={{
-          padding: mob ? "14px 16px 10px" : "16px 24px 12px",
+          padding: mob ? "16px 16px 12px" : "20px 24px 14px",
           borderBottom: "1px solid rgba(0,0,0,0.04)",
           display: "flex", alignItems: "center", justifyContent: "space-between",
         }}>
-          <span style={{ fontSize: 13, fontWeight: 700, color: "#0f172a" }}>Your Top 10 Matches</span>
-          <span style={{ fontSize: 11, color: "#94a3b8" }}>Ranked by match score</span>
+          <h2 style={{ fontFamily: "'Outfit',sans-serif", fontSize: mob ? 18 : 22, fontWeight: 800, color: "#0f172a", margin: 0 }}>Your Top 10 Matches</h2>
+          <span style={{ fontSize: 12, color: "#94a3b8" }}>Ranked by match score</span>
         </div>
 
         <div className="d2k-list" style={{
