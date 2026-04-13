@@ -161,27 +161,33 @@ export default function SubPageLayout({ data, slug, activeTab, children }) {
       <HeroBand mob={mob} tab={tab}>
         <div style={{ display: "flex", flexDirection: mob ? "column" : "row", justifyContent: "space-between", gap: mob ? 20 : 32 }}>
           <div style={{ flex: 1 }}>
-            {/* H6: On mobile — stack logo and H1 vertically; on desktop — keep row */}
-            <div style={{ display: "flex", flexDirection: mob ? "column" : "row", alignItems: mob ? "flex-start" : "center", gap: mob ? 10 : 16, marginBottom: 14 }}>
+            {/* H6: On mobile — stack logo and H1 vertically centered; on desktop — keep row */}
+            <div style={{ display: "flex", flexDirection: mob ? "column" : "row", alignItems: "center", gap: mob ? 10 : 16, marginBottom: 14, ...(mob ? { textAlign: "center" } : {}) }}>
               <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" style={{ display: "flex", flexShrink: 0, textDecoration: "none" }}>
                 <WideLogo slug={slug} name={B.name} mob={mob} />
               </a>
               <div>
                 <h1 style={{ fontFamily: "Outfit", fontSize: mob ? 22 : 28, fontWeight: 800, color: "#fff", letterSpacing: "-0.02em" }}>{h1}</h1>
-                <p style={{ fontSize: mob ? 13 : 15, color: "rgba(255,255,255,0.6)", margin: 0 }}>{B.type} broker · Est. {B.year}{` · ${B.hq}`}</p>
+                <p style={{ fontSize: mob ? 13 : 15, color: "rgba(255,255,255,0.6)", margin: 0 }}>{B.type} broker · Est. {B.year}{!mob && ` · ${B.hq}`}</p>
               </div>
             </div>
-            <div style={{ display: "flex", alignItems: "center", gap: mob ? 8 : 16, flexWrap: "wrap", marginBottom: 14 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: mob ? 8 : 16, flexWrap: "wrap", marginBottom: 14, ...(mob ? { justifyContent: "center" } : {}) }}>
               <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
                 <div style={{ background: "rgba(52,211,153,0.15)", border: "2px solid #34d399", borderRadius: 8, padding: "4px 10px", fontFamily: "'JetBrains Mono'", fontSize: mob ? 16 : 18, fontWeight: 800, color: "#34d399" }}>{B.score}</div>
                 <span style={{ fontSize: mob ? 12 : 14, fontWeight: 600, color: "#34d399" }}>{B.verdict}</span>
               </div>
               {!mob && <div style={{ width: 1, height: 20, background: "rgba(255,255,255,0.15)" }} />}
-              <div style={{ display: "flex", gap: 4 }}>{B.regs.filter(r => r.tier === 1).map((r, i) => <RegBadge key={i} reg={r.name} onDark />)}</div>
+              {mob
+                ? <div style={{ display: "flex", gap: 4, flexWrap: "wrap", justifyContent: "center" }}>
+                    {B.regs.filter(r => r.tier === 1).slice(0, 3).map((r, i) => <RegBadge key={i} reg={r.name} onDark />)}
+                    {B.regs.filter(r => r.tier === 1).length > 3 && <span style={{ fontSize: 11, color: "rgba(255,255,255,0.5)", fontWeight: 500, alignSelf: "center" }}>+{B.regs.filter(r => r.tier === 1).length - 3}</span>}
+                  </div>
+                : <div style={{ display: "flex", gap: 4 }}>{B.regs.filter(r => r.tier === 1).map((r, i) => <RegBadge key={i} reg={r.name} onDark />)}</div>
+              }
               {B.badge && <span style={{ background: "rgba(52,211,153,0.15)", color: "#34d399", fontSize: mob ? 10 : 11, fontWeight: 600, padding: "3px 10px", borderRadius: 5, border: "1px solid rgba(110,231,183,0.3)", display: "inline-flex", alignItems: "center", gap: 4 }}><Award size={12} color="#34d399" />{B.badge}</span>}
             </div>
             {/* H4: Show promo on mobile (before CTA) */}
-            {mob && B.promo && <div style={{fontSize:12,color:"#34d399",fontWeight:600,marginBottom:8,display:"flex",alignItems:"center",gap:4}}>{B.promo}</div>}
+            {mob && B.promo && <div style={{fontSize:12,color:"#34d399",fontWeight:600,marginBottom:8,display:"flex",alignItems:"center",justifyContent:"center",gap:4,textAlign:"center"}}>{B.promo}</div>}
             {/* H1: CTA above stats on mobile */}
             {mob && <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 6, background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: NAVY, fontSize: 15, fontWeight: 700, textDecoration: "none", padding: "12px", borderRadius: 10, boxShadow: "0 4px 12px rgba(245,158,11,0.3)" }}>Visit {B.name} <ArrowRight size={14} /></a>}
             {/* H5: Risk warning on mobile */}
