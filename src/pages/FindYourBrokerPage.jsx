@@ -317,7 +317,6 @@ export default function FindYourBrokerPage() {
   );
 
   /* ═══ Mobile Mini Preview — D2k Border Only: 3 clean rows, green border on hover, risk overlay ═══ */
-  const [hovPreview, setHovPreview] = useState(null);
   const MobileMiniPreview = () => {
     if (step === 0 && Object.keys(answers).length === 0) return null;
     const top3 = topResults.slice(0, 3);
@@ -327,19 +326,16 @@ export default function FindYourBrokerPage() {
         <div style={{ fontSize: 10, fontWeight: 600, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 0.8, marginBottom: 6, padding: "0 2px" }}>Your top matches</div>
         {top3.map((r, i) => {
           const B = r.broker.B;
-          const hov = hovPreview === r.slug;
           const rw = B.riskWarning && (B.verticals || []).some(v => ["forex", "cfd", "crypto", "spread-betting"].includes(v)) ? B.riskWarning : null;
           return (
             <a key={r.slug} href={getVisitUrl(r.slug, B.url)} target="_blank" rel="noopener nofollow sponsored"
+              className="d2k-row"
               style={{
                 display: "flex", alignItems: "center", gap: 8, padding: "12px 12px",
                 textDecoration: "none", marginBottom: i < 2 ? 5 : 0,
                 borderRadius: 10, position: "relative", overflow: "hidden",
-                border: hov ? "1.5px solid #059669" : "1.5px solid transparent",
                 background: i === 0 ? "rgba(236,253,245,0.4)" : "transparent",
-                transition: "all 0.2s",
               }}
-              onMouseEnter={mob ? undefined : () => setHovPreview(r.slug)} onMouseLeave={mob ? undefined : () => setHovPreview(null)}
             >
               <div style={{ width: 22, height: 22, borderRadius: 6, background: i === 0 ? "linear-gradient(135deg, #059669, #047857)" : "#f1f5f9", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 10, fontWeight: 800, color: i === 0 ? "#fff" : "#64748b", flexShrink: 0 }}>{i + 1}</div>
               <BrokerLogo slug={r.slug} name={B.name} size={30} shape="icon" />
@@ -347,12 +343,12 @@ export default function FindYourBrokerPage() {
                 <div style={{ fontSize: 13, fontWeight: 700, color: "#0f172a", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{B.name}</div>
               </div>
               <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 12, fontWeight: 800, color: r.matchPct >= 80 ? "#059669" : "#64748b" }}>{r.matchPct}%</span>
-              <ArrowUpRight size={15} color={hov ? "#059669" : (i === 0 ? "#059669" : "#94a3b8")} style={{ flexShrink: 0, transition: "all 0.2s", transform: hov ? "translateX(2px)" : "none" }} />
-              {rw && <div style={{
+              <ArrowUpRight size={15} className="d2k-arrow" color={i === 0 ? "#059669" : "#94a3b8"} style={{ flexShrink: 0 }} />
+              {rw && <div className="d2k-risk" style={{
                 position: "absolute", left: 0, right: 0, bottom: 0,
                 padding: "3px 12px 4px 44px",
-                background: hov ? "linear-gradient(to top, rgba(255,255,255,0.95) 60%, transparent)" : "transparent",
-                opacity: hov ? 1 : 0, transition: "all 0.2s ease", pointerEvents: "none",
+                background: "linear-gradient(to top, rgba(255,255,255,0.95) 60%, transparent)",
+                pointerEvents: "none",
               }}>
                 <div style={{ fontSize: 9, lineHeight: 1.2, color: "#94a3b8", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{rw}</div>
               </div>}
@@ -701,19 +697,16 @@ export default function FindYourBrokerPage() {
         <div style={{ padding: "6px 8px" }}>
           {top5.map((r, i) => {
             const B = r.broker.B;
-            const hov = hovPreview === `sb-${r.slug}`;
             const rw = B.riskWarning && (B.verticals || []).some(v => ["forex", "cfd", "crypto", "spread-betting"].includes(v)) ? B.riskWarning : null;
             return (
               <a key={r.slug} href={getVisitUrl(r.slug, B.url)} target="_blank" rel="noopener nofollow sponsored"
+                className="d2k-row"
                 style={{
                   display: "flex", alignItems: "center", gap: 8, padding: "10px 10px",
                   textDecoration: "none", marginBottom: i < 4 ? 4 : 0,
                   borderRadius: 10, position: "relative", overflow: "hidden",
-                  border: hov ? "1.5px solid #059669" : "1.5px solid transparent",
                   background: i === 0 ? "rgba(236,253,245,0.4)" : "transparent",
-                  transition: "all 0.2s",
                 }}
-                onMouseEnter={() => setHovPreview(`sb-${r.slug}`)} onMouseLeave={() => setHovPreview(null)}
               >
                 <div style={{ width: 22, height: 22, borderRadius: 6, background: i === 0 ? "linear-gradient(135deg, #059669, #047857)" : (i < 3 ? "#e2e8f0" : "#f1f5f9"), display: "flex", alignItems: "center", justifyContent: "center", fontSize: 10, fontWeight: 800, color: i === 0 ? "#fff" : "#64748b", flexShrink: 0 }}>{i + 1}</div>
                 <BrokerLogo slug={r.slug} name={B.name} size={28} shape="icon" />
@@ -721,12 +714,12 @@ export default function FindYourBrokerPage() {
                   <div style={{ fontSize: 13, fontWeight: 700, color: "#0f172a", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{B.name}</div>
                 </div>
                 <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 12, fontWeight: 800, color: r.matchPct >= 80 ? "#059669" : "#64748b" }}>{r.matchPct}%</span>
-                <ArrowUpRight size={14} color={hov ? "#059669" : (i === 0 ? "#059669" : "#94a3b8")} style={{ flexShrink: 0, transition: "all 0.2s", transform: hov ? "translateX(2px)" : "none" }} />
-                {rw && <div style={{
+                <ArrowUpRight size={14} className="d2k-arrow" color={i === 0 ? "#059669" : "#94a3b8"} style={{ flexShrink: 0 }} />
+                {rw && <div className="d2k-risk" style={{
                   position: "absolute", left: 0, right: 0, bottom: 0,
                   padding: "3px 10px 3px 42px",
-                  background: hov ? "linear-gradient(to top, rgba(255,255,255,0.95) 60%, transparent)" : "transparent",
-                  opacity: hov ? 1 : 0, transition: "all 0.2s ease", pointerEvents: "none",
+                  background: "linear-gradient(to top, rgba(255,255,255,0.95) 60%, transparent)",
+                  pointerEvents: "none",
                 }}>
                   <div style={{ fontSize: 9, lineHeight: 1.2, color: "#94a3b8", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{rw}</div>
                 </div>}
@@ -910,7 +903,6 @@ export default function FindYourBrokerPage() {
   }; */
 
   /* ═══ Results Page — D2k Border Only style ═══ */
-  const [hovResult, setHovResult] = useState(null);
   const ResultsPage = () => (
     <div style={{
       opacity: transitioning ? 0 : 1,
@@ -1028,16 +1020,14 @@ export default function FindYourBrokerPage() {
             const rw = B.riskWarning && (B.verticals || []).some(v => ["forex", "cfd", "crypto", "spread-betting"].includes(v)) ? B.riskWarning : null;
             return (
               <a key={r.slug} href={getVisitUrl(r.slug, B.url)} target="_blank" rel="noopener nofollow sponsored"
+                className="d2k-row"
                 style={{
                   display: "flex", alignItems: "center", gap: mob ? 8 : 10,
                   padding: mob ? "12px 10px" : "12px 16px",
                   textDecoration: "none", marginBottom: i < 9 ? 4 : 0,
                   borderRadius: 10, position: "relative", overflow: "hidden",
-                  border: !mob && hovResult === r.slug ? "1.5px solid #059669" : "1.5px solid transparent",
                   background: i === 0 ? "rgba(236,253,245,0.4)" : "transparent",
-                  transition: "border-color 0.2s",
                 }}
-                onMouseEnter={mob ? undefined : () => setHovResult(r.slug)} onMouseLeave={mob ? undefined : () => setHovResult(null)}
               >
                 <div style={{
                   width: mob ? 24 : 26, height: mob ? 24 : 26, borderRadius: 7, flexShrink: 0,
@@ -1064,17 +1054,15 @@ export default function FindYourBrokerPage() {
                   fontSize: mob ? 13 : 14, fontWeight: 800,
                   color: r.matchPct >= 80 ? "#059669" : r.matchPct >= 60 ? "#2563eb" : "#d97706",
                 }}>{r.matchPct}%</span>
-                {(() => { const h = !mob && hovResult === r.slug; return <>
-                  <ArrowUpRight size={mob ? 14 : 16} color={h ? "#059669" : (i === 0 ? "#059669" : "#94a3b8")} style={{ flexShrink: 0, transition: "color 0.2s, transform 0.2s", transform: h ? "translateX(2px)" : "none" }} />
-                  {rw && <div style={{
-                    position: "absolute", left: 0, right: 0, bottom: 0,
-                    padding: "3px 12px 4px 46px",
-                    background: h ? "linear-gradient(to top, rgba(255,255,255,0.95) 60%, transparent)" : "transparent",
-                    opacity: h ? 1 : 0, transition: "opacity 0.2s ease", pointerEvents: "none",
-                  }}>
-                    <div style={{ fontSize: 9, lineHeight: 1.2, color: "#94a3b8", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{rw}</div>
-                  </div>}
-                </>; })()}
+                <ArrowUpRight size={mob ? 14 : 16} className="d2k-arrow" color={i === 0 ? "#059669" : "#94a3b8"} style={{ flexShrink: 0 }} />
+                {rw && <div className="d2k-risk" style={{
+                  position: "absolute", left: 0, right: 0, bottom: 0,
+                  padding: "3px 12px 4px 46px",
+                  background: "linear-gradient(to top, rgba(255,255,255,0.95) 60%, transparent)",
+                  pointerEvents: "none",
+                }}>
+                  <div style={{ fontSize: 9, lineHeight: 1.2, color: "#94a3b8", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{rw}</div>
+                </div>}
               </a>
             );
           })}

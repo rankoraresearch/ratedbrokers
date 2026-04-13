@@ -50,6 +50,29 @@ img { max-width: 100%; height: auto; }
   box-shadow: 0 8px 24px rgba(245,158,11,0.4) !important;
 }
 
+/* ── D2k broker row — border on hover/active, no JS state needed ── */
+.d2k-row {
+  border: 1.5px solid transparent;
+  transition: border-color 0.2s;
+}
+.d2k-row:hover, .d2k-row:active {
+  border-color: #059669;
+}
+.d2k-row .d2k-arrow {
+  transition: color 0.2s, transform 0.2s;
+}
+.d2k-row:hover .d2k-arrow, .d2k-row:active .d2k-arrow {
+  color: #059669 !important;
+  transform: translateX(2px);
+}
+.d2k-row .d2k-risk {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.d2k-row:hover .d2k-risk {
+  opacity: 1;
+}
+
 /* ── Quiz animations ── */
 @keyframes quizFadeIn {
   from { opacity: 0; transform: translateY(16px); }
