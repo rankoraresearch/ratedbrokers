@@ -339,7 +339,7 @@ export default function FindYourBrokerPage() {
                 background: i === 0 ? "rgba(236,253,245,0.4)" : "transparent",
                 transition: "all 0.2s",
               }}
-              onMouseEnter={() => setHovPreview(r.slug)} onMouseLeave={() => setHovPreview(null)} onTouchStart={() => setHovPreview((prev) => prev === r.slug ? null : r.slug)}
+              onMouseEnter={mob ? undefined : () => setHovPreview(r.slug)} onMouseLeave={mob ? undefined : () => setHovPreview(null)}
             >
               <div style={{ width: 22, height: 22, borderRadius: 6, background: i === 0 ? "linear-gradient(135deg, #059669, #047857)" : "#f1f5f9", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 10, fontWeight: 800, color: i === 0 ? "#fff" : "#64748b", flexShrink: 0 }}>{i + 1}</div>
               <BrokerLogo slug={r.slug} name={B.name} size={30} shape="icon" />
@@ -713,7 +713,7 @@ export default function FindYourBrokerPage() {
                   background: i === 0 ? "rgba(236,253,245,0.4)" : "transparent",
                   transition: "all 0.2s",
                 }}
-                onMouseEnter={() => setHovPreview(`sb-${r.slug}`)} onMouseLeave={() => setHovPreview(null)} onTouchStart={() => setHovPreview((prev) => prev === `sb-${r.slug}` ? null : `sb-${r.slug}`)}
+                onMouseEnter={() => setHovPreview(`sb-${r.slug}`)} onMouseLeave={() => setHovPreview(null)}
               >
                 <div style={{ width: 22, height: 22, borderRadius: 6, background: i === 0 ? "linear-gradient(135deg, #059669, #047857)" : (i < 3 ? "#e2e8f0" : "#f1f5f9"), display: "flex", alignItems: "center", justifyContent: "center", fontSize: 10, fontWeight: 800, color: i === 0 ? "#fff" : "#64748b", flexShrink: 0 }}>{i + 1}</div>
                 <BrokerLogo slug={r.slug} name={B.name} size={28} shape="icon" />
@@ -1025,7 +1025,6 @@ export default function FindYourBrokerPage() {
         }}>
           {topResults.map((r, i) => {
             const B = r.broker.B;
-            const hov = hovResult === r.slug;
             const rw = B.riskWarning && (B.verticals || []).some(v => ["forex", "cfd", "crypto", "spread-betting"].includes(v)) ? B.riskWarning : null;
             return (
               <a key={r.slug} href={getVisitUrl(r.slug, B.url)} target="_blank" rel="noopener nofollow sponsored"
@@ -1034,11 +1033,11 @@ export default function FindYourBrokerPage() {
                   padding: mob ? "12px 10px" : "12px 16px",
                   textDecoration: "none", marginBottom: i < 9 ? 4 : 0,
                   borderRadius: 10, position: "relative", overflow: "hidden",
-                  border: hov ? "1.5px solid #059669" : "1.5px solid transparent",
+                  border: !mob && hovResult === r.slug ? "1.5px solid #059669" : "1.5px solid transparent",
                   background: i === 0 ? "rgba(236,253,245,0.4)" : "transparent",
-                  transition: "all 0.2s",
+                  transition: "border-color 0.2s",
                 }}
-                onMouseEnter={() => setHovResult(r.slug)} onMouseLeave={() => setHovResult(null)} onTouchStart={() => setHovResult((prev) => prev === r.slug ? null : r.slug)}
+                onMouseEnter={mob ? undefined : () => setHovResult(r.slug)} onMouseLeave={mob ? undefined : () => setHovResult(null)}
               >
                 <div style={{
                   width: mob ? 24 : 26, height: mob ? 24 : 26, borderRadius: 7, flexShrink: 0,
@@ -1065,15 +1064,17 @@ export default function FindYourBrokerPage() {
                   fontSize: mob ? 13 : 14, fontWeight: 800,
                   color: r.matchPct >= 80 ? "#059669" : r.matchPct >= 60 ? "#2563eb" : "#d97706",
                 }}>{r.matchPct}%</span>
-                <ArrowUpRight size={mob ? 14 : 16} color={hov ? "#059669" : (i === 0 ? "#059669" : "#94a3b8")} style={{ flexShrink: 0, transition: "all 0.2s", transform: hov ? "translateX(2px)" : "none" }} />
-                {rw && <div style={{
-                  position: "absolute", left: 0, right: 0, bottom: 0,
-                  padding: "3px 12px 4px 46px",
-                  background: hov ? "linear-gradient(to top, rgba(255,255,255,0.95) 60%, transparent)" : "transparent",
-                  opacity: hov ? 1 : 0, transition: "all 0.2s ease", pointerEvents: "none",
-                }}>
-                  <div style={{ fontSize: 9, lineHeight: 1.2, color: "#94a3b8", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{rw}</div>
-                </div>}
+                {(() => { const h = !mob && hovResult === r.slug; return <>
+                  <ArrowUpRight size={mob ? 14 : 16} color={h ? "#059669" : (i === 0 ? "#059669" : "#94a3b8")} style={{ flexShrink: 0, transition: "color 0.2s, transform 0.2s", transform: h ? "translateX(2px)" : "none" }} />
+                  {rw && <div style={{
+                    position: "absolute", left: 0, right: 0, bottom: 0,
+                    padding: "3px 12px 4px 46px",
+                    background: h ? "linear-gradient(to top, rgba(255,255,255,0.95) 60%, transparent)" : "transparent",
+                    opacity: h ? 1 : 0, transition: "opacity 0.2s ease", pointerEvents: "none",
+                  }}>
+                    <div style={{ fontSize: 9, lineHeight: 1.2, color: "#94a3b8", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{rw}</div>
+                  </div>}
+                </>; })()}
               </a>
             );
           })}
