@@ -267,7 +267,7 @@ export default function FindYourBrokerPage() {
     background: "#fff", borderRadius: 14,
     border: "none",
     boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.06), 0 4px 24px rgba(0,0,0,0.05)",
-    overflow: "hidden",
+    overflow: mob ? "visible" : "hidden",
   };
 
   // Dynamic USP based on answers (Sprint v3)
@@ -312,29 +312,59 @@ export default function FindYourBrokerPage() {
     </div>
   );
 
-  /* ═══ Mobile Mini Preview ═══ */
+  /* ═══ Mobile Mini Preview — clickable + top-1 CTA ═══ */
   const MobileMiniPreview = () => {
     if (step === 0 && Object.keys(answers).length === 0) return null;
     const top3 = topResults.slice(0, 3);
     if (top3.length === 0) return null;
+    const top1 = top3[0];
+    const B1 = top1.broker.B;
+    const visitUrl1 = getVisitUrl(top1.slug, B1.url);
     return (
-      <div style={{
-        display: "flex", alignItems: "center", gap: 10,
-        padding: "10px 14px", borderRadius: 12, marginTop: 12,
-        background: "rgba(240,253,244,0.8)", backdropFilter: "blur(8px)",
-        boxShadow: "inset 0 0 0 1px rgba(5,150,105,0.12)",
-      }}>
-        <div style={{ width: 6, height: 6, borderRadius: "50%", background: "#22c55e", flexShrink: 0 }} />
-        <div style={{ display: "flex", alignItems: "center", gap: 8, flex: 1 }}>
-          {top3.map((r, i) => (
-            <div key={r.slug} style={{ display: "flex", alignItems: "center", gap: 3 }}>
-              <BrokerLogo slug={r.slug} name={r.broker.B.name} size={22} shape="icon" />
-              <span style={{ fontWeight: 800, fontSize: 11, color: "#059669" }}>{r.matchPct}%</span>
-              {i < 2 && <span style={{ color: "#d1d5db", fontSize: 10 }}>·</span>}
+      <div style={{ marginTop: 12 }}>
+        {/* Top-1 broker card with CTA */}
+        <a href={visitUrl1} target="_blank" rel="noopener nofollow sponsored"
+          style={{
+            display: "flex", alignItems: "center", gap: 10,
+            padding: "10px 14px", borderRadius: 12,
+            background: "linear-gradient(135deg, rgba(236,253,245,0.9), rgba(209,250,229,0.6))",
+            boxShadow: "inset 0 0 0 1px rgba(5,150,105,0.15)",
+            textDecoration: "none", transition: "all 0.2s",
+          }}
+        >
+          <div style={{ width: 6, height: 6, borderRadius: "50%", background: "#22c55e", flexShrink: 0, animation: "quizPulse 2s infinite" }} />
+          <BrokerLogo slug={top1.slug} name={B1.name} size={28} shape="icon" />
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div style={{ fontSize: 13, fontWeight: 700, color: "#0f172a", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+              {B1.name} — <span style={{ color: "#059669" }}>{top1.matchPct}%</span>
             </div>
-          ))}
-        </div>
-        <span style={{ fontSize: 10, color: "#64748b", fontWeight: 600, whiteSpace: "nowrap" }}>Live</span>
+            <div style={{ fontSize: 11, color: "#64748b" }}>Your top match · {B1.score}/10</div>
+          </div>
+          <div style={{
+            padding: "6px 12px", borderRadius: 8, flexShrink: 0,
+            background: "linear-gradient(135deg, #f59e0b, #fbbf24)",
+            color: "#0f172a", fontWeight: 700, fontSize: 11, whiteSpace: "nowrap",
+          }}>Visit →</div>
+        </a>
+        {/* Runners-up row — clickable */}
+        {top3.length > 1 && (
+          <div style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 6, padding: "0 4px" }}>
+            {top3.slice(1).map((r, i) => (
+              <a key={r.slug} href={getVisitUrl(r.slug, r.broker.B.url)} target="_blank" rel="noopener nofollow sponsored"
+                style={{
+                  display: "flex", alignItems: "center", gap: 4, padding: "6px 8px",
+                  borderRadius: 8, background: "#f8fafc", boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.05)",
+                  textDecoration: "none", flex: 1,
+                }}
+              >
+                <span style={{ fontSize: 10, fontWeight: 800, color: "#64748b", width: 16, textAlign: "center", flexShrink: 0 }}>#{i + 2}</span>
+                <BrokerLogo slug={r.slug} name={r.broker.B.name} size={20} shape="icon" />
+                <span style={{ fontSize: 11, fontWeight: 600, color: "#374151", flex: 1, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{r.broker.B.name}</span>
+                <span style={{ fontSize: 11, fontWeight: 800, color: "#059669" }}>{r.matchPct}%</span>
+              </a>
+            ))}
+          </div>
+        )}
       </div>
     );
   };
@@ -420,7 +450,7 @@ export default function FindYourBrokerPage() {
                 onChange={(e) => setSearchCountry(e.target.value)}
                 style={{
                   width: "100%", padding: "10px 12px 10px 36px", borderRadius: 10,
-                  border: "1px solid #e2e8f0", fontSize: 15, fontFamily: "inherit",
+                  border: "1px solid #e2e8f0", fontSize: 16, fontFamily: "inherit",
                   outline: "none", background: "#f8fafc",
                 }}
                 onFocus={(e) => { e.target.style.borderColor = "#059669"; e.target.style.background = "#fff"; }}
@@ -511,7 +541,7 @@ export default function FindYourBrokerPage() {
                 <button key={opt.value} role="checkbox" aria-checked={selected} onClick={() => toggleMulti(currentQ.id, opt.value)}
                   style={{
                     display: "flex", alignItems: "center", gap: 12,
-                    padding: mob ? "12px 14px" : "14px 18px", borderRadius: 12,
+                    padding: mob ? "14px 14px" : "14px 18px", borderRadius: 12,
                     border: "none",
                     background: selected ? "#ecfdf5" : "#fff",
                     boxShadow: selected
@@ -541,15 +571,16 @@ export default function FindYourBrokerPage() {
           </div>
         )}
 
-        {/* ── Navigation (Sprint 8.2: orange "See My Results") ── */}
+        {/* ── Navigation — sticky on mobile ── */}
         <div style={{
           display: "flex", justifyContent: "space-between", alignItems: "center",
           marginTop: 24, paddingTop: 16, borderTop: "1px solid #f1f5f9",
+          ...(mob ? { position: "sticky", bottom: 0, background: "#fff", paddingBottom: "max(12px, env(safe-area-inset-bottom))", zIndex: 10, boxShadow: "0 -2px 8px rgba(0,0,0,0.04)" } : {}),
         }}>
           <button onClick={goBack} disabled={step === 0}
             style={{
               display: "flex", alignItems: "center", gap: 6,
-              padding: "10px 16px", borderRadius: 10,
+              padding: mob ? "12px 16px" : "10px 16px", borderRadius: 10,
               background: step === 0 ? "#f8fafc" : "#fff",
               border: "1px solid #e2e8f0", cursor: step === 0 ? "default" : "pointer",
               fontSize: 14, fontWeight: 600, color: step === 0 ? "#94a3b8" : "#111827",
@@ -586,8 +617,8 @@ export default function FindYourBrokerPage() {
           </button>
         </div>
 
-        {/* Contextual tip — only first 3 steps */}
-        {step < 3 && (
+        {/* Contextual tip — all steps */}
+        {CONTEXTUAL_TIPS[currentQ.id] && (
           <div style={{
             marginTop: 16, padding: "10px 14px", borderRadius: 10,
             background: "#f8fafc",
@@ -850,89 +881,127 @@ export default function FindYourBrokerPage() {
     );
   };
 
-  /* ═══ Quick Compare Table (Sprint 10) ═══ */
+  /* ═══ Quick Compare (Sprint 10 + M2 mobile cards) ═══ */
   const QuickCompareTable = () => {
     const top3 = topResults.slice(0, 3);
     if (top3.length < 3) return null;
+
+    // Mobile: card layout
+    if (mob) return (
+      <div style={{ ...cardStyle, marginBottom: 20, padding: "16px" }}>
+        <h2 style={{ fontFamily: "'Outfit',sans-serif", fontSize: 18, fontWeight: 800, color: "#0f172a", margin: "0 0 12px" }}>
+          Quick Compare — Your Top 3
+        </h2>
+        <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+          {top3.map((r, i) => {
+            const B = r.broker.B;
+            return (
+              <div key={r.slug} style={{
+                padding: 14, borderRadius: 12,
+                background: i === 0 ? "linear-gradient(135deg, rgba(236,253,245,0.5), rgba(209,250,229,0.3))" : "#f8fafc",
+                border: i === 0 ? "1px solid #a7f3d0" : "1px solid #e2e8f0",
+              }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
+                  <BrokerLogo slug={r.slug} name={B.name} size={36} shape="icon" />
+                  <div style={{ flex: 1 }}>
+                    <div style={{ fontWeight: 700, fontSize: 15 }}>{B.name}</div>
+                    <div style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 12, fontWeight: 800, color: "#059669" }}>{r.matchPct}% match</div>
+                  </div>
+                  <div style={{
+                    fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 18,
+                    color: B.score >= 9.0 ? "#059669" : "#2563eb",
+                  }}>{B.score}</div>
+                </div>
+                <div style={{ display: "flex", gap: 12, fontSize: 12, color: "#64748b", marginBottom: 10 }}>
+                  <span>Spread: <strong style={{ color: "#111827" }}>{B.spread} pips</strong></span>
+                  <span>Min: <strong style={{ color: "#111827" }}>{B.minDep === 0 ? "$0" : `$${B.minDep}`}</strong></span>
+                  <span>TP: <strong style={{ color: "#111827" }}>{B.tp > 0 ? `${B.tp}/5` : "—"}</strong></span>
+                </div>
+                <div style={{ display: "flex", gap: 8 }}>
+                  <a href={getVisitUrl(r.slug, B.url)} target="_blank" rel="noopener nofollow sponsored" className="cta-primary"
+                    style={{
+                      flex: 1, padding: "10px 0", borderRadius: 8, textAlign: "center",
+                      background: "linear-gradient(135deg, #f59e0b, #fbbf24)",
+                      color: "#0f172a", fontWeight: 700, fontSize: 13, textDecoration: "none",
+                    }}
+                  >Open Account</a>
+                  <Link to={lp(`/reviews/${r.slug}`)} style={{
+                    flex: 1, padding: "10px 0", borderRadius: 8, textAlign: "center",
+                    border: "2px solid #059669", color: "#059669", fontWeight: 700, fontSize: 13,
+                    textDecoration: "none",
+                  }}>Read Review</Link>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    );
+
+    // Desktop: table layout
     return (
-      <div style={{ ...cardStyle, marginBottom: 20, overflow: mob ? "auto" : "hidden" }}>
-        <div style={{
-          padding: mob ? "16px 16px 10px" : "20px 28px 12px",
-          borderBottom: "1px solid #f1f5f9",
-        }}>
-          <h2 style={{ fontFamily: "'Outfit',sans-serif", fontSize: mob ? 18 : 22, fontWeight: 800, color: "#0f172a", margin: 0 }}>
+      <div style={{ ...cardStyle, marginBottom: 20, overflow: "hidden" }}>
+        <div style={{ padding: "20px 28px 12px", borderBottom: "1px solid #f1f5f9" }}>
+          <h2 style={{ fontFamily: "'Outfit',sans-serif", fontSize: 22, fontWeight: 800, color: "#0f172a", margin: 0 }}>
             Quick Compare — Your Top 3
           </h2>
         </div>
-        <div style={{ overflowX: mob ? "auto" : "visible", WebkitOverflowScrolling: "touch" }}>
-          <table style={{
-            width: "100%", minWidth: mob ? 600 : "auto",
-            borderCollapse: "collapse", fontSize: 14,
-          }}>
-            <thead>
-              <tr style={{ background: "#f8fafc" }}>
-                {["", "Score", "Spread", "Min Dep", "Trustpilot", "", "Review"].map((h, i) => (
-                  <th key={i} style={{
-                    padding: "10px 14px", fontSize: 11, fontWeight: 700, color: "#64748b",
-                    textTransform: "uppercase", letterSpacing: 0.5, textAlign: i === 0 ? "left" : "center",
-                    borderBottom: "1px solid #e2e8f0",
-                  }}>{h}</th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {top3.map((r, i) => {
-                const B = r.broker.B;
-                return (
-                  <tr key={r.slug} style={{ borderBottom: i < 2 ? "1px solid #f1f5f9" : "none" }}>
-                    <td style={{ padding: "12px 14px" }}>
-                      <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                        <BrokerLogo slug={r.slug} name={B.name} size={32} shape="icon" />
-                        <div>
-                          <div style={{ fontWeight: 700, fontSize: 14 }}>{B.name}</div>
-                          <div style={{
-                            fontFamily: "'JetBrains Mono',monospace", fontSize: 11, fontWeight: 800,
-                            color: "#059669",
-                          }}>{r.matchPct}% match</div>
-                        </div>
+        <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 14 }}>
+          <thead>
+            <tr style={{ background: "#f8fafc" }}>
+              {["", "Score", "Spread", "Min Dep", "Trustpilot", "", "Review"].map((h, i) => (
+                <th key={i} style={{
+                  padding: "10px 14px", fontSize: 11, fontWeight: 700, color: "#64748b",
+                  textTransform: "uppercase", letterSpacing: 0.5, textAlign: i === 0 ? "left" : "center",
+                  borderBottom: "1px solid #e2e8f0",
+                }}>{h}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {top3.map((r, i) => {
+              const B = r.broker.B;
+              return (
+                <tr key={r.slug} style={{ borderBottom: i < 2 ? "1px solid #f1f5f9" : "none" }}>
+                  <td style={{ padding: "12px 14px" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                      <BrokerLogo slug={r.slug} name={B.name} size={32} shape="icon" />
+                      <div>
+                        <div style={{ fontWeight: 700, fontSize: 14 }}>{B.name}</div>
+                        <div style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11, fontWeight: 800, color: "#059669" }}>{r.matchPct}% match</div>
                       </div>
-                    </td>
-                    <td style={{ textAlign: "center", padding: "12px 8px" }}>
-                      <span style={{
-                        fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 16,
-                        color: B.score >= 9.0 ? "#059669" : "#2563eb",
-                      }}>{B.score}</span>
-                    </td>
-                    <td style={{ textAlign: "center", fontFamily: "'JetBrains Mono',monospace", fontWeight: 700, fontSize: 14 }}>{B.spread} pips</td>
-                    <td style={{ textAlign: "center", fontFamily: "'JetBrains Mono',monospace", fontWeight: 700, fontSize: 14 }}>{B.minDep === 0 ? "$0" : `$${B.minDep}`}</td>
-                    <td style={{ textAlign: "center", padding: "12px 8px" }}>
-                      {B.tp > 0 ? (
-                        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 4 }}>
-                          <TpStars rating={B.tp} size={12} />
-                          <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 12, fontWeight: 700 }}>{B.tp}</span>
-                        </div>
-                      ) : <span style={{ color: "#94a3b8" }}>—</span>}
-                    </td>
-                    <td style={{ textAlign: "center", padding: "12px 14px" }}>
-                      <a href={getVisitUrl(r.slug, B.url)} target="_blank" rel="noopener nofollow sponsored"
-                        className="cta-primary"
-                        style={{
-                          display: "inline-block", padding: "7px 14px", borderRadius: 8,
-                          background: "linear-gradient(135deg, #f59e0b, #fbbf24)",
-                          color: "#0f172a", fontWeight: 700, fontSize: 12,
-                          textDecoration: "none", whiteSpace: "nowrap",
-                        }}
-                      >Visit Broker →</a>
-                    </td>
-                    <td style={{ textAlign: "center", padding: "12px 8px" }}>
-                      <Link to={lp(`/reviews/${r.slug}`)} style={{ fontSize: 12, fontWeight: 600, color: "#059669", textDecoration: "none" }}>Review</Link>
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
+                    </div>
+                  </td>
+                  <td style={{ textAlign: "center", padding: "12px 8px" }}>
+                    <span style={{ fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 16, color: B.score >= 9.0 ? "#059669" : "#2563eb" }}>{B.score}</span>
+                  </td>
+                  <td style={{ textAlign: "center", fontFamily: "'JetBrains Mono',monospace", fontWeight: 700, fontSize: 14 }}>{B.spread} pips</td>
+                  <td style={{ textAlign: "center", fontFamily: "'JetBrains Mono',monospace", fontWeight: 700, fontSize: 14 }}>{B.minDep === 0 ? "$0" : `$${B.minDep}`}</td>
+                  <td style={{ textAlign: "center", padding: "12px 8px" }}>
+                    {B.tp > 0 ? (
+                      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 4 }}>
+                        <TpStars rating={B.tp} size={12} />
+                        <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 12, fontWeight: 700 }}>{B.tp}</span>
+                      </div>
+                    ) : <span style={{ color: "#94a3b8" }}>—</span>}
+                  </td>
+                  <td style={{ textAlign: "center", padding: "12px 14px" }}>
+                    <a href={getVisitUrl(r.slug, B.url)} target="_blank" rel="noopener nofollow sponsored" className="cta-primary"
+                      style={{
+                        display: "inline-block", padding: "7px 14px", borderRadius: 8,
+                        background: "linear-gradient(135deg, #f59e0b, #fbbf24)",
+                        color: "#0f172a", fontWeight: 700, fontSize: 12, textDecoration: "none", whiteSpace: "nowrap",
+                      }}
+                    >Visit Broker →</a>
+                  </td>
+                  <td style={{ textAlign: "center", padding: "12px 8px" }}>
+                    <Link to={lp(`/reviews/${r.slug}`)} style={{ fontSize: 12, fontWeight: 600, color: "#059669", textDecoration: "none" }}>Review</Link>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </div>
     );
   };
@@ -1090,7 +1159,19 @@ export default function FindYourBrokerPage() {
                   }}>{r.matchPct}%</div>
                   <ChevronRight size={mob ? 14 : 16} color="#cbd5e1" style={{ flexShrink: 0 }} />
                 </a>
-                <div style={{ padding: mob ? "2px 16px 8px 58px" : "2px 24px 8px 66px", display: "flex", flexDirection: "column", gap: 2 }}>
+                <div style={{ padding: mob ? "2px 16px 8px 58px" : "2px 24px 8px 66px", display: "flex", flexDirection: "column", gap: 3 }}>
+                  {isTop3 && mob && (
+                    <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-primary"
+                      style={{
+                        display: "inline-block", padding: "8px 16px", borderRadius: 8,
+                        background: "linear-gradient(135deg, #f59e0b, #fbbf24)",
+                        color: "#0f172a", fontWeight: 700, fontSize: 13,
+                        textDecoration: "none", textAlign: "center",
+                        boxShadow: "0 2px 6px rgba(245,158,11,0.2)",
+                        marginBottom: 2,
+                      }}
+                    >Open Account →</a>
+                  )}
                   <Link to={lp(`/reviews/${r.slug}`)} style={{ fontSize: 12, fontWeight: 600, color: "#059669", textDecoration: "none" }}>Read Review →</Link>
                   {isTop3 && (() => { const wp = getWeakPoint(r.broker, answers); return wp ? (
                     <div style={{ display: "flex", alignItems: "flex-start", gap: 4, fontSize: 11, color: "#94a3b8", lineHeight: 1.4 }}>
