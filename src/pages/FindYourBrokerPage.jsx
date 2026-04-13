@@ -575,61 +575,22 @@ export default function FindYourBrokerPage() {
         {/* Spacer for fixed nav on mobile */}
         {mob && <div style={{ height: 64 }} />}
 
-        {/* ── Navigation — fixed bottom on mobile, sticky on desktop ── */}
-        <div style={{
-          display: "flex", justifyContent: "space-between", alignItems: "center",
-          ...(mob ? {
-            position: "fixed", bottom: 0, left: 0, right: 0,
-            padding: "10px 16px", paddingBottom: "max(10px, env(safe-area-inset-bottom))",
-            background: "#fff", zIndex: 50,
-            boxShadow: "0 -4px 16px rgba(0,0,0,0.08)",
-            borderTop: "1px solid #e2e8f0",
-          } : {
+        {/* Desktop navigation — sticky inside card */}
+        {!mob && (
+          <div style={{
+            display: "flex", justifyContent: "space-between", alignItems: "center",
             position: "sticky", bottom: 0,
             marginTop: 20, paddingTop: 14, paddingBottom: 4,
-            background: "#fff", borderTop: "1px solid #f1f5f9",
-            zIndex: 10,
-          }),
-        }}>
-          <button onClick={goBack} disabled={step === 0}
-            style={{
-              display: "flex", alignItems: "center", gap: 6,
-              padding: mob ? "10px 14px" : "10px 16px", borderRadius: 10,
-              background: step === 0 ? "#f8fafc" : "#fff",
-              border: "1px solid #e2e8f0", cursor: step === 0 ? "default" : "pointer",
-              fontSize: 14, fontWeight: 600, color: step === 0 ? "#94a3b8" : "#111827",
-              fontFamily: "inherit", transition: "all 0.15s", opacity: step === 0 ? 0.5 : 1,
-            }}
-          >
-            <ChevronLeft size={16} /> Back
-          </button>
-
-          <button onClick={goNext} disabled={!canProceed()}
-            className={canProceed() && step === totalSteps - 1 ? "cta-primary" : ""}
-            style={{
-              display: "flex", alignItems: "center", gap: 6,
-              padding: step === totalSteps - 1 ? "12px 28px" : "10px 24px",
-              borderRadius: 10,
-              background: canProceed()
-                ? step === totalSteps - 1
-                  ? "linear-gradient(135deg, #f59e0b, #fbbf24)"
-                  : "linear-gradient(135deg, #059669, #047857)"
-                : "#e2e8f0",
-              border: "none", cursor: canProceed() ? "pointer" : "default",
-              fontSize: step === totalSteps - 1 ? 16 : 15, fontWeight: 700,
-              color: canProceed() ? (step === totalSteps - 1 ? "#0f172a" : "#fff") : "#94a3b8",
-              fontFamily: "inherit", transition: "all 0.25s",
-              boxShadow: canProceed()
-                ? step === totalSteps - 1
-                  ? "0 4px 16px rgba(245,158,11,0.35)"
-                  : "0 4px 12px rgba(5,150,105,0.3)"
-                : "none",
-            }}
-          >
-            {step === totalSteps - 1 ? "See My Results" : "Next"}
-            {step === totalSteps - 1 ? <ArrowRight size={16} /> : <ChevronRight size={16} />}
-          </button>
-        </div>
+            background: "#fff", borderTop: "1px solid #f1f5f9", zIndex: 10,
+          }}>
+            <button onClick={goBack} disabled={step === 0} style={{ display: "flex", alignItems: "center", gap: 6, padding: "10px 16px", borderRadius: 10, background: step === 0 ? "#f8fafc" : "#fff", border: "1px solid #e2e8f0", cursor: step === 0 ? "default" : "pointer", fontSize: 14, fontWeight: 600, color: step === 0 ? "#94a3b8" : "#111827", fontFamily: "inherit", opacity: step === 0 ? 0.5 : 1 }}>
+              <ChevronLeft size={16} /> Back
+            </button>
+            <button onClick={goNext} disabled={!canProceed()} className={canProceed() && step === totalSteps - 1 ? "cta-primary" : ""} style={{ display: "flex", alignItems: "center", gap: 6, padding: step === totalSteps - 1 ? "12px 28px" : "10px 24px", borderRadius: 10, background: canProceed() ? (step === totalSteps - 1 ? "linear-gradient(135deg, #f59e0b, #fbbf24)" : "linear-gradient(135deg, #059669, #047857)") : "#e2e8f0", border: "none", cursor: canProceed() ? "pointer" : "default", fontSize: step === totalSteps - 1 ? 16 : 15, fontWeight: 700, color: canProceed() ? (step === totalSteps - 1 ? "#0f172a" : "#fff") : "#94a3b8", fontFamily: "inherit", boxShadow: canProceed() ? (step === totalSteps - 1 ? "0 4px 16px rgba(245,158,11,0.35)" : "0 4px 12px rgba(5,150,105,0.3)") : "none" }}>
+              {step === totalSteps - 1 ? "See My Results" : "Next"} {step === totalSteps - 1 ? <ArrowRight size={16} /> : <ChevronRight size={16} />}
+            </button>
+          </div>
+        )}
       </div>
     );
   };
@@ -1226,6 +1187,25 @@ export default function FindYourBrokerPage() {
           </div>
         )}
       </div>
+
+      {/* ── Mobile fixed nav — outside all transform containers ── */}
+      {mob && !isResults && !showLoading && (
+        <div style={{
+          position: "fixed", bottom: 0, left: 0, right: 0,
+          padding: "10px 16px", paddingBottom: "max(10px, env(safe-area-inset-bottom))",
+          background: "#fff", zIndex: 50,
+          boxShadow: "0 -4px 16px rgba(0,0,0,0.08)",
+          borderTop: "1px solid #e2e8f0",
+          display: "flex", justifyContent: "space-between", alignItems: "center",
+        }}>
+          <button onClick={goBack} disabled={step === 0} style={{ display: "flex", alignItems: "center", gap: 6, padding: "10px 14px", borderRadius: 10, background: step === 0 ? "#f8fafc" : "#fff", border: "1px solid #e2e8f0", cursor: step === 0 ? "default" : "pointer", fontSize: 14, fontWeight: 600, color: step === 0 ? "#94a3b8" : "#111827", fontFamily: "inherit", opacity: step === 0 ? 0.5 : 1 }}>
+            <ChevronLeft size={16} /> Back
+          </button>
+          <button onClick={goNext} disabled={!canProceed()} className={canProceed() && step === totalSteps - 1 ? "cta-primary" : ""} style={{ display: "flex", alignItems: "center", gap: 6, padding: step === totalSteps - 1 ? "12px 28px" : "10px 24px", borderRadius: 10, background: canProceed() ? (step === totalSteps - 1 ? "linear-gradient(135deg, #f59e0b, #fbbf24)" : "linear-gradient(135deg, #059669, #047857)") : "#e2e8f0", border: "none", cursor: canProceed() ? "pointer" : "default", fontSize: step === totalSteps - 1 ? 16 : 15, fontWeight: 700, color: canProceed() ? (step === totalSteps - 1 ? "#0f172a" : "#fff") : "#94a3b8", fontFamily: "inherit", boxShadow: canProceed() ? (step === totalSteps - 1 ? "0 4px 16px rgba(245,158,11,0.35)" : "0 4px 12px rgba(5,150,105,0.3)") : "none" }}>
+            {step === totalSteps - 1 ? "See My Results" : "Next"} {step === totalSteps - 1 ? <ArrowRight size={16} /> : <ChevronRight size={16} />}
+          </button>
+        </div>
+      )}
     </>
   );
 }
