@@ -396,13 +396,28 @@ export default function BrokerReview() {
           </div>
 
           {/* H7: Quick Facts on mobile — after Authors, before Overview */}
-          {mob&&<Card style={{padding:16,marginBottom:8}}>
-            <div style={{fontFamily:"Outfit",fontSize:13,fontWeight:700,marginBottom:10}}>{t("review.quickFacts")}</div>
-            {[{l:t("review.founded"),v:B.year},{l:t("review.hq"),v:B.hq},{l:t("review.type"),v:B.type},...(B.leverage&&B.leverage!=="N/A"?[{l:t("review.leverage"),v:B.leverage}]:[]),{l:t("review.instruments"),v:B.instruments}].map((x,i,arr)=><div key={i} style={{display:"flex",justifyContent:"space-between",padding:"5px 0",borderBottom:i<arr.length-1?"1px solid #f0f4f8":"none"}}>
-              <span style={{fontSize:13,color:"#64748b"}}>{x.l}</span>
-              <span style={{fontSize:13,color:"#111827",fontWeight:600}}>{x.v}</span>
-            </div>)}
-          </Card>}
+          {mob&&(()=>{
+            const tier1Regs = B.regs.filter(r=>r.tier===1);
+            const regText = tier1Regs.length>3
+              ? tier1Regs.slice(0,3).map(r=>r.name).join(", ")+" +"+String(tier1Regs.length-3)
+              : tier1Regs.map(r=>r.name).join(", ")||"Regulated";
+            const facts = [
+              {l:"Regulation",v:regText},
+              ...(B.tp?[{l:"Trustpilot",v:`${B.tp} \u2605 (${B.tpCount.toLocaleString()} reviews)`}]:[]),
+              {l:t("review.founded"),v:B.year},
+              {l:t("review.hq"),v:B.hq},
+              {l:"Platforms",v:B.platforms.slice(0,3).join(", ")+(B.platforms.length>3?" +"+String(B.platforms.length-3):"")},
+              {l:t("review.type"),v:B.type},
+              ...(B.leverage&&B.leverage!=="N/A"?[{l:t("review.leverage"),v:B.leverage}]:[]),
+            ];
+            return <Card style={{padding:16,marginBottom:8}}>
+              <div style={{fontFamily:"Outfit",fontSize:13,fontWeight:700,marginBottom:10}}>{t("review.quickFacts")}</div>
+              {facts.map((x,i)=><div key={i} style={{display:"flex",justifyContent:"space-between",padding:"5px 0",borderBottom:i<facts.length-1?"1px solid #f0f4f8":"none"}}>
+                <span style={{fontSize:13,color:"#64748b"}}>{x.l}</span>
+                <span style={{fontSize:13,color:"#111827",fontWeight:600,textAlign:"right"}}>{x.v}</span>
+              </div>)}
+            </Card>;
+          })()}
 
           {/* OVERVIEW */}
           <H2 id="overview">{t("review.overview", { name: B.name })}</H2>
