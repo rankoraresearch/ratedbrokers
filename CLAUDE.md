@@ -122,6 +122,21 @@ const visitUrl = apiBase ? `${apiBase}/go/${slug}` : B.url;
 
 **Не использовать** `B.url` напрямую в `href` — это прямая ссылка без трекинга.
 
+## D2k — стандарт блоков с внешними ссылками на брокеров
+
+Сайт-wide дизайн-стандарт для списков брокеров с affiliate-ссылками. CSS: `.d2k-row` (строка), `.d2k-list` (контейнер), `.d2k-arrow`, `.d2k-risk` в `index.css`.
+
+**Строка**: `[badge 28×28 r8] [logo 52px mob / 48px desk] [name 17/15px] [match%] [ArrowUpRight ↗]`
+
+**Hover**: мягкая тень (`box-shadow: 0 4px 20px rgba(0,0,0,0.08)`) + серая рамка `#cbd5e1`. Стрелка зеленеет + сдвигается +2px. Risk warning появляется под именем.
+
+**Правила**:
+- Блоки статичны — не прыгают, не меняют высоту
+- Чистый CSS hover — без JS state, без useState для hover
+- Risk warning: скрыт, появляется при hover через `.d2k-risk` класс
+- Mobile: без hover эффектов (нет onMouseEnter), только `:active`
+- Все ссылки через `getVisitUrl()` → `/go/{slug}`
+
 ## Логотипы брокеров — Dual Logo System
 
 Каждый брокер имеет **два** логотипа:
