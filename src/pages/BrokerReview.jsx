@@ -13,14 +13,14 @@ import RegBadge from "../components/RegBadge";
 import BrokerLogo from "../components/BrokerLogo";
 import RegulatorLogo from "../components/RegulatorLogo";
 import PlatformLogo from "../components/PlatformLogo";
-import { getRegulatorSlug } from "../data/regulators";
+import { getRegulatorSlug, getRegulatorByName } from "../data/regulators";
 import { getTrustpilotUrl } from "../data/trustpilot-links";
 import TrustpilotLogo from "../components/TrustpilotLogo";
 import { getPlatformSlugByName } from "../data/platforms/index";
 import Breadcrumb, { breadcrumbSchema } from "../components/Breadcrumb";
 import { getBrokerHub } from "../data/categoryHubs";
 import Icon from "../components/Icon";
-import { Check, X as XIcon, ArrowRight, ChevronRight, ChevronDown, ArrowUpRight, BarChart3, Wallet, MonitorSmartphone, Shield, ArrowUpDown, BookOpen, Users, UserCheck, CircleCheck, CircleX } from "lucide-react";
+import { Check, X as XIcon, ArrowRight, ChevronRight, ChevronDown, ArrowUpRight, BarChart3, Wallet, MonitorSmartphone, Shield, ArrowUpDown, BookOpen, Users, UserCheck, CircleCheck, CircleX, ExternalLink } from "lucide-react";
 import HeroBand from "../components/HeroBand";
 import AffiliateDisclosureBanner from "../components/AffiliateDisclosureBanner";
 import { getVisitUrl } from "../utils/visitUrl";
@@ -494,14 +494,14 @@ export default function BrokerReview() {
           <Link to={lp(`/reviews/${slug}/regulation`)} style={{display:"flex",alignItems:"center",gap:12,padding:"12px 16px",background:"#fff",border:"1px solid #e2e8f0",borderRadius:10,textDecoration:"none",marginBottom:14,boxShadow:"0 1px 3px rgba(0,0,0,0.04)"}} onMouseEnter={e=>{e.currentTarget.style.borderColor="#059669";e.currentTarget.style.boxShadow="0 2px 8px rgba(5,150,105,0.12)"}} onMouseLeave={e=>{e.currentTarget.style.borderColor="#e2e8f0";e.currentTarget.style.boxShadow="0 1px 3px rgba(0,0,0,0.04)"}}><div style={{width:36,height:36,borderRadius:8,background:"#ecfdf5",display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}><BookOpen size={16} color="#059669" /></div><div style={{flex:1}}><div style={{fontSize:10,fontWeight:700,color:"#059669",textTransform:"uppercase",letterSpacing:"0.06em",marginBottom:1}}>Deep Dive</div><div style={{fontSize:14,fontWeight:700,color:"#0f172a"}}>{B.name} Regulation & Safety</div></div><ArrowRight size={16} color="#059669" style={{flexShrink:0}} /></Link>
           {htmlOverrides.regulation ? <HtmlContent html={htmlOverrides.regulation}/> : <P>{(content.regulation || [])[0]}</P>}
           <Card style={{padding:0,overflow:"hidden"}}>
-            {B.regs.map((r,i)=>{const rSlug=getRegulatorSlug(r.name);return <div key={i} style={{display:"flex",alignItems:"center",flexWrap:mob?"wrap":"nowrap",justifyContent:"space-between",gap:mob?6:10,padding:mob?"10px 14px":"12px 18px",borderBottom:i<B.regs.length-1?"1px solid #f0f4f8":"none"}}>
+            {B.regs.map((r,i)=>{const regData=getRegulatorByName(r.name);const rSlug=regData?.slug||null;const licenseUrl=regData?.licenseCheck||null;return <div key={i} style={{display:"flex",alignItems:"center",flexWrap:mob?"wrap":"nowrap",justifyContent:"space-between",gap:mob?6:10,padding:mob?"10px 14px":"12px 18px",borderBottom:i<B.regs.length-1?"1px solid #f0f4f8":"none"}}>
               <div style={{display:"flex",alignItems:"center",gap:mob?6:10}}>
                 {rSlug && <RegulatorLogo slug={rSlug} name={r.name} size={mob?24:28} shape="icon" tier={r.tier} />}
                 <span style={{background:r.tier===1?"#ecfdf5":"#fffbeb",color:r.tier===1?"#059669":"#d97706",fontSize:11,fontWeight:600,padding:"3px 8px",borderRadius:4,border:`1px solid ${r.tier===1?"#a7f3d0":"#fde68a"}`}}>Tier {r.tier}</span>
                 {rSlug ? <Link to={lp(`/regulator/${rSlug}`)} style={{fontWeight:600,fontSize:mob?14:15,color:"#111827",textDecoration:"none"}}>{r.name}</Link> : <span style={{fontWeight:600,fontSize:mob?14:15}}>{r.name}</span>}
                 <span style={{fontSize:mob?12:13,color:"#64748b"}}>{r.country}</span>
               </div>
-              <span style={{fontFamily:"'JetBrains Mono'",fontSize:mob?12:13,color:mob?"#94a3b8":"#374151"}}>#{r.num}</span>
+              {licenseUrl ? <a href={licenseUrl} target="_blank" rel="noopener noreferrer" style={{display:"inline-flex",alignItems:"center",gap:4,fontFamily:"'JetBrains Mono'",fontSize:mob?12:13,color:r.tier===1?"#059669":"#64748b",textDecoration:"none",padding:"3px 8px",borderRadius:6,background:r.tier===1?"#ecfdf5":"#f8fafc",border:`1px solid ${r.tier===1?"#a7f3d0":"#e2e8f0"}`,transition:"all 0.15s"}} onMouseEnter={e=>{e.currentTarget.style.background=r.tier===1?"#d1fae5":"#f1f5f9";e.currentTarget.style.borderColor=r.tier===1?"#059669":"#94a3b8"}} onMouseLeave={e=>{e.currentTarget.style.background=r.tier===1?"#ecfdf5":"#f8fafc";e.currentTarget.style.borderColor=r.tier===1?"#a7f3d0":"#e2e8f0"}}>#{r.num}<ExternalLink size={11} style={{opacity:0.7}} /></a> : <span style={{fontFamily:"'JetBrains Mono'",fontSize:mob?12:13,color:mob?"#94a3b8":"#374151"}}>#{r.num}</span>}
             </div>;})}
           </Card>
           {!htmlOverrides.regulation && <P>{(content.regulation || [])[1]}</P>}

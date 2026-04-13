@@ -1,5 +1,7 @@
 import { QuickAnswerBox, ProsCons, DataTable, CTAInline, FaqSection, VerdictBox, H2, P, Card } from "../../components/subpage";
 import RegBadge from "../../components/RegBadge";
+import { getRegulatorByName } from "../../data/regulators";
+import { ExternalLink } from "lucide-react";
 
 const NAVY = "#0f172a";
 const GREEN = "#059669";
@@ -44,7 +46,7 @@ export default function RegulationTab({ data, slug, mob }) {
               <RegBadge reg={r.name} />
               <div style={{ fontSize: 18, fontWeight: 800, color: NAVY, marginTop: 8, fontFamily: "Outfit" }}>{r.name}</div>
               <div style={{ fontSize: 13, color: GRAY_TEXT, marginTop: 4 }}>{r.country}</div>
-              <div style={{ fontSize: 12, color: GRAY_MUTED, marginTop: 8, fontFamily: "'JetBrains Mono',monospace" }}>License: {r.num}</div>
+              {(() => { const regData = getRegulatorByName(r.name); const licenseUrl = regData?.licenseCheck; return licenseUrl ? <a href={licenseUrl} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 4, fontSize: 12, color: r.tier === 1 ? GREEN : GRAY_MUTED, marginTop: 8, fontFamily: "'JetBrains Mono',monospace", textDecoration: "none", padding: "3px 10px", borderRadius: 6, background: r.tier === 1 ? "#f0fdf4" : "#f8f9fb", border: `1px solid ${r.tier === 1 ? GREEN_BORDER : BORDER}`, transition: "all 0.15s" }} onMouseEnter={e => { e.currentTarget.style.background = r.tier === 1 ? "#dcfce7" : "#f1f5f9"; e.currentTarget.style.borderColor = r.tier === 1 ? GREEN : "#94a3b8"; }} onMouseLeave={e => { e.currentTarget.style.background = r.tier === 1 ? "#f0fdf4" : "#f8f9fb"; e.currentTarget.style.borderColor = r.tier === 1 ? GREEN_BORDER : BORDER; }}>License: {r.num} <ExternalLink size={11} style={{ opacity: 0.7 }} /></a> : <div style={{ fontSize: 12, color: GRAY_MUTED, marginTop: 8, fontFamily: "'JetBrains Mono',monospace" }}>License: {r.num}</div>; })()}
             </Card>
           );
         })}

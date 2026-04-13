@@ -57,7 +57,7 @@ const data = {
   ],
 
   guide: [
-    { q: "How to Verify an ASIC-Regulated Broker", a: "Visit ASIC\u2019s Connect professional register (connectonline.asic.gov.au) and search by the broker\u2019s AFS licence number or name. Confirm the licence status is \u2018Current\u2019 and check which financial services the broker is authorised to provide." },
+    { q: "How to Verify an ASIC-Regulated Broker", a: "Visit ASIC\u2019s Connect professional register (asic.gov.au/online-services/search-asics-registers) and search by the broker\u2019s AFS licence number or name. Confirm the licence status is \u2018Current\u2019 and check which financial services the broker is authorised to provide." },
     { q: "Should Australian Traders Use a Local Broker?", a: "Using an ASIC-regulated Australian broker ensures compliance with local laws, AUD base accounts, fast local bank transfers (PayID/BPAY), and access to AFCA dispute resolution. Offshore brokers may offer higher leverage but lack these protections." },
     { q: "What Happens If My ASIC Broker Goes Bankrupt?", a: "Unlike the UK\u2019s FSCS, Australia has no government compensation scheme for retail client funds. However, ASIC requires brokers to hold client funds in segregated trust accounts with Australian banks, which provides a level of protection. This makes choosing a well-capitalised broker essential." },
     { q: "Can Australian Traders Access Higher Leverage?", a: "ASIC limits retail leverage to 1:30. Some brokers offer offshore entities (e.g., Bahamas, Seychelles) with higher leverage, but you lose ASIC protections. We recommend staying with the ASIC-regulated entity for safety." },

@@ -47,7 +47,7 @@ export const REGULATORS = [
     tier: 1,
     established: 1991,
     website: "https://www.asic.gov.au",
-    licenseCheck: "https://connectonline.asic.gov.au/RegistrySearch",
+    licenseCheck: "https://asic.gov.au/online-services/search-asics-registers/",
     investorProtection: "CSLR \u2014 A$150,000 per claim",
     leverageLimit: "1:30 (retail)",
     supervisedFirms: "~4,500 AFS licensees",
@@ -68,7 +68,7 @@ export const REGULATORS = [
     ],
     history: "ASIC was established in 1991 as the Australian Securities Commission, and rebranded to its current name in 1998 when its mandate expanded to include consumer protection in financial services. Australia became a major hub for forex brokers due to its historically liberal leverage rules. The 2021 product intervention order marked a turning point, bringing leverage limits in line with ESMA and reducing the appeal for leverage-seeking traders, but strengthening consumer protection.",
     faq: [
-      { q: "How do I check if a broker holds an AFSL?", a: "Search the ASIC Professional Register at connectonline.asic.gov.au. Enter the broker's name or AFSL number to verify their license status, authorized services, and any conditions or restrictions." },
+      { q: "How do I check if a broker holds an AFSL?", a: "Search ASIC's registers at asic.gov.au/online-services/search-asics-registers/. Enter the broker's name or AFSL number to verify their license status, authorized services, and any conditions or restrictions." },
       { q: "Are my funds protected with an ASIC-regulated broker?", a: "Yes. Brokers must segregate client funds in trust accounts. Since 2024, the Compensation Scheme of Last Resort (CSLR) provides up to A$150,000 per eligible claim for losses caused by broker misconduct." },
       { q: "What leverage limits apply to ASIC-regulated accounts?", a: "Since March 2021, retail clients are limited to 1:30 on major pairs, 1:20 on minor pairs and gold, 1:10 on other commodities, 1:5 on shares and indices, and 1:2 on crypto. Professional clients may access higher leverage." },
       { q: "Can international clients use ASIC-regulated brokers?", a: "Some ASIC-regulated brokers accept international clients under their AFSL, but many route offshore clients through entities in other jurisdictions (e.g., Seychelles, Bahamas) to offer higher leverage." }
@@ -696,7 +696,7 @@ export const REGULATORS = [
     tier: 1,
     established: 1934,
     website: "https://www.sec.gov",
-    licenseCheck: "https://www.sec.gov/cgi-bin/browse-edgar",
+    licenseCheck: "https://www.sec.gov/search",
     investorProtection: "SIPC — $500,000 per customer ($250,000 cash)",
     leverageLimit: "2:1 overnight, 4:1 intraday (PDT)",
     supervisedFirms: "~28,000 registered entities",

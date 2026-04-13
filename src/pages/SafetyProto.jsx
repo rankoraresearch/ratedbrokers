@@ -63,7 +63,7 @@ const SAFETY_DATA = {
     ],
     verificationLinks: [
       { regulator: "FCA", url: "https://register.fca.org.uk/s/firm?id=001b000000MfNWPAA3", label: "FCA Register #583263" },
-      { regulator: "ASIC", url: "https://connectonline.asic.gov.au/RegistrySearch/faces/landing/SearchRegisters.jspx", label: "ASIC Connect #491139" },
+      { regulator: "ASIC", url: "https://asic.gov.au/online-services/search-asics-registers/", label: "ASIC Register #491139" },
       { regulator: "SEC", url: "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&company=etoro&CIK=&type=&dateb=&owner=include&count=40&search_text=&action=getcompany", label: "SEC EDGAR Filing" },
       { regulator: "CySEC", url: "https://www.cysec.gov.cy/en-GB/entities/investment-firms/cypriot/37691/", label: "CySEC Registry #109/10" },
     ],

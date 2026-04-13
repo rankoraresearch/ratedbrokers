@@ -72,7 +72,7 @@ export default {
       ],
       numberedList: [
         "Find the broker's license number: This should be prominently displayed on their website footer or 'About Us' page. If you can't find it, that's already a red flag.",
-        "Visit the regulator's website: FCA (register.fca.org.uk), ASIC (connectonline.asic.gov.au), CySEC (cysec.gov.cy/en-GB/entities). Each has a public register.",
+        "Visit the regulator's website: FCA (register.fca.org.uk), ASIC (asic.gov.au/online-services/search-asics-registers), CySEC (cysec.gov.cy/en-GB/entities). Each has a public register.",
         "Search for the broker's legal entity name: Note that the trading name may differ from the legal entity. 'Pepperstone' trades as 'Pepperstone Group Limited' for example.",
         "Check the license status: Confirm it shows 'Authorised' or 'Active' \u2014 not 'Revoked', 'Suspended', or 'No longer authorised'.",
         "Verify the permitted activities: Ensure the license covers 'dealing in investments as principal' or equivalent, not just 'arranging deals'.",
