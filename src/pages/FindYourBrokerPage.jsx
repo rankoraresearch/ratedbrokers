@@ -87,6 +87,10 @@ export default function FindYourBrokerPage() {
   const [showLoading, setShowLoading] = useState(false);
   const [riskExpanded, setRiskExpanded] = useState({});
   const containerRef = useRef(null);
+  const timerRef = useRef(null);
+
+  // Cleanup timers on unmount
+  useEffect(() => () => { if (timerRef.current) clearTimeout(timerRef.current); }, []);
 
   const totalSteps = QUIZ_QUESTIONS.length;
   const isResults = step >= totalSteps;
@@ -158,7 +162,6 @@ export default function FindYourBrokerPage() {
     { q: "What data do you use to score brokers?", a: "We collect data across 6 dimensions: regulatory licenses and tier classification, trading costs (spreads and commissions), Trustpilot user ratings, our proprietary expert evaluation, trading frequency fit, and execution quality. All data is verified firsthand." },
     { q: "Do brokers pay to be listed?", a: "No. Our rankings are based entirely on our independent methodology. We may earn affiliate commissions when you open an account through our links, but this never influences broker placement or match percentages." },
     { q: "How often are results updated?", a: "Our broker data is reviewed and updated monthly. Regulatory changes, fee updates, and platform additions are reflected as soon as they are verified by our team." },
-    { q: "Is this tool free to use?", a: "Yes, the Find Your Broker quiz is completely free with no signup required. You can use it as many times as you like to compare different trading scenarios." },
   ];
 
   // JSON-LD: FAQ + BreadcrumbList + HowTo schemas
@@ -193,7 +196,7 @@ export default function FindYourBrokerPage() {
     if (step === totalSteps - 1) {
       // Show shimmer loading before results (Sprint 12.3)
       setShowLoading(true);
-      setTimeout(() => {
+      timerRef.current = setTimeout(() => {
         setShowLoading(false);
         setStep((s) => s + 1);
         setInfoOpen(null);
@@ -201,12 +204,12 @@ export default function FindYourBrokerPage() {
       return;
     }
     setTransitioning(true);
-    setTimeout(() => { setStep((s) => s + 1); setTransitioning(false); setInfoOpen(null); }, 200);
+    timerRef.current = setTimeout(() => { setStep((s) => s + 1); setTransitioning(false); setInfoOpen(null); }, 200);
   }
   function goBack() {
     if (step <= 0) return;
     setTransitioning(true);
-    setTimeout(() => { setStep((s) => s - 1); setTransitioning(false); setInfoOpen(null); }, 200);
+    timerRef.current = setTimeout(() => { setStep((s) => s - 1); setTransitioning(false); setInfoOpen(null); }, 200);
   }
   function restart() {
     setStep(0); setInfoOpen(null); setRiskExpanded({});
@@ -257,7 +260,8 @@ export default function FindYourBrokerPage() {
       const val = k === "budget" && BUDGET_MIGRATION[v] ? BUDGET_MIGRATION[v] : v;
       loaded[k] = q.type === "multi" ? val.split(",") : val;
     }
-    if (Object.keys(loaded).length > 0) {
+    // Only jump to results if we have country + at least 1 other valid answer
+    if (loaded.country && Object.keys(loaded).length >= 2) {
       setAnswers(loaded);
       setStep(totalSteps); // Jump to results
     }
@@ -344,7 +348,7 @@ export default function FindYourBrokerPage() {
             padding: "6px 12px", borderRadius: 8, flexShrink: 0,
             background: "linear-gradient(135deg, #f59e0b, #fbbf24)",
             color: "#0f172a", fontWeight: 700, fontSize: 11, whiteSpace: "nowrap",
-          }}>Visit →</div>
+          }}>Visit {B1.name} →</div>
         </a>
         {/* Runners-up row — clickable */}
         {top3.length > 1 && (
@@ -447,6 +451,7 @@ export default function FindYourBrokerPage() {
               <Search size={16} style={{ position: "absolute", left: 12, top: "50%", transform: "translateY(-50%)", color: "#94a3b8" }} />
               <input
                 type="text" placeholder="Search country..." value={searchCountry}
+                aria-label="Search country"
                 onChange={(e) => setSearchCountry(e.target.value)}
                 style={{
                   width: "100%", padding: "10px 12px 10px 36px", borderRadius: 10,
@@ -782,7 +787,7 @@ export default function FindYourBrokerPage() {
               boxShadow: "0 2px 8px rgba(245,158,11,0.25)",
             }}
           >
-            Open Account <ArrowRight size={13} style={{ verticalAlign: "middle", marginLeft: 2 }} />
+            Visit {B1.name} <ArrowRight size={13} style={{ verticalAlign: "middle", marginLeft: 2 }} />
           </a>
         </div>
 
@@ -924,7 +929,7 @@ export default function FindYourBrokerPage() {
                       background: "linear-gradient(135deg, #f59e0b, #fbbf24)",
                       color: "#0f172a", fontWeight: 700, fontSize: 13, textDecoration: "none",
                     }}
-                  >Open Account</a>
+                  >Visit {B.name}</a>
                   <Link to={lp(`/reviews/${r.slug}`)} style={{
                     flex: 1, padding: "10px 0", borderRadius: 8, textAlign: "center",
                     border: "2px solid #059669", color: "#059669", fontWeight: 700, fontSize: 13,
@@ -992,7 +997,7 @@ export default function FindYourBrokerPage() {
                         background: "linear-gradient(135deg, #f59e0b, #fbbf24)",
                         color: "#0f172a", fontWeight: 700, fontSize: 12, textDecoration: "none", whiteSpace: "nowrap",
                       }}
-                    >Visit Broker →</a>
+                    >Visit {B.name} →</a>
                   </td>
                   <td style={{ textAlign: "center", padding: "12px 8px" }}>
                     <Link to={lp(`/reviews/${r.slug}`)} style={{ fontSize: 12, fontWeight: 600, color: "#059669", textDecoration: "none" }}>Review</Link>
@@ -1085,7 +1090,7 @@ export default function FindYourBrokerPage() {
           display: "flex", alignItems: "center", justifyContent: "space-between",
         }}>
           <span style={{ fontSize: 13, fontWeight: 700, color: "#0f172a" }}>Your Top 10 Matches</span>
-          <span style={{ fontSize: 11, color: "#94a3b8" }}>Click any broker to visit</span>
+          <span style={{ fontSize: 11, color: "#94a3b8" }}>{mob ? "Tap to read review" : "Click any broker to visit"}</span>
         </div>
 
         <div style={{
@@ -1103,9 +1108,9 @@ export default function FindYourBrokerPage() {
             const defaultBg = i === 0 ? "linear-gradient(135deg, rgba(236,253,245,0.5), rgba(209,250,229,0.3))" : "#fff";
             return (
               <div key={r.slug} style={{ borderBottom: "1px solid rgba(0,0,0,0.04)" }}>
-                <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored"
-                  className="quiz-fade-in"
-                  style={{
+                {/* Row — review on mobile, affiliate on desktop */}
+                {(() => {
+                  const rowStyle = {
                     display: "flex", alignItems: "center", gap: mob ? 10 : 12,
                     padding: mob ? "10px 16px" : "12px 24px",
                     paddingBottom: 4,
@@ -1114,10 +1119,14 @@ export default function FindYourBrokerPage() {
                     transition: "all 0.2s",
                     opacity: 0,
                     animationDelay: `${i * 0.06}s`,
-                  }}
-                  onMouseEnter={(e) => { e.currentTarget.style.background = "#f0fdf4"; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.background = defaultBg; }}
-                >
+                    color: "inherit",
+                  };
+                  const hoverIn = (e) => { e.currentTarget.style.background = "#f0fdf4"; };
+                  const hoverOut = (e) => { e.currentTarget.style.background = defaultBg; };
+                  const RowTag = mob
+                    ? (props) => <Link to={lp(`/reviews/${r.slug}`)} {...props} />
+                    : (props) => <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" {...props} />;
+                  return <RowTag className="quiz-fade-in" style={rowStyle} onMouseEnter={hoverIn} onMouseLeave={hoverOut}>
                   <div style={{
                     width: mob ? 26 : 30, height: mob ? 26 : 30, borderRadius: 8, flexShrink: 0,
                     background: isTop3 ? "linear-gradient(135deg, #059669, #047857)" : "#f1f5f9",
@@ -1158,28 +1167,58 @@ export default function FindYourBrokerPage() {
                     minWidth: 42, textAlign: "right",
                   }}>{r.matchPct}%</div>
                   <ChevronRight size={mob ? 14 : 16} color="#cbd5e1" style={{ flexShrink: 0 }} />
-                </a>
-                <div style={{ padding: mob ? "2px 16px 8px 58px" : "2px 24px 8px 66px", display: "flex", flexDirection: "column", gap: 3 }}>
+                </RowTag>;
+                })()}
+                <div style={{ padding: mob ? "2px 16px 8px 58px" : "2px 24px 8px 66px", display: "flex", flexDirection: "column", gap: 4 }}>
+                  {/* Dual CTA for top-3 on mobile */}
                   {isTop3 && mob && (
-                    <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-primary"
-                      style={{
-                        display: "inline-block", padding: "8px 16px", borderRadius: 8,
-                        background: "linear-gradient(135deg, #f59e0b, #fbbf24)",
-                        color: "#0f172a", fontWeight: 700, fontSize: 13,
+                    <div style={{ display: "flex", gap: 8, marginBottom: 2 }}>
+                      <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-primary"
+                        style={{
+                          flex: 2, padding: "9px 14px", borderRadius: 8,
+                          background: "linear-gradient(135deg, #f59e0b, #fbbf24)",
+                          color: "#0f172a", fontWeight: 700, fontSize: 13,
+                          textDecoration: "none", textAlign: "center",
+                          boxShadow: "0 2px 6px rgba(245,158,11,0.2)",
+                        }}
+                      >Visit {B.name} →</a>
+                      <Link to={lp(`/reviews/${r.slug}`)} style={{
+                        flex: 1, padding: "9px 10px", borderRadius: 8,
+                        border: "2px solid #059669", color: "#059669", fontWeight: 700, fontSize: 13,
                         textDecoration: "none", textAlign: "center",
-                        boxShadow: "0 2px 6px rgba(245,158,11,0.2)",
-                        marginBottom: 2,
-                      }}
-                    >Open Account →</a>
+                      }}>Review</Link>
+                    </div>
                   )}
-                  <Link to={lp(`/reviews/${r.slug}`)} style={{ fontSize: 12, fontWeight: 600, color: "#059669", textDecoration: "none" }}>Read Review →</Link>
+                  {/* Simple link for non-top-3 or desktop */}
+                  {(!isTop3 || !mob) && (
+                    <Link to={lp(`/reviews/${r.slug}`)} style={{ fontSize: 12, fontWeight: 600, color: "#059669", textDecoration: "none" }}>Read Review →</Link>
+                  )}
                   {isTop3 && (() => { const wp = getWeakPoint(r.broker, answers); return wp ? (
                     <div style={{ display: "flex", alignItems: "flex-start", gap: 4, fontSize: 11, color: "#94a3b8", lineHeight: 1.4 }}>
                       <Info size={11} style={{ flexShrink: 0, marginTop: 1 }} /><span>{wp}</span>
                     </div>
                   ) : null; })()}
                   {B.riskWarning && (B.verticals || []).some(v => ["forex", "cfd", "crypto", "spread-betting"].includes(v)) && (
-                    <div style={{ fontSize: 11, lineHeight: 1.3, color: "#94a3b8" }}>{B.riskWarning}</div>
+                    mob ? (
+                      <button
+                        aria-expanded={!!riskExpanded[r.slug]}
+                        aria-label={`Risk disclosure for ${B.name}`}
+                        onClick={() => setRiskExpanded((prev) => ({ ...prev, [r.slug]: !prev[r.slug] }))}
+                        style={{
+                          display: "flex", alignItems: "center", gap: 4,
+                          fontSize: 10, color: "#94a3b8", background: "none", border: "none",
+                          cursor: "pointer", fontFamily: "inherit", padding: 0,
+                        }}
+                      >
+                        <Shield size={10} /> Risk Disclosure
+                        <ChevronDown size={10} style={{ transition: "transform 0.2s", transform: riskExpanded[r.slug] ? "rotate(180deg)" : "none" }} />
+                      </button>
+                    ) : (
+                      <div style={{ fontSize: 11, lineHeight: 1.3, color: "#94a3b8" }}>{B.riskWarning}</div>
+                    )
+                  )}
+                  {mob && riskExpanded[r.slug] && B.riskWarning && (
+                    <div style={{ fontSize: 10, lineHeight: 1.3, color: "#94a3b8" }}>{B.riskWarning}</div>
                   )}
                 </div>
               </div>
@@ -1205,6 +1244,37 @@ export default function FindYourBrokerPage() {
             textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 6,
           }}>Compare Your Top 2 <ArrowRight size={14} /></Link>
         )}
+      </div>
+
+      {/* Didn't Find? */}
+      <div style={{
+        marginTop: 20, padding: mob ? "20px 16px" : "24px 28px", ...cardStyle,
+        background: "linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)",
+        textAlign: "center",
+      }}>
+        <h2 style={{ fontFamily: "'Outfit',sans-serif", fontSize: mob ? 16 : 18, fontWeight: 800, color: "#0f172a", margin: "0 0 6px" }}>
+          Didn't find what you're looking for?
+        </h2>
+        <p style={{ fontSize: 13, color: "#64748b", margin: "0 0 14px" }}>
+          Explore more options or get personalized help from our team.
+        </p>
+        <div style={{ display: "flex", gap: 10, justifyContent: "center", flexWrap: "wrap" }}>
+          <Link to={lp("/rankings")} style={{
+            padding: "10px 18px", borderRadius: 10, fontSize: 13, fontWeight: 700,
+            background: "#fff", boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.08)", color: "#111827",
+            textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 6,
+          }}><Search size={14} /> Browse Rankings</Link>
+          <Link to={lp("/compare")} style={{
+            padding: "10px 18px", borderRadius: 10, fontSize: 13, fontWeight: 700,
+            background: "#fff", boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.08)", color: "#111827",
+            textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 6,
+          }}><Target size={14} /> Compare Brokers</Link>
+          <Link to={lp("/contact")} style={{
+            padding: "10px 18px", borderRadius: 10, fontSize: 13, fontWeight: 700,
+            background: "#fff", boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.08)", color: "#059669",
+            textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 6,
+          }}><ExternalLink size={14} /> Contact Us</Link>
+        </div>
       </div>
 
       {/* Methodology + Trust */}
