@@ -22,6 +22,7 @@ import { getBrokerHub } from "../data/categoryHubs";
 import Icon from "../components/Icon";
 import { Check, X as XIcon, ArrowRight, ChevronRight, ChevronDown, ArrowUpRight, BarChart3, Wallet, MonitorSmartphone, Shield, ArrowUpDown, BookOpen, Users, UserCheck, CircleCheck, CircleX } from "lucide-react";
 import HeroBand from "../components/HeroBand";
+import AffiliateDisclosureBanner from "../components/AffiliateDisclosureBanner";
 import { getVisitUrl } from "../utils/visitUrl";
 
 function Stars({r,size=15}){ return <div style={{display:"flex",gap:2}}>{[1,2,3,4,5].map(i=><div key={i} style={{width:size,height:size,background:i<=Math.floor(r)?"#00B67A":i-0.5<=r?"linear-gradient(90deg,#00B67A 50%,#d1d5db 50%)":"#d1d5db",clipPath:"polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)"}}/>)}</div>; }
@@ -268,12 +269,6 @@ export default function BrokerReview() {
 
   return (
     <div style={{fontFamily:"'DM Sans',system-ui,sans-serif",background:"#f8f9fb",color:"#111827",opacity:overridesReady?1:0.92,transition:"opacity 0.3s ease"}}>
-      {/* M6: Affiliate Disclosure */}
-      <div style={{padding:"6px 16px",background:"#f1f5f9",fontSize:11,color:"#64748b",display:"flex",alignItems:"center",gap:6}}>
-        <span style={{fontWeight:700,color:"#94a3b8"}}>i</span>
-        <span>Advertiser Disclosure: We may earn compensation from partner links. <Link to={lp("/how-we-make-money")} style={{color:"#059669",textDecoration:"underline"}}>Learn more</Link></span>
-      </div>
-
       {/* Breadcrumbs */}
       <div style={{...cn, padding: mob ? "10px 16px" : "14px 24px"}}>
         <Breadcrumb items={(() => {
@@ -692,8 +687,13 @@ export default function BrokerReview() {
             {openFaq===i&&<div style={{padding:"0 18px 14px",fontSize:16,color:"#374151",lineHeight:1.7}}>{f.a}</div>}
           </div>)}
 
+          {/* Affiliate Disclosure */}
+          <div style={{marginTop:24}}>
+            <AffiliateDisclosureBanner />
+          </div>
+
           {/* Author Bio */}
-          <div style={{marginTop:32}}>
+          <div style={{marginTop:16}}>
             <AuthorBioCard author={author} />
           </div>
         </main>

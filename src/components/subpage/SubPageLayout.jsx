@@ -14,6 +14,7 @@ import { getBrokerData, getAllBrokerSlugs } from "../../data/brokers/index";
 import SubPageTabs, { TABS, TAB_META } from "./SubPageTabs";
 import { Card } from "./Typography";
 import { ArrowRight, ExternalLink, Zap, Award, Trophy } from "lucide-react";
+import AffiliateDisclosureBanner from "../AffiliateDisclosureBanner";
 import { getVisitUrl } from "../../utils/visitUrl";
 
 const NAVY = "#0f172a";
@@ -143,12 +144,6 @@ export default function SubPageLayout({ data, slug, activeTab, children }) {
 
   return (
     <div style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb", minHeight: "100vh", color: "#111827" }}>
-      {/* M6: Affiliate Disclosure */}
-      <div style={{padding:"6px 16px",background:"#f1f5f9",fontSize:11,color:"#64748b",display:"flex",alignItems:"center",gap:6}}>
-        <span style={{fontWeight:700,color:"#94a3b8"}}>i</span>
-        <span>Advertiser Disclosure: We may earn compensation from partner links. <Link to={lp("/how-we-make-money")} style={{color:"#059669",textDecoration:"underline"}}>Learn more</Link></span>
-      </div>
-
       {/* Breadcrumbs */}
       <div style={{ ...cn, padding: mob ? "10px 16px" : "14px 24px" }}>
         <Breadcrumb items={(() => {
@@ -223,7 +218,10 @@ export default function SubPageLayout({ data, slug, activeTab, children }) {
           <AuthorCredits author={author} editor={authorEditor} reviewer={authorReviewer} factChecker={authorFactChecker} updatedDate={AUTHOR.updated} compact={mob} />
           <div style={{ marginTop: 16 }} />
           {children}
-          <AuthorBioCard author={author} style={{ marginTop: 24 }} />
+          <div style={{ marginTop: 24 }}>
+            <AffiliateDisclosureBanner />
+          </div>
+          <AuthorBioCard author={author} style={{ marginTop: 16 }} />
           {/* Risk Disclaimer */}
           <div style={{ fontSize: 12, color: GRAY_MUTED, lineHeight: 1.6, marginTop: 24, padding: "14px 16px", background: "#fef3cd", border: "1px solid #fde68a", borderRadius: 8 }}>
             <strong>Risk Warning:</strong> CFDs are complex instruments and come with a high risk of losing money rapidly due to leverage. {B.riskWarning} You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money.
