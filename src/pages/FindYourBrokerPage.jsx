@@ -337,7 +337,7 @@ export default function FindYourBrokerPage() {
                 background: i === 0 ? "rgba(236,253,245,0.4)" : "transparent",
               }}
             >
-              <div style={{ width: 32, height: 32, borderRadius: "50%", background: i === 0 ? "linear-gradient(135deg, #059669, #047857)" : "#f1f5f9", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, fontWeight: 800, color: i === 0 ? "#fff" : "#64748b", flexShrink: 0 }}>{i + 1}</div>
+              <div style={{ width: 28, height: 28, borderRadius: 8, background: i === 0 ? "linear-gradient(135deg, #059669, #047857)" : "#f1f5f9", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 12, fontWeight: 800, color: i === 0 ? "#fff" : "#64748b", flexShrink: 0 }}>{i + 1}</div>
               <BrokerLogo slug={r.slug} name={B.name} size={52} shape="icon" />
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div style={{ fontSize: 17, fontWeight: 600, color: "#0f172a", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{B.name}</div>
@@ -990,7 +990,7 @@ export default function FindYourBrokerPage() {
                 }}
               >
                 <div style={{
-                  width: mob ? 32 : 28, height: mob ? 32 : 28, borderRadius: mob ? "50%" : 8, flexShrink: 0,
+                  width: 28, height: 28, borderRadius: 8, flexShrink: 0,
                   background: i === 0 ? "linear-gradient(135deg, #059669, #047857)" : (i < 3 ? "#e2e8f0" : "#f1f5f9"),
                   display: "flex", alignItems: "center", justifyContent: "center",
                   fontSize: mob ? 13 : 12, fontWeight: 800, color: i === 0 ? "#fff" : "#64748b",
