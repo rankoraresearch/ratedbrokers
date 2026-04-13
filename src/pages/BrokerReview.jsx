@@ -395,12 +395,7 @@ export default function BrokerReview() {
             <AuthorCredits author={author} editor={authorEditor} reviewer={authorReviewer} factChecker={authorFactChecker} updatedDate={AUTHOR.updated} compact={mob} />
           </div>
 
-          {/* OVERVIEW */}
-          <H2 id="overview">{t("review.overview", { name: B.name })}</H2>
-          {htmlOverrides.overview ? <HtmlContent html={htmlOverrides.overview}/> : (content.overview || []).map((p,i)=><P key={i}>{p}</P>)}
-          <CTA B={B} visitUrl={visitUrl} sub={t("review.readyToTrade", { name: B.name })} mob={mob} />
-
-          {/* H7: Quick Facts on mobile — after Overview */}
+          {/* H7: Quick Facts on mobile — after Authors, before Overview */}
           {mob&&<Card style={{padding:16,marginBottom:8}}>
             <div style={{fontFamily:"Outfit",fontSize:13,fontWeight:700,marginBottom:10}}>{t("review.quickFacts")}</div>
             {[{l:t("review.founded"),v:B.year},{l:t("review.hq"),v:B.hq},{l:t("review.type"),v:B.type},...(B.leverage&&B.leverage!=="N/A"?[{l:t("review.leverage"),v:B.leverage}]:[]),{l:t("review.instruments"),v:B.instruments}].map((x,i,arr)=><div key={i} style={{display:"flex",justifyContent:"space-between",padding:"5px 0",borderBottom:i<arr.length-1?"1px solid #f0f4f8":"none"}}>
@@ -408,6 +403,11 @@ export default function BrokerReview() {
               <span style={{fontSize:13,color:"#111827",fontWeight:600}}>{x.v}</span>
             </div>)}
           </Card>}
+
+          {/* OVERVIEW */}
+          <H2 id="overview">{t("review.overview", { name: B.name })}</H2>
+          {htmlOverrides.overview ? <HtmlContent html={htmlOverrides.overview}/> : (content.overview || []).map((p,i)=><P key={i}>{p}</P>)}
+          <CTA B={B} visitUrl={visitUrl} sub={t("review.readyToTrade", { name: B.name })} mob={mob} />
 
           {/* SCORES */}
           <H2 id="scoring-breakdown">{t("review.scoringBreakdown")}</H2>
