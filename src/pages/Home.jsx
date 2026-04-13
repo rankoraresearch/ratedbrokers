@@ -141,12 +141,12 @@ const COUNTRIES = [
     { label: "Crypto", word: "Brokers", path: "/best-crypto-brokers-usa", color: "#d97706" },
     { label: "Copy Trading", word: "Platforms", path: "/best-copy-trading-usa", color: "#7c3aed" },
   ]},
-  { code: "AU", name: "Australia", geo: "AU", reg: "ASIC", brokers: 12, verticals: [
+  { code: "AU", name: "Australia", geo: "Australia", reg: "ASIC", brokers: 12, verticals: [
     { label: "Forex", word: "Brokers", path: "/best-forex-brokers-australia", color: "#059669" },
     { label: "CFD", word: "Brokers", path: "/best-cfd-brokers-australia", color: "#2563eb" },
     { label: "Crypto", word: "Brokers", path: "/best-crypto-brokers-australia", color: "#d97706" },
   ]},
-  { code: "DE", name: "Germany", geo: "DE", reg: "BaFin", brokers: 10, verticals: [
+  { code: "DE", name: "Germany", geo: "Germany", reg: "BaFin", brokers: 10, verticals: [
     { label: "Forex", word: "Brokers", path: "/best-forex-brokers-germany", color: "#059669" },
     { label: "Crypto", word: "Brokers", path: "/best-crypto-brokers-germany", color: "#d97706" },
   ]},
@@ -154,15 +154,15 @@ const COUNTRIES = [
     { label: "Forex", word: "Brokers", path: "/best-forex-brokers-uae", color: "#059669" },
     { label: "Crypto", word: "Brokers", path: "/best-crypto-brokers-uae", color: "#d97706" },
   ]},
-  { code: "SG", name: "Singapore", geo: "SG", reg: "MAS", brokers: 8, verticals: [
+  { code: "SG", name: "Singapore", geo: "Singapore", reg: "MAS", brokers: 8, verticals: [
     { label: "Forex", word: "Brokers", path: "/best-forex-brokers-singapore", color: "#059669" },
     { label: "Crypto", word: "Brokers", path: "/best-crypto-brokers-singapore", color: "#d97706" },
   ]},
-  { code: "CA", name: "Canada", geo: "CA", reg: "CIRO / CSA", brokers: 7, verticals: [
+  { code: "CA", name: "Canada", geo: "Canada", reg: "CIRO / CSA", brokers: 7, verticals: [
     { label: "Forex", word: "Brokers", path: "/best-forex-brokers-canada", color: "#059669" },
     { label: "Crypto", word: "Brokers", path: "/best-crypto-brokers-canada", color: "#d97706" },
   ]},
-  { code: "ZA", name: "South Africa", geo: "SA", reg: "FSCA", brokers: 8, verticals: [
+  { code: "ZA", name: "South Africa", geo: "South Africa", reg: "FSCA", brokers: 8, verticals: [
     { label: "Forex", word: "Brokers", path: "/best-forex-brokers-south-africa", color: "#059669" },
     { label: "Crypto", word: "Brokers", path: "/best-crypto-brokers-south-africa", color: "#d97706" },
   ]},

@@ -737,3 +737,16 @@ Codex-reviewed: каждый спринт 10/10 перед реализацие�
 - Phase A: Robinhood, Fidelity, Charles Schwab, DEGIRO
 - Phase B: Webull, E*TRADE, Trade Republic, Moomoo
 - Phase C: tastytrade, NinjaTrader, TradeStation, AMP Futures, Optimus Futures
+
+### `bb01e87` License Verification Links (13 апреля 2026)
+- Номера лицензий в BrokerReview + RegulationTab → кликабельные ссылки на реестры регуляторов
+- 30 licenseCheck URLs из regulators.js, ExternalLink icon, Tier-1 зелёные
+- Fix: ASIC URL (auth-gated → public), SEC URL (deprecated → /search)
+
+### `df6e8b8` Country Section Redesign (13 апреля 2026)
+- Homepage "Regulated Brokers by Country" — полный редизайн
+- 24 уникальных SEO-анкора: "Forex Brokers UK", "Crypto Brokers USA" etc.
+- Green Uniform: все ссылки #059669, dot+text, hover underline
+- Только реальные вертикали из rankings.js (UK=6, USA=6, AU=3, rest=2)
+- ★ Most Popular badge (оранжевый ribbon)
+- Broker count, equal card heights, mobile horizontal scroll

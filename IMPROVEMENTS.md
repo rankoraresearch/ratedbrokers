@@ -73,6 +73,13 @@ Frontend → без auth → public endpoints (overrides, published, sitemap)
 |---|-----------|-------|--------|
 | I1 | **Staging environment** | `wrangler.toml` | `[env.staging]` — `npx wrangler deploy --env staging`. Тестирование backend без риска для prod |
 
+#### SEO & Internal Linking
+
+| # | Улучшение | Файлы | Детали |
+|---|-----------|-------|--------|
+| SEO1 | **License verification links** | `BrokerReview.jsx`, `RegulationTab.jsx`, `regulators.js` | Номера лицензий → кликабельные ссылки на реестры регуляторов (30 URLs). ExternalLink icon. Fix: ASIC + SEC URLs. Dofollow (E-E-A-T signal). Коммит: `bb01e87` |
+| SEO2 | **Country section SEO anchors** | `Home.jsx` | 24 уникальных анкора "Forex Brokers UK" etc. вместо 8 дублей "Forex". Green Uniform стиль. Per-vertical links. Mobile horizontal scroll. ★ Most Popular badge. Коммит: `df6e8b8` |
+
 ---
 
 ## Запланированные улучшения
