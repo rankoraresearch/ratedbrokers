@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useLocalePath } from "../../i18n/useLocalePath";
 import HeroBand from "../HeroBand";
 import Breadcrumb, { breadcrumbSchema } from "../Breadcrumb";
 import { getBrokerHub } from "../../data/categoryHubs";
@@ -55,6 +56,7 @@ function WideLogo({ slug, name, mob }) {
 
 export default function SubPageLayout({ data, slug, activeTab, children }) {
   const { mob, tab, desk } = useMedia();
+  const lp = useLocalePath();
   const [stickyVisible, setStickyVisible] = useState(false);
   const { B, AUTHOR } = data;
   const cn = { maxWidth: 1200, margin: "0 auto", padding: mob ? "0 16px" : "0 24px" };
@@ -85,7 +87,7 @@ export default function SubPageLayout({ data, slug, activeTab, children }) {
   const sidebarVisitUrl = getVisitUrl(sidebarSlug);
 
   useEffect(() => {
-    const fn = () => setStickyVisible(window.scrollY > 400);
+    const fn = () => setStickyVisible(window.scrollY > 300);
     window.addEventListener("scroll", fn);
     return () => window.removeEventListener("scroll", fn);
   }, []);
@@ -141,6 +143,12 @@ export default function SubPageLayout({ data, slug, activeTab, children }) {
 
   return (
     <div style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb", minHeight: "100vh", color: "#111827" }}>
+      {/* M6: Affiliate Disclosure */}
+      <div style={{padding:"6px 16px",background:"#f1f5f9",fontSize:11,color:"#64748b",display:"flex",alignItems:"center",gap:6}}>
+        <span style={{fontWeight:700,color:"#94a3b8"}}>i</span>
+        <span>Advertiser Disclosure: We may earn compensation from partner links. <Link to={lp("/how-we-make-money")} style={{color:"#059669",textDecoration:"underline"}}>Learn more</Link></span>
+      </div>
+
       {/* Breadcrumbs */}
       <div style={{ ...cn, padding: mob ? "10px 16px" : "14px 24px" }}>
         <Breadcrumb items={(() => {
@@ -158,13 +166,14 @@ export default function SubPageLayout({ data, slug, activeTab, children }) {
       <HeroBand mob={mob} tab={tab}>
         <div style={{ display: "flex", flexDirection: mob ? "column" : "row", justifyContent: "space-between", gap: mob ? 20 : 32 }}>
           <div style={{ flex: 1 }}>
-            <div style={{ display: "flex", alignItems: "center", gap: mob ? 12 : 16, marginBottom: 14 }}>
+            {/* H6: On mobile — stack logo and H1 vertically; on desktop — keep row */}
+            <div style={{ display: "flex", flexDirection: mob ? "column" : "row", alignItems: mob ? "flex-start" : "center", gap: mob ? 10 : 16, marginBottom: 14 }}>
               <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" style={{ display: "flex", flexShrink: 0, textDecoration: "none" }}>
                 <WideLogo slug={slug} name={B.name} mob={mob} />
               </a>
               <div>
                 <h1 style={{ fontFamily: "Outfit", fontSize: mob ? 22 : 28, fontWeight: 800, color: "#fff", letterSpacing: "-0.02em" }}>{h1}</h1>
-                <p style={{ fontSize: mob ? 13 : 15, color: "rgba(255,255,255,0.6)", margin: 0 }}>{B.type} broker · Est. {B.year}{!mob && ` · ${B.hq}`}</p>
+                <p style={{ fontSize: mob ? 13 : 15, color: "rgba(255,255,255,0.6)", margin: 0 }}>{B.type} broker · Est. {B.year}{` · ${B.hq}`}</p>
               </div>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: mob ? 8 : 16, flexWrap: "wrap", marginBottom: 14 }}>
@@ -176,15 +185,21 @@ export default function SubPageLayout({ data, slug, activeTab, children }) {
               <div style={{ display: "flex", gap: 4 }}>{B.regs.filter(r => r.tier === 1).map((r, i) => <RegBadge key={i} reg={r.name} onDark />)}</div>
               {B.badge && <span style={{ background: "rgba(52,211,153,0.15)", color: "#34d399", fontSize: mob ? 10 : 11, fontWeight: 600, padding: "3px 10px", borderRadius: 5, border: "1px solid rgba(110,231,183,0.3)", display: "inline-flex", alignItems: "center", gap: 4 }}><Award size={12} color="#34d399" />{B.badge}</span>}
             </div>
-            <div style={{ display: "grid", gridTemplateColumns: mob ? "repeat(3,1fr)" : "repeat(5,auto)", gap: mob ? 8 : 20 }}>
+            {/* H4: Show promo on mobile (before CTA) */}
+            {mob && B.promo && <div style={{fontSize:12,color:"#34d399",fontWeight:600,marginBottom:8,display:"flex",alignItems:"center",gap:4}}>{B.promo}</div>}
+            {/* H1: CTA above stats on mobile */}
+            {mob && <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 6, background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: NAVY, fontSize: 15, fontWeight: 700, textDecoration: "none", padding: "12px", borderRadius: 10, boxShadow: "0 4px 12px rgba(245,158,11,0.3)" }}>Visit {B.name} <ArrowRight size={14} /></a>}
+            {/* H5: Risk warning on mobile */}
+            {mob && <div style={{fontSize:10,color:"rgba(255,255,255,0.4)",textAlign:"center",marginTop:6,lineHeight:1.4}}>{B.riskWarning || "70.53% of retail investors lose money"}</div>}
+            {/* Stats grid */}
+            <div style={{ display: "grid", gridTemplateColumns: mob ? "repeat(3,1fr)" : "repeat(5,auto)", gap: mob ? 8 : 20, marginTop: mob ? 12 : 0 }}>
               {[{ l: "Spread", v: `${B.spread} pips` }, { l: "Commission", v: B.commission }, { l: "Min Deposit", v: `$${B.minDep}` }, ...(!mob ? [{ l: "Leverage", v: B.leverage }, { l: "Instruments", v: B.instruments }] : [])].map((x, i) => (
                 <div key={i} style={mob ? { textAlign: "center", padding: "6px", background: "rgba(255,255,255,0.06)", borderRadius: 6 } : {}}>
-                  <div style={{ fontSize: mob ? 10 : 12, color: "rgba(255,255,255,0.5)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 2 }}>{x.l}</div>
+                  <div style={{ fontSize: mob ? 11 : 12, color: mob ? "rgba(255,255,255,0.65)" : "rgba(255,255,255,0.5)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 2 }}>{x.l}</div>
                   <div style={{ fontSize: mob ? 14 : 15, color: "#fff", fontWeight: 700 }}>{x.v}</div>
                 </div>
               ))}
             </div>
-            {mob && <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 6, background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: NAVY, fontSize: 15, fontWeight: 700, textDecoration: "none", padding: "12px", borderRadius: 10, marginTop: 14, boxShadow: "0 4px 12px rgba(245,158,11,0.3)" }}>Visit {B.name} <ArrowRight size={14} /></a>}
           </div>
           {!mob && (
             <div style={{ width: tab ? 220 : 280, flexShrink: 0, background: "rgba(255,255,255,0.08)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.12)", borderRadius: 16, padding: tab ? "18px" : "22px", textAlign: "center" }}>
@@ -299,19 +314,22 @@ export default function SubPageLayout({ data, slug, activeTab, children }) {
         <div style={{
           position: "fixed", bottom: 0, left: 0, right: 0, zIndex: 100,
           background: NAVY, borderTop: "1px solid rgba(255,255,255,0.1)",
-          padding: "10px 16px", display: "flex", alignItems: "center", justifyContent: "space-between",
+          padding: "10px 16px", paddingBottom: "env(safe-area-inset-bottom, 0px)",
           boxShadow: "0 -4px 20px rgba(0,0,0,0.2)",
           transform: stickyVisible ? "translateY(0)" : "translateY(100%)",
           transition: "transform 0.3s ease",
         }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-            <BrokerLogo slug={sidebarSlug} name={sidebarName} fallback={sidebarName?.slice(0, 2)} size={28} shape="icon" borderRadius={6} />
-            <div>
-              <div style={{ fontSize: 13, fontWeight: 700, color: "#fff" }}>{sidebarName}</div>
-              <div style={{ fontSize: 11, color: "rgba(255,255,255,0.5)" }}>{isAlternatives ? `#1 ${B.name} Alternative` : `Score: ${B.score}/10`}</div>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+              <BrokerLogo slug={sidebarSlug} name={sidebarName} fallback={sidebarName?.slice(0, 2)} size={28} shape="icon" borderRadius={6} />
+              <div>
+                <div style={{ fontSize: 13, fontWeight: 700, color: "#fff" }}>{sidebarName}</div>
+                <div style={{ fontSize: 11, color: "rgba(255,255,255,0.5)" }}>{isAlternatives ? `#1 ${B.name} Alternative` : `Score: ${B.score}/10`}</div>
+              </div>
             </div>
+            <a href={sidebarVisitUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{ background: `linear-gradient(135deg, ${ORANGE}, #fbbf24)`, color: NAVY, fontSize: 13, fontWeight: 700, textDecoration: "none", padding: "10px 20px", borderRadius: 8, display: "inline-flex", alignItems: "center", gap: 4 }}>Visit {sidebarName.length > 12 ? "Broker" : sidebarName} <ExternalLink size={12} /></a>
           </div>
-          <a href={sidebarVisitUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{ background: `linear-gradient(135deg, ${ORANGE}, #fbbf24)`, color: NAVY, fontSize: 13, fontWeight: 700, textDecoration: "none", padding: "10px 20px", borderRadius: 8, display: "inline-flex", alignItems: "center", gap: 4 }}>Visit {sidebarName.length > 12 ? "Broker" : sidebarName} <ExternalLink size={12} /></a>
+          <div style={{ fontSize: 9, color: "rgba(255,255,255,0.35)", textAlign: "center", marginTop: 4, lineHeight: 1.3 }}>{B.riskWarning || "70.53% of retail investors lose money"}</div>
         </div>
       )}
     </div>
