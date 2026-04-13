@@ -846,6 +846,7 @@ export default function FindYourBrokerPage() {
       opacity: transitioning ? 0 : 1,
       transform: transitioning ? "translateY(20px)" : "translateY(0)",
       transition: "opacity 0.3s, transform 0.3s",
+      overflow: "hidden",
     }}>
       {/* Hero band */}
       <div style={{
@@ -902,7 +903,7 @@ export default function FindYourBrokerPage() {
             const B = r.broker.B;
             return (
               <div key={r.slug} style={{
-                flex: 1, padding: 14, borderRadius: 12,
+                flex: 1, minWidth: 0, padding: 14, borderRadius: 12,
                 border: i === 0 ? "1.5px solid rgba(5,150,105,0.15)" : "1.5px solid #e2e8f0",
                 background: i === 0 ? "rgba(236,253,245,0.4)" : "#fff",
               }}>
@@ -960,7 +961,7 @@ export default function FindYourBrokerPage() {
               <a key={r.slug} href={getVisitUrl(r.slug, B.url)} target="_blank" rel="noopener nofollow sponsored"
                 className="d2k-row"
                 style={{
-                  display: "flex", alignItems: "center", gap: mob ? 10 : 8,
+                  display: "flex", alignItems: "center", gap: mob ? 10 : 8, minWidth: 0,
                   padding: mob ? "14px 12px" : "10px 12px",
                   textDecoration: "none", marginBottom: i < 9 ? (mob ? 5 : 3) : 0,
                   borderRadius: mob ? 12 : 10,
