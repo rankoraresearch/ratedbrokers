@@ -38,7 +38,7 @@ import RegBadge from "../components/RegBadge";
 import HeroBand from "../components/HeroBand";
 import { getCountryData } from "../data/countries/index";
 import { canonicalPair } from "../data/comparisons";
-import { Star, ChevronRight, Trophy, BarChart3, Layers, BookOpen, HelpCircle, Target, ChevronDown, User } from "lucide-react";
+import { Star, ChevronRight, Trophy, BarChart3, Layers, BookOpen, HelpCircle, Target, ChevronDown, User, ArrowUpRight } from "lucide-react";
 
 const YEAR = "2026";
 import { getVisitUrl as makeVisitUrl } from "../utils/visitUrl";
@@ -55,91 +55,54 @@ const T = {
 };
 
 // ═══════════════════════════════════════════════════════════
-// БЛОК 2 — Quick Broker Grid (Top 10 at a Glance)
+// БЛОК 2 — Quick Broker Grid (Top 10 at a Glance) — D2k standard
 // ═══════════════════════════════════════════════════════════
 function QuickBrokerGrid({ brokers, mob }) {
   const top10 = brokers.slice(0, 10);
-  const [hoveredIdx, setHoveredIdx] = useState(null);
-  const [touchedIdx, setTouchedIdx] = useState(null);
-
-  const getRisk = (B) => {
-    const riskText = B.riskWarning
-      ? B.riskWarning.replace(/^.*?(\d{2,3}\.?\d*%).*$/s, "$1 of retail CFD accounts lose money")
-      : "CFDs are complex. 74% lose money.";
-    return riskText.length > 55 ? riskText.slice(0, 53) + "…" : riskText;
-  };
-
-  const renderCard = (broker, i) => {
-    const B = broker.B;
-    const visitUrl = makeVisitUrl(broker.slug, B.url);
-    const isHovered = hoveredIdx === i;
-    const isTouched = touchedIdx === i;
-    const showRisk = mob ? isTouched : isHovered;
-    const shortRisk = getRisk(B);
-    const isMedal = i < 3;
-    const badgeStyle = isMedal
-      ? { bg: "linear-gradient(135deg, #059669, #047857)", shadow: "0 2px 6px rgba(5,150,105,0.25)", color: "#fff" }
-      : { bg: "#f1f5f9", shadow: "none", color: "#64748b" };
-    const logoSize = mob ? 32 : 40;
-    const nameSize = mob ? 14 : 15;
-    const scoreSize = mob ? 13 : 15;
-    const badgeSize = mob ? 24 : 28;
-
-    return (
-      <a key={broker.slug} href={visitUrl} target="_blank" rel="noopener nofollow sponsored"
-        onMouseEnter={() => setHoveredIdx(i)} onMouseLeave={() => setHoveredIdx(null)}
-        onTouchStart={() => setTouchedIdx(i)}
-        onTouchEnd={() => setTimeout(() => setTouchedIdx(null), 1500)}
-        style={{
-          display: "flex", alignItems: "center", gap: mob ? 8 : 14,
-          padding: mob ? "8px 12px" : "12px 16px",
-          borderRadius: mob ? 10 : 14, background: "#fff",
-          border: `1px solid ${(isHovered || isTouched) ? "#059669" : "#e5e7eb"}`,
-          boxShadow: isHovered ? "0 4px 16px rgba(0,0,0,0.07)" : "0 1px 3px rgba(0,0,0,0.04)",
-          textDecoration: "none", transition: "box-shadow 0.2s, border-color 0.2s", cursor: "pointer",
-        }}>
-        <div style={{
-          width: badgeSize, height: badgeSize, borderRadius: mob ? 6 : 8, flexShrink: 0,
-          background: badgeStyle.bg, boxShadow: badgeStyle.shadow,
-          display: "flex", alignItems: "center", justifyContent: "center",
-          fontSize: mob ? 11 : 12, fontWeight: isMedal ? 800 : 700, color: badgeStyle.color,
-        }}>{i + 1}</div>
-        <BrokerLogo slug={broker.slug} name={B.name} fallback={B.logo} size={logoSize} shape="icon" />
-        <div style={{ flex: 1, minWidth: 0 }}>
-          <div style={{
-            fontWeight: 600, fontSize: nameSize, color: "#0f172a",
-            overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
-          }}>{B.name}</div>
-          <div style={{ display: "flex", alignItems: "center", gap: 4, marginTop: 2 }}>
-            <Star size={mob ? 11 : 12} color="#059669" fill="#059669" />
-            <span style={{ fontSize: scoreSize, fontWeight: 700, color: "#059669", lineHeight: 1 }}>{B.score}</span>
-            <span style={{ fontSize: mob ? 10 : 11, color: "#9ca3af" }}>/10</span>
-          </div>
-          <div style={{
-            fontSize: mob ? 9 : 10, color: "#b0b8c4", lineHeight: 1.2, marginTop: 2,
-            height: 13, overflow: "hidden",
-            whiteSpace: "nowrap", textOverflow: "ellipsis",
-            opacity: showRisk ? 1 : 0, transition: "opacity 0.2s",
-          }}>{shortRisk}</div>
-        </div>
-        <ChevronRight size={mob ? 14 : 16} color={mob ? "#94a3b8" : (isHovered ? "#059669" : "#cbd5e1")} style={{
-          flexShrink: 0, transition: "color 0.2s, transform 0.2s",
-          transform: isHovered ? "translateX(2px)" : "none",
-        }} />
-      </a>
-    );
-  };
 
   return (
-    <div style={{
+    <div className="d2k-list" style={{
       display: mob ? "flex" : "grid",
       flexDirection: mob ? "column" : undefined,
       gridTemplateColumns: mob ? undefined : "1fr 1fr",
       gridAutoFlow: mob ? undefined : "column",
       gridTemplateRows: mob ? undefined : "repeat(5, auto)",
-      gap: mob ? 6 : 8,
+      gap: mob ? 5 : 8,
     }}>
-      {top10.map((broker, i) => renderCard(broker, i))}
+      {top10.map((broker, i) => {
+        const B = broker.B;
+        const visitUrl = makeVisitUrl(broker.slug, B.url);
+        const rw = B.riskWarning || "CFDs are complex instruments and come with a high risk of losing money.";
+        return (
+          <a key={broker.slug} href={visitUrl} target="_blank" rel="noopener nofollow sponsored"
+            className="d2k-row"
+            style={{
+              display: "flex", alignItems: "center", gap: mob ? 10 : 10,
+              padding: mob ? "12px 12px" : "10px 12px",
+              borderRadius: 12, background: i === 0 ? "rgba(236,253,245,0.4)" : "transparent",
+              textDecoration: "none", minWidth: 0,
+            }}>
+            <div style={{
+              width: 28, height: 28, borderRadius: 8, flexShrink: 0,
+              background: i < 3 ? "linear-gradient(135deg, #059669, #047857)" : "#f1f5f9",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              fontSize: 12, fontWeight: 800, color: i < 3 ? "#fff" : "#64748b",
+            }}>{i + 1}</div>
+            <BrokerLogo slug={broker.slug} name={B.name} fallback={B.logo} size={mob ? 52 : 48} shape="icon" />
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <div style={{
+                fontWeight: 600, fontSize: mob ? 17 : 15, color: "#0f172a",
+                overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
+              }}>{B.name}</div>
+              <div className="d2k-risk" style={{
+                fontSize: mob ? 10 : 9, color: "#6b7280", lineHeight: 1.3,
+                whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis",
+              }}>{rw}</div>
+            </div>
+            <ArrowUpRight size={mob ? 18 : 16} className="d2k-arrow" color={i === 0 ? "#059669" : "#94a3b8"} style={{ flexShrink: 0 }} />
+          </a>
+        );
+      })}
     </div>
   );
 }
