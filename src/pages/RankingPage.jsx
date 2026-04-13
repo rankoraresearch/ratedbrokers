@@ -95,12 +95,11 @@ function QuickBrokerGrid({ brokers, mob }) {
                   fontWeight: 600, fontSize: mob ? 17 : 15, color: "#0f172a",
                   overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
                 }}>{B.name}</span>
-                <span style={{
-                  fontFamily: "'JetBrains Mono',monospace", fontSize: 11, fontWeight: 800, flexShrink: 0,
-                  color: B.score >= 9.0 ? "#059669" : B.score >= 8.0 ? "#2563eb" : "#d97706",
-                  background: B.score >= 9.0 ? "#ecfdf5" : B.score >= 8.0 ? "#eff6ff" : "#fffbeb",
-                  padding: "1px 5px", borderRadius: 4,
-                }}>{B.score}</span>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: 3, flexShrink: 0 }}>
+                  <Star size={12} color="#059669" fill="#059669" />
+                  <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 12, fontWeight: 800, color: "#059669" }}>{B.score}</span>
+                  <span style={{ fontSize: 10, fontWeight: 600, color: "#94a3b8" }}>/ 10</span>
+                </span>
               </div>
               <div className="d2k-risk" style={{
                 fontSize: mob ? 10 : 9, color: "#6b7280", lineHeight: 1.3,
