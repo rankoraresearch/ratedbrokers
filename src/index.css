@@ -50,20 +50,14 @@ img { max-width: 100%; height: auto; }
   box-shadow: 0 8px 24px rgba(245,158,11,0.4) !important;
 }
 
-/* ── D2k broker row — border on hover/active, no JS state needed ── */
+/* ── D2k broker row — border + shadow on hover, BrokerChooser-style ── */
 .d2k-row {
   border: 1.5px solid transparent;
-  transition: border-color 0.2s, opacity 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 .d2k-row:hover, .d2k-row:active {
-  border-color: #059669;
-}
-/* Dim siblings when one row is hovered */
-.d2k-list:hover .d2k-row {
-  opacity: 0.45;
-}
-.d2k-list:hover .d2k-row:hover {
-  opacity: 1;
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04);
 }
 .d2k-row .d2k-arrow {
   transition: color 0.2s, transform 0.2s;
