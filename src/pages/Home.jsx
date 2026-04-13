@@ -20,6 +20,19 @@ import AuthorAvatar from "../components/AuthorAvatar";
 // ══════════════════════════════════════════════════════
 // CATEGORY NAV — Variants with switcher
 // ══════════════════════════════════════════════════════
+const RATE_CAT_META = {
+  "Regulation & Safety": { color: "#059669", bg: "#ecfdf5", icon: "shield" },
+  "Trading Costs": { color: "#2563eb", bg: "#eff6ff", icon: "dollar-sign" },
+  "User Reputation": { color: "#16a34a", bg: "#f0fdf4", icon: "star" },
+  "Broker Transparency": { color: "#7c3aed", bg: "#f5f3ff", icon: "eye" },
+  "Platforms & Tools": { color: "#0284c7", bg: "#f0f9ff", icon: "monitor" },
+  "Execution Model": { color: "#d97706", bg: "#fffbeb", icon: "zap" },
+};
+const RATE_NAV = [
+  { icon: "bar-chart-3", title: "Scoring Methodology", path: "/methodology" },
+  { icon: "book-open", title: "About RatedBrokers", path: "/about" },
+  { icon: "shield", title: "Trust & Transparency", path: "/trust-score" },
+];
 const CAT_ICONS = {
   forex: ArrowRightLeft, cfd: ChartCandlestick, "copy-trading": Users,
   "spread-betting": Dices, crypto: Bitcoin, stocks: TrendingUp, options: GitBranch, futures: Hourglass,
@@ -481,45 +494,75 @@ export default function Home() {
       {/* ===== BROKER SHOWCASE — Power Cards ===== */}
       <BrokerPowerCards mob={mob} tab={tab} lp={lp} brokers={allBrokersData} />
 
-      {/* ===== HOW WE RATE BROKERS — SEO block ===== */}
-      <section style={{ ...cn, padding: mob ? "40px 16px" : "56px 24px" }}>
-        <h2 style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: mob ? 22 : 28, color: "#0f172a", letterSpacing: "-0.03em", marginBottom: 12 }}>
-          {HOMEPAGE_SEO.howWeRate.heading}
-        </h2>
-        <p style={{ fontSize: mob ? 14 : 15, lineHeight: 1.7, color: "#475569", maxWidth: 800, marginBottom: 24 }}>
-          {HOMEPAGE_SEO.howWeRate.intro}
-        </p>
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: mob ? "1fr" : tab ? "1fr 1fr" : "repeat(3, 1fr)",
-          gap: 14, marginBottom: 20,
-        }}>
-          {HOMEPAGE_SEO.howWeRate.categories.map((cat, i) => (
-            <div key={i} style={{
-              padding: mob ? "16px" : "20px", borderRadius: 12,
-              background: "#fff", border: "1px solid #e2e8f0",
-            }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
-                <span style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 700, fontSize: 15, color: "#0f172a" }}>{cat.name}</span>
-                <span style={{
-                  padding: "2px 8px", borderRadius: 6,
-                  background: "#ecfdf5", color: "#059669",
-                  fontFamily: "'JetBrains Mono',monospace", fontSize: 12, fontWeight: 700,
-                }}>{cat.weight}</span>
-              </div>
-              <p style={{ fontSize: 13, lineHeight: 1.6, color: "#64748b", margin: 0 }}>{cat.desc}</p>
-            </div>
-          ))}
-        </div>
-        <p style={{ fontSize: mob ? 14 : 15, lineHeight: 1.7, color: "#475569", maxWidth: 800, marginBottom: 12 }}>
-          {HOMEPAGE_SEO.howWeRate.closing}
-        </p>
-        <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
-          {HOMEPAGE_SEO.howWeRate.links.map((l, i) => (
-            <Link key={i} to={lp(l.path)} style={{ fontSize: 13, fontWeight: 600, color: "#059669", textDecoration: "none", display: "flex", alignItems: "center", gap: 4 }}>
-              {l.text} <ArrowRight size={12} />
-            </Link>
-          ))}
+      {/* ===== HOW WE RATE BROKERS — SEO block (A5 Left Accent) ===== */}
+      <section style={{ background: "#f8fafc", padding: mob ? "40px 16px" : "56px 24px" }}>
+        <div style={cn}>
+          <h2 style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: mob ? 22 : 28, color: "#0f172a", letterSpacing: "-0.03em", marginBottom: 12 }}>
+            {HOMEPAGE_SEO.howWeRate.heading}
+          </h2>
+          <p style={{ fontSize: mob ? 14 : 15, lineHeight: 1.7, color: "#475569", maxWidth: 800, marginBottom: 28 }}>
+            {HOMEPAGE_SEO.howWeRate.intro}
+          </p>
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: mob ? "1fr" : tab ? "1fr 1fr" : "repeat(3, 1fr)",
+            gap: mob ? 12 : 16, marginBottom: 24,
+          }}>
+            {HOMEPAGE_SEO.howWeRate.categories.map((cat, i) => {
+              const m = RATE_CAT_META[cat.name] || { color: "#059669", bg: "#ecfdf5", icon: "shield" };
+              const weightNum = parseInt(cat.weight);
+              return (
+                <div key={i} style={{
+                  borderRadius: 14, background: "#fff",
+                  border: "1px solid #f1f5f9", borderLeft: `3px solid ${m.color}`,
+                  boxShadow: "0 1px 3px rgba(0,0,0,0.05)",
+                  overflow: "hidden", transition: "all 0.2s ease",
+                }}
+                  onMouseEnter={e => { e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.08)"; e.currentTarget.style.transform = "translateY(-2px)"; }}
+                  onMouseLeave={e => { e.currentTarget.style.boxShadow = "0 1px 3px rgba(0,0,0,0.05)"; e.currentTarget.style.transform = "none"; }}
+                >
+                  <div style={{ padding: mob ? "18px 16px" : "22px 20px" }}>
+                    <div style={{ display: "flex", alignItems: "flex-start", gap: 14, marginBottom: 14 }}>
+                      <div style={{
+                        width: 42, height: 42, borderRadius: 11,
+                        background: m.bg,
+                        display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
+                      }}>
+                        <Icon name={m.icon} size={20} color={m.color} />
+                      </div>
+                      <div style={{ flex: 1 }}>
+                        <div style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 700, fontSize: 15, color: "#0f172a", lineHeight: 1.3 }}>{cat.name}</div>
+                        <div style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 12, fontWeight: 600, color: m.color, marginTop: 3 }}>{cat.weight} weight</div>
+                      </div>
+                    </div>
+                    <p style={{ fontSize: 13, lineHeight: 1.65, color: "#64748b", margin: 0 }}>{cat.desc}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          <p style={{ fontSize: mob ? 14 : 15, lineHeight: 1.7, color: "#475569", maxWidth: 800, marginBottom: 8 }}>
+            {HOMEPAGE_SEO.howWeRate.closing}
+          </p>
+          <div style={{
+            display: "flex", gap: mob ? 12 : 20, flexWrap: "wrap",
+            alignItems: "center",
+            padding: "16px 0 0", borderTop: "1px solid #f1f5f9", marginTop: 8,
+          }}>
+            {RATE_NAV.map((l, i) => (
+              <Link key={i} to={lp(l.path)} style={{
+                display: "inline-flex", alignItems: "center", gap: 6,
+                fontSize: 13, fontWeight: 600, color: "#059669", textDecoration: "none",
+              }}
+                onMouseEnter={e => { e.currentTarget.style.color = "#047857"; }}
+                onMouseLeave={e => { e.currentTarget.style.color = "#059669"; }}
+              >
+                <Icon name={l.icon} size={14} color="#059669" />
+                {l.title}
+                <ArrowRight size={12} />
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -530,7 +573,7 @@ export default function Home() {
             Regulated Brokers by Country
           </h2>
           <Link to={lp("/best-forex-brokers-by-country")} style={{ fontSize: 13, fontWeight: 600, color: "#059669", textDecoration: "none", display: "flex", alignItems: "center", gap: 4 }}>
-            All 45 countries <ArrowRight size={12} />
+            All 45 Forex Countries <ArrowRight size={12} />
           </Link>
         </div>
         <p style={{ fontSize: 15, color: "#64748b", marginBottom: mob ? 20 : 28, maxWidth: 600 }}>
@@ -608,7 +651,7 @@ export default function Home() {
             fontSize: 14, fontWeight: 600, color: "#059669",
             textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 4,
           }}>
-            View All 43+ Countries <ArrowRight size={14} />
+            Browse All 45 Forex Countries <ArrowRight size={14} />
           </Link>
         </div>
       </section>
