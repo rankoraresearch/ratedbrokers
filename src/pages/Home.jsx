@@ -125,14 +125,47 @@ function CategoryNav({ mob }) {
 // DATA
 // ══════════════════════════════════════════════════════
 const COUNTRIES = [
-  { code: "GB", name: "United Kingdom", reg: "FCA", path: "/best-forex-brokers-uk", featured: true, verticals: ["Forex", "CFD", "Stocks", "Spread Betting", "Crypto", "Copy Trading"] },
-  { code: "US", name: "United States", reg: "SEC / NFA", path: "/best-forex-brokers-usa", verticals: ["Stocks", "Options", "Futures", "Forex", "Crypto"] },
-  { code: "AU", name: "Australia", reg: "ASIC", path: "/best-forex-brokers-australia", verticals: ["Forex", "CFD", "Stocks", "Crypto", "Copy Trading"] },
-  { code: "DE", name: "Germany", reg: "BaFin", path: "/best-forex-brokers-germany", verticals: ["Forex", "CFD", "Stocks", "Crypto", "Copy Trading"] },
-  { code: "AE", name: "UAE", reg: "DFSA / VARA", path: "/best-forex-brokers-uae", verticals: ["Forex", "CFD", "Crypto", "Copy Trading"] },
-  { code: "SG", name: "Singapore", reg: "MAS", path: "/best-forex-brokers-singapore", verticals: ["Forex", "CFD", "Stocks", "Crypto"] },
-  { code: "CA", name: "Canada", reg: "IIROC / CSA", path: "/best-forex-brokers-canada", verticals: ["Forex", "Stocks", "Options", "Crypto", "CFD"] },
-  { code: "ZA", name: "South Africa", reg: "FSCA", path: "/best-forex-brokers-south-africa", verticals: ["Forex", "CFD", "Crypto", "Copy Trading"] },
+  { code: "GB", name: "United Kingdom", geo: "UK", reg: "FCA", featured: true, brokers: 14, verticals: [
+    { label: "Forex", word: "Brokers", path: "/best-forex-brokers-uk", color: "#059669" },
+    { label: "CFD", word: "Brokers", path: "/best-cfd-brokers-uk", color: "#2563eb" },
+    { label: "Stocks", word: "Brokers", path: "/best-stock-brokers-uk", color: "#0ea5e9" },
+    { label: "Spread Betting", word: "Platforms", path: "/best-spread-betting-uk", color: "#dc2626" },
+    { label: "Crypto", word: "Brokers", path: "/best-crypto-brokers-uk", color: "#d97706" },
+    { label: "Copy Trading", word: "Platforms", path: "/best-copy-trading-uk", color: "#7c3aed" },
+  ]},
+  { code: "US", name: "United States", geo: "USA", reg: "SEC / NFA", brokers: 11, verticals: [
+    { label: "Stocks", word: "Brokers", path: "/best-stock-brokers-usa", color: "#0ea5e9" },
+    { label: "Options", word: "Brokers", path: "/best-options-brokers-usa", color: "#7c3aed" },
+    { label: "Futures", word: "Brokers", path: "/best-futures-brokers-usa", color: "#ea580c" },
+    { label: "Forex", word: "Brokers", path: "/best-forex-brokers-usa", color: "#059669" },
+    { label: "Crypto", word: "Brokers", path: "/best-crypto-brokers-usa", color: "#d97706" },
+    { label: "Copy Trading", word: "Platforms", path: "/best-copy-trading-usa", color: "#7c3aed" },
+  ]},
+  { code: "AU", name: "Australia", geo: "AU", reg: "ASIC", brokers: 12, verticals: [
+    { label: "Forex", word: "Brokers", path: "/best-forex-brokers-australia", color: "#059669" },
+    { label: "CFD", word: "Brokers", path: "/best-cfd-brokers-australia", color: "#2563eb" },
+    { label: "Crypto", word: "Brokers", path: "/best-crypto-brokers-australia", color: "#d97706" },
+  ]},
+  { code: "DE", name: "Germany", geo: "DE", reg: "BaFin", brokers: 10, verticals: [
+    { label: "Forex", word: "Brokers", path: "/best-forex-brokers-germany", color: "#059669" },
+    { label: "Crypto", word: "Brokers", path: "/best-crypto-brokers-germany", color: "#d97706" },
+  ]},
+  { code: "AE", name: "UAE", geo: "UAE", reg: "DFSA / VARA", brokers: 9, verticals: [
+    { label: "Forex", word: "Brokers", path: "/best-forex-brokers-uae", color: "#059669" },
+    { label: "Crypto", word: "Brokers", path: "/best-crypto-brokers-uae", color: "#d97706" },
+  ]},
+  { code: "SG", name: "Singapore", geo: "SG", reg: "MAS", brokers: 8, verticals: [
+    { label: "Forex", word: "Brokers", path: "/best-forex-brokers-singapore", color: "#059669" },
+    { label: "Crypto", word: "Brokers", path: "/best-crypto-brokers-singapore", color: "#d97706" },
+  ]},
+  { code: "CA", name: "Canada", geo: "CA", reg: "CIRO / CSA", brokers: 7, verticals: [
+    { label: "Forex", word: "Brokers", path: "/best-forex-brokers-canada", color: "#059669" },
+    { label: "Crypto", word: "Brokers", path: "/best-crypto-brokers-canada", color: "#d97706" },
+  ]},
+  { code: "ZA", name: "South Africa", geo: "SA", reg: "FSCA", brokers: 8, verticals: [
+    { label: "Forex", word: "Brokers", path: "/best-forex-brokers-south-africa", color: "#059669" },
+    { label: "Crypto", word: "Brokers", path: "/best-crypto-brokers-south-africa", color: "#d97706" },
+  ]},
 ];
 
 // ── Helpers ──
@@ -500,67 +533,76 @@ export default function Home() {
             All 45 countries <ArrowRight size={12} />
           </Link>
         </div>
-        <p style={{ fontSize: 15, color: "#64748b", marginBottom: 28, maxWidth: 600 }}>
-          Find brokers licensed by top-tier regulators in your country — across forex, stocks, crypto, and more.
+        <p style={{ fontSize: 15, color: "#64748b", marginBottom: mob ? 20 : 28, maxWidth: 600 }}>
+          Find brokers licensed by your country's regulator. Click a category to see the ranking.
         </p>
-        <div style={{
+        <div style={mob ? {
+          display: "flex", overflowX: "auto", gap: 12,
+          scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch", paddingBottom: 4,
+        } : {
           display: "grid",
-          gridTemplateColumns: mob ? "1fr" : tab ? "1fr 1fr" : "repeat(4, 1fr)",
+          gridTemplateColumns: tab ? "1fr 1fr" : "repeat(4, 1fr)",
           gap: 14,
         }}>
           {COUNTRIES.map((c, i) => (
-            <Link key={i} to={lp(c.path)} style={{
-              display: "flex", flexDirection: "column", gap: 12,
-              padding: mob ? "16px" : "20px",
-              borderRadius: 14,
+            <div key={i} style={{
+              display: "flex", flexDirection: "column",
+              minHeight: mob ? "auto" : 140,
+              borderRadius: 14, overflow: "visible",
               background: "#fff", border: c.featured ? "2px solid #059669" : "1px solid #e2e8f0",
-              textDecoration: "none", color: "#111827",
               boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)",
               transition: "all 0.2s", position: "relative",
+              ...(mob ? { minWidth: 270, maxWidth: 290, flexShrink: 0, scrollSnapAlign: "start" } : {}),
             }}
               onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.12)"; e.currentTarget.style.borderColor = "#059669"; }}
               onMouseLeave={e => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)"; e.currentTarget.style.borderColor = c.featured ? "#059669" : "#e2e8f0"; }}
             >
               {c.featured && (
                 <span style={{
-                  position: "absolute", top: -10, right: 16,
-                  padding: "3px 10px", borderRadius: 6,
+                  position: "absolute", top: -10, right: 14,
+                  padding: "3px 10px", borderRadius: 8,
                   background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: "#0f172a",
-                  fontSize: 10, fontWeight: 800, letterSpacing: "0.03em",
-                }}>MOST POPULAR</span>
+                  fontSize: 10, fontWeight: 700, boxShadow: "0 2px 6px rgba(245,158,11,0.3)",
+                  lineHeight: 1, whiteSpace: "nowrap", zIndex: 2,
+                }}>★ Most Popular</span>
               )}
-              <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 12, padding: mob ? "16px 16px 0" : "20px 20px 0" }}>
                 <CountryFlag code={c.code} size={mob ? 32 : 36} />
                 <div style={{ flex: 1 }}>
                   <div style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 700, fontSize: mob ? 15 : 16 }}>{c.name}</div>
-                  <span style={{
-                    display: "inline-block", marginTop: 3,
-                    padding: "2px 8px", borderRadius: 6,
-                    background: "#0f172a", color: "#fff",
-                    fontFamily: "'JetBrains Mono',monospace", fontSize: 11, fontWeight: 700,
-                  }}>{c.reg}</span>
+                  <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 3 }}>
+                    <span style={{
+                      display: "inline-block",
+                      padding: "2px 8px", borderRadius: 6,
+                      background: "#0f172a", color: "#fff",
+                      fontFamily: "'JetBrains Mono',monospace", fontSize: 11, fontWeight: 700,
+                    }}>{c.reg}</span>
+                    <span style={{ fontSize: 11, color: "#94a3b8", fontWeight: 600 }}>{c.brokers} brokers</span>
+                  </div>
                 </div>
-                <ArrowRight size={16} color="#94a3b8" />
+                <ArrowRight size={16} color="#cbd5e1" style={{ flexShrink: 0, transition: "color 0.2s" }} />
               </div>
-              <div style={{ display: "flex", gap: 4, flexWrap: "wrap" }}>
-                {c.verticals.slice(0, 3).map(v => (
-                  <span key={v} style={{
-                    padding: "2px 7px", borderRadius: 4,
-                    background: "#f1f5f9", color: "#475569",
-                    fontSize: 11, fontWeight: 600,
-                  }}>{v}</span>
+              <div style={{ height: 1, background: "#f0f4f8", margin: mob ? "10px 16px 0" : "12px 20px 0" }} />
+              <div style={{ display: "flex", gap: mob ? 8 : 10, flexWrap: "wrap", alignItems: "center", padding: mob ? "10px 16px 14px" : "12px 20px 16px", marginTop: "auto" }}>
+                {c.verticals.map((v, vi) => (
+                  <Link key={vi} to={lp(v.path)} style={{
+                    display: "inline-flex", alignItems: "center", gap: 5,
+                    textDecoration: "none", padding: "2px 0", lineHeight: 1.3,
+                  }}
+                    onMouseEnter={e => { const t = e.currentTarget.querySelector(".country-vl"); if (t) { t.style.color = "#047857"; t.style.borderBottomColor = "#047857"; } }}
+                    onMouseLeave={e => { const t = e.currentTarget.querySelector(".country-vl"); if (t) { t.style.color = "#059669"; t.style.borderBottomColor = "transparent"; } }}
+                  >
+                    <span style={{ width: 6, height: 6, borderRadius: "50%", background: v.color, flexShrink: 0, transition: "transform 0.15s" }} />
+                    <span className="country-vl" style={{ fontSize: 11.5, fontWeight: 500, color: "#059669", letterSpacing: "0.01em", borderBottom: "1px solid transparent", transition: "all 0.15s" }}>
+                      {v.label} {v.word} {c.geo}
+                    </span>
+                  </Link>
                 ))}
-                {c.verticals.length > 3 && (
-                  <span style={{
-                    padding: "2px 7px", borderRadius: 4,
-                    background: "#ecfdf5", color: "#059669",
-                    fontSize: 11, fontWeight: 700,
-                  }}>+{c.verticals.length - 3} more</span>
-                )}
               </div>
-            </Link>
+            </div>
           ))}
         </div>
+        {mob && <div style={{ textAlign: "center", marginTop: 8, fontSize: 11, color: "#94a3b8", fontWeight: 600 }}>Swipe to see more countries →</div>}
         <div style={{ textAlign: "center", marginTop: 20 }}>
           <Link to={lp("/best-forex-brokers-by-country")} style={{
             fontSize: 14, fontWeight: 600, color: "#059669",
