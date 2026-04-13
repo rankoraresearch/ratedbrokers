@@ -65,6 +65,17 @@ img { max-width: 100%; height: auto; }
   color: #059669 !important;
   transform: translateX(2px);
 }
+.d2k-row .d2k-risk {
+  opacity: 0;
+  max-height: 0;
+  margin: 0;
+  transition: opacity 0.2s, max-height 0.2s;
+}
+.d2k-row:hover .d2k-risk {
+  opacity: 1;
+  max-height: 20px;
+  margin-top: 1px;
+}
 
 /* ── Quiz animations ── */
 @keyframes quizFadeIn {

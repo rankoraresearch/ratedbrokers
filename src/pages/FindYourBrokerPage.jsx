@@ -325,7 +325,7 @@ export default function FindYourBrokerPage() {
               <BrokerLogo slug={r.slug} name={B.name} size={52} shape="icon" />
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div style={{ fontSize: 17, fontWeight: 600, color: "#0f172a", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{B.name}</div>
-                {rw && <div style={{ fontSize: 10, lineHeight: 1.3, color: "#6b7280", marginTop: 2, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{rw}</div>}
+                {rw && <div className="d2k-risk" style={{ fontSize: 10, lineHeight: 1.3, color: "#6b7280", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{rw}</div>}
               </div>
               <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 13, fontWeight: 800, color: r.matchPct >= 80 ? "#059669" : "#64748b" }}>{r.matchPct}%</span>
               <ArrowUpRight size={18} className="d2k-arrow" color={i === 0 ? "#059669" : "#94a3b8"} style={{ flexShrink: 0 }} />
@@ -656,7 +656,7 @@ export default function FindYourBrokerPage() {
                 <BrokerLogo slug={r.slug} name={B.name} size={48} shape="icon" />
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <div style={{ fontSize: 16, fontWeight: 600, color: "#0f172a", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{B.name}</div>
-                  {rw && <div style={{ fontSize: 10, lineHeight: 1.3, color: "#6b7280", marginTop: 2, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{rw}</div>}
+                  {rw && <div className="d2k-risk" style={{ fontSize: 10, lineHeight: 1.3, color: "#6b7280", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{rw}</div>}
                 </div>
                 <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 13, fontWeight: 800, color: r.matchPct >= 80 ? "#059669" : "#64748b" }}>{r.matchPct}%</span>
                 <ArrowUpRight size={18} className="d2k-arrow" color={i === 0 ? "#059669" : "#94a3b8"} style={{ flexShrink: 0 }} />
@@ -985,7 +985,7 @@ export default function FindYourBrokerPage() {
                       borderRadius: 4, verticalAlign: "middle", textTransform: "uppercase",
                     }}>Best Match</span>}
                   </div>
-                  {rw && <div style={{ fontSize: mob ? 10 : 9, lineHeight: 1.3, color: "#6b7280", marginTop: 1, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{rw}</div>}
+                  {rw && <div className="d2k-risk" style={{ fontSize: mob ? 10 : 9, lineHeight: 1.3, color: "#6b7280", marginTop: 1, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{rw}</div>}
                 </div>
                 <span style={{
                   fontFamily: "'JetBrains Mono',monospace",
