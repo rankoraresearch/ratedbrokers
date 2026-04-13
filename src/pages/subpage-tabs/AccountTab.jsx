@@ -84,9 +84,9 @@ export default function AccountTab({ data, slug, mob }) {
 
       {/* Demo account CTA */}
       <div style={{
-        background: `linear-gradient(135deg, ${NAVY}, #1e293b)`, borderRadius: 12, padding: mob ? "16px" : "18px 22px",
+        background: `linear-gradient(135deg, ${NAVY}, #1e293b)`, borderRadius: 12, padding: mob ? "12px 14px" : "18px 22px",
         display: "flex", flexDirection: mob ? "column" : "row", alignItems: mob ? "stretch" : "center",
-        gap: mob ? 12 : 20, marginBottom: 24,
+        gap: mob ? 10 : 20, marginBottom: 24,
       }}>
         <div style={{ flex: 1 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6 }}>

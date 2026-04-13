@@ -285,24 +285,24 @@ export default function AlternativesTab({ data, slug, mob, tab }) {
 
       {/* ─── Mid-page CTA banner ─── */}
       <div style={{
-        background: NAVY, borderRadius: 12, padding: mob ? "16px" : "18px 24px",
+        background: NAVY, borderRadius: 12, padding: mob ? "12px 14px" : "18px 24px",
         display: "flex", alignItems: mob ? "stretch" : "center",
         flexDirection: mob ? "column" : "row", justifyContent: "space-between",
-        gap: mob ? 12 : 16, margin: "0 0 28px",
+        gap: mob ? 10 : 16, margin: "0 0 28px",
         border: "1px solid rgba(255,255,255,0.08)",
       }}>
         <div>
-          <div style={{ fontSize: 15, fontWeight: 700, color: "#fff" }}>Our Top Pick: {topAlt?.name}</div>
-          <div style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", marginTop: 2 }}>Rated {topAlt?.score}/10 — the #1 {B.name} alternative</div>
+          <div style={{ fontSize: mob ? 14 : 15, fontWeight: 700, color: "#fff" }}>Our Top Pick: {topAlt?.name}</div>
+          <div style={{ fontSize: mob ? 12 : 13, color: "rgba(255,255,255,0.6)", marginTop: 2 }}>Rated {topAlt?.score}/10 — the #1 {B.name} alternative</div>
         </div>
         <a href={getVisitUrl(topAlt?.slug || slug)} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{
           background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: NAVY,
-          fontSize: 14, fontWeight: 700, textDecoration: "none",
-          padding: "12px 28px", borderRadius: 8, display: "inline-flex",
+          fontSize: mob ? 13 : 14, fontWeight: 700, textDecoration: "none",
+          padding: mob ? "10px 20px" : "12px 28px", borderRadius: 8, display: "inline-flex",
           alignItems: "center", gap: 6, whiteSpace: "nowrap", flexShrink: 0,
           justifyContent: "center", boxShadow: "0 2px 8px rgba(245,158,11,0.3)",
         }}>
-          Visit {topAlt?.name} <ExternalLink size={14} />
+          Visit {topAlt?.name} <ExternalLink size={mob ? 12 : 14} />
         </a>
       </div>
 
@@ -442,26 +442,28 @@ export default function AlternativesTab({ data, slug, mob, tab }) {
       {/* ─── Bottom CTA ─── */}
       <div style={{
         background: "linear-gradient(135deg, #0f172a, #1e293b)", borderRadius: 14,
-        padding: mob ? 20 : 28, margin: "28px 0 24px", textAlign: "center",
+        padding: mob ? 16 : 28, margin: "28px 0 24px", textAlign: "center",
         border: "1px solid rgba(52,211,153,0.2)",
       }}>
-        <div style={{ fontSize: mob ? 18 : 22, fontWeight: 800, color: "#fff", fontFamily: "Outfit", marginBottom: 6 }}>Ready to Switch from {B.name}?</div>
-        <div style={{ fontSize: 14, color: "rgba(255,255,255,0.6)", marginBottom: 16 }}>Open an account with our #1 recommended alternative</div>
+        <div style={{ fontSize: mob ? 16 : 22, fontWeight: 800, color: "#fff", fontFamily: "Outfit", marginBottom: 6 }}>Ready to Switch from {B.name}?</div>
+        <div style={{ fontSize: mob ? 13 : 14, color: "rgba(255,255,255,0.6)", marginBottom: mob ? 12 : 16 }}>Open an account with our #1 recommended alternative</div>
         <div style={{ display: "flex", flexDirection: mob ? "column" : "row", gap: 10, justifyContent: "center", alignItems: "center" }}>
           <a href={getVisitUrl(topAlt?.slug || slug)} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{
             background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: NAVY,
-            fontSize: 16, fontWeight: 700, textDecoration: "none",
-            padding: "14px 32px", borderRadius: 10, display: "inline-flex",
-            alignItems: "center", gap: 8, boxShadow: "0 4px 16px rgba(245,158,11,0.3)",
+            fontSize: mob ? 14 : 16, fontWeight: 700, textDecoration: "none",
+            padding: mob ? "12px 24px" : "14px 32px", borderRadius: 10, display: "inline-flex",
+            alignItems: "center", justifyContent: "center", gap: 8, boxShadow: "0 4px 16px rgba(245,158,11,0.3)",
+            width: mob ? "100%" : "auto", boxSizing: "border-box",
           }}>
-            Visit {topAlt?.name} <ExternalLink size={15} />
+            Visit {topAlt?.name} <ExternalLink size={mob ? 13 : 15} />
           </a>
           {featured[1] && (
             <a href={getVisitUrl(featured[1].slug)} target="_blank" rel="noopener nofollow sponsored" className="cta-secondary" style={{
               background: "transparent", color: "#34d399", border: "2px solid #34d399",
-              fontSize: 14, fontWeight: 700, textDecoration: "none",
-              padding: "12px 24px", borderRadius: 10, display: "inline-flex",
-              alignItems: "center", gap: 6,
+              fontSize: mob ? 13 : 14, fontWeight: 700, textDecoration: "none",
+              padding: mob ? "10px 20px" : "12px 24px", borderRadius: 10, display: "inline-flex",
+              alignItems: "center", justifyContent: "center", gap: 6,
+              width: mob ? "100%" : "auto", boxSizing: "border-box",
             }}>
               Visit {featured[1].name} <ExternalLink size={13} />
             </a>
