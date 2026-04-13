@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { useMedia } from "../hooks/useMedia";
 import { useLocalePath } from "../i18n/useLocalePath";
-import { QUIZ_QUESTIONS, POPULAR_COUNTRIES, CONTEXTUAL_TIPS, matchBrokers, detectCountry, getWeakPoint, getUserProfile } from "../utils/quizMatching";
+import { QUIZ_QUESTIONS, POPULAR_COUNTRIES, CONTEXTUAL_TIPS, matchBrokers, getWeakPoint, getUserProfile } from "../utils/quizMatching";
 import { getVisitUrl } from "../utils/visitUrl";
 import { getTrustpilotUrl } from "../data/trustpilot-links";
 import ScoreBadge from "../components/ScoreBadge";
@@ -83,7 +83,6 @@ export default function FindYourBrokerPage() {
   const [transitioning, setTransitioning] = useState(false);
   const [infoOpen, setInfoOpen] = useState(null);
   const [searchCountry, setSearchCountry] = useState("");
-  const [geoDetected, setGeoDetected] = useState(false);
   const [showLoading, setShowLoading] = useState(false);
   const [riskExpanded, setRiskExpanded] = useState({});
   const containerRef = useRef(null);
@@ -96,19 +95,6 @@ export default function FindYourBrokerPage() {
   const isResults = step >= totalSteps;
   const currentQ = QUIZ_QUESTIONS[step] || null;
 
-  // GeoIP auto-detect
-  const [geoCode, setGeoCode] = useState(null);
-  const [geoManualOverride, setGeoManualOverride] = useState(false);
-  useEffect(() => {
-    detectCountry().then((code) => { if (code) setGeoCode(code); });
-  }, []);
-  useEffect(() => {
-    if (!geoCode) return;
-    setAnswers((prev) => prev.country ? prev : { ...prev, country: geoCode });
-  }, [geoCode]);
-  useEffect(() => {
-    setGeoDetected(!!geoCode && answers.country === geoCode && !geoManualOverride);
-  }, [geoCode, answers.country, geoManualOverride]);
 
   useEffect(() => { window.scrollTo({ top: 0, behavior: "smooth" }); }, [step]);
 
@@ -213,11 +199,9 @@ export default function FindYourBrokerPage() {
   }
   function restart() {
     setStep(0); setInfoOpen(null); setRiskExpanded({});
-    setGeoManualOverride(false);
-    setAnswers(geoCode ? { country: geoCode } : {});
+    setAnswers({});
   }
   function setAnswer(qId, value) {
-    if (qId === "country") setGeoManualOverride(true);
     setAnswers((prev) => ({ ...prev, [qId]: value }));
   }
   function toggleMulti(qId, value) {
@@ -429,8 +413,10 @@ export default function FindYourBrokerPage() {
             <div style={{ position: "relative", marginBottom: 12 }}>
               <Search size={16} style={{ position: "absolute", left: 12, top: "50%", transform: "translateY(-50%)", color: "#94a3b8" }} />
               <input
+                id="quiz-country-search"
                 type="text" placeholder="Search country..." value={searchCountry}
                 aria-label="Search country"
+                autoFocus={searchCountry.length > 0}
                 onChange={(e) => setSearchCountry(e.target.value)}
                 style={{
                   width: "100%", padding: "10px 12px 10px 36px", borderRadius: 10,
@@ -442,16 +428,7 @@ export default function FindYourBrokerPage() {
               />
             </div>
 
-            {geoDetected && answers.country && (
-              <div style={{
-                padding: "8px 12px", borderRadius: 8, marginBottom: 12,
-                background: "#ecfdf5", border: "1px solid #a7f3d0",
-                fontSize: 13, color: "#047857", fontWeight: 500,
-                display: "flex", alignItems: "center", gap: 6,
-              }}>
-                <Check size={14} /> Auto-detected your location. Change below if needed.
-              </div>
-            )}
+
 
             {/* Popular countries */}
             {popularCountries.length > 0 && (
