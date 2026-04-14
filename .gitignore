@@ -47,3 +47,6 @@ uk-snapshot.md
 .wrangler
 .dev.vars*
 !.dev.vars.example
+
+# Keyword research data (may be regenerated)
+data/
