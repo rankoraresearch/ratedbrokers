@@ -254,9 +254,9 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug, fe
     return (
       <div style={{
         background: "#fff", borderRadius: 16,
-        border: rank === 1 ? "2px solid #059669" : "1px solid #e2e8f0",
+        border: rank === 1 ? "2px solid #059669" : "1px solid #d1d5db",
         overflow: "hidden",
-        boxShadow: rank === 1 ? "0 4px 16px rgba(5,150,105,0.08)" : "0 1px 4px rgba(0,0,0,0.03)",
+        boxShadow: rank === 1 ? "0 4px 16px rgba(5,150,105,0.08)" : "0 2px 8px rgba(15,23,42,0.06)",
       }}>
         {/* Header: rank left, score right */}
         <div style={{
@@ -416,13 +416,13 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug, fe
   return (
     <div style={{
       background: "#fff", borderRadius: 16,
-      border: rank === 1 ? "2px solid #059669" : "1px solid #e2e8f0",
-      boxShadow: rank === 1 ? "0 4px 16px rgba(5,150,105,0.08)" : "0 1px 4px rgba(0,0,0,0.03)",
+      border: rank === 1 ? "2px solid #059669" : "1px solid #d1d5db",
+      boxShadow: rank === 1 ? "0 4px 16px rgba(5,150,105,0.08)" : "0 2px 8px rgba(15,23,42,0.06)",
       transition: "all 0.25s cubic-bezier(0.4,0,0.2,1)",
       overflow: "hidden",
     }}
       onMouseEnter={(e) => { e.currentTarget.style.boxShadow = rank === 1 ? "0 8px 32px rgba(5,150,105,0.12)" : "0 8px 32px rgba(0,0,0,0.08)"; }}
-      onMouseLeave={(e) => { e.currentTarget.style.boxShadow = rank === 1 ? "0 4px 16px rgba(5,150,105,0.08)" : "0 1px 4px rgba(0,0,0,0.03)"; }}
+      onMouseLeave={(e) => { e.currentTarget.style.boxShadow = rank === 1 ? "0 4px 16px rgba(5,150,105,0.08)" : "0 2px 8px rgba(15,23,42,0.06)"; }}
     >
       {/* ── Top row: horizontal summary ── */}
       <div style={{

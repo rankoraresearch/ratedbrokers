@@ -128,7 +128,9 @@ const visitUrl = apiBase ? `${apiBase}/go/${slug}` : B.url;
 
 **Строка**: `[badge 28×28 r8] [logo 52px mob / 48px desk] [name 17/15px] [match%] [ArrowUpRight ↗]`
 
-**Hover**: мягкая тень (`box-shadow: 0 4px 20px rgba(0,0,0,0.08)`) + серая рамка `#cbd5e1`. Стрелка зеленеет + сдвигается +2px. Risk warning появляется под именем.
+**Default state (white-on-gray)**: на серых фонах (`#f8f9fb`) — `background: #fff`, `border: 1px solid #e2e8f0`, `box-shadow: 0 1px 3px rgba(15,23,42,0.04)`. Все строки одинаковые — **не выделять #1 цветом** (зелёный tint/бордер для лидера запрещён в D2k списках).
+
+**Hover**: мягкая тень (`box-shadow: 0 4px 20px rgba(0,0,0,0.08)`) + серая рамка `#cbd5e1` (через `!important` в CSS, т.к. перебивает inline border/shadow). Стрелка зеленеет + сдвигается +2px. Risk warning появляется под именем.
 
 **Правила**:
 - Блоки статичны — не прыгают, не меняют высоту

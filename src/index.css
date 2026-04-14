@@ -88,8 +88,8 @@ img { max-width: 100%; height: auto; }
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 .d2k-row:hover, .d2k-row:active {
-  border-color: #cbd5e1;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04);
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04) !important;
 }
 .d2k-row .d2k-arrow {
   transition: color 0.2s, transform 0.2s;

@@ -79,7 +79,10 @@ function QuickBrokerGrid({ brokers, mob }) {
             style={{
               display: "flex", alignItems: "center", gap: mob ? 10 : 10,
               padding: mob ? "12px 12px" : "10px 12px",
-              borderRadius: 12, background: i === 0 ? "rgba(236,253,245,0.4)" : "transparent",
+              borderRadius: 12,
+              background: "#fff",
+              border: "1px solid #e2e8f0",
+              boxShadow: "0 1px 3px rgba(15,23,42,0.04)",
               textDecoration: "none", minWidth: 0,
             }}>
             <div style={{
