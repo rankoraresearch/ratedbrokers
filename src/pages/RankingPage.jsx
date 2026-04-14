@@ -61,14 +61,28 @@ function QuickBrokerGrid({ brokers, mob }) {
   const top10 = brokers.slice(0, 10);
 
   return (
-    <div className="d2k-list" style={{
-      display: mob ? "flex" : "grid",
-      flexDirection: mob ? "column" : undefined,
-      gridTemplateColumns: mob ? undefined : "1fr 1fr",
-      gridAutoFlow: mob ? undefined : "column",
-      gridTemplateRows: mob ? undefined : "repeat(5, auto)",
-      gap: mob ? 5 : 8,
+    <div style={{
+      background: "#fff", borderRadius: 14, border: "none",
+      boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.06), 0 4px 24px rgba(0,0,0,0.05)",
+      overflow: "hidden",
     }}>
+      <div style={{
+        padding: mob ? "16px 16px 12px" : "20px 24px 14px",
+        borderBottom: "1px solid rgba(0,0,0,0.04)",
+        display: "flex", alignItems: "center", justifyContent: "space-between",
+      }}>
+        <h2 style={{ fontFamily: "'Outfit',sans-serif", fontSize: mob ? 18 : 22, fontWeight: 800, color: "#0f172a", margin: 0 }}>Top 10 at a Glance</h2>
+        <span style={{ fontSize: 12, color: "#94a3b8" }}>Ranked by our score</span>
+      </div>
+      <div className="d2k-list" style={{
+        padding: "6px 8px",
+        display: mob ? "flex" : "grid",
+        flexDirection: mob ? "column" : undefined,
+        gridTemplateColumns: mob ? undefined : "1fr 1fr",
+        gridAutoFlow: mob ? undefined : "column",
+        gridTemplateRows: mob ? undefined : "repeat(5, auto)",
+        gap: mob ? 5 : "0 8px",
+      }}>
       {top10.map((broker, i) => {
         const B = broker.B;
         const visitUrl = makeVisitUrl(broker.slug, B.url);
@@ -79,10 +93,7 @@ function QuickBrokerGrid({ brokers, mob }) {
             style={{
               display: "flex", alignItems: "center", gap: mob ? 10 : 10,
               padding: mob ? "12px 12px" : "10px 12px",
-              borderRadius: 12,
-              background: "#fff",
-              border: "1px solid #e2e8f0",
-              boxShadow: "0 1px 3px rgba(15,23,42,0.04)",
+              borderRadius: 12, background: "transparent",
               textDecoration: "none", minWidth: 0,
             }}>
             <div style={{
@@ -113,6 +124,7 @@ function QuickBrokerGrid({ brokers, mob }) {
           </a>
         );
       })}
+      </div>
     </div>
   );
 }
@@ -693,9 +705,6 @@ export default function RankingPage() {
 
       {/* ═══ БЛОК 2: Quick Broker Grid ═══ */}
       <section id="top-brokers" style={{ ...cn, paddingBottom: mob ? 16 : 20 }}>
-        <h2 style={{ ...T.h2(mob), marginBottom: mob ? 8 : 10 }}>
-          Top 10 at a Glance
-        </h2>
         <QuickBrokerGrid brokers={brokers} mob={mob} />
       </section>
 

@@ -128,9 +128,21 @@ const visitUrl = apiBase ? `${apiBase}/go/${slug}` : B.url;
 
 **Строка**: `[badge 28×28 r8] [logo 52px mob / 48px desk] [name 17/15px] [match%] [ArrowUpRight ↗]`
 
-**Default state (white-on-gray)**: на серых фонах (`#f8f9fb`) — `background: #fff`, `border: 1px solid #e2e8f0`, `box-shadow: 0 1px 3px rgba(15,23,42,0.04)`. Все строки одинаковые — **не выделять #1 цветом** (зелёный tint/бордер для лидера запрещён в D2k списках).
+**White-on-gray стандарт (reference: `/find-your-broker` results → "Your Top 10 Matches")**: список строк живёт внутри **одного** белого контейнера. Строки внутри — **прозрачные**, без собственных границ/теней. Эталон задан на странице «Find Your Broker» в блоке результатов анкеты — все новые D2k-блоки копируют эту обёртку.
 
-**Hover**: мягкая тень (`box-shadow: 0 4px 20px rgba(0,0,0,0.08)`) + серая рамка `#cbd5e1` (через `!important` в CSS, т.к. перебивает inline border/shadow). Стрелка зеленеет + сдвигается +2px. Risk warning появляется под именем.
+Эталонная обёртка (`cardStyle`):
+```js
+{
+  background: "#fff", borderRadius: 14, border: "none",
+  boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.06), 0 4px 24px rgba(0,0,0,0.05)",
+  overflow: "hidden",
+}
+```
+Внутри: шапка `padding: mob ? "16px 16px 12px" : "20px 24px 14px"` + `borderBottom: 1px solid rgba(0,0,0,0.04)` с заголовком H2 (Outfit 700, 18/22px) слева и вспомогательным текстом справа (`fontSize: 12, color: #94a3b8`). Ниже — `.d2k-list` с `padding: 6px 8px`, строки `background: transparent`.
+
+**Все строки одинаковые** — **лидера #1 НЕ выделять** цветным фоном/бордером (правило Егора, 14.04.2026). Ранг передаётся только через `#N` badge (Top 3 — зелёный градиент, остальные — серый).
+
+**Hover** (через `.d2k-row` в `index.css`): мягкая тень `box-shadow: 0 4px 20px rgba(0,0,0,0.08)` + серая рамка `#cbd5e1` (с `!important`). Стрелка зеленеет + сдвигается +2px. Risk warning появляется под именем.
 
 **Правила**:
 - Блоки статичны — не прыгают, не меняют высоту
