@@ -48,6 +48,11 @@ td.gn, td.gp{display:none}
 .legend span{display:flex;align-items:center;gap:4px}
 .dot{width:8px;height:8px;border-radius:50%}
 th .full{display:block;font-size:7px;font-weight:400;letter-spacing:0;text-transform:none;color:#64748b;margin-top:2px;white-space:nowrap}
+th.sortable{cursor:pointer;user-select:none}
+th.sortable:hover{background:#334155}
+th.sortable::after{content:" ↕";opacity:.3;font-size:9px}
+th.sorted-desc::after{content:" ↓";opacity:1;color:#34d399}
+th.sorted-asc::after{content:" ↑";opacity:1;color:#34d399}
 </style></head><body>
 <h1>Content Word Count Audit v2</h1>
 <p class="sub">RatedBrokers vs 8 Competitors | 2026-04-13 | 344 pages | Strategy: rewrite 100% from scratch | Keyword data: Ahrefs API</p>
@@ -76,7 +81,7 @@ th .full{display:block;font-size:7px;font-weight:400;letter-spacing:0;text-trans
 <button class="tab" onclick="showTab('rank')">Rankings (293)</button>
 </div>
 <div id="tab-rev" class="tc active"><table><thead><tr>
-<th>#</th><th>Broker</th><th>P</th><th>Tier</th><th title="Search volume">Vol</th><th title="Keyword Difficulty">KD</th><th title="Traffic Potential">TP</th><th title="BrokerChooser">BC<span class="full">BrokerChooser</span></th><th title="ForexBrokers.com">FB<span class="full">ForexBrokers</span></th><th title="BestBrokers.com">BB<span class="full">BestBrokers</span></th><th title="CompareForexBrokers.com">CFB<span class="full">CompareFX</span></th><th title="Investopedia">INV<span class="full">Investopedia</span></th><th title="NerdWallet">NW<span class="full">NerdWallet</span></th><th title="FXEmpire">FXE<span class="full">FXEmpire</span></th><th title="StockBrokers.com">SB<span class="full">StockBrokers</span></th><th>Avg</th><th>Gap</th><th style="min-width:220px">Target (words)</th>
+<th>#</th><th class="sortable" data-sort="text">Broker</th><th>P</th><th class="sortable" data-sort="tier">Tier</th><th class="sortable" data-sort="num" title="Search volume">Vol</th><th class="sortable" data-sort="num" title="Keyword Difficulty">KD</th><th class="sortable sorted-desc" data-sort="num" title="Traffic Potential" data-default="1">TP</th><th title="BrokerChooser">BC<span class="full">BrokerChooser</span></th><th title="ForexBrokers.com">FB<span class="full">ForexBrokers</span></th><th title="BestBrokers.com">BB<span class="full">BestBrokers</span></th><th title="CompareForexBrokers.com">CFB<span class="full">CompareFX</span></th><th title="Investopedia">INV<span class="full">Investopedia</span></th><th title="NerdWallet">NW<span class="full">NerdWallet</span></th><th title="FXEmpire">FXE<span class="full">FXEmpire</span></th><th title="StockBrokers.com">SB<span class="full">StockBrokers</span></th><th class="sortable" data-sort="num">Avg</th><th>Gap</th><th class="sortable" data-sort="num" style="min-width:120px">Target (words)</th>
 </tr></thead><tbody>
 <tr class="pa"><td>1</td><td>Libertex</td><td>A</td><td><span style="display:inline-block;padding:2px 8px;border-radius:10px;background:#34d399;color:#064e3b;font-weight:700;font-size:11px">A</span></td><td>500</td><td>1</td><td>350</td><td class="comp"><span class="e">—</span></td><td class="comp"><span class="e">—</span></td><td class="comp"><span class="e">—</span></td><td class="comp"><span class="e">—</span></td><td class="comp"><span class="e">—</span></td><td class="comp"><span class="e">—</span></td><td class="comp">6,652</td><td class="comp"><span class="e">—</span></td><td class="comp">6,652</td><td class="gn">-4,477</td><td><span class="tgt" style="font-weight:700;font-size:14px">5,500</span></td></tr>
 <tr class="ps"><td>2</td><td>tastytrade</td><td>S</td><td><span style="display:inline-block;padding:2px 8px;border-radius:10px;background:#60a5fa;color:#1e3a8a;font-weight:700;font-size:11px">B</span></td><td>350</td><td>6</td><td>200</td><td class="comp">4,800</td><td class="comp"><span class="e">—</span></td><td class="comp"><span class="e">—</span></td><td class="comp"><span class="e">—</span></td><td class="comp"><span class="e">—</span></td><td class="comp"><span class="e">—</span></td><td class="comp"><span class="e">—</span></td><td class="comp">5,863</td><td class="comp">5,332</td><td class="gn">-4,384</td><td><span class="tgt" style="font-weight:700;font-size:14px">5,500</span></td></tr>
@@ -131,7 +136,7 @@ th .full{display:block;font-size:7px;font-weight:400;letter-spacing:0;text-trans
 <tr class="pa"><td>51</td><td>NAGA</td><td>A</td><td><span style="display:inline-block;padding:2px 8px;border-radius:10px;background:#60a5fa;color:#1e3a8a;font-weight:700;font-size:11px">B</span></td><td>60</td><td>2</td><td>30</td><td class="comp"><span class="e">—</span></td><td class="comp"><span class="e">—</span></td><td class="comp"><span class="e">—</span></td><td class="comp"><span class="e">—</span></td><td class="comp"><span class="e">—</span></td><td class="comp"><span class="e">—</span></td><td class="comp"><span class="e">—</span></td><td class="comp"><span class="e">—</span></td><td class="comp"><span class="e">—</span></td><td class="e">—</td><td><span class="tgt" style="font-weight:700;font-size:14px">5,500</span></td></tr>
 </tbody></table></div>
 <div id="tab-rank" class="tc"><table><thead><tr>
-<th>#</th><th>Ranking</th><th>Tier</th><th title="Search volume">Vol</th><th title="Keyword Difficulty">KD</th><th title="Traffic Potential">TP</th><th title="BrokerChooser">BC<span class="full">BrokerChooser</span></th><th title="ForexBrokers.com">FB<span class="full">ForexBrokers</span></th><th title="BestBrokers.com">BB<span class="full">BestBrokers</span></th><th title="CompareForexBrokers.com">CFB<span class="full">CompareFX</span></th><th title="Investopedia">INV<span class="full">Investopedia</span></th><th title="NerdWallet">NW<span class="full">NerdWallet</span></th><th title="FXEmpire">FXE<span class="full">FXEmpire</span></th><th title="StockBrokers.com">SB<span class="full">StockBrokers</span></th><th>Avg</th><th>Gap</th><th style="min-width:220px">Target (words)</th>
+<th>#</th><th class="sortable" data-sort="text">Ranking</th><th class="sortable" data-sort="tier">Tier</th><th class="sortable" data-sort="num" title="Search volume">Vol</th><th class="sortable" data-sort="num" title="Keyword Difficulty">KD</th><th class="sortable sorted-desc" data-sort="num" title="Traffic Potential" data-default="1">TP</th><th title="BrokerChooser">BC<span class="full">BrokerChooser</span></th><th title="ForexBrokers.com">FB<span class="full">ForexBrokers</span></th><th title="BestBrokers.com">BB<span class="full">BestBrokers</span></th><th title="CompareForexBrokers.com">CFB<span class="full">CompareFX</span></th><th title="Investopedia">INV<span class="full">Investopedia</span></th><th title="NerdWallet">NW<span class="full">NerdWallet</span></th><th title="FXEmpire">FXE<span class="full">FXEmpire</span></th><th title="StockBrokers.com">SB<span class="full">StockBrokers</span></th><th class="sortable" data-sort="num">Avg</th><th>Gap</th><th class="sortable" data-sort="num" style="min-width:120px">Target (words)</th>
 </tr></thead><tbody>
 <tr><td>1</td><td>Best Low Spread Crypto Brokers</td><td><span style="display:inline-block;padding:2px 8px;border-radius:10px;background:#64748b;color:#1e293b;font-weight:700;font-size:11px">C</span></td><td><span class="e">—</span></td><td><span class="e">—</span></td><td><span class="e">—</span></td><td class="comp"><span class="e">—</span></td><td class="comp"><span class="e">—</span></td><td class="comp">6,925</td><td class="comp"><span class="e">—</span></td><td class="comp"><span class="e">—</span></td><td class="comp"><span class="e">—</span></td><td class="comp"><span class="e">—</span></td><td class="comp"><span class="e">—</span></td><td class="comp">6,925</td><td class="gn">-5,400</td><td><span class="tgt" style="font-weight:700;font-size:14px">6,925</span></td></tr>
 <tr><td>2</td><td>Forex Brokers with Proprietary Platforms</td><td><span style="display:inline-block;padding:2px 8px;border-radius:10px;background:#64748b;color:#1e293b;font-weight:700;font-size:11px">C</span></td><td><span class="e">—</span></td><td><span class="e">—</span></td><td><span class="e">—</span></td><td class="comp"><span class="e">—</span></td><td class="comp">7,238</td><td class="comp">8,899</td><td class="comp">6,185</td><td class="comp"><span class="e">—</span></td><td class="comp"><span class="e">—</span></td><td class="comp">7,585</td><td class="comp">4,046</td><td class="comp">6,791</td><td class="gn">-5,266</td><td><span class="tgt" style="font-weight:700;font-size:14px">6,791</span></td></tr>
@@ -428,5 +433,62 @@ th .full{display:block;font-size:7px;font-weight:400;letter-spacing:0;text-trans
 <tr><td>293</td><td>SCB Regulated Forex Brokers</td><td><span style="display:inline-block;padding:2px 8px;border-radius:10px;background:#64748b;color:#1e293b;font-weight:700;font-size:11px">C</span></td><td><span class="e">—</span></td><td><span class="e">—</span></td><td><span class="e">—</span></td><td class="comp"><span class="e">—</span></td><td class="comp"><span class="e">—</span></td><td class="comp"><span class="e">—</span></td><td class="comp"><span class="e">—</span></td><td class="comp"><span class="e">—</span></td><td class="comp"><span class="e">—</span></td><td class="comp"><span class="e">—</span></td><td class="comp"><span class="e">—</span></td><td class="comp"><span class="e">—</span></td><td class="gn">—</td><td><span class="tgt" style="font-weight:700;font-size:14px">5,500</span></td></tr>
 </tbody></table></div>
 <script>function showTab(n){document.querySelectorAll('.tc').forEach(e=>e.classList.remove('active'));document.querySelectorAll('.tab').forEach(e=>e.classList.remove('active'));document.getElementById('tab-'+n).classList.add('active');event.target.classList.add('active')}</script>
+<script>
+(function(){
+  function parseNum(text){
+    if(!text) return -Infinity;
+    var t = text.replace(/[,\s]/g,'').replace(/[^0-9.\-]/g,'');
+    if(t==='' || t==='—') return -Infinity;
+    var n = parseFloat(t);
+    return isNaN(n) ? -Infinity : n;
+  }
+  var tierOrder = {'S':4,'A':3,'B':2,'C':1};
+  function getCellValue(tr, idx, kind){
+    var cell = tr.children[idx];
+    if(!cell) return kind==='text'?'':-Infinity;
+    var txt = cell.textContent.trim();
+    if(kind==='tier') return tierOrder[txt] || 0;
+    if(kind==='text') return txt.toLowerCase();
+    return parseNum(txt);
+  }
+  function sortTable(table, thIdx, kind, desc){
+    var tbody = table.querySelector('tbody');
+    var rows = Array.from(tbody.querySelectorAll('tr'));
+    rows.sort(function(a,b){
+      var va = getCellValue(a, thIdx, kind);
+      var vb = getCellValue(b, thIdx, kind);
+      if(va < vb) return desc ? 1 : -1;
+      if(va > vb) return desc ? -1 : 1;
+      return 0;
+    });
+    rows.forEach(function(r){ tbody.appendChild(r); });
+  }
+  function applySort(th){
+    var table = th.closest('table');
+    var ths = Array.from(table.querySelectorAll('thead th'));
+    var idx = ths.indexOf(th);
+    var kind = th.dataset.sort;
+    var isDescNow = th.classList.contains('sorted-desc');
+    var isAscNow = th.classList.contains('sorted-asc');
+    // toggle: none→desc, desc→asc, asc→desc
+    var newDesc = !isDescNow;
+    ths.forEach(function(x){ x.classList.remove('sorted-desc','sorted-asc'); });
+    th.classList.add(newDesc ? 'sorted-desc' : 'sorted-asc');
+    sortTable(table, idx, kind, newDesc);
+  }
+  document.querySelectorAll('th.sortable').forEach(function(th){
+    th.addEventListener('click', function(){ applySort(th); });
+  });
+  // Apply default sort on each table (TP desc)
+  document.querySelectorAll('table').forEach(function(table){
+    var defTh = table.querySelector('th[data-default="1"]');
+    if(defTh){
+      var ths = Array.from(table.querySelectorAll('thead th'));
+      var idx = ths.indexOf(defTh);
+      sortTable(table, idx, 'num', true);
+    }
+  });
+})();
+</script>
 <script>document.querySelectorAll("th").forEach(t=>{if(t.textContent.trim()==="Gap")t.style.display="none"});</script>
 </body></html>
