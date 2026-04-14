@@ -1,4 +1,5 @@
 User-agent: *
 Disallow: /
+Disallow: /audit/
 
 Sitemap: https://ratedbrokers.com/api/sitemap.xml
