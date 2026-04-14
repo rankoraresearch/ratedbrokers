@@ -1,5 +1,38 @@
 # Design — дизайн-решения RatedBrokers
 
+## Концепция: Premium Dark (2026-04-14)
+
+Сайт-wide дизайн-концепция, зафиксирована после интервью с Егором.
+
+**База**: тёмные поверхности (navy→green gradient) + оранжевые акценты.
+- Dark gradient: `linear-gradient(135deg, #0f172a 0%, #0f2e24 40%, #047857 100%)`
+- Orange primary: `#f59e0b`, soft: `#fbbf24`
+- Текстура: `repeating-linear-gradient(135deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 12px)` — диагональные полоски 12px
+
+**Анти-паттерн** (Егор не принимает):
+- Пастельные цветные chips/badges (зелёный/синий/фиолетовый per category)
+- "Most Popular" badges — шаблонно
+- Зелёная подсветка отдельных элементов на светлом фоне (напр. founder highlight)
+- Разноцветные категорийные плашки (Forex/CFD/Stocks разных цветов)
+- Мелкие шрифты в country sections
+
+**Применяется**: HeroBand, How We Rate (Orange Tiles, 2026-04-14), side-by-side comparisons (тёмные области с оранжевыми элементами).
+
+**Следующие кандидаты на редизайн**: Regulated Brokers by Country (крупнее шрифт, убрать "Most Popular"), разноцветные chips в Compare → монохромные, founder highlight в Expert Team.
+
+## How We Rate — Orange Tiles (Premium Dark)
+
+- Фон: dark gradient + diagonal texture overlay
+- Eyebrow "OUR METHODOLOGY" — 12px JetBrains Mono, orange, letter-spacing 0.18em, uppercase
+- H2: Outfit 800, 40/28px, letterSpacing -0.03em
+- 6 плиток 3×2: `rgba(255,255,255,0.04)` bg + `rgba(255,255,255,0.10)` border
+- Icon box: 40×40, `rgba(245,158,11,0.12)` bg + `rgba(245,158,11,0.28)` border, lucide icon 20px orange strokeWidth 1.75
+- Weight pill: `rgba(245,158,11,0.14)` bg + `#fbbf24` text, JetBrains Mono 13px 800
+- Progress bar: 3px, `rgba(255,255,255,0.08)` track, `linear-gradient(90deg, #f59e0b, #fbbf24)` fill
+- Hover: border → `#f59e0b`, bg → `rgba(245,158,11,0.06)`
+- CTA: orange gradient button "Read full methodology →"
+- Prototype с тумблерами: `/proto/how-we-rate-dark` (eyebrow/texture/emphasis/progress/icons)
+
 ## Hero Band
 - Gradient Duo (navy->green), единый для всех template страниц
 - Коммит `02f83cb`

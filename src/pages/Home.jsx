@@ -10,7 +10,7 @@ import HUBS, { getRankingsForHub } from "../data/categoryHubs";
 import { POPULAR_PAIRS_BY_VERTICAL, canonicalPair, VERTICALS } from "../data/comparisons";
 import BrokerLogo from "../components/BrokerLogo";
 import Icon from "../components/Icon";
-import { ArrowRight, BarChart3, BookOpen, Target, ChevronDown, ChevronUp, ArrowRightLeft, ChartCandlestick, Users, Dices, Bitcoin, TrendingUp, GitBranch, Hourglass } from "lucide-react";
+import { ArrowRight, ArrowUpRight, BarChart3, BookOpen, Target, ChevronDown, ChevronUp, ArrowRightLeft, ChartCandlestick, Users, Dices, Bitcoin, TrendingUp, GitBranch, Hourglass, Shield, DollarSign, Star, Eye, Monitor, Zap } from "lucide-react";
 import HOMEPAGE_SEO from "../data/homepageSeoContent";
 import CountryFlag from "../components/CountryFlag";
 import { AUTHORS } from "../data/authors";
@@ -20,13 +20,13 @@ import AuthorAvatar from "../components/AuthorAvatar";
 // ══════════════════════════════════════════════════════
 // CATEGORY NAV — Variants with switcher
 // ══════════════════════════════════════════════════════
-const RATE_CAT_META = {
-  "Regulation & Safety": { color: "#059669", icon: "shield" },
-  "Trading Costs": { color: "#2563eb", icon: "dollar-sign" },
-  "User Reputation": { color: "#00B67A", icon: "star" },
-  "Broker Transparency": { color: "#7c3aed", icon: "eye" },
-  "Platforms & Tools": { color: "#0ea5e9", icon: "monitor" },
-  "Execution Model": { color: "#f59e0b", icon: "zap" },
+const HOW_WE_RATE_ICONS = {
+  "Regulation & Safety": Shield,
+  "Trading Costs": DollarSign,
+  "User Reputation": Star,
+  "Broker Transparency": Eye,
+  "Platforms & Tools": Monitor,
+  "Execution Model": Zap,
 };
 const CAT_ICONS = {
   forex: ArrowRightLeft, cfd: ChartCandlestick, "copy-trading": Users,
@@ -489,58 +489,100 @@ export default function Home() {
       {/* ===== BROKER SHOWCASE — Power Cards ===== */}
       <BrokerPowerCards mob={mob} tab={tab} lp={lp} brokers={allBrokersData} />
 
-      {/* ===== HOW WE RATE BROKERS — SEO block (V3 Hybrid) ===== */}
-      <section style={{ ...cn, padding: mob ? "40px 16px" : "56px 24px" }}>
-        <h2 style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: mob ? 22 : 28, color: "#0f172a", letterSpacing: "-0.03em", marginBottom: 12 }}>
-          {HOMEPAGE_SEO.howWeRate.heading}
-        </h2>
-        <p style={{ fontSize: mob ? 14 : 15, lineHeight: 1.7, color: "#475569", maxWidth: 800, marginBottom: 24 }}>
-          {HOMEPAGE_SEO.howWeRate.intro}
-        </p>
+      {/* ===== HOW WE RATE BROKERS — Premium Dark (Orange Tiles) ===== */}
+      <section style={{
+        position: "relative",
+        background: "linear-gradient(135deg, #0f172a 0%, #0f2e24 40%, #047857 100%)",
+        color: "#fff",
+      }}>
         <div style={{
-          display: "grid",
-          gridTemplateColumns: mob ? "1fr" : tab ? "1fr 1fr" : "repeat(3, 1fr)",
-          gap: 14, marginBottom: 20,
-        }}>
-          {HOMEPAGE_SEO.howWeRate.categories.map((cat, i) => {
-            const m = RATE_CAT_META[cat.name] || { color: "#059669", icon: "shield" };
-            const weightNum = parseInt(cat.weight);
-            return (
-              <div key={i} style={{
-                padding: mob ? "16px" : "20px", borderRadius: 14,
-                background: "#fff", border: "1px solid #e2e8f0",
-                boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)",
-                transition: "all 0.2s",
+          position: "absolute", inset: 0, pointerEvents: "none",
+          background: "repeating-linear-gradient(135deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 12px)",
+        }} />
+        <div style={{ position: "relative", maxWidth: 1200, margin: "0 auto", padding: mob ? "48px 16px" : "72px 24px" }}>
+          <div style={{ marginBottom: mob ? 28 : 40, maxWidth: 760 }}>
+            <div style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 12, fontWeight: 600, letterSpacing: "0.18em", color: "#f59e0b", textTransform: "uppercase", marginBottom: 14 }}>
+              Our Methodology
+            </div>
+            <h2 style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: mob ? 28 : 40, lineHeight: 1.1, letterSpacing: "-0.03em", margin: 0, marginBottom: 14 }}>
+              {HOMEPAGE_SEO.howWeRate.heading}
+            </h2>
+            <p style={{ fontSize: mob ? 14 : 16, lineHeight: 1.65, color: "rgba(255,255,255,0.72)", margin: 0 }}>
+              {HOMEPAGE_SEO.howWeRate.intro}
+            </p>
+          </div>
+
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: mob ? "1fr" : tab ? "1fr 1fr" : "repeat(3, 1fr)",
+            gap: mob ? 12 : 16, marginBottom: mob ? 28 : 40,
+          }}>
+            {HOMEPAGE_SEO.howWeRate.categories.map((cat, i) => {
+              const weightNum = parseInt(cat.weight);
+              const IconCmp = HOW_WE_RATE_ICONS[cat.name] || Shield;
+              return (
+                <div key={i}
+                  style={{
+                    padding: mob ? "20px" : "24px", borderRadius: 14,
+                    background: "rgba(255,255,255,0.04)",
+                    border: "1px solid rgba(255,255,255,0.10)",
+                    transition: "border-color 0.2s, background 0.2s",
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.borderColor = "#f59e0b";
+                    e.currentTarget.style.background = "rgba(245,158,11,0.06)";
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.10)";
+                    e.currentTarget.style.background = "rgba(255,255,255,0.04)";
+                  }}
+                >
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14 }}>
+                    <div style={{
+                      width: 40, height: 40, borderRadius: 10,
+                      background: "rgba(245,158,11,0.12)",
+                      border: "1px solid rgba(245,158,11,0.28)",
+                      display: "flex", alignItems: "center", justifyContent: "center",
+                    }}>
+                      <IconCmp size={20} color="#f59e0b" strokeWidth={1.75} />
+                    </div>
+                    <span style={{
+                      padding: "4px 10px", borderRadius: 6,
+                      background: "rgba(245,158,11,0.14)", color: "#fbbf24",
+                      fontFamily: "'JetBrains Mono',monospace", fontSize: 13, fontWeight: 800, letterSpacing: "0.02em",
+                    }}>{cat.weight}</span>
+                  </div>
+                  <div style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 700, fontSize: 17, color: "#fff", marginBottom: 8, letterSpacing: "-0.01em" }}>
+                    {cat.name}
+                  </div>
+                  <div style={{ height: 3, borderRadius: 2, background: "rgba(255,255,255,0.08)", overflow: "hidden", marginBottom: 12 }}>
+                    <div style={{ width: `${(weightNum / 30) * 100}%`, height: "100%", borderRadius: 2, background: "linear-gradient(90deg, #f59e0b, #fbbf24)" }} />
+                  </div>
+                  <p style={{ fontSize: 13, lineHeight: 1.6, color: "rgba(255,255,255,0.68)", margin: 0 }}>{cat.desc}</p>
+                </div>
+              );
+            })}
+          </div>
+
+          <div style={{ display: "flex", flexDirection: mob ? "column" : "row", gap: mob ? 20 : 32, alignItems: mob ? "stretch" : "center", justifyContent: "space-between" }}>
+            <p style={{ fontSize: mob ? 14 : 15, lineHeight: 1.65, color: "rgba(255,255,255,0.72)", margin: 0, maxWidth: 620 }}>
+              {HOMEPAGE_SEO.howWeRate.closing}
+            </p>
+            <Link
+              to={lp("/methodology")}
+              style={{
+                display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8,
+                padding: "14px 22px", borderRadius: 10,
+                background: "linear-gradient(135deg, #f59e0b, #fbbf24)",
+                color: "#0f172a", textDecoration: "none",
+                fontFamily: "'Outfit',sans-serif", fontWeight: 700, fontSize: 15,
+                whiteSpace: "nowrap",
+                boxShadow: "0 8px 24px rgba(245,158,11,0.32)",
               }}
-                onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.12)"; e.currentTarget.style.borderColor = "#059669"; }}
-                onMouseLeave={e => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)"; e.currentTarget.style.borderColor = "#e2e8f0"; }}
-              >
-                <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
-                  <Icon name={m.icon} size={24} color={m.color} />
-                  <span style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 700, fontSize: 15, color: "#0f172a", flex: 1 }}>{cat.name}</span>
-                  <span style={{
-                    padding: "3px 10px", borderRadius: 6,
-                    background: m.color + "14", color: m.color,
-                    fontFamily: "'JetBrains Mono',monospace", fontSize: 13, fontWeight: 800,
-                  }}>{cat.weight}</span>
-                </div>
-                <div style={{ height: 4, borderRadius: 2, background: "#f1f5f9", overflow: "hidden", marginBottom: 12 }}>
-                  <div style={{ width: `${(weightNum / 30) * 100}%`, height: "100%", borderRadius: 2, background: m.color, opacity: 0.6 }} />
-                </div>
-                <p style={{ fontSize: 13, lineHeight: 1.6, color: "#64748b", margin: 0 }}>{cat.desc}</p>
-              </div>
-            );
-          })}
-        </div>
-        <p style={{ fontSize: mob ? 14 : 15, lineHeight: 1.7, color: "#475569", maxWidth: 800, marginBottom: 12 }}>
-          {HOMEPAGE_SEO.howWeRate.closing}
-        </p>
-        <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
-          {HOMEPAGE_SEO.howWeRate.links.map((l, i) => (
-            <Link key={i} to={lp(l.path)} className="link-green" style={{ display: "flex", alignItems: "center", gap: 4 }}>
-              {l.text} <ArrowRight size={12} className="link-arrow" />
+            >
+              Read full methodology <ArrowUpRight size={16} />
             </Link>
-          ))}
+          </div>
         </div>
       </section>
 

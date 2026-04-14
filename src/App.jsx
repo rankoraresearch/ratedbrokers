@@ -57,6 +57,7 @@ const ScoreBadgeProto = import.meta.env.DEV ? lazy(() => import("./pages/ScoreBa
 const MobileHomeProto = import.meta.env.DEV ? lazy(() => import("./pages/MobileHomeProto")) : null;
 const QuizPreviewProto = import.meta.env.DEV ? lazy(() => import("./pages/QuizPreviewProto")) : null;
 const HowWeRateProto = import.meta.env.DEV ? lazy(() => import("./pages/HowWeRateProto")) : null;
+const HowWeRateDarkProto = import.meta.env.DEV ? lazy(() => import("./pages/HowWeRateDarkProto")) : null;
 
 function PageLoader() {
   return (
@@ -116,6 +117,7 @@ function AppRoutes() {
         <Route path="proto/mobile-home" element={<Suspense fallback={<PageLoader />}><MobileHomeProto /></Suspense>} />
         <Route path="proto/quiz-preview" element={<Suspense fallback={<PageLoader />}><QuizPreviewProto /></Suspense>} />
         <Route path="proto/how-we-rate" element={<Suspense fallback={<PageLoader />}><HowWeRateProto /></Suspense>} />
+        <Route path="proto/how-we-rate-dark" element={<Layout />}><Route index element={<HowWeRateDarkProto />} /></Route>
       </>}
       <Route element={<Layout />}>
         <Route index element={<Home />} />
