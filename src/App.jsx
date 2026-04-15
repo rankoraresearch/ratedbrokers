@@ -83,14 +83,14 @@ function Layout() {
   return (
     <LanguageProvider>
       <BrokerTypeProvider>
+        {import.meta.env.DEV && <BrokerTypeDevBar />}
         <Header />
-        <div style={{ paddingTop: 64 }}>
+        <div style={{ paddingTop: `calc(64px + var(--rb-devbar-h, 0px))` }}>
           <Suspense fallback={<PageLoader />}>
             <Outlet />
           </Suspense>
         </div>
         <Footer />
-        {import.meta.env.DEV && <BrokerTypeDevBar />}
       </BrokerTypeProvider>
     </LanguageProvider>
   );
