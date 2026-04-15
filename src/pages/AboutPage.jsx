@@ -62,6 +62,59 @@ export default function AboutPage() {
     document.title = "About Us — RatedBrokers | Independent Broker Reviews";
     const meta = document.querySelector('meta[name="description"]');
     if (meta) meta.setAttribute("content", "Meet the team behind RatedBrokers. We independently research online brokers across forex, CFD, crypto, copy trading, and spread betting — 130+ data points per broker. Learn about our mission and methodology.");
+
+    // Schema.org Organization with editorial team — E-E-A-T trust signal for outreach.
+    const orgLd = {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "RatedBrokers",
+      url: "https://ratedbrokers.com",
+      logo: "https://ratedbrokers.com/logo.svg",
+      description: "Independent broker reviews and rankings across forex, CFD, stocks, crypto, copy trading, spread betting, options, futures, and prop firms.",
+      foundingDate: "2024",
+      founder: {
+        "@type": "Person",
+        name: AUTHORS["yegor-barakovskiy"].name,
+        jobTitle: AUTHORS["yegor-barakovskiy"].role,
+        sameAs: [AUTHORS["yegor-barakovskiy"].linkedin],
+      },
+      member: Object.values(AUTHORS).map(a => ({
+        "@type": "Person",
+        name: a.name,
+        jobTitle: a.role,
+        url: `https://ratedbrokers.com/author/${a.id}`,
+        sameAs: [a.linkedin, a.twitter].filter(Boolean),
+        ...(a.credentials?.length ? {
+          hasCredential: a.credentials.map(c => ({
+            "@type": "EducationalOccupationalCredential",
+            credentialCategory: "Professional Certification",
+            name: c,
+          })),
+        } : {}),
+        ...(a.image ? { image: `https://ratedbrokers.com${a.image}` } : {}),
+      })),
+      publishingPrinciples: "https://ratedbrokers.com/methodology",
+      ethicsPolicy: "https://ratedbrokers.com/how-we-make-money",
+      knowsAbout: [
+        "Forex brokers", "CFD brokers", "Stock brokers", "Crypto exchanges",
+        "Copy trading platforms", "Spread betting", "Options trading",
+        "Futures brokers", "Prop trading firms", "Trading platforms",
+        "Financial regulation", "Broker licensing",
+      ],
+    };
+    let orgEl = document.querySelector('script[data-jsonld="org-team"]');
+    if (!orgEl) {
+      orgEl = document.createElement("script");
+      orgEl.type = "application/ld+json";
+      orgEl.setAttribute("data-jsonld", "org-team");
+      document.head.appendChild(orgEl);
+    }
+    orgEl.textContent = JSON.stringify(orgLd);
+
+    return () => {
+      const el = document.querySelector('script[data-jsonld="org-team"]');
+      if (el) el.remove();
+    };
   }, []);
 
   const cn = { maxWidth: 1200, margin: "0 auto", padding: mob ? "0 16px" : "0 24px" };

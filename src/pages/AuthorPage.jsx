@@ -26,9 +26,20 @@ export default function AuthorPage() {
       "@type": "Person",
       name: author.name,
       jobTitle: author.role,
+      description: author.bio,
       url: `https://ratedbrokers.com/author/${author.id}`,
-      sameAs: [author.linkedin],
-      worksFor: { "@type": "Organization", name: "RatedBrokers" },
+      sameAs: [author.linkedin, author.twitter].filter(Boolean),
+      worksFor: { "@type": "Organization", name: "RatedBrokers", url: "https://ratedbrokers.com" },
+      ...(author.image ? { image: `https://ratedbrokers.com${author.image}` } : {}),
+      ...(author.credentials?.length ? {
+        hasCredential: author.credentials.map(c => ({
+          "@type": "EducationalOccupationalCredential",
+          credentialCategory: "Professional Certification",
+          name: c,
+        })),
+      } : {}),
+      ...(author.specialty ? { knowsAbout: author.specialty.split(", ") } : {}),
+      ...(author.exp ? { award: `${author.exp} of industry experience` } : {}),
     };
 
     let scriptEl = document.querySelector('script[data-jsonld="author"]');
