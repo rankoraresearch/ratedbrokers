@@ -6,6 +6,7 @@ import { handleRankingsDashboard, handleRankingBrokers, handleRankingOrderUpdate
 import { handlePublishDashboard, handlePublishPages, handlePublishUpdate, handlePublishBatch, handlePublishAutoSchedule, handlePublishTick, handlePublishActive, handleSitemapIndex, handleSitemapSection } from './routes/publish.js';
 import { handleMessagesDashboard, handleMessageDelete } from './routes/messages.js';
 import { handleLinkHealthDashboard, handleLinkRecheck } from './routes/linkhealth.js';
+import { handleDonorsDashboard, handleDonorsList, handleDonorsBulk, handleDonorUpdate } from './routes/donors.js';
 import { handleReviewsDashboard, handleReviewContent, handleReviewContentUpdate, handleReviewContentDelete, handleReviewOverridesPublic, handleReviewLog, handleTokensList, handleTokenCreate, handleTokenDelete, handleBrokerContent } from './routes/reviews.js';
 import { handleExpertDashboard, handleExpertReviewContent, handleExpertReviewUpdate, handleExpertReviewDelete } from './routes/expert.js';
 import { handleOptions } from './utils/cors.js';
@@ -247,6 +248,21 @@ export default {
     const recheckMatch = path.match(/^\/api\/admin\/linkhealth\/recheck\/([a-z0-9-]+)$/);
     if (recheckMatch && request.method === 'POST') {
       return handleLinkRecheck(request, env, recheckMatch[1]);
+    }
+
+    // ─── Donors (outreach) ───
+    if (path === '/api/admin/donors/dashboard' && request.method === 'GET') {
+      return handleDonorsDashboard(request, env);
+    }
+    if (path === '/api/admin/donors/list' && request.method === 'GET') {
+      return handleDonorsList(request, env);
+    }
+    if (path === '/api/admin/donors/bulk' && request.method === 'POST') {
+      return handleDonorsBulk(request, env);
+    }
+    const donorUpdateMatch = path.match(/^\/api\/admin\/donors\/([^/]+)$/);
+    if (donorUpdateMatch && request.method === 'PUT') {
+      return handleDonorUpdate(request, env, donorUpdateMatch[1]);
     }
 
     // ─── Publication Planner ───
