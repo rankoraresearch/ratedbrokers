@@ -9,6 +9,7 @@ import RANKINGS from "../data/rankings";
 import HUBS, { getRankingsForHub } from "../data/categoryHubs";
 import { POPULAR_PAIRS_BY_VERTICAL, canonicalPair, VERTICALS } from "../data/comparisons";
 import BrokerLogo from "../components/BrokerLogo";
+import { BrokerTypeSection, useBrokerTypeConfig } from "../components/BrokerTypeButtons";
 import Icon from "../components/Icon";
 import { ArrowRight, ArrowUpRight, BarChart3, BookOpen, Target, ChevronDown, ChevronUp, ArrowRightLeft, ChartCandlestick, Users, Dices, Bitcoin, TrendingUp, GitBranch, Hourglass, Shield, DollarSign, Star, Eye, Monitor, Zap } from "lucide-react";
 import HOMEPAGE_SEO from "../data/homepageSeoContent";
@@ -47,6 +48,7 @@ const PILL_ROWS = [
 ];
 
 function CategoryNav({ mob }) {
+  const { cfg } = useBrokerTypeConfig();
   const hubsData = HUBS.map(hub => ({
     ...hub,
     IconComp: CAT_ICONS[hub.slug] || ArrowRight,
@@ -54,7 +56,8 @@ function CategoryNav({ mob }) {
   const hex2rgb = (h) => `${parseInt(h.slice(1,3),16)},${parseInt(h.slice(3,5),16)},${parseInt(h.slice(5,7),16)}`;
   return (
     <>
-      {/* Quick Links — single pill strip (Dark + Stripes) */}
+      {/* Quick Links — single pill strip (Dark + Stripes) — toggleable via DevBar */}
+      {cfg.showQuickLinks && (
       <div style={{ background: "#1a2332", borderBottom: "1px solid rgba(255,255,255,0.06)", padding: mob ? "10px 16px" : "12px 28px", overflowX: mob ? "auto" : "hidden", WebkitOverflowScrolling: "touch", position: "relative" }}>
         <div style={{ position: "absolute", inset: 0, pointerEvents: "none", background: "repeating-linear-gradient(135deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 12px)" }} />
         <div style={{
@@ -77,54 +80,9 @@ function CategoryNav({ mob }) {
           ))}
         </div>
       </div>
-      {/* 8 Category Buttons — Frost+Arrow */}
-      <div style={{ background: "#0f172a", padding: mob ? "14px 16px" : "18px 28px", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", padding: mob ? "0 4px" : "0 32px", display: "grid", gridTemplateColumns: mob ? "repeat(2, 1fr)" : "repeat(4, 1fr)", gap: mob ? 8 : 10 }}>
-          {hubsData.map(hub => {
-            const Ic = hub.IconComp;
-            const c = IC[hub.slug] || "#94a3b8";
-            const rgb = hex2rgb(c);
-            return (
-              <Link key={hub.slug} to={hub.path} style={{
-                display: "flex", alignItems: "center", gap: 10,
-                height: mob ? 48 : 52, padding: mob ? "0 14px 0 16px" : "0 18px 0 22px",
-                background: "rgba(255,255,255,0.08)", backdropFilter: "blur(10px)",
-                borderTop: "1px solid rgba(255,255,255,0.14)", borderRight: "1px solid rgba(255,255,255,0.14)",
-                borderBottom: "1px solid rgba(255,255,255,0.14)", borderLeft: `3px solid ${c}`,
-                borderRadius: 10, boxShadow: "0 1px 3px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.06)",
-                textDecoration: "none", transition: "background 0.18s, transform 0.18s, box-shadow 0.18s",
-              }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.background = "rgba(255,255,255,0.13)";
-                  e.currentTarget.style.borderTopColor = "rgba(255,255,255,0.24)";
-                  e.currentTarget.style.borderRightColor = "rgba(255,255,255,0.24)";
-                  e.currentTarget.style.borderBottomColor = "rgba(255,255,255,0.24)";
-                  e.currentTarget.style.borderLeft = `3px solid ${c}`;
-                  e.currentTarget.style.transform = "translateY(-1px)";
-                  e.currentTarget.style.boxShadow = `0 4px 16px rgba(0,0,0,0.35), -2px 0 10px rgba(${rgb},0.12)`;
-                  const arr = e.currentTarget.querySelector("[data-arr]");
-                  if (arr) { arr.style.color = `rgba(${rgb},0.80)`; arr.style.transform = "translateX(3px)"; }
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.background = "rgba(255,255,255,0.08)";
-                  e.currentTarget.style.borderTopColor = "rgba(255,255,255,0.14)";
-                  e.currentTarget.style.borderRightColor = "rgba(255,255,255,0.14)";
-                  e.currentTarget.style.borderBottomColor = "rgba(255,255,255,0.14)";
-                  e.currentTarget.style.borderLeft = `3px solid ${c}`;
-                  e.currentTarget.style.transform = "none";
-                  e.currentTarget.style.boxShadow = "0 1px 3px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.06)";
-                  const arr = e.currentTarget.querySelector("[data-arr]");
-                  if (arr) { arr.style.color = "rgba(255,255,255,0.15)"; arr.style.transform = "none"; }
-                }}
-              >
-                <Ic size={17} strokeWidth={1.75} style={{ color: c, flexShrink: 0, opacity: 0.85 }} />
-                <span style={{ fontFamily: "'Outfit',sans-serif", fontSize: mob ? 14 : 15, fontWeight: 700, color: "#f8fafc", flex: 1 }}>{hub.name}</span>
-                <span data-arr style={{ fontSize: 14, color: "rgba(255,255,255,0.15)", flexShrink: 0, transition: "color 0.18s, transform 0.18s", fontWeight: 700 }}>&#8594;</span>
-              </Link>
-            );
-          })}
-        </div>
-      </div>
+      )}
+      {/* 8 Category Buttons — controlled by BrokerTypeSection (convex + toggle-driven) */}
+      <BrokerTypeSection />
     </>
   );
 }

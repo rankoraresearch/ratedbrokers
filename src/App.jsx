@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate, Outlet, useParams } from "react
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { LanguageProvider } from "./i18n/LanguageContext";
+import { BrokerTypeProvider, BrokerTypeDevBar } from "./components/BrokerTypeButtons";
 
 // ─── Production pages (lazy loaded) ───
 const Home = lazy(() => import("./pages/Home"));
@@ -31,6 +32,8 @@ const PrivacyPage = lazy(() => import("./pages/PrivacyPage"));
 const TermsPage = lazy(() => import("./pages/TermsPage"));
 
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
+const CompetitorsResearchPage = lazy(() => import("./pages/CompetitorsResearchPage"));
+const AuthorsResearchPage = lazy(() => import("./pages/AuthorsResearchPage"));
 
 // ─── Prototypes (lazy, dev-only — excluded from production bundle) ───
 const PrototypesPage = import.meta.env.DEV ? lazy(() => import("./pages/prototypes/PrototypesPage")) : null;
@@ -58,6 +61,14 @@ const MobileHomeProto = import.meta.env.DEV ? lazy(() => import("./pages/MobileH
 const QuizPreviewProto = import.meta.env.DEV ? lazy(() => import("./pages/QuizPreviewProto")) : null;
 const HowWeRateProto = import.meta.env.DEV ? lazy(() => import("./pages/HowWeRateProto")) : null;
 const HowWeRateDarkProto = import.meta.env.DEV ? lazy(() => import("./pages/HowWeRateDarkProto")) : null;
+const BrokerTypesProto = import.meta.env.DEV ? lazy(() => import("./pages/BrokerTypesProto")) : null;
+const CountryDarkProto = import.meta.env.DEV ? lazy(() => import("./pages/CountryDarkProto")) : null;
+const AllBrokersProto = import.meta.env.DEV ? lazy(() => import("./pages/AllBrokersProto")) : null;
+const HomeUnifiedProto = import.meta.env.DEV ? lazy(() => import("./pages/HomeUnifiedProto")) : null;
+const AccentColorProto = import.meta.env.DEV ? lazy(() => import("./pages/AccentColorProto")) : null;
+const AccentColorRealProto = import.meta.env.DEV ? lazy(() => import("./pages/AccentColorRealProto")) : null;
+const ProtoMenu = import.meta.env.DEV ? lazy(() => import("./pages/ProtoMenu")) : null;
+const ProtoLinks = import.meta.env.DEV ? lazy(() => import("./pages/ProtoLinks")) : null;
 
 function PageLoader() {
   return (
@@ -71,13 +82,16 @@ function PageLoader() {
 function Layout() {
   return (
     <LanguageProvider>
-      <Header />
-      <div style={{ paddingTop: 64 }}>
-        <Suspense fallback={<PageLoader />}>
-          <Outlet />
-        </Suspense>
-      </div>
-      <Footer />
+      <BrokerTypeProvider>
+        <Header />
+        <div style={{ paddingTop: 64 }}>
+          <Suspense fallback={<PageLoader />}>
+            <Outlet />
+          </Suspense>
+        </div>
+        <Footer />
+        {import.meta.env.DEV && <BrokerTypeDevBar />}
+      </BrokerTypeProvider>
     </LanguageProvider>
   );
 }
@@ -118,6 +132,14 @@ function AppRoutes() {
         <Route path="proto/quiz-preview" element={<Suspense fallback={<PageLoader />}><QuizPreviewProto /></Suspense>} />
         <Route path="proto/how-we-rate" element={<Suspense fallback={<PageLoader />}><HowWeRateProto /></Suspense>} />
         <Route path="proto/how-we-rate-dark" element={<Layout />}><Route index element={<HowWeRateDarkProto />} /></Route>
+        <Route path="proto/broker-types" element={<Layout />}><Route index element={<BrokerTypesProto />} /></Route>
+        <Route path="proto/country-dark" element={<Layout />}><Route index element={<CountryDarkProto />} /></Route>
+        <Route path="proto/all-brokers" element={<Layout />}><Route index element={<AllBrokersProto />} /></Route>
+        <Route path="proto/home-unified" element={<Layout />}><Route index element={<HomeUnifiedProto />} /></Route>
+        <Route path="proto/accent-color" element={<Layout />}><Route index element={<AccentColorProto />} /></Route>
+        <Route path="proto/accent-color-real" element={<Layout />}><Route index element={<AccentColorRealProto />} /></Route>
+        <Route path="proto/menu" element={<LanguageProvider><Suspense fallback={<PageLoader />}><ProtoMenu /></Suspense></LanguageProvider>} />
+        <Route path="proto/links" element={<Suspense fallback={<PageLoader />}><ProtoLinks /></Suspense>} />
       </>}
       <Route element={<Layout />}>
         <Route index element={<Home />} />
@@ -145,6 +167,8 @@ function AppRoutes() {
         <Route path="platform/:slug" element={<PlatformPage />} />
         <Route path="warnings/:slug" element={<WarningPage />} />
         <Route path="find-your-broker" element={<FindYourBrokerPage />} />
+        <Route path="research/competitors" element={<CompetitorsResearchPage />} />
+        <Route path="research/authors" element={<AuthorsResearchPage />} />
         <Route path="privacy" element={<PrivacyPage />} />
         <Route path="terms" element={<TermsPage />} />
         {/* Redirects: old hub pages → ranking pages (URL migration) */}
