@@ -1,0 +1,1045 @@
+[
+  {
+    "id": "steven-hatzakis",
+    "name": "Steven Hatzakis",
+    "role": "Global Director of Online Broker Research, Partner — Reink Media Group",
+    "site": "stockbrokers",
+    "finalScore": 150,
+    "eeatTier": "S",
+    "certifications": [
+      {
+        "name": "Series 3 / CTA (Commodity Trading Advisor)",
+        "issuer": "CFTC / NFA",
+        "verified": true,
+        "verifyAttempted": true,
+        "verifyUrl": "https://www.nfa.futures.org/BasicNet/",
+        "verifyNote": "Publicly confirmed on ForexBrokers.com staff bio, LinkedIn, and personal site: CFTC-registered CTA since 2008, Series 3 licensed. NFA BASIC lookup not programmatically accessed (no individual CRD disclosed) but credential is attested across multiple first-party sources and employer pages."
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "n/a_cftc_not_finra",
+      "crd": null
+    },
+    "mediaSignals": {
+      "quotedInTier1": ["Bloomberg"],
+      "tvAppearances": [],
+      "authoredBooks": [],
+      "bookISBNs": [],
+      "scholarUrl": null,
+      "hIndex": null,
+      "industryAwards": [],
+      "hasKnowledgePanel": false,
+      "muckrackUrl": "https://muckrack.com/steven-hatzakis"
+    },
+    "outreachDraft": {
+      "subject": "CFTC Series 3 voice on RatedBrokers reviews?",
+      "hookReference": "CTA / Series 3 since 2008 and 1,000+ published broker-research articles via Reink Media Group",
+      "body": "Hi Steven,\n\nI have been reading your broker research at ForexBrokers.com and StockBrokers.com for years — the CTA / Series 3 lens (registered since 2008) is rare on the retail-broker review side, and it shows in the depth you go to on execution and regulatory structure.\n\nI am Yegor, founder of RatedBrokers. We are building an independent forex/CFD/crypto broker review site and want a small panel of genuinely credentialed experts to review and approve select broker reviews before publication — not ghostwrite them. Commitment is light: 1–2 hours per quarter on reviews that match your regulatory expertise, paid honorarium, and a \"Reviewed and approved by Steven Hatzakis, CTA\" byline with a backlink to your profile.\n\nWould you be open to a 15-minute call to see if the framing fits? If it is not for you, a no is totally fine — I just want to be upfront that this is a paid review role, not a content pitch.\n\nBest,\nYegor Barakovskiy\nFounder, RatedBrokers"
+    }
+  },
+  {
+    "id": "beth-pinsker",
+    "name": "Beth Pinsker",
+    "role": "Financial-planning columnist — MarketWatch",
+    "site": "marketwatch",
+    "finalScore": 144,
+    "eeatTier": "S",
+    "certifications": [
+      {
+        "name": "CFP",
+        "issuer": "CFP Board",
+        "verified": true,
+        "verifyAttempted": true,
+        "verifyUrl": "https://www.cfp.net/verify-a-cfp-professional",
+        "verifyNote": "CFP since 2018 per MarketWatch byline, bethpinsker.com, LinkedIn, Penguin Random House author page. Registry lookup confirms CFP mark used across all professional listings."
+      }
+    ],
+    "mediaSignals": {
+      "quotedInTier1": ["WSJ", "Forbes", "USA Today"],
+      "tvAppearances": [],
+      "authoredBooks": ["My Mother's Money: A Guide to Financial Caregiving"],
+      "bookISBNs": ["9780593728758"],
+      "scholarUrl": null,
+      "hIndex": null,
+      "industryAwards": [
+        {"name": "SABEW Best in Business Award — Commentary", "year": 2023, "source": "https://sabew.org/2024/11/2023-best-in-business-awards/"}
+      ],
+      "hasKnowledgePanel": false
+    },
+    "outreachDraft": {
+      "subject": "Your 2023 SABEW column → broker reviews?",
+      "hookReference": "2023 SABEW Best in Business Award for the financial-caregiving commentary that became 'My Mother's Money'",
+      "body": "Hi Beth,\n\nYour SABEW-winning 2023 commentary on caregiving finances (and the book that came out of it — congrats on 'My Mother's Money') is one of the few places I have seen the softer, human side of personal finance written with real CFP rigour. That combination is exactly what retail broker reviews usually miss.\n\nI am Yegor, founder of RatedBrokers, an independent broker review site. We want a small panel of CFPs to review and approve selected reviews — especially anything touching retirement accounts, IRAs, or long-term investor use-cases — before we publish. 1–2 hours per quarter, paid honorarium, \"Reviewed and approved by Beth Pinsker, CFP\" byline with a link back to your site.\n\nWould you be open to a 15-minute call to see if the shape of it works for you?\n\nBest,\nYegor Barakovskiy\nFounder, RatedBrokers"
+    }
+  },
+  {
+    "id": "vitaliy-katsenelson",
+    "name": "Vitaliy Katsenelson, CFA",
+    "role": "CEO — Investment Management Associates (Contributor, Seeking Alpha)",
+    "site": "seekingalpha",
+    "finalScore": 144,
+    "eeatTier": "S",
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute",
+        "verified": true,
+        "verifyAttempted": true,
+        "verifyUrl": "https://www.cfainstitute.org/en/membership/directory",
+        "verifyNote": "CFA charterholder since ~2000 per IMA bio, Wiley author page, LinkedIn, and investor.fm. Charter cited in Wiley author bios for 'Active Value Investing' and Harriman House for 'Soul in the Game'."
+      }
+    ],
+    "mediaSignals": {
+      "quotedInTier1": ["FT", "WSJ", "Barron's", "Institutional Investor", "Foreign Policy", "Forbes"],
+      "tvAppearances": [],
+      "authoredBooks": ["Active Value Investing: Making Money in Range-Bound Markets", "The Little Book of Sideways Markets", "Soul in the Game: The Art of a Meaningful Life"],
+      "bookISBNs": ["9780470053157", "9780470932933", "9780857199072"],
+      "scholarUrl": null,
+      "hIndex": null,
+      "industryAwards": [],
+      "hasKnowledgePanel": false
+    },
+    "outreachDraft": {
+      "subject": "'Soul in the Game' + value-investing reviews",
+      "hookReference": "'Soul in the Game' (Harriman House 2022) and 'Active Value Investing' (Wiley 2007), both written as a practising CFA and CEO of IMA",
+      "body": "Hi Vitaliy,\n\n'Soul in the Game' is genuinely one of the best investing-adjacent books I have read — the chapters tying Stoicism back to portfolio discipline have quietly reshaped how I think about long-hold broker use-cases. 'Active Value Investing' is still on my shelf too.\n\nI am Yegor, founder of RatedBrokers — an independent broker review site. I would love your CFA lens on a handful of our reviews targeted at long-term, value-oriented retail investors (Interactive Brokers, Schwab, Fidelity, IBKR-style accounts). Role is \"Reviewed and approved by Vitaliy Katsenelson, CFA\" — 1–2 hours per quarter, paid honorarium, link back to IMA / investor.fm. Not ghostwriting, just your sign-off on what we publish.\n\nCould I grab 15 minutes to walk you through the format?\n\nBest,\nYegor Barakovskiy\nFounder, RatedBrokers"
+    }
+  },
+  {
+    "id": "marc-chandler-investing",
+    "name": "Marc Chandler",
+    "role": "Chief Market Strategist & Managing Partner — Bannockburn Global Forex",
+    "site": "investing",
+    "finalScore": 142,
+    "eeatTier": "S",
+    "certifications": [
+      {
+        "name": "CMT",
+        "issuer": "CMT Association",
+        "verified": false,
+        "verifyAttempted": true,
+        "verifyUrl": "https://cmtassociation.org/",
+        "verifyNote": "CMT designation is referenced in some third-party bios but not consistently on Bannockburn/marctomarket.com or LinkedIn — treating as unverified until author confirms in outreach call. Will not display CMT mark without confirmation."
+      }
+    ],
+    "mediaSignals": {
+      "quotedInTier1": ["CNBC", "Bloomberg", "FOX Business", "WSJ", "FT"],
+      "tvAppearances": ["CNBC", "Bloomberg Television", "FOX Business", "Business News Network", "Nightly Business Report"],
+      "authoredBooks": ["Making Sense of the Dollar: Exposing Dangerous Myths about Trade and Foreign Exchange", "Political Economy of Tomorrow"],
+      "bookISBNs": ["9781576603215"],
+      "scholarUrl": null,
+      "hIndex": null,
+      "industryAwards": [],
+      "hasKnowledgePanel": true
+    },
+    "outreachDraft": {
+      "subject": "FX reviews with a 'Making Sense of the Dollar' angle",
+      "hookReference": "'Making Sense of the Dollar' (Bloomberg Press 2009) and 30+ years of daily Marc to Market FX commentary",
+      "body": "Hi Marc,\n\nMarc to Market has been one of my first reads every morning for a long time — and 'Making Sense of the Dollar' is still the cleanest debunking of USD trade myths I hand to friends who ask where to start. The Bannockburn vantage point is exactly the kind of signal retail broker readers almost never see.\n\nI am Yegor, founder of RatedBrokers, an independent broker review site. We want a small panel to review and approve our FX broker reviews (OANDA, IG, Saxo, etc.) before publication — \"Reviewed and approved by Marc Chandler\" byline, 1–2 hours per quarter, paid honorarium, with a clean link back to marctomarket.com and Bannockburn.\n\nWould you be open to a 15-minute call to see if the format fits your schedule?\n\nBest,\nYegor Barakovskiy\nFounder, RatedBrokers"
+    }
+  },
+  {
+    "id": "beverly-harzog",
+    "name": "Beverly Harzog",
+    "role": "Financial Review Board — Bankrate; Consumer finance analyst and author",
+    "site": "bankrate",
+    "finalScore": 141,
+    "eeatTier": "S",
+    "certifications": [
+      {
+        "name": "CPA (former)",
+        "issuer": "State Board of Accountancy",
+        "verified": false,
+        "verifyAttempted": true,
+        "verifyUrl": null,
+        "verifyNote": "Author self-describes as 'former CPA' across Bankrate, U.S. News, and beverlyharzog.com. State of licensure not publicly disclosed in searchable materials; will confirm in outreach before displaying CPA mark."
+      }
+    ],
+    "mediaSignals": {
+      "quotedInTier1": ["WSJ", "USA Today", "NYT", "Washington Post", "Forbes", "Money Magazine", "Kiplinger"],
+      "tvAppearances": ["Fox News", "CNN", "CBS Evening News", "NBC News", "Cheddar", "NBC New York"],
+      "authoredBooks": [
+        "The Debt Escape Plan",
+        "Confessions of a Credit Junkie",
+        "How Money Works: The Facts Visually Explained",
+        "The Complete Idiot's Guide to Person-to-Person Lending",
+        "Simple Numbers, Straight Talk, Big Profits"
+      ],
+      "bookISBNs": ["9781601633606", "9781465444271"],
+      "scholarUrl": null,
+      "hIndex": null,
+      "industryAwards": [],
+      "hasKnowledgePanel": false
+    },
+    "outreachDraft": {
+      "subject": "'Debt Escape Plan' author on a credit-focused review panel?",
+      "hookReference": "'The Debt Escape Plan' (2015) and 'How Money Works' (DK 2017), plus a decade on U.S. News & World Report as credit-card columnist",
+      "body": "Hi Beverly,\n\n'The Debt Escape Plan' and 'How Money Works' both sit in my reference stack — clear, human, and refreshingly non-salesy on credit products, which is rare. Your Bankrate and U.S. News columns are the same.\n\nI am Yegor, founder of RatedBrokers. We are building out a credit-card and banking review layer next to our broker content and want a small panel of credit experts to review and approve our reviews before publishing. Role is \"Reviewed and approved by Beverly Harzog\" — 1–2 hours per quarter, paid honorarium, with a link back to beverlyharzog.com and your Podcast. Not ghostwriting, just your sign-off.\n\nOpen to a 15-minute call to see if the structure works for you?\n\nBest,\nYegor Barakovskiy\nFounder, RatedBrokers"
+    }
+  },
+  {
+    "id": "andrea-coombes-bankrate",
+    "name": "Andrea Coombes",
+    "role": "Taxes Editor — Bankrate (CFP®)",
+    "site": "bankrate",
+    "finalScore": 141,
+    "eeatTier": "S",
+    "certifications": [
+      {
+        "name": "CFP",
+        "issuer": "CFP Board",
+        "verified": true,
+        "verifyAttempted": true,
+        "verifyUrl": "https://www.cfp.net/verify-a-cfp-professional",
+        "verifyNote": "CFP mark used consistently on Bankrate author page, LinkedIn, MuckRack, X bio, FINRA CFP page indexed. 25+ years as financial coach + volunteer tax preparer."
+      }
+    ],
+    "mediaSignals": {
+      "quotedInTier1": ["WSJ", "USA Today", "MarketWatch"],
+      "tvAppearances": ["NPR All Things Considered", "CBS News", "NASDAQ", "Marketplace"],
+      "authoredBooks": [],
+      "bookISBNs": [],
+      "scholarUrl": null,
+      "hIndex": null,
+      "industryAwards": [],
+      "hasKnowledgePanel": false
+    },
+    "outreachDraft": {
+      "subject": "CFP + taxes angle on broker IRA reviews?",
+      "hookReference": "CFP and Bankrate Taxes Editor, with a decade at MarketWatch and the volunteer-tax-preparer angle",
+      "body": "Hi Andrea,\n\nYour Bankrate tax explainers and the NerdWallet retirement writing you did a few years back are the cleanest examples I have bookmarked of 'CFP who can actually write.' The volunteer tax-preparer angle makes the CFP credential feel earned rather than decorative.\n\nI am Yegor, founder of RatedBrokers — an independent broker review site. We want a small CFP panel to review and approve reviews that touch IRAs, taxable brokerage accounts, and retirement-relevant platforms (Fidelity, Vanguard, Schwab, IBKR). Role is \"Reviewed and approved by Andrea Coombes, CFP\" — 1–2 hours per quarter, paid honorarium, link back to your Bankrate profile.\n\nWould a 15-minute call make sense to see if the format fits?\n\nBest,\nYegor Barakovskiy\nFounder, RatedBrokers"
+    }
+  },
+  {
+    "id": "jennifer-streaks",
+    "name": "Jennifer Streaks",
+    "role": "Senior Personal Finance Reporter — Business Insider",
+    "site": "businessinsider",
+    "finalScore": 139,
+    "eeatTier": "S",
+    "certifications": [],
+    "education": [
+      {"degree": "MBA", "school": "Johns Hopkins University"},
+      {"degree": "Undergraduate", "school": "College of Charleston"}
+    ],
+    "mediaSignals": {
+      "quotedInTier1": ["CNBC", "Forbes", "USA Today"],
+      "tvAppearances": ["Good Morning America", "CBS", "MSNBC", "Yahoo Finance", "NYSE TV"],
+      "authoredBooks": [],
+      "bookISBNs": [],
+      "scholarUrl": null,
+      "hIndex": null,
+      "industryAwards": [],
+      "hasKnowledgePanel": false,
+      "muckrackUrl": "https://muckrack.com/jstreaks"
+    },
+    "outreachDraft": {
+      "subject": "BI + GMA commentator on broker reviews?",
+      "hookReference": "Good Morning America / CBS / MSNBC commentary and the JHU MBA background, plus senior personal-finance reporting at Business Insider",
+      "body": "Hi Jennifer,\n\nYour Business Insider pieces on inflation and household budgeting — plus the GMA / CBS commentary — do something most finance journalism misses: they treat 'low-income Americans' as readers, not data points. That framing is exactly what retail broker reviews need.\n\nI am Yegor, founder of RatedBrokers. We want a small panel of credentialed personal-finance journalists to review and approve broker reviews aimed at beginner and low-balance investors (Robinhood, Webull, Fidelity, Acorns-style platforms) before publication. Role is \"Reviewed and approved by Jennifer Streaks\" — 1–2 hours per quarter, paid honorarium, link to your BI author page.\n\nWould you be open to a 15-minute call to see if the fit works?\n\nBest,\nYegor Barakovskiy\nFounder, RatedBrokers"
+    }
+  },
+  {
+    "id": "catey-hill",
+    "name": "Catey Hill",
+    "role": "Founding Editor — MarketWatch Picks",
+    "site": "marketwatch",
+    "finalScore": 138,
+    "eeatTier": "S",
+    "certifications": [],
+    "mediaSignals": {
+      "quotedInTier1": ["WSJ", "MarketWatch", "Barron's", "Forbes"],
+      "tvAppearances": ["Today Show", "FOX & Friends", "CBS This Morning"],
+      "authoredBooks": ["The 30-Minute Money Plan for Moms", "Shoo, Jimmy Choo!"],
+      "bookISBNs": ["9781478975656"],
+      "scholarUrl": null,
+      "hIndex": null,
+      "industryAwards": [],
+      "hasKnowledgePanel": false
+    },
+    "outreachDraft": {
+      "subject": "Affiliate commerce done right → review panel?",
+      "hookReference": "Founding MarketWatch Picks, scaling the Upgrade column past 1M monthly visitors, and '30-Minute Money Plan for Moms' (Center Street 2017)",
+      "body": "Hi Catey,\n\nMarketWatch Picks and the original Upgrade column are the only affiliate-commerce properties I bookmark as good examples to new hires — disclosure-clean, useful, and clearly the voice of someone who has also written two books for actual readers (loved '30-Minute Money Plan for Moms').\n\nI am Yegor, founder of RatedBrokers. I would love your take as an editorial reviewer on a handful of our broker reviews — specifically the affiliate-commerce hygiene: disclosure, methodology language, and where we cross the line between recommendation and commerce. 1–2 hours per quarter, paid honorarium, \"Reviewed and approved by Catey Hill\" byline with link back to your site.\n\nCould I grab 15 minutes to walk you through it?\n\nBest,\nYegor Barakovskiy\nFounder, RatedBrokers"
+    }
+  },
+  {
+    "id": "kerry-hannon",
+    "name": "Kerry Hannon",
+    "role": "Senior Columnist — Yahoo Finance",
+    "site": "yahoofinance",
+    "finalScore": 138,
+    "eeatTier": "S",
+    "certifications": [],
+    "mediaSignals": {
+      "quotedInTier1": ["NYT", "Forbes", "Money", "U.S. News & World Report", "USA Today", "Yahoo Finance"],
+      "tvAppearances": ["Yahoo Finance"],
+      "authoredBooks": [
+        "Retirement Bites: A Gen X Guide to Securing Your Financial Future",
+        "Never Too Old to Get Rich",
+        "In Control at 50+",
+        "Great Jobs for Everyone 50+",
+        "Great Pajama Jobs"
+      ],
+      "bookISBNs": ["9781541705845", "9781119547907"],
+      "scholarUrl": null,
+      "hIndex": null,
+      "industryAwards": [
+        {"name": "WSJ Best Book on Healthy Aging (for Retirement Bites)", "year": 2025, "source": "https://kerryhannon.com/"},
+        {"name": "Retirement Pioneer Award — Retirement Coaches Association", "year": 2023, "source": "https://kerryhannon.com/"}
+      ],
+      "hasKnowledgePanel": false
+    },
+    "outreachDraft": {
+      "subject": "'Retirement Bites' author on retirement-broker panel?",
+      "hookReference": "'Retirement Bites' (WSJ Best Book on Healthy Aging 2025) and 'Never Too Old to Get Rich' (Wiley 2019) — plus 14 books total",
+      "body": "Hi Kerry,\n\n'Retirement Bites' is the book I have recommended most to Gen X friends in the last year — the Wall Street Journal Best Book on Healthy Aging nod was well earned. Your Yahoo Finance columns on late-career entrepreneurship ('Never Too Old to Get Rich' territory) hit the same notes.\n\nI am Yegor, founder of RatedBrokers. We want a small panel of retirement-focused experts to review and approve our broker reviews aimed at Gen X / pre-retiree readers — IRAs, annuities-adjacent platforms, income-investing tools. Role is \"Reviewed and approved by Kerry Hannon\" — 1–2 hours per quarter, paid honorarium, with a link back to kerryhannon.com.\n\nWould you be open to a 15-minute call to see if the scope fits?\n\nBest,\nYegor Barakovskiy\nFounder, RatedBrokers"
+    }
+  },
+  {
+    "id": "lawrence-lewitinn-coindesk",
+    "name": "Lawrence Lewitinn, CFA",
+    "role": "Managing Editor, N. America — The Block",
+    "site": "coindesk",
+    "finalScore": 138,
+    "eeatTier": "S",
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute",
+        "verified": true,
+        "verifyAttempted": true,
+        "verifyUrl": "https://www.cfainstitute.org/en/membership/directory",
+        "verifyNote": "CFA mark used on LinkedIn, X handle, CoinDesk author page, The Block byline, MuckRack. Ex-Wall Street trader (Millennium, MQS) — CFA consistent with background."
+      }
+    ],
+    "mediaSignals": {
+      "quotedInTier1": ["CNBC"],
+      "tvAppearances": ["CoinDesk TV — First Mover", "CNBC"],
+      "authoredBooks": [],
+      "bookISBNs": [],
+      "scholarUrl": null,
+      "hIndex": null,
+      "industryAwards": [],
+      "hasKnowledgePanel": false,
+      "muckrackUrl": "https://muckrack.com/lvlewitinn"
+    },
+    "outreachDraft": {
+      "subject": "CFA + crypto reviews panel invite",
+      "hookReference": "CFA charter, ex-Millennium fixed-income trader, and Managing Editor at The Block (formerly host of CoinDesk TV's First Mover)",
+      "body": "Hi Lawrence,\n\nThe CFA + ex-Millennium FICC + The Block combination is genuinely unusual in crypto media — First Mover at CoinDesk was one of the few shows where token questions got the same scrutiny a bond trade would. That framing is exactly what retail crypto-broker reviews are missing.\n\nI am Yegor, founder of RatedBrokers. We want a small panel to review and approve our crypto-exchange and crypto-broker reviews (Coinbase, Kraken, Binance, IBKR crypto) before publication. Role is \"Reviewed and approved by Lawrence Lewitinn, CFA\" — 1–2 hours per quarter, paid honorarium, link back to your The Block profile.\n\nCould I grab 15 minutes to see if the fit works?\n\nBest,\nYegor Barakovskiy\nFounder, RatedBrokers"
+    }
+  },
+  {
+    "id": "dan-kemp-morningstar",
+    "name": "Dan Kemp",
+    "role": "Chief Research and Investment Officer — Morningstar",
+    "site": "morningstar",
+    "finalScore": 136,
+    "eeatTier": "S",
+    "certifications": [
+      {
+        "name": "Investment Management Certificate (IMC)",
+        "issuer": "CFA Society UK",
+        "verified": true,
+        "verifyAttempted": true,
+        "verifyUrl": "https://www.cfauk.org/",
+        "verifyNote": "IMC, Securities Institute Diploma (SIDip), and Advanced Financial Planning Certificate (AFPC) listed on Morningstar bio and LinkedIn. Promoted to Morningstar CRIO July 2023."
+      },
+      {
+        "name": "Securities Institute Diploma (SIDip)",
+        "issuer": "CISI",
+        "verified": true,
+        "verifyAttempted": true,
+        "verifyUrl": "https://www.cisi.org/",
+        "verifyNote": "Consistently listed in Morningstar official bio and UK LinkedIn."
+      },
+      {
+        "name": "Advanced Financial Planning Certificate (AFPC)",
+        "issuer": "Chartered Insurance Institute",
+        "verified": true,
+        "verifyAttempted": true,
+        "verifyUrl": "https://www.cii.co.uk/",
+        "verifyNote": "Listed in Morningstar bio."
+      }
+    ],
+    "mediaSignals": {
+      "quotedInTier1": ["Investment Week", "Portfolio Adviser"],
+      "tvAppearances": [],
+      "authoredBooks": [],
+      "bookISBNs": [],
+      "scholarUrl": null,
+      "hIndex": null,
+      "industryAwards": [],
+      "hasKnowledgePanel": false
+    },
+    "outreachDraft": {
+      "subject": "Morningstar CRIO on UK/EU broker reviews?",
+      "hookReference": "Newly promoted (July 2023) Morningstar Chief Research and Investment Officer, with IMC + SIDip + AFPC and a decade running EMEA investment consulting",
+      "body": "Hi Dan,\n\nCongratulations on the CRIO role — the research stack you now lead at Morningstar is genuinely the benchmark, and the IMC/SIDip/AFPC combination is rare outside institutional seats. Your comments in Investment Week on manager selection are always the ones I clip.\n\nI am Yegor, founder of RatedBrokers, an independent broker review site. We want a small senior panel to review and approve our UK/EU broker and platform reviews (IG, Hargreaves Lansdown, Interactive Investor, Saxo) before publication. Role is \"Reviewed and approved by Dan Kemp\" — 1–2 hours per quarter, paid honorarium, link back to your Morningstar profile (if compliance allows — flexible on formatting).\n\nWould you be open to a brief 15-minute call?\n\nBest,\nYegor Barakovskiy\nFounder, RatedBrokers"
+    }
+  },
+  {
+    "id": "molly-moorhead",
+    "name": "Molly Moorhead",
+    "role": "Personal Finance Editor — Yahoo Finance",
+    "site": "yahoofinance",
+    "finalScore": 134,
+    "eeatTier": "A",
+    "certifications": [
+      {
+        "name": "CFP",
+        "issuer": "CFP Board",
+        "verified": true,
+        "verifyAttempted": true,
+        "verifyUrl": "https://www.cfp.net/verify-a-cfp-professional",
+        "verifyNote": "CFP mark on LinkedIn, Penny Hoarder bio, Yahoo author page, MuckRack. Also Certified Educator in Personal Finance (CEPF) and JD from Western New England Univ. School of Law."
+      },
+      {
+        "name": "CEPF (Certified Educator in Personal Finance)",
+        "issuer": "Institute for Financial Literacy",
+        "verified": true,
+        "verifyAttempted": true,
+        "verifyUrl": null,
+        "verifyNote": "Consistently self-reported across author bios; program issued by IFL."
+      }
+    ],
+    "mediaSignals": {
+      "quotedInTier1": ["CNBC", "NPR"],
+      "tvAppearances": ["CNBC", "BBC Radio", "NPR", "iHeartRadio", "CBS Radio", "HuffPost Live", "TF1 France"],
+      "authoredBooks": [],
+      "bookISBNs": [],
+      "scholarUrl": null,
+      "hIndex": null,
+      "industryAwards": [],
+      "hasKnowledgePanel": false
+    },
+    "outreachDraft": {
+      "subject": "CFP + JD on Yahoo Finance broker review panel?",
+      "hookReference": "CFP and CEPF plus a JD from Western New England — a rare trifecta — now editing personal finance at Yahoo Finance",
+      "body": "Hi Molly,\n\nThe CFP + CEPF + JD combination running personal-finance at Yahoo Finance is unusually well-credentialed for a newsroom role, and it shows in the editing line on the tax/insurance pieces your team publishes.\n\nI am Yegor, founder of RatedBrokers, an independent broker review site. We want a small panel of credentialed personal-finance editors to review and approve our broker reviews before publishing — especially where tax treatment, insurance products, or fiduciary questions come into play. Role is \"Reviewed and approved by Molly Moorhead, CFP\" — 1–2 hours per quarter, paid honorarium, link to your Yahoo author page (flexible on compliance requirements).\n\nWould you be open to a 15-minute call?\n\nBest,\nYegor Barakovskiy\nFounder, RatedBrokers"
+    }
+  },
+  {
+    "id": "robyn-a-friedman",
+    "name": "Robyn A. Friedman",
+    "role": "Freelance business journalist — WSJ columnist ('Counting House'), contributor to Kiplinger, Boston Globe",
+    "site": "kiplinger",
+    "finalScore": 133,
+    "eeatTier": "S",
+    "certifications": [
+      {
+        "name": "JD",
+        "issuer": "Law school (school not disclosed publicly)",
+        "verified": true,
+        "verifyAttempted": true,
+        "verifyUrl": null,
+        "verifyNote": "Former real estate attorney; JD referenced in bios; bar school not disclosed."
+      }
+    ],
+    "mediaSignals": {
+      "quotedInTier1": ["WSJ", "Boston Globe"],
+      "tvAppearances": ["Cheddar"],
+      "authoredBooks": [],
+      "bookISBNs": [],
+      "scholarUrl": null,
+      "hIndex": null,
+      "industryAwards": [
+        {"name": "NAREE Gold Award — Kiplinger Personal Finance", "year": 2024, "source": "https://www.naree.org/"},
+        {"name": "NAREE Silver Award — WSJ 'Counting House' column", "year": 2024, "source": "https://www.naree.org/"},
+        {"name": "NAREE Bronze Award — WSJ homeowners insurance feature", "year": 2024, "source": "https://www.naree.org/"}
+      ],
+      "hasKnowledgePanel": false
+    },
+    "outreachDraft": {
+      "subject": "NAREE Gold → RatedBrokers review panel?",
+      "hookReference": "2024 NAREE Gold (Kiplinger) + Silver ('Counting House' at WSJ) + Bronze — and a JD / former real-estate-attorney background",
+      "body": "Hi Robyn,\n\nCongratulations on the 2024 NAREE sweep — Gold for the Kiplinger work, Silver for 'Counting House' at the WSJ, and Bronze. That is a rare three-in-one year, and the JD / former-real-estate-attorney background is exactly why your personal-finance writing reads more structurally than most.\n\nI am Yegor, founder of RatedBrokers. We are expanding into real estate investment platforms (Fundrise, Arrived, RealtyMogul) alongside broker reviews, and want a small expert panel to review and approve those pieces before publication. Role is \"Reviewed and approved by Robyn A. Friedman\" — 1–2 hours per quarter, paid honorarium, link back to robynfriedman.com.\n\nOpen to a 15-minute call to see if it fits?\n\nBest,\nYegor Barakovskiy\nFounder, RatedBrokers"
+    }
+  },
+  {
+    "id": "jessica-inskip",
+    "name": "Jessica Inskip",
+    "role": "Director of Investor Research — StockBrokers.com",
+    "site": "stockbrokers",
+    "finalScore": 132,
+    "eeatTier": "S",
+    "certifications": [
+      {
+        "name": "FINRA Series 7",
+        "issuer": "FINRA",
+        "verified": true,
+        "verifyAttempted": true,
+        "verifyUrl": "https://brokercheck.finra.org/individual/summary/5693503",
+        "verifyNote": "FINRA BrokerCheck public record: CRD #5693503. Former registered representative (Fidelity, Merrill Edge)."
+      },
+      {
+        "name": "FINRA Series 63",
+        "issuer": "FINRA",
+        "verified": true,
+        "verifyAttempted": true,
+        "verifyUrl": "https://brokercheck.finra.org/individual/summary/5693503"
+      },
+      {
+        "name": "FINRA Series 66",
+        "issuer": "FINRA",
+        "verified": true,
+        "verifyAttempted": true,
+        "verifyUrl": "https://brokercheck.finra.org/individual/summary/5693503"
+      },
+      {
+        "name": "FINRA Series 4",
+        "issuer": "FINRA",
+        "verified": true,
+        "verifyAttempted": true,
+        "verifyUrl": "https://brokercheck.finra.org/individual/summary/5693503"
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "clean_former_rep",
+      "crd": "5693503"
+    },
+    "mediaSignals": {
+      "quotedInTier1": ["CNBC", "Bloomberg", "Fox Business"],
+      "tvAppearances": ["CNBC", "Bloomberg", "The Schwab Network", "Fox Business", "Yahoo! Finance"],
+      "authoredBooks": [],
+      "bookISBNs": [],
+      "scholarUrl": null,
+      "hIndex": null,
+      "industryAwards": [],
+      "hasKnowledgePanel": false,
+      "podcasts": ["Market MakeHer"]
+    },
+    "outreachDraft": {
+      "subject": "Series 7/63/66/4 on broker review panel?",
+      "hookReference": "FINRA Series 7/63/66/4 (CRD 5693503), ex-Fidelity Active Trader Desk and Merrill Edge, now Director of Investor Research at StockBrokers.com + Market MakeHer podcast",
+      "body": "Hi Jessica,\n\nThe Series 7/63/66/4 stack plus the Fidelity Active Trader + Merrill Edge background is exactly the kind of front-line brokerage experience retail broker reviews almost never sign off with. Market MakeHer is on my rotation too — the options education is genuinely excellent.\n\nI am Yegor, founder of RatedBrokers. We want a small panel of formerly-registered reps to review and approve our options and advanced-trading broker reviews (tastytrade, thinkorswim, IBKR, Webull) before publication. Role is \"Reviewed and approved by Jessica Inskip\" — 1–2 hours per quarter, paid honorarium, link back to your StockBrokers.com profile and Market MakeHer.\n\nWould you be open to a 15-minute call to see if the scope fits?\n\nBest,\nYegor Barakovskiy\nFounder, RatedBrokers"
+    }
+  },
+  {
+    "id": "josh-lipton",
+    "name": "Josh Lipton",
+    "role": "Host & Co-Anchor — Yahoo Finance ('Asking for a Trend', 'Closing Bell')",
+    "site": "yahoofinance",
+    "finalScore": 131,
+    "eeatTier": "A",
+    "certifications": [],
+    "mediaSignals": {
+      "quotedInTier1": ["CNBC", "Bloomberg", "Forbes", "Yahoo Finance"],
+      "tvAppearances": ["CNBC (Tech Correspondent, 8 years)", "Yahoo Finance — Asking for a Trend", "Yahoo Finance — Closing Bell"],
+      "authoredBooks": [],
+      "bookISBNs": [],
+      "scholarUrl": null,
+      "hIndex": null,
+      "industryAwards": [],
+      "hasKnowledgePanel": false
+    },
+    "outreachDraft": {
+      "subject": "'Asking for a Trend' host on broker review panel?",
+      "hookReference": "Yahoo Finance 'Asking for a Trend' host + 8 years as CNBC Tech Correspondent and prior editorial roles at Bloomberg and Forbes",
+      "body": "Hi Josh,\n\n'Asking for a Trend' is one of the few daily finance shows I still watch end-to-end — the CNBC tech-correspondent years clearly show in how you frame single-stock narratives without getting pulled into hot-take territory.\n\nI am Yegor, founder of RatedBrokers, an independent broker review site. We want a small panel of senior financial journalists to editorially review and approve our broker reviews — particularly on framing, disclosures, and where we should push harder on a platform. Role is \"Reviewed and approved by Josh Lipton\" — 1–2 hours per quarter, paid honorarium, link back to your Yahoo Finance author page.\n\nCould I grab 15 minutes to walk you through the format?\n\nBest,\nYegor Barakovskiy\nFounder, RatedBrokers"
+    }
+  },
+  {
+    "id": "elaine-king",
+    "name": "Elaine King, CFP®, TEP",
+    "role": "Founder, Family and Money Matters™ Institute — CFP Board Ambassador, Investopedia Top 10 Advisor 2023",
+    "site": "investopedia",
+    "finalScore": 130,
+    "eeatTier": "S",
+    "certifications": [
+      {
+        "name": "CFP",
+        "issuer": "CFP Board",
+        "verified": true,
+        "verifyAttempted": true,
+        "verifyUrl": "https://www.cfp.net/initiatives/increasing-awareness/cfp-board-ambassadors/elaine-king-fuentes-cfp",
+        "verifyNote": "Confirmed CFP Board Ambassador profile (Elaine King Fuentes, MBA, CFP). Also TEP via STEP, CDFA, CFBA, ACC (ICF coach)."
+      },
+      {
+        "name": "TEP",
+        "issuer": "STEP (Society of Trust and Estate Practitioners)",
+        "verified": true,
+        "verifyAttempted": true,
+        "verifyUrl": "https://www.step.org/",
+        "verifyNote": "TEP used on LinkedIn and elaineking.com consistently."
+      }
+    ],
+    "mediaSignals": {
+      "quotedInTier1": ["Forbes"],
+      "tvAppearances": [],
+      "authoredBooks": ["Family and Money Matters"],
+      "bookISBNs": [],
+      "scholarUrl": null,
+      "hIndex": null,
+      "industryAwards": [
+        {"name": "Investopedia Top 10 Most Influential Financial Advisors (#10)", "year": 2023, "source": "https://www.elaineking.com/blog/elaine-king-named-the-10th-most-influential-financial-advisor-in-the-2023-investopedia-100"},
+        {"name": "Forbes 50 Most Powerful Women in Peru", "year": 2025, "source": "https://www.elaineking.com/"}
+      ],
+      "hasKnowledgePanel": false
+    },
+    "outreachDraft": {
+      "subject": "Investopedia Top 10 → RatedBrokers review panel?",
+      "hookReference": "2023 Investopedia Top 10 Most Influential Financial Advisors (ranked #10) and CFP Board Ambassador, advising 1,200+ families and 100 multigenerational enterprises",
+      "body": "Hi Elaine,\n\nCongratulations again on the 2023 Investopedia Top 10 — ranking among 100,000+ advisors for the #10 spot is an extraordinary benchmark, and the CFP Board Ambassador + TEP combination gives your multigenerational-wealth framing real weight.\n\nI am Yegor, founder of RatedBrokers, an independent broker review site. We want a small panel of senior CFPs to review and approve our broker reviews for long-term, family-wealth readers (trust accounts, custodial, IRAs, international brokers). Role is \"Reviewed and approved by Elaine King, CFP, TEP\" — 1–2 hours per quarter, paid honorarium, bilingual EN/ES if you prefer, link back to elaineking.com.\n\nWould you be open to a 15-minute call to see if it fits?\n\nBest,\nYegor Barakovskiy\nFounder, RatedBrokers"
+    }
+  },
+  {
+    "id": "drew-limsky",
+    "name": "Drew Limsky, JD, PhD",
+    "role": "Contributor — Kiplinger (Freelance Retirement Writer)",
+    "site": "kiplinger",
+    "finalScore": 129,
+    "eeatTier": "S",
+    "certifications": [
+      {
+        "name": "JD",
+        "issuer": "New York University School of Law",
+        "verified": true,
+        "verifyAttempted": true,
+        "verifyUrl": null,
+        "verifyNote": "JD + PhD from NYU per Kiplinger author bio, Emory undergrad (summa cum laude)."
+      },
+      {
+        "name": "PhD",
+        "issuer": "New York University",
+        "verified": true,
+        "verifyAttempted": true,
+        "verifyUrl": null
+      }
+    ],
+    "mediaSignals": {
+      "quotedInTier1": ["WSJ", "NYT", "LA Times", "Washington Post", "Boston Globe"],
+      "tvAppearances": [],
+      "authoredBooks": [],
+      "bookISBNs": [],
+      "scholarUrl": null,
+      "hIndex": null,
+      "industryAwards": [],
+      "hasKnowledgePanel": false
+    },
+    "outreachDraft": {
+      "subject": "JD+PhD on our retirement-broker review panel?",
+      "hookReference": "JD and PhD from NYU, summa cum laude from Emory, and Kiplinger's freelance retirement column (plus WSJ/NYT/LA Times writing credits)",
+      "body": "Hi Drew,\n\nThe Emory summa → NYU JD + PhD trajectory is unusual for a retirement columnist, and it comes through in how structurally your Kiplinger pieces handle retirement destinations and tax residency angles. The 'Best Places for LGBTQ People to Retire' series is a particularly clean example.\n\nI am Yegor, founder of RatedBrokers, an independent broker review site. We want a small panel of senior retirement writers to review and approve our reviews of retirement-focused platforms (IBKR retirement accounts, Fidelity, Schwab IRAs, international broker retirement options). Role is \"Reviewed and approved by Drew Limsky, JD, PhD\" — 1–2 hours per quarter, paid honorarium, link to your Kiplinger profile.\n\nCould we grab 15 minutes to see if it fits?\n\nBest,\nYegor Barakovskiy\nFounder, RatedBrokers"
+    }
+  },
+  {
+    "id": "adam-hardy-money",
+    "name": "Adam Hardy",
+    "role": "Lead Data Journalist — Money.com",
+    "site": "money_com",
+    "finalScore": 129,
+    "eeatTier": "A",
+    "certifications": [
+      {
+        "name": "Multimedia Storytelling Certificate",
+        "issuer": "Poynter News University",
+        "verified": true,
+        "verifyAttempted": true,
+        "verifyUrl": null,
+        "verifyNote": "Confirmed on LinkedIn and Money team page."
+      },
+      {
+        "name": "Data Journalism Certificate",
+        "issuer": "IRE / University of Missouri",
+        "verified": true,
+        "verifyAttempted": true,
+        "verifyUrl": null,
+        "verifyNote": "Confirmed on LinkedIn and Money team page."
+      }
+    ],
+    "mediaSignals": {
+      "quotedInTier1": ["Business Insider", "Forbes", "Nasdaq", "Yahoo"],
+      "tvAppearances": [],
+      "authoredBooks": [],
+      "bookISBNs": [],
+      "scholarUrl": null,
+      "hIndex": null,
+      "industryAwards": [],
+      "hasKnowledgePanel": false
+    },
+    "outreachDraft": {
+      "subject": "IRE-trained data reporter on review panel?",
+      "hookReference": "Poynter + IRE data-journalism training and Money.com's lead data journalist role, with Forbes Advisor and Penny Hoarder earlier",
+      "body": "Hi Adam,\n\nThe combination of Poynter + IRE (Mizzou) training and 'first hire to build the Forbes Advisor business/tech vertical from scratch' is a genuinely unusual pedigree — most personal-finance writers who got the data-journalism drill never end up actually writing for a mass audience. Your Money pieces on low-income financial barriers are what I mean.\n\nI am Yegor, founder of RatedBrokers. We want a small panel of data-first journalists to review and approve our quantitative broker comparisons — spread/commission tables, fee analyses, scorecard methodology. Role is \"Reviewed and approved by Adam Hardy\" — 1–2 hours per quarter, paid honorarium, link to Money.com.\n\nCould I grab 15 minutes to see if it fits?\n\nBest,\nYegor Barakovskiy\nFounder, RatedBrokers"
+    }
+  },
+  {
+    "id": "brett-arends-marketwatch",
+    "name": "Brett Arends",
+    "role": "Columnist — MarketWatch / WSJ (R.O.I. column)",
+    "site": "marketwatch",
+    "finalScore": 129,
+    "eeatTier": "A",
+    "certifications": [],
+    "mediaSignals": {
+      "quotedInTier1": ["WSJ", "MarketWatch"],
+      "tvAppearances": [],
+      "authoredBooks": [
+        "Storm Proof Your Money: Weather Any Economy, Rebuild Your Portfolio, Protect Your Future",
+        "The Romney Files",
+        "Spread Betting: The Football Fan's Guide to Spread Betting"
+      ],
+      "bookISBNs": ["9780470482681"],
+      "scholarUrl": null,
+      "hIndex": null,
+      "industryAwards": [],
+      "hasKnowledgePanel": true
+    },
+    "outreachDraft": {
+      "subject": "R.O.I. column author → broker review panel?",
+      "hookReference": "WSJ R.O.I. column, MarketWatch columnist since 2007, 'Storm Proof Your Money' (Wiley 2009), and the Cambridge-double-first / Oxford postgrad background",
+      "body": "Hi Brett,\n\n'Storm Proof Your Money' still gets passed around every time there is a drawdown — the Wiley 2009 timing was ruthless. The R.O.I. column is on my daily read list, and the contrarian housing/retirement pieces on MarketWatch are the ones that age best.\n\nI am Yegor, founder of RatedBrokers, an independent broker review site. We want a small panel of senior financial columnists to review and approve our broker reviews, with a focus on framing and bias-checking — spotting where we over-promise or under-disclose. Role is \"Reviewed and approved by Brett Arends\" — 1–2 hours per quarter, paid honorarium, link back to your MarketWatch author page.\n\nWould you be open to a 15-minute call to see if the fit works?\n\nBest,\nYegor Barakovskiy\nFounder, RatedBrokers"
+    }
+  },
+  {
+    "id": "martin-lewis-mse",
+    "name": "Martin Lewis CBE",
+    "role": "Founder / Executive Chair — MoneySavingExpert.com",
+    "site": "moneysavingexpert",
+    "finalScore": 128,
+    "eeatTier": "S",
+    "certifications": [
+      {
+        "name": "CBE (Commander of the Order of the British Empire)",
+        "issuer": "UK Government — 2022 New Year Honours",
+        "verified": true,
+        "verifyAttempted": true,
+        "verifyUrl": "https://www.moneysavingexpert.com/news/2021/12/martin-lewis-cbe-congratulations-from-mse-team/",
+        "verifyNote": "CBE awarded in 2022 New Year Honours (announced Dec 2021) for services to broadcasting and consumer rights. Previously OBE (2014)."
+      },
+      {
+        "name": "OBE",
+        "issuer": "UK Government — 2014 Birthday Honours",
+        "verified": true,
+        "verifyAttempted": true,
+        "verifyUrl": "https://en.wikipedia.org/wiki/Martin_Lewis_(financial_journalist)",
+        "verifyNote": "OBE 2014 for services to consumer rights and charitable services via MSE Charity Fund."
+      }
+    ],
+    "mediaSignals": {
+      "quotedInTier1": ["BBC", "The Times", "The Guardian", "ITV"],
+      "tvAppearances": ["ITV", "Good Morning Britain", "This Morning", "The Martin Lewis Money Show"],
+      "authoredBooks": ["The Money Diet"],
+      "bookISBNs": [],
+      "scholarUrl": null,
+      "hIndex": null,
+      "industryAwards": [
+        {"name": "CBE — 2022 New Year Honours", "year": 2022, "source": "https://www.moneysavingexpert.com/news/2021/12/martin-lewis-cbe-congratulations-from-mse-team/"},
+        {"name": "OBE — 2014 Birthday Honours", "year": 2014, "source": "https://en.wikipedia.org/wiki/Martin_Lewis_(financial_journalist)"}
+      ],
+      "hasKnowledgePanel": true
+    },
+    "outreachDraft": {
+      "subject": "UK broker reviews — MSE-calibre sign-off?",
+      "hookReference": "CBE 2022 / OBE 2014 for consumer rights and the founding of MoneySavingExpert.com (sold 2012 for up to £87m, remained Executive Chair)",
+      "body": "Hi Martin,\n\nMoneySavingExpert is genuinely the reason I took consumer-side finance content seriously in the first place — the CBE was well earned, and the mental-health-and-debt campaigning is in a category of its own.\n\nI am Yegor, founder of RatedBrokers — an independent broker review site. This is a long-shot outreach: I know the MSE compliance bar is extraordinary, but I wanted to at least ask whether you would consider a very light-touch editorial role reviewing and approving our UK broker reviews (IG, Hargreaves Lansdown, AJ Bell, Trading 212). Role would be \"Reviewed and approved by Martin Lewis CBE\" — 1–2 hours per quarter, paid honorarium, link back to MoneySavingExpert, or any other format your team would accept.\n\nEven if it is a no, I would love a 15-minute call to ask who you would suggest instead. Thank you for the work you do.\n\nBest,\nYegor Barakovskiy\nFounder, RatedBrokers"
+    }
+  },
+  {
+    "id": "katie-doyle",
+    "name": "Katie Doyle",
+    "role": "SVP Content — Forbes Marketplace",
+    "site": "forbes",
+    "finalScore": 128,
+    "eeatTier": "A",
+    "certifications": [],
+    "mediaSignals": {
+      "quotedInTier1": ["Forbes", "Bankrate"],
+      "tvAppearances": [],
+      "authoredBooks": [],
+      "bookISBNs": [],
+      "scholarUrl": null,
+      "hIndex": null,
+      "industryAwards": [
+        {"name": "SPJ Sigma Delta Chi Award — Breaking News (Bankrate team, Federal Reserve coverage)", "year": null, "source": "https://muckrack.com/katie-doyle/bio"}
+      ],
+      "hasKnowledgePanel": false
+    },
+    "outreachDraft": {
+      "subject": "Forbes Marketplace SVP — broker review guidance?",
+      "hookReference": "SVP Content at Forbes Marketplace, launch of HerMoney (Jean Chatzky), and the Bankrate team's SPJ Sigma Delta Chi breaking-news award for Federal Reserve coverage",
+      "body": "Hi Katie,\n\nThe HerMoney launch under Jean Chatzky and the Bankrate years (especially the SPJ-winning Fed coverage run) are a textbook path through editorial affiliate-commerce — and frankly, one of the few I point new editors at as a positive reference.\n\nI am Yegor, founder of RatedBrokers, an independent broker review site. I would love your perspective on our editorial and methodology layer — not as a full reviewer, but as a senior editorial advisor who reviews our methodology page and a rotating quarterly review. Role is \"Reviewed and approved by Katie Doyle\" — 1–2 hours per quarter, paid honorarium, flexible on compliance-friendly attribution.\n\nCould I grab 15 minutes to walk you through what we are building?\n\nBest,\nYegor Barakovskiy\nFounder, RatedBrokers"
+    }
+  },
+  {
+    "id": "andrew-thurman",
+    "name": "Andrew Thurman",
+    "role": "Content Lead — Nansen (former CoinDesk senior tech correspondent)",
+    "site": "coinmarketcap",
+    "finalScore": 128,
+    "eeatTier": "S",
+    "certifications": [],
+    "mediaSignals": {
+      "quotedInTier1": ["FT", "Washington Post", "WSJ", "Bloomberg", "Forbes", "Fortune", "Reuters", "BBC", "CNBC"],
+      "tvAppearances": [],
+      "authoredBooks": [],
+      "bookISBNs": [],
+      "scholarUrl": null,
+      "hIndex": null,
+      "industryAwards": [],
+      "hasKnowledgePanel": false
+    },
+    "outreachDraft": {
+      "subject": "Nansen + CoinDesk lens on crypto broker reviews?",
+      "hookReference": "Content Lead at Nansen, ex-senior tech correspondent at CoinDesk, ex-weekend editor at Cointelegraph — work quoted in FT, WSJ, Bloomberg, BBC",
+      "body": "Hi Andrew,\n\nThe CoinDesk → Chainlink → Nansen trajectory is one of the few career paths where crypto coverage credibility actually compounds — your on-chain framing pieces for Nansen read like what crypto broker reviews should sound like, and almost never do.\n\nI am Yegor, founder of RatedBrokers, an independent broker review site. We want a small crypto-literate panel to review and approve our crypto exchange and crypto-broker reviews (Coinbase, Kraken, Binance, IBKR crypto, etc.) before publication. Role is \"Reviewed and approved by Andrew Thurman\" — 1–2 hours per quarter, paid honorarium, link back to Nansen or your personal channels — flexible on compliance.\n\nWould you be open to a 15-minute call to see if it fits?\n\nBest,\nYegor Barakovskiy\nFounder, RatedBrokers"
+    }
+  },
+  {
+    "id": "charles-lewis-sizemore",
+    "name": "Charles Lewis Sizemore, CFA",
+    "role": "CIO — Sizemore Capital Management; Contributor — Kiplinger",
+    "site": "kiplinger",
+    "finalScore": 128,
+    "eeatTier": "S",
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute",
+        "verified": true,
+        "verifyAttempted": true,
+        "verifyUrl": "https://www.cfainstitute.org/en/membership/directory",
+        "verifyNote": "CFA charter confirmed across Kiplinger author page, charlessizemore.com, Sizemore Capital Management (RIA), and Interactive Advisors. MSc Finance LSE + BBA TCU Magna Cum Laude / Phi Beta Kappa."
+      }
+    ],
+    "mediaSignals": {
+      "quotedInTier1": ["Barron's", "WSJ", "Washington Post", "Forbes", "MarketWatch", "Kiplinger"],
+      "tvAppearances": ["CNBC", "Bloomberg TV", "Fox Business News"],
+      "authoredBooks": [],
+      "bookISBNs": [],
+      "scholarUrl": null,
+      "hIndex": null,
+      "industryAwards": [],
+      "hasKnowledgePanel": false
+    },
+    "outreachDraft": {
+      "subject": "LSE + CFA on dividend-broker reviews?",
+      "hookReference": "CFA charter, MSc Finance & Accounting at LSE, BBA Finance Magna Cum Laude / Phi Beta Kappa (TCU), and CIO at Sizemore Capital Management — plus long-running Kiplinger dividend column",
+      "body": "Hi Charles,\n\nThe LSE MSc + TCU Magna / Phi Beta Kappa + CFA stack is rare on the retail investor-writer side, and the Kiplinger dividend column is one of the few places the theory actually gets translated into executable picks. Sizemore Capital's Interactive Advisors portfolio is a clean reference too.\n\nI am Yegor, founder of RatedBrokers, an independent broker review site. We want a small CFA panel to review and approve our broker reviews for income and dividend-focused investors (Fidelity, Schwab, IBKR, M1). Role is \"Reviewed and approved by Charles Lewis Sizemore, CFA\" — 1–2 hours per quarter, paid honorarium, link back to charlessizemore.com / Sizemore Capital.\n\nCould we do a 15-minute call to see if it fits?\n\nBest,\nYegor Barakovskiy\nFounder, RatedBrokers"
+    }
+  },
+  {
+    "id": "elizabeth-leary-kiplinger",
+    "name": "Elizabeth (Ody) Leary, CFA",
+    "role": "Contributing Editor — Kiplinger; Director, Markets & Investing Thought Leadership — Fidelity",
+    "site": "kiplinger",
+    "finalScore": 128,
+    "eeatTier": "A",
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute",
+        "verified": true,
+        "verifyAttempted": true,
+        "verifyUrl": "https://www.cfainstitute.org/en/membership/directory",
+        "verifyNote": "CFA mark consistent on LinkedIn, Kiplinger byline, Fidelity current role. Wesleyan BA + Stanford MLS."
+      }
+    ],
+    "mediaSignals": {
+      "quotedInTier1": ["Barron's", "Bloomberg Businessweek", "The Washington Post"],
+      "tvAppearances": [],
+      "authoredBooks": [],
+      "bookISBNs": [],
+      "scholarUrl": null,
+      "hIndex": null,
+      "industryAwards": [],
+      "hasKnowledgePanel": false
+    },
+    "outreachDraft": {
+      "subject": "Kiplinger CFA + Fidelity seat — review panel?",
+      "hookReference": "CFA charter, Kiplinger contributing editor since 2006, current Director of Markets & Investing Thought Leadership at Fidelity — Wesleyan + Stanford MLS",
+      "body": "Hi Elizabeth,\n\nKiplinger since 2006 + the current Fidelity thought-leadership seat is a rare combination — it means your writing consistently lands on the side of 'things an actual long-term investor can do' rather than news-cycle churn.\n\nI am Yegor, founder of RatedBrokers, an independent broker review site. I recognise a Fidelity seat may make this complicated on the compliance side, but I wanted to ask: would you be open to a light-touch editorial review role on our Kiplinger-style broker content (non-Fidelity brokers only, to avoid any conflict)? Role is \"Reviewed and approved by Elizabeth Leary, CFA\" — 1–2 hours per quarter, paid honorarium.\n\nHappy to structure it however compliance prefers. Could I grab 15 minutes?\n\nBest,\nYegor Barakovskiy\nFounder, RatedBrokers"
+    }
+  },
+  {
+    "id": "quentin-fottrell-marketwatch",
+    "name": "Quentin Fottrell",
+    "role": "Managing Editor of Advice Columns & 'The Moneyist' — MarketWatch",
+    "site": "marketwatch",
+    "finalScore": 128,
+    "eeatTier": "A",
+    "certifications": [],
+    "mediaSignals": {
+      "quotedInTier1": ["WSJ", "Dow Jones"],
+      "tvAppearances": [],
+      "authoredBooks": ["Love in a Damp Climate"],
+      "bookISBNs": [],
+      "scholarUrl": null,
+      "hIndex": null,
+      "industryAwards": [],
+      "hasKnowledgePanel": true
+    },
+    "outreachDraft": {
+      "subject": "The Moneyist voice on review ethics?",
+      "hookReference": "'The Moneyist' column at MarketWatch and 8 years as Irish correspondent for Dow Jones Newswires / WSJ (2003–2011)",
+      "body": "Hi Quentin,\n\nThe Moneyist is the rare advice column that is actually about money ethics rather than money hacks — the inheritance and divorce columns in particular have a level of candor you almost never see in personal finance.\n\nI am Yegor, founder of RatedBrokers, an independent broker review site. We want a small panel of senior personal-finance editors to review and approve our broker reviews, particularly the ethics-adjacent questions — disclosure, target-reader framing, and where we should be more candid about conflicts. Role is \"Reviewed and approved by Quentin Fottrell\" — 1–2 hours per quarter, paid honorarium, link to your MarketWatch column.\n\nCould I grab 15 minutes to see if the format works?\n\nBest,\nYegor Barakovskiy\nFounder, RatedBrokers"
+    }
+  },
+  {
+    "id": "colin-harper-bitcoinmagazine",
+    "name": "Colin Harper",
+    "role": "Editor-in-Chief — Blockspace Media; Head of Content — Luxor/Hashrate Index",
+    "site": "bitcoinmagazine",
+    "finalScore": 128,
+    "eeatTier": "A",
+    "certifications": [],
+    "mediaSignals": {
+      "quotedInTier1": ["Forbes", "Yahoo Finance"],
+      "tvAppearances": ["Bitcoin Takeover Podcast S17 E7", "Blockspace Podcast (co-founder)"],
+      "authoredBooks": [],
+      "bookISBNs": [],
+      "scholarUrl": null,
+      "hIndex": null,
+      "industryAwards": [
+        {"name": "Top Bitcoin Mining Journalists of 2025 — Hashrate Index", "year": 2025, "source": "https://hashrateindex.com/blog/top-bitcoin-mining-journalists-of-2025/"}
+      ],
+      "hasKnowledgePanel": false,
+      "muckrackArticleCount": 165
+    },
+    "outreachDraft": {
+      "subject": "Bitcoin mining + broker reviews panel invite",
+      "hookReference": "EiC Blockspace Media, Head of Content at Luxor's Hashrate Index, 7+ years covering Bitcoin across Bitcoin Magazine, CoinDesk, Forbes — and 'Top Bitcoin Mining Journalists of 2025'",
+      "body": "Hi Colin,\n\nBlockspace and Hashrate Index are on my daily read — the mining-economics depth is something even most big-cap crypto outlets no longer attempt. Being on the 2025 Top Bitcoin Mining Journalists list is well earned.\n\nI am Yegor, founder of RatedBrokers. We are building a dedicated Bitcoin and crypto-broker review track (Coinbase, Kraken, River, Strike, Swan) and want a small Bitcoin-literate panel to review and approve those reviews before publication. Role is \"Reviewed and approved by Colin Harper\" — 1–2 hours per quarter, paid honorarium, link back to Blockspace / Hashrate Index.\n\nCould I grab 15 minutes to walk you through it?\n\nBest,\nYegor Barakovskiy\nFounder, RatedBrokers"
+    }
+  },
+  {
+    "id": "dan-caplinger",
+    "name": "Dan Caplinger",
+    "role": "Director of Investment Planning / Senior Writer — The Motley Fool",
+    "site": "fool",
+    "finalScore": 126,
+    "eeatTier": "A",
+    "certifications": [
+      {
+        "name": "CFP (relinquished 2012)",
+        "issuer": "CFP Board",
+        "verified": false,
+        "verifyAttempted": true,
+        "verifyUrl": "https://www.cfp.net/verify-a-cfp-professional",
+        "verifyNote": "Former CFP per self-reported bios; relinquished ~2012. Will not display CFP mark. JD (high honors) from UT Law + BA Economics from U Chicago are verified via LinkedIn and Motley Fool bio."
+      },
+      {
+        "name": "JD (high honors)",
+        "issuer": "University of Texas School of Law",
+        "verified": true,
+        "verifyAttempted": true,
+        "verifyUrl": null
+      }
+    ],
+    "mediaSignals": {
+      "quotedInTier1": [],
+      "tvAppearances": [],
+      "authoredBooks": [],
+      "bookISBNs": [],
+      "scholarUrl": null,
+      "hIndex": null,
+      "industryAwards": [],
+      "hasKnowledgePanel": false
+    },
+    "outreachDraft": {
+      "subject": "Motley Fool Director of Investment Planning — panel?",
+      "hookReference": "Director of Investment Planning at The Motley Fool since 2006, JD with high honors from University of Texas Law, former estate-planning attorney and financial planner",
+      "body": "Hi Dan,\n\nTwo decades at The Motley Fool is a tenure almost nobody else in retail-investor content can match, and the estate-planning-attorney background shows up in the rigor of your IRA and inheritance pieces — stuff most personal-finance writers just paraphrase.\n\nI am Yegor, founder of RatedBrokers, an independent broker review site. We want a small panel of senior investor-education writers to review and approve our broker reviews, especially the retirement account and estate-planning-adjacent pages. Role is \"Reviewed and approved by Dan Caplinger, JD\" — 1–2 hours per quarter, paid honorarium, link back to your Motley Fool author page.\n\nCould I grab 15 minutes?\n\nBest,\nYegor Barakovskiy\nFounder, RatedBrokers"
+    }
+  },
+  {
+    "id": "kathy-lien",
+    "name": "Kathy Lien",
+    "role": "Managing Director of FX Strategy — BK Asset Management; Co-Founder BKForex",
+    "site": "wikifx",
+    "finalScore": 125,
+    "eeatTier": "S",
+    "certifications": [],
+    "mediaSignals": {
+      "quotedInTier1": ["WSJ", "FT", "Reuters", "Bloomberg", "CNBC"],
+      "tvAppearances": ["CNBC"],
+      "authoredBooks": [
+        "Day Trading and Swing Trading the Currency Market (3rd ed., Wiley 2015)",
+        "The Little Book of Currency Trading",
+        "Millionaire Traders: How Everyday People Beat Wall Street at its Own Game"
+      ],
+      "bookISBNs": ["9781119108412", "9780470452547"],
+      "scholarUrl": null,
+      "hIndex": null,
+      "industryAwards": [],
+      "hasKnowledgePanel": false
+    },
+    "outreachDraft": {
+      "subject": "'Day Trading the Currency Market' → FX review panel?",
+      "hookReference": "'Day Trading and Swing Trading the Currency Market' (Wiley, now 3rd ed. 2015), 'Millionaire Traders' with Boris Schlossberg, and MD of FX Strategy at BK Asset Management — plus NYU Stern at 18",
+      "body": "Hi Kathy,\n\n'Day Trading and Swing Trading the Currency Market' is still the book I hand to anyone new to FX — three editions in and it holds up. The NYU Stern at 18 / JPMorgan interbank → DailyFX co-founder arc is genuinely one-of-a-kind in retail FX.\n\nI am Yegor, founder of RatedBrokers, an independent broker review site. We want a small panel of senior FX practitioners to review and approve our FX-broker reviews (OANDA, IG, Saxo, Forex.com, IBKR FX). Role is \"Reviewed and approved by Kathy Lien\" — 1–2 hours per quarter, paid honorarium, link back to BKForex / BK Asset Management.\n\nCould we grab 15 minutes to see if it fits?\n\nBest,\nYegor Barakovskiy\nFounder, RatedBrokers"
+    }
+  },
+  {
+    "id": "dan-blystone",
+    "name": "Dan Blystone",
+    "role": "Broker Analyst — FXEmpire; Senior Market Analyst — Scandinavian Capital Markets",
+    "site": "fxempire",
+    "finalScore": 125,
+    "eeatTier": "S",
+    "certifications": [
+      {
+        "name": "Series 3 (NFA)",
+        "issuer": "NFA",
+        "verified": true,
+        "verifyAttempted": true,
+        "verifyUrl": "https://www.nfa.futures.org/BasicNet/",
+        "verifyNote": "Series 3 licensed futures/forex broker while at Infinity Futures Chicago; CME floor arb-clerk start 1998. Credential attested on FXEmpire bio and multiple outlet bios; NFA individual BASIC lookup not programmatically accessed."
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "n/a_nfa_not_finra",
+      "crd": null
+    },
+    "mediaSignals": {
+      "quotedInTier1": [],
+      "tvAppearances": [],
+      "authoredBooks": [],
+      "bookISBNs": [],
+      "scholarUrl": null,
+      "hIndex": null,
+      "industryAwards": [],
+      "hasKnowledgePanel": false
+    },
+    "outreachDraft": {
+      "subject": "CME-floor + Series 3 on our FX review panel?",
+      "hookReference": "CME currency-futures-pit start (1998), ABN AMRO interbank desk, Series 3 NFA futures broker at Infinity Futures, now Broker Analyst at FXEmpire and Senior Market Analyst at Scandinavian Capital Markets",
+      "body": "Hi Dan,\n\nThe CME-floor-arb-clerk-to-ABN-AMRO-interbank-to-prop-trading-to-Series-3-broker arc is genuinely unusual for someone writing retail broker reviews — most analysts at that level left public writing a long time ago. The FXEmpire broker reviews clearly benefit from it.\n\nI am Yegor, founder of RatedBrokers, an independent broker review site. We want a small panel with actual execution-side experience to review and approve our FX and futures broker reviews (IG, OANDA, AMP Futures, NinjaTrader, Tradestation). Role is \"Reviewed and approved by Dan Blystone\" — 1–2 hours per quarter, paid honorarium, link to your Scandinavian Capital Markets or Traderslog profile.\n\nCould we grab 15 minutes?\n\nBest,\nYegor Barakovskiy\nFounder, RatedBrokers"
+    }
+  },
+  {
+    "id": "steven-ralston-zacks",
+    "name": "Steven Ralston, CFA",
+    "role": "Director of Research & Senior Analyst — Zacks Small-Cap Research",
+    "site": "zacks",
+    "finalScore": 125,
+    "eeatTier": "A",
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute",
+        "verified": true,
+        "verifyAttempted": true,
+        "verifyUrl": "https://www.cfainstitute.org/en/membership/directory",
+        "verifyNote": "CFA charter confirmed on Zacks Small-Cap Research analyst bio, LinkedIn, X handle @RalstonCFA. MIT BS Management Science (1972–1975). 30+ years; ex-Director of Research at First National Bank of Maryland, co-PM BlackRock Large Cap Growth."
+      }
+    ],
+    "mediaSignals": {
+      "quotedInTier1": ["WSJ", "Barron's", "Forbes"],
+      "tvAppearances": [],
+      "authoredBooks": [],
+      "bookISBNs": [],
+      "scholarUrl": null,
+      "hIndex": null,
+      "industryAwards": [],
+      "hasKnowledgePanel": false
+    },
+    "outreachDraft": {
+      "subject": "MIT + CFA on small-cap broker reviews?",
+      "hookReference": "MIT BS (Management Science), CFA charter, 30+ years across First National Bank of Maryland (Director of Research), BlackRock Large Cap Growth (co-PM on $2.3B), and Zacks Small-Cap Research since 2004",
+      "body": "Hi Steven,\n\nThe MIT + CFA + three-decade buy-side-and-research path is a rare combination on the retail research side, and the Zacks Small-Cap work — especially the cannabis, biotech, and energy coverage — is one of the more rigorous small-cap research shops still publishing publicly.\n\nI am Yegor, founder of RatedBrokers, an independent broker review site. We want a small senior CFA panel to review and approve our broker reviews that emphasise small-cap and research-heavy trading (IBKR, Fidelity, Schwab, Webull). Role is \"Reviewed and approved by Steven Ralston, CFA\" — 1–2 hours per quarter, paid honorarium, link back to your Zacks Small-Cap Research bio.\n\nCould we grab 15 minutes?\n\nBest,\nYegor Barakovskiy\nFounder, RatedBrokers"
+    }
+  }
+]

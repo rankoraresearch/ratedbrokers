@@ -9,6 +9,7 @@ Single-source-of-truth catalog of all **579 authors** harvested across **96 outl
 | File | What's in it |
 |---|---|
 | **AUTHORS-CATALOG.md** (this file) | Index, summary stats, plus every Tier-S author in full detail |
+| **AUTHORS-CATALOG-VERIFIED-TOP30.md** | Top-30 with credentials verified in registries (CFA/CFP/FINRA) + ready-to-send outreach emails (Wave 1 pack) |
 | AUTHORS-CATALOG-TIER-A.md | Every Tier-A author in full detail |
 | AUTHORS-CATALOG-TIER-BC.md | Tier-B and Tier-C in condensed table form |
 | AUTHORS-CATALOG-DATA.csv | Machine-readable: every author, every field |
