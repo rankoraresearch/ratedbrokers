@@ -281,6 +281,31 @@ const DEFAULT = {
   shadowFam: "neutral",   // neutral | glow | none
   lift: "subtle",         // none | subtle | medium
   showQuickLinks: false,  // Quick Links pill strip above the 8 buttons (dev toggle)
+  frame: "editorial",     // section framing: none | editorial | inset | darkFrame | cream
+  // ── Architectural knobs (Barbara round 4) ──
+  cadence:  "standard",   // vertical cadence: compact | standard | expansive | monumental
+  header:   "fieldLabel", // header variant (non-Editorial): fieldLabel | numeric | tagline | range | silent
+  meta:     "off",        // bottom meta strip: off | credentials | counters | process
+  anchor:   "compact",    // Editorial left anchor: compact | full | numbered
+  accent:   "warm",       // orange accent intensity: off | subtle | warm | bold
+};
+
+/* Barbara-curated knob mappings */
+const CADENCE = { compact: 56, standard: 96, expansive: 128, monumental: 160 };
+
+const HEADER_OVERLINES = {
+  fieldLabel: { overline: "By broker type",         kicker: null },
+  numeric:    { overline: "Section 02 · Browse",    kicker: null },
+  tagline:    { overline: "Eight verticals. One standard.", kicker: null },
+  range:      { overline: "01 — 08",                kicker: null },
+  silent:     null,
+};
+
+const META_CONTENT = {
+  off:         null,
+  credentials: "Independent · Verified by licensing registries · Updated Q2 2026",
+  counters:    "51 brokers tested · 293 rankings · 8 verticals",
+  process:     "Methodology → Testing → Expert review → Publication",
 };
 
 /* Preset combos — единый язык за один клик */
@@ -290,6 +315,8 @@ const PRESETS = [
   { id: "howwerate-match",label: "How-We-Rate Match", patch: { style: "tile",    bg: "premiumDark", skin: "whiteGreen", motion: "brand",  shadowFam: "none",    lift: "subtle", showArrow: true  } },
   { id: "minimal-nav",    label: "Minimal Nav",       patch: { style: "pill",    bg: "soft",        skin: "whiteNavy",  motion: "snappy", shadowFam: "none",    lift: "subtle", showArrow: false } },
   { id: "convex-light",   label: "Convex Light",      patch: { style: "convex",  bg: "soft",        skin: "whiteGreen", motion: "brand",  shadowFam: "neutral", lift: "subtle", showArrow: false } },
+  { id: "editorial-authority", label: "★ Editorial Authority",
+    patch: { style: "unified", frame: "editorial", rhythm: "3+3+2", cadence: "expansive", anchor: "full", meta: "credentials", showArrow: true } },
 ];
 const LS_KEY = "rb-broker-types-config-v2";
 const BrokerTypeContext = createContext({ cfg: DEFAULT, set: () => {} });
@@ -589,28 +616,415 @@ function PillBtn({ v, cfg }) {
   );
 }
 
+/* ══════════════════════════════════════════════════════════════
+   FRAMES — architectural containers (Barbara round 3)
+   Дают секции роль, не декор. 4 структурных приёма + none.
+   ══════════════════════════════════════════════════════════════ */
+
+function buttonGridEl(Renderer, cfg, mob) {
+  const key = `${cfg.skin}-${cfg.shape}-${cfg.edge}-${cfg.mode}-${cfg.pack}-${cfg.texture}-${cfg.showArrow}-${cfg.bg}-${cfg.style}-${cfg.frame}`;
+  // Locked: 4×2 desktop, 2×4 mobile
+  return (
+    <div style={{
+      display: "grid",
+      gridTemplateColumns: mob ? "repeat(2, 1fr)" : "repeat(4, 1fr)",
+      gap: mob ? 8 : 12,
+    }}>
+      {VERTICALS.map(item => <Renderer key={`${item.slug}-${key}`} v={item} cfg={cfg} />)}
+    </div>
+  );
+}
+
+/* ──────────── ACCENT INTENSITY — оранжевые acенты во фреймах ──────────── */
+const ACCENT = {
+  off:    { line: "transparent",       halo: "0 0 0 transparent",                text: "#64748b", bar: 0, barColor: "transparent" },
+  subtle: { line: "rgba(245,158,11,0.25)", halo: "0 8px 24px rgba(245,158,11,0.05)", text: "#d97706", bar: 0, barColor: "transparent" },
+  warm:   { line: "rgba(245,158,11,0.5)",  halo: "0 10px 32px rgba(245,158,11,0.08)", text: "#d97706", bar: 2, barColor: "#f59e0b" },
+  bold:   { line: "#f59e0b",               halo: "0 16px 40px rgba(245,158,11,0.15)", text: "#d97706", bar: 3, barColor: "#f59e0b" },
+};
+
+/* ────────── Meta Strip — footer под grid'ом ────────── */
+function MetaStrip({ cfg, dark = false }) {
+  const content = META_CONTENT[cfg.meta];
+  if (!content) return null;
+  return (
+    <div style={{
+      marginTop: 20,
+      fontSize: 13, lineHeight: 1.5,
+      color: dark ? "rgba(255,255,255,0.55)" : "#64748b",
+      fontFamily: "'Outfit',sans-serif", fontWeight: 500,
+      letterSpacing: "0.01em",
+    }}>
+      {content}
+    </div>
+  );
+}
+
+/* ────────── Header (non-Editorial) ────────── */
+function FrameHeader({ cfg, accent = "#64748b", marginBottom }) {
+  const h = HEADER_OVERLINES[cfg.header];
+  if (!h) return null;
+  return (
+    <div style={{
+      fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase",
+      color: accent, fontWeight: 700, marginBottom: marginBottom ?? 24,
+      fontFamily: "'Outfit',sans-serif",
+    }}>
+      {h.overline}
+    </div>
+  );
+}
+
+/* ────────── Editorial Left Anchor ────────── */
+function EditorialAnchor({ cfg }) {
+  if (cfg.anchor === "numbered") {
+    return (
+      <div style={{ borderLeft: "2px solid #0f172a", paddingLeft: 16 }}>
+        <div style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 300, fontSize: 64, lineHeight: 1, color: NAVY, letterSpacing: "-0.04em" }}>02</div>
+        <div style={{ fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", color: "#64748b", fontWeight: 700, marginTop: 8, fontFamily: "'Outfit',sans-serif" }}>
+          Browse
+        </div>
+      </div>
+    );
+  }
+  if (cfg.anchor === "full") {
+    return (
+      <div style={{ borderLeft: "2px solid #0f172a", paddingLeft: 16 }}>
+        <div style={{ fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", color: "#64748b", fontWeight: 700, marginBottom: 8, fontFamily: "'Outfit',sans-serif" }}>
+          Section 02 · Browse
+        </div>
+        <div style={{ fontSize: 19, lineHeight: 1.25, color: NAVY, fontWeight: 700, fontFamily: "'Outfit',sans-serif", letterSpacing: "-0.02em", marginBottom: 10 }}>
+          Explore by asset class
+        </div>
+        <div style={{ fontSize: 14, color: "#475569", lineHeight: 1.55, fontFamily: "'Outfit',sans-serif" }}>
+          We separate brokers by what they actually trade. Start with your primary market.
+        </div>
+        <div style={{ marginTop: 18, display: "flex", alignItems: "center", gap: 8 }}>
+          <div style={{ flex: 1, height: 1, background: "rgba(15,23,42,0.1)" }} />
+          <span style={{ fontSize: 11, color: "#94a3b8", fontFamily: "'JetBrains Mono',monospace", fontWeight: 600 }}>8 / 8</span>
+        </div>
+      </div>
+    );
+  }
+  // compact
+  return (
+    <div style={{ borderLeft: "2px solid #0f172a", paddingLeft: 16 }}>
+      <div style={{ fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", color: "#64748b", fontWeight: 600, marginBottom: 8, fontFamily: "'Outfit',sans-serif" }}>
+        Section 02 · Browse
+      </div>
+      <div style={{ fontSize: 15, lineHeight: 1.45, color: NAVY, fontWeight: 600, fontFamily: "'Outfit',sans-serif" }}>
+        By broker type
+      </div>
+      <div style={{ fontSize: 13, color: "#64748b", marginTop: 6, lineHeight: 1.5, fontFamily: "'Outfit',sans-serif" }}>
+        Eight verticals, same methodology.
+      </div>
+      <div style={{ marginTop: 14, display: "flex", alignItems: "center", gap: 8 }}>
+        <div style={{ flex: 1, height: 1, background: "rgba(15,23,42,0.1)" }} />
+        <span style={{ fontSize: 11, color: "#94a3b8", fontFamily: "'JetBrains Mono',monospace", fontWeight: 600 }}>8 / 8</span>
+      </div>
+    </div>
+  );
+}
+
+const padBlock = (mob, cfg) => {
+  const val = CADENCE[cfg.cadence] ?? 96;
+  return mob ? Math.max(24, Math.round(val * 0.6)) : val;
+};
+
+/* A — None (current behaviour, honours cfg.bg) */
+function NoneFrame({ cfg, mob, grid }) {
+  const bg = BACKGROUNDS[cfg.bg] || BACKGROUNDS.white;
+  const pad = padBlock(mob, cfg);
+  return (
+    <div style={{ ...bg.style, padding: mob ? `${Math.round(pad/2)}px 16px` : `${Math.round(pad/2)}px 28px` }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: mob ? "0 4px" : "0 32px" }}>
+        <FrameHeader cfg={cfg} marginBottom={20} />
+        {grid}
+        <MetaStrip cfg={cfg} />
+      </div>
+    </div>
+  );
+}
+
+/* B — Editorial Two-Column (Barbara's top pick, WSJ/FT style) */
+function EditorialFrame({ cfg, mob, grid }) {
+  const pad = padBlock(mob, cfg);
+  const anchorWidth = cfg.anchor === "full" ? 300 : cfg.anchor === "numbered" ? 200 : 220;
+  return (
+    <section style={{
+      background: "#ffffff",
+      borderTop: "1px solid #e2e8f0",
+      padding: mob ? `${Math.round(pad*0.7)}px 16px` : `${pad}px 24px`,
+    }}>
+      <div style={{
+        maxWidth: 1200, margin: "0 auto",
+        display: "grid",
+        gridTemplateColumns: mob ? "1fr" : `${anchorWidth}px 1fr`,
+        gap: mob ? 24 : 48,
+        alignItems: "start",
+      }}>
+        <EditorialAnchor cfg={cfg} />
+        <div>
+          {grid}
+          <MetaStrip cfg={cfg} />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* C — Inset Canvas (Linear/Stripe float) */
+function InsetFrame({ cfg, mob, grid }) {
+  const pad = padBlock(mob, cfg);
+  return (
+    <section style={{ background: "#ffffff", padding: mob ? `${Math.round(pad*0.4)}px 0` : `${Math.round(pad*0.6)}px 0` }}>
+      <div style={{
+        maxWidth: 1200, margin: "0 auto",
+        padding: mob ? "28px 16px 32px" : "40px 40px 44px",
+        background: "#f8fafc",
+        borderRadius: mob ? 0 : 16,
+      }}>
+        <FrameHeader cfg={cfg} marginBottom={mob ? 20 : 28} />
+        {grid}
+        <MetaStrip cfg={cfg} />
+      </div>
+    </section>
+  );
+}
+
+/* D — Dark Frame (navy inset with orange eyebrow) */
+function DarkFrame({ cfg, mob, grid }) {
+  const pad = padBlock(mob, cfg);
+  const h = HEADER_OVERLINES[cfg.header];
+  return (
+    <section style={{ background: "#ffffff", padding: mob ? `${Math.round(pad*0.5)}px 16px` : `${Math.round(pad*0.7)}px 24px` }}>
+      <div style={{
+        maxWidth: 1200, margin: "0 auto",
+        background: "linear-gradient(180deg, #0f172a 0%, #0a2018 100%)",
+        borderRadius: 16,
+        padding: mob ? "24px 16px" : "36px 40px",
+        boxShadow: "0 12px 40px rgba(15,23,42,0.12)",
+        position: "relative", overflow: "hidden",
+      }}>
+        <div style={{
+          position: "absolute", inset: 0, pointerEvents: "none",
+          background: "repeating-linear-gradient(135deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 12px)",
+        }} />
+        <div style={{ position: "relative" }}>
+          {h && (
+            <div style={{
+              fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase",
+              color: "#f59e0b", fontWeight: 700, marginBottom: mob ? 20 : 28,
+              fontFamily: "'Outfit',sans-serif",
+            }}>
+              {h.overline}
+            </div>
+          )}
+          {grid}
+          <MetaStrip cfg={cfg} dark />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* E — Warm Cream Band (Robinhood territory) */
+function CreamFrame({ cfg, mob, grid }) {
+  const pad = padBlock(mob, cfg);
+  const h = HEADER_OVERLINES[cfg.header];
+  return (
+    <section style={{
+      background: "#fbf8f1",
+      padding: mob ? `${Math.round(pad*0.7)}px 16px` : `${pad}px 24px`,
+      borderTop: "1px solid rgba(15,23,42,0.06)",
+      borderBottom: "1px solid rgba(15,23,42,0.06)",
+    }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+        {h && (
+          <div style={{
+            display: "flex", alignItems: "baseline", gap: 12,
+            marginBottom: mob ? 20 : 28,
+          }}>
+            <div style={{ fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", color: "#64748b", fontWeight: 600, fontFamily: "'Outfit',sans-serif" }}>
+              {h.overline}
+            </div>
+            <div style={{ flex: 1, height: 1, background: "rgba(15,23,42,0.1)" }} />
+            <div style={{ fontSize: 11, color: "#94a3b8", fontFamily: "'JetBrains Mono',monospace", fontWeight: 600 }}>
+              8 / 8
+            </div>
+          </div>
+        )}
+        {grid}
+        <MetaStrip cfg={cfg} />
+      </div>
+    </section>
+  );
+}
+
+/* ──────────── ORANGE-THEMED FRAMES (round 5) ──────────── */
+
+/* F — Amber Wash — тёплый диагональный gradient `#fffaf0 ↔ white` с оранжевыми hairlines */
+function AmberFrame({ cfg, mob, grid }) {
+  const pad = padBlock(mob, cfg);
+  const ac = ACCENT[cfg.accent] || ACCENT.warm;
+  return (
+    <section style={{
+      background: "linear-gradient(135deg, #fffaf0 0%, #ffffff 50%, #fffaf0 100%)",
+      padding: mob ? `${Math.round(pad*0.7)}px 16px` : `${pad}px 24px`,
+      borderTop:    `${ac.bar}px solid ${ac.barColor}`,
+      borderBottom: `1px solid ${ac.line}`,
+    }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+        <FrameHeader cfg={cfg} accent={ac.text} marginBottom={mob ? 20 : 28} />
+        {grid}
+        <MetaStrip cfg={cfg} />
+      </div>
+    </section>
+  );
+}
+
+/* G — Sunrise — мягкий вертикальный gradient #fffbeb → #fef3c7 с тонкой orange линией сверху */
+function SunriseFrame({ cfg, mob, grid }) {
+  const pad = padBlock(mob, cfg);
+  const ac = ACCENT[cfg.accent] || ACCENT.warm;
+  return (
+    <section style={{
+      background: "linear-gradient(180deg, #fffbeb 0%, #fef3c7 100%)",
+      padding: mob ? `${Math.round(pad*0.7)}px 16px` : `${pad}px 24px`,
+      borderTop:    `${ac.bar}px solid ${ac.barColor}`,
+      borderBottom: `${ac.bar}px solid ${ac.barColor}`,
+    }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+        <FrameHeader cfg={cfg} accent={ac.text} marginBottom={mob ? 20 : 28} />
+        {grid}
+        <MetaStrip cfg={cfg} />
+      </div>
+    </section>
+  );
+}
+
+/* H — Gold Band — cream фон, 3px оранжевые bookends сверху и снизу */
+function GoldBandFrame({ cfg, mob, grid }) {
+  const pad = padBlock(mob, cfg);
+  const ac = ACCENT[cfg.accent] || ACCENT.warm;
+  const bar = Math.max(2, ac.bar);
+  return (
+    <section style={{
+      background: "#fffaf0",
+      padding: mob ? `${Math.round(pad*0.7)}px 16px` : `${pad}px 24px`,
+      borderTop:    `${bar}px solid ${ac.barColor || "#f59e0b"}`,
+      borderBottom: `${bar}px solid ${ac.barColor || "#f59e0b"}`,
+      boxShadow: ac.halo,
+    }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+        <div style={{
+          display: "flex", alignItems: "baseline", gap: 12,
+          marginBottom: mob ? 20 : 28,
+        }}>
+          {HEADER_OVERLINES[cfg.header] && (
+            <div style={{ fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", color: ac.text, fontWeight: 700, fontFamily: "'Outfit',sans-serif" }}>
+              {HEADER_OVERLINES[cfg.header].overline}
+            </div>
+          )}
+          <div style={{ flex: 1, height: 1, background: ac.line }} />
+          <div style={{ fontSize: 11, color: ac.text, fontFamily: "'JetBrains Mono',monospace", fontWeight: 700 }}>
+            8 / 8
+          </div>
+        </div>
+        {grid}
+        <MetaStrip cfg={cfg} />
+      </div>
+    </section>
+  );
+}
+
+/* I — Hero Echo — мини-копия Hero gradient (navy→green) с orange accents на белом page bg */
+function HeroEchoFrame({ cfg, mob, grid }) {
+  const pad = padBlock(mob, cfg);
+  const h = HEADER_OVERLINES[cfg.header];
+  return (
+    <section style={{ background: "#ffffff", padding: mob ? `${Math.round(pad*0.5)}px 16px` : `${Math.round(pad*0.7)}px 24px` }}>
+      <div style={{
+        maxWidth: 1200, margin: "0 auto",
+        background: "linear-gradient(135deg, #fffbeb 0%, #fef3c7 50%, #fffbeb 100%)",
+        borderRadius: 16,
+        padding: mob ? "24px 16px" : "36px 40px",
+        border: "1px solid rgba(245,158,11,0.2)",
+        boxShadow: "0 12px 40px rgba(245,158,11,0.08)",
+        position: "relative", overflow: "hidden",
+      }}>
+        <div style={{
+          position: "absolute", inset: 0, pointerEvents: "none",
+          background: "repeating-linear-gradient(135deg, rgba(245,158,11,0.04) 0px, rgba(245,158,11,0.04) 1px, transparent 1px, transparent 14px)",
+        }} />
+        <div style={{ position: "relative" }}>
+          {h && (
+            <div style={{
+              fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase",
+              color: "#d97706", fontWeight: 700, marginBottom: mob ? 20 : 28,
+              fontFamily: "'Outfit',sans-serif",
+            }}>
+              {h.overline}
+            </div>
+          )}
+          {grid}
+          <MetaStrip cfg={cfg} />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* J — Orange Rail — белый фон + вертикальная 4px оранжевая полоса слева во всю высоту */
+function OrangeRailFrame({ cfg, mob, grid }) {
+  const pad = padBlock(mob, cfg);
+  const ac = ACCENT[cfg.accent] || ACCENT.warm;
+  const barW = ac.bar > 0 ? (ac.bar + 1) : 3;
+  return (
+    <section style={{
+      background: "#ffffff",
+      padding: mob ? `${Math.round(pad*0.7)}px 16px` : `${pad}px 24px`,
+      position: "relative",
+      borderTop: "1px solid #f1f5f9",
+    }}>
+      <div style={{
+        position: "absolute", left: 0, top: 0, bottom: 0, width: barW,
+        background: `linear-gradient(180deg, #f59e0b 0%, #fbbf24 50%, #f59e0b 100%)`,
+      }} />
+      <div style={{ maxWidth: 1200, margin: "0 auto", paddingLeft: mob ? 16 : 24 }}>
+        <FrameHeader cfg={cfg} accent={ac.text} marginBottom={mob ? 20 : 28} />
+        {grid}
+        <MetaStrip cfg={cfg} />
+      </div>
+    </section>
+  );
+}
+
+const FRAMES = {
+  none:       { label: "None",       Wrapper: NoneFrame       },
+  editorial:  { label: "Editorial",  Wrapper: EditorialFrame  },
+  inset:      { label: "Inset",      Wrapper: InsetFrame      },
+  darkFrame:  { label: "Dark",       Wrapper: DarkFrame       },
+  cream:      { label: "Cream",      Wrapper: CreamFrame      },
+  amber:      { label: "Amber",      Wrapper: AmberFrame      },
+  sunrise:    { label: "Sunrise",    Wrapper: SunriseFrame    },
+  goldBand:   { label: "Gold Band",  Wrapper: GoldBandFrame   },
+  heroEcho:   { label: "Hero Echo",  Wrapper: HeroEchoFrame   },
+  orangeRail: { label: "Orange Rail",Wrapper: OrangeRailFrame },
+};
+const FRAME_KEYS = Object.keys(FRAMES);
+
 export function BrokerTypeSection() {
   const { cfg } = useBrokerTypeConfig();
   const { mob, tab } = useMedia();
-  const key = `${cfg.skin}-${cfg.shape}-${cfg.edge}-${cfg.mode}-${cfg.pack}-${cfg.texture}-${cfg.showArrow}-${cfg.bg}-${cfg.style}`;
-  const bg = BACKGROUNDS[cfg.bg] || BACKGROUNDS.white;
   const Renderer = cfg.style === "unified" ? UnifiedBtn
                  : cfg.style === "glass"   ? GlassBtn
                  : cfg.style === "tile"    ? TileBtn
                  : cfg.style === "pill"    ? PillBtn
                  : ConvexBtn;
-  return (
-    <div style={{ ...bg.style, padding: mob ? "14px 16px" : "18px 28px" }}>
-      <div style={{
-        maxWidth: 1200, margin: "0 auto", padding: mob ? "0 4px" : "0 32px",
-        display: "grid",
-        gridTemplateColumns: mob ? "repeat(2, 1fr)" : "repeat(4, 1fr)",
-        gap: mob ? 8 : 10,
-      }}>
-        {VERTICALS.map(item => <Renderer key={`${item.slug}-${key}`} v={item} cfg={cfg} />)}
-      </div>
-    </div>
-  );
+  const grid = buttonGridEl(Renderer, cfg, mob);
+  const Wrapper = FRAMES[cfg.frame]?.Wrapper || FRAMES.none.Wrapper;
+  return <Wrapper cfg={cfg} mob={mob} tab={tab} grid={grid} />;
 }
 
 /* ════════════════════════════════════════════════════════════
@@ -658,23 +1072,98 @@ function SkinBtn({ skinKey, active, onSelect }) {
 
 export function BrokerTypeDevBar() {
   const { cfg, set } = useBrokerTypeConfig();
+  const ref = useRef(null);
+
+  // Publish height as CSS var so Header shifts down
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const publish = () => {
+      document.documentElement.style.setProperty("--rb-devbar-h", `${el.offsetHeight}px`);
+    };
+    publish();
+    const ro = new ResizeObserver(publish);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
   return (
-    <div style={{
-      borderTop: "1px solid #e2e8f0",
-      background: "#fafafa",
-      padding: "10px 16px",
-      fontFamily: "'Outfit',sans-serif",
-    }}>
-      <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
-        <div style={{ fontWeight: 700, fontSize: 11, color: "#64748b", display: "inline-flex", alignItems: "center", gap: 6 }}>
-          <span style={{ padding: "2px 6px", background: "#f59e0b", color: NAVY, borderRadius: 3, fontSize: 10, fontWeight: 800 }}>DEV</span>
-          <span>Quick Links pill strip</span>
+    <>
+      <style>{`header { top: var(--rb-devbar-h, 0) !important; }`}</style>
+      <div ref={ref}
+        style={{
+          position: "fixed", top: 0, left: 0, right: 0, zIndex: 1001,
+          background: "#fff", borderBottom: "2px solid #f59e0b",
+          padding: "6px 12px", boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
+          fontFamily: "'Outfit',sans-serif",
+        }}>
+        <div style={{ maxWidth: 1400, margin: "0 auto", display: "flex", flexDirection: "column", gap: 6 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
+            <span style={{ padding: "2px 6px", background: "#f59e0b", color: NAVY, borderRadius: 3, fontSize: 10, fontWeight: 800 }}>DEV</span>
+            <Seg label="Quick Links" value={cfg.showQuickLinks} onChange={v => set({ showQuickLinks: v })} options={[
+              { value: true,  label: "Show" }, { value: false, label: "Hide" },
+            ]} />
+            <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.08em", color: "#94a3b8", textTransform: "uppercase" }}>Frame</span>
+            <div style={{ display: "inline-flex", gap: 4, flexWrap: "wrap" }}>
+              {FRAME_KEYS.map(k => (
+                <button key={k} onClick={() => set({ frame: k })}
+                  style={{
+                    padding: "4px 8px", borderRadius: 6, cursor: "pointer",
+                    border: cfg.frame === k ? "1.5px solid #0f172a" : "1px solid #e2e8f0",
+                    background: cfg.frame === k ? NAVY : "#fff",
+                    color: cfg.frame === k ? "#fff" : "#475569",
+                    fontFamily: "'Outfit',sans-serif", fontWeight: 600, fontSize: 10.5,
+                  }}>
+                  {FRAMES[k].label}
+                </button>
+              ))}
+            </div>
+            <button onClick={() => set(PRESETS.find(p => p.id === "editorial-authority").patch)}
+              style={{
+                padding: "4px 10px", borderRadius: 6, cursor: "pointer", border: "1px solid #059669",
+                background: "#fff", color: "#047857",
+                fontFamily: "'Outfit',sans-serif", fontWeight: 700, fontSize: 10.5, marginLeft: "auto",
+              }}>
+              ★ Editorial Authority
+            </button>
+          </div>
+
+          <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap", paddingTop: 4, borderTop: "1px dashed #e2e8f0" }}>
+            <Seg label="Accent" value={cfg.accent} onChange={v => set({ accent: v })} options={[
+              { value: "off",    label: "Off"    },
+              { value: "subtle", label: "Subtle" },
+              { value: "warm",   label: "Warm"   },
+              { value: "bold",   label: "Bold"   },
+            ]} />
+            <Seg label="Cadence" value={cfg.cadence} onChange={v => set({ cadence: v })} options={[
+              { value: "compact",    label: "56" },
+              { value: "standard",   label: "96" },
+              { value: "expansive",  label: "128" },
+              { value: "monumental", label: "160" },
+            ]} />
+            <Seg label="Header" value={cfg.header} onChange={v => set({ header: v })} options={[
+              { value: "fieldLabel", label: "Field" },
+              { value: "numeric",    label: "Numeric" },
+              { value: "tagline",    label: "Tagline" },
+              { value: "range",      label: "Range" },
+              { value: "silent",     label: "Silent" },
+            ]} />
+            <Seg label="Meta" value={cfg.meta} onChange={v => set({ meta: v })} options={[
+              { value: "off",         label: "Off" },
+              { value: "credentials", label: "Creds" },
+              { value: "counters",    label: "Counts" },
+              { value: "process",     label: "Process" },
+            ]} />
+            {cfg.frame === "editorial" && (
+              <Seg label="Anchor" value={cfg.anchor} onChange={v => set({ anchor: v })} options={[
+                { value: "compact",  label: "Compact" },
+                { value: "full",     label: "Full" },
+                { value: "numbered", label: "Numbered" },
+              ]} />
+            )}
+          </div>
         </div>
-        <Seg value={cfg.showQuickLinks} onChange={v => set({ showQuickLinks: v })} options={[
-          { value: true,  label: "Show" },
-          { value: false, label: "Hide" },
-        ]} />
       </div>
-    </div>
+    </>
   );
 }

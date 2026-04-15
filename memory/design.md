@@ -1,5 +1,75 @@
 # Design — дизайн-решения RatedBrokers
 
+## Brand Button Invariants (Barbara round 4, 2026-04-16) — применимы ко всем кнопкам сайта
+
+7 инвариантов, выведенных из Primary Orange CTA + Secondary Green outline + `.link-green`:
+
+**I1. Motion easing:** `cubic-bezier(0.4, 0, 0.2, 1)` для объёмных CTA; `ease` для текст-линков
+**I2. Two-speed timing:** `0.25s` для кнопок с shadow / `0.15s` для стрелок/текста. Нет 0.08/0.1/0.18/0.2/0.6 — это шум
+**I3. Shadow growth ratio ~3×** — `0 2px 8px rgba(…,0.3)` → `0 8px 24px rgba(…,0.4)` (blur 3×, spread 4×, alpha +33%)
+**I4. Arrow motion:** `translateX(3px)` + color flip (→ accent). Никаких диагональных translate(Npx,-Npx), никаких `↗` для внутренних ссылок
+**I5. Typography lock:** `'Outfit', sans-serif` weight 700, size 14-15px, letter-spacing `-0.01em`
+**I6. Radius ladder:** ТОЛЬКО 8-10 (кнопки), 999 (pills/badges), 0 (chips). Никаких 11/12/13/14
+**I7. Hover transform:** `translateY(-1px)` максимум. Shadow делает разницу rest↔hover, не сам transform
+
+**RED FLAG**: любая кнопка, у которой ≤4/7 совпадают — читается "из другого учебника дизайна". Стремиться к 7/7.
+
+## Broker Types Section (2026-04-15/16) — Home page
+
+8 convex-кнопок под Hero (после optional Quick Links pill strip). Grid 4×2 desktop / 2×4 mobile (зафиксировано, не менять).
+
+**Unified button style** (финальный после 12 итераций):
+```css
+display: inline-flex; align-items: center; gap: 10px;
+padding: 14px 18px; min-height: 52px;
+background: #ffffff;
+border: 1.5px solid #e2e8f0;
+border-left: 3px solid #059669;  /* зелёная accent полоска — эхо .link-green dot */
+border-radius: 10px;
+box-shadow: 0 2px 8px rgba(15,23,42,0.06);
+font: 700 15px 'Outfit', sans-serif;  letter-spacing: -0.01em;
+color: #0f172a;
+transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+```
+Hover: border → #cbd5e1, left-border → #047857, shadow → `0 8px 24px rgba(15,23,42,0.12)`, transform translateY(-1px), icon color darken, ArrowRight translateX(3px) + color → accent.
+
+**10 FRAMES** (architectural containers, не декор):
+- `none` — без frame, использует cfg.bg
+- `editorial` — WSJ/FT двухколонник: левый anchor (overline + lead + 8/8 meta) + grid 4×2 справа (Barbara's top pick)
+- `inset` — Linear/Stripe float: grid на `#f8fafc` canvas внутри белой страницы, radius 16, overline сверху
+- `darkFrame` — Navy inset с диагональной текстурой + оранжевый overline "BROWSE"
+- `cream` — Robinhood `#fbf8f1` warm band + editorial meta (overline + hairline + "8/8")
+- `amber` — диагональный gradient `#fffaf0 ↔ white ↔ #fffaf0` + оранжевые hairlines
+- `sunrise` — вертикальный gradient `#fffbeb → #fef3c7` + orange bookends
+- `goldBand` — cream фон + 3px оранжевые bookends сверху и снизу + orange overline + "8/8"
+- `heroEcho` — rounded inset с warm gradient + диагональная orange текстура (~1:10 Hero)
+- `orangeRail` — белый фон + 4px вертикальная orange полоса слева во всю высоту
+
+**Architectural knobs** (применяются поверх frames):
+- `cadence` — padding-block 56/96/128/160 (transactional/standard/editorial-breathe/monumental)
+- `header` — overline variants: fieldLabel/numeric (Section 02)/tagline/range (01—08)/silent
+- `meta` — bottom strip: off/credentials/counters/process
+- `anchor` (Editorial only) — compact/full/numbered (big "02" 64px)
+- `accent` — orange intensity: off/subtle/warm/bold
+
+**Top pick preset "★ Editorial Authority":**
+```js
+{ frame: "editorial", cadence: "expansive", anchor: "full", meta: "credentials", showArrow: true }
+```
+
+**Anti-patterns (подтверждены на практике, отклонено Егором):**
+- Orange rules/stripes (2px orange top+bottom) — "декор без концепта"
+- 3px brand edge + ни одного другого сигнала — недостаточно для identity
+- Navy shelf с inset bars — "архитектурно пустое"
+- Double rule (две параллельные линии) — Bootstrap-стиль
+- Gradient bar fade top/bottom — attention-grab без роли
+- Corner marks (L-брекеты) — декорация
+- Hard-edge shadows `0 3px 0 color` в convex-кнопках — "paper UI" / детский конструктор
+
+**Reference commit:** `31242c5 feat: unified Broker Types section + bottom-anchored Quick Links dev toggle` (2026-04-15, push'ен в main)
+
+**DEV toolbar:** fixed top, только в `import.meta.env.DEV`. Подписывается CSS var `--rb-devbar-h` для сдвига Header. Config персистится в `localStorage["rb-broker-types-config-v2"]`.
+
 ## Концепция: Premium Dark (2026-04-14)
 
 Сайт-wide дизайн-концепция, зафиксирована после интервью с Егором.
@@ -9,12 +79,14 @@
 - Orange primary: `#f59e0b`, soft: `#fbbf24`
 - Текстура: `repeating-linear-gradient(135deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 12px)` — диагональные полоски 12px
 
-**Анти-паттерн** (Егор не принимает):
-- Пастельные цветные chips/badges (зелёный/синий/фиолетовый per category)
-- "Most Popular" badges — шаблонно
-- Зелёная подсветка отдельных элементов на светлом фоне (напр. founder highlight)
-- Разноцветные категорийные плашки (Forex/CFD/Stocks разных цветов)
+**Анти-паттерн** (Егор не принимает) — полный список в [DESIGN-ANTIPATTERNS.md](../DESIGN-ANTIPATTERNS.md):
+- Салатово-зелёные (mint/pale green) shim-подсветки — напр. highlight в Countries dropdown (14.04.2026)
+- Пастельные цветные chips/badges (зелёный/синий/фиолетовый per category) — Expert cards specializations
+- Разноцветные категорийные плашки (Forex/CFD/Stocks разных цветов) — "детская палитра"
+- "Most Popular" / "Best Choice" / "Editor's Pick" шаблонные badges
+- Зелёная подсветка отдельных элементов на светлом фоне (напр. founder highlight, лидер #1)
 - Мелкие шрифты в country sections
+- Нативные эмодзи в финансовых блоках (только lucide-react)
 
 **Применяется**: HeroBand, How We Rate (Orange Tiles, 2026-04-14), side-by-side comparisons (тёмные области с оранжевыми элементами).
 
