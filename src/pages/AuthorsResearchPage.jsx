@@ -240,7 +240,7 @@ export default function AuthorsResearchPage() {
             fontSize: 11, fontWeight: 700, letterSpacing: 0.6, textTransform: "uppercase",
             marginBottom: 10,
           }}>
-            Internal · noindex · MVP v2 (5 sites)
+            Internal · noindex · Phase 1-6 complete · 96 outlets
           </div>
           <h1 style={{
             fontFamily: "Outfit, sans-serif", fontWeight: 700,
@@ -252,10 +252,11 @@ export default function AuthorsResearchPage() {
             marginTop: 10, fontSize: mob ? 14 : 16,
             color: "rgba(255,255,255,0.78)", maxWidth: 900,
           }}>
-            Real authors harvested via WebSearch (Layer 7) across 5 sites:
-            BrokerChooser, NerdWallet, FXStreet, WSJ, Cointelegraph.
+            580 authors harvested across 96 outlets via 10-layer methodology
+            (WebSearch + WebFetch + Muck Rack + LinkedIn + own-domain).
             Each record enriched with outlet DR, tier (T1–T4), beat taxonomy,
-            seniority, and competitor-backlink overlap from Ahrefs. Auto-computed Outreach Score per author.
+            seniority, certifications, and competitor-backlink overlap from Ahrefs.
+            E-E-A-T tier S/A/B/C and Outreach Score auto-computed per author.
           </p>
         </div>
       </div>
@@ -531,8 +532,8 @@ function ViewToggleBtn({ active, onClick, icon, label }) {
 }
 
 function SiteSection({ idx, site, authors, mob }) {
-  const cat = CATEGORIES.find((c) => c.id === site.category);
-  const tier = TIER_STYLES[site.tier];
+  const cat = CATEGORIES.find((c) => c.id === site.category) || { label: "Other", color: "#64748b" };
+  const tier = TIER_STYLES[site.tier] || { label: site.tier || "—", color: "#64748b", bg: "#f1f5f9" };
   const compLinks = site.competitorBacklinks?.refdomains || 0;
 
   return (

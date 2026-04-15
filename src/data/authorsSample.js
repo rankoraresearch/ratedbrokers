@@ -1453,6 +1453,7 @@ export const CATEGORIES = [
   { id: 3, label: "Trading media", color: "#7c3aed" },
   { id: 4, label: "Tier-1 business press", color: "#0f172a" },
   { id: 5, label: "Crypto media", color: "#f59e0b" },
+  { id: 6, label: "Prop firms", color: "#0891b2" },
 ];
 
 export const BEATS = {
