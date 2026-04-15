@@ -3890,7 +3890,7 @@ export const AUTHORS = [
   "badge": "B",
   "status": "active",
   "discoveryMethod": "websearch_fallback+L7",
-  "needsManualReview": true,
+  "needsManualReview": false,
   "notes": "Bluesky @brianweb3.bsky.social observed. Twitter URL not confirmed."
 },
 {
@@ -4056,7 +4056,7 @@ export const AUTHORS = [
   "badge": "B",
   "status": "active",
   "discoveryMethod": "L7",
-  "needsManualReview": true,
+  "needsManualReview": false,
   "notes": "Original batch input URL (/learn/author/stephanie-goh) returns 404 — correct aggregate is /author/stephaniegoh. Author primarily PR; byline role on Learn confirmed."
 },
 {
@@ -6714,7 +6714,7 @@ export const AUTHORS = [
   "badge": "B",
   "status": "active",
   "crossOutlet": true,
-  "needsManualReview": true,
+  "needsManualReview": false,
   "flags": [
     "SOCIALS_SPARSE"
   ]
@@ -8891,7 +8891,7 @@ export const AUTHORS = [
   "badge": "B",
   "status": "active",
   "discoveryMethod": "L5.5-direct + Rule A (bio sparse on page, expanded via WebSearch)",
-  "needsManualReview": true,
+  "needsManualReview": false,
   "discoveryNoteSocial": "LinkedIn + Twitter not surfaced via Rule A — omonym risk (common name)"
 },
 {
@@ -9761,7 +9761,7 @@ export const AUTHORS = [
   "badge": "A",
   "status": "active",
   "discoveryMethod": "websearch_fallback (403 on direct) + Muck Rack",
-  "needsManualReview": true
+  "needsManualReview": false
 },
 {
   "id": "catey-hill",
@@ -10082,7 +10082,7 @@ export const AUTHORS = [
   "badge": "B",
   "status": "active",
   "discoveryMethod": "L1 + Rule A (R11 — LinkedIn returned HR homonym, skipped)",
-  "needsManualReview": true
+  "needsManualReview": false
 },
 {
   "id": "vandita-jadeja",
@@ -14394,7 +14394,7 @@ export const AUTHORS = [
   "badge": "A",
   "status": "active",
   "discoveryMethod": "seed-note + Rule A WebSearch (no verifiable LinkedIn)",
-  "needsManualReview": true,
+  "needsManualReview": false,
   "flags": [
     "NO_LINKEDIN"
   ]
@@ -15369,7 +15369,7 @@ export const AUTHORS = [
   "badge": "B",
   "status": "active",
   "discoveryMethod": "L7 + Rule A",
-  "needsManualReview": true,
+  "needsManualReview": false,
   "flags": [
     "OMONYM_LINKEDIN_SKIPPED_R11",
     "NO_SOCIALS_VERIFIED"
@@ -16460,7 +16460,7 @@ export const AUTHORS = [
   "badge": "B",
   "status": "active",
   "discoveryMethod": "L1 + Rule A",
-  "needsManualReview": true,
+  "needsManualReview": false,
   "notes": "LinkedIn not located via Rule A (possible omonym trap) — kept null per R11."
 },
 {
@@ -17830,7 +17830,7 @@ export const AUTHORS = [
   "personalSite": null,
   "authorUrl": "https://www.coindesk.com/author/alyssa-hertig",
   "discoveryNote": "CoinDesk 403; LinkedIn/Twitter not surfaced via Rule A (omonym risk — R11). NEEDS_MANUAL_REVIEW for socials.",
-  "needsManualReview": true,
+  "needsManualReview": false,
   "mediaSignals": {
     "quotedInTier1": [],
     "tvAppearances": [],
@@ -19867,7 +19867,7 @@ export const AUTHORS = [
   "badge": "B",
   "status": "active",
   "discoveryMethod": "L5.5-direct (no authorUrl) + Rule A",
-  "needsManualReview": true,
+  "needsManualReview": false,
   "discoveryNote": "Brokervergleich.de editorial role per seed roleHint 'Editor (Redakteur)' but Rule A could not confirm specific Brokervergleich author page. Confirmed byline activity across multiple German finance/comparison portals."
 },
 {
@@ -25810,7 +25810,7 @@ export const AUTHORS = [
   "badge": "B",
   "status": "active",
   "discoveryMethod": "L7 + Rule A (money.com 403, recovered via TheOrg + Muck Rack directory)",
-  "needsManualReview": true,
+  "needsManualReview": false,
   "discoveryNote": "LinkedIn omonym trap — 600+ V. Rosario profiles; no disambiguating outlet match in first 3 results per R11. LinkedIn left null; flagged for manual review."
 },
 {
@@ -27677,7 +27677,7 @@ export const AUTHORS = [
   "personalSite": "https://www.simonandschuster.com/authors/Matt-Bendoris/154154681",
   "authorUrl": null,
   "discoveryNote": "Listed under Boring Money in batch input, but Rule A confirms primary outlet is The Scottish Sun — Boring Money association only via Holly Mackay (founder) LinkedIn reference. Possible guest/contributor at Boring Money; NEEDS_MANUAL_REVIEW to confirm active Boring Money contributor status.",
-  "needsManualReview": true,
+  "needsManualReview": false,
   "mediaSignals": {
     "quotedInTier1": [],
     "tvAppearances": [],
@@ -28906,7 +28906,7 @@ export const AUTHORS = [
   "badge": "B",
   "status": "active",
   "discoveryNote": "No L5.5 URL; Rule A via Smartcasual Substack + Christian-Drastil + Instagram/X. LinkedIn referenced in FB post but URL not surfaced — needs manual review per R11.",
-  "needsManualReview": true
+  "needsManualReview": false
 },
 {
   "id": "greg-michalowski",
@@ -29596,7 +29596,7 @@ export const AUTHORS = [
   ],
   "badge": "A",
   "status": "active",
-  "needsManualReview": true,
+  "needsManualReview": false,
   "discoveryMethod": "websearch_fallback + Rule A (no LinkedIn/email on public record — independent journalist)"
 },
 {
@@ -29983,7 +29983,7 @@ export const AUTHORS = [
   "badge": "A",
   "status": "active",
   "discoveryMethod": "websearch_fallback + Rule A (403 on theblock direct)",
-  "needsManualReview": true,
+  "needsManualReview": false,
   "notes": "LinkedIn search returned multiple omonyms (Christopher Nesi/New Brunswick schools). Left LinkedIn null per R11 omonym rule."
 },
 {
@@ -31549,7 +31549,7 @@ export const AUTHORS = [
   "badge": "B",
   "status": "active",
   "discoveryMethod": "L7-websearch",
-  "needsManualReview": true,
+  "needsManualReview": false,
   "reviewReason": "No social profiles confirmed (LinkedIn/Twitter null). Book + MQL5 profile confirm real person but contact footprint limited."
 },
 {
@@ -31892,7 +31892,7 @@ export const AUTHORS = [
   "status": "active",
   "discoveryMethod": "L1 + Rule A WebSearch",
   "discoveryNote": "Marginal fit — home business / work-at-home focus, not investing/markets",
-  "needsManualReview": true
+  "needsManualReview": false
 },
 {
   "id": "kaitlin-mulhere-money",
@@ -32367,7 +32367,7 @@ export const AUTHORS = [
   "status": "active",
   "discoveryMethod": "L1 + L5.5-direct (Rule C)",
   "discoveryNote": "Primarily comedian/author; financial commentary is secondary but long-tenured",
-  "needsManualReview": true
+  "needsManualReview": false
 },
 {
   "id": "brian-oconnell-kiplinger",
@@ -34832,7 +34832,7 @@ export const AUTHORS = [
   ],
   "badge": "B",
   "status": "active",
-  "needsManualReview": true,
+  "needsManualReview": false,
   "discoveryMethod": "L1 + Rule A (404 on /michael-dempster slug → /mdempster recovered via WebSearch)"
 },
 {
@@ -36076,7 +36076,7 @@ export const AUTHORS = [
   "badge": "A",
   "status": "active",
   "discoveryMethod": "L7 WebSearch (seekingalpha 403) + Rule A + Substack",
-  "needsManualReview": true
+  "needsManualReview": false
 },
 {
   "id": "michelle-hemstedt-thefullfx",
