@@ -1,0 +1,51 @@
+[
+  {
+    "id": "lance-cothern",
+    "name": "Lance Cothern",
+    "certifications": [
+      {
+        "name": "CPA",
+        "issuer": "Indiana Board of Accountancy",
+        "verified": false,
+        "verifyUrl": "https://mylicense.in.gov/everification/",
+        "verifyMethod": "IN PLA license lookup requires interactive form submission",
+        "verifyNote": "Could not automate IN PLA or CPAverify lookup through WebFetch (requires form POST + T&C acceptance). Claim is plausible (lancecothern.com/about lists CPA credential) but not directly verified via issuing body URL"
+      }
+    ],
+    "education": [
+      {
+        "degree": "BBA, Accounting",
+        "school": "James Madison University",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyNote": "No alumni directory URL located"
+      }
+    ],
+    "books": [],
+    "tier1Quotes": [
+      {
+        "outlet": "USA Today",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "No direct article URL located in this pass"
+      },
+      {
+        "outlet": "Forbes",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "No direct article URL located in this pass"
+      },
+      {
+        "outlet": "Business Insider",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "No direct article URL located in this pass"
+      }
+    ],
+    "tvAppearances": [],
+    "industryAwards": [],
+    "trustSignals": { "finraBrokerCheckStatus": null, "crd": null },
+    "verifyAttemptedAt": "2026-04-16",
+    "summary": { "certsClaimed": 1, "certsVerified": 0, "booksWithIsbn": 0, "tier1Verified": 0, "newAwardsFound": 0 }
+  }
+]

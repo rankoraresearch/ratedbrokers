@@ -1,0 +1,171 @@
+[
+  {
+    "id": "scott-murdoch-reuters",
+    "name": "Scott Murdoch",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null
+    }
+  },
+  {
+    "id": "anna-bahney-cnn",
+    "name": "Anna Bahney",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null
+    }
+  },
+  {
+    "id": "al-root",
+    "name": "Al Root (Allen Root)",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_searched",
+      "crd": null
+    }
+  },
+  {
+    "id": "connor-sephton",
+    "name": "Connor Sephton",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null
+    }
+  },
+  {
+    "id": "enoch-yiu",
+    "name": "Enoch Yiu",
+    "certifications": [],
+    "books": [
+      {
+        "title": "They Mean Business: 50 exclusive interviews with Hong Kong top executives",
+        "isbn13": null,
+        "verified": false,
+        "verifyUrl": "https://www.nlb.gov.sg/biblio/13057017"
+      },
+      {
+        "title": "Serving with Passion: stories of established catering brands in Hong Kong",
+        "isbn13": null,
+        "verified": false,
+        "verifyUrl": null
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null
+    }
+  },
+  {
+    "id": "eamonn-sheridan",
+    "name": "Eamonn Sheridan",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null
+    }
+  },
+  {
+    "id": "terry-flanagan-tradersmag",
+    "name": "Terry Flanagan",
+    "certifications": [
+      {
+        "name": "CFA (Chartered Financial Analyst)",
+        "issuer": "CFA Institute",
+        "verified": true,
+        "verifyUrl": "https://www.marketsmediagroup.com/team/",
+        "verifyMethod": "bio-confirmed",
+        "verifyNote": "CFA charter earned in 2001 per official Markets Media Group team bio. CFA Institute public directory not searchable without member login."
+      }
+    ],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null
+    }
+  },
+  {
+    "id": "matthew-levy",
+    "name": "Matthew Levy",
+    "certifications": [
+      {
+        "name": "CFA (Chartered Financial Analyst)",
+        "issuer": "CFA Institute",
+        "verified": true,
+        "verifyUrl": "https://www.matthewlevycfa.com/about",
+        "verifyMethod": "bio-confirmed",
+        "verifyNote": "CFA Charter completed in 2015 per own professional site (matthewlevycfa.com). CFA Institute directory not publicly queryable."
+      }
+    ],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null
+    }
+  },
+  {
+    "id": "michael-kim-zacks",
+    "name": "Michael Kim",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_searched",
+      "crd": null
+    }
+  },
+  {
+    "id": "jefreda-r-brown",
+    "name": "JeFreda R. Brown",
+    "certifications": [
+      {
+        "name": "CFEI (Certified Financial Education Instructor)",
+        "issuer": "National Financial Educators Council",
+        "verified": true,
+        "verifyUrl": "https://www.financialeducatorscouncil.org/jefreda-brown/",
+        "verifyMethod": "issuer-directory",
+        "verifyNote": "Listed in NFEC's Personal Finance Speakers Association directory as CFEI."
+      }
+    ],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null
+    }
+  },
+  {
+    "id": "james-hyerczyk",
+    "name": "James Hyerczyk",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_searched",
+      "crd": null
+    }
+  },
+  {
+    "id": "brian-bollinger",
+    "name": "Brian Bollinger",
+    "certifications": [
+      {
+        "name": "CPA (Certified Public Accountant)",
+        "issuer": "State Board of Accountancy",
+        "verified": false,
+        "verifyUrl": "https://www.simplysafedividends.com/about",
+        "verifyMethod": "bio-only",
+        "verifyNote": "CPA claim stated on Simply Safe Dividends official 'About' page; Indiana CPA board verification requires interactive lookup not accessible via WebFetch. State of issuance not specified in public bio."
+      }
+    ],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null
+    }
+  }
+]

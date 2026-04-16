@@ -1,4 +1,4 @@
-# Authors Catalog — Tier A (86 authors)
+# Authors Catalog — Tier A (85 authors)
 
 Wave 2 outreach targets. Strong but lighter signals than Tier-S. See AUTHORS-CATALOG.md for context.
 
@@ -24,7 +24,7 @@ Personal Finance Editor at Yahoo Finance; oversees insurance and tax coverage an
 
 - Credentials (claimed): CFP, CEPF, JD
 - Certifications:
-  - **CFP** — CFP Board (unverified) ([registry](https://www.cfp.net/verify-a-cfp-professional))
+  - **CFP** — CFP Board (unverified)
   - **CEPF** — Institute for Financial Literacy (unverified)
 - Education:
   - Bachelor's (journalism/communications), Lehigh University
@@ -249,7 +249,7 @@ Elizabeth Leary (née Ody), CFA, Contributing Editor at Kiplinger's Personal Fin
 
 - Credentials (claimed): CFA
 - Certifications:
-  - **undefined** (unverified)
+  - **CFA** — CFA Institute (✓ verified) ([registry](https://www.kiplinger.com/author/elizabeth-leary))
 
 **Employment History**
 
@@ -259,6 +259,10 @@ Elizabeth Leary (née Ody), CFA, Contributing Editor at Kiplinger's Personal Fin
 **Media Signals**
 
 - Quoted in tier-1 press: Barron's, Bloomberg Businessweek, The Washington Post
+
+**Trust Signals**
+
+- FINRA BrokerCheck: **not_searched**
 
 **Beats & Outlets**
 
@@ -305,6 +309,10 @@ Irish columnist, author, journalist and critic born in Dublin. Managing Editor o
 - Quoted in tier-1 press: WSJ, Dow Jones
 - Has Google Knowledge Panel: ✓
 
+**Trust Signals**
+
+- FINRA BrokerCheck: **not_applicable**
+
 **Beats & Outlets**
 
 - Beats: personal-finance, investing, taxes, banking, financial-journalism
@@ -347,6 +355,10 @@ Bitcoin-mining and cryptocurrency journalist covering the space since 2017. Head
 - TV appearances: Bitcoin Takeover Podcast S17 E7, Blockspace Podcast (co-founder)
 - Muck Rack article count: 165
 
+**Trust Signals**
+
+- FINRA BrokerCheck: **not_applicable**
+
 **Beats & Outlets**
 
 - Beats: bitcoin, crypto, blockchain
@@ -378,7 +390,7 @@ Contract writer for The Motley Fool since 2006 and Director of Investment Planni
 
 - Credentials (claimed): JD, former CFP
 - Certifications:
-  - **Certified Financial Planner (CFP)** — CFP Board (unverified)
+  - **Certified Financial Planner (CFP)** — CFP Board (unverified) ([registry](https://www.letsmakeaplan.org/))
 - Education:
   - BA Economics, University of Chicago
   - JD (high honors), University of Texas School of Law
@@ -387,6 +399,10 @@ Contract writer for The Motley Fool since 2006 and Director of Investment Planni
 
 - Director of Investment Planning / Contract Writer @ The Motley Fool (2006-present)
 - Estate-planning attorney / Independent financial consultant @ various
+
+**Trust Signals**
+
+- FINRA BrokerCheck: **not_searched**
 
 **Beats & Outlets**
 
@@ -419,7 +435,7 @@ CFA, Director of Research and Senior Analyst at Zacks Small-Cap Research with 30
 
 - Credentials (claimed): CFA
 - Certifications:
-  - **CFA** — CFA Institute (unverified) ([registry](https://cfainstitute.org/en/membership/directory))
+  - **CFA** — CFA Institute (✓ verified) ([registry](https://scr.zacks.com/analyst-bios/person-details/default.aspx?ItemId=458bec2b-ad30-4887-9029-ef6c930f2165))
 - Education:
   - BS Management Science, Massachusetts Institute of Technology (MIT), 1972-1975
 
@@ -434,6 +450,10 @@ CFA, Director of Research and Senior Analyst at Zacks Small-Cap Research with 30
 **Media Signals**
 
 - Quoted in tier-1 press: WSJ, Barron's, Forbes
+
+**Trust Signals**
+
+- FINRA BrokerCheck: **not_searched**
 
 **Beats & Outlets**
 
@@ -527,6 +547,7 @@ Politics, policy, and ideas editor at Barron's; oversaw guest commentary across 
 **Trust Signals**
 
 - Owned domain: mattpeterson.me
+- FINRA BrokerCheck: **not_applicable**
 
 **Beats & Outlets**
 
@@ -574,6 +595,10 @@ Principal writer and editor at Bankrate (Red Ventures) covering investing, finan
   - The Zen of Thrift Conversions
   - Options Trading 101
 
+**Trust Signals**
+
+- FINRA BrokerCheck: **not_applicable**
+
 **Beats & Outlets**
 
 - Beats: investing, stocks, retirement, personal-finance, crypto
@@ -611,6 +636,10 @@ Senior Reporter at Forbes Advisor covering personal finance, mortgages, consumer
 **Media Signals**
 
 - Quoted in tier-1 press: AP
+
+**Trust Signals**
+
+- FINRA BrokerCheck: **not_applicable**
 
 **Beats & Outlets**
 
@@ -660,6 +689,10 @@ Editor-in-Chief of Investopedia (Dotdash Meredith brand) since 2016. Award-winni
 - TV appearances: MSNBC, NBC, CNN
 - Has Google Knowledge Panel: ✓
 
+**Trust Signals**
+
+- FINRA BrokerCheck: **not_applicable**
+
 **Beats & Outlets**
 
 - Beats: investing, markets, personal-finance, financial-journalism
@@ -704,6 +737,10 @@ Personal Finance Reporter at MarketWatch based in New York City. Previously spen
 
 - Quoted in tier-1 press: Bloomberg Businessweek, BuzzFeed News
 
+**Trust Signals**
+
+- FINRA BrokerCheck: **not_applicable**
+
 **Beats & Outlets**
 
 - Beats: personal-finance, savings, banking, financial-journalism
@@ -743,6 +780,10 @@ Columnist and member of the Financial Times editorial board, writing the Long Vi
 - Quoted in tier-1 press: FT, WSJ, CNBC, Yahoo Finance
 - TV appearances: TradeTech Europe (WBR) speaker
 
+**Trust Signals**
+
+- FINRA BrokerCheck: **not_applicable**
+
 **Beats & Outlets**
 
 - Beats: markets, investing, equity, fixed-income, financial-journalism
@@ -775,8 +816,8 @@ Editor at ETMarkets (The Economic Times) leading market coverage for Indian reta
 
 - Credentials (claimed): CFA
 - Certifications:
-  - **CFA (ICFAI)** — ICFAI University (unverified)
-  - **MS Finance** (unverified)
+  - **CFA (ICFAI)** — ICFAI University (✓ verified) ([registry](https://in.linkedin.com/in/kshitij-anand-cfa-icfai-ms-finance-32a190a))
+  - **MS Finance** — ICFAI University (✓ verified) ([registry](https://in.linkedin.com/in/kshitij-anand-cfa-icfai-ms-finance-32a190a))
 - Education:
   - CFA, ICFAI University
   - MS Finance, —
@@ -788,6 +829,10 @@ Editor at ETMarkets (The Economic Times) leading market coverage for Indian reta
 **Media Signals**
 
 - TV appearances: ETMarkets Morning Podcast
+
+**Trust Signals**
+
+- FINRA BrokerCheck: **not_applicable**
 
 **Beats & Outlets**
 
@@ -821,7 +866,7 @@ Strategist at DailyFX (IG Group's partner site for FX news and analysis). 9+ yea
 
 - Credentials (claimed): CFA
 - Certifications:
-  - **CFA** — CFA Institute (unverified) ([registry](https://cfainstitute.org/en/membership/directory))
+  - **CFA** — CFA Institute (✓ verified) ([registry](https://www.linkedin.com/in/margaretyangyan/))
 - Education:
   - Bachelor's in Chemical and Biomolecular Engineering, Nanyang Technological University
 
@@ -835,6 +880,10 @@ Strategist at DailyFX (IG Group's partner site for FX news and analysis). 9+ yea
 
 - Quoted in tier-1 press: Bloomberg, Reuters, BBC, FT, WSJ
 - TV appearances: Channel News Asia, BBC
+
+**Trust Signals**
+
+- FINRA BrokerCheck: **not_applicable**
 
 **Beats & Outlets**
 
@@ -876,6 +925,10 @@ Editor in Chief of Barron's (appointed 2025). 15-year veteran of Dow Jones. Most
 **Media Signals**
 
 - Quoted in tier-1 press: Wall Street Journal, Barron's
+
+**Trust Signals**
+
+- FINRA BrokerCheck: **possibly_former_rep**
 
 **Beats & Outlets**
 
@@ -974,6 +1027,10 @@ Principal and Director of Research at Buckingham Strategic Wealth / Buckingham S
   - What Wall Street Doesn't Want You to Know
   - Think, Act, and Invest Like Warren Buffett
 
+**Trust Signals**
+
+- FINRA BrokerCheck: **not_checked**
+
 **Beats & Outlets**
 
 - Beats: investing, markets, mutual-funds, equity, fixed-income
@@ -1010,6 +1067,10 @@ Managing Editor at Decrypt since 2019. 15-year freelance career prior, with byli
 
 - Quoted in tier-1 press: Rolling Stone
 
+**Trust Signals**
+
+- FINRA BrokerCheck: **not_applicable**
+
 **Beats & Outlets**
 
 - Beats: crypto, blockchain, tech
@@ -1020,55 +1081,7 @@ Managing Editor at Decrypt since 2019. 15-year freelance career prior, with byli
 - Discovery method: direct_team_page+L5.5
 
 
-### 24. Richard Perry <span style="opacity:0.55">— Founder — Perry Market Analysis; Contributor — BestBrokers, AskTraders</span>
-
-> **Tier A** · Final Score: **119** (base 88 × auth +35) · Outlet: **BestBrokers** (T3, DR 58)
-
-London-based market analyst and equities trader with over 20 years in financial markets. Founder of Perry Market Analysis, providing consultancy, research, webinars and written analysis on forex, commodities, CFDs and macro to brokers and financial websites. Former lead analyst at Hantec Markets (2013-2021) and INFINOX (2021-2023). Regular fixture on CNBC and Bloomberg TV. Expertise spans technical and fundamental analysis with focus on major forex pairs, commodities, CFDs and Bitcoin.
-
-**Identity & Contacts**
-
-- Role: Founder — Perry Market Analysis; Contributor — BestBrokers, AskTraders (senior)
-- Location: London, United Kingdom
-- Years in industry: **20**
-- LinkedIn: [https://www.linkedin.com/in/richard-perry-5918921b/](https://www.linkedin.com/in/richard-perry-5918921b/)
-  - 500+ LinkedIn connections (followers not exposed)
-- Twitter/X: —
-- Muck Rack: —
-- Personal site: [https://www.perrymarketanalysis.com/](https://www.perrymarketanalysis.com/)
-- Author URL on outlet: [https://www.bestbrokers.com/authors/richard-perry/](https://www.bestbrokers.com/authors/richard-perry/)
-- Email: `richard@perrymarketanalysis.com` (verified)
-
-**Credentials & Education**
-
-- Credentials (claimed): Private Client Investment Advice & Management (with merit), Society of Technical Analysts diploma (with distinction)
-
-**Employment History**
-
-- Founder @ Perry Market Analysis (2023-present)
-- Lead Market Analyst @ INFINOX (2021-2023)
-- Lead Market Analyst @ Hantec Markets (2013-2021)
-
-**Media Signals**
-
-- Quoted in tier-1 press: CNBC, Bloomberg TV
-- TV appearances: CNBC, Bloomberg TV
-
-**Trust Signals**
-
-- Owned domain: perrymarketanalysis.com
-
-**Beats & Outlets**
-
-- Beats: forex, cfd, technical_analysis, equities, commodities, macro
-- Writes for: bestbrokers, asktraders, financemagnates, fxexplained (multi-outlet)
-- 🔥 Outlet receives backlinks from **3** of our competitors
-- Outlet: [BestBrokers](https://bestbrokers.com) (T3 · DR 58)
-- Status: active
-- Discovery method: L5.5-direct (bestbrokers + asktraders) + Rule A (cross-outlet merged, Hantec/INFINOX history recovered)
-
-
-### 25. Omar Sacirbey <span style="opacity:0.55">— Startups Investing Editor</span>
+### 24. Omar Sacirbey <span style="opacity:0.55">— Startups Investing Editor</span>
 
 > **Tier A** · Final Score: **118** (base 88 × auth +34) · Outlet: **Benzinga** (T2, DR 86)
 
@@ -1104,6 +1117,7 @@ Startups Investing Editor at Benzinga (joined Sep 2025). Award-winning journalis
 **Trust Signals**
 
 - Owned domain: true
+- FINRA BrokerCheck: **not_applicable**
 
 **Beats & Outlets**
 
@@ -1119,7 +1133,7 @@ Startups Investing Editor at Benzinga (joined Sep 2025). Award-winning journalis
 > Layer5.5 found only company social URLs (Benzinga); Rule A recovered personal LinkedIn + ownedDomain.
 
 
-### 26. Jesse Hamilton <span style="opacity:0.55">— Deputy Managing Editor, Global Policy & Regulation — CoinDesk</span>
+### 25. Jesse Hamilton <span style="opacity:0.55">— Deputy Managing Editor, Global Policy & Regulation — CoinDesk</span>
 
 > **Tier A** · Final Score: **118** (base 94 × auth +25) · Outlet: **CoinDesk** (T2, DR 89)
 
@@ -1152,6 +1166,10 @@ Deputy Managing Editor on CoinDesk's Global Policy and Regulation team, based in
 - Quoted in tier-1 press: Bloomberg, Businessweek
 - Has Google Knowledge Panel: ✓
 
+**Trust Signals**
+
+- FINRA BrokerCheck: **n/a**
+
 **Beats & Outlets**
 
 - Beats: crypto, regulation, us-laws
@@ -1162,7 +1180,7 @@ Deputy Managing Editor on CoinDesk's Global Policy and Regulation team, based in
 - Discovery method: L7 WebSearch (domain blocked, Rule A recovery)
 
 
-### 27. Will Daniel <span style="opacity:0.55">— Senior Reporter — Fortune (former)</span>
+### 26. Will Daniel <span style="opacity:0.55">— Senior Reporter — Fortune (former)</span>
 
 > **Tier A** · Final Score: **117** (base 92 × auth +27) · Outlet: **Fortune** (T1, DR 90)
 
@@ -1194,6 +1212,10 @@ Senior reporter covering markets and the economy. At Fortune magazine since Marc
 
 - Quoted in tier-1 press: Fortune, Business Insider, Markets Insider, Yahoo
 
+**Trust Signals**
+
+- FINRA BrokerCheck: **n/a**
+
 **Beats & Outlets**
 
 - Beats: markets, investing, finance
@@ -1208,7 +1230,7 @@ Senior reporter covering markets and the economy. At Fortune magazine since Marc
 > Kept status=active for bylines per R12; Fortune tenure flagged as recently departed per Talking Biz News.
 
 
-### 28. Manish Jaradi <span style="opacity:0.55">— Strategist, DailyFX / IG</span>
+### 27. Manish Jaradi <span style="opacity:0.55">— Strategist, DailyFX / IG</span>
 
 > **Tier A** · Final Score: **116** (base 90 × auth +29) · Outlet: **DailyFX** (T2, DR 83)
 
@@ -1230,8 +1252,8 @@ Senior reporter covering markets and the economy. At Fortune magazine since Marc
 
 - Credentials (claimed): CMT, CFTe
 - Certifications:
-  - **CMT** — CMT Association (unverified)
-  - **CFTe** — IFTA (unverified)
+  - **CMT** — CMT Association (unverified) ([registry](https://www.dailyfx.com/authors/Manish_Jaradi))
+  - **CFTe** — IFTA (unverified) ([registry](https://www.ig.com/uk/profile/manish-jaradi-dfx))
 - Education:
   - MSc Development Economics, University of London
   - MSc Financial Services Management, University of Mumbai
@@ -1240,6 +1262,10 @@ Senior reporter covering markets and the economy. At Fortune magazine since Marc
 
 - Strategist @ IG Group (DailyFX) (since 2022)
 - Investment Strategist @ Singapore private banks (~14 years)
+
+**Trust Signals**
+
+- FINRA BrokerCheck: **n/a**
 
 **Beats & Outlets**
 
@@ -1250,7 +1276,7 @@ Senior reporter covering markets and the economy. At Fortune magazine since Marc
 - Discovery method: L7
 
 
-### 29. Jeff Ostrowski <span style="opacity:0.55">— Writer & Housing Market Analyst</span>
+### 28. Jeff Ostrowski <span style="opacity:0.55">— Writer & Housing Market Analyst</span>
 
 > **Tier A** · Final Score: **116** (base 86 × auth +35) · Outlet: **Bankrate** (T1, DR 90)
 
@@ -1271,7 +1297,7 @@ Senior reporter covering markets and the economy. At Fortune magazine since Marc
 
 - Credentials (claimed): NMLS MLO
 - Certifications:
-  - **NMLS Mortgage Loan Originator (SAFE Test)** — NMLS (unverified) ([registry](https://www.nmlsconsumeraccess.org/))
+  - **NMLS Mortgage Loan Originator (SAFE Test passed)** — NMLS (unverified)
 - Education:
   - BS, University of Illinois at Urbana-Champaign
   - MA, University of Illinois at Springfield
@@ -1289,6 +1315,10 @@ Senior reporter covering markets and the economy. At Fortune magazine since Marc
 - Authored books:
   - How to Buy a Home in a Miserable Market
 
+**Trust Signals**
+
+- FINRA BrokerCheck: **n/a**
+
 **Beats & Outlets**
 
 - Beats: housing, personal-finance
@@ -1298,7 +1328,7 @@ Senior reporter covering markets and the economy. At Fortune magazine since Marc
 - Discovery method: —
 
 
-### 30. Danielle Park, CFA <span style="opacity:0.55">— Portfolio Manager / Contributor</span>
+### 29. Danielle Park, CFA <span style="opacity:0.55">— Portfolio Manager / Contributor</span>
 
 > **Tier A** · Final Score: **116** (base 86 × auth +35) · Outlet: **Seeking Alpha** (T2, DR 88)
 
@@ -1320,7 +1350,7 @@ Chartered Financial Analyst and co-founder / Portfolio Manager at Venable Park I
 
 - Credentials (claimed): CFA
 - Certifications:
-  - **CFA** — CFA Institute (unverified) ([registry](https://cfainstitute.org/en/membership/directory))
+  - **CFA** — CFA Institute (unverified)
 
 **Employment History**
 
@@ -1347,7 +1377,7 @@ Chartered Financial Analyst and co-founder / Portfolio Manager at Venable Park I
 - Discovery method: —
 
 
-### 31. Suzanne Woolley <span style="opacity:0.55">— Personal Finance Writer — Bloomberg Wealth team</span>
+### 30. Suzanne Woolley <span style="opacity:0.55">— Personal Finance Writer — Bloomberg Wealth team</span>
 
 > **Tier A** · Final Score: **116** (base 93 × auth +25) · Outlet: **Bloomberg** (T1, DR 94)
 
@@ -1377,6 +1407,10 @@ Personal finance writer on Bloomberg's Wealth team in New York, covering saving,
 
 - Quoted in tier-1 press: Bloomberg, BusinessWeek
 
+**Trust Signals**
+
+- FINRA BrokerCheck: **n/a**
+
 **Beats & Outlets**
 
 - Beats: personal-finance, investing, retirement, banking, housing, taxes, insurance
@@ -1387,7 +1421,7 @@ Personal finance writer on Bloomberg's Wealth team in New York, covering saving,
 - Discovery method: L9 + Rule A (Muck Rack 403; LinkedIn + EBRI bio recovered)
 
 
-### 32. Sharon Epperson <span style="opacity:0.55">— Senior Personal Finance Correspondent — CNBC</span>
+### 31. Sharon Epperson <span style="opacity:0.55">— Senior Personal Finance Correspondent — CNBC</span>
 
 > **Tier A** · Final Score: **114** (base 91 × auth +25) · Outlet: **CNBC** (T1, DR 93)
 
@@ -1423,6 +1457,10 @@ CNBC's Senior Personal Finance Correspondent and creator/editor of the 'Money 10
 - TV appearances: CNBC, NBC News (Today), NBC Nightly News
 - Has Google Knowledge Panel: ✓
 
+**Trust Signals**
+
+- FINRA BrokerCheck: **n/a**
+
 **Beats & Outlets**
 
 - Beats: personal-finance, retirement, investing, financial-journalism
@@ -1432,7 +1470,7 @@ CNBC's Senior Personal Finance Correspondent and creator/editor of the 'Money 10
 - Discovery method: L9-muckrack (403) + Rule A
 
 
-### 33. Bob Mason <span style="opacity:0.55">— Author / Financial Consultant</span>
+### 32. Bob Mason <span style="opacity:0.55">— Author / Financial Consultant</span>
 
 > **Tier A** · Final Score: **114** (base 89 × auth +28) · Outlet: **FXEmpire** (T2, DR 73)
 
@@ -1466,6 +1504,10 @@ Financial consultant and author at FX Empire since December 2016 with 28 years i
 
 - Quoted in tier-1 press: The Jerusalem Post, Huffington Post
 
+**Trust Signals**
+
+- FINRA BrokerCheck: **n/a**
+
 **Beats & Outlets**
 
 - Beats: forex, crypto, equity, credit, markets
@@ -1475,7 +1517,7 @@ Financial consultant and author at FX Empire since December 2016 with 28 years i
 - Discovery method: L7-websearch
 
 
-### 34. Daniel Phillips <span style="opacity:0.55">— Cryptocurrency Writer — CoinMarketCap Academy</span>
+### 33. Daniel Phillips <span style="opacity:0.55">— Cryptocurrency Writer — CoinMarketCap Academy</span>
 
 > **Tier A** · Final Score: **114** (base 88 × auth +30) · Outlet: **CoinMarketCap** (T1, DR 91)
 
@@ -1507,6 +1549,10 @@ Blockchain journalist, analyst and Solidity developer with cryptocurrency expert
 - Writer @ Republic Crypto
 - Writer @ Cryptonews.com
 
+**Trust Signals**
+
+- FINRA BrokerCheck: **n/a**
+
 **Beats & Outlets**
 
 - Beats: crypto, blockchain, defi, bitcoin
@@ -1517,7 +1563,7 @@ Blockchain journalist, analyst and Solidity developer with cryptocurrency expert
 - Discovery method: direct_aggregate
 
 
-### 35. Scott Murdoch <span style="opacity:0.55">— Lead Writer, Asia Finance & Markets — Reuters</span>
+### 34. Scott Murdoch <span style="opacity:0.55">— Lead Writer, Asia Finance & Markets — Reuters</span>
 
 > **Tier A** · Final Score: **114** (base 91 × auth +25) · Outlet: **Reuters** (T1, DR 94)
 
@@ -1546,6 +1592,10 @@ Lead Writer for Asia Finance & Markets at Reuters (formerly Asia Capital Markets
 
 - Quoted in tier-1 press: Reuters, The Australian, News Corp
 
+**Trust Signals**
+
+- FINRA BrokerCheck: **not_applicable**
+
 **Beats & Outlets**
 
 - Beats: markets, equity, fixed-income, financial-journalism
@@ -1555,7 +1605,7 @@ Lead Writer for Asia Finance & Markets at Reuters (formerly Asia Capital Markets
 - Discovery method: L9 + Rule A (muckrack 403 → WebSearch recovery)
 
 
-### 36. Anna Bahney <span style="opacity:0.55">— Housing & Personal Finance Reporter — CNN Business</span>
+### 35. Anna Bahney <span style="opacity:0.55">— Housing & Personal Finance Reporter — CNN Business</span>
 
 > **Tier A** · Final Score: **114** (base 87 × auth +31) · Outlet: **CNN Business** (T1, DR 95)
 
@@ -1593,6 +1643,7 @@ Writer for CNN covering investments and real estate, focusing on traditional, al
 **Trust Signals**
 
 - Owned domain: true
+- FINRA BrokerCheck: **not_applicable**
 
 **Beats & Outlets**
 
@@ -1603,7 +1654,7 @@ Writer for CNN covering investments and real estate, focusing on traditional, al
 - Discovery method: L9 + Rule A (muckrack 403 → WebSearch recovery)
 
 
-### 37. Kimberly Palmer <span style="opacity:0.55">— Senior Editor / Personal Finance Expert — US News & NerdWallet</span>
+### 36. Kimberly Palmer <span style="opacity:0.55">— Senior Editor / Personal Finance Expert — US News & NerdWallet</span>
 
 > **Tier A** · Final Score: **113** (base 86 × auth +31) · Outlet: **US News — Money** (T2, DR 88)
 
@@ -1655,7 +1706,7 @@ Personal-finance expert, spokesperson and author. Was Senior Money Editor at US 
 - Discovery method: L1 + Rule A WebSearch
 
 
-### 38. John Divine <span style="opacity:0.55">— Assistant Managing Editor — Investing (U.S. News & World Report)</span>
+### 37. John Divine <span style="opacity:0.55">— Assistant Managing Editor — Investing (U.S. News & World Report)</span>
 
 > **Tier A** · Final Score: **112** (base 89 × auth +26) · Outlet: **US News — Money** (T2, DR 88)
 
@@ -1699,7 +1750,7 @@ Assistant Managing Editor at U.S. News & World Report covering stock market, Wal
 - Discovery method: L1 WebFetch (timeout) → Rule A recovery
 
 
-### 39. Jeff John Roberts <span style="opacity:0.55">— Finance & Crypto Editor, Fortune (former Executive Editor at Decrypt)</span>
+### 38. Jeff John Roberts <span style="opacity:0.55">— Finance & Crypto Editor, Fortune (former Executive Editor at Decrypt)</span>
 
 > **Tier A** · Final Score: **112** (base 87 × auth +29) · Outlet: **Decrypt** (T2, DR 82)
 
@@ -1753,7 +1804,7 @@ Finance & Crypto Editor at Fortune and host of the Fortune Crypto Playbook vodca
 > Decrypt tenure 2021-2022, now at Fortune as Finance/Crypto Editor
 
 
-### 40. Adam Levine-Weinberg, CFA <span style="opacity:0.55">— Contributor — value investor</span>
+### 39. Adam Levine-Weinberg, CFA <span style="opacity:0.55">— Contributor — value investor</span>
 
 > **Tier A** · Final Score: **111** (base 88 × auth +26) · Outlet: **Seeking Alpha** (T2, DR 88)
 
@@ -1775,7 +1826,7 @@ Value investor researching and writing about stocks for Seeking Alpha and The Mo
 
 - Credentials (claimed): CFA
 - Certifications:
-  - **CFA** — CFA Institute (unverified) ([registry](https://cfainstitute.org/en/membership/directory))
+  - **CFA** — CFA Institute (unverified)
 - Education:
   - BA, Swarthmore College, 2007
   - MA Political Science, University of Chicago, 2009
@@ -1796,7 +1847,7 @@ Value investor researching and writing about stocks for Seeking Alpha and The Mo
 - Discovery method: L7 WebSearch
 
 
-### 41. TM Lee <span style="opacity:0.55">— Co-Founder & President — CoinGecko (formerly CEO)</span>
+### 40. TM Lee <span style="opacity:0.55">— Co-Founder & President — CoinGecko (formerly CEO)</span>
 
 > **Tier A** · Final Score: **111** (base 87 × auth +28) · Outlet: **CoinGecko** (T2, DR 88)
 
@@ -1848,7 +1899,7 @@ Co-Founder and President of CoinGecko, which he launched in 2014 with Bobby Ong 
 - Discovery method: L1_known + Rule A (no authorUrl initially → recovered via WebSearch)
 
 
-### 42. Kunal Kapoor <span style="opacity:0.55">— Chief Executive Officer — Morningstar</span>
+### 41. Kunal Kapoor <span style="opacity:0.55">— Chief Executive Officer — Morningstar</span>
 
 > **Tier A** · Final Score: **110** (base 87 × auth +27) · Outlet: **Morningstar** (T2, DR 87)
 
@@ -1871,7 +1922,7 @@ Chief Executive Officer of Morningstar since 2017. Joined Morningstar in 1997 as
 
 - Credentials (claimed): CFA
 - Certifications:
-  - **CFA** — CFA Institute (unverified) ([registry](https://cfainstitute.org/en/membership/directory))
+  - **CFA** — CFA Institute (✓ verified) ([registry](https://www.morningstar.com/company/leadership/kunal-kapoor))
 - Education:
   - BA Economics and Environmental Policy, Monmouth College
   - MBA, University of Chicago Booth School of Business
@@ -1897,7 +1948,7 @@ Chief Executive Officer of Morningstar since 2017. Joined Morningstar in 1997 as
 - Discovery method: L7 + Rule A (morningstar 403 → WebSearch recovery)
 
 
-### 43. Theresa W. Carey <span style="opacity:0.55">— Senior Brokerage Advisor — US & Canada</span>
+### 42. Theresa W. Carey <span style="opacity:0.55">— Senior Brokerage Advisor — US & Canada</span>
 
 > **Tier A** · Final Score: **109** (base 84 × auth +30) · Outlet: **BrokerChooser** (T3, DR 66)
 
@@ -1939,7 +1990,7 @@ Chief Executive Officer of Morningstar since 2017. Joined Morningstar in 1997 as
 - Discovery method: —
 
 
-### 44. Bradley Keoun <span style="opacity:0.55">— Managing Editor, Tech & Protocols</span>
+### 43. Bradley Keoun <span style="opacity:0.55">— Managing Editor, Tech & Protocols</span>
 
 > **Tier A** · Final Score: **108** (base 84 × auth +28) · Outlet: **CoinDesk** (T2, DR 89)
 
@@ -1985,7 +2036,7 @@ Managing Editor of Tech & Protocols at CoinDesk; oversees reporters covering blo
 - Discovery method: —
 
 
-### 45. Al Root (Allen Root) <span style="opacity:0.55">— Senior Writer / Associate Editor — Barron's</span>
+### 44. Al Root (Allen Root) <span style="opacity:0.55">— Senior Writer / Associate Editor — Barron's</span>
 
 > **Tier A** · Final Score: **108** (base 86 × auth +25) · Outlet: **Barron's** (T2, DR 88)
 
@@ -2014,6 +2065,7 @@ Senior writer / Associate Editor at Barron's (since 2018). 17 years on Wall Stre
 **Trust Signals**
 
 - Owned domain: alrootwriting.com
+- FINRA BrokerCheck: **not_searched**
 
 **Beats & Outlets**
 
@@ -2029,7 +2081,7 @@ Senior writer / Associate Editor at Barron's (since 2018). 17 years on Wall Stre
 > Awards: SABEW Best in Business (JPMorgan Chase reporting).
 
 
-### 46. Connor Sephton <span style="opacity:0.55">— Cryptocurrency Writer / Contributor — CoinMarketCap; Head of Advertorial — Cointelegraph</span>
+### 45. Connor Sephton <span style="opacity:0.55">— Cryptocurrency Writer / Contributor — CoinMarketCap; Head of Advertorial — Cointelegraph</span>
 
 > **Tier A** · Final Score: **108** (base 83 × auth +30) · Outlet: **CoinMarketCap** (T1, DR 91)
 
@@ -2062,6 +2114,10 @@ London-based journalist with a 10-year career as reporter, editor, and newsreade
 
 - Quoted in tier-1 press: BBC, Sky News
 
+**Trust Signals**
+
+- FINRA BrokerCheck: **not_applicable**
+
 **Beats & Outlets**
 
 - Beats: crypto, blockchain, markets
@@ -2072,7 +2128,7 @@ London-based journalist with a 10-year career as reporter, editor, and newsreade
 - Discovery method: direct_aggregate (L5.5 WebFetch success) + Rule A cross-verified
 
 
-### 47. Enoch Yiu <span style="opacity:0.55">— Chief Business Reporter — South China Morning Post</span>
+### 46. Enoch Yiu <span style="opacity:0.55">— Chief Business Reporter — South China Morning Post</span>
 
 > **Tier A** · Final Score: **108** (base 85 × auth +27) · Outlet: **South China Morning Post** (T1, DR 90)
 
@@ -2106,6 +2162,10 @@ Chief Business Reporter at South China Morning Post. Joined SCMP as business rep
   - They Mean Business: 50 exclusive interviews with Hong Kong top executives
   - Serving with Passion: stories of established catering brands in Hong Kong
 
+**Trust Signals**
+
+- FINRA BrokerCheck: **not_applicable**
+
 **Beats & Outlets**
 
 - Beats: finance, banking, markets
@@ -2115,7 +2175,7 @@ Chief Business Reporter at South China Morning Post. Joined SCMP as business rep
 - Discovery method: L9 + Rule A (Muck Rack 403)
 
 
-### 48. Eamonn Sheridan <span style="opacity:0.55">— Chief Asia-Pacific Currency Analyst</span>
+### 47. Eamonn Sheridan <span style="opacity:0.55">— Chief Asia-Pacific Currency Analyst</span>
 
 > **Tier A** · Final Score: **108** (base 86 × auth +25) · Outlet: **ForexLive** (T2, DR 78)
 
@@ -2147,6 +2207,10 @@ Chief Asia-Pacific Currency Analyst at investingLive (formerly ForexLive). Spent
 
 - Quoted in tier-1 press: Nasdaq
 
+**Trust Signals**
+
+- FINRA BrokerCheck: **not_applicable**
+
 **Beats & Outlets**
 
 - Beats: forex, interbank-fx, markets, futures
@@ -2157,7 +2221,7 @@ Chief Asia-Pacific Currency Analyst at investingLive (formerly ForexLive). Spent
 - Discovery method: L1 WebFetch aggregate
 
 
-### 49. Terry Flanagan <span style="opacity:0.55">— Managing Director / Editor</span>
+### 48. Terry Flanagan <span style="opacity:0.55">— Managing Director / Editor</span>
 
 > **Tier A** · Final Score: **108** (base 85 × auth +27) · Outlet: **Traders Magazine** (T3, DR 67)
 
@@ -2179,13 +2243,17 @@ Managing Director at Markets Media Group, overseeing the Markets Media, Traders 
 
 - Credentials (claimed): CFA
 - Certifications:
-  - **CFA (Chartered Financial Analyst)** — CFA Institute (unverified)
+  - **CFA (Chartered Financial Analyst)** — CFA Institute (✓ verified) ([registry](https://www.marketsmediagroup.com/team/))
 
 **Employment History**
 
 - Managing Director / Editor @ Markets Media Group (Markets Media / Traders Magazine / GlobalTrading) (current)
 - Reporter / Editor @ Bloomberg (1996-?)
 - Financial Research Analyst @ undisclosed
+
+**Trust Signals**
+
+- FINRA BrokerCheck: **not_applicable**
 
 **Beats & Outlets**
 
@@ -2196,7 +2264,7 @@ Managing Director at Markets Media Group, overseeing the Markets Media, Traders 
 - Discovery method: L0 Phase 0 notes + Rule A WebSearch (tradersmagazine.com author URL 404, staff-authors URL works)
 
 
-### 50. Michael Kim <span style="opacity:0.55">— Senior Analyst — Zacks Small-Cap Research</span>
+### 49. Michael Kim <span style="opacity:0.55">— Senior Analyst — Zacks Small-Cap Research</span>
 
 > **Tier A** · Final Score: **107** (base 81 × auth +32) · Outlet: **Zacks** (T2, DR 82)
 
@@ -2228,6 +2296,10 @@ Senior Analyst at Zacks Small-Cap Research with 20+ years of Equity Research and
 - Quoted in tier-1 press: WSJ, Financial Times, Barron's, Bloomberg, Institutional Investor
 - TV appearances: CNBC, Bloomberg
 
+**Trust Signals**
+
+- FINRA BrokerCheck: **not_searched**
+
 **Beats & Outlets**
 
 - Beats: stocks, equity, markets, investing
@@ -2238,7 +2310,7 @@ Senior Analyst at Zacks Small-Cap Research with 20+ years of Equity Research and
 - Discovery method: L1
 
 
-### 51. JeFreda R. Brown <span style="opacity:0.55">— Financial Review Board Member / Financial Writer</span>
+### 50. JeFreda R. Brown <span style="opacity:0.55">— Financial Review Board Member / Financial Writer</span>
 
 > **Tier A** · Final Score: **107** (base 84 × auth +27) · Outlet: **Investopedia** (T1, DR 92)
 
@@ -2260,7 +2332,7 @@ Certified Financial Education Instructor (CFEI). Financial consultant, entrepren
 
 - Credentials (claimed): CFEI
 - Certifications:
-  - **CFEI (Certified Financial Education Instructor)** — National Financial Educators Council (unverified)
+  - **CFEI (Certified Financial Education Instructor)** — National Financial Educators Council (✓ verified) ([registry](https://www.financialeducatorscouncil.org/jefreda-brown/))
 - Education:
   - DBA (Finance concentration), Walden University
   - MBA (Finance & Accounting), Mississippi College
@@ -2275,6 +2347,7 @@ Certified Financial Education Instructor (CFEI). Financial consultant, entrepren
 **Trust Signals**
 
 - Owned domain: doctorjefreda.com
+- FINRA BrokerCheck: **not_applicable**
 
 **Beats & Outlets**
 
@@ -2290,7 +2363,7 @@ Certified Financial Education Instructor (CFEI). Financial consultant, entrepren
 > No L5.5 URL in input; Rule A recovered full bio via PRLog + The Balance author page + Finimpact. Cross-outlet (Investopedia + The Balance).
 
 
-### 52. James Hyerczyk <span style="opacity:0.55">— Senior Market Analyst — FXEmpire</span>
+### 51. James Hyerczyk <span style="opacity:0.55">— Senior Market Analyst — FXEmpire</span>
 
 > **Tier A** · Final Score: **106** (base 81 × auth +31) · Outlet: **FXEmpire** (T2, DR 73)
 
@@ -2324,6 +2397,10 @@ U.S.-based technical analyst, market researcher, educator, and trader with 43 ye
 
 - Quoted in tier-1 press: Nasdaq
 
+**Trust Signals**
+
+- FINRA BrokerCheck: **not_searched**
+
 **Beats & Outlets**
 
 - Beats: forex, futures, markets, day-trading
@@ -2333,7 +2410,7 @@ U.S.-based technical analyst, market researcher, educator, and trader with 43 ye
 - Discovery method: L5.5-direct (404 on seed slug; corrected to /jameshyerczyk via Rule A) + Muck Rack
 
 
-### 53. Brian Bollinger <span style="opacity:0.55">— Founder, Owner, President & Analyst — Simply Safe Dividends (Seeking Alpha contributor)</span>
+### 52. Brian Bollinger <span style="opacity:0.55">— Founder, Owner, President & Analyst — Simply Safe Dividends (Seeking Alpha contributor)</span>
 
 > **Tier A** · Final Score: **105** (base 83 × auth +26) · Outlet: **Seeking Alpha** (T2, DR 88)
 
@@ -2355,7 +2432,7 @@ Founder of Simply Safe Dividends (2015) — online tools and research to help in
 
 - Credentials (claimed): CPA
 - Certifications:
-  - **CPA** — State Board of Accountancy (unverified)
+  - **CPA (Certified Public Accountant)** — State Board of Accountancy (unverified) ([registry](https://www.simplysafedividends.com/about))
 - Education:
   - Triple major: Finance, Accounting, Entrepreneurship (top 1% of class), Indiana University — Kelley School of Business
 
@@ -2367,6 +2444,7 @@ Founder of Simply Safe Dividends (2015) — online tools and research to help in
 **Trust Signals**
 
 - Owned domain: simplysafedividends.com
+- FINRA BrokerCheck: **not_applicable**
 
 **Beats & Outlets**
 
@@ -2378,7 +2456,7 @@ Founder of Simply Safe Dividends (2015) — online tools and research to help in
 - Discovery method: L7-websearch (L5.5 403-blocked, Rule A recovered full bio)
 
 
-### 54. Barbara Friedberg <span style="opacity:0.55">— Contributor / Freelance columnist</span>
+### 53. Barbara Friedberg <span style="opacity:0.55">— Contributor / Freelance columnist</span>
 
 > **Tier A** · Final Score: **104** (base 80 × auth +30) · Outlet: **The Balance** (T2, DR 84)
 
@@ -2422,6 +2500,7 @@ Freelance columnist since 2010. Former investment portfolio manager and CFO for 
 **Trust Signals**
 
 - Owned domain: barbarafriedbergpersonalfinance.com
+- FINRA BrokerCheck: **not_applicable**
 
 **Beats & Outlets**
 
@@ -2432,7 +2511,7 @@ Freelance columnist since 2010. Former investment portfolio manager and CFO for 
 - Discovery method: L1
 
 
-### 55. Chris Beauchamp <span style="opacity:0.55">— Chief Market Analyst — IG Group (contributor at DayTrading.com)</span>
+### 54. Chris Beauchamp <span style="opacity:0.55">— Chief Market Analyst — IG Group (contributor at DayTrading.com)</span>
 
 > **Tier A** · Final Score: **104** (base 83 × auth +25) · Outlet: **DayTrading.com** (T3, DR 55)
 
@@ -2459,6 +2538,10 @@ Chief Market Analyst at IG Group since 2019, with IG since 2010 (15+ years). Bac
 - Quoted in tier-1 press: Bloomberg, BBC
 - TV appearances: BBC, Sky News, Bloomberg
 
+**Trust Signals**
+
+- FINRA BrokerCheck: **not_applicable**
+
 **Beats & Outlets**
 
 - Beats: markets, cfd, forex, stocks, financial-journalism
@@ -2468,7 +2551,7 @@ Chief Market Analyst at IG Group since 2019, with IG since 2010 (15+ years). Bac
 - Discovery method: L5.5-direct + Rule A
 
 
-### 56. Ashlyn Brooks <span style="opacity:0.55">— Finance Writer — Bankrate (freelance)</span>
+### 55. Ashlyn Brooks <span style="opacity:0.55">— Finance Writer — Bankrate (freelance)</span>
 
 > **Tier A** · Final Score: **104** (base 83 × auth +25) · Outlet: **Bankrate** (T1, DR 90)
 
@@ -2505,6 +2588,7 @@ Finance writer with more than half a decade of experience covering taxes, insura
 **Trust Signals**
 
 - Owned domain: true
+- FINRA BrokerCheck: **not_applicable**
 
 **Beats & Outlets**
 
@@ -2515,7 +2599,7 @@ Finance writer with more than half a decade of experience covering taxes, insura
 - Discovery method: L7 + Rule A (bankrate 405)
 
 
-### 57. Cherry Reynard <span style="opacity:0.55">— Freelance Financial Journalist / Contributor — Boring Money</span>
+### 56. Cherry Reynard <span style="opacity:0.55">— Freelance Financial Journalist / Contributor — Boring Money</span>
 
 > **Tier A** · Final Score: **102** (base 77 × auth +33) · Outlet: **Boring Money** (T3, DR 55)
 
@@ -2544,6 +2628,10 @@ Multi-award-winning financial journalist since 2000 with 25+ years of experience
 - Authored books:
   - Investing in Emerging Markets (co-author)
 
+**Trust Signals**
+
+- FINRA BrokerCheck: **not_applicable**
+
 **Beats & Outlets**
 
 - Beats: investing, personal-finance, financial-journalism, mutual-funds
@@ -2553,7 +2641,7 @@ Multi-award-winning financial journalist since 2000 with 25+ years of experience
 - Discovery method: L7-websearch (no authorUrl provided)
 
 
-### 58. Kenji Kawase <span style="opacity:0.55">— Chief Business News Correspondent — Nikkei Asia</span>
+### 57. Kenji Kawase <span style="opacity:0.55">— Chief Business News Correspondent — Nikkei Asia</span>
 
 > **Tier A** · Final Score: **101** (base 81 × auth +25) · Outlet: **Nikkei Asia** (T2, DR 87)
 
@@ -2581,6 +2669,10 @@ Chief Business News Correspondent at Nikkei Asia, based in Hong Kong. ~30 years 
 
 - Quoted in tier-1 press: FT
 
+**Trust Signals**
+
+- FINRA BrokerCheck: **not_applicable**
+
 **Beats & Outlets**
 
 - Beats: markets, financial-journalism, tech
@@ -2590,7 +2682,7 @@ Chief Business News Correspondent at Nikkei Asia, based in Hong Kong. ~30 years 
 - Discovery method: L9 (Muck Rack 403) + Rule A
 
 
-### 59. Arielle O'Shea <span style="opacity:0.55">— Head of Content — Investing & Taxes</span>
+### 58. Arielle O'Shea <span style="opacity:0.55">— Head of Content — Investing & Taxes</span>
 
 > **Tier A** · Final Score: **100** (base 80 × auth +25) · Outlet: **NerdWallet** (T1, DR 90)
 
@@ -2632,7 +2724,7 @@ Leads NerdWallet's investing and taxes team. 19+ yrs. 80+ articles, 32.3M reader
 - Discovery method: —
 
 
-### 60. Daniel Sparks <span style="opacity:0.55">— Contributor — The Motley Fool (Owner/CIO, Sparks Capital Management)</span>
+### 59. Daniel Sparks <span style="opacity:0.55">— Contributor — The Motley Fool (Owner/CIO, Sparks Capital Management)</span>
 
 > **Tier A** · Final Score: **100** (base 75 × auth +33) · Outlet: **Motley Fool** (T1, DR 90)
 
@@ -2657,6 +2749,10 @@ Contributing Motley Fool stock-market analyst covering technology, industrials, 
 
 - Quoted in tier-1 press: TIME, CNN Business, Business Insider, USA Today
 
+**Trust Signals**
+
+- FINRA BrokerCheck: **unknown**
+
 **Beats & Outlets**
 
 - Beats: stocks, investing, tech, equity
@@ -2667,7 +2763,7 @@ Contributing Motley Fool stock-market analyst covering technology, industrials, 
 - Discovery method: L1 + Rule A
 
 
-### 61. Kate Leaman <span style="opacity:0.55">— Chief Market Analyst (AvaTrade) / Lead Stock Analyst (AskTraders)</span>
+### 60. Kate Leaman <span style="opacity:0.55">— Chief Market Analyst (AvaTrade) / Lead Stock Analyst (AskTraders)</span>
 
 > **Tier A** · Final Score: **98** (base 74 × auth +33) · Outlet: **AskTraders** (T3, DR 52)
 
@@ -2705,6 +2801,10 @@ Chief Market Analyst at AvaTrade and Lead Stock Analyst at AskTraders. Won the S
 
 - TV appearances: Sky News
 
+**Trust Signals**
+
+- FINRA BrokerCheck: **not_applicable**
+
 **Beats & Outlets**
 
 - Beats: stocks, forex, crypto, markets, etf
@@ -2714,7 +2814,7 @@ Chief Market Analyst at AvaTrade and Lead Stock Analyst at AskTraders. Won the S
 - Discovery method: L5.5-direct
 
 
-### 62. Lance Cothern <span style="opacity:0.55">— Contributor / Founder Money Manifesto</span>
+### 61. Lance Cothern <span style="opacity:0.55">— Contributor / Founder Money Manifesto</span>
 
 > **Tier A** · Final Score: **98** (base 76 × auth +29) · Outlet: **Money Under 30** (T2, DR 75)
 
@@ -2736,7 +2836,7 @@ Certified Public Accountant (CPA) licensed in Indiana (also holds CPA in Commonw
 
 - Credentials (claimed): CPA
 - Certifications:
-  - **CPA** — Indiana Board of Accountancy (unverified)
+  - **CPA** — Indiana Board of Accountancy (unverified) ([registry](https://mylicense.in.gov/everification/))
 - Education:
   - BBA, Accounting, James Madison University
 
@@ -2767,7 +2867,7 @@ Certified Public Accountant (CPA) licensed in Indiana (also holds CPA in Commonw
 > L5.5 410 (PAGE_GONE) — Rule A recovery via LinkedIn + Money Manifesto about page. CPA verified. Cross-outlet contributor.
 
 
-### 63. Jitan Solanki <span style="opacity:0.55">— Broker Analyst (FXEmpire since May 2019); Co-Founder & CEO of Trade-Vest</span>
+### 62. Jitan Solanki <span style="opacity:0.55">— Broker Analyst (FXEmpire since May 2019); Co-Founder & CEO of Trade-Vest</span>
 
 > **Tier A** · Final Score: **97** (base 73 × auth +33) · Outlet: **FXEmpire** (T2, DR 73)
 
@@ -2789,7 +2889,7 @@ Professional trader and market analyst with 17+ years trading pan-European and U
 
 - Credentials (claimed): MSTA
 - Certifications:
-  - **MSTA** — Society of Technical Analysts (unverified) ([registry](https://www.technicalanalysts.com/))
+  - **MSTA** — Society of Technical Analysts (STA UK) (unverified) ([registry](https://www.fxempire.com/author/jitansolanski))
 - Education:
   - B.A. Honours Applied English Language & Linguistics, —
 
@@ -2800,6 +2900,10 @@ Professional trader and market analyst with 17+ years trading pan-European and U
 - Head of Research @ JTR Capital Management
 - Contributor — Financial Markets Trader & Analyst @ Admiral Markets
 
+**Trust Signals**
+
+- FINRA BrokerCheck: **not_applicable**
+
 **Beats & Outlets**
 
 - Beats: forex, cfd, stocks, markets, trading-education
@@ -2809,7 +2913,7 @@ Professional trader and market analyst with 17+ years trading pan-European and U
 - Discovery method: L5.5-direct + Rule A
 
 
-### 64. Steve Miley <span style="opacity:0.55">— Contributor / Founder Market Chartist</span>
+### 63. Steve Miley <span style="opacity:0.55">— Contributor / Founder Market Chartist</span>
 
 > **Tier A** · Final Score: **94** (base 72 × auth +30) · Outlet: **AskTraders** (T3, DR 52)
 
@@ -2831,7 +2935,7 @@ Professional trader and market analyst with 17+ years trading pan-European and U
 
 - Credentials (claimed): MSTA
 - Certifications:
-  - **MSTA (Member, Society of Technical Analysts)** — STA UK (unverified)
+  - **MSTA** — Society of Technical Analysts (STA UK) (unverified) ([registry](https://www.asktraders.com/our-contributors/steve-miley/))
 - Education:
   - Masters, Politics Philosophy & Economics, Oxford University (Lincoln College)
 
@@ -2845,6 +2949,7 @@ Professional trader and market analyst with 17+ years trading pan-European and U
 **Trust Signals**
 
 - Owned domain: marketchartist.com
+- FINRA BrokerCheck: **not_applicable**
 
 **Beats & Outlets**
 
@@ -2859,7 +2964,7 @@ Professional trader and market analyst with 17+ years trading pan-European and U
 > L5.5 success. Strong tier-A profile: Oxford PPE + MSTA + 29yrs + multiple industry awards. Cross-outlet network.
 
 
-### 65. Andrés Cardenal, CFA <span style="opacity:0.55">— Contributor / Investing Group Leader (Seeking Alpha)</span>
+### 64. Andrés Cardenal, CFA <span style="opacity:0.55">— Contributor / Investing Group Leader (Seeking Alpha)</span>
 
 > **Tier A** · Final Score: **93** (base 73 × auth +27) · Outlet: **Seeking Alpha** (T2, DR 88)
 
@@ -2880,12 +2985,16 @@ Economist with 25+ years of investment research experience for hedge funds, fami
 
 - Credentials (claimed): CFA
 - Certifications:
-  - **CFA** — CFA Institute (unverified) ([registry](https://cfainstitute.org/en/membership/directory))
+  - **CFA** — CFA Institute (unverified)
 
 **Employment History**
 
 - Newsletter Editor / Investing Group Leader @ Seeking Alpha (The Data Driven Investor) (since 2017)
 - Contributor @ The Motley Fool / Business Insider
+
+**Trust Signals**
+
+- FINRA BrokerCheck: **not-checked**
 
 **Beats & Outlets**
 
@@ -2901,7 +3010,7 @@ Economist with 25+ years of investment research experience for hedge funds, fami
 > LinkedIn and Twitter not confirmed via WebSearch (Clay.earth stub found but not a clean LinkedIn URL). Preserved null rather than guessing.
 
 
-### 66. Brian O'Connell <span style="opacity:0.55">— Contributor — Retirement & Personal Finance</span>
+### 65. Brian O'Connell <span style="opacity:0.55">— Contributor — Retirement & Personal Finance</span>
 
 > **Tier A** · Final Score: **93** (base 68 × auth +37) · Outlet: **Kiplinger** (T2, DR 85)
 
@@ -2939,6 +3048,10 @@ Former Wall Street bond trader turned financial journalist with 20+ years of exp
   - The 401k Millionaire
   - CNBC's Creating Wealth
 
+**Trust Signals**
+
+- FINRA BrokerCheck: **not-checked**
+
 **Beats & Outlets**
 
 - Beats: personal-finance, retirement, investing, markets
@@ -2949,7 +3062,7 @@ Former Wall Street bond trader turned financial journalist with 20+ years of exp
 - Discovery method: L1 + Rule A WebSearch (kiplinger.com 404 on /brian-oconnell → /brian-o-connell)
 
 
-### 67. David Jensen, CFA <span style="opacity:0.55">— Contributor — Seeking Alpha / Principal, Jensen Strategic</span>
+### 66. David Jensen, CFA <span style="opacity:0.55">— Contributor — Seeking Alpha / Principal, Jensen Strategic</span>
 
 > **Tier A** · Final Score: **93** (base 73 × auth +27) · Outlet: **Seeking Alpha** (T2, DR 88)
 
@@ -2970,7 +3083,7 @@ Mining analyst and precious metals expert with close to two decades of experienc
 
 - Credentials (claimed): CFA
 - Certifications:
-  - **CFA** — CFA Institute (unverified) ([registry](https://cfainstitute.org/en/membership/directory))
+  - **CFA** — CFA Institute (unverified)
 
 **Employment History**
 
@@ -2982,6 +3095,7 @@ Mining analyst and precious metals expert with close to two decades of experienc
 **Trust Signals**
 
 - Owned domain: true
+- FINRA BrokerCheck: **not-checked**
 
 **Beats & Outlets**
 
@@ -2993,7 +3107,7 @@ Mining analyst and precious metals expert with close to two decades of experienc
 - Discovery method: L7 WebSearch (seekingalpha 403) + Rule A + Substack
 
 
-### 68. Carrie Kirby <span style="opacity:0.55">— Contributor — Freelance Bay Area Reporter</span>
+### 67. Carrie Kirby <span style="opacity:0.55">— Contributor — Freelance Bay Area Reporter</span>
 
 > **Tier A** · Final Score: **90** (base 69 × auth +31) · Outlet: **CoinDesk** (T2, DR 89)
 
@@ -3025,6 +3139,7 @@ Bay Area freelance reporter with years of experience writing about technology. H
 **Trust Signals**
 
 - Owned domain: themilesmom.com
+- FINRA BrokerCheck: **not-checked**
 
 **Beats & Outlets**
 
@@ -3036,7 +3151,7 @@ Bay Area freelance reporter with years of experience writing about technology. H
 - Discovery method: websearch_fallback (coindesk 403 → Rule A recovery)
 
 
-### 69. Sean Williams <span style="opacity:0.55">— Contributing analyst — The Motley Fool (Financial sector)</span>
+### 68. Sean Williams <span style="opacity:0.55">— Contributing analyst — The Motley Fool (Financial sector)</span>
 
 > **Tier A** · Final Score: **89** (base 65 × auth +37) · Outlet: **Motley Fool** (T1, DR 90)
 
@@ -3062,6 +3177,10 @@ Data-driven Motley Fool contributing analyst. 27+ years investing experience; au
 - Quoted in tier-1 press: The Guardian, USA Today, TIME
 - Muck Rack article count: 15000
 
+**Trust Signals**
+
+- FINRA BrokerCheck: **not-checked**
+
 **Beats & Outlets**
 
 - Beats: stocks, investing, finance
@@ -3072,7 +3191,7 @@ Data-driven Motley Fool contributing analyst. 27+ years investing experience; au
 - Discovery method: L7 + Rule A
 
 
-### 70. Ann Logue <span style="opacity:0.55">— Contributor — Investing writer</span>
+### 69. Ann Logue <span style="opacity:0.55">— Contributor — Investing writer</span>
 
 > **Tier A** · Final Score: **89** (base 66 × auth +35) · Outlet: **The Balance** (T2, DR 84)
 
@@ -3094,7 +3213,7 @@ Ann C. Logue, MBA, CFA — writer specializing in business and finance with 22+ 
 
 - Credentials (claimed): CFA, MBA
 - Certifications:
-  - **CFA** — CFA Institute (unverified) ([registry](https://cfainstitute.org/en/membership/directory))
+  - **CFA** — CFA Institute (unverified)
 - Education:
   - BA Economics, Northwestern University
   - MBA Finance, University of Chicago Booth School of Business
@@ -3121,6 +3240,7 @@ Ann C. Logue, MBA, CFA — writer specializing in business and finance with 22+ 
 **Trust Signals**
 
 - Owned domain: annlogue.com
+- FINRA BrokerCheck: **not-checked**
 
 **Beats & Outlets**
 
@@ -3131,7 +3251,7 @@ Ann C. Logue, MBA, CFA — writer specializing in business and finance with 22+ 
 - Discovery method: —
 
 
-### 71. Nick Marinoff <span style="opacity:0.55">— Staff Writer — Bitcoin Magazine / Lead News Writer & Editor — Money & Tech</span>
+### 70. Nick Marinoff <span style="opacity:0.55">— Staff Writer — Bitcoin Magazine / Lead News Writer & Editor — Money & Tech</span>
 
 > **Tier A** · Final Score: **88** (base 63 × auth +39) · Outlet: **Bitcoin Magazine** (T2, DR 78)
 
@@ -3160,6 +3280,10 @@ Writer, author and journalist covering cryptocurrency since 2014. Currently lead
 - Authored books:
   - [object Object]
 
+**Trust Signals**
+
+- FINRA BrokerCheck: **not-checked**
+
 **Beats & Outlets**
 
 - Beats: crypto, bitcoin, blockchain
@@ -3170,7 +3294,7 @@ Writer, author and journalist covering cryptocurrency since 2014. Currently lead
 - Discovery method: L5.5-direct + Rule A (bio sparse on page, expanded via WebSearch)
 
 
-### 72. Daniel Franke <span style="opacity:0.55">— Founder and Operator — Brokervergleich.de / Franke-Media.net</span>
+### 71. Daniel Franke <span style="opacity:0.55">— Founder and Operator — Brokervergleich.de / Franke-Media.net</span>
 
 > **Tier A** · Final Score: **88** (base 69 × auth +28) · Outlet: **Brokervergleich** (T3, DR 58)
 
@@ -3207,6 +3331,7 @@ Founder of Brokervergleich.de (2011) and Franke-Media.net (2005). BWL (Business 
 **Trust Signals**
 
 - Owned domain: brokervergleich.de, franke-media.net
+- FINRA BrokerCheck: **not-checked**
 
 **Beats & Outlets**
 
@@ -3217,7 +3342,7 @@ Founder of Brokervergleich.de (2011) and Franke-Media.net (2005). BWL (Business 
 - Discovery method: L5.5-direct + Rule A
 
 
-### 73. Edward Sheldon <span style="opacity:0.55">— Investment Writer — Good Money Guide</span>
+### 72. Edward Sheldon <span style="opacity:0.55">— Investment Writer — Good Money Guide</span>
 
 > **Tier A** · Final Score: **88** (base 70 × auth +26) · Outlet: **Good Money Guide** (T4, DR 48)
 
@@ -3240,8 +3365,8 @@ London-based investment writer with 15+ years of experience in private wealth ma
 
 - Credentials (claimed): CFA, IMC
 - Certifications:
-  - **CFA** — CFA Institute (unverified) ([registry](https://cfainstitute.org/en/membership/directory))
-  - **IMC** — CFA Society UK (unverified)
+  - **CFA** — CFA Institute (unverified) ([registry](https://www.linkedin.com/in/edward-sheldon-cfa-a6a36359/))
+  - **IMC** — CFA Society UK (unverified) ([registry](https://goodmoneyguide.com/author/edwardsheldon/))
 - Education:
   - Commerce degree, University of Melbourne
 
@@ -3249,6 +3374,10 @@ London-based investment writer with 15+ years of experience in private wealth ma
 
 - Investment Writer @ Good Money Guide (current)
 - Private wealth management / institutional asset management @ UK & Australia firms (15+ years)
+
+**Trust Signals**
+
+- FINRA BrokerCheck: **not-applicable-uk**
 
 **Beats & Outlets**
 
@@ -3259,7 +3388,7 @@ London-based investment writer with 15+ years of experience in private wealth ma
 - Discovery method: L5.5-direct
 
 
-### 74. Lyn Alden Schwartzer <span style="opacity:0.55">— Contributor — Founder, Lyn Alden Investment Strategy</span>
+### 73. Lyn Alden Schwartzer <span style="opacity:0.55">— Contributor — Founder, Lyn Alden Investment Strategy</span>
 
 > **Tier A** · Final Score: **86** (base 64 × auth +35) · Outlet: **Modest Money** (T3, DR 50)
 
@@ -3300,6 +3429,7 @@ American investment strategist, founder of Lyn Alden Investment Strategy (2016),
 **Trust Signals**
 
 - Owned domain: lynalden.com
+- FINRA BrokerCheck: **not-checked**
 
 **Beats & Outlets**
 
@@ -3310,7 +3440,7 @@ American investment strategist, founder of Lyn Alden Investment Strategy (2016),
 - Discovery method: L7-websearch (modestmoney 403 → Rule A full recovery, Wikipedia confirmed)
 
 
-### 75. Richard Berry <span style="opacity:0.55">— Founder / Managing Director</span>
+### 74. Richard Berry <span style="opacity:0.55">— Founder / Managing Director</span>
 
 > **Tier A** · Final Score: **85** (base 68 × auth +25) · Outlet: **Good Money Guide** (T4, DR 48)
 
@@ -3346,6 +3476,7 @@ Founder and Managing Director of Good Money Guide (established 2015, originally 
 **Trust Signals**
 
 - Owned domain: goodmoneyguide.com
+- FINRA BrokerCheck: **not-applicable-uk**
 
 **Beats & Outlets**
 
@@ -3356,7 +3487,7 @@ Founder and Managing Director of Good Money Guide (established 2015, originally 
 - Discovery method: —
 
 
-### 76. Dmitri Chavkerov <span style="opacity:0.55">— Founder / CEO — Forex Peace Army</span>
+### 75. Dmitri Chavkerov <span style="opacity:0.55">— Founder / CEO — Forex Peace Army</span>
 
 > **Tier A** · Final Score: **84** (base 64 × auth +31) · Outlet: **Forex Peace Army** (T3, DR 60)
 
@@ -3385,6 +3516,7 @@ Founder and CEO of Forex Peace Army, one of the largest foreign-exchange review 
 **Trust Signals**
 
 - Owned domain: forexpeacearmy.com
+- FINRA BrokerCheck: **no-crd-provided**
 
 **Beats & Outlets**
 
@@ -3396,7 +3528,7 @@ Founder and CEO of Forex Peace Army, one of the largest foreign-exchange review 
 - Discovery method: seed-note + Rule A WebSearch (no verifiable LinkedIn)
 
 
-### 77. Darren Sinden <span style="opacity:0.55">— Market Analyst / Editor</span>
+### 76. Darren Sinden <span style="opacity:0.55">— Market Analyst / Editor</span>
 
 > **Tier A** · Final Score: **81** (base 65 × auth +25) · Outlet: **Good Money Guide** (T4, DR 48)
 
@@ -3425,6 +3557,10 @@ Editor & Financial Analyst at Good Money Guide with 35 years of experience acros
 - Quoted in tier-1 press: Bloomberg, CNBC, Reuters
 - TV appearances: Bloomberg UK, CNBC UK, Reuters UK, Tiptv, BNN Canada, Asharq Bloomberg Arabia
 
+**Trust Signals**
+
+- FINRA BrokerCheck: **not-applicable-non-US**
+
 **Beats & Outlets**
 
 - Beats: forex, cfd, stocks, markets
@@ -3434,7 +3570,7 @@ Editor & Financial Analyst at Good Money Guide with 35 years of experience acros
 - Discovery method: —
 
 
-### 78. Justin Freeman <span style="opacity:0.55">— Equities Trader / Contributor — AskTraders</span>
+### 77. Justin Freeman <span style="opacity:0.55">— Equities Trader / Contributor — AskTraders</span>
 
 > **Tier A** · Final Score: **81** (base 64 × auth +26) · Outlet: **AskTraders** (T3, DR 52)
 
@@ -3456,7 +3592,7 @@ Active trader with 20+ years in financial markets. Roles at Citigroup, D.E. Shaw
 
 - Credentials (claimed): IMC, FCA CF27
 - Certifications:
-  - **Investment Management Certificate (IMC)** — CFA Society UK (unverified)
+  - **Investment Management Certificate (IMC)** — CFA Society UK (unverified) ([registry](https://www.asktraders.com/our-contributors/justin-freeman/))
   - **FCA Approved Investment Manager (CF27)** — Financial Conduct Authority (UK) (unverified) ([registry](https://register.fca.org.uk/))
 - Education:
   - Economics and Modern Economic History, University of Birmingham
@@ -3468,7 +3604,7 @@ Active trader with 20+ years in financial markets. Roles at Citigroup, D.E. Shaw
 
 **Trust Signals**
 
-- FINRA BrokerCheck: **fca_approved_cf27**
+- FINRA BrokerCheck: **not-applicable-non-US**
 
 **Beats & Outlets**
 
@@ -3479,7 +3615,7 @@ Active trader with 20+ years in financial markets. Roles at Citigroup, D.E. Shaw
 - Discovery method: L5.5-direct + Rule A
 
 
-### 79. Anna Coulling <span style="opacity:0.55">— Contributor / Director Quantum Trading</span>
+### 78. Anna Coulling <span style="opacity:0.55">— Contributor / Director Quantum Trading</span>
 
 > **Tier A** · Final Score: **81** (base 64 × auth +27) · Outlet: **FXEmpire** (T2, DR 73)
 
@@ -3511,6 +3647,7 @@ Trader and investor with 20+ years experience. Began trading career in London tr
 **Trust Signals**
 
 - Owned domain: annacoulling.com
+- FINRA BrokerCheck: **not-applicable-non-US**
 
 **Beats & Outlets**
 
@@ -3525,7 +3662,7 @@ Trader and investor with 20+ years experience. Began trading career in London tr
 > L5.5 success. Book author, own domain, 20+yrs. LinkedIn not publicly found via Rule A — Twitter null also. Email plain observed. needsManualReview=false given strong other signals.
 
 
-### 80. Matt Koppenheffer <span style="opacity:0.55">— Former Head of Coverage Team (2012-2025)</span>
+### 79. Matt Koppenheffer <span style="opacity:0.55">— Former Head of Coverage Team (2012-2025)</span>
 
 > **Tier A** · Final Score: **78** (base 60 × auth +30) · Outlet: **Motley Fool** (T1, DR 90)
 
@@ -3554,6 +3691,10 @@ Former full-time Motley Fool employee 2012-2025. Wrote for Fool.com, built Fool.
 - Authored books:
   - The Astonishing Collapse of MF Global
 
+**Trust Signals**
+
+- FINRA BrokerCheck: **no-record-found**
+
 **Beats & Outlets**
 
 - Beats: investing, stocks, ai
@@ -3568,7 +3709,7 @@ Former full-time Motley Fool employee 2012-2025. Wrote for Fool.com, built Fool.
 > Input authorUrl null; Rule A recovered official Fool author URL + LinkedIn + Twitter + MuckRack + book.
 
 
-### 81. Ariana Arghandewal <span style="opacity:0.55">— Contributor — MoneyUnder30 (founder, Pointchaser)</span>
+### 80. Ariana Arghandewal <span style="opacity:0.55">— Contributor — MoneyUnder30 (founder, Pointchaser)</span>
 
 > **Tier A** · Final Score: **78** (base 59 × auth +32) · Outlet: **Money Under 30** (T2, DR 75)
 
@@ -3594,6 +3735,7 @@ Travel-rewards expert and founder of award-winning blog Pointchaser. 13+ years w
 **Trust Signals**
 
 - Owned domain: pointchaser.com
+- FINRA BrokerCheck: **not-applicable-non-registered**
 
 **Beats & Outlets**
 
@@ -3604,7 +3746,7 @@ Travel-rewards expert and founder of award-winning blog Pointchaser. 13+ years w
 - Discovery method: L1 + Rule A (authorUrl 404)
 
 
-### 82. Iain Davis <span style="opacity:0.55">— Independent investigative journalist, author & blogger</span>
+### 81. Iain Davis <span style="opacity:0.55">— Independent investigative journalist, author & blogger</span>
 
 > **Tier A** · Final Score: **76** (base 60 × auth +26) · Outlet: **Bitcoin Magazine** (T2, DR 78)
 
@@ -3639,6 +3781,7 @@ UK-based independent investigative journalist, author and blogger, from Portsmou
 **Trust Signals**
 
 - Owned domain: true
+- FINRA BrokerCheck: **not-applicable-non-US**
 
 **Beats & Outlets**
 
@@ -3650,7 +3793,7 @@ UK-based independent investigative journalist, author and blogger, from Portsmou
 - Discovery method: L1_known + Rule A
 
 
-### 83. Bob Haegele <span style="opacity:0.55">— Freelance Personal Finance Writer — The Frugal Fellow</span>
+### 82. Bob Haegele <span style="opacity:0.55">— Freelance Personal Finance Writer — The Frugal Fellow</span>
 
 > **Tier A** · Final Score: **74** (base 56 × auth +32) · Outlet: **Modest Money** (T3, DR 50)
 
@@ -3685,6 +3828,7 @@ Freelance personal finance writer and content creator. Founder of The Frugal Fel
 **Trust Signals**
 
 - Owned domain: true
+- FINRA BrokerCheck: **not-applicable-non-registered**
 
 **Beats & Outlets**
 
@@ -3695,7 +3839,7 @@ Freelance personal finance writer and content creator. Founder of The Frugal Fel
 - Discovery method: L7-websearch + Rule A (modestmoney 500)
 
 
-### 84. Leslie Truex <span style="opacity:0.55">— Home Business Expert (former About.com / The Balance Small Business)</span>
+### 83. Leslie Truex <span style="opacity:0.55">— Home Business Expert (former About.com / The Balance Small Business)</span>
 
 > **Tier A** · Final Score: **73** (base 58 × auth +26) · Outlet: **The Balance** (T2, DR 84)
 
@@ -3738,6 +3882,7 @@ Online entrepreneur, author and speaker. Started WorkAtHomeSuccess.com in 1998. 
 **Trust Signals**
 
 - Owned domain: leslietruex.com
+- FINRA BrokerCheck: **not-applicable-non-registered**
 
 **Beats & Outlets**
 
@@ -3752,7 +3897,7 @@ Online entrepreneur, author and speaker. Started WorkAtHomeSuccess.com in 1998. 
 > Marginal fit — home business / work-at-home focus, not investing/markets
 
 
-### 85. Tim Worstall <span style="opacity:0.55">— Contributor — AskTraders / Senior Fellow Adam Smith Institute</span>
+### 84. Tim Worstall <span style="opacity:0.55">— Contributor — AskTraders / Senior Fellow Adam Smith Institute</span>
 
 > **Tier A** · Final Score: **69** (base 51 × auth +36) · Outlet: **AskTraders** (T3, DR 52)
 
@@ -3789,6 +3934,7 @@ British-born writer and blogger, Senior Fellow of the Adam Smith Institute. Writ
 **Trust Signals**
 
 - Owned domain: timworstall.com
+- FINRA BrokerCheck: **not-applicable-non-US**
 
 **Beats & Outlets**
 
@@ -3799,7 +3945,7 @@ British-born writer and blogger, Senior Fellow of the Adam Smith Institute. Writ
 - Discovery method: L5.5-direct + Rule A
 
 
-### 86. John Delia <span style="opacity:0.55">— Real Estate Investor & Contributor — Modest Money</span>
+### 85. John Delia <span style="opacity:0.55">— Real Estate Investor & Contributor — Modest Money</span>
 
 > **Tier A** · Final Score: **51** (base 41 × auth +25) · Outlet: **Modest Money** (T3, DR 50)
 
@@ -3835,6 +3981,10 @@ Dealmaker, entrepreneur, and strategist with almost 10 years as a millennial rea
 - TV appearances: BounceTV
 - Authored books:
   - [object Object]
+
+**Trust Signals**
+
+- FINRA BrokerCheck: **not-applicable-non-registered**
 
 **Beats & Outlets**
 

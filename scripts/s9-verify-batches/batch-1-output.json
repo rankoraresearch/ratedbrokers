@@ -1,0 +1,221 @@
+[
+  {
+    "id": "steven-hatzakis",
+    "name": "Steven Hatzakis",
+    "certifications": [
+      { "name": "Series 3 / CTA", "issuer": "NFA/CFTC", "verified": false, "verifyUrl": null, "verifyMethod": "nfa-basic", "verifyNote": "NFA BASIC search accessible but no direct profile URL surfaced in SERP; claim plausible (StockBrokers.com bio + 2008 registration stated) but no independent public registry URL found in time-boxed search" }
+    ],
+    "education": [],
+    "books": [],
+    "tier1Quotes": [
+      { "outlet": "Bloomberg", "verified": false, "sampleUrl": null, "verifyNote": "no direct article URL found in search" }
+    ],
+    "tvAppearances": [],
+    "industryAwards": [],
+    "trustSignals": {},
+    "verifyAttemptedAt": "2026-04-16",
+    "summary": { "certsClaimed": 5, "certsVerified": 0, "booksWithIsbn": 0, "tier1Verified": 0, "newAwardsFound": 0 }
+  },
+  {
+    "id": "beth-pinsker",
+    "name": "Beth Pinsker",
+    "certifications": [
+      { "name": "CFP", "issuer": "CFP Board", "verified": true, "verifyUrl": "https://www.penguinrandomhouse.com/authors/2337749/beth-pinsker-cfp/", "verifyMethod": "publisher-bio + muckrack", "verifyNote": "CFP® designation consistently displayed on Penguin Random House author bio, Muck Rack profile, and personal site bethpinsker.com; not cross-checked against letsmakeaplan.org directly in this pass" }
+    ],
+    "education": [
+      { "degree": "B.A. English", "school": "Harvard University", "verified": false, "verifyUrl": "https://bethpinsker.com/about-me/", "verifyNote": "stated on own site and PRH bio; no independent Harvard alumni/faculty URL found" }
+    ],
+    "books": [
+      { "title": "My Mother's Money: A Guide to Financial Caregiving", "isbn13": "9780593800577", "verified": true, "verifyUrl": "https://www.amazon.com/My-Mothers-Money-Financial-Caregiving/dp/0593800575", "verifyNote": "Crown Currency, Nov 2025" }
+    ],
+    "tier1Quotes": [
+      { "outlet": "WSJ", "verified": false, "sampleUrl": null, "verifyNote": "not directly verified with article URL" },
+      { "outlet": "Forbes", "verified": false, "sampleUrl": null, "verifyNote": "not directly verified with article URL" },
+      { "outlet": "USA Today", "verified": false, "sampleUrl": null, "verifyNote": "not directly verified with article URL" }
+    ],
+    "tvAppearances": [],
+    "industryAwards": [
+      { "name": "SABEW Best in Business — Commentary", "year": 2023, "source": "SABEW via own site / Muck Rack", "sampleUrl": "https://bethpinsker.com/about-me/" }
+    ],
+    "trustSignals": {},
+    "verifyAttemptedAt": "2026-04-16",
+    "summary": { "certsClaimed": 1, "certsVerified": 1, "booksWithIsbn": 1, "tier1Verified": 0, "newAwardsFound": 1 }
+  },
+  {
+    "id": "vitaliy-katsenelson",
+    "name": "Vitaliy Katsenelson, CFA",
+    "certifications": [
+      { "name": "CFA", "issuer": "CFA Institute", "verified": false, "verifyUrl": null, "verifyMethod": "cfa-directory", "verifyNote": "CFA Institute member directory not directly fetched in this pass; CFA designation consistently used on Wiley/Harriman House author bios and Seeking Alpha profile URL contains '-cfa'" }
+    ],
+    "education": [
+      { "degree": "BS Finance", "school": "University of Colorado at Denver", "verified": false, "verifyUrl": null, "verifyNote": "no independent university URL found in time-boxed search" },
+      { "degree": "MS Finance", "school": "University of Colorado at Denver", "verified": false, "verifyUrl": null, "verifyNote": "no independent university URL found in time-boxed search" }
+    ],
+    "books": [
+      { "title": "Active Value Investing: Making Money in Range-Bound Markets", "isbn13": "9780470053157", "verified": true, "verifyUrl": "https://www.amazon.com/Active-Value-Investing-Range-Bound-Markets/dp/0470053151", "verifyNote": "Wiley Finance, 2007" },
+      { "title": "Soul in the Game: The Art of a Meaningful Life", "isbn13": "9780857199072", "verified": true, "verifyUrl": "https://www.harriman-house.com/soulinthegame", "verifyNote": "Harriman House, 2022" }
+    ],
+    "tier1Quotes": [
+      { "outlet": "FT", "verified": false, "sampleUrl": null, "verifyNote": "not directly verified with article URL" },
+      { "outlet": "WSJ", "verified": false, "sampleUrl": null, "verifyNote": "not directly verified with article URL" },
+      { "outlet": "Barron's", "verified": false, "sampleUrl": null, "verifyNote": "not directly verified with article URL" },
+      { "outlet": "Institutional Investor", "verified": false, "sampleUrl": null, "verifyNote": "not directly verified" },
+      { "outlet": "Foreign Policy", "verified": false, "sampleUrl": null, "verifyNote": "not directly verified" },
+      { "outlet": "Forbes", "verified": false, "sampleUrl": null, "verifyNote": "not directly verified" }
+    ],
+    "tvAppearances": [],
+    "industryAwards": [],
+    "trustSignals": {},
+    "verifyAttemptedAt": "2026-04-16",
+    "summary": { "certsClaimed": 1, "certsVerified": 0, "booksWithIsbn": 2, "tier1Verified": 0, "newAwardsFound": 0 }
+  },
+  {
+    "id": "marc-chandler-investing",
+    "name": "Marc Chandler",
+    "certifications": [
+      { "name": "CMT", "issuer": "CMT Association", "verified": false, "verifyUrl": "https://cmtassociation.org/presenter/marc-c-chandler/", "verifyMethod": "cmt-presenter-page", "verifyNote": "CMT Association page exists labeling him as presenter, but this URL describes him as presenter/speaker — does not necessarily confirm CMT charter. Original claim 'CMT holder' remains unverified from this source" }
+    ],
+    "education": [],
+    "books": [],
+    "tier1Quotes": [
+      { "outlet": "CNBC", "verified": false, "sampleUrl": null, "verifyNote": "not directly verified" },
+      { "outlet": "Bloomberg", "verified": false, "sampleUrl": null, "verifyNote": "not directly verified" },
+      { "outlet": "FOX Business", "verified": false, "sampleUrl": null, "verifyNote": "not directly verified" }
+    ],
+    "tvAppearances": [
+      { "outlet": "CNBC", "verified": false, "sampleUrl": null, "verifyNote": "Wikipedia mentions frequent guest; no direct video/article URL captured" },
+      { "outlet": "Bloomberg Television", "verified": false, "sampleUrl": null, "verifyNote": "same" }
+    ],
+    "industryAwards": [],
+    "trustSignals": {},
+    "verifyAttemptedAt": "2026-04-16",
+    "summary": { "certsClaimed": 1, "certsVerified": 0, "booksWithIsbn": 0, "tier1Verified": 0, "newAwardsFound": 0 }
+  },
+  {
+    "id": "beverly-harzog",
+    "name": "Beverly Harzog",
+    "certifications": [
+      { "name": "CPA (former)", "issuer": "State Board of Accountancy", "verified": false, "verifyUrl": null, "verifyNote": "no state specified in input; no state-board directory URL found" }
+    ],
+    "education": [
+      { "degree": "MBA", "school": "University of New Haven", "verified": false, "verifyUrl": null, "verifyNote": "no independent university URL found" }
+    ],
+    "books": [
+      { "title": "The Debt Escape Plan", "isbn13": "9781601633606", "verified": true, "verifyUrl": "https://www.amazon.com/Debt-Escape-Plan-Yourself-Debt-Free/dp/1601633602", "verifyNote": "ASJA 2016 Outstanding Book Award (Self-Help) per Amazon/Barnes & Noble description; specific title was not named in input 'five personal finance books'" }
+    ],
+    "tier1Quotes": [
+      { "outlet": "WSJ", "verified": false, "sampleUrl": null, "verifyNote": "not directly verified" },
+      { "outlet": "USA Today", "verified": false, "sampleUrl": null, "verifyNote": "not directly verified" },
+      { "outlet": "NYT", "verified": false, "sampleUrl": null, "verifyNote": "not directly verified" }
+    ],
+    "tvAppearances": [],
+    "industryAwards": [
+      { "name": "ASJA Outstanding Book Award — Self-Help", "year": 2016, "source": "American Society of Journalists and Authors via publisher/retailer listings", "sampleUrl": "https://www.amazon.com/Debt-Escape-Plan-Yourself-Debt-Free/dp/1601633602" }
+    ],
+    "trustSignals": {},
+    "verifyAttemptedAt": "2026-04-16",
+    "summary": { "certsClaimed": 1, "certsVerified": 0, "booksWithIsbn": 1, "tier1Verified": 0, "newAwardsFound": 1 }
+  },
+  {
+    "id": "andrea-coombes-bankrate",
+    "name": "Andrea Coombes",
+    "certifications": [
+      { "name": "CFP", "issuer": "CFP Board", "verified": true, "verifyUrl": "https://www.bankrate.com/authors/andrea-coombes-cfp/", "verifyMethod": "employer-author-page", "verifyNote": "Bankrate official author page lists 'Andrea Coombes, CFP®' in URL slug and title" }
+    ],
+    "education": [],
+    "books": [],
+    "tier1Quotes": [
+      { "outlet": "WSJ", "verified": false, "sampleUrl": null, "verifyNote": "Muck Rack shows but no direct article URL captured" },
+      { "outlet": "USA Today", "verified": false, "sampleUrl": null, "verifyNote": "not directly verified" },
+      { "outlet": "MarketWatch", "verified": true, "sampleUrl": "https://muckrack.com/andreacoombes/articles", "verifyNote": "Muck Rack article feed shows MarketWatch history (decade tenure as editor)" }
+    ],
+    "tvAppearances": [
+      { "outlet": "NPR All Things Considered", "verified": false, "sampleUrl": null, "verifyNote": "Bankrate bio mentions; no direct NPR URL captured" }
+    ],
+    "industryAwards": [],
+    "trustSignals": {},
+    "verifyAttemptedAt": "2026-04-16",
+    "summary": { "certsClaimed": 1, "certsVerified": 1, "booksWithIsbn": 0, "tier1Verified": 1, "newAwardsFound": 0 }
+  },
+  {
+    "id": "jennifer-streaks",
+    "name": "Jennifer Streaks",
+    "certifications": [],
+    "education": [
+      { "degree": "MBA", "school": "Johns Hopkins University (Carey School of Business)", "verified": false, "verifyUrl": null, "verifyNote": "stated on bio sources (Muck Rack, Women's Media Center) but no direct Hopkins alumni URL" },
+      { "degree": "Undergraduate", "school": "College of Charleston", "verified": false, "verifyUrl": null, "verifyNote": "no independent university URL found" }
+    ],
+    "books": [],
+    "tier1Quotes": [
+      { "outlet": "CNBC", "verified": false, "sampleUrl": null, "verifyNote": "not directly verified with article URL" },
+      { "outlet": "Forbes", "verified": false, "sampleUrl": null, "verifyNote": "not directly verified with article URL" },
+      { "outlet": "USA Today", "verified": false, "sampleUrl": null, "verifyNote": "not directly verified with article URL" }
+    ],
+    "tvAppearances": [
+      { "outlet": "NYSE TV", "verified": true, "sampleUrl": "https://tv.nyse.com/videos/jennifer-streaks-sr-personal-finance-reporter-business-insider-joins-nyse-tv", "verifyNote": "direct NYSE.com video URL" },
+      { "outlet": "Good Morning America", "verified": false, "sampleUrl": null, "verifyNote": "mentioned on WMC bio; no direct ABC URL captured" }
+    ],
+    "industryAwards": [],
+    "trustSignals": {},
+    "verifyAttemptedAt": "2026-04-16",
+    "summary": { "certsClaimed": 0, "certsVerified": 0, "booksWithIsbn": 0, "tier1Verified": 0, "newAwardsFound": 0 }
+  },
+  {
+    "id": "catey-hill",
+    "name": "Catey Hill",
+    "certifications": [],
+    "education": [],
+    "books": [
+      { "title": "The 30-Minute Money Plan for Moms", "isbn13": "9781478975656", "verified": true, "verifyUrl": "https://www.hachettebookgroup.com/titles/catey-hill/the-30-minute-money-plan-for-moms/9781478975656/?lens=center-street", "verifyNote": "Hachette/Center Street, 2018" },
+      { "title": "Shoo, Jimmy Choo!", "isbn13": null, "verified": false, "verifyUrl": null, "verifyNote": "not verified in this pass" }
+    ],
+    "tier1Quotes": [
+      { "outlet": "WSJ", "verified": false, "sampleUrl": null, "verifyNote": "not directly verified" },
+      { "outlet": "Barron's", "verified": false, "sampleUrl": null, "verifyNote": "not directly verified" },
+      { "outlet": "Forbes", "verified": false, "sampleUrl": null, "verifyNote": "not directly verified" }
+    ],
+    "tvAppearances": [],
+    "industryAwards": [],
+    "trustSignals": {},
+    "verifyAttemptedAt": "2026-04-16",
+    "summary": { "certsClaimed": 0, "certsVerified": 0, "booksWithIsbn": 1, "tier1Verified": 0, "newAwardsFound": 0 }
+  },
+  {
+    "id": "kerry-hannon",
+    "name": "Kerry Hannon",
+    "certifications": [],
+    "education": [],
+    "books": [
+      { "title": "Never Too Old to Get Rich: The Entrepreneur's Guide to Starting a Business Mid-Life", "isbn13": "9781119547907", "verified": true, "verifyUrl": "https://www.amazon.com/Never-Too-Old-Rich-Entrepreneurs/dp/1119547903", "verifyNote": "Wiley, 2019. Input ISBN hint 9781119547297 was incorrect; actual is 9781119547907" }
+    ],
+    "tier1Quotes": [
+      { "outlet": "NYT", "verified": false, "sampleUrl": null, "verifyNote": "not directly verified" },
+      { "outlet": "Forbes", "verified": false, "sampleUrl": null, "verifyNote": "not directly verified" },
+      { "outlet": "Yahoo Finance", "verified": true, "sampleUrl": "https://finance.yahoo.com/author/kerry-hannon/", "verifyNote": "Yahoo Finance official author page" }
+    ],
+    "tvAppearances": [],
+    "industryAwards": [],
+    "trustSignals": {},
+    "verifyAttemptedAt": "2026-04-16",
+    "summary": { "certsClaimed": 0, "certsVerified": 0, "booksWithIsbn": 1, "tier1Verified": 1, "newAwardsFound": 0 }
+  },
+  {
+    "id": "lawrence-lewitinn-coindesk",
+    "name": "Lawrence Lewitinn",
+    "certifications": [
+      { "name": "CFA", "issuer": "CFA Institute", "verified": false, "verifyUrl": "https://www.linkedin.com/in/lvlewitinn/", "verifyMethod": "linkedin-display-name", "verifyNote": "LinkedIn display name shows 'Lawrence Lewitinn, CFA'; no CFA Institute directory URL fetched. Also listed on CoinDesk author page" }
+    ],
+    "education": [],
+    "books": [],
+    "tier1Quotes": [
+      { "outlet": "CNBC", "verified": false, "sampleUrl": null, "verifyNote": "prior employer per bio; no specific article URL" }
+    ],
+    "tvAppearances": [
+      { "outlet": "CoinDesk TV — First Mover", "verified": true, "sampleUrl": "https://www.coindesk.com/tv/first-mover", "verifyNote": "CoinDesk TV show page confirms program" }
+    ],
+    "industryAwards": [],
+    "trustSignals": {},
+    "verifyAttemptedAt": "2026-04-16",
+    "summary": { "certsClaimed": 1, "certsVerified": 0, "booksWithIsbn": 0, "tier1Verified": 0, "newAwardsFound": 0 }
+  }
+]

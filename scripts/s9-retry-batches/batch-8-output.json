@@ -1,0 +1,238 @@
+[
+  {
+    "id": "eno-eteng",
+    "name": "Eno Eteng",
+    "certifications": [
+      {
+        "name": "Diploma in Technical Analysis",
+        "issuer": "UK Society of Technical Analysts",
+        "verified": false,
+        "verifyUrl": "https://www.technicalanalysts.com/education/accreditations/",
+        "verifyMethod": "issuer-page-no-public-directory",
+        "verifyNote": "STA does not publish a public member directory. Credential referenced on LinkedIn/Investingcube bio only."
+      },
+      {
+        "name": "MSTA",
+        "issuer": "Society of Technical Analysts",
+        "verified": false,
+        "verifyUrl": "https://www.technicalanalysts.com/",
+        "verifyMethod": "issuer-page-no-public-directory",
+        "verifyNote": "MSTA designation self-claimed; no public STA member directory available."
+      },
+      {
+        "name": "Certificate in Management in Health",
+        "issuer": "World Bank Institute",
+        "verified": false,
+        "verifyUrl": "",
+        "verifyMethod": "not-applicable-non-financial",
+        "verifyNote": "Non-financial credential; no public registry."
+      }
+    ],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-applicable-non-US",
+      "crd": null
+    }
+  },
+  {
+    "id": "dmitri-chavkerov",
+    "name": "Dmitri Chavkerov",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "no-crd-provided",
+      "crd": null
+    }
+  },
+  {
+    "id": "darren-sinden",
+    "name": "Darren Sinden",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-applicable-non-US",
+      "crd": null
+    }
+  },
+  {
+    "id": "justin-freeman",
+    "name": "Justin Freeman",
+    "certifications": [
+      {
+        "name": "Investment Management Certificate (IMC)",
+        "issuer": "CFA Society UK",
+        "verified": false,
+        "verifyUrl": "https://www.asktraders.com/our-contributors/justin-freeman/",
+        "verifyMethod": "outlet-bio-self-claim",
+        "verifyNote": "CFA Society UK does not publish a public IMC holder directory. Credential self-claimed on AskTraders bio; no independent confirmation."
+      },
+      {
+        "name": "FCA Approved Investment Manager (CF27)",
+        "issuer": "Financial Conduct Authority (UK)",
+        "verified": false,
+        "verifyUrl": "https://register.fca.org.uk/",
+        "verifyMethod": "issuer-register-requires-firm-match",
+        "verifyNote": "FCA Register requires firm name to locate individual; CF27 function phased out post-2016 SMCR. Credential self-claimed on AskTraders bio."
+      }
+    ],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-applicable-non-US",
+      "crd": null
+    }
+  },
+  {
+    "id": "anna-coulling",
+    "name": "Anna Coulling",
+    "certifications": [],
+    "books": [
+      {
+        "title": "A Complete Guide To Volume Price Analysis",
+        "isbn13": "9781491249390",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Complete-Guide-Price-Analysis/dp/1491249390"
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-applicable-non-US",
+      "crd": null
+    }
+  },
+  {
+    "id": "matt-koppenheffer",
+    "name": "Matt Koppenheffer",
+    "certifications": [],
+    "books": [
+      {
+        "title": "The Astonishing Collapse of MF Global",
+        "isbn13": "9781892547033",
+        "verified": true,
+        "verifyUrl": "https://www.chegg.com/textbooks/the-astonishing-collapse-of-mf-global-1st-edition-9781892547033-1892547031"
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "no-record-found",
+      "crd": null
+    }
+  },
+  {
+    "id": "ariana-arghandewal-moneyunder30",
+    "name": "Ariana Arghandewal",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-applicable-non-registered",
+      "crd": null
+    }
+  },
+  {
+    "id": "iain-davis",
+    "name": "Iain Davis",
+    "certifications": [],
+    "books": [
+      {
+        "title": "A Dangerous Ideology: Why No One Believes The State Anymore",
+        "isbn13": "9781793871718",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Dangerous-Ideology-Believes-State-Anymore/dp/179387171X"
+      },
+      {
+        "title": "Pseudopandemic: New Normal Technocracy",
+        "isbn13": "9798524850812",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Pseudopandemic-Normal-Technocracy-Iain-Davis/dp/B097CZ3K7K"
+      },
+      {
+        "title": "The Manchester Attack: An Independent Investigation",
+        "isbn13": "9798333028037",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Manchester-Attack-Independent-Investigation/dp/B0D9DPMY1X"
+      },
+      {
+        "title": "The Technocratic Dark State: Trump, AI, and Digital Dictatorship",
+        "isbn13": null,
+        "verified": false,
+        "verifyUrl": "https://thepapercutmagazine.com/products/the-technocratic-dark-state"
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-applicable-non-US",
+      "crd": null
+    }
+  },
+  {
+    "id": "bob-haegele-modestmoney",
+    "name": "Bob Haegele",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-applicable-non-registered",
+      "crd": null
+    }
+  },
+  {
+    "id": "leslie-truex-thebalance",
+    "name": "Leslie Truex",
+    "certifications": [
+      {
+        "name": "AFAA Certified Fitness Instructor",
+        "issuer": "Aerobics and Fitness Association of America",
+        "verified": false,
+        "verifyUrl": "",
+        "verifyMethod": "not-applicable-non-financial",
+        "verifyNote": "Non-financial certification; outside scope of this verification. AFAA does not provide a public verification registry."
+      }
+    ],
+    "books": [
+      {
+        "title": "The Work-At-Home Success Bible: A Complete Guide for Women",
+        "isbn13": "9781598699166",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Work-at-Home-Success-Bible-Telecommuting-Strategies/dp/1598699164"
+      },
+      {
+        "title": "Digital Writer Success: How to Make a Living Blogging, Freelance Writing, & Publishing Online",
+        "isbn13": "9781633932142",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Digital-Writer-Success-Freelance-Publishing/dp/1633932141"
+      },
+      {
+        "title": "Jobs Online: Find and Get Hired to a Work-At-Home Job",
+        "isbn13": "9781456589189",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Jobs-Online-Find-Hired-Work-At-Home/dp/1456589180"
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-applicable-non-registered",
+      "crd": null
+    }
+  },
+  {
+    "id": "tim-worstall",
+    "name": "Tim Worstall",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-applicable-non-US",
+      "crd": null
+    }
+  },
+  {
+    "id": "john-delia",
+    "name": "John Delia",
+    "certifications": [],
+    "books": [
+      {
+        "title": "Life, Liberty n' Property",
+        "isbn13": "9781633371699",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Life-Liberty-Property-John-Delia/dp/1633371697"
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-applicable-non-registered",
+      "crd": null
+    }
+  }
+]

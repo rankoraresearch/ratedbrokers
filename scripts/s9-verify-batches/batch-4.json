@@ -1,0 +1,949 @@
+[
+  {
+    "id": "lance-cothern",
+    "name": "Lance Cothern",
+    "role": "Contributor / Founder Money Manifesto",
+    "site": "moneyunder30",
+    "outletName": "Money Under 30",
+    "bio": "Certified Public Accountant (CPA) licensed in Indiana (also holds CPA in Commonwealth of Virginia). Founder of Money Manifesto (personal finance blog, 2012). Holds a Bachelor's of Business Administration with a major in Accounting from James Madison University. Professional freelance writer in personal finance — work has appeared in USA Today, U.S. News & World Report, Forbes, Business Insider, Credit Karma, and MoneyUnder30.",
+    "credentials": [
+      "CPA"
+    ],
+    "certifications": [
+      {
+        "name": "CPA",
+        "issuer": "Indiana Board of Accountancy",
+        "claimed": true
+      }
+    ],
+    "education": [
+      {
+        "degree": "BBA, Accounting",
+        "school": "James Madison University",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": null,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "USA Today",
+        "Forbes",
+        "Business Insider"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/lancecothern/",
+    "personalSite": "https://www.moneymanifesto.com/",
+    "authorUrl": "https://www.moneyunder30.com/author/lance-cothern",
+    "eeatTier": "A",
+    "finalScore": 98
+  },
+  {
+    "id": "jitan-solanki",
+    "name": "Jitan Solanki",
+    "role": "Broker Analyst (FXEmpire since May 2019); Co-Founder & CEO of Trade-Vest",
+    "site": "fxempire",
+    "outletName": "FXEmpire",
+    "bio": "Professional trader and market analyst with 17+ years trading pan-European and US equities, FX, commodities and indices. MSTA (Member of the Society of Technical Analysts). B.A. Honours Applied English Language & Linguistics. Day trades major currencies and indices during European session; swing trades US equities and commodities. Author at FXEmpire since May 2019. Co-Founder & CEO of Trade-Vest. Previously Head of Research at JTR Capital Management. Also publishes at Yahoo Finance, Investing.com, FXStreet, LondonLovesBusiness, Admiral Markets.",
+    "credentials": [
+      "MSTA"
+    ],
+    "certifications": [
+      {
+        "name": "MSTA",
+        "issuer": "Society of Technical Analysts",
+        "claimed": true
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.A. Honours Applied English Language & Linguistics",
+        "school": null,
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 17,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/jitansolanki/",
+    "personalSite": null,
+    "authorUrl": "https://www.fxempire.com/author/jitansolanski",
+    "eeatTier": "A",
+    "finalScore": 97
+  },
+  {
+    "id": "steve-miley",
+    "name": "Steve Miley",
+    "role": "Contributor / Founder Market Chartist",
+    "site": "asktraders",
+    "outletName": "AskTraders",
+    "bio": "29 years of financial market experience. Founder, Director and Primary Analyst at The Market Chartist (founded 2012). Academic Dean at The London School of Wealth Management. Spent 15 years at Merrill Lynch (1994-2009) as Technical Analyst + Fixed Income Derivatives Sales. Three years as Director of FX Technical Analysis Research Strategy at Credit Suisse (2009-2012), covering G10/EM currencies, Rates, Credit, Equity Indices, Commodities. Member of Society of Technical Analysts (MSTA). Masters Degree in Politics, Philosophy & Economics from Oxford University (Lincoln College). 2016 & 2013 Winn",
+    "credentials": [
+      "MSTA"
+    ],
+    "certifications": [
+      {
+        "name": "MSTA (Member, Society of Technical Analysts)",
+        "issuer": "STA UK",
+        "claimed": true
+      }
+    ],
+    "education": [
+      {
+        "degree": "Masters, Politics Philosophy & Economics",
+        "school": "Oxford University (Lincoln College)",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 29,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/stevemileymarketchartist/",
+    "personalSite": "https://marketchartist.com/",
+    "authorUrl": "https://www.asktraders.com/our-contributors/steve-miley/",
+    "eeatTier": "A",
+    "finalScore": 94
+  },
+  {
+    "id": "andres-cardenal",
+    "name": "Andrés Cardenal, CFA",
+    "role": "Contributor / Investing Group Leader (Seeking Alpha)",
+    "site": "seekingalpha",
+    "outletName": "Seeking Alpha",
+    "bio": "Economist with 25+ years of investment research experience for hedge funds, family offices and asset managers across the US and Latin America. CFA Charterholder. Seeking Alpha analyst since 2017 and Newsletter Editor of 'The Data Driven Investor', focused on evidence-based growth/tech stock analysis and options income ideas. Work featured in The Motley Fool and Business Insider.",
+    "credentials": [
+      "CFA"
+    ],
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute",
+        "claimed": true
+      }
+    ],
+    "education": [],
+    "yearsInIndustry": 25,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [],
+      "tvAppearances": []
+    },
+    "linkedin": null,
+    "personalSite": null,
+    "authorUrl": "https://seekingalpha.com/author/andres-cardenal-cfa",
+    "eeatTier": "A",
+    "finalScore": 93
+  },
+  {
+    "id": "brian-oconnell-kiplinger",
+    "name": "Brian O'Connell",
+    "role": "Contributor — Retirement & Personal Finance",
+    "site": "kiplinger",
+    "outletName": "Kiplinger",
+    "bio": "Former Wall Street bond trader turned financial journalist with 20+ years of experience covering business news and trends. Author of two books: 'The 401k Millionaire' and 'CNBC's Creating Wealth'. Has written for TheStreet.com, CBS News, The Wall Street Journal, U.S. News & World Report, Forbes, Fox News and others. Contributing writer to U.S. News & World Report since 2016. Current Kiplinger work blends rigorous financial analysis with global-lifestyle retirement coverage. Graduate of the University of Massachusetts. Resides in Palmas del Mar, Puerto Rico (winters) and Bucks County, Pennsylva",
+    "credentials": [],
+    "certifications": [],
+    "education": [
+      {
+        "degree": "Bachelor's",
+        "school": "University of Massachusetts",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 20,
+    "mediaSignals": {
+      "authoredBooks": [
+        "The 401k Millionaire",
+        "CNBC's Creating Wealth"
+      ],
+      "quotedInTier1": [
+        "WSJ",
+        "Forbes"
+      ],
+      "tvAppearances": [
+        "CBS News",
+        "Fox News"
+      ]
+    },
+    "linkedin": null,
+    "personalSite": null,
+    "authorUrl": "https://www.kiplinger.com/author/brian-o-connell",
+    "eeatTier": "A",
+    "finalScore": 93
+  },
+  {
+    "id": "david-jensen-cfa-seekingalpha",
+    "name": "David Jensen, CFA",
+    "role": "Contributor — Seeking Alpha / Principal, Jensen Strategic",
+    "site": "seekingalpha",
+    "outletName": "Seeking Alpha",
+    "bio": "Mining analyst and precious metals expert with close to two decades of experience in the mining industry. Currently President and COO of a private mining company and provides strategic, operational, risk assessment and precious metals consulting services through Jensen Strategic. Publishes 'Jensen's Economic, Precious Metals, & Markets Newsletter' on Substack (tens of thousands of subscribers). Contributor to Seeking Alpha and Gold-Eagle covering gold, silver, palladium and structural issues in precious metals markets including LBMA dynamics.",
+    "credentials": [
+      "CFA"
+    ],
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute",
+        "claimed": true
+      }
+    ],
+    "education": [],
+    "yearsInIndustry": 20,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [],
+      "tvAppearances": []
+    },
+    "linkedin": null,
+    "personalSite": "https://jensendavid.substack.com/",
+    "authorUrl": "https://seekingalpha.com/author/david-jensen-cfa",
+    "eeatTier": "A",
+    "finalScore": 93
+  },
+  {
+    "id": "jack-crooks-babypips",
+    "name": "Jack Crooks (a.k.a. Jack the Pipper)",
+    "role": "Contributor — Founder/President Black Swan Capital LLC",
+    "site": "babypips",
+    "outletName": "BabyPips",
+    "bio": "Founder and President of Black Swan Capital LLC, a foreign exchange and currency market advisory firm. Over 20 years investment experience using both quantitative and qualitative approaches to determine fundamental driving forces behind currency, capital, and commodities markets. Co-editor of the Black Swan Capital Currency Strategist and daily e-letter Currency Currents. Previously founded Ross International Asset Management (discretionary money management, global stocks/bonds/currency) and was General Manager of Plexus Trading (currency futures + commodities). Writes on BabyPips under the ps",
+    "credentials": [],
+    "certifications": [],
+    "education": [
+      {
+        "degree": "BA Finance",
+        "school": "Florida State University",
+        "year": null
+      },
+      {
+        "degree": "MBA",
+        "school": "University of North Texas",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 25,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "Barron's",
+        "Bloomberg",
+        "Dow Jones Newswire",
+        "Futures magazine",
+        "Asian Times"
+      ],
+      "tvAppearances": [
+        "Bloomberg TV",
+        "CNBC",
+        "Fox Business"
+      ]
+    },
+    "linkedin": null,
+    "personalSite": "https://www.blackswantrading.com/",
+    "authorUrl": "https://www.babypips.com/authors/jackthepipper",
+    "eeatTier": "S",
+    "finalScore": 90
+  },
+  {
+    "id": "carrie-kirby-coindesk",
+    "name": "Carrie Kirby",
+    "role": "Contributor — Freelance Bay Area Reporter",
+    "site": "coindesk",
+    "outletName": "CoinDesk",
+    "bio": "Bay Area freelance reporter with years of experience writing about technology. Helped cover the dot-com boom and bust for the San Francisco Chronicle. Now contributes to the Chronicle, Chicago Tribune, San Francisco magazine, and other publications including CoinDesk. Specialties include travel on miles and points, personal finance, saving money, and tech. Runs The Miles Mom blog focused on helping moms save money and car-free living.",
+    "credentials": [],
+    "certifications": [],
+    "education": [],
+    "yearsInIndustry": 20,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "San Francisco Chronicle",
+        "Chicago Tribune"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/carrie-kirby-2732775/",
+    "personalSite": "https://themilesmom.com",
+    "authorUrl": "https://www.coindesk.com/author/carrie-kirby",
+    "eeatTier": "A",
+    "finalScore": 90
+  },
+  {
+    "id": "sean-williams-fool",
+    "name": "Sean Williams",
+    "role": "Contributing analyst — The Motley Fool (Financial sector)",
+    "site": "fool",
+    "outletName": "Motley Fool",
+    "bio": "Data-driven Motley Fool contributing analyst. 27+ years investing experience; author of 15,000+ articles. Specializes in the Financial sector; covers 1,273 stocks. Syndicated at The Guardian, Business Insider, MSN, USA Today, Yahoo News, TIME. Avid fantasy-football fan per public profile.",
+    "credentials": [],
+    "certifications": [],
+    "education": [],
+    "yearsInIndustry": 27,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "The Guardian",
+        "USA Today",
+        "TIME"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": null,
+    "personalSite": null,
+    "authorUrl": "https://www.fool.com/author/1813/",
+    "eeatTier": "A",
+    "finalScore": 89
+  },
+  {
+    "id": "ann-logue-thebalancemoney",
+    "name": "Ann Logue",
+    "role": "Contributor — Investing writer",
+    "site": "thebalancemoney",
+    "outletName": "The Balance",
+    "bio": "Ann C. Logue, MBA, CFA — writer specializing in business and finance with 22+ years of experience. Worked for 12 years as an investment analyst. MBA in Finance from the University of Chicago Booth School of Business; BA in Economics from Northwestern University. Former Fulbright-García Robles U.S. Studies Chair at the Universidad de Guadalajara; part-time finance instructor at the University of Illinois at Chicago. Author of five Wiley/Penguin books including Day Trading for Dummies (1e 2007, 5e 2024), Hedge Funds for Dummies, Socially Responsible Investing for Dummies, Emerging Markets for Du",
+    "credentials": [
+      "CFA",
+      "MBA"
+    ],
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute",
+        "claimed": true
+      }
+    ],
+    "education": [
+      {
+        "degree": "BA Economics",
+        "school": "Northwestern University",
+        "year": null
+      },
+      {
+        "degree": "MBA Finance",
+        "school": "University of Chicago Booth School of Business",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 22,
+    "mediaSignals": {
+      "authoredBooks": [
+        "Day Trading for Dummies (Wiley 2007; 5e 2024)",
+        "Hedge Funds for Dummies (Wiley 2006; 2e 2023)",
+        "Socially Responsible Investing for Dummies (Wiley 2009)",
+        "Emerging Markets for Dummies (Wiley 2010)",
+        "Options Trading (Alpha 2016; 2e Penguin 2023)"
+      ],
+      "quotedInTier1": [
+        "Barron's"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": null,
+    "personalSite": "https://annlogue.com",
+    "authorUrl": "https://www.thebalancemoney.com/ann-logue-5196187",
+    "eeatTier": "A",
+    "finalScore": 89
+  },
+  {
+    "id": "nick-marinoff",
+    "name": "Nick Marinoff",
+    "role": "Staff Writer — Bitcoin Magazine / Lead News Writer & Editor — Money & Tech",
+    "site": "bitcoinmagazine",
+    "outletName": "Bitcoin Magazine",
+    "bio": "Writer, author and journalist covering cryptocurrency since 2014. Currently lead news writer and editor for Money & Tech (San Francisco-based digital currency broadcasting station). Staff writer at Bitcoin Magazine (147+ posts) and Live Bitcoin News. Work published in Yahoo Finance, Nasdaq, SiliconANGLE, Bitcoinist, NewsBTC, 99 Bitcoins, Decrypt, CryptoSlate, Coin Journal, Benzinga. Published e-book \"Take a 'Loan' Off Your Shoulders: 14 Simple Tricks for Graduating Debt Free\" (Amazon).",
+    "credentials": [],
+    "certifications": [],
+    "education": [],
+    "yearsInIndustry": 11,
+    "mediaSignals": {
+      "authoredBooks": [
+        {
+          "title": "Take a 'Loan' Off Your Shoulders: 14 Simple Tricks for Graduating Debt Free",
+          "publisher": "Amazon Kindle",
+          "year": null
+        }
+      ],
+      "quotedInTier1": [],
+      "tvAppearances": []
+    },
+    "linkedin": null,
+    "personalSite": null,
+    "authorUrl": "https://bitcoinmagazine.com/authors/nick-marinoff",
+    "eeatTier": "A",
+    "finalScore": 88
+  },
+  {
+    "id": "daniel-franke",
+    "name": "Daniel Franke",
+    "role": "Founder and Operator — Brokervergleich.de / Franke-Media.net",
+    "site": "brokervergleich",
+    "outletName": "Brokervergleich",
+    "bio": "Founder of Brokervergleich.de (2011) and Franke-Media.net (2005). BWL (Business Administration) studies at University of Leipzig and FernUniversität Hagen. Spent years in mid-market roles including controlling and procurement before full engagement with financial products from early 2000s. Conducts comprehensive annual online broker test with 100+ criteria since 2012. Recognized as 'Top Performing Publisher' at OmfinCon 2019. Frequently quoted in German tier-1 press: Welt, WiWo, Capital, Bild, der-bank-blog, dasinvestment, capital.de, finanzbusiness.",
+    "credentials": [],
+    "certifications": [],
+    "education": [
+      {
+        "degree": "BWL (Business Administration)",
+        "school": "University of Leipzig",
+        "year": null
+      },
+      {
+        "degree": "BWL (Business Administration)",
+        "school": "FernUniversität Hagen",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 25,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "Welt",
+        "WiWo",
+        "Capital",
+        "Bild"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": null,
+    "personalSite": "https://www.franke-media.net/",
+    "authorUrl": "https://www.brokervergleich.de/ueber-uns/daniel-franke/",
+    "eeatTier": "A",
+    "finalScore": 88
+  },
+  {
+    "id": "edward-sheldon-goodmoneyguide",
+    "name": "Edward Sheldon",
+    "role": "Investment Writer — Good Money Guide",
+    "site": "goodmoneyguide",
+    "outletName": "Good Money Guide",
+    "bio": "London-based investment writer with 15+ years of experience in private wealth management and institutional asset management across the UK and Australia. Sought-after investment expert whose analyses have been featured on major financial platforms including BlackRock, Credit Suisse, WisdomTree, Motley Fool, eToro and CMC Markets.",
+    "credentials": [
+      "CFA",
+      "IMC"
+    ],
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute",
+        "claimed": true
+      },
+      {
+        "name": "IMC",
+        "issuer": "CFA Society UK",
+        "claimed": true
+      }
+    ],
+    "education": [
+      {
+        "degree": "Commerce degree",
+        "school": "University of Melbourne",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 15,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/edward-sheldon-cfa-a6a36359/",
+    "personalSite": null,
+    "authorUrl": "https://goodmoneyguide.com/author/edwardsheldon-1/",
+    "eeatTier": "A",
+    "finalScore": 88
+  },
+  {
+    "id": "lyn-alden-modestmoney",
+    "name": "Lyn Alden Schwartzer",
+    "role": "Contributor — Founder, Lyn Alden Investment Strategy",
+    "site": "modestmoney",
+    "outletName": "Modest Money",
+    "bio": "American investment strategist, founder of Lyn Alden Investment Strategy (2016), and General Partner at Ego Death Capital since 2022. One of today's leading macro strategists, combining fundamental investing principles with a global macroeconomic perspective — focuses on currency dynamics, monetary policy, equity valuations, and digital assets. From 2009 to 2021 she was an electrical engineer and later head engineer/system integrator at the Federal Aviation Administration's Cockpit Simulation Facility before leaving to focus full-time on investment research. Known for Bitcoin analysis and advo",
+    "credentials": [],
+    "certifications": [],
+    "education": [
+      {
+        "degree": "BS Electrical Engineering",
+        "school": "Penn State University",
+        "year": null
+      },
+      {
+        "degree": "MSc Engineering Management",
+        "school": "Rowan University",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 16,
+    "mediaSignals": {
+      "authoredBooks": [
+        "Broken Money"
+      ],
+      "quotedInTier1": [
+        "Seeking Alpha",
+        "ElliottWaveTrader"
+      ],
+      "tvAppearances": [
+        "Bitcoin Conference (speaker)"
+      ]
+    },
+    "linkedin": "https://www.linkedin.com/in/lynalden/",
+    "personalSite": "https://www.lynalden.com/",
+    "authorUrl": "https://www.modestmoney.com/author/lynalden/",
+    "eeatTier": "A",
+    "finalScore": 86
+  },
+  {
+    "id": "richard-berry-goodmoneyguide",
+    "name": "Richard Berry",
+    "role": "Founder / Managing Director",
+    "site": "goodmoneyguide",
+    "outletName": "Good Money Guide",
+    "bio": "Founder and Managing Director of Good Money Guide (established 2015, originally Good Broker Guide) with 20+ years of brokerage-sector expertise. Career in derivatives and stockbroking: Investors Intelligence (broker), MF Global / Man Financial (multi-asset derivatives broker), Walker Crips (private client stockbroker), and Phillip Securities — now King and Shaxson — (private client stockbroker). Early career: NYMEX oil trading floor internship (New York, 2001) and London IPE internship (2000). Featured/quoted in The Sunday Times, Business Insider, Yahoo Finance, Master Investor, Wealth Briefin",
+    "credentials": [],
+    "certifications": [],
+    "education": [],
+    "yearsInIndustry": 24,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "FT",
+        "Sunday Times",
+        "Yahoo Finance",
+        "Business Insider"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/richardberryuk/",
+    "personalSite": "https://goodmoneyguide.com",
+    "authorUrl": "https://goodmoneyguide.com/author/richard-berry/",
+    "eeatTier": "A",
+    "finalScore": 85
+  },
+  {
+    "id": "eno-eteng",
+    "name": "Eno Eteng",
+    "role": "Market Research Consultant — 55brokers.com / Market Research Analyst — TradingBull.ai",
+    "site": "55brokers",
+    "outletName": "55Brokers",
+    "bio": "Certified Financial Technician (CFTe) and member of UK Society of Technical Analysts (MSTA). 15+ years creating content for financial markets since 2009. Has ghost-written 5,000+ articles for InvestooGroup, EasyMarkets, eToro, Spotware Systems (cTrader). Pioneer alumnus of Tony Elumelu Foundation Entrepreneurship Program (2015). Current: Market Research Consultant at 55brokers.com + Market Research Analyst at TradingBull.ai (Jan 2024–). Based in Barcelona, Spain.",
+    "credentials": [
+      "DipTA",
+      "MSTA",
+      "CFTe"
+    ],
+    "certifications": [
+      {
+        "name": "Diploma in Technical Analysis",
+        "issuer": "UK Society of Technical Analysts",
+        "claimed": true
+      },
+      {
+        "name": "MSTA",
+        "issuer": "Society of Technical Analysts",
+        "claimed": true
+      },
+      {
+        "name": "Certificate in Management in Health",
+        "issuer": "World Bank Institute",
+        "claimed": true
+      }
+    ],
+    "education": [
+      {
+        "degree": "Diploma in Technical Analysis",
+        "school": "UK Society of Technical Analysts",
+        "year": "2019"
+      },
+      {
+        "degree": "Certificate in Management in Health",
+        "school": "World Bank Institute",
+        "year": "2015"
+      }
+    ],
+    "yearsInIndustry": 15,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/dieumerc/",
+    "personalSite": null,
+    "authorUrl": "https://55brokers.com/author/eteng/",
+    "eeatTier": "S",
+    "finalScore": 84
+  },
+  {
+    "id": "dmitri-chavkerov",
+    "name": "Dmitri Chavkerov",
+    "role": "Founder / CEO — Forex Peace Army",
+    "site": "forexpeacearmy",
+    "outletName": "Forex Peace Army",
+    "bio": "Founder and CEO of Forex Peace Army, one of the largest foreign-exchange review websites and information portals globally, dedicated to investigating and exposing scams in the forex industry. Launched ForexDiamonds.com in 2006 sharing personal trading entries/exits (>100% annual return reported). In 2007 declined offers to manage USD 500M at Kingz Fund and two separate USD 100M private-equity mandates. In November 2007 acquired ForexPeaceArmy.com and rebuilt it around structured scam investigations and dispute resolution between traders and brokers; now lists over 3,000 forex websites. Trades ",
+    "credentials": [],
+    "certifications": [],
+    "education": [],
+    "yearsInIndustry": 20,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "WSJ",
+        "Bloomberg",
+        "Reuters",
+        "CNBC",
+        "Boston Globe"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": null,
+    "personalSite": "https://www.fxpeacearmy.com/",
+    "authorUrl": "https://www.forexpeacearmy.com/community/pages/dmitri-chavkerov-forex/",
+    "eeatTier": "A",
+    "finalScore": 84
+  },
+  {
+    "id": "darren-sinden",
+    "name": "Darren Sinden",
+    "role": "Market Analyst / Editor",
+    "site": "goodmoneyguide",
+    "outletName": "Good Money Guide",
+    "bio": "Editor & Financial Analyst at Good Money Guide with 35 years of experience across trading, sales, analytics and research in financial markets. Expertise: currency, CFDs, equities, derivatives. 260+ published guides. Media appearances: Bloomberg (UK), CNBC (UK), Reuters (UK), Tiptv, BNN (Canada), Asharq Bloomberg Arabia. Prior roles: Market Research & Client Relationships Manager at Admiral Markets UK; Market Analyst at Pepperstone. Advised GLG, Thames River, Ruby Capital, CQS, Dresdner Kleinwort, HSBC.",
+    "credentials": [],
+    "certifications": [],
+    "education": [],
+    "yearsInIndustry": 35,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "Bloomberg",
+        "CNBC",
+        "Reuters"
+      ],
+      "tvAppearances": [
+        "Bloomberg UK",
+        "CNBC UK",
+        "Reuters UK",
+        "Tiptv",
+        "BNN Canada",
+        "Asharq Bloomberg Arabia"
+      ]
+    },
+    "linkedin": "https://www.linkedin.com/in/darren-sinden-20018245/",
+    "personalSite": null,
+    "authorUrl": "https://goodmoneyguide.com/author/darrensinden-1/",
+    "eeatTier": "A",
+    "finalScore": 81
+  },
+  {
+    "id": "justin-freeman",
+    "name": "Justin Freeman",
+    "role": "Equities Trader / Contributor — AskTraders",
+    "site": "asktraders",
+    "outletName": "AskTraders",
+    "bio": "Active trader with 20+ years in financial markets. Roles at Citigroup, D.E. Shaw, and Millennium Capital Management — trader on $750m gross-exposure desk, Chief Risk Officer, COO of several hedge funds. Strategies: stat-arb, trend-following CTA, event-arbitrage, fixed-income relative value. Joined AskTraders July 2021.",
+    "credentials": [
+      "IMC",
+      "FCA CF27"
+    ],
+    "certifications": [
+      {
+        "name": "Investment Management Certificate (IMC)",
+        "issuer": "CFA Society UK",
+        "claimed": true
+      },
+      {
+        "name": "FCA Approved Investment Manager (CF27)",
+        "issuer": "Financial Conduct Authority (UK)",
+        "claimed": true
+      }
+    ],
+    "education": [
+      {
+        "degree": "Economics and Modern Economic History",
+        "school": "University of Birmingham",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 20,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/justin-freeman-2a6935b",
+    "personalSite": null,
+    "authorUrl": "https://www.asktraders.com/our-contributors/justin-freeman/",
+    "eeatTier": "A",
+    "finalScore": 81
+  },
+  {
+    "id": "anna-coulling",
+    "name": "Anna Coulling",
+    "role": "Contributor / Director Quantum Trading",
+    "site": "fxempire",
+    "outletName": "FXEmpire",
+    "bio": "Trader and investor with 20+ years experience. Began trading career in London trading FTSE100 futures through LIFFE exchange. Has traded virtually every market and instrument. Creator of the Volume Price Analysis (VPA) methodology — her book 'A Complete Guide to Volume Price Analysis' is a No.1 Best Seller in the Amazon International Foreign Exchange category. Director of Quantum Trading Limited. Writes and publishes articles for UK and international publications. FXEmpire contributor.",
+    "credentials": [],
+    "certifications": [],
+    "education": [],
+    "yearsInIndustry": 20,
+    "mediaSignals": {
+      "authoredBooks": [
+        "A Complete Guide To Volume Price Analysis"
+      ],
+      "quotedInTier1": [],
+      "tvAppearances": []
+    },
+    "linkedin": null,
+    "personalSite": "https://www.annacoulling.com/",
+    "authorUrl": "https://www.fxempire.com/author/annacoulling",
+    "eeatTier": "A",
+    "finalScore": 81
+  },
+  {
+    "id": "matt-koppenheffer",
+    "name": "Matt Koppenheffer",
+    "role": "Former Head of Coverage Team (2012-2025)",
+    "site": "fool",
+    "outletName": "Motley Fool",
+    "bio": "Former full-time Motley Fool employee 2012-2025. Wrote for Fool.com, built Fool.de (Motley Fool Germany) from the ground up as chief, and most recently led AI content initiative. Co-author of 'The Astonishing Collapse of MF Global'. Creator and former co-host of Motley Fool's Industry Focus podcast. Views cited in FT, NYT, Toronto Star, Focus Money (Germany). Analysis appearances on CNBC and NPR.",
+    "credentials": [],
+    "certifications": [],
+    "education": [],
+    "yearsInIndustry": 13,
+    "mediaSignals": {
+      "authoredBooks": [
+        "The Astonishing Collapse of MF Global"
+      ],
+      "quotedInTier1": [
+        "Financial Times",
+        "New York Times",
+        "Toronto Star",
+        "Focus Money"
+      ],
+      "tvAppearances": [
+        "CNBC",
+        "NPR"
+      ]
+    },
+    "linkedin": "https://www.linkedin.com/in/matt-koppenheffer-316b841/",
+    "personalSite": null,
+    "authorUrl": "https://www.fool.com/author/1496/",
+    "eeatTier": "A",
+    "finalScore": 78
+  },
+  {
+    "id": "ariana-arghandewal-moneyunder30",
+    "name": "Ariana Arghandewal",
+    "role": "Contributor — MoneyUnder30 (founder, Pointchaser)",
+    "site": "moneyunder30",
+    "outletName": "Money Under 30",
+    "bio": "Travel-rewards expert and founder of award-winning blog Pointchaser. 13+ years writing about personal finance and travel rewards for Bankrate, NerdWallet, Fortune, Business Insider, Lonely Planet, The Points Guy, MoneyUnder30, and SlickDeals. Previously editor at The Points Guy, NerdWallet, and FlyerTalk. Focus on points, miles, rewards credit cards, travel credit cards.",
+    "credentials": [],
+    "certifications": [],
+    "education": [],
+    "yearsInIndustry": 13,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [],
+      "tvAppearances": []
+    },
+    "linkedin": null,
+    "personalSite": "https://www.pointchaser.com/",
+    "authorUrl": "https://www.moneyunder30.com/author/ariana-arghandewal",
+    "eeatTier": "A",
+    "finalScore": 78
+  },
+  {
+    "id": "iain-davis",
+    "name": "Iain Davis",
+    "role": "Independent investigative journalist, author & blogger",
+    "site": "bitcoinmagazine",
+    "outletName": "Bitcoin Magazine",
+    "bio": "UK-based independent investigative journalist, author and blogger, from Portsmouth. Contributor to Bitcoin Magazine, Unlimited Hangout, Geopolitics & Empire, UK Column, the Corbett Report, and OffGuardian. Published 'A Dangerous Ideology' (2018), 'Pseudopandemic' (2021), 'The Manchester Attack' (2024), and 'The Technocratic Dark State' (Papercut Publishing). Maintains personal site iaindavis.com and Substack.",
+    "credentials": [],
+    "certifications": [],
+    "education": [],
+    "yearsInIndustry": null,
+    "mediaSignals": {
+      "authoredBooks": [
+        "A Dangerous Ideology (2018)",
+        "Pseudopandemic (2021)",
+        "The Manchester Attack (2024)",
+        "The Technocratic Dark State"
+      ],
+      "quotedInTier1": [],
+      "tvAppearances": []
+    },
+    "linkedin": null,
+    "personalSite": "https://iaindavis.com",
+    "authorUrl": "https://bitcoinmagazine.com/authors/iain-davis",
+    "eeatTier": "A",
+    "finalScore": 76
+  },
+  {
+    "id": "bob-haegele-modestmoney",
+    "name": "Bob Haegele",
+    "role": "Freelance Personal Finance Writer — The Frugal Fellow",
+    "site": "modestmoney",
+    "outletName": "Modest Money",
+    "bio": "Freelance personal finance writer and content creator. Founder of The Frugal Fellow (March 2018), a blog focused on frugal living and saving money. 7+ years producing research-backed copy on fintech, SMB, B2B and AI topics; has built a six-figure freelance career writing for WSJ, Business Insider, Forbes Advisor and TIME.com. Also publishes on Modest Money.",
+    "credentials": [],
+    "certifications": [],
+    "education": [
+      {
+        "degree": "BA Information Technology",
+        "school": "Marquette University",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 8,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "WSJ",
+        "Forbes"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/rwhaegele/",
+    "personalSite": "https://www.thefrugalfellow.com/",
+    "authorUrl": "https://www.modestmoney.com/author/thefrugalfellow/",
+    "eeatTier": "A",
+    "finalScore": 74
+  },
+  {
+    "id": "leslie-truex-thebalance",
+    "name": "Leslie Truex",
+    "role": "Home Business Expert (former About.com / The Balance Small Business)",
+    "site": "thebalancemoney",
+    "outletName": "The Balance",
+    "bio": "Online entrepreneur, author and speaker. Started WorkAtHomeSuccess.com in 1998. Was home business expert at About.com (now Dotdash Meredith / The Balance Small Business). Articles have appeared in Entrepreneur, Personal Branding Blog, Business 2 Community and Weekand. Author of 'The Work-At-Home Success Bible', 'Digital Writer Success: How to Make a Living Blogging' and 'Jobs Online: How to Find and Get Hired to a Work-At-Home Job', plus a dozen romance/mystery novels under a pen name. Certified fitness instructor (AFAA) since 2001.",
+    "credentials": [],
+    "certifications": [
+      {
+        "name": "AFAA Certified Fitness Instructor",
+        "issuer": "Aerobics and Fitness Association of America",
+        "claimed": true
+      }
+    ],
+    "education": [
+      {
+        "degree": "BA Psychology",
+        "school": "Willamette University",
+        "year": null
+      },
+      {
+        "degree": "Master of Social Work",
+        "school": "California State University, Sacramento",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 25,
+    "mediaSignals": {
+      "authoredBooks": [
+        "The Work-At-Home Success Bible",
+        "Digital Writer Success: How to Make a Living Blogging",
+        "Jobs Online: How to Find and Get Hired to a Work-At-Home Job"
+      ],
+      "quotedInTier1": [],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/leslietruex/",
+    "personalSite": "https://leslietruex.com/",
+    "authorUrl": "https://www.thebalancemoney.com/leslie-truex-bio-1794061",
+    "eeatTier": "A",
+    "finalScore": 73
+  },
+  {
+    "id": "tim-worstall",
+    "name": "Tim Worstall",
+    "role": "Contributor — AskTraders / Senior Fellow Adam Smith Institute",
+    "site": "asktraders",
+    "outletName": "AskTraders",
+    "bio": "British-born writer and blogger, Senior Fellow of the Adam Smith Institute. Writes on environmentalism and economics, particularly corporate tax; contributions appear in the business press. Blogs at TimWorstall.com, the Adam Smith Institute blog, and Forbes. Has written for The Guardian, CapX, The Times, and The Wall Street Journal. Wholesaler of rare earth metals and one of the global experts in the metal scandium. Freelance writer specialising in economics and financial markets — work has appeared in most of the British press from The Times to the Daily Sport as well as the New York Times, W",
+    "credentials": [],
+    "certifications": [],
+    "education": [],
+    "yearsInIndustry": 20,
+    "mediaSignals": {
+      "authoredBooks": [
+        {
+          "title": "The No Breakfast Fallacy",
+          "year": 2015
+        },
+        {
+          "title": "20 Economics Fallacies",
+          "year": 2014
+        },
+        {
+          "title": "23 Things We Are Telling You About Capitalism",
+          "year": 2014
+        },
+        {
+          "title": "Chasing Rainbows",
+          "year": 2010
+        }
+      ],
+      "quotedInTier1": [
+        "WSJ",
+        "The Times",
+        "Forbes",
+        "NYT",
+        "The Guardian"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": null,
+    "personalSite": "https://www.timworstall.com/",
+    "authorUrl": "https://www.asktraders.com/our-contributors/tim-worstall/",
+    "eeatTier": "A",
+    "finalScore": 69
+  },
+  {
+    "id": "john-delia",
+    "name": "John Delia",
+    "role": "Real Estate Investor & Contributor — Modest Money",
+    "site": "modestmoney",
+    "outletName": "Modest Money",
+    "bio": "Dealmaker, entrepreneur, and strategist with almost 10 years as a millennial real estate investor. Raised, managed, and exited a $300K+ real estate investment fund by age 25; currently manages a $1M real estate portfolio. Studied City and Regional Planning at The Ohio State University; started his own investment firm at age 21. Originally from East Hills, NY; now based in Columbus, OH. Authored 'Life, Liberty n' Property: A guide to successful real estate investing' (2017). Featured in BBC News, Huffington Post, Investing.com, BounceTV. Runs a Strategic Marketing + Advertising Agency alongside",
+    "credentials": [],
+    "certifications": [],
+    "education": [
+      {
+        "degree": "City and Regional Planning",
+        "school": "The Ohio State University",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 10,
+    "mediaSignals": {
+      "authoredBooks": [
+        {
+          "title": "Life, Liberty n' Property: A guide to successful real estate investing",
+          "year": 2017,
+          "publisher": null,
+          "isbn": "9781633371699"
+        }
+      ],
+      "quotedInTier1": [
+        "BBC"
+      ],
+      "tvAppearances": [
+        "BounceTV"
+      ]
+    },
+    "linkedin": null,
+    "personalSite": null,
+    "authorUrl": "https://www.modestmoney.com/author/johndelia/",
+    "eeatTier": "A",
+    "finalScore": 51
+  }
+]

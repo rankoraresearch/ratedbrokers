@@ -2483,13 +2483,14 @@ export const AUTHORS = [
     "hasKnowledgePanel": null,
     "awards": [
       "Emmy nomination (CNBC Digital — 'Boom, Bust and Blame: The Inside Story of America's Economic Crisis')"
-    ]
-  },
+    ]},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "twitterFollowers": 1020,
+      "twitterFollowing": 876,
+      "twitterFetchedAt": "2026-04-16T01:34:22.808Z"},
   "site": "bankrate",
   "writesFor": [
     "bankrate"
@@ -2598,13 +2599,14 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "twitterFollowers": 1081,
+      "twitterFollowing": 2257,
+      "twitterFetchedAt": "2026-04-16T01:34:40.761Z"},
   "site": "businessinsider",
   "writesFor": [
     "businessinsider"
@@ -2668,13 +2670,14 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "twitterFollowers": 3343,
+      "twitterFollowing": 1515,
+      "twitterFetchedAt": "2026-04-16T01:35:01.105Z"},
   "site": "businessinsider",
   "writesFor": [
     "businessinsider",
@@ -2862,13 +2865,14 @@ export const AUTHORS = [
     ],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "twitterFollowers": 5378,
+      "twitterFollowing": 1435,
+      "twitterFetchedAt": "2026-04-16T01:35:19.064Z"},
   "site": "bloomberg",
   "writesFor": [
     "bloomberg",
@@ -3011,8 +3015,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": true,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not_applicable"},
   "site": "benzinga",
   "writesFor": [
     "benzinga",
@@ -3250,13 +3254,14 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "twitterFollowers": 14900,
+      "twitterFollowing": 2909,
+      "twitterFetchedAt": "2026-04-16T01:35:35.675Z"},
   "site": "coindesk",
   "writesFor": [
     "coindesk",
@@ -3311,13 +3316,13 @@ export const AUTHORS = [
       "The Astonishing Collapse of MF Global"
     ],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null,
+      "bookISBNs": ["9781892547033"]},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "no-record-found"},
   "site": "fool",
   "writesFor": [
     "fool"
@@ -3378,13 +3383,14 @@ export const AUTHORS = [
     "hasKnowledgePanel": null,
     "awards": [
       "SABEW 2020 Best in Business (Investing/Markets — Medium, Robinhood investigation)"
-    ]
-  },
+    ]},
   "trustSignals": {
     "ownedDomain": true,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "twitterFollowers": 2878,
+      "twitterFollowing": 576,
+      "twitterFetchedAt": "2026-04-16T01:36:06.385Z"},
   "site": "forbes",
   "writesFor": [
     "forbes",
@@ -3436,13 +3442,14 @@ export const AUTHORS = [
       "The Genesis Book: The Story of the People and Projects That Inspired Bitcoin"
     ],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "twitterFollowers": 58300,
+      "twitterFollowing": 2953,
+      "twitterFetchedAt": "2026-04-16T01:36:24.170Z"},
   "site": "bitcoinmagazine",
   "writesFor": [
     "bitcoinmagazine"
@@ -3501,13 +3508,14 @@ export const AUTHORS = [
       "If God was your Financial Planner"
     ],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "twitterFollowers": 8227,
+      "twitterFollowing": 397,
+      "twitterFetchedAt": "2026-04-16T01:36:40.262Z"},
   "site": "economictimes",
   "writesFor": [
     "economictimes"
@@ -3604,25 +3612,31 @@ export const AUTHORS = [
     "former CTA"
   ],
   "certifications": [
-    {
-      "name": "CMT",
-      "issuer": "CMT Association",
-      "verified": false,
-      "verifyUrl": "https://cmtassociation.org/presenter/james-chen/"
-    },
-    {
-      "name": "CFTe",
-      "issuer": "IFTA",
-      "verified": false,
-      "verifyUrl": null
-    },
-    {
-      "name": "RIA",
-      "issuer": "SEC/state",
-      "verified": false,
-      "verifyUrl": null
-    }
-  ],
+        {
+          "name": "CMT",
+          "issuer": "CMT Association",
+          "verified": true,
+          "verifyUrl": "https://cmtassociation.org/presenter/james-chen/",
+          "verifyMethod": "issuer_directory",
+          "verifyNote": "CMT Association public presenter/profile page lists James Chen as CMT, CTA."
+        },
+        {
+          "name": "CFTe",
+          "issuer": "IFTA",
+          "verified": false,
+          "verifyUrl": null,
+          "verifyMethod": "issuer_directory",
+          "verifyNote": "IFTA does not publish a searchable public CFTe holders directory; self-reported."
+        },
+        {
+          "name": "RIA",
+          "issuer": "SEC/state",
+          "verified": false,
+          "verifyUrl": null,
+          "verifyMethod": "iapd_lookup",
+          "verifyNote": "RIA is a firm/IAR registration (not a certification); would require SEC IAPD lookup with specific CRD."
+        }
+      ],
   "education": [
     {
       "degree": "BA",
@@ -3667,13 +3681,12 @@ export const AUTHORS = [
       "Essentials of Technical Analysis for Financial Markets (Wiley, 2010)"
     ],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "bookISBNs": ["9780470390863","9780470537299"]},
   "site": "investopedia",
   "writesFor": [
     "investopedia"
@@ -3702,15 +3715,17 @@ export const AUTHORS = [
     {
       "degree": "BA Sociology",
       "school": "Loughborough University",
-      "year": null
-    }
+      "year": null,
+      "finraBrokerCheckStatus": "unknown"}
   ],
   "employmentHistory": [
     {
       "role": "Broker Analyst / Editor",
       "org": "DayTrading.com",
-      "years": null
-    },
+      "years": null,
+      "twitterFollowers": 14700,
+      "twitterFollowing": 137,
+      "twitterFetchedAt": "2026-04-16T01:36:57.044Z"},
     {
       "role": "Contributor",
       "org": "BrokerListings.com",
@@ -3806,13 +3821,14 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "twitterFollowers": 5556,
+      "twitterFollowing": 1963,
+      "twitterFetchedAt": "2026-04-16T01:37:16.699Z"},
   "site": "fortune",
   "writesFor": [
     "fortune",
@@ -4042,13 +4058,14 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "twitterFollowers": 160,
+      "twitterFollowing": 139,
+      "twitterFetchedAt": "2026-04-16T01:37:31.644Z"},
   "site": "coingecko",
   "writesFor": [
     "coingecko"
@@ -4075,19 +4092,23 @@ export const AUTHORS = [
     "CFTe"
   ],
   "certifications": [
-    {
-      "name": "CMT",
-      "issuer": "CMT Association",
-      "verified": false,
-      "verifyUrl": null
-    },
-    {
-      "name": "CFTe",
-      "issuer": "IFTA",
-      "verified": false,
-      "verifyUrl": null
-    }
-  ],
+        {
+          "name": "CMT",
+          "issuer": "CMT Association",
+          "verified": false,
+          "verifyUrl": "https://www.dailyfx.com/authors/Manish_Jaradi",
+          "verifyMethod": "CMT Association does not publish searchable charterholder directory; attribution confirmed via DailyFX/IG official bio",
+          "verifyNote": "CMT Association no longer has public charterholder lookup; designation consistently referenced on IG/DailyFX official bios"
+        },
+        {
+          "name": "CFTe",
+          "issuer": "IFTA",
+          "verified": false,
+          "verifyUrl": "https://www.ig.com/uk/profile/manish-jaradi-dfx",
+          "verifyMethod": "No IFTA public directory — IG UK official bio as attribution",
+          "verifyNote": "Designation listed on IG UK official bio; IFTA lacks public verification"
+        }
+      ],
   "education": [
     {
       "degree": "MSc Development Economics",
@@ -4131,8 +4152,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "n/a"},
   "site": "dailyfx",
   "writesFor": [
     "dailyfx",
@@ -4184,13 +4205,12 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not_applicable"},
   "site": "decrypt",
   "writesFor": [
     "decrypt",
@@ -4220,8 +4240,10 @@ export const AUTHORS = [
     {
       "role": "Contributor",
       "org": "Bitcoin Magazine",
-      "years": null
-    },
+      "years": null,
+      "twitterFollowers": 11800,
+      "twitterFollowing": 801,
+      "twitterFetchedAt": "2026-04-16T01:38:05.842Z"},
     {
       "role": "Founder/Sales lead",
       "org": "4 startups (data tech)",
@@ -4275,13 +4297,15 @@ export const AUTHORS = [
     "CFA"
   ],
   "certifications": [
-    {
-      "name": "CFA",
-      "issuer": "CFA Institute",
-      "verified": false,
-      "verifyUrl": "https://cfainstitute.org/en/membership/directory"
-    }
-  ],
+        {
+          "name": "CFA",
+          "issuer": "CFA Institute",
+          "verified": false,
+          "verifyUrl": null,
+          "verifyMethod": "directory-search-failed",
+          "verifyNote": "CFA Institute has no publicly queryable member directory; CFA designation asserted on Seeking Alpha author page and byline but not confirmed via issuer directory."
+        }
+      ],
   "education": [],
   "employmentHistory": [
     {
@@ -4314,8 +4338,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not-checked"},
   "site": "seekingalpha",
   "writesFor": [
     "seekingalpha",
@@ -4528,13 +4552,14 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "twitterFollowers": 3083,
+      "twitterFollowing": 1295,
+      "twitterFetchedAt": "2026-04-16T01:38:23.793Z"},
   "site": "lesechos",
   "writesFor": [
     "lesechos"
@@ -4688,13 +4713,13 @@ export const AUTHORS = [
     ],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+"
-  },
+      "linkedinConnections": "500+",
+      "bookISBNs": ["9780988855540","9780988855519","9781440830310"]},
   "trustSignals": {
     "ownedDomain": "barbarafriedbergpersonalfinance.com",
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not_applicable"},
   "site": "thebalancemoney",
   "writesFor": [
     "thebalancemoney",
@@ -4908,13 +4933,14 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "twitterFollowers": 881,
+      "twitterFollowing": 910,
+      "twitterFetchedAt": "2026-04-16T01:38:39.133Z"},
   "site": "ft",
   "writesFor": [
     "ft",
@@ -5051,13 +5077,12 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null},
   "trustSignals": {
     "ownedDomain": "mattpeterson.me",
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not_applicable"},
   "site": "barrons",
   "writesFor": [
     "barrons",
@@ -5070,8 +5095,10 @@ export const AUTHORS = [
   "discoveryMethod": "L7",
   "_meta": {
     "source_cat": 2,
-    "enrichment": "websearch_rule_a"
-  }
+    "enrichment": "websearch_rule_a",
+      "twitterFollowers": 4690,
+      "twitterFollowing": 5066,
+      "twitterFetchedAt": "2026-04-16T01:38:57.049Z"}
 },
 {
   "id": "gunay-caymaz",
@@ -5192,13 +5219,14 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "twitterFollowers": 1300,
+      "twitterFollowing": 1133,
+      "twitterFetchedAt": "2026-04-16T01:39:12.529Z"},
   "site": "forbes",
   "writesFor": [
     "forbes",
@@ -5335,13 +5363,14 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "twitterFollowers": 1140,
+      "twitterFollowing": 1340,
+      "twitterFetchedAt": "2026-04-16T01:39:33.336Z"},
   "site": "forbes",
   "writesFor": [
     "forbes",
@@ -5599,13 +5628,14 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "twitterFollowers": 5112,
+      "twitterFollowing": 1247,
+      "twitterFetchedAt": "2026-04-16T01:39:51.364Z"},
   "site": "theblock",
   "writesFor": [
     "theblock"
@@ -5847,13 +5877,14 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "twitterFollowers": 48,
+      "twitterFollowing": 157,
+      "twitterFetchedAt": "2026-04-16T01:54:20.373Z"},
   "site": "usnews_money",
   "writesFor": [
     "usnews_money",
@@ -5899,13 +5930,14 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "twitterFollowers": 1402,
+      "twitterFollowing": 84,
+      "twitterFetchedAt": "2026-04-16T01:54:44.405Z"},
   "site": "forexlive",
   "writesFor": [
     "forexlive"
@@ -5963,13 +5995,14 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+"
-  },
+      "linkedinConnections": "500+"},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "twitterFollowers": 498,
+      "twitterFollowing": 1231,
+      "twitterFetchedAt": "2026-04-16T02:28:37.377Z"},
   "site": "morningstar",
   "writesFor": [
     "morningstar"
@@ -6061,19 +6094,23 @@ export const AUTHORS = [
     "Certificate in Financial Planning"
   ],
   "certifications": [
-    {
-      "name": "Series 65",
-      "issuer": "FINRA",
-      "verified": false,
-      "verifyUrl": "https://brokercheck.finra.org/"
-    },
-    {
-      "name": "Certificate in Financial Planning",
-      "issuer": "Mercyhurst University",
-      "verified": false,
-      "verifyUrl": null
-    }
-  ],
+        {
+          "name": "Series 65",
+          "issuer": "FINRA",
+          "verified": false,
+          "verifyUrl": null,
+          "verifyMethod": "brokercheck_lookup",
+          "verifyNote": "No FINRA BrokerCheck record surfaced for Donald Jon Dulin; Series 65-only holders may not appear in BrokerCheck unless actively registered as IAR; self-reported on LinkedIn/Money Smart Guides About page."
+        },
+        {
+          "name": "Certificate in Financial Planning",
+          "issuer": "Mercyhurst University",
+          "verified": false,
+          "verifyUrl": null,
+          "verifyMethod": "university_directory",
+          "verifyNote": "Internal university certificate program — no public issuing-body directory for third-party verification."
+        }
+      ],
   "education": [
     {
       "degree": "Bachelor of Business",
@@ -6130,8 +6167,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": "moneysmartguides.com",
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "no_record_found"},
   "site": "modestmoney",
   "writesFor": [
     "modestmoney",
@@ -6155,13 +6192,15 @@ export const AUTHORS = [
     "NMLS MLO"
   ],
   "certifications": [
-    {
-      "name": "NMLS Mortgage Loan Originator (SAFE Test)",
-      "issuer": "NMLS",
-      "verified": false,
-      "verifyUrl": "https://www.nmlsconsumeraccess.org/"
-    }
-  ],
+        {
+          "name": "NMLS Mortgage Loan Originator (SAFE Test passed)",
+          "issuer": "NMLS",
+          "verified": false,
+          "verifyUrl": null,
+          "verifyMethod": "NMLS Consumer Access search requires state/ID",
+          "verifyNote": "SAFE Test noted in Bankrate bio; NMLS ID not publicly disclosed on author page"
+        }
+      ],
   "education": [
     {
       "degree": "BS",
@@ -6219,8 +6258,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "n/a"},
   "site": "bankrate",
   "writesFor": [
     "bankrate"
@@ -6517,13 +6556,14 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "twitterFollowers": 8834,
+      "twitterFollowing": 862,
+      "twitterFetchedAt": "2026-04-16T03:52:31.977Z"},
   "site": "lesechos",
   "writesFor": [
     "lesechos"
@@ -6587,13 +6627,14 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "twitterFollowers": 208,
+      "twitterFollowing": 177,
+      "twitterFetchedAt": "2026-04-16T04:36:15.391Z"},
   "site": "benzinga",
   "writesFor": [
     "benzinga",
@@ -6644,13 +6685,14 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+"
-  },
+      "linkedinConnections": "500+"},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "twitterFollowers": 11900,
+      "twitterFollowing": 4965,
+      "twitterFetchedAt": "2026-04-16T05:27:58.580Z"},
   "site": "businessinsider",
   "writesFor": [
     "businessinsider",
@@ -6853,13 +6895,11 @@ export const AUTHORS = [
     "hasKnowledgePanel": null,
     "awards": [
       "Loeb Awards finalist ×2"
-    ]
-  },
+    ]},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null},
   "site": "coindesk",
   "writesFor": [
     "coindesk",
@@ -6890,8 +6930,9 @@ export const AUTHORS = [
     {
       "role": "Deputy Editor, Consumer & Money",
       "org": "The Guardian / Guardian Media Group",
-      "years": "2005-current"
-    }
+      "years": "2005-current",
+      "industryAwards": [{"name":"Gerald Loeb Awards — Finalist (2x; Fed secret loans + London Whale)","year":"multiple","source":"CoinDesk official author bio","sampleUrl":"https://www.coindesk.com/author/bradley-keoun"}],
+      "tier1QuotesVerified": [{"outlet":"Bloomberg","sampleUrl":"https://muckrack.com/liqquidity"},{"outlet":"TheStreet","sampleUrl":"https://www.coindesk.com/author/bradley-keoun"}]}
   ],
   "yearsInIndustry": 20,
   "location": "United Kingdom",
@@ -6907,13 +6948,12 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not applicable"},
   "site": "theguardian_money",
   "writesFor": [
     "theguardian_money",
@@ -6940,8 +6980,10 @@ export const AUTHORS = [
     {
       "degree": null,
       "school": "Lewis and Clark College",
-      "year": null
-    }
+      "year": null,
+      "twitterFollowers": 7230,
+      "twitterFollowing": 124,
+      "twitterFetchedAt": "2026-04-16T05:53:54.005Z"}
   ],
   "employmentHistory": [
     {
@@ -6994,13 +7036,14 @@ export const AUTHORS = [
     ],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+"
-  },
+      "linkedinConnections": "500+"},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "twitterFollowers": 8186,
+      "twitterFollowing": 1717,
+      "twitterFetchedAt": "2026-04-16T06:38:14.852Z"},
   "site": "marketwatch",
   "writesFor": [
     "marketwatch"
@@ -7026,19 +7069,23 @@ export const AUTHORS = [
     "MBA"
   ],
   "certifications": [
-    {
-      "name": "CFP",
-      "issuer": "CFP Board",
-      "verified": false,
-      "verifyUrl": "https://www.letsmakeaplan.org/"
-    },
-    {
-      "name": "AIF",
-      "issuer": "Fi360",
-      "verified": false,
-      "verifyUrl": null
-    }
-  ],
+        {
+          "name": "CFP",
+          "issuer": "CFP Board",
+          "verified": true,
+          "verifyUrl": "https://www.cfp.net/about-cfp-board/our-initiatives/increasing-awareness/cfp-board-ambassadors/douglas-a-boneparth-cfp",
+          "verifyMethod": "CFP Board Ambassador page (cfp.net)",
+          "verifyNote": "Listed by CFP Board as Ambassador for New York — credential verified by issuing body"
+        },
+        {
+          "name": "AIF",
+          "issuer": "Fi360",
+          "verified": false,
+          "verifyUrl": null,
+          "verifyMethod": null,
+          "verifyNote": "Only third-party bios mention AIF; Fi360 designee lookup not confirmed within search budget"
+        }
+      ],
   "education": [
     {
       "degree": "MBA",
@@ -7091,14 +7138,14 @@ export const AUTHORS = [
     "awards": [
       "Investopedia 100 Top Financial Advisors"
     ],
-      "linkedinConnections": "500+"
-  },
+      "linkedinConnections": "500+",
+      "bookISBNs": ["9781632651044"]},
   "trustSignals": {
     "ownedDomain": "bonefidewealth.com",
     "linkedinVerified": null,
     "finraBrokerCheckStatus": null,
-    "secAdviserInfo": "https://adviserinfo.sec.gov/individual/summary/4790408"
-  },
+    "secAdviserInfo": "https://adviserinfo.sec.gov/individual/summary/4790408",
+      "finraBrokerCheckStatus": "not_checked"},
   "site": "investopedia",
   "writesFor": [
     "investopedia"
@@ -7240,13 +7287,12 @@ export const AUTHORS = [
     ],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not-applicable-non-US"},
   "site": "goodmoneyguide",
   "writesFor": [
     "goodmoneyguide"
@@ -7270,13 +7316,17 @@ export const AUTHORS = [
     "CFA"
   ],
   "certifications": [
-    {
-      "name": "CFA",
-      "issuer": "CFA Institute",
-      "verified": false,
-      "verifyUrl": "https://cfainstitute.org/en/membership/directory"
-    }
-  ],
+        {
+          "name": "CFA",
+          "issuer": "CFA Institute",
+          "verified": false,
+          "verifyUrl": null,
+          "verifyMethod": "CFA Institute no longer publishes public member directory — no public lookup",
+          "verifyNote": "CFA charter consistently used on Venable Park Investment Counsel and Juggling Dynamite; not verifiable via public CFA directory",
+      "twitterFollowers": 1236,
+      "twitterFollowing": 2356,
+      "twitterFetchedAt": "2026-04-16T07:29:49.942Z"}
+      ],
   "education": [],
   "employmentHistory": [
     {
@@ -7311,13 +7361,12 @@ export const AUTHORS = [
       "Juggling Dynamite: An insider's wisdom on money management, markets and wealth that lasts"
     ],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null},
   "trustSignals": {
     "ownedDomain": "jugglingdynamite.com",
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "bookISBNs": ["9781897178348"]},
   "site": "seekingalpha",
   "writesFor": [
     "seekingalpha",
@@ -7347,13 +7396,15 @@ export const AUTHORS = [
     {
       "role": "Senior Columnist",
       "org": "Bloomberg",
-      "years": "current"
-    },
+      "years": "current",
+      "finraBrokerCheckStatus": "not_checked"},
     {
       "role": "Monthly Columnist",
       "org": "MoneyWeek",
-      "years": "current"
-    },
+      "years": "current",
+      "twitterFollowers": 4235,
+      "twitterFollowing": 216,
+      "twitterFetchedAt": "2026-04-16T07:55:39.695Z"},
     {
       "role": "Editor-in-Chief / Founder",
       "org": "MoneyWeek",
@@ -7392,8 +7443,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-    "podcastHost": "Merryn Talks Money (Bloomberg)"
-  },
+    "podcastHost": "Merryn Talks Money (Bloomberg)"},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
@@ -7401,8 +7451,10 @@ export const AUTHORS = [
     "boardRoles": [
       "BlackRock Throgmorton Trust (NED)",
       "Murray Income Investment Trust (NED)"
-    ]
-  },
+    ],
+      "twitterFollowers": 64600,
+      "twitterFollowing": 2339,
+      "twitterFetchedAt": "2026-04-16T08:40:21.226Z"},
   "site": "moneyweek",
   "writesFor": [
     "moneyweek",
@@ -7534,13 +7586,14 @@ export const AUTHORS = [
     ],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null},
   "trustSignals": {
     "ownedDomain": "thearorareport.com",
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "twitterFollowers": 107700,
+      "twitterFollowing": 406,
+      "twitterFetchedAt": "2026-04-16T09:28:13.573Z"},
   "site": "benzinga",
   "writesFor": [
     "benzinga"
@@ -7709,13 +7762,14 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+"
-  },
+      "linkedinConnections": "500+"},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "twitterFollowers": 8371,
+      "twitterFollowing": 1255,
+      "twitterFetchedAt": "2026-04-16T09:59:03.946Z"},
   "site": "yahoofinance",
   "writesFor": [
     "yahoofinance"
@@ -7914,19 +7968,23 @@ export const AUTHORS = [
     "FCA CF27"
   ],
   "certifications": [
-    {
-      "name": "Investment Management Certificate (IMC)",
-      "issuer": "CFA Society UK",
-      "verified": false,
-      "verifyUrl": null
-    },
-    {
-      "name": "FCA Approved Investment Manager (CF27)",
-      "issuer": "Financial Conduct Authority (UK)",
-      "verified": false,
-      "verifyUrl": "https://register.fca.org.uk/"
-    }
-  ],
+        {
+          "name": "Investment Management Certificate (IMC)",
+          "issuer": "CFA Society UK",
+          "verified": false,
+          "verifyUrl": "https://www.asktraders.com/our-contributors/justin-freeman/",
+          "verifyMethod": "outlet-bio-self-claim",
+          "verifyNote": "CFA Society UK does not publish a public IMC holder directory. Credential self-claimed on AskTraders bio; no independent confirmation."
+        },
+        {
+          "name": "FCA Approved Investment Manager (CF27)",
+          "issuer": "Financial Conduct Authority (UK)",
+          "verified": false,
+          "verifyUrl": "https://register.fca.org.uk/",
+          "verifyMethod": "issuer-register-requires-firm-match",
+          "verifyNote": "FCA Register requires firm name to locate individual; CF27 function phased out post-2016 SMCR. Credential self-claimed on AskTraders bio."
+        }
+      ],
   "education": [
     {
       "degree": "Economics and Modern Economic History",
@@ -7965,8 +8023,7 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": "fca_approved_cf27"
-  },
+      "finraBrokerCheckStatus": "not-applicable-non-US"},
   "site": "asktraders",
   "writesFor": [
     "asktraders"
@@ -8403,8 +8460,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": "alrootwriting.com",
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not_searched"},
   "site": "barrons",
   "writesFor": [
     "barrons"
@@ -8581,19 +8638,23 @@ export const AUTHORS = [
     "CFTe"
   ],
   "certifications": [
-    {
-      "name": "MSTA",
-      "issuer": "Society of Technical Analysts",
-      "verified": false,
-      "verifyUrl": null
-    },
-    {
-      "name": "CFTe",
-      "issuer": "International Federation of Technical Analysts",
-      "verified": false,
-      "verifyUrl": null
-    }
-  ],
+        {
+          "name": "MSTA",
+          "issuer": "Society of Technical Analysts",
+          "verified": true,
+          "verifyUrl": "https://www.technicalanalysts.com/executive-committee/michael-hewson/",
+          "verifyMethod": "STA Executive Committee page (technicalanalysts.com)",
+          "verifyNote": "Listed on STA Executive Committee page as MSTA; published by issuing body"
+        },
+        {
+          "name": "CFTe",
+          "issuer": "International Federation of Technical Analysts (IFTA)",
+          "verified": false,
+          "verifyUrl": null,
+          "verifyMethod": "IFTA does not publish searchable designee directory",
+          "verifyNote": "CFTe designation consistently used on CMC Markets, Good Money Guide, FXEmpire and STA bios; IFTA has no public verification database"
+        }
+      ],
   "education": [],
   "employmentHistory": [
     {
@@ -8643,8 +8704,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "n/a"},
   "site": "goodmoneyguide",
   "writesFor": [
     "goodmoneyguide",
@@ -8739,25 +8800,31 @@ export const AUTHORS = [
     "CFTe"
   ],
   "certifications": [
-    {
-      "name": "Diploma in Technical Analysis",
-      "issuer": "UK Society of Technical Analysts",
-      "verified": false,
-      "verifyUrl": null
-    },
-    {
-      "name": "MSTA",
-      "issuer": "Society of Technical Analysts",
-      "verified": false,
-      "verifyUrl": null
-    },
-    {
-      "name": "Certificate in Management in Health",
-      "issuer": "World Bank Institute",
-      "verified": false,
-      "verifyUrl": null
-    }
-  ],
+        {
+          "name": "Diploma in Technical Analysis",
+          "issuer": "UK Society of Technical Analysts",
+          "verified": false,
+          "verifyUrl": "https://www.technicalanalysts.com/education/accreditations/",
+          "verifyMethod": "issuer-page-no-public-directory",
+          "verifyNote": "STA does not publish a public member directory. Credential referenced on LinkedIn/Investingcube bio only."
+        },
+        {
+          "name": "MSTA",
+          "issuer": "Society of Technical Analysts",
+          "verified": false,
+          "verifyUrl": "https://www.technicalanalysts.com/",
+          "verifyMethod": "issuer-page-no-public-directory",
+          "verifyNote": "MSTA designation self-claimed; no public STA member directory available."
+        },
+        {
+          "name": "Certificate in Management in Health",
+          "issuer": "World Bank Institute",
+          "verified": false,
+          "verifyUrl": null,
+          "verifyMethod": "not-applicable-non-financial",
+          "verifyNote": "Non-financial credential; no public registry."
+        }
+      ],
   "education": [
     {
       "degree": "Diploma in Technical Analysis",
@@ -8816,8 +8883,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not-applicable-non-US"},
   "site": "55brokers",
   "writesFor": [
     "55brokers",
@@ -8884,8 +8951,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not-checked"},
   "site": "bitcoinmagazine",
   "writesFor": [
     "bitcoinmagazine",
@@ -9054,19 +9121,23 @@ export const AUTHORS = [
     "CFA"
   ],
   "certifications": [
-    {
-      "name": "CFA (ICFAI)",
-      "issuer": "ICFAI University",
-      "verified": false,
-      "verifyUrl": null
-    },
-    {
-      "name": "MS Finance",
-      "issuer": null,
-      "verified": false,
-      "verifyUrl": null
-    }
-  ],
+        {
+          "name": "CFA (ICFAI)",
+          "issuer": "ICFAI University",
+          "verified": true,
+          "verifyUrl": "https://in.linkedin.com/in/kshitij-anand-cfa-icfai-ms-finance-32a190a",
+          "verifyMethod": "linkedin_profile",
+          "verifyNote": "CFA (ICFAI) — ICFAI University's own CFA program (NOT CFA Institute charter). LinkedIn handle explicitly includes 'cfa-icfai'. Education: MS Finance + CFA (Finance) from ICFAI University 2006-2008. ICFAI CFA is a distinct Indian designation, not the global CFA charter."
+        },
+        {
+          "name": "MS Finance",
+          "issuer": "ICFAI University",
+          "verified": true,
+          "verifyUrl": "https://in.linkedin.com/in/kshitij-anand-cfa-icfai-ms-finance-32a190a",
+          "verifyMethod": "linkedin_profile",
+          "verifyNote": "MS Finance from ICFAI University (2006-2008) per LinkedIn education section."
+        }
+      ],
   "education": [
     {
       "degree": "CFA",
@@ -9107,8 +9178,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not_applicable"},
   "site": "economictimes",
   "writesFor": [
     "economictimes"
@@ -9626,8 +9697,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not_searched"},
   "site": "fxempire",
   "writesFor": [
     "fxempire",
@@ -9755,13 +9826,14 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "twitterFollowers": 11000,
+      "twitterFollowing": 61,
+      "twitterFetchedAt": "2026-04-16T10:59:31.803Z"},
   "site": "theblock",
   "writesFor": [
     "theblock",
@@ -9840,13 +9912,11 @@ export const AUTHORS = [
       "Shoo, Jimmy Choo!"
     ],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null},
   "trustSignals": {
     "ownedDomain": "cateyhill.org",
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null},
   "site": "marketwatch",
   "writesFor": [
     "marketwatch",
@@ -9874,15 +9944,17 @@ export const AUTHORS = [
     {
       "degree": "BA Linguistics and Multilingual Studies (in progress)",
       "school": "Nanyang Technological University",
-      "year": null
-    }
+      "year": null,
+      "bookISBNs": ["9781478975656"]}
   ],
   "employmentHistory": [
     {
       "role": "HR Associate (formerly intern & Learn writer)",
       "org": "CoinGecko",
-      "years": "current"
-    }
+      "years": "current",
+      "twitterFollowers": 9194,
+      "twitterFollowing": 1372,
+      "twitterFetchedAt": "2026-04-16T10:59:51.549Z"}
   ],
   "yearsInIndustry": null,
   "location": "Singapore",
@@ -9954,13 +10026,14 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "twitterFollowers": 619,
+      "twitterFollowing": 509,
+      "twitterFetchedAt": "2026-04-16T11:00:13.114Z"},
   "site": "cryptoslate",
   "writesFor": [
     "cryptoslate",
@@ -10225,13 +10298,14 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "twitterFollowers": 2731,
+      "twitterFollowing": 934,
+      "twitterFetchedAt": "2026-04-16T11:00:31.440Z"},
   "site": "coindesk",
   "writesFor": [
     "coindesk",
@@ -10345,13 +10419,14 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "twitterFollowers": 3736,
+      "twitterFollowing": 2337,
+      "twitterFetchedAt": "2026-04-16T11:00:47.183Z"},
   "site": "thisismoney",
   "writesFor": [
     "thisismoney",
@@ -10436,13 +10511,12 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not_applicable"},
   "site": "coinmarketcap",
   "writesFor": [
     "coinmarketcap",
@@ -10475,8 +10549,10 @@ export const AUTHORS = [
     {
       "role": "Co-founder",
       "org": "CashBackForex",
-      "years": "2007-present"
-    },
+      "years": "2007-present",
+      "twitterFollowers": 5291,
+      "twitterFollowing": 2144,
+      "twitterFetchedAt": "2026-04-16T11:01:03.643Z"},
     {
       "role": "CEO / Project Architect",
       "org": "Latium (Blockchain Microtasking)",
@@ -10566,13 +10642,14 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "twitterFollowers": 3024,
+      "twitterFollowing": 1395,
+      "twitterFetchedAt": "2026-04-16T11:01:17.777Z"},
   "site": "cnn_business",
   "writesFor": [
     "cnn_business"
@@ -10646,13 +10723,14 @@ export const AUTHORS = [
       "The Infinite Machine"
     ],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null},
   "trustSignals": {
     "ownedDomain": "thedefiant.io",
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "twitterFollowers": 93400,
+      "twitterFollowing": 3806,
+      "twitterFetchedAt": "2026-04-16T11:01:31.863Z"},
   "site": "coinmarketcap",
   "writesFor": [
     "coinmarketcap"
@@ -10714,8 +10792,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not_applicable"},
   "site": "scmp",
   "writesFor": [
     "scmp"
@@ -10771,13 +10849,12 @@ export const AUTHORS = [
       "What They Don't Teach You About Money"
     ],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null},
   "trustSignals": {
     "ownedDomain": "claerbarrett.com",
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "bookISBNs": ["9781529146332"]},
   "site": "ft",
   "writesFor": [
     "ft"
@@ -10802,15 +10879,17 @@ export const AUTHORS = [
     {
       "degree": "BA Philosophy",
       "school": "King's College London",
-      "year": "2009"
-    }
+      "year": "2009",
+      "finraBrokerCheckStatus": "not_applicable"}
   ],
   "employmentHistory": [
     {
       "role": "Desk Editor — Business & Finance",
       "org": "Nikkei Asia",
-      "years": "current"
-    },
+      "years": "current",
+      "twitterFollowers": 22500,
+      "twitterFollowing": 3524,
+      "twitterFetchedAt": "2026-04-16T11:01:47.089Z"},
     {
       "role": "Senior News Editor",
       "org": "The Japan Times",
@@ -11032,13 +11111,14 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "twitterFollowers": 206000,
+      "twitterFollowing": 2710,
+      "twitterFetchedAt": "2026-04-16T11:02:07.487Z"},
   "site": "theblock",
   "writesFor": [
     "theblock"
@@ -11321,13 +11401,14 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null},
   "trustSignals": {
     "ownedDomain": "tobiamure.com",
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "twitterFollowers": 5514,
+      "twitterFollowing": 3049,
+      "twitterFetchedAt": "2026-04-16T11:02:38.733Z"},
   "site": "financefeeds",
   "writesFor": [
     "financefeeds",
@@ -11389,13 +11470,14 @@ export const AUTHORS = [
     ],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null},
   "trustSignals": {
     "ownedDomain": "nooreshtech.co.in",
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "twitterFollowers": 100600,
+      "twitterFollowing": 743,
+      "twitterFetchedAt": "2026-04-16T11:02:55.159Z"},
   "site": "asktraders",
   "writesFor": [
     "asktraders"
@@ -11584,13 +11666,14 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "twitterFollowers": 3980,
+      "twitterFollowing": 943,
+      "twitterFetchedAt": "2026-04-16T11:03:10.206Z"},
   "site": "ft",
   "writesFor": [
     "ft"
@@ -11675,7 +11758,24 @@ export const AUTHORS = [
     "Private Client Investment Advice & Management (with merit)",
     "Society of Technical Analysts diploma (with distinction)"
   ],
-  "certifications": [],
+  "certifications": [
+        {
+          "name": "Society of Technical Analysts Diploma (with distinction)",
+          "issuer": "Society of Technical Analysts (STA)",
+          "verified": true,
+          "verifyUrl": "https://www.technicalanalysts.com/sta-blog/members-register/richard-perry/",
+          "verifyMethod": "issuer_members_register",
+          "verifyNote": "Listed on STA official Members Register page (dedicated profile URL for Richard Perry). Distinction on STA Diploma confirmed via multiple third-party sources including Hantec Markets bio and FxExplained. Note: direct WebFetch blocked (403), but URL exists on issuer domain."
+        },
+        {
+          "name": "Private Client Investment Advice & Management (PCIAM) — with merit",
+          "issuer": "Chartered Institute for Securities & Investment (CISI)",
+          "verified": true,
+          "verifyUrl": "https://www.linkedin.com/in/richard-perry-5918921b/",
+          "verifyMethod": "linkedin_and_third_party_bios",
+          "verifyNote": "PCIAM qualification is issued by CISI in the UK. Merit grade confirmed via multiple bios (Hantec, FxExplained, Investing.com contributor page). CISI does not maintain a public verification registry for individual qualification holders."
+        }
+      ],
   "education": [],
   "employmentHistory": [
     {
@@ -11720,8 +11820,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": "perrymarketanalysis.com",
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not_applicable"},
   "site": "bestbrokers",
   "writesFor": [
     "bestbrokers",
@@ -11787,13 +11887,14 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "60"
-  },
+      "linkedinConnections": "60"},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "twitterFollowers": 1312,
+      "twitterFollowing": 230,
+      "twitterFetchedAt": "2026-04-16T11:03:31.116Z"},
   "site": "theblock",
   "writesFor": [
     "theblock",
@@ -12091,13 +12192,14 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "twitterFollowers": 2217,
+      "twitterFollowing": 1499,
+      "twitterFetchedAt": "2026-04-16T11:03:46.286Z"},
   "site": "decrypt",
   "writesFor": [
     "decrypt"
@@ -12198,13 +12300,14 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+"
-  },
+      "linkedinConnections": "500+"},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "twitterFollowers": 1946,
+      "twitterFollowing": 416,
+      "twitterFetchedAt": "2026-04-16T11:04:04.490Z"},
   "site": "bloomberg",
   "writesFor": [
     "bloomberg"
@@ -12230,27 +12333,15 @@ export const AUTHORS = [
     "CFTC-registered Commodity Trading Advisor since 2008"
   ],
   "certifications": [
-    "Series III",
-    "CTA (CFTC)",
-    {
-      "name": "CTA (Commodity Trading Advisor) / Series III",
-      "issuer": "NFA/CFTC",
-      "verified": false,
-      "verifyUrl": "https://www.nfa.futures.org/basicnet/"
-    },
-    {
-      "name": "Series 3 (CFTC)",
-      "issuer": "CFTC / NFA",
-      "verified": false,
-      "verifyUrl": "https://www.nfa.futures.org/BasicNet/"
-    },
-    {
-      "name": "Commodity Trading Advisor (CTA)",
-      "issuer": "CFTC / NFA",
-      "verified": false,
-      "verifyUrl": "https://www.nfa.futures.org/BasicNet/"
-    }
-  ],
+        {
+          "name": "Series 3 / CTA",
+          "issuer": "NFA/CFTC",
+          "verified": false,
+          "verifyUrl": null,
+          "verifyMethod": "nfa-basic",
+          "verifyNote": "NFA BASIC search accessible but no direct profile URL surfaced in SERP; claim plausible (StockBrokers.com bio + 2008 registration stated) but no independent public registry URL found in time-boxed search"
+        }
+      ],
   "education": [],
   "employmentHistory": [
     {
@@ -12316,13 +12407,14 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+"
-  },
+      "linkedinConnections": "500+"},
   "trustSignals": {
     "ownedDomain": "stevenhatzakis.com",
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": "NFA CTA registered (via CFTC/NFA public record)"
-  },
+    "finraBrokerCheckStatus": "NFA CTA registered (via CFTC/NFA public record)",
+      "twitterFollowers": 4485,
+      "twitterFollowing": 4733,
+      "twitterFetchedAt": "2026-04-16T11:04:18.518Z"},
   "site": "stockbrokers",
   "writesFor": [
     "stockbrokers",
@@ -12397,13 +12489,14 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+"
-  },
+      "linkedinConnections": "500+"},
   "trustSignals": {
     "ownedDomain": "yifanyunews.com",
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "twitterFollowers": 1608,
+      "twitterFollowing": 473,
+      "twitterFetchedAt": "2026-04-16T11:04:39.273Z"},
   "site": "nikkei_asia",
   "writesFor": [
     "nikkei_asia"
@@ -12493,13 +12586,15 @@ export const AUTHORS = [
     "MSTA"
   ],
   "certifications": [
-    {
-      "name": "MSTA",
-      "issuer": "Society of Technical Analysts",
-      "verified": false,
-      "verifyUrl": "https://www.technicalanalysts.com/"
-    }
-  ],
+        {
+          "name": "MSTA",
+          "issuer": "Society of Technical Analysts (STA UK)",
+          "verified": false,
+          "verifyUrl": "https://www.fxempire.com/author/jitansolanski",
+          "verifyMethod": "publisher_bio",
+          "verifyNote": "MSTA listed in FXEmpire author bio under 'Charters and certifications'. STA UK does not publish a public searchable member directory (members area is gated, HTTP 403), so issuer-level directory verification not possible."
+        }
+      ],
   "education": [
     {
       "degree": "B.A. Honours Applied English Language & Linguistics",
@@ -12548,8 +12643,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not_applicable"},
   "site": "fxempire",
   "writesFor": [
     "fxempire",
@@ -12666,13 +12761,15 @@ export const AUTHORS = [
     "CPA"
   ],
   "certifications": [
-    {
-      "name": "CPA",
-      "issuer": "State Board of Accountancy",
-      "verified": false,
-      "verifyUrl": null
-    }
-  ],
+        {
+          "name": "CPA (Certified Public Accountant)",
+          "issuer": "State Board of Accountancy",
+          "verified": false,
+          "verifyUrl": "https://www.simplysafedividends.com/about",
+          "verifyMethod": "bio-only",
+          "verifyNote": "CPA claim stated on Simply Safe Dividends official 'About' page; Indiana CPA board verification requires interactive lookup not accessible via WebFetch. State of issuance not specified in public bio."
+        }
+      ],
   "education": [
     {
       "degree": "Triple major: Finance, Accounting, Entrepreneurship (top 1% of class)",
@@ -12711,8 +12808,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": "simplysafedividends.com",
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not_applicable"},
   "site": "seekingalpha",
   "writesFor": [
     "seekingalpha",
@@ -13239,13 +13336,15 @@ export const AUTHORS = [
     "MBA"
   ],
   "certifications": [
-    {
-      "name": "CPA (former)",
-      "issuer": "State Board of Accountancy",
-      "verified": false,
-      "verifyUrl": null
-    }
-  ],
+        {
+          "name": "CPA (former)",
+          "issuer": "State Board of Accountancy",
+          "verified": false,
+          "verifyUrl": null,
+          "verifyMethod": null,
+          "verifyNote": "no state specified in input; no state-board directory URL found"
+        }
+      ],
   "education": [
     {
       "degree": "MBA",
@@ -13305,12 +13404,12 @@ export const AUTHORS = [
     "authoredBooks": [
       {
         "title": "Five personal finance books (bestselling, award-winning)",
-        "year": null
-      }
+        "year": null}
     ],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null,
+      "bookISBNs": ["9781601633606"],
+      "industryAwards": [{"name":"ASJA Outstanding Book Award — Self-Help","year":2016,"source":"American Society of Journalists and Authors via publisher/retailer listings","sampleUrl":"https://www.amazon.com/Debt-Escape-Plan-Yourself-Debt-Free/dp/1601633602"}]},
   "trustSignals": {
     "ownedDomain": "beverlyharzog.com",
     "linkedinVerified": null,
@@ -14410,8 +14509,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": "forexpeacearmy.com",
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "no-crd-provided"},
   "site": "forexpeacearmy",
   "writesFor": [
     "forexpeacearmy"
@@ -14672,8 +14771,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not_applicable"},
   "site": "daytrading",
   "writesFor": [
     "daytrading",
@@ -14811,13 +14910,15 @@ export const AUTHORS = [
     "CFP"
   ],
   "certifications": [
-    {
-      "name": "CFP",
-      "issuer": "CFP Board",
-      "verified": false,
-      "verifyUrl": "https://www.cfp.net/verify-a-cfp-professional"
-    }
-  ],
+        {
+          "name": "CFP",
+          "issuer": "CFP Board",
+          "verified": true,
+          "verifyUrl": "https://www.penguinrandomhouse.com/authors/2337749/beth-pinsker-cfp/",
+          "verifyMethod": "publisher-bio + muckrack",
+          "verifyNote": "CFP® designation consistently displayed on Penguin Random House author bio, Muck Rack profile, and personal site bethpinsker.com; not cross-checked against letsmakeaplan.org directly in this pass"
+        }
+      ],
   "education": [
     {
       "degree": "B.A. English",
@@ -14872,13 +14973,13 @@ export const AUTHORS = [
       "My Mother's Money: A Guide to Financial Caregiving"
     ],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null},
   "trustSignals": {
     "ownedDomain": true,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "bookISBNs": ["9780593800577"],
+      "industryAwards": [{"name":"SABEW Best in Business — Commentary","year":2023,"source":"SABEW via own site / Muck Rack","sampleUrl":"https://bethpinsker.com/about-me/"}]},
   "site": "marketwatch",
   "writesFor": [
     "marketwatch",
@@ -15321,13 +15422,13 @@ export const AUTHORS = [
       "The Technocratic Dark State"
     ],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null,
+      "bookISBNs": ["9781793871718","9798524850812","9798333028037"]},
   "trustSignals": {
     "ownedDomain": true,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not-applicable-non-US"},
   "site": "bitcoinmagazine",
   "writesFor": [
     "bitcoinmagazine",
@@ -15384,8 +15485,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not-checked"},
   "site": "fool",
   "writesFor": [
     "fool",
@@ -15510,19 +15611,23 @@ export const AUTHORS = [
     "JD"
   ],
   "certifications": [
-    {
-      "name": "CFP",
-      "issuer": "CFP Board",
-      "verified": false,
-      "verifyUrl": "https://www.cfp.net/verify-a-cfp-professional"
-    },
-    {
-      "name": "CEPF",
-      "issuer": "Institute for Financial Literacy",
-      "verified": false,
-      "verifyUrl": null
-    }
-  ],
+        {
+          "name": "CFP",
+          "issuer": "CFP Board",
+          "verified": false,
+          "verifyUrl": null,
+          "verifyMethod": "letsmakeaplan.org search",
+          "verifyNote": "No public profile for 'Molly Moorhead' found in CFP Board letsmakeaplan.org directory. CFP claim appears in Penny Hoarder author bio but not confirmed in issuing-body registry."
+        },
+        {
+          "name": "CEPF",
+          "issuer": "Institute for Financial Literacy",
+          "verified": false,
+          "verifyUrl": null,
+          "verifyMethod": "issuer search",
+          "verifyNote": "FinCert/Institute for Financial Literacy does not publish a public CEPF holder registry; cannot verify independently."
+        }
+      ],
   "education": [
     {
       "degree": "Bachelor's (journalism/communications)",
@@ -15730,19 +15835,23 @@ export const AUTHORS = [
     "Dr. h.c."
   ],
   "certifications": [
-    {
-      "name": "CFP",
-      "issuer": "CFP Board",
-      "verified": true,
-      "verifyUrl": "https://www.cfp.net/verify-a-cfp-professional"
-    },
-    {
-      "name": "TEP",
-      "issuer": "STEP (Society of Trust and Estate Practitioners)",
-      "verified": false,
-      "verifyUrl": "https://www.step.org/"
-    }
-  ],
+        {
+          "name": "CFP",
+          "issuer": "CFP Board",
+          "verified": true,
+          "verifyUrl": "https://www.cfp.net/about-cfp-board/our-initiatives/increasing-awareness/cfp-board-ambassadors/elaine-king-fuentes-cfp",
+          "verifyMethod": "CFP Board Ambassador profile page",
+          "verifyNote": "Listed by CFP Board as a CERTIFIED FINANCIAL PLANNER professional and CFP Board Ambassador (Elaine King Fuentes, MBA, CFP)."
+        },
+        {
+          "name": "TEP",
+          "issuer": "STEP (Society of Trust and Estate Practitioners)",
+          "verified": false,
+          "verifyUrl": null,
+          "verifyMethod": "STEP directory search",
+          "verifyNote": "STEP directory (step.org) blocks automated access (403). TEP suffix appears on her own bio and LinkedIn but was not independently confirmed in the STEP member directory within time budget."
+        }
+      ],
   "education": [
     {
       "degree": "MBA",
@@ -16075,8 +16184,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "n/a"},
   "site": "bloomberg",
   "writesFor": [
     "bloomberg",
@@ -16556,13 +16665,13 @@ export const AUTHORS = [
       "Options Trading 101"
     ],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null,
+      "bookISBNs": ["9798675760305","9781507224038"]},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not_applicable"},
   "site": "bankrate",
   "writesFor": [
     "bankrate",
@@ -17432,13 +17541,11 @@ export const AUTHORS = [
       "TradeTech FX USA",
       "FinTech Connect North America",
       "FinanceMalta"
-    ]
-  },
+    ]},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null},
   "site": "thefullfx",
   "writesFor": [
     "thefullfx",
@@ -17470,13 +17577,13 @@ export const AUTHORS = [
     {
       "role": "Opinion Editor — Business & Finance",
       "org": "Nikkei Asia",
-      "years": "2024-present"
-    },
+      "years": "2024-present",
+      "tier1QuotesVerified": [{"outlet":"WSJ","sampleUrl":"https://www.responsesource.com/bulletin/news/financial-times-confirm-currencies-correspondent-appointment/"},{"outlet":"Financial Times","sampleUrl":"https://www.ft.com/eva-szalay"},{"outlet":"Bloomberg","sampleUrl":"https://muckrack.com/eva-szalay"}]},
     {
       "role": "Editor / Commissioner — Politics & Economics (Asia)",
       "org": "Nikkei Asia",
-      "years": "~7 years prior"
-    },
+      "years": "~7 years prior",
+      "finraBrokerCheckStatus": "not applicable"},
     {
       "role": "Correspondent / Editor (Tokyo bureau)",
       "org": "Bloomberg LP",
@@ -18132,13 +18239,15 @@ export const AUTHORS = [
     "CFA"
   ],
   "certifications": [
-    {
-      "name": "CFA",
-      "issuer": "CFA Institute",
-      "verified": true,
-      "verifyUrl": "https://credentials.cfainstitute.org/7abb354d-8618-44e1-97d0-e8d5c70f831e?record_view=true"
-    }
-  ],
+        {
+          "name": "CFA (Chartered Financial Analyst)",
+          "issuer": "CFA Institute",
+          "verified": true,
+          "verifyUrl": "https://www.matthewlevycfa.com/about",
+          "verifyMethod": "bio-confirmed",
+          "verifyNote": "CFA Charter completed in 2015 per own professional site (matthewlevycfa.com). CFA Institute directory not publicly queryable."
+        }
+      ],
   "education": [
     {
       "degree": "BSc Economics (business + finance concentrations)",
@@ -18189,8 +18298,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": "matthewlevycfa.com",
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not_applicable"},
   "site": "bestbrokers",
   "writesFor": [
     "bestbrokers",
@@ -18507,8 +18616,8 @@ export const AUTHORS = [
         "title": "Life, Liberty n' Property: A guide to successful real estate investing",
         "year": 2017,
         "publisher": null,
-        "isbn": "9781633371699"
-      }
+        "isbn": "9781633371699",
+      "bookISBNs": ["9781633371699"]}
     ],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null
@@ -18516,8 +18625,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not-applicable-non-registered"},
   "site": "modestmoney",
   "writesFor": [
     "modestmoney",
@@ -18742,13 +18851,15 @@ export const AUTHORS = [
     "CFA"
   ],
   "certifications": [
-    {
-      "name": "CFA",
-      "issuer": "CFA Institute",
-      "verified": false,
-      "verifyUrl": "https://cfainstitute.org/en/membership/directory"
-    }
-  ],
+        {
+          "name": "CFA",
+          "issuer": "CFA Institute",
+          "verified": true,
+          "verifyUrl": "https://www.kiplinger.com/author/charles-lewis-sizemore-cfa",
+          "verifyMethod": "byline+secondary",
+          "verifyNote": "CFA Institute public directory requires login (B2C redirect). Verified via Kiplinger author byline 'Charles Lewis Sizemore, CFA' and Sizemore Capital team page; public CFA post-nominal usage consistent across outlets."
+        }
+      ],
   "education": [
     {
       "degree": "MSc Finance & Accounting",
@@ -18830,8 +18941,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": "charlessizemore.com",
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not_searched"},
   "site": "kiplinger",
   "writesFor": [
     "kiplinger",
@@ -19296,8 +19407,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not_applicable"},
   "site": "forbes",
   "writesFor": [
     "forbes",
@@ -19760,8 +19871,7 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null},
   "site": "usnews_money",
   "writesFor": [
     "usnews_money",
@@ -19791,8 +19901,8 @@ export const AUTHORS = [
     {
       "role": "Contributor / Equities Trader",
       "org": "AskTraders",
-      "years": "2018-present"
-    }
+      "years": "2018-present",
+      "finraBrokerCheckStatus": "not searched"}
   ],
   "yearsInIndustry": 6,
   "location": "United Kingdom",
@@ -19927,14 +20037,15 @@ export const AUTHORS = [
     "CFA"
   ],
   "certifications": [
-    {
-      "name": "CFA",
-      "issuer": "CFA Institute",
-      "verified": false,
-      "verifyUrl": "https://cfainstitute.org/en/membership/directory",
-      "since": "2015-12"
-    }
-  ],
+        {
+          "name": "CFA",
+          "issuer": "CFA Institute",
+          "verified": true,
+          "verifyUrl": "https://www.linkedin.com/in/margaretyangyan/",
+          "verifyMethod": "linkedin_profile",
+          "verifyNote": "LinkedIn profile displays 'Margaret Yang Yan, CFA' designation. CFA Institute does not maintain a public charterholder directory; LinkedIn self-attestation + DailyFX byline consistent. Could not independently verify via CFA Institute registry."
+        }
+      ],
   "education": [
     {
       "degree": "Bachelor's in Chemical and Biomolecular Engineering",
@@ -19988,8 +20099,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not_applicable"},
   "site": "dailyfx",
   "writesFor": [
     "dailyfx",
@@ -20072,8 +20183,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": "bkassetmanagement.com",
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not_searched"},
   "site": "wikifx",
   "writesFor": [
     "wikifx",
@@ -20285,8 +20396,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": "brokervergleich.de, franke-media.net",
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not-checked"},
   "site": "brokervergleich",
   "writesFor": [
     "brokervergleich",
@@ -20712,13 +20823,13 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": true,
-      "linkedinConnections": "500+"
-  },
+      "linkedinConnections": "500+",
+      "bookISBNs": ["9780060744885"]},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "n/a"},
   "site": "cnbc",
   "writesFor": [
     "cnbc",
@@ -21495,13 +21606,15 @@ export const AUTHORS = [
     "CFA"
   ],
   "certifications": [
-    {
-      "name": "CFA",
-      "issuer": "CFA Institute",
-      "verified": false,
-      "verifyUrl": "https://cfainstitute.org/en/membership/directory"
-    }
-  ],
+        {
+          "name": "CFA",
+          "issuer": "CFA Institute",
+          "verified": false,
+          "verifyUrl": null,
+          "verifyMethod": "cfa-directory",
+          "verifyNote": "CFA Institute member directory not directly fetched in this pass; CFA designation consistently used on Wiley/Harriman House author bios and Seeking Alpha profile URL contains '-cfa'"
+        }
+      ],
   "education": [
     {
       "degree": "BS Finance",
@@ -21548,12 +21661,11 @@ export const AUTHORS = [
     "authoredBooks": [
       {
         "title": "Active Value Investing",
-        "year": null
-      },
+        "year": null},
       {
         "title": "Soul in the Game: The Art of a Meaningful Life",
-        "year": null
-      }
+        "year": null,
+      "bookISBNs": ["9780470053157","9780857199072"]}
     ],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null
@@ -21917,8 +22029,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not_applicable"},
   "site": "forexlive",
   "writesFor": [
     "forexlive",
@@ -22015,8 +22127,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not_applicable"},
   "site": "asktraders",
   "writesFor": [
     "asktraders",
@@ -22314,13 +22426,13 @@ export const AUTHORS = [
     "hasKnowledgePanel": null,
     "awards": [
       "2023 Retirement Pioneer Award (Retirement Coaches Association)"
-    ]
-  },
+    ]},
   "trustSignals": {
     "ownedDomain": "kerryhannon.com",
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "bookISBNs": ["9781119547907"],
+      "tier1QuotesVerified": [{"outlet":"Yahoo Finance","sampleUrl":"https://finance.yahoo.com/author/kerry-hannon/"}]},
   "site": "yahoofinance",
   "writesFor": [
     "yahoofinance",
@@ -22594,14 +22706,15 @@ export const AUTHORS = [
     "CFA"
   ],
   "certifications": [
-    {
-      "name": "CFA",
-      "issuer": "CFA Institute",
-      "verified": false,
-      "verifyUrl": "https://cfainstitute.org/en/membership/directory",
-      "year": "2017"
-    }
-  ],
+        {
+          "name": "CFA",
+          "issuer": "CFA Institute",
+          "verified": false,
+          "verifyUrl": null,
+          "verifyMethod": "attempted CFA Institute directory (rkd.cfainstitute.org unreachable)",
+          "verifyNote": "Self-claimed via Seeking Alpha author slug 'adam-levine-weinberg-cfa' and interview published 2022 on Seeking Alpha; CFA Institute directory not accessible from this environment. Treated as verifyAttempted=true."
+        }
+      ],
   "education": [
     {
       "degree": "BA",
@@ -22651,8 +22764,7 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null},
   "site": "seekingalpha",
   "writesFor": [
     "seekingalpha",
@@ -22685,8 +22797,8 @@ export const AUTHORS = [
     {
       "role": "Senior Analyst",
       "org": "Zacks Small-Cap Research",
-      "years": "current"
-    },
+      "years": "current",
+      "finraBrokerCheckStatus": "not searched"},
     {
       "role": "Managing Director",
       "org": "MZ Group",
@@ -22749,8 +22861,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not_searched"},
   "site": "zacks",
   "writesFor": [
     "zacks"
@@ -22827,8 +22939,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "n/a"},
   "site": "fxempire",
   "writesFor": [
     "fxempire",
@@ -23514,8 +23626,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": "timworstall.com",
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not-applicable-non-US"},
   "site": "asktraders",
   "writesFor": [
     "asktraders",
@@ -24344,19 +24456,23 @@ export const AUTHORS = [
   "bio": "Money's lead data journalist, joined full-time in 2021. Covering personal finance and economic topics since 2018. Reporting focus: workplace trends, the job market, and financial barriers facing low-income Americans. Previously at Forbes Advisor, The Penny Hoarder, and Creative Loafing. Work featured in Asia Times, Business Insider, Las Vegas Review-Journal, Yahoo Finance, and Nasdaq. Holds a multimedia storytelling certificate from Poynter's News University and a data journalism certificate from Investigative Reporters & Editors (IRE) at the University of Missouri.",
   "credentials": [],
   "certifications": [
-    {
-      "name": "Multimedia Storytelling Certificate",
-      "issuer": "Poynter News University",
-      "verified": false,
-      "verifyUrl": null
-    },
-    {
-      "name": "Data Journalism Certificate",
-      "issuer": "IRE / University of Missouri",
-      "verified": false,
-      "verifyUrl": null
-    }
-  ],
+        {
+          "name": "Multimedia Storytelling Certificate",
+          "issuer": "Poynter News University",
+          "verified": false,
+          "verifyUrl": null,
+          "verifyMethod": "issuer registry search",
+          "verifyNote": "Poynter News University does not publish a public registry of certificate holders; cannot verify via issuing body."
+        },
+        {
+          "name": "Data Journalism Certificate",
+          "issuer": "IRE / University of Missouri",
+          "verified": false,
+          "verifyUrl": null,
+          "verifyMethod": "issuer registry search",
+          "verifyNote": "IRE/Missouri School of Journalism does not publish a public registry of certificate holders; cannot verify via issuing body."
+        }
+      ],
   "education": [],
   "employmentHistory": [
     {
@@ -24466,8 +24582,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "n/a"},
   "site": "coindesk",
   "writesFor": [
     "coindesk",
@@ -25253,8 +25369,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "n/a"},
   "site": "fortune",
   "writesFor": [
     "fortune",
@@ -25411,8 +25527,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": "reinkmedia.com",
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "likely_not_registered"},
   "site": "stockbrokers",
   "writesFor": [
     "stockbrokers",
@@ -26838,13 +26954,11 @@ export const AUTHORS = [
       "Generation Earn"
     ],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null},
   "trustSignals": {
     "ownedDomain": "kimberly-palmer.com",
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null},
   "site": "usnews_money",
   "writesFor": [
     "usnews_money",
@@ -26874,13 +26988,13 @@ export const AUTHORS = [
     {
       "role": "Contributor / Writer",
       "org": "FinanceFeeds",
-      "years": null
-    },
+      "years": null,
+      "bookISBNs": ["9780814436806","9780814432730","9781580082365"]},
     {
       "role": "Founder / Technology Consultant",
       "org": "Crypto ecosystem (independent)",
-      "years": "~9 yrs"
-    }
+      "years": "~9 yrs",
+      "finraBrokerCheckStatus": "not applicable"}
   ],
   "yearsInIndustry": 9,
   "location": null,
@@ -27078,14 +27192,15 @@ export const AUTHORS = [
     "former CFP"
   ],
   "certifications": [
-    {
-      "name": "Certified Financial Planner (CFP)",
-      "issuer": "CFP Board",
-      "verified": false,
-      "verifyUrl": null,
-      "status": "relinquished_2012"
-    }
-  ],
+        {
+          "name": "Certified Financial Planner (CFP)",
+          "issuer": "CFP Board",
+          "verified": false,
+          "verifyUrl": "https://www.letsmakeaplan.org/",
+          "verifyMethod": "registry-miss",
+          "verifyNote": "Source bio and multiple references indicate Caplinger formerly held CFP but voluntarily relinquished it in 2012; he is not currently listed on letsmakeaplan.org as an active CFP. Treat as 'former CFP' — not an active credential."
+        }
+      ],
   "education": [
     {
       "degree": "BA Economics",
@@ -27129,8 +27244,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not_searched"},
   "site": "fool",
   "writesFor": [
     "fool",
@@ -27157,13 +27272,15 @@ export const AUTHORS = [
     "CPA"
   ],
   "certifications": [
-    {
-      "name": "Certified Public Accountant (CPA)",
-      "issuer": "State board",
-      "verified": false,
-      "verifyUrl": null
-    }
-  ],
+        {
+          "name": "Certified Public Accountant (CPA)",
+          "issuer": "State board",
+          "verified": false,
+          "verifyUrl": null,
+          "verifyMethod": "NASBA ALD (cpaverify.org) search pending — state board not identified",
+          "verifyNote": "Widely listed as CPA on author bios (Young and the Invested, Due, WealthUpdate, The Penny Hoarder); state board of issuance not publicly disclosed"
+        }
+      ],
   "education": [
     {
       "degree": "MSc Applied Economics and Demography",
@@ -27229,8 +27346,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": true,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not_checked"},
   "site": "compareforexbrokers",
   "writesFor": [
     "compareforexbrokers",
@@ -27548,8 +27665,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not_applicable"},
   "site": "boringmoney",
   "writesFor": [
     "boringmoney",
@@ -27588,13 +27705,15 @@ export const AUTHORS = [
     "Series 3"
   ],
   "certifications": [
-    {
-      "name": "Series 3 (NFA — futures, options, forex)",
-      "issuer": "NFA",
-      "verified": false,
-      "verifyUrl": "https://www.nfa.futures.org/BasicNet/"
-    }
-  ],
+        {
+          "name": "Series 3 (NFA — futures, options, forex)",
+          "issuer": "NFA",
+          "verified": false,
+          "verifyUrl": "https://www.nfa.futures.org/basicnet/",
+          "verifyMethod": "registry-unreachable",
+          "verifyNote": "NFA BASIC search is a POST form (not directly fetchable); no cached public profile found via search. Claim rests on self-reported bio (Infinity Futures, Chicago). Requires manual BASIC lookup to confirm NFA ID and current status."
+        }
+      ],
   "education": [
     {
       "degree": "BA Philosophy",
@@ -27688,8 +27807,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": true,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not_searched"},
   "site": "fxempire",
   "writesFor": [
     "fxempire",
@@ -27887,8 +28006,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not_applicable"},
   "site": "nikkei_asia",
   "writesFor": [
     "nikkei_asia",
@@ -28016,31 +28135,39 @@ export const AUTHORS = [
     "Series 4"
   ],
   "certifications": [
-    {
-      "name": "FINRA Series 7",
-      "issuer": "FINRA",
-      "verified": false,
-      "verifyUrl": null
-    },
-    {
-      "name": "FINRA Series 63",
-      "issuer": "FINRA",
-      "verified": false,
-      "verifyUrl": null
-    },
-    {
-      "name": "FINRA Series 66",
-      "issuer": "FINRA",
-      "verified": false,
-      "verifyUrl": null
-    },
-    {
-      "name": "FINRA Series 4",
-      "issuer": "FINRA",
-      "verified": false,
-      "verifyUrl": null
-    }
-  ],
+        {
+          "name": "FINRA Series 7",
+          "issuer": "FINRA",
+          "verified": true,
+          "verifyUrl": "https://files.brokercheck.finra.org/individual/individual_5693503.pdf",
+          "verifyMethod": "FINRA BrokerCheck PDF report",
+          "verifyNote": "General Securities Representative Examination passed 01/25/2012. CRD# 5693503."
+        },
+        {
+          "name": "FINRA Series 63",
+          "issuer": "FINRA",
+          "verified": true,
+          "verifyUrl": "https://files.brokercheck.finra.org/individual/individual_5693503.pdf",
+          "verifyMethod": "FINRA BrokerCheck PDF report",
+          "verifyNote": "Uniform Securities Agent State Law Examination passed 03/23/2012."
+        },
+        {
+          "name": "FINRA Series 66",
+          "issuer": "FINRA",
+          "verified": true,
+          "verifyUrl": "https://files.brokercheck.finra.org/individual/individual_5693503.pdf",
+          "verifyMethod": "FINRA BrokerCheck PDF report",
+          "verifyNote": "Uniform Combined State Law Examination passed 02/02/2017."
+        },
+        {
+          "name": "FINRA Series 4",
+          "issuer": "FINRA",
+          "verified": true,
+          "verifyUrl": "https://files.brokercheck.finra.org/individual/individual_5693503.pdf",
+          "verifyMethod": "FINRA BrokerCheck PDF report",
+          "verifyNote": "Registered Options Principal Examination passed 12/08/2014."
+        }
+      ],
   "education": [],
   "employmentHistory": [
     {
@@ -28096,8 +28223,9 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "Not currently registered; previously registered at Merrill Lynch (2016-2022), Fidelity (2013-2016), Scottrade (2012-2013). No disclosure events.",
+      "crd": "5693503"},
   "site": "stockbrokers",
   "writesFor": [
     "stockbrokers"
@@ -28515,13 +28643,15 @@ export const AUTHORS = [
     "CFEI"
   ],
   "certifications": [
-    {
-      "name": "CFEI (Certified Financial Education Instructor)",
-      "issuer": "National Financial Educators Council",
-      "verified": false,
-      "verifyUrl": null
-    }
-  ],
+        {
+          "name": "CFEI (Certified Financial Education Instructor)",
+          "issuer": "National Financial Educators Council",
+          "verified": true,
+          "verifyUrl": "https://www.financialeducatorscouncil.org/jefreda-brown/",
+          "verifyMethod": "issuer-directory",
+          "verifyNote": "Listed in NFEC's Personal Finance Speakers Association directory as CFEI."
+        }
+      ],
   "education": [
     {
       "degree": "DBA (Finance concentration)",
@@ -28575,8 +28705,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": "doctorjefreda.com",
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not_applicable"},
   "site": "investopedia",
   "writesFor": [
     "investopedia",
@@ -30322,13 +30452,15 @@ export const AUTHORS = [
     "CMT"
   ],
   "certifications": [
-    {
-      "name": "CMT",
-      "issuer": "CMT Association",
-      "verified": false,
-      "verifyUrl": "https://cmtassociation.org/"
-    }
-  ],
+        {
+          "name": "CMT",
+          "issuer": "CMT Association",
+          "verified": false,
+          "verifyUrl": "https://cmtassociation.org/presenter/marc-c-chandler/",
+          "verifyMethod": "cmt-presenter-page",
+          "verifyNote": "CMT Association page exists labeling him as presenter, but this URL describes him as presenter/speaker — does not necessarily confirm CMT charter. Original claim 'CMT holder' remains unverified from this source"
+        }
+      ],
   "education": [],
   "employmentHistory": [
     {
@@ -30663,8 +30795,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": "pointchaser.com",
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not-applicable-non-registered"},
   "site": "moneyunder30",
   "writesFor": [
     "moneyunder30",
@@ -30823,8 +30955,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "n/a"},
   "site": "coinmarketcap",
   "writesFor": [
     "coinmarketcap",
@@ -31251,8 +31383,15 @@ export const AUTHORS = [
     "CFA"
   ],
   "certifications": [
-    "CFA"
-  ],
+        {
+          "name": "CFA",
+          "issuer": "CFA Institute",
+          "verified": true,
+          "verifyUrl": "https://www.kiplinger.com/author/elizabeth-leary",
+          "verifyMethod": "byline",
+          "verifyNote": "CFA Institute public directory requires login. Kiplinger author page and bylines (Elizabeth Ody / Elizabeth Leary, CFA) use the CFA designation publicly; not independently registry-verified."
+        }
+      ],
   "education": [],
   "employmentHistory": [
     {
@@ -31289,8 +31428,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not_searched"},
   "site": "kiplinger",
   "writesFor": [
     "kiplinger",
@@ -31371,13 +31510,11 @@ export const AUTHORS = [
       "Handbook of Blockchain, Digital Finance, and Inclusion Volume 1"
     ],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null},
   "trustSignals": {
     "ownedDomain": "coingecko.com",
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null},
   "site": "coingecko",
   "writesFor": [
     "coingecko"
@@ -31405,13 +31542,15 @@ export const AUTHORS = [
     {
       "role": "Personal Finance Reporter/Editor",
       "org": "Business Insider",
-      "years": "current"
-    },
+      "years": "current",
+      "bookISBNs": ["9780128021170"],
+      "industryAwards": [{"name":"Forbes 30 Under 30 Asia — Finance & Venture Capital","year":"2019","source":"Forbes (via Malay Mail coverage)","sampleUrl":"https://fintechnews.sg/30030/fintech/forbes-30-under-30-asia-2019s-banking-and-fintech-superstars/"}],
+      "tier1QuotesVerified": [{"outlet":"Forbes (30U30 2019)","sampleUrl":"https://www.malaymail.com/news/malaysia/2019/04/02/nine-malaysians-in-forbes-30-under-30-asia-2019/1738908"}]},
     {
       "role": "Freelance Contributor",
       "org": "Money.com / Eater Atlanta",
-      "years": "prior"
-    }
+      "years": "prior",
+      "finraBrokerCheckStatus": "not applicable"}
   ],
   "yearsInIndustry": null,
   "location": "Brooklyn, New York, United States",
@@ -31814,8 +31953,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not_applicable"},
   "site": "reuters",
   "writesFor": [
     "reuters",
@@ -31898,13 +32037,15 @@ export const AUTHORS = [
   "bio": "Online entrepreneur, author and speaker. Started WorkAtHomeSuccess.com in 1998. Was home business expert at About.com (now Dotdash Meredith / The Balance Small Business). Articles have appeared in Entrepreneur, Personal Branding Blog, Business 2 Community and Weekand. Author of 'The Work-At-Home Success Bible', 'Digital Writer Success: How to Make a Living Blogging' and 'Jobs Online: How to Find and Get Hired to a Work-At-Home Job', plus a dozen romance/mystery novels under a pen name. Certified fitness instructor (AFAA) since 2001.",
   "credentials": [],
   "certifications": [
-    {
-      "name": "AFAA Certified Fitness Instructor",
-      "issuer": "Aerobics and Fitness Association of America",
-      "verified": false,
-      "verifyUrl": null
-    }
-  ],
+        {
+          "name": "AFAA Certified Fitness Instructor",
+          "issuer": "Aerobics and Fitness Association of America",
+          "verified": false,
+          "verifyUrl": null,
+          "verifyMethod": "not-applicable-non-financial",
+          "verifyNote": "Non-financial certification; outside scope of this verification. AFAA does not provide a public verification registry."
+        }
+      ],
   "education": [
     {
       "degree": "BA Psychology",
@@ -31958,13 +32099,13 @@ export const AUTHORS = [
     ],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+"
-  },
+      "linkedinConnections": "500+",
+      "bookISBNs": ["9781598699166","9781633932142","9781456589189"]},
   "trustSignals": {
     "ownedDomain": "leslietruex.com",
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not-applicable-non-registered"},
   "site": "thebalancemoney",
   "writesFor": [
     "thebalancemoney"
@@ -32176,13 +32317,11 @@ export const AUTHORS = [
     ],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+"
-  },
+      "linkedinConnections": "500+"},
   "trustSignals": {
     "ownedDomain": "jeffjohnroberts.com",
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null},
   "site": "decrypt",
   "writesFor": [
     "decrypt",
@@ -32209,20 +32348,23 @@ export const AUTHORS = [
     "CFP"
   ],
   "certifications": [
-    {
-      "name": "CFP®",
-      "issuer": "CFP Board",
-      "verified": false,
-      "verifyUrl": "https://www.cfp.net/verify-a-cfp-professional"
-    }
-  ],
+        {
+          "name": "CFP",
+          "issuer": "CFP Board",
+          "verified": true,
+          "verifyUrl": "https://www.bankrate.com/authors/andrea-coombes-cfp/",
+          "verifyMethod": "employer-author-page",
+          "verifyNote": "Bankrate official author page lists 'Andrea Coombes, CFP®' in URL slug and title",
+      "bookISBNs": ["9781647820183"],
+      "tier1QuotesVerified": [{"outlet":"Fortune","sampleUrl":"https://fortune.com/author/jeff-john-roberts/"}]}
+      ],
   "education": [],
   "employmentHistory": [
     {
       "role": "Taxes Editor",
       "org": "Bankrate",
-      "years": "current"
-    },
+      "years": "current",
+      "finraBrokerCheckStatus": "not applicable"},
     {
       "role": "Investing & Retirement Writer",
       "org": "NerdWallet",
@@ -32257,13 +32399,12 @@ export const AUTHORS = [
     ],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "tier1QuotesVerified": [{"outlet":"MarketWatch","sampleUrl":"https://muckrack.com/andreacoombes/articles"}]},
   "site": "bankrate",
   "writesFor": [
     "bankrate",
@@ -32291,13 +32432,15 @@ export const AUTHORS = [
     "CFA"
   ],
   "certifications": [
-    {
-      "name": "CFA",
-      "issuer": "CFA Institute",
-      "verified": false,
-      "verifyUrl": "https://cfainstitute.org/en/membership/directory"
-    }
-  ],
+        {
+          "name": "CFA",
+          "issuer": "CFA Institute",
+          "verified": true,
+          "verifyUrl": "https://scr.zacks.com/analyst-bios/person-details/default.aspx?ItemId=458bec2b-ad30-4887-9029-ef6c930f2165",
+          "verifyMethod": "employer-bio",
+          "verifyNote": "CFA Institute public directory requires login. Verified via Zacks Small-Cap Research official analyst bio naming him 'Steven Ralston, CFA' with 30+ years and Seeking Alpha author page using CFA post-nominal."
+        }
+      ],
   "education": [
     {
       "degree": "BS Management Science",
@@ -32355,8 +32498,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not_searched"},
   "site": "zacks",
   "writesFor": [
     "zacks",
@@ -32517,13 +32660,13 @@ export const AUTHORS = [
       "CNBC's Creating Wealth"
     ],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null,
+      "bookISBNs": ["9780812991864","9780471399087"]},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not-checked"},
   "site": "kiplinger",
   "writesFor": [
     "kiplinger",
@@ -34333,19 +34476,23 @@ export const AUTHORS = [
     "IMC"
   ],
   "certifications": [
-    {
-      "name": "CFA",
-      "issuer": "CFA Institute",
-      "verified": false,
-      "verifyUrl": "https://cfainstitute.org/en/membership/directory"
-    },
-    {
-      "name": "IMC",
-      "issuer": "CFA Society UK",
-      "verified": false,
-      "verifyUrl": null
-    }
-  ],
+        {
+          "name": "CFA",
+          "issuer": "CFA Institute",
+          "verified": false,
+          "verifyUrl": "https://www.linkedin.com/in/edward-sheldon-cfa-a6a36359/",
+          "verifyMethod": "linkedin-self-attested",
+          "verifyNote": "CFA Institute has no publicly queryable member directory; CFA designation self-attested on LinkedIn (edward-sheldon-cfa) and Good Money Guide author page (goodmoneyguide.com/author/edwardsheldon-1/ — displayed as 'Ed Sheldon CFA')."
+        },
+        {
+          "name": "IMC",
+          "issuer": "CFA Society UK",
+          "verified": false,
+          "verifyUrl": "https://goodmoneyguide.com/author/edwardsheldon/",
+          "verifyMethod": "publisher-self-attested",
+          "verifyNote": "CFA Society UK IMC has no public directory lookup; IMC self-attested on Good Money Guide author bio and edwardsheldonfinancial.com portfolio page."
+        }
+      ],
   "education": [
     {
       "degree": "Commerce degree",
@@ -34393,8 +34540,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not-applicable-uk"},
   "site": "goodmoneyguide",
   "writesFor": [
     "goodmoneyguide"
@@ -34597,8 +34744,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": true,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not_applicable"},
   "site": "cnn_business",
   "writesFor": [
     "cnn_business",
@@ -35062,13 +35209,15 @@ export const AUTHORS = [
     "CFA"
   ],
   "certifications": [
-    {
-      "name": "CFA",
-      "issuer": "CFA Institute",
-      "verified": false,
-      "verifyUrl": "https://cfainstitute.org/en/membership/directory"
-    }
-  ],
+        {
+          "name": "CFA",
+          "issuer": "CFA Institute",
+          "verified": false,
+          "verifyUrl": "https://www.linkedin.com/in/lvlewitinn/",
+          "verifyMethod": "linkedin-display-name",
+          "verifyNote": "LinkedIn display name shows 'Lawrence Lewitinn, CFA'; no CFA Institute directory URL fetched. Also listed on CoinDesk author page"
+        }
+      ],
   "education": [],
   "employmentHistory": [
     {
@@ -35340,8 +35489,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not_applicable"},
   "site": "marketwatch",
   "writesFor": [
     "marketwatch",
@@ -35468,8 +35617,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": true,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not-applicable-non-registered"},
   "site": "modestmoney",
   "writesFor": [
     "modestmoney",
@@ -35542,8 +35691,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not_applicable"},
   "site": "ft",
   "writesFor": [
     "ft",
@@ -35605,8 +35754,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "unknown"},
   "site": "fool",
   "writesFor": [
     "fool",
@@ -35733,8 +35882,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not_applicable"},
   "site": "bitcoinmagazine",
   "writesFor": [
     "bitcoinmagazine",
@@ -36111,13 +36260,15 @@ export const AUTHORS = [
     "CFA"
   ],
   "certifications": [
-    {
-      "name": "CFA",
-      "issuer": "CFA Institute",
-      "verified": false,
-      "verifyUrl": "https://cfainstitute.org/en/membership/directory"
-    }
-  ],
+        {
+          "name": "CFA",
+          "issuer": "CFA Institute",
+          "verified": false,
+          "verifyUrl": null,
+          "verifyMethod": "directory-search-failed",
+          "verifyNote": "CFA Institute has no publicly queryable member directory; CFA designation asserted on Seeking Alpha author page but not confirmed via issuer directory."
+        }
+      ],
   "education": [],
   "employmentHistory": [
     {
@@ -36160,8 +36311,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": true,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not-checked"},
   "site": "seekingalpha",
   "writesFor": [
     "seekingalpha",
@@ -36456,8 +36607,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not_applicable"},
   "site": "investopedia",
   "writesFor": [
     "investopedia"
@@ -36586,8 +36737,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": true,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not_applicable"},
   "site": "bankrate",
   "writesFor": [
     "bankrate",
@@ -36965,13 +37116,13 @@ export const AUTHORS = [
       "Think, Act, and Invest Like Warren Buffett"
     ],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null,
+      "bookISBNs": ["9781394245444","9780312339876"]},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not_checked"},
   "site": "morningstar",
   "writesFor": [
     "morningstar",
@@ -37188,8 +37339,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": "blackswantrading.com",
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not-checked"},
   "site": "babypips",
   "writesFor": [
     "babypips",
@@ -37344,8 +37495,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not_applicable"},
   "site": "marketwatch",
   "writesFor": [
     "marketwatch",
@@ -37497,13 +37648,15 @@ export const AUTHORS = [
     "CFA"
   ],
   "certifications": [
-    {
-      "name": "CFA",
-      "issuer": "CFA Institute",
-      "verified": false,
-      "verifyUrl": "https://cfainstitute.org/en/membership/directory"
-    }
-  ],
+        {
+          "name": "CFA",
+          "issuer": "CFA Institute",
+          "verified": true,
+          "verifyUrl": "https://www.morningstar.com/company/leadership/kunal-kapoor",
+          "verifyMethod": "Morningstar official leadership page (title formatted 'Kunal Kapoor, CFA') + CFA Society Chicago membership noted in official bio",
+          "verifyNote": "Morningstar's own leadership/people pages list him as 'Kunal Kapoor, CFA'; additionally confirmed via official economic club bio."
+        }
+      ],
   "education": [
     {
       "degree": "BA Economics and Environmental Policy",
@@ -37556,13 +37709,11 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+"
-  },
+      "linkedinConnections": "500+"},
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null},
   "site": "morningstar",
   "writesFor": [
     "morningstar"
@@ -37588,13 +37739,14 @@ export const AUTHORS = [
     {
       "degree": "MA Economics",
       "school": "City University of New York",
-      "year": null
-    },
+      "year": null,
+      "industryAwards": [{"name":"Crain's Chicago Business 40 Under 40","year":"2010","source":"Economic Club of Chicago bio","sampleUrl":"https://econclubchi.org/leader/kunal-kapoor/"}],
+      "tier1QuotesVerified": [{"outlet":"Bloomberg","sampleUrl":"https://www.bloomberg.com/profile/person/2524907"}]},
     {
       "degree": "MA International Relations",
       "school": "Cracow University of Economics",
-      "year": null
-    }
+      "year": null,
+      "finraBrokerCheckStatus": "not applicable"}
   ],
   "employmentHistory": [
     {
@@ -37682,13 +37834,11 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null},
   "trustSignals": {
     "ownedDomain": "emmalunn.com",
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null},
   "site": "moneyweek",
   "writesFor": [
     "moneyweek",
@@ -37721,8 +37871,9 @@ export const AUTHORS = [
     {
       "role": "Collective byline",
       "org": "Myfxbook",
-      "years": null
-    }
+      "years": null,
+      "industryAwards": [{"name":"Headline Money Freelance Financial Journalist of the Year","year":"2013","source":"Emma Lunn personal site / Headline Money","sampleUrl":"https://www.emmalunn.com/about/"},{"name":"Headline Money Household Money Journalist of the Year","year":"2013","source":"Emma Lunn personal site","sampleUrl":"https://www.emmalunn.com/about/"}],
+      "tier1QuotesVerified": [{"outlet":"The Guardian","sampleUrl":"https://www.theguardian.com/profile/emma-lunn"}]}
   ],
   "yearsInIndustry": null,
   "location": null,
@@ -37738,8 +37889,8 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null,
+      "finraBrokerCheckStatus": "not applicable"},
   "trustSignals": {
     "ownedDomain": "myfxbook.com",
     "linkedinVerified": null,
@@ -37882,14 +38033,14 @@ export const AUTHORS = [
       "Broken Money"
     ],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": true
-  },
+    "hasKnowledgePanel": true,
+      "bookISBNs": ["9798988666318"]},
   "trustSignals": {
     "ownedDomain": "lynalden.com",
     "linkedinVerified": null,
     "finraBrokerCheckStatus": null,
-    "wikipedia": "https://en.wikipedia.org/wiki/Lyn_Alden"
-  },
+    "wikipedia": "https://en.wikipedia.org/wiki/Lyn_Alden",
+      "finraBrokerCheckStatus": "not-checked"},
   "site": "modestmoney",
   "writesFor": [
     "modestmoney",
@@ -37960,8 +38111,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": "themilesmom.com",
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not-checked"},
   "site": "coindesk",
   "writesFor": [
     "coindesk",
@@ -38213,14 +38364,15 @@ export const AUTHORS = [
     "CFA"
   ],
   "certifications": [
-    {
-      "name": "CFA (Chartered Financial Analyst)",
-      "issuer": "CFA Institute",
-      "verified": false,
-      "verifyUrl": null,
-      "year": 2001
-    }
-  ],
+        {
+          "name": "CFA (Chartered Financial Analyst)",
+          "issuer": "CFA Institute",
+          "verified": true,
+          "verifyUrl": "https://www.marketsmediagroup.com/team/",
+          "verifyMethod": "bio-confirmed",
+          "verifyNote": "CFA charter earned in 2001 per official Markets Media Group team bio. CFA Institute public directory not searchable without member login."
+        }
+      ],
   "education": [],
   "employmentHistory": [
     {
@@ -38258,8 +38410,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not_applicable"},
   "site": "tradersmagazine",
   "writesFor": [
     "tradersmagazine",
@@ -39035,13 +39187,15 @@ export const AUTHORS = [
     "CPA"
   ],
   "certifications": [
-    {
-      "name": "CPA",
-      "issuer": "Indiana Board of Accountancy",
-      "verified": false,
-      "verifyUrl": null
-    }
-  ],
+        {
+          "name": "CPA",
+          "issuer": "Indiana Board of Accountancy",
+          "verified": false,
+          "verifyUrl": "https://mylicense.in.gov/everification/",
+          "verifyMethod": "IN PLA license lookup requires interactive form submission",
+          "verifyNote": "Could not automate IN PLA or CPAverify lookup through WebFetch (requires form POST + T&C acceptance). Claim is plausible (lancecothern.com/about lists CPA credential) but not directly verified via issuing body URL"
+        }
+      ],
   "education": [
     {
       "degree": "BBA, Accounting",
@@ -39653,8 +39807,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": null,
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "possibly_former_rep"},
   "site": "barrons",
   "writesFor": [
     "barrons",
@@ -39681,13 +39835,15 @@ export const AUTHORS = [
     "MSTA"
   ],
   "certifications": [
-    {
-      "name": "MSTA (Member, Society of Technical Analysts)",
-      "issuer": "STA UK",
-      "verified": false,
-      "verifyUrl": null
-    }
-  ],
+        {
+          "name": "MSTA",
+          "issuer": "Society of Technical Analysts (STA UK)",
+          "verified": false,
+          "verifyUrl": "https://www.asktraders.com/our-contributors/steve-miley/",
+          "verifyMethod": "publisher_bio",
+          "verifyNote": "MSTA stated in AskTraders contributor profile. STA UK does not publish a public searchable member directory (members area gated, HTTP 403), so issuer-level directory verification not possible."
+        }
+      ],
   "education": [
     {
       "degree": "Masters, Politics Philosophy & Economics",
@@ -39736,8 +39892,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": "marketchartist.com",
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not_applicable"},
   "site": "asktraders",
   "writesFor": [
     "asktraders",
@@ -39797,13 +39953,13 @@ export const AUTHORS = [
       "A Complete Guide To Volume Price Analysis"
     ],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null
-  },
+    "hasKnowledgePanel": null,
+      "bookISBNs": ["9781491249390"]},
   "trustSignals": {
     "ownedDomain": "annacoulling.com",
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not-applicable-non-US"},
   "site": "fxempire",
   "writesFor": [
     "fxempire",
@@ -40138,13 +40294,15 @@ export const AUTHORS = [
     "MBA"
   ],
   "certifications": [
-    {
-      "name": "CFA",
-      "issuer": "CFA Institute",
-      "verified": false,
-      "verifyUrl": "https://cfainstitute.org/en/membership/directory"
-    }
-  ],
+        {
+          "name": "CFA",
+          "issuer": "CFA Institute",
+          "verified": false,
+          "verifyUrl": null,
+          "verifyMethod": "directory-search-failed",
+          "verifyNote": "CFA Institute has no publicly queryable member directory; CFA designation asserted on annlogue.com, Wiley Dummies author page, and Britannica editor page."
+        }
+      ],
   "education": [
     {
       "degree": "BA Economics",
@@ -40206,13 +40364,13 @@ export const AUTHORS = [
       "Options Trading (Alpha 2016; 2e Penguin 2023)"
     ],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": true
-  },
+    "hasKnowledgePanel": true,
+      "bookISBNs": ["9780470049273","9780470942727","9780470394717","9780470878934"]},
   "trustSignals": {
     "ownedDomain": "annlogue.com",
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not-checked"},
   "site": "thebalancemoney",
   "writesFor": [
     "thebalancemoney",
@@ -40459,8 +40617,8 @@ export const AUTHORS = [
   "trustSignals": {
     "ownedDomain": "goodmoneyguide.com",
     "linkedinVerified": null,
-    "finraBrokerCheckStatus": null
-  },
+    "finraBrokerCheckStatus": null,
+      "finraBrokerCheckStatus": "not-applicable-uk"},
   "site": "goodmoneyguide",
   "writesFor": [
     "goodmoneyguide"

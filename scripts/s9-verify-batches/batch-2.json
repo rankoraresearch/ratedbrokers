@@ -1,0 +1,1087 @@
+[
+  {
+    "id": "alana-benson",
+    "name": "Alana Benson",
+    "role": "Editor & Content Strategist",
+    "site": "nerdwallet",
+    "outletName": "NerdWallet",
+    "bio": "6+ years at NerdWallet. Covers investing for beginners, crypto, stocks, SRI, mutual funds, HSAs. 70+ articles, 28.4M readers. Dual BA English + Classical Civ (UVM). ex-LexisNexis, Rosen Publishing. Frequent 'Smart Money' podcast contributor. Published 2 books on identity theft + YA nonfiction titles.",
+    "credentials": [],
+    "certifications": [],
+    "education": [
+      {
+        "degree": "Dual BA English + Classical Civilizations",
+        "school": "University of Vermont",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 6,
+    "mediaSignals": {
+      "authoredBooks": [
+        {
+          "isbn": null,
+          "title": "2 books on identity theft (ISBN TBD Pass 2)"
+        }
+      ],
+      "quotedInTier1": [
+        "NYT",
+        "Washington Post",
+        "AP",
+        "MSN",
+        "Yahoo Finance",
+        "MarketWatch"
+      ],
+      "tvAppearances": [
+        "FOX Houston"
+      ]
+    },
+    "linkedin": "https://www.linkedin.com/in/alana-benson/",
+    "personalSite": null,
+    "authorUrl": "https://www.nerdwallet.com/author/alana-benson",
+    "eeatTier": "A",
+    "finalScore": 124
+  },
+  {
+    "id": "matt-peterson",
+    "name": "Matt Peterson",
+    "role": "Lead Commentary / Ideas Editor (former Barron's) — now Senior Economics Writer at CNBC",
+    "site": "barrons",
+    "outletName": "Barron's",
+    "bio": "Politics, policy, and ideas editor at Barron's; oversaw guest commentary across Barron's, MarketWatch, Mansion Global, Penta. Joined Barron's from The Atlantic, where he launched The Masthead digital membership program. Prior: Eurasia Group, World Politics Review, Yale University. Recently moved to CNBC as Senior Economics Writer.",
+    "credentials": [],
+    "certifications": [],
+    "education": [
+      {
+        "degree": null,
+        "school": "Yale University (affiliation)",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": null,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "Barron's",
+        "CNBC",
+        "The Atlantic"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/matt-peterson-057327a/",
+    "personalSite": "https://www.mattpeterson.me",
+    "authorUrl": "https://www.mattpeterson.me",
+    "eeatTier": "A",
+    "finalScore": 123
+  },
+  {
+    "id": "james-royal",
+    "name": "James Royal",
+    "role": "Principal Writer, Investing & Wealth — Bankrate (Red Ventures); author",
+    "site": "bankrate",
+    "outletName": "Bankrate",
+    "bio": "Principal writer and editor at Bankrate (Red Ventures) covering investing, financial markets, wealth management, cryptocurrency and retirement topics (IRAs, 401(k) plans, Social Security). At Bankrate since 2019. Ph.D. Author of two books: 'The Zen of Thrift Conversions' and 'Options Trading 101' (both published by Simon & Schuster). Previously editor and analyst at The Motley Fool. Has been investing for 20+ years (since the dot-com era). Focuses on behavioral finance as a key driver of financial outcomes. Work cited by CNBC, The Washington Post, The New York Times, and the Associated Press. ",
+    "credentials": [
+      "Ph.D."
+    ],
+    "certifications": [],
+    "education": [
+      {
+        "degree": "Ph.D.",
+        "school": null,
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 20,
+    "mediaSignals": {
+      "authoredBooks": [
+        "The Zen of Thrift Conversions",
+        "Options Trading 101"
+      ],
+      "quotedInTier1": [
+        "CNBC",
+        "The Washington Post",
+        "The New York Times",
+        "Associated Press"
+      ],
+      "tvAppearances": [
+        "Jeopardy"
+      ]
+    },
+    "linkedin": "https://www.linkedin.com/in/james-royal-phd/",
+    "personalSite": null,
+    "authorUrl": "https://www.bankrate.com/authors/james-royal/",
+    "eeatTier": "A",
+    "finalScore": 123
+  },
+  {
+    "id": "natalie-campisi",
+    "name": "Natalie Campisi",
+    "role": "Senior Reporter — Personal Finance & Mortgages (Forbes Advisor)",
+    "site": "forbes",
+    "outletName": "Forbes",
+    "bio": "Senior Reporter at Forbes Advisor covering personal finance, mortgages, consumer finance, cybersecurity and consumer debt. Los Angeles-based creative writer and journalist. Previously Senior Mortgage Reporter at Bankrate Inc. (Jan 2017 – Jul 2020). Earlier positions at Associated Press and The Tampa Tribune. Her Forbes Advisor article 'From Inherent Racial Bias to Incorrect Data—The Problems with Current Credit Scoring Models' cited 16+ times including by CFPB and National Fair Housing Alliance.",
+    "credentials": [],
+    "certifications": [],
+    "education": [],
+    "yearsInIndustry": 15,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "AP"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/nataliecampisi/",
+    "personalSite": null,
+    "authorUrl": "https://muckrack.com/natalie-campisi",
+    "eeatTier": "A",
+    "finalScore": 123
+  },
+  {
+    "id": "blain-reinkensmeyer",
+    "name": "Blain Reinkensmeyer",
+    "role": "Co-Founder & Managing Partner — Reink Media Group; Head of Research — StockBrokers.com",
+    "site": "stockbrokers",
+    "outletName": "StockBrokers.com",
+    "bio": "Co-founder and Partner at Reink Media Group (parent of StockBrokers.com, ForexBrokers.com, investor.com, StockTrader.com) and Head of Research at StockBrokers.com. 20+ years of trading experience, with thousands of trades placed. Created the original StockBrokers.com scoring rubric in 2011 and has headed every annual review since inception. Founded StockTrader.com (educational blog, now merged into StockBrokers.com). Author of 'The Interactive Guide to Technical Analysis'. Named to Crain's Detroit Business 'Top 20 in their 20s' (2009, age 22). Quoted in NYT, WSJ, Forbes, Chicago Tribune and Fa",
+    "credentials": [],
+    "certifications": [],
+    "education": [],
+    "yearsInIndustry": 20,
+    "mediaSignals": {
+      "authoredBooks": [
+        "The Interactive Guide to Technical Analysis"
+      ],
+      "quotedInTier1": [
+        "The New York Times",
+        "The Wall Street Journal",
+        "Forbes",
+        "Chicago Tribune",
+        "Fast Company",
+        "New York Times",
+        "Wall Street Journal"
+      ],
+      "tvAppearances": [
+        "TD Ameritrade Network"
+      ]
+    },
+    "linkedin": "https://www.linkedin.com/in/blainreinkensmeyer/",
+    "personalSite": "https://www.reinkmedia.com/",
+    "authorUrl": "https://www.stockbrokers.com/about/blain-reinkensmeyer",
+    "eeatTier": "S",
+    "finalScore": 123
+  },
+  {
+    "id": "caleb-silver-investopedia",
+    "name": "Caleb Silver",
+    "role": "Editor-in-Chief & SVP Content — Investopedia",
+    "site": "investopedia",
+    "outletName": "Investopedia",
+    "bio": "Editor-in-Chief of Investopedia (Dotdash Meredith brand) since 2016. Award-winning media executive with more than 20 years of experience in business news, digital publishing and documentaries. Host of The Investopedia Express podcast. Began his business-news career at Bloomberg in 1997 as a senior television producer (Emmy-nominated in 2003 for 'Showdown on Secrecy'). Previously Director of Business News at CNN and Executive Producer of CNN Money, and a senior producer on The Situation Room with Wolf Blitzer. Left CNN in 2014 to form Frog Pond Productions. Joined Investopedia in January 2016 a",
+    "credentials": [],
+    "certifications": [],
+    "education": [
+      {
+        "degree": "BA",
+        "school": "Colgate University",
+        "year": null
+      },
+      {
+        "degree": "MA Journalism",
+        "school": "NYU Arthur L. Carter Journalism Institute",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 28,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "MSNBC",
+        "Marketplace",
+        "NBC",
+        "ABC Radio",
+        "Yahoo Finance"
+      ],
+      "tvAppearances": [
+        "MSNBC",
+        "NBC",
+        "CNN"
+      ]
+    },
+    "linkedin": "https://www.linkedin.com/in/caleb-silver-9639585/",
+    "personalSite": null,
+    "authorUrl": null,
+    "eeatTier": "A",
+    "finalScore": 123
+  },
+  {
+    "id": "venessa-wong-marketwatch",
+    "name": "Venessa Wong",
+    "role": "Personal Finance Reporter — MarketWatch",
+    "site": "marketwatch",
+    "outletName": "MarketWatch",
+    "bio": "Personal Finance Reporter at MarketWatch based in New York City. Previously spent 8 years at BuzzFeed News (most recently Senior Reporter, Deputy Business & Tech Editor) writing about money and spending. Before BuzzFeed was an Associate Editor at Bloomberg Businessweek. Four years based in China earlier in career.",
+    "credentials": [],
+    "certifications": [],
+    "education": [
+      {
+        "degree": "MS Journalism",
+        "school": "Columbia Journalism School",
+        "year": null
+      },
+      {
+        "degree": "BA",
+        "school": "Middlebury College",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 15,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "Bloomberg Businessweek",
+        "BuzzFeed News"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/venessawwong/",
+    "personalSite": null,
+    "authorUrl": "https://muckrack.com/venessawwong",
+    "eeatTier": "A",
+    "finalScore": 123
+  },
+  {
+    "id": "katie-martin-ft",
+    "name": "Katie Martin",
+    "role": "Columnist & Editorial Board Member — Financial Times; Co-host, Unhedged (podcast)",
+    "site": "ft",
+    "outletName": "Financial Times",
+    "bio": "Columnist and member of the Financial Times editorial board, writing the Long View column on market trends. Previously FT Markets Editor. Co-host of the Unhedged podcast (Financial Times & Pushkin Industries) with Robert Armstrong — a markets-focused twice-weekly show. London-based. Ex-WSJ / Dow Jones. No longer posts on X; active on Bluesky as @katie0martin.",
+    "credentials": [],
+    "certifications": [],
+    "education": [],
+    "yearsInIndustry": 20,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "FT",
+        "WSJ",
+        "CNBC",
+        "Yahoo Finance"
+      ],
+      "tvAppearances": [
+        "TradeTech Europe (WBR) speaker"
+      ]
+    },
+    "linkedin": null,
+    "personalSite": null,
+    "authorUrl": "https://muckrack.com/katie-martin-3",
+    "eeatTier": "A",
+    "finalScore": 122
+  },
+  {
+    "id": "kshitij-anand",
+    "name": "Kshitij Anand",
+    "role": "Editor — ETMarkets (The Economic Times); host of Mind Over Money, Smart Talk, Trade Talk, PMS Talk, AIF Talk",
+    "site": "economictimes",
+    "outletName": "The Economic Times",
+    "bio": "Editor at ETMarkets (The Economic Times) leading market coverage for Indian retail and institutional audiences. Host of flagship ETMarkets video series: Mind Over Money, Smart Talk, Trade Talk, PMS Talk, and AIF Talk. Host of ETMarkets Morning Podcast (IMDb credited since 2017). Began financial journalism career in 2008. CFA charterholder (ICFAI) + MS Finance. HIGH RELEVANCE for India broker market.",
+    "credentials": [
+      "CFA"
+    ],
+    "certifications": [
+      {
+        "name": "CFA (ICFAI)",
+        "issuer": "ICFAI University",
+        "claimed": true
+      },
+      {
+        "name": "MS Finance",
+        "issuer": null,
+        "claimed": true
+      }
+    ],
+    "education": [
+      {
+        "degree": "CFA",
+        "school": "ICFAI University",
+        "year": null
+      },
+      {
+        "degree": "MS Finance",
+        "school": null,
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 17,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [],
+      "tvAppearances": [
+        "ETMarkets Morning Podcast"
+      ]
+    },
+    "linkedin": "https://in.linkedin.com/in/kshitij-anand-cfa-icfai-ms-finance-32a190a",
+    "personalSite": null,
+    "authorUrl": "https://muckrack.com/kshitij-anand",
+    "eeatTier": "A",
+    "finalScore": 121
+  },
+  {
+    "id": "margaret-yang",
+    "name": "Margaret Yang Yan, CFA",
+    "role": "Strategist — DailyFX / IG",
+    "site": "dailyfx",
+    "outletName": "DailyFX",
+    "bio": "Strategist at DailyFX (IG Group's partner site for FX news and analysis). 9+ years of dealing and trading experience in equities, fund management and CFDs. Deep understanding of multiple asset classes including equities, bonds, treasuries, FX, cryptocurrencies and commodities. Previously with CMC Markets Singapore and PhillipCapital. Frequent media contributor: Bloomberg, Reuters, BBC, Channel News Asia, Financial Times, Straits Times, Business Times, WSJ. Conducts trading lectures and speaks at investment conferences across APAC.",
+    "credentials": [
+      "CFA"
+    ],
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute",
+        "claimed": true
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor's in Chemical and Biomolecular Engineering",
+        "school": "Nanyang Technological University",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 9,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "Bloomberg",
+        "Reuters",
+        "BBC",
+        "FT",
+        "WSJ"
+      ],
+      "tvAppearances": [
+        "Channel News Asia",
+        "BBC"
+      ]
+    },
+    "linkedin": "https://sg.linkedin.com/in/margaretyangyan",
+    "personalSite": null,
+    "authorUrl": "https://www.dailyfx.com/authors/Margaret_Yang",
+    "eeatTier": "A",
+    "finalScore": 121
+  },
+  {
+    "id": "ben-levisohn",
+    "name": "Ben Levisohn",
+    "role": "Editor in Chief (was Senior Managing Editor)",
+    "site": "barrons",
+    "outletName": "Barron's",
+    "bio": "Editor in Chief of Barron's (appointed 2025). 15-year veteran of Dow Jones. Most recently served as Senior Managing Editor and was the driving force behind Barron's Investor Circle premium experience. Began career as Wall Street equities trader, spending seven years at Worldco and Lynx Capital Partners. Joined Dow Jones in 2010 as a reporter for the Weekend Investor section of The Wall Street Journal; joined Barron's in 2012 as an emerging markets writer before transitioning to U.S. markets. Penned Barron's popular Streetwise and Trader columns for a decade. Based in New York.",
+    "credentials": [],
+    "certifications": [],
+    "education": [],
+    "yearsInIndustry": 20,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "Wall Street Journal",
+        "Barron's"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/ben-levisohn-5586972/",
+    "personalSite": null,
+    "authorUrl": null,
+    "eeatTier": "A",
+    "finalScore": 121
+  },
+  {
+    "id": "claer-barrett",
+    "name": "Claer Barrett",
+    "role": "Consumer Editor / Associate Editor — Financial Times (Money Clinic podcast host)",
+    "site": "ft",
+    "outletName": "Financial Times",
+    "bio": "Associate Editor and Consumer Editor at Financial Times. Presents weekly Money Clinic podcast and writes the Serious Money column in FT Weekend. 15+ years as consumer/personal finance journalist. Author of 'What They Don't Teach You About Money' (2023). ITV Lorraine contributor, LBC & BBC Radio personality. Trustee at FLIC (Financial Literacy & Inclusion Campaign).",
+    "credentials": [],
+    "certifications": [],
+    "education": [],
+    "yearsInIndustry": 15,
+    "mediaSignals": {
+      "authoredBooks": [
+        "What They Don't Teach You About Money"
+      ],
+      "quotedInTier1": [
+        "FT"
+      ],
+      "tvAppearances": [
+        "ITV Lorraine",
+        "BBC Radio",
+        "LBC"
+      ]
+    },
+    "linkedin": "https://uk.linkedin.com/in/claer-barrett-74088414",
+    "personalSite": "https://www.claerbarrett.com/",
+    "authorUrl": "https://www.ft.com/claer-barrett",
+    "eeatTier": "A",
+    "finalScore": 120
+  },
+  {
+    "id": "larry-swedroe-morningstar",
+    "name": "Larry Swedroe",
+    "role": "Contributor — Director of Research, Buckingham Strategic Wealth",
+    "site": "morningstar",
+    "outletName": "Morningstar",
+    "bio": "Principal and Director of Research at Buckingham Strategic Wealth / Buckingham Strategic Partners since 1996. Responsible for reviewing academic research and translating it into investment strategy. Before Buckingham was Vice Chairman of Prudential Home Mortgage and SVP/Regional Treasurer at Citicorp (treasury, FX, investment banking, risk management). Author/co-author of 18 books on evidence-based investing — including 'The Only Guide to a Winning Investment Strategy You'll Ever Need,' 'What Wall Street Doesn't Want You to Know,' 'Think, Act, and Invest Like Warren Buffett,' and capstone 'Enr",
+    "credentials": [],
+    "certifications": [],
+    "education": [
+      {
+        "degree": "BBA Finance",
+        "school": "Baruch College",
+        "year": null
+      },
+      {
+        "degree": "MBA Finance and Investment",
+        "school": "New York University",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 40,
+    "mediaSignals": {
+      "authoredBooks": [
+        "Enrich Your Future",
+        "The Only Guide to a Winning Investment Strategy You'll Ever Need",
+        "What Wall Street Doesn't Want You to Know",
+        "Think, Act, and Invest Like Warren Buffett"
+      ],
+      "quotedInTier1": [
+        "Morningstar",
+        "Wealth Management",
+        "Seeking Alpha"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/larry-swedroe-18778267/",
+    "personalSite": null,
+    "authorUrl": "https://www.morningstar.com/people/larry-swedroe",
+    "eeatTier": "A",
+    "finalScore": 120
+  },
+  {
+    "id": "andrew-hayward-decrypt",
+    "name": "Andrew Hayward",
+    "role": "Managing Editor",
+    "site": "decrypt",
+    "outletName": "Decrypt",
+    "bio": "Managing Editor at Decrypt since 2019. 15-year freelance career prior, with bylines at Rolling Stone, Vice, Playboy, and Polygon. Has also worked on a film and several books. Holds some NFTs but no significant crypto holdings.",
+    "credentials": [],
+    "certifications": [],
+    "education": [],
+    "yearsInIndustry": 15,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "Rolling Stone"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/andrewhayward/",
+    "personalSite": null,
+    "authorUrl": "https://decrypt.co/author/andrew-hayward",
+    "eeatTier": "A",
+    "finalScore": 119
+  },
+  {
+    "id": "richard-perry",
+    "name": "Richard Perry",
+    "role": "Founder — Perry Market Analysis; Contributor — BestBrokers, AskTraders",
+    "site": "bestbrokers",
+    "outletName": "BestBrokers",
+    "bio": "London-based market analyst and equities trader with over 20 years in financial markets. Founder of Perry Market Analysis, providing consultancy, research, webinars and written analysis on forex, commodities, CFDs and macro to brokers and financial websites. Former lead analyst at Hantec Markets (2013-2021) and INFINOX (2021-2023). Regular fixture on CNBC and Bloomberg TV. Expertise spans technical and fundamental analysis with focus on major forex pairs, commodities, CFDs and Bitcoin.",
+    "credentials": [
+      "Private Client Investment Advice & Management (with merit)",
+      "Society of Technical Analysts diploma (with distinction)"
+    ],
+    "certifications": [],
+    "education": [],
+    "yearsInIndustry": 20,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "CNBC",
+        "Bloomberg TV"
+      ],
+      "tvAppearances": [
+        "CNBC",
+        "Bloomberg TV"
+      ]
+    },
+    "linkedin": "https://www.linkedin.com/in/richard-perry-5918921b/",
+    "personalSite": "https://www.perrymarketanalysis.com/",
+    "authorUrl": "https://www.bestbrokers.com/authors/richard-perry/",
+    "eeatTier": "A",
+    "finalScore": 119
+  },
+  {
+    "id": "omar-sacirbey",
+    "name": "Omar Sacirbey",
+    "role": "Startups Investing Editor",
+    "site": "benzinga",
+    "outletName": "Benzinga",
+    "bio": "Startups Investing Editor at Benzinga (joined Sep 2025). Award-winning journalist — two-time Tabbie Award winner (2021, 2023, Trade Association of Business Publications International). Nearly 10 years at Marijuana Business Daily (writer/editor). Previously a 10-year correspondent for Religion News Service and a diplomat for the Foreign Ministry of Bosnia and Herzegovina. Columbia Journalism School graduate, 1997. Work published in New York Times, Washington Post, Newsweek, Forbes. Third place, American Academy of Religion Best Newswriting Contest (2006).",
+    "credentials": [],
+    "certifications": [],
+    "education": [
+      {
+        "degree": "Graduate degree, Journalism",
+        "school": "Columbia Journalism School",
+        "year": 1997
+      }
+    ],
+    "yearsInIndustry": 29,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "New York Times",
+        "Washington Post",
+        "Newsweek",
+        "Forbes"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/omar-sacirbey-94428531/",
+    "personalSite": "http://www.omarsacirbey.com/",
+    "authorUrl": "https://www.benzinga.com/money/author/omar",
+    "eeatTier": "A",
+    "finalScore": 118
+  },
+  {
+    "id": "doug-boneparth",
+    "name": "Doug Boneparth",
+    "role": "CFP — Investopedia Advisor Council; CFP Board Ambassador (NY)",
+    "site": "investopedia",
+    "outletName": "Investopedia",
+    "bio": "President and founder of Bone Fide Wealth, LLC. Became one of the youngest CERTIFIED FINANCIAL PLANNER™ professionals in the country early in his career. Member of the Investopedia Advisor Council (founding group of 25 paid contributors) and CNBC Advisor Council. CFP Board Ambassador for New York. Media source on Millennial finance — appearances on CNBC's On The Money, Nightly Business Report, ABC's World News Tonight, Good Morning America, Cheddar; quoted in New York Times and Wall Street Journal.",
+    "credentials": [
+      "CFP",
+      "AIF",
+      "MBA"
+    ],
+    "certifications": [
+      {
+        "name": "CFP",
+        "issuer": "CFP Board",
+        "claimed": true
+      },
+      {
+        "name": "AIF",
+        "issuer": "Fi360",
+        "claimed": true
+      }
+    ],
+    "education": [
+      {
+        "degree": "MBA",
+        "school": null,
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 15,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "New York Times",
+        "Wall Street Journal",
+        "CNBC"
+      ],
+      "tvAppearances": [
+        "CNBC (On The Money)",
+        "Nightly Business Report",
+        "ABC (World News Tonight)",
+        "ABC (Good Morning America)",
+        "Cheddar"
+      ]
+    },
+    "linkedin": "https://www.linkedin.com/in/douglasboneparth",
+    "personalSite": null,
+    "authorUrl": "https://www.cnbc.com/douglas-a-boneparth/",
+    "eeatTier": "S",
+    "finalScore": 118
+  },
+  {
+    "id": "jesse-hamilton-coindesk",
+    "name": "Jesse Hamilton",
+    "role": "Deputy Managing Editor, Global Policy & Regulation — CoinDesk",
+    "site": "coindesk",
+    "outletName": "CoinDesk",
+    "bio": "Deputy Managing Editor on CoinDesk's Global Policy and Regulation team, based in Washington, D.C. Joined CoinDesk in 2022 after more than a decade at Bloomberg News and Businessweek covering Wall Street regulation — including early federal deliberations on crypto policy. Prior career as a war correspondent in Iraq and as a police reporter, earning multiple national honours. Graduate of Western Washington University (journalism and history). Has a Wikipedia entry (Jesse A. Hamilton).",
+    "credentials": [],
+    "certifications": [],
+    "education": [
+      {
+        "degree": "Journalism & History (undergraduate)",
+        "school": "Western Washington University",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 20,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "Bloomberg",
+        "Businessweek"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/jessehamilton/",
+    "personalSite": null,
+    "authorUrl": "https://www.coindesk.com/author/jesse-hamilton",
+    "eeatTier": "A",
+    "finalScore": 118
+  },
+  {
+    "id": "riley-adams",
+    "name": "Riley Adams",
+    "role": "Chief Editor and Writer — CompareForexBrokers; Founder/CEO Young and the Invested",
+    "site": "compareforexbrokers",
+    "outletName": "CompareForexBrokers",
+    "bio": "Chief Editor of CompareForexBrokers.com and Senior Financial Analyst at Google (Alphabet), leading advertising incentive programs for key partners. Licensed CPA. Founder and CEO of Young and the Invested, a personal finance platform for young investors and parents. Previously Regulatory Strategy Analyst at Entergy Corporation in New Orleans (6 yrs). Cited as authoritative source in CNBC, Time, NBC News, APM's Marketplace, HuffPost, Business Insider, NerdWallet, Investopedia, MarketWatch, Kiplinger, The Balance, Fast Company.",
+    "credentials": [
+      "CPA"
+    ],
+    "certifications": [
+      {
+        "name": "Certified Public Accountant (CPA)",
+        "issuer": "State board",
+        "claimed": true
+      }
+    ],
+    "education": [
+      {
+        "degree": "MSc Applied Economics and Demography",
+        "school": "Pennsylvania State University",
+        "year": null
+      },
+      {
+        "degree": "BA Economics",
+        "school": "Centenary College of Louisiana",
+        "year": null
+      },
+      {
+        "degree": "BS Business Administration and Finance",
+        "school": "Centenary College of Louisiana",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 12,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "CNBC",
+        "Time",
+        "NBC News",
+        "HuffPost",
+        "Business Insider",
+        "MarketWatch"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/riley-adams-cpa",
+    "personalSite": "https://youngandtheinvested.com/",
+    "authorUrl": "https://www.compareforexbrokers.com/about-us/riley-adams/",
+    "eeatTier": "S",
+    "finalScore": 118
+  },
+  {
+    "id": "michael-hewson",
+    "name": "Michael Hewson",
+    "role": "Senior Financial Strategist — iFOREX / Contributor — Good Money Guide (ex-Chief Market Analyst CMC Markets, 15+ yrs)",
+    "site": "goodmoneyguide",
+    "outletName": "Good Money Guide",
+    "bio": "Market analyst with 30+ years in financial markets, focused on both technical and fundamental analysis. Spent 16+ years at CMC Markets (10+ as Chief Market Analyst, based in London) before stepping down in 2024. Background in FX trading; before CMC spent 12+ years in market data, education and support. Now Senior Financial Strategist at iFOREX and podcast contributor / author at Good Money Guide. Regular face on Bloomberg, CNBC, BBC, CNN, Fox Business. City AM Analyst of the Year nominations (2019, 2021).",
+    "credentials": [
+      "MSTA",
+      "CFTe"
+    ],
+    "certifications": [
+      {
+        "name": "MSTA",
+        "issuer": "Society of Technical Analysts",
+        "claimed": true
+      },
+      {
+        "name": "CFTe",
+        "issuer": "International Federation of Technical Analysts",
+        "claimed": true
+      }
+    ],
+    "education": [],
+    "yearsInIndustry": 30,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "Bloomberg",
+        "CNBC",
+        "BBC",
+        "CNN",
+        "Fox Business"
+      ],
+      "tvAppearances": [
+        "Bloomberg",
+        "CNBC",
+        "BBC",
+        "CNN",
+        "Fox Business"
+      ]
+    },
+    "linkedin": "https://uk.linkedin.com/in/michael-hewson-0991432",
+    "personalSite": null,
+    "authorUrl": "https://goodmoneyguide.com/author/michael-hewson/",
+    "eeatTier": "S",
+    "finalScore": 117
+  },
+  {
+    "id": "will-daniel",
+    "name": "Will Daniel",
+    "role": "Senior Reporter — Fortune (former)",
+    "site": "fortune",
+    "outletName": "Fortune",
+    "bio": "Senior reporter covering markets and the economy. At Fortune magazine since March 2022, covering markets and the economy; per Talking Biz News, has since departed Fortune. Previously at Markets Insider, Markitors and Seeking Alpha. Holds an MS in Business Journalism from Arizona State University's Walter Cronkite School of Journalism and Mass Communication. Bylines at Yahoo Entertainment, Business Insider and Markets Insider.",
+    "credentials": [],
+    "certifications": [],
+    "education": [
+      {
+        "degree": "MS Business Journalism",
+        "school": "Arizona State University — Walter Cronkite School of Journalism and Mass Communication",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": null,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "Fortune",
+        "Business Insider",
+        "Markets Insider",
+        "Yahoo"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/willbdaniel/",
+    "personalSite": null,
+    "authorUrl": "https://fortune.com/author/will-daniel/",
+    "eeatTier": "A",
+    "finalScore": 117
+  },
+  {
+    "id": "manish-jaradi",
+    "name": "Manish Jaradi",
+    "role": "Strategist, DailyFX / IG",
+    "site": "dailyfx",
+    "outletName": "DailyFX",
+    "bio": "20 years experience identifying market opportunities across timeframes; 14 years as an investment strategist at private banks in Singapore. Joined IG Asia in Singapore and began contributing to DailyFX in 2022. Master's in Development Economics (University of London, UK) and Master's in Financial Services Management (University of Mumbai, India). Chartered Market Technician (CMT) and Certified Financial Technician (CFTe).",
+    "credentials": [
+      "CMT",
+      "CFTe"
+    ],
+    "certifications": [
+      {
+        "name": "CMT",
+        "issuer": "CMT Association",
+        "claimed": true
+      },
+      {
+        "name": "CFTe",
+        "issuer": "IFTA",
+        "claimed": true
+      }
+    ],
+    "education": [
+      {
+        "degree": "MSc Development Economics",
+        "school": "University of London",
+        "year": null
+      },
+      {
+        "degree": "MSc Financial Services Management",
+        "school": "University of Mumbai",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 20,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [],
+      "tvAppearances": []
+    },
+    "linkedin": "https://sg.linkedin.com/in/manish-jaradi-b7643438",
+    "personalSite": null,
+    "authorUrl": "https://www.dailyfx.com/authors/Manish_Jaradi",
+    "eeatTier": "A",
+    "finalScore": 116
+  },
+  {
+    "id": "jeff-ostrowski",
+    "name": "Jeff Ostrowski",
+    "role": "Writer & Housing Market Analyst",
+    "site": "bankrate",
+    "outletName": "Bankrate",
+    "bio": "20+ years covering real estate, business, economy and politics. Writer and Housing Market Analyst at Bankrate. Previously at the Palm Beach Post and South Florida Business Journal. Board member of the National Association of Real Estate Editors (2019-2025); two NAREE gold awards; Best in Business award from the Society for Advancing Business Editing and Writing. Authored 'How to Buy a Home in a Miserable Market'. Quoted in NYT, CNN, Cheddar, NTD.",
+    "credentials": [
+      "NMLS MLO"
+    ],
+    "certifications": [
+      {
+        "name": "NMLS Mortgage Loan Originator (SAFE Test)",
+        "issuer": "NMLS",
+        "claimed": true
+      }
+    ],
+    "education": [
+      {
+        "degree": "BS",
+        "school": "University of Illinois at Urbana-Champaign",
+        "year": null
+      },
+      {
+        "degree": "MA",
+        "school": "University of Illinois at Springfield",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 20,
+    "mediaSignals": {
+      "authoredBooks": [
+        "How to Buy a Home in a Miserable Market"
+      ],
+      "quotedInTier1": [
+        "NYT",
+        "CNN"
+      ],
+      "tvAppearances": [
+        "CNN Early Start",
+        "Cheddar",
+        "NTD"
+      ]
+    },
+    "linkedin": "https://www.linkedin.com/in/jeff-ostrowski-920b582/",
+    "personalSite": null,
+    "authorUrl": "https://www.bankrate.com/authors/jeff-ostrowski/",
+    "eeatTier": "A",
+    "finalScore": 116
+  },
+  {
+    "id": "danielle-park",
+    "name": "Danielle Park, CFA",
+    "role": "Portfolio Manager / Contributor",
+    "site": "seekingalpha",
+    "outletName": "Seeking Alpha",
+    "bio": "Chartered Financial Analyst and co-founder / Portfolio Manager at Venable Park Investment Counsel Inc., managing assets for high-net-worth Canadian families. Practiced law until 1997, then was recruited to an international securities firm. Author of the best-selling book 'Juggling Dynamite: An insider's wisdom on money management, markets and wealth that lasts' and maintains a daily financial blog at jugglingdynamite.com. Active Seeking Alpha contributor since 2014 (845+ analyses). Member of CFA Institute, Toronto Society of Financial Analysts, and Law Society of Upper Canada.",
+    "credentials": [
+      "CFA"
+    ],
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute",
+        "claimed": true
+      }
+    ],
+    "education": [],
+    "yearsInIndustry": 27,
+    "mediaSignals": {
+      "authoredBooks": [
+        "Juggling Dynamite: An insider's wisdom on money management, markets and wealth that lasts"
+      ],
+      "quotedInTier1": [],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/daniellepark/",
+    "personalSite": "https://jugglingdynamite.com/",
+    "authorUrl": "https://seekingalpha.com/author/danielle-park-cfa",
+    "eeatTier": "A",
+    "finalScore": 116
+  },
+  {
+    "id": "suzanne-woolley",
+    "name": "Suzanne Woolley",
+    "role": "Personal Finance Writer — Bloomberg Wealth team",
+    "site": "bloomberg",
+    "outletName": "Bloomberg",
+    "bio": "Personal finance writer on Bloomberg's Wealth team in New York, covering saving, investing, retirement, student loans, real estate, banking products and health insurance. Joined Bloomberg's Wealth team in 2018, initially focused on ultra-high-net-worth investors. Previously a personal finance writer and editor on Bloomberg's dedicated digital team, spearheading multi-platform retirement and investing projects. Joined Bloomberg in 2009 via the BusinessWeek acquisition, where she headed the magazine's personal finance section from 2005. Prior to that, editor and writer at Money magazine.",
+    "credentials": [],
+    "certifications": [],
+    "education": [],
+    "yearsInIndustry": 20,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "Bloomberg",
+        "BusinessWeek"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/suzwoolley/",
+    "personalSite": null,
+    "authorUrl": "https://www.bloomberg.com/authors/APy9hOTZv7o/suzanne-woolley",
+    "eeatTier": "A",
+    "finalScore": 116
+  },
+  {
+    "id": "sharon-epperson",
+    "name": "Sharon Epperson",
+    "role": "Senior Personal Finance Correspondent — CNBC",
+    "site": "cnbc",
+    "outletName": "CNBC",
+    "bio": "CNBC's Senior Personal Finance Correspondent and creator/editor of the 'Money 101 Newsletter'. Also appears on NBC News shows — Today and NBC Nightly News. Adjunct professor at Columbia University's School of International and Public Affairs. Began with CNBC in 1996. Expertise: saving and investing for retirement, paying for college, managing mortgage/student loan/credit card debt, building financial legacy through estate planning.",
+    "credentials": [],
+    "certifications": [],
+    "education": [
+      {
+        "degree": "(see Wikipedia — Smith College/Columbia tradition)",
+        "school": "Columbia University (adjunct faculty)",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 30,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "CNBC"
+      ],
+      "tvAppearances": [
+        "CNBC",
+        "NBC News (Today)",
+        "NBC Nightly News"
+      ]
+    },
+    "linkedin": "https://www.linkedin.com/in/sharoneppersoncnbc",
+    "personalSite": null,
+    "authorUrl": "https://www.cnbc.com/sharon-epperson/",
+    "eeatTier": "A",
+    "finalScore": 114
+  },
+  {
+    "id": "bob-mason-fxempire",
+    "name": "Bob Mason",
+    "role": "Author / Financial Consultant",
+    "site": "fxempire",
+    "outletName": "FXEmpire",
+    "bio": "Financial consultant and author at FX Empire since December 2016 with 28 years in the financial industry. Co-founder of VersatileQ, a boutique research and advisory firm focused on Asia. Previously managed regional teams across Europe and Asia at global rating agencies and multinational banks. Experience includes building index products for investment banks, risk management, analytics, and macroeconomic analysis. Ex-Research Analyst at IdealFX (S) Pte Ltd, Senhouse Asia, and family offices. Coverage includes FX, energy, equities, cryptocurrencies, credit. Regularly considers FX, geopolitical, ",
+    "credentials": [],
+    "certifications": [],
+    "education": [
+      {
+        "degree": "BSc Chemistry / Biology",
+        "school": "Oxford Brookes University",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 28,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "The Jerusalem Post",
+        "Huffington Post"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/bob-mason-6677192/",
+    "personalSite": null,
+    "authorUrl": "https://www.fxempire.com/author/bobmason",
+    "eeatTier": "A",
+    "finalScore": 114
+  },
+  {
+    "id": "daniel-phillips-coinmarketcap",
+    "name": "Daniel Phillips",
+    "role": "Cryptocurrency Writer — CoinMarketCap Academy",
+    "site": "coinmarketcap",
+    "outletName": "CoinMarketCap",
+    "bio": "Blockchain journalist, analyst and Solidity developer with cryptocurrency expertise since 2017. Started in crypto sector as Bitcoin miner in 2015. Masters in Regenerative Medicine before pivoting to blockchain. Specializes in DeSci, AI, DeFi, FHE and altcoin trends. Primary holdings: BTC, ETH, SOL, SUI. Previously wrote for Ledger, Decrypt, OKEx, BeInCrypto, Republic Crypto, and Cryptonews.",
+    "credentials": [],
+    "certifications": [],
+    "education": [
+      {
+        "degree": "Masters in Regenerative Medicine",
+        "school": null,
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 9,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/danielcrypto/",
+    "personalSite": "https://linktr.ee/akindofmind",
+    "authorUrl": "https://coinmarketcap.com/academy/author/daniel-phillips",
+    "eeatTier": "A",
+    "finalScore": 114
+  },
+  {
+    "id": "scott-murdoch-reuters",
+    "name": "Scott Murdoch",
+    "role": "Lead Writer, Asia Finance & Markets — Reuters",
+    "site": "reuters",
+    "outletName": "Reuters",
+    "bio": "Lead Writer for Asia Finance & Markets at Reuters (formerly Asia Capital Markets Correspondent). Journalist for more than two decades with Thomson Reuters and News Corp in Australia, specialising in financial journalism. Covers equity and debt capital markets across Asia and Australian M&A. Previously Data Room Co-Editor at The Australian (2017-2019) and China Correspondent in Beijing. Co-founder of @sandochracing. Based in Sydney.",
+    "credentials": [],
+    "certifications": [],
+    "education": [],
+    "yearsInIndustry": 22,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "Reuters",
+        "The Australian",
+        "News Corp"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": "https://au.linkedin.com/in/scott-murdoch-882b20146",
+    "personalSite": null,
+    "authorUrl": "https://muckrack.com/scott-murdoch",
+    "eeatTier": "A",
+    "finalScore": 114
+  },
+  {
+    "id": "anna-bahney-cnn",
+    "name": "Anna Bahney",
+    "role": "Housing & Personal Finance Reporter — CNN Business",
+    "site": "cnn_business",
+    "outletName": "CNN Business",
+    "bio": "Writer for CNN covering investments and real estate, focusing on traditional, alternative, real estate and cryptocurrency markets. Currently Housing & Personal Finance reporter at CNN Business. Prior: launched financial coverage at Mic; broke housing news during the financial crisis as real estate reporter for USA Today. Nearly a decade at The New York Times covering real estate, youth culture, travel; reported from ground zero on September 11, 2001. Fellow at Columbia Journalism Review.",
+    "credentials": [],
+    "certifications": [],
+    "education": [
+      {
+        "degree": "Bachelor's",
+        "school": "Emory University",
+        "year": null
+      },
+      {
+        "degree": "Master's in Journalism",
+        "school": "Columbia School of Journalism",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 20,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "NYT",
+        "USA Today"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/annabahney/",
+    "personalSite": "http://www.annabahney.com/about",
+    "authorUrl": "https://muckrack.com/annabahney",
+    "eeatTier": "A",
+    "finalScore": 114
+  }
+]

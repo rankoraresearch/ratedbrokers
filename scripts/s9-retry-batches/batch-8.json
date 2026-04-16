@@ -1,0 +1,220 @@
+[
+  {
+    "id": "eno-eteng",
+    "name": "Eno Eteng",
+    "role": "Market Research Consultant — 55brokers.com / Market Research Analyst — TradingBull.ai",
+    "outletName": "55Brokers",
+    "bio": "Certified Financial Technician (CFTe) and member of UK Society of Technical Analysts (MSTA). 15+ years creating content for financial markets since 2009. Has ghost-written 5,000+ articles for InvestooGroup, EasyMarkets, eToro, Spotware Systems (cTrader). Pioneer alumnus of Tony Elumelu Foundation Entrepreneurship Program (2015). Current: Market Research Consultant at 55brokers.com + Market Researc",
+    "certifications": [
+      {
+        "name": "Diploma in Technical Analysis",
+        "issuer": "UK Society of Technical Analysts"
+      },
+      {
+        "name": "MSTA",
+        "issuer": "Society of Technical Analysts"
+      },
+      {
+        "name": "Certificate in Management in Health",
+        "issuer": "World Bank Institute"
+      }
+    ],
+    "credentials": [
+      "DipTA",
+      "MSTA",
+      "CFTe"
+    ],
+    "education": [
+      {
+        "degree": "Diploma in Technical Analysis",
+        "school": "UK Society of Technical Analysts",
+        "year": "2019"
+      },
+      {
+        "degree": "Certificate in Management in Health",
+        "school": "World Bank Institute",
+        "year": "2015"
+      }
+    ],
+    "yearsInIndustry": 15,
+    "linkedin": "https://www.linkedin.com/in/dieumerc/"
+  },
+  {
+    "id": "dmitri-chavkerov",
+    "name": "Dmitri Chavkerov",
+    "role": "Founder / CEO — Forex Peace Army",
+    "outletName": "Forex Peace Army",
+    "bio": "Founder and CEO of Forex Peace Army, one of the largest foreign-exchange review websites and information portals globally, dedicated to investigating and exposing scams in the forex industry. Launched ForexDiamonds.com in 2006 sharing personal trading entries/exits (>100% annual return reported). In 2007 declined offers to manage USD 500M at Kingz Fund and two separate USD 100M private-equity mand",
+    "certifications": [],
+    "credentials": [],
+    "education": [],
+    "yearsInIndustry": 20,
+    "linkedin": null
+  },
+  {
+    "id": "darren-sinden",
+    "name": "Darren Sinden",
+    "role": "Market Analyst / Editor",
+    "outletName": "Good Money Guide",
+    "bio": "Editor & Financial Analyst at Good Money Guide with 35 years of experience across trading, sales, analytics and research in financial markets. Expertise: currency, CFDs, equities, derivatives. 260+ published guides. Media appearances: Bloomberg (UK), CNBC (UK), Reuters (UK), Tiptv, BNN (Canada), Asharq Bloomberg Arabia. Prior roles: Market Research & Client Relationships Manager at Admiral Markets",
+    "certifications": [],
+    "credentials": [],
+    "education": [],
+    "yearsInIndustry": 35,
+    "linkedin": "https://www.linkedin.com/in/darren-sinden-20018245/"
+  },
+  {
+    "id": "justin-freeman",
+    "name": "Justin Freeman",
+    "role": "Equities Trader / Contributor — AskTraders",
+    "outletName": "AskTraders",
+    "bio": "Active trader with 20+ years in financial markets. Roles at Citigroup, D.E. Shaw, and Millennium Capital Management — trader on $750m gross-exposure desk, Chief Risk Officer, COO of several hedge funds. Strategies: stat-arb, trend-following CTA, event-arbitrage, fixed-income relative value. Joined AskTraders July 2021.",
+    "certifications": [
+      {
+        "name": "Investment Management Certificate (IMC)",
+        "issuer": "CFA Society UK"
+      },
+      {
+        "name": "FCA Approved Investment Manager (CF27)",
+        "issuer": "Financial Conduct Authority (UK)"
+      }
+    ],
+    "credentials": [
+      "IMC",
+      "FCA CF27"
+    ],
+    "education": [
+      {
+        "degree": "Economics and Modern Economic History",
+        "school": "University of Birmingham",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 20,
+    "linkedin": "https://www.linkedin.com/in/justin-freeman-2a6935b"
+  },
+  {
+    "id": "anna-coulling",
+    "name": "Anna Coulling",
+    "role": "Contributor / Director Quantum Trading",
+    "outletName": "FXEmpire",
+    "bio": "Trader and investor with 20+ years experience. Began trading career in London trading FTSE100 futures through LIFFE exchange. Has traded virtually every market and instrument. Creator of the Volume Price Analysis (VPA) methodology — her book 'A Complete Guide to Volume Price Analysis' is a No.1 Best Seller in the Amazon International Foreign Exchange category. Director of Quantum Trading Limited. ",
+    "certifications": [],
+    "credentials": [],
+    "education": [],
+    "yearsInIndustry": 20,
+    "linkedin": null
+  },
+  {
+    "id": "matt-koppenheffer",
+    "name": "Matt Koppenheffer",
+    "role": "Former Head of Coverage Team (2012-2025)",
+    "outletName": "Motley Fool",
+    "bio": "Former full-time Motley Fool employee 2012-2025. Wrote for Fool.com, built Fool.de (Motley Fool Germany) from the ground up as chief, and most recently led AI content initiative. Co-author of 'The Astonishing Collapse of MF Global'. Creator and former co-host of Motley Fool's Industry Focus podcast. Views cited in FT, NYT, Toronto Star, Focus Money (Germany). Analysis appearances on CNBC and NPR.",
+    "certifications": [],
+    "credentials": [],
+    "education": [],
+    "yearsInIndustry": 13,
+    "linkedin": "https://www.linkedin.com/in/matt-koppenheffer-316b841/"
+  },
+  {
+    "id": "ariana-arghandewal-moneyunder30",
+    "name": "Ariana Arghandewal",
+    "role": "Contributor — MoneyUnder30 (founder, Pointchaser)",
+    "outletName": "Money Under 30",
+    "bio": "Travel-rewards expert and founder of award-winning blog Pointchaser. 13+ years writing about personal finance and travel rewards for Bankrate, NerdWallet, Fortune, Business Insider, Lonely Planet, The Points Guy, MoneyUnder30, and SlickDeals. Previously editor at The Points Guy, NerdWallet, and FlyerTalk. Focus on points, miles, rewards credit cards, travel credit cards.",
+    "certifications": [],
+    "credentials": [],
+    "education": [],
+    "yearsInIndustry": 13,
+    "linkedin": null
+  },
+  {
+    "id": "iain-davis",
+    "name": "Iain Davis",
+    "role": "Independent investigative journalist, author & blogger",
+    "outletName": "Bitcoin Magazine",
+    "bio": "UK-based independent investigative journalist, author and blogger, from Portsmouth. Contributor to Bitcoin Magazine, Unlimited Hangout, Geopolitics & Empire, UK Column, the Corbett Report, and OffGuardian. Published 'A Dangerous Ideology' (2018), 'Pseudopandemic' (2021), 'The Manchester Attack' (2024), and 'The Technocratic Dark State' (Papercut Publishing). Maintains personal site iaindavis.com a",
+    "certifications": [],
+    "credentials": [],
+    "education": [],
+    "yearsInIndustry": null,
+    "linkedin": null
+  },
+  {
+    "id": "bob-haegele-modestmoney",
+    "name": "Bob Haegele",
+    "role": "Freelance Personal Finance Writer — The Frugal Fellow",
+    "outletName": "Modest Money",
+    "bio": "Freelance personal finance writer and content creator. Founder of The Frugal Fellow (March 2018), a blog focused on frugal living and saving money. 7+ years producing research-backed copy on fintech, SMB, B2B and AI topics; has built a six-figure freelance career writing for WSJ, Business Insider, Forbes Advisor and TIME.com. Also publishes on Modest Money.",
+    "certifications": [],
+    "credentials": [],
+    "education": [
+      {
+        "degree": "BA Information Technology",
+        "school": "Marquette University",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 8,
+    "linkedin": "https://www.linkedin.com/in/rwhaegele/"
+  },
+  {
+    "id": "leslie-truex-thebalance",
+    "name": "Leslie Truex",
+    "role": "Home Business Expert (former About.com / The Balance Small Business)",
+    "outletName": "The Balance",
+    "bio": "Online entrepreneur, author and speaker. Started WorkAtHomeSuccess.com in 1998. Was home business expert at About.com (now Dotdash Meredith / The Balance Small Business). Articles have appeared in Entrepreneur, Personal Branding Blog, Business 2 Community and Weekand. Author of 'The Work-At-Home Success Bible', 'Digital Writer Success: How to Make a Living Blogging' and 'Jobs Online: How to Find a",
+    "certifications": [
+      {
+        "name": "AFAA Certified Fitness Instructor",
+        "issuer": "Aerobics and Fitness Association of America"
+      }
+    ],
+    "credentials": [],
+    "education": [
+      {
+        "degree": "BA Psychology",
+        "school": "Willamette University",
+        "year": null
+      },
+      {
+        "degree": "Master of Social Work",
+        "school": "California State University, Sacramento",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 25,
+    "linkedin": "https://www.linkedin.com/in/leslietruex/"
+  },
+  {
+    "id": "tim-worstall",
+    "name": "Tim Worstall",
+    "role": "Contributor — AskTraders / Senior Fellow Adam Smith Institute",
+    "outletName": "AskTraders",
+    "bio": "British-born writer and blogger, Senior Fellow of the Adam Smith Institute. Writes on environmentalism and economics, particularly corporate tax; contributions appear in the business press. Blogs at TimWorstall.com, the Adam Smith Institute blog, and Forbes. Has written for The Guardian, CapX, The Times, and The Wall Street Journal. Wholesaler of rare earth metals and one of the global experts in ",
+    "certifications": [],
+    "credentials": [],
+    "education": [],
+    "yearsInIndustry": 20,
+    "linkedin": null
+  },
+  {
+    "id": "john-delia",
+    "name": "John Delia",
+    "role": "Real Estate Investor & Contributor — Modest Money",
+    "outletName": "Modest Money",
+    "bio": "Dealmaker, entrepreneur, and strategist with almost 10 years as a millennial real estate investor. Raised, managed, and exited a $300K+ real estate investment fund by age 25; currently manages a $1M real estate portfolio. Studied City and Regional Planning at The Ohio State University; started his own investment firm at age 21. Originally from East Hills, NY; now based in Columbus, OH. Authored 'L",
+    "certifications": [],
+    "credentials": [],
+    "education": [
+      {
+        "degree": "City and Regional Planning",
+        "school": "The Ohio State University",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 10,
+    "linkedin": null
+  }
+]

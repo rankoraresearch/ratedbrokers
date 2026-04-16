@@ -1,0 +1,178 @@
+[
+  {
+    "id": "barbara-friedberg",
+    "name": "Barbara Friedberg",
+    "certifications": [],
+    "books": [
+      {
+        "title": "Invest and Beat the Pros - Create and Manage a Successful Investment Portfolio",
+        "isbn13": "9780988855540",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Invest-Pros-Create-Successful-Investment-Portfolio/dp/0988855542"
+      },
+      {
+        "title": "How to Get Rich; Without Winning the Lottery",
+        "isbn13": "9780988855519",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/How-Rich-Without-Winning-Lottery/dp/0988855518"
+      },
+      {
+        "title": "Personal Finance: An Encyclopedia of Modern Money Management",
+        "isbn13": "9781440830310",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Personal-Finance-Encyclopedia-Modern-Management/dp/1440830312"
+      }
+    ],
+    "trustSignals": {"finraBrokerCheckStatus": "not_applicable", "crd": null}
+  },
+  {
+    "id": "jon-dulin",
+    "name": "Jon Dulin",
+    "certifications": [
+      {
+        "name": "Series 65",
+        "issuer": "FINRA",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyMethod": "brokercheck_lookup",
+        "verifyNote": "No FINRA BrokerCheck record surfaced for Donald Jon Dulin; Series 65-only holders may not appear in BrokerCheck unless actively registered as IAR; self-reported on LinkedIn/Money Smart Guides About page."
+      },
+      {
+        "name": "Certificate in Financial Planning",
+        "issuer": "Mercyhurst University",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyMethod": "university_directory",
+        "verifyNote": "Internal university certificate program — no public issuing-body directory for third-party verification."
+      }
+    ],
+    "books": [],
+    "trustSignals": {"finraBrokerCheckStatus": "no_record_found", "crd": null}
+  },
+  {
+    "id": "chris-beauchamp",
+    "name": "Chris Beauchamp",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {"finraBrokerCheckStatus": "not_applicable", "crd": null}
+  },
+  {
+    "id": "ashlyn-brooks-bankrate",
+    "name": "Ashlyn Brooks",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {"finraBrokerCheckStatus": "not_applicable", "crd": null}
+  },
+  {
+    "id": "cherry-reynard",
+    "name": "Cherry Reynard",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {"finraBrokerCheckStatus": "not_applicable", "crd": null}
+  },
+  {
+    "id": "james-chen-investopedia",
+    "name": "James Chen",
+    "certifications": [
+      {
+        "name": "CMT",
+        "issuer": "CMT Association",
+        "verified": true,
+        "verifyUrl": "https://cmtassociation.org/presenter/james-chen/",
+        "verifyMethod": "issuer_directory",
+        "verifyNote": "CMT Association public presenter/profile page lists James Chen as CMT, CTA."
+      },
+      {
+        "name": "CFTe",
+        "issuer": "IFTA",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyMethod": "issuer_directory",
+        "verifyNote": "IFTA does not publish a searchable public CFTe holders directory; self-reported."
+      },
+      {
+        "name": "RIA",
+        "issuer": "SEC/state",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyMethod": "iapd_lookup",
+        "verifyNote": "RIA is a firm/IAR registration (not a certification); would require SEC IAPD lookup with specific CRD."
+      }
+    ],
+    "books": [
+      {
+        "title": "Essentials of Foreign Exchange Trading",
+        "isbn13": "9780470390863",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Essentials-Foreign-Exchange-Trading-James/dp/0470390867"
+      },
+      {
+        "title": "Essentials of Technical Analysis for Financial Markets",
+        "isbn13": "9780470537299",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Essentials-Technical-Analysis-Financial-Markets/dp/0470537299"
+      }
+    ],
+    "trustSignals": {"finraBrokerCheckStatus": "unknown", "crd": null}
+  },
+  {
+    "id": "kenji-kawase",
+    "name": "Kenji Kawase",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {"finraBrokerCheckStatus": "not_applicable", "crd": null}
+  },
+  {
+    "id": "arielle-oshea",
+    "name": "Arielle O'Shea",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {"finraBrokerCheckStatus": "not_applicable", "crd": null}
+  },
+  {
+    "id": "daniel-sparks-fool",
+    "name": "Daniel Sparks",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {"finraBrokerCheckStatus": "unknown", "crd": null}
+  },
+  {
+    "id": "kate-leaman",
+    "name": "Kate Leaman",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {"finraBrokerCheckStatus": "not_applicable", "crd": null}
+  },
+  {
+    "id": "jitan-solanki",
+    "name": "Jitan Solanki",
+    "certifications": [
+      {
+        "name": "MSTA",
+        "issuer": "Society of Technical Analysts (STA UK)",
+        "verified": false,
+        "verifyUrl": "https://www.fxempire.com/author/jitansolanski",
+        "verifyMethod": "publisher_bio",
+        "verifyNote": "MSTA listed in FXEmpire author bio under 'Charters and certifications'. STA UK does not publish a public searchable member directory (members area is gated, HTTP 403), so issuer-level directory verification not possible."
+      }
+    ],
+    "books": [],
+    "trustSignals": {"finraBrokerCheckStatus": "not_applicable", "crd": null}
+  },
+  {
+    "id": "steve-miley",
+    "name": "Steve Miley",
+    "certifications": [
+      {
+        "name": "MSTA",
+        "issuer": "Society of Technical Analysts (STA UK)",
+        "verified": false,
+        "verifyUrl": "https://www.asktraders.com/our-contributors/steve-miley/",
+        "verifyMethod": "publisher_bio",
+        "verifyNote": "MSTA stated in AskTraders contributor profile. STA UK does not publish a public searchable member directory (members area gated, HTTP 403), so issuer-level directory verification not possible."
+      }
+    ],
+    "books": [],
+    "trustSignals": {"finraBrokerCheckStatus": "not_applicable", "crd": null}
+  }
+]

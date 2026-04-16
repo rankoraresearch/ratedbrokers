@@ -1,0 +1,173 @@
+[
+  {
+    "id": "dan-kemp-morningstar",
+    "name": "Dan Kemp",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {}
+  },
+  {
+    "id": "molly-moorhead",
+    "name": "Molly Moorhead",
+    "certifications": [
+      {
+        "name": "CFP",
+        "issuer": "CFP Board",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyMethod": "letsmakeaplan.org search",
+        "verifyNote": "No public profile for 'Molly Moorhead' found in CFP Board letsmakeaplan.org directory. CFP claim appears in Penny Hoarder author bio but not confirmed in issuing-body registry."
+      },
+      {
+        "name": "CEPF",
+        "issuer": "Institute for Financial Literacy",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyMethod": "issuer search",
+        "verifyNote": "FinCert/Institute for Financial Literacy does not publish a public CEPF holder registry; cannot verify independently."
+      }
+    ],
+    "books": [],
+    "trustSignals": {}
+  },
+  {
+    "id": "robyn-a-friedman",
+    "name": "Robyn A. Friedman",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {}
+  },
+  {
+    "id": "jessica-inskip",
+    "name": "Jessica Inskip",
+    "certifications": [
+      {
+        "name": "FINRA Series 7",
+        "issuer": "FINRA",
+        "verified": true,
+        "verifyUrl": "https://files.brokercheck.finra.org/individual/individual_5693503.pdf",
+        "verifyMethod": "FINRA BrokerCheck PDF report",
+        "verifyNote": "General Securities Representative Examination passed 01/25/2012. CRD# 5693503."
+      },
+      {
+        "name": "FINRA Series 63",
+        "issuer": "FINRA",
+        "verified": true,
+        "verifyUrl": "https://files.brokercheck.finra.org/individual/individual_5693503.pdf",
+        "verifyMethod": "FINRA BrokerCheck PDF report",
+        "verifyNote": "Uniform Securities Agent State Law Examination passed 03/23/2012."
+      },
+      {
+        "name": "FINRA Series 66",
+        "issuer": "FINRA",
+        "verified": true,
+        "verifyUrl": "https://files.brokercheck.finra.org/individual/individual_5693503.pdf",
+        "verifyMethod": "FINRA BrokerCheck PDF report",
+        "verifyNote": "Uniform Combined State Law Examination passed 02/02/2017."
+      },
+      {
+        "name": "FINRA Series 4",
+        "issuer": "FINRA",
+        "verified": true,
+        "verifyUrl": "https://files.brokercheck.finra.org/individual/individual_5693503.pdf",
+        "verifyMethod": "FINRA BrokerCheck PDF report",
+        "verifyNote": "Registered Options Principal Examination passed 12/08/2014."
+      }
+    ],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "Not currently registered; previously registered at Merrill Lynch (2016-2022), Fidelity (2013-2016), Scottrade (2012-2013). No disclosure events.",
+      "crd": "5693503"
+    }
+  },
+  {
+    "id": "josh-lipton",
+    "name": "Josh Lipton",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {}
+  },
+  {
+    "id": "elaine-king",
+    "name": "Elaine King",
+    "certifications": [
+      {
+        "name": "CFP",
+        "issuer": "CFP Board",
+        "verified": true,
+        "verifyUrl": "https://www.cfp.net/about-cfp-board/our-initiatives/increasing-awareness/cfp-board-ambassadors/elaine-king-fuentes-cfp",
+        "verifyMethod": "CFP Board Ambassador profile page",
+        "verifyNote": "Listed by CFP Board as a CERTIFIED FINANCIAL PLANNER professional and CFP Board Ambassador (Elaine King Fuentes, MBA, CFP)."
+      },
+      {
+        "name": "TEP",
+        "issuer": "STEP (Society of Trust and Estate Practitioners)",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyMethod": "STEP directory search",
+        "verifyNote": "STEP directory (step.org) blocks automated access (403). TEP suffix appears on her own bio and LinkedIn but was not independently confirmed in the STEP member directory within time budget."
+      }
+    ],
+    "books": [],
+    "trustSignals": {}
+  },
+  {
+    "id": "drew-limsky",
+    "name": "Drew Limsky",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {}
+  },
+  {
+    "id": "adam-hardy-money",
+    "name": "Adam Hardy",
+    "certifications": [
+      {
+        "name": "Multimedia Storytelling Certificate",
+        "issuer": "Poynter News University",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyMethod": "issuer registry search",
+        "verifyNote": "Poynter News University does not publish a public registry of certificate holders; cannot verify via issuing body."
+      },
+      {
+        "name": "Data Journalism Certificate",
+        "issuer": "IRE / University of Missouri",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyMethod": "issuer registry search",
+        "verifyNote": "IRE/Missouri School of Journalism does not publish a public registry of certificate holders; cannot verify via issuing body."
+      }
+    ],
+    "books": [],
+    "trustSignals": {}
+  },
+  {
+    "id": "brett-arends-marketwatch",
+    "name": "Brett Arends",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {}
+  },
+  {
+    "id": "martin-lewis-mse",
+    "name": "Martin Lewis",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {}
+  },
+  {
+    "id": "katie-doyle",
+    "name": "Katie Doyle",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {}
+  },
+  {
+    "id": "andrew-thurman",
+    "name": "Andrew Thurman",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {}
+  }
+]

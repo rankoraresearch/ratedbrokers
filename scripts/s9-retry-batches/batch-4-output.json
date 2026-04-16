@@ -1,0 +1,235 @@
+[
+  {
+    "id": "doug-boneparth",
+    "name": "Doug Boneparth",
+    "certifications": [
+      {
+        "name": "CFP",
+        "issuer": "CFP Board",
+        "verified": true,
+        "verifyUrl": "https://www.cfp.net/about-cfp-board/our-initiatives/increasing-awareness/cfp-board-ambassadors/douglas-a-boneparth-cfp",
+        "verifyMethod": "CFP Board Ambassador page (cfp.net)",
+        "verifyNote": "Listed by CFP Board as Ambassador for New York — credential verified by issuing body"
+      },
+      {
+        "name": "AIF",
+        "issuer": "Fi360",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyMethod": null,
+        "verifyNote": "Only third-party bios mention AIF; Fi360 designee lookup not confirmed within search budget"
+      }
+    ],
+    "books": [
+      {
+        "title": "The Millennial Money Fix: What You Need to Know About Budgeting, Debt, and Finding Financial Freedom",
+        "isbn13": "9781632651044",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Millennial-Money-Fix-Budgeting-Financial/dp/1632651041"
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_checked",
+      "crd": null
+    }
+  },
+  {
+    "id": "jesse-hamilton-coindesk",
+    "name": "Jesse Hamilton",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "n/a",
+      "crd": null
+    }
+  },
+  {
+    "id": "riley-adams",
+    "name": "Riley Adams",
+    "certifications": [
+      {
+        "name": "Certified Public Accountant (CPA)",
+        "issuer": "State board",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyMethod": "NASBA ALD (cpaverify.org) search pending — state board not identified",
+        "verifyNote": "Widely listed as CPA on author bios (Young and the Invested, Due, WealthUpdate, The Penny Hoarder); state board of issuance not publicly disclosed"
+      }
+    ],
+    "books": [
+      {
+        "title": "How to Invest as a Teenager: Start Investing Under 18",
+        "isbn13": null,
+        "verified": false,
+        "verifyUrl": "https://books.google.com/books/about/How_to_Invest_as_a_Teenager_Start_Invest.html?id=8fLaEAAAQBAJ"
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_checked",
+      "crd": null
+    }
+  },
+  {
+    "id": "michael-hewson",
+    "name": "Michael Hewson",
+    "certifications": [
+      {
+        "name": "MSTA",
+        "issuer": "Society of Technical Analysts",
+        "verified": true,
+        "verifyUrl": "https://www.technicalanalysts.com/executive-committee/michael-hewson/",
+        "verifyMethod": "STA Executive Committee page (technicalanalysts.com)",
+        "verifyNote": "Listed on STA Executive Committee page as MSTA; published by issuing body"
+      },
+      {
+        "name": "CFTe",
+        "issuer": "International Federation of Technical Analysts (IFTA)",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyMethod": "IFTA does not publish searchable designee directory",
+        "verifyNote": "CFTe designation consistently used on CMC Markets, Good Money Guide, FXEmpire and STA bios; IFTA has no public verification database"
+      }
+    ],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "n/a",
+      "crd": null
+    }
+  },
+  {
+    "id": "will-daniel",
+    "name": "Will Daniel",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "n/a",
+      "crd": null
+    }
+  },
+  {
+    "id": "manish-jaradi",
+    "name": "Manish Jaradi",
+    "certifications": [
+      {
+        "name": "CMT",
+        "issuer": "CMT Association",
+        "verified": false,
+        "verifyUrl": "https://www.dailyfx.com/authors/Manish_Jaradi",
+        "verifyMethod": "CMT Association does not publish searchable charterholder directory; attribution confirmed via DailyFX/IG official bio",
+        "verifyNote": "CMT Association no longer has public charterholder lookup; designation consistently referenced on IG/DailyFX official bios"
+      },
+      {
+        "name": "CFTe",
+        "issuer": "IFTA",
+        "verified": false,
+        "verifyUrl": "https://www.ig.com/uk/profile/manish-jaradi-dfx",
+        "verifyMethod": "No IFTA public directory — IG UK official bio as attribution",
+        "verifyNote": "Designation listed on IG UK official bio; IFTA lacks public verification"
+      }
+    ],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "n/a",
+      "crd": null
+    }
+  },
+  {
+    "id": "jeff-ostrowski",
+    "name": "Jeff Ostrowski",
+    "certifications": [
+      {
+        "name": "NMLS Mortgage Loan Originator (SAFE Test passed)",
+        "issuer": "NMLS",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyMethod": "NMLS Consumer Access search requires state/ID",
+        "verifyNote": "SAFE Test noted in Bankrate bio; NMLS ID not publicly disclosed on author page"
+      }
+    ],
+    "books": [
+      {
+        "title": "How to Buy a Home in a Miserable Market",
+        "isbn13": null,
+        "verified": false,
+        "verifyUrl": "https://www.bankrate.com/authors/jeff-ostrowski/"
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "n/a",
+      "crd": null
+    }
+  },
+  {
+    "id": "danielle-park",
+    "name": "Danielle Park, CFA",
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyMethod": "CFA Institute no longer publishes public member directory — no public lookup",
+        "verifyNote": "CFA charter consistently used on Venable Park Investment Counsel and Juggling Dynamite; not verifiable via public CFA directory"
+      }
+    ],
+    "books": [
+      {
+        "title": "Juggling Dynamite: An Insider's Wisdom about Money Management, Markets, and Wealth that Lasts",
+        "isbn13": "9781897178348",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Juggling-Dynamite-insiders-management-markets/dp/1897178344"
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_checked",
+      "crd": null
+    }
+  },
+  {
+    "id": "suzanne-woolley",
+    "name": "Suzanne Woolley",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "n/a",
+      "crd": null
+    }
+  },
+  {
+    "id": "sharon-epperson",
+    "name": "Sharon Epperson",
+    "certifications": [],
+    "books": [
+      {
+        "title": "The Big Payoff: 8 Steps Couples Can Take to Make the Most of Their Money—and Live Richly Ever After",
+        "isbn13": "9780060744885",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Big-Payoff-Couples-Money-Richly/dp/B0013L2EP4"
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "n/a",
+      "crd": null
+    }
+  },
+  {
+    "id": "bob-mason-fxempire",
+    "name": "Bob Mason",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "n/a",
+      "crd": null
+    }
+  },
+  {
+    "id": "daniel-phillips-coinmarketcap",
+    "name": "Daniel Phillips",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "n/a",
+      "crd": null
+    }
+  }
+]

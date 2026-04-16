@@ -1,0 +1,271 @@
+[
+  {
+    "id": "barbara-friedberg",
+    "name": "Barbara Friedberg",
+    "role": "Contributor / Freelance columnist",
+    "outletName": "The Balance",
+    "bio": "Freelance columnist since 2010. Former investment portfolio manager and CFO for a real estate holding company (1998–2019). Taught Finance and Investments at Santa Clara University and Lebanon Valley College. CEO of RoboAdvisorPros.com and BarbaraFriedbergPersonalFinance.com. Published three books on personal finance and investing. Based in San Jose, CA.",
+    "certifications": [],
+    "credentials": [
+      "MBA",
+      "MS"
+    ],
+    "education": [
+      {
+        "degree": "MBA Finance",
+        "school": "Pennsylvania State University",
+        "year": null
+      },
+      {
+        "degree": "MS Personnel Services and Counseling",
+        "school": "Miami University (Oxford, Ohio)",
+        "year": null
+      },
+      {
+        "degree": "BA Economics",
+        "school": "University of Cincinnati",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 25,
+    "linkedin": "https://www.linkedin.com/in/barbarafriedberg/"
+  },
+  {
+    "id": "jon-dulin",
+    "name": "Jon Dulin",
+    "role": "Founder & Head Writer — Money Smart Guides; Contributor — Modest Money",
+    "outletName": "Modest Money",
+    "bio": "Founder of Money Smart Guides (2011). 15+ years in financial services — back-office support, mutual fund accounting, tax accounting and as a financial planner. 20+ years helping clients with personal finance via coaching and a financial-planning firm. FINRA Series 65 licensed. Featured in Go Banking Rates, BBC, Wall Street Journal.",
+    "certifications": [
+      {
+        "name": "Series 65",
+        "issuer": "FINRA"
+      },
+      {
+        "name": "Certificate in Financial Planning",
+        "issuer": "Mercyhurst University"
+      }
+    ],
+    "credentials": [
+      "Series 65",
+      "Certificate in Financial Planning"
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Business",
+        "school": "Mercyhurst University",
+        "year": null
+      },
+      {
+        "degree": "Certificate in Financial Planning",
+        "school": "Mercyhurst University",
+        "year": null
+      },
+      {
+        "degree": "MS Finance",
+        "school": "Saint Joseph's University",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 20,
+    "linkedin": "https://www.linkedin.com/in/donald-jon-dulin-70354540/"
+  },
+  {
+    "id": "chris-beauchamp",
+    "name": "Chris Beauchamp",
+    "role": "Chief Market Analyst — IG Group (contributor at DayTrading.com)",
+    "outletName": "DayTrading.com",
+    "bio": "Chief Market Analyst at IG Group since 2019, with IG since 2010 (15+ years). Background in equity research and analysis. Regular commentator and analyst on BBC, Sky News, Bloomberg and other major financial channels. Head of Market Analysis UK.",
+    "certifications": [],
+    "credentials": [],
+    "education": [],
+    "yearsInIndustry": 15,
+    "linkedin": "https://uk.linkedin.com/in/chris-beauchamp-3b353aa"
+  },
+  {
+    "id": "ashlyn-brooks-bankrate",
+    "name": "Ashlyn Brooks",
+    "role": "Finance Writer — Bankrate (freelance)",
+    "outletName": "Bankrate",
+    "bio": "Finance writer with more than half a decade of experience covering taxes, insurance, investing, retirement, finance news and banking products. Former civil engineer on a mission to help others save and spend smarter through purposeful money habits. Work published across Bankrate, Forbes Advisor, Forbes Home, Investopedia, Kiplinger and Yahoo Finance.",
+    "certifications": [],
+    "credentials": [],
+    "education": [
+      {
+        "degree": "BSc Engineering Technology",
+        "school": null,
+        "year": null
+      },
+      {
+        "degree": "MBA",
+        "school": null,
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 6,
+    "linkedin": "https://www.linkedin.com/in/ashlyn-brooks-99196a12a/"
+  },
+  {
+    "id": "cherry-reynard",
+    "name": "Cherry Reynard",
+    "role": "Freelance Financial Journalist / Contributor — Boring Money",
+    "outletName": "Boring Money",
+    "bio": "Multi-award-winning financial journalist since 2000 with 25+ years of experience (following an earlier spell as a tax accountant). Writes regularly for a blend of national, consumer and trade publications including The Times, Telegraph, Investors Chronicle, Money Observer, Boring Money, Moneywise, Morningstar, plus trade titles like Professional Adviser and Trustnet. Large research projects for Ce",
+    "certifications": [],
+    "credentials": [],
+    "education": [],
+    "yearsInIndustry": 25,
+    "linkedin": "https://www.linkedin.com/in/cherry-reynard-b8b59211/"
+  },
+  {
+    "id": "james-chen-investopedia",
+    "name": "James Chen",
+    "role": "Former Director, Trading & Investing Content (Investopedia)",
+    "outletName": "Investopedia",
+    "bio": "Trader, investor, Registered Investment Adviser, Chartered Market Technician (CMT) and Certified Financial Technician (CFTe); former Commodity Trading Advisor (CTA). Tufts University graduate. Former Director of Trading & Investing Content at Investopedia (Dotdash Meredith); now Managing Director, Research at AlphaSense. Author of 'Essentials of Foreign Exchange Trading' (Wiley, 2009) and 'Essenti",
+    "certifications": [
+      {
+        "name": "CMT",
+        "issuer": "CMT Association"
+      },
+      {
+        "name": "CFTe",
+        "issuer": "IFTA"
+      },
+      {
+        "name": "RIA",
+        "issuer": "SEC/state"
+      }
+    ],
+    "credentials": [
+      "CMT",
+      "CFTe",
+      "RIA",
+      "former CTA"
+    ],
+    "education": [
+      {
+        "degree": "BA",
+        "school": "Tufts University",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 20,
+    "linkedin": "https://www.linkedin.com/in/jameschencontent/"
+  },
+  {
+    "id": "kenji-kawase",
+    "name": "Kenji Kawase",
+    "role": "Chief Business News Correspondent — Nikkei Asia",
+    "outletName": "Nikkei Asia",
+    "bio": "Chief Business News Correspondent at Nikkei Asia, based in Hong Kong. ~30 years as one of the most experienced Japanese foreign correspondents in Asia — has covered most parts of the region. Editor of #techAsia, a newsletter on technology in Asia combining reporting from the Financial Times and Nikkei Asia. Bylines across Nikkei Asia, Financial Times, Nikkei, Caixin Global, DealStreetAsia, Yahoo F",
+    "certifications": [],
+    "credentials": [],
+    "education": [],
+    "yearsInIndustry": 30,
+    "linkedin": null
+  },
+  {
+    "id": "arielle-oshea",
+    "name": "Arielle O'Shea",
+    "role": "Head of Content — Investing & Taxes",
+    "outletName": "NerdWallet",
+    "bio": "Leads NerdWallet's investing and taxes team. 19+ yrs. 80+ articles, 32.3M readers. BA English (Shepherd University), based in Charlottesville VA. Previously researcher/reporter for Jean Chatzky. Appeared on Today show, NBC News, ABC World News Tonight; quoted by NYT, MarketWatch, Bloomberg.",
+    "certifications": [],
+    "credentials": [],
+    "education": [
+      {
+        "degree": "BA English",
+        "school": "Shepherd University",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 19,
+    "linkedin": "https://www.linkedin.com/in/arielleoshea/"
+  },
+  {
+    "id": "daniel-sparks-fool",
+    "name": "Daniel Sparks",
+    "role": "Contributor — The Motley Fool (Owner/CIO, Sparks Capital Management)",
+    "outletName": "Motley Fool",
+    "bio": "Contributing Motley Fool stock-market analyst covering technology, industrials, financials and consumer goods. Owner and Chief Investment Officer of Sparks Capital Management. His work has appeared in CNN Business, Business Insider, MSN (US/CA/UK), USA Today, AOL, TIME and Medium.",
+    "certifications": [],
+    "credentials": [],
+    "education": [],
+    "yearsInIndustry": null,
+    "linkedin": "https://www.linkedin.com/in/danielssparks/"
+  },
+  {
+    "id": "kate-leaman",
+    "name": "Kate Leaman",
+    "role": "Chief Market Analyst (AvaTrade) / Lead Stock Analyst (AskTraders)",
+    "outletName": "AskTraders",
+    "bio": "Chief Market Analyst at AvaTrade and Lead Stock Analyst at AskTraders. Won the Sky News journalism award and subsequently worked for Sky News, hosting multiple financial news shows. Ex-Head of Content at Investing.com, Director of Institutional Sales at BForex, Marketing Manager at UFX. Delivers in-depth analysis on market trends, Stocks, Forex, ETFs, Crypto, Indices and Commodities for leading gl",
+    "certifications": [],
+    "credentials": [],
+    "education": [
+      {
+        "degree": "MA Broadcast Journalism (Finance specialisation)",
+        "school": "University of Westminster",
+        "year": null
+      },
+      {
+        "degree": "BA Diploma Broadcast Journalism",
+        "school": "University of Westminster",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 15,
+    "linkedin": "https://www.linkedin.com/in/kate-leaman-08803612/"
+  },
+  {
+    "id": "jitan-solanki",
+    "name": "Jitan Solanki",
+    "role": "Broker Analyst (FXEmpire since May 2019); Co-Founder & CEO of Trade-Vest",
+    "outletName": "FXEmpire",
+    "bio": "Professional trader and market analyst with 17+ years trading pan-European and US equities, FX, commodities and indices. MSTA (Member of the Society of Technical Analysts). B.A. Honours Applied English Language & Linguistics. Day trades major currencies and indices during European session; swing trades US equities and commodities. Author at FXEmpire since May 2019. Co-Founder & CEO of Trade-Vest. ",
+    "certifications": [
+      {
+        "name": "MSTA",
+        "issuer": "Society of Technical Analysts"
+      }
+    ],
+    "credentials": [
+      "MSTA"
+    ],
+    "education": [
+      {
+        "degree": "B.A. Honours Applied English Language & Linguistics",
+        "school": null,
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 17,
+    "linkedin": "https://www.linkedin.com/in/jitansolanki/"
+  },
+  {
+    "id": "steve-miley",
+    "name": "Steve Miley",
+    "role": "Contributor / Founder Market Chartist",
+    "outletName": "AskTraders",
+    "bio": "29 years of financial market experience. Founder, Director and Primary Analyst at The Market Chartist (founded 2012). Academic Dean at The London School of Wealth Management. Spent 15 years at Merrill Lynch (1994-2009) as Technical Analyst + Fixed Income Derivatives Sales. Three years as Director of FX Technical Analysis Research Strategy at Credit Suisse (2009-2012), covering G10/EM currencies, R",
+    "certifications": [
+      {
+        "name": "MSTA (Member, Society of Technical Analysts)",
+        "issuer": "STA UK"
+      }
+    ],
+    "credentials": [
+      "MSTA"
+    ],
+    "education": [
+      {
+        "degree": "Masters, Politics Philosophy & Economics",
+        "school": "Oxford University (Lincoln College)",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 29,
+    "linkedin": "https://www.linkedin.com/in/stevemileymarketchartist/"
+  }
+]

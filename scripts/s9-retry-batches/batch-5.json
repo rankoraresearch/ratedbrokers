@@ -1,0 +1,236 @@
+[
+  {
+    "id": "scott-murdoch-reuters",
+    "name": "Scott Murdoch",
+    "role": "Lead Writer, Asia Finance & Markets — Reuters",
+    "outletName": "Reuters",
+    "bio": "Lead Writer for Asia Finance & Markets at Reuters (formerly Asia Capital Markets Correspondent). Journalist for more than two decades with Thomson Reuters and News Corp in Australia, specialising in financial journalism. Covers equity and debt capital markets across Asia and Australian M&A. Previously Data Room Co-Editor at The Australian (2017-2019) and China Correspondent in Beijing. Co-founder ",
+    "certifications": [],
+    "credentials": [],
+    "education": [],
+    "yearsInIndustry": 22,
+    "linkedin": "https://au.linkedin.com/in/scott-murdoch-882b20146"
+  },
+  {
+    "id": "anna-bahney-cnn",
+    "name": "Anna Bahney",
+    "role": "Housing & Personal Finance Reporter — CNN Business",
+    "outletName": "CNN Business",
+    "bio": "Writer for CNN covering investments and real estate, focusing on traditional, alternative, real estate and cryptocurrency markets. Currently Housing & Personal Finance reporter at CNN Business. Prior: launched financial coverage at Mic; broke housing news during the financial crisis as real estate reporter for USA Today. Nearly a decade at The New York Times covering real estate, youth culture, tr",
+    "certifications": [],
+    "credentials": [],
+    "education": [
+      {
+        "degree": "Bachelor's",
+        "school": "Emory University",
+        "year": null
+      },
+      {
+        "degree": "Master's in Journalism",
+        "school": "Columbia School of Journalism",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 20,
+    "linkedin": "https://www.linkedin.com/in/annabahney/"
+  },
+  {
+    "id": "al-root",
+    "name": "Al Root (Allen Root)",
+    "role": "Senior Writer / Associate Editor — Barron's",
+    "outletName": "Barron's",
+    "bio": "Senior writer / Associate Editor at Barron's (since 2018). 17 years on Wall Street before journalism; joined Barron's from R.W. Baird where he was industrial strategist. Won SABEW's Best in Business Award for JPMorgan Chase reporting (employee backlash on layoffs, DEI changes, pay equity, return-to-office). Frequent guest on Sirius XM, Wharton Business Radio, CBS News, Cheddar, Yahoo Finance, Fox ",
+    "certifications": [],
+    "credentials": [],
+    "education": [],
+    "yearsInIndustry": 25,
+    "linkedin": "https://www.linkedin.com/in/allen-root-b0030313/"
+  },
+  {
+    "id": "connor-sephton",
+    "name": "Connor Sephton",
+    "role": "Cryptocurrency Writer / Contributor — CoinMarketCap; Head of Advertorial — Cointelegraph",
+    "outletName": "CoinMarketCap",
+    "bio": "London-based journalist with a 10-year career as reporter, editor, and newsreader for Metro, Sky News, and BBC. Writes features for Alexandria and produces the daily CoinMarketCap newsletter. Freelance online editor for Sky News; newsreader on BBC local radio. Head of advertorial for Cointelegraph. Specialised in crypto news since 2018; also writes for Decrypt, Blockworks, and Cointelegraph. State",
+    "certifications": [],
+    "credentials": [],
+    "education": [],
+    "yearsInIndustry": 10,
+    "linkedin": "https://www.linkedin.com/in/connor-sephton-67802316/"
+  },
+  {
+    "id": "enoch-yiu",
+    "name": "Enoch Yiu",
+    "role": "Chief Business Reporter — South China Morning Post",
+    "outletName": "South China Morning Post",
+    "bio": "Chief Business Reporter at South China Morning Post. Joined SCMP as business reporter in 1996. Expertise: financial regulation, banking, pension, insurance, asset management, Hong Kong markets and IPOs. Author of two books: 'They Mean Business: 50 exclusive interviews with Hong Kong top executives' and 'Serving with Passion: stories of established catering brands in Hong Kong'.",
+    "certifications": [],
+    "credentials": [],
+    "education": [
+      {
+        "degree": "Bachelor of Business — Communication in Journalism",
+        "school": "Queensland University of Technology (QUT)",
+        "year": "1991"
+      }
+    ],
+    "yearsInIndustry": 30,
+    "linkedin": "https://hk.linkedin.com/in/enoch-yiu-52779516"
+  },
+  {
+    "id": "eamonn-sheridan",
+    "name": "Eamonn Sheridan",
+    "role": "Chief Asia-Pacific Currency Analyst",
+    "outletName": "ForexLive",
+    "bio": "Chief Asia-Pacific Currency Analyst at investingLive (formerly ForexLive). Spent 13 years at Bankers Trust Australia as spot foreign exchange dealer trading all major currencies across time zones, rising to Vice President running spot operations during busy European time. Left the bank just prior to its sale to run his own business, trading equities, CFDs, and futures. Now active in FX and equity ",
+    "certifications": [],
+    "credentials": [],
+    "education": [
+      {
+        "degree": "Undergraduate",
+        "school": "The University of Melbourne",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 25,
+    "linkedin": null
+  },
+  {
+    "id": "terry-flanagan-tradersmag",
+    "name": "Terry Flanagan",
+    "role": "Managing Director / Editor",
+    "outletName": "Traders Magazine",
+    "bio": "Managing Director at Markets Media Group, overseeing the Markets Media, Traders Magazine, and GlobalTrading platforms. Former Bloomberg reporter and editor (starting 1996 as electricity reporter in the energy group) and former financial research analyst. More than 25 years of journalism experience. Earned Chartered Financial Analyst (CFA) designation in 2001.",
+    "certifications": [
+      {
+        "name": "CFA (Chartered Financial Analyst)",
+        "issuer": "CFA Institute"
+      }
+    ],
+    "credentials": [
+      "CFA"
+    ],
+    "education": [],
+    "yearsInIndustry": 25,
+    "linkedin": "https://www.linkedin.com/in/terflanagan/"
+  },
+  {
+    "id": "matthew-levy",
+    "name": "Matthew Levy",
+    "role": "Financial Writer & Content Specialist, CFA Charterholder (BestBrokers contributor)",
+    "outletName": "BestBrokers",
+    "bio": "Freelance financial copywriter and CFA Charterholder (2015) in good standing. 10+ year career in retail finance before pivoting to financial content creation. Managed $600M+ in assets; expertise in portfolio management, securities analysis, trading, back-testing. Graduated BSc Economics (business + finance concentrations) from University of Victoria, 2010. Writing featured at Investing.com, Forbes",
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute"
+      }
+    ],
+    "credentials": [
+      "CFA"
+    ],
+    "education": [
+      {
+        "degree": "BSc Economics (business + finance concentrations)",
+        "school": "University of Victoria",
+        "year": 2010
+      }
+    ],
+    "yearsInIndustry": 15,
+    "linkedin": "https://ca.linkedin.com/in/matthewlevycfa"
+  },
+  {
+    "id": "michael-kim-zacks",
+    "name": "Michael Kim",
+    "role": "Senior Analyst — Zacks Small-Cap Research",
+    "outletName": "Zacks",
+    "bio": "Senior Analyst at Zacks Small-Cap Research with 20+ years of Equity Research and Investor Relations experience. Spent 16 years in sell-side Equity Research covering financial services companies at Sandler O'Neill + Partners, The Buckingham Research Group, Putnam Lovell NBF Securities, and Banc of America Securities. Recognized by Institutional Investor, The Wall Street Journal, Financial Times, an",
+    "certifications": [],
+    "credentials": [],
+    "education": [],
+    "yearsInIndustry": 20,
+    "linkedin": "https://www.linkedin.com/in/michael-kim-21990a3"
+  },
+  {
+    "id": "jefreda-r-brown",
+    "name": "JeFreda R. Brown",
+    "role": "Financial Review Board Member / Financial Writer",
+    "outletName": "Investopedia",
+    "bio": "Certified Financial Education Instructor (CFEI). Financial consultant, entrepreneur, educator, and researcher with 20+ years of financial and business experience. DBA in finance (Walden University), MBA in Finance & Accounting (Mississippi College), B.S. Math (Mississippi State University). Financial Review Board Member and Financial Writer for Investopedia and The Balance. Founder & CEO of Xaris ",
+    "certifications": [
+      {
+        "name": "CFEI (Certified Financial Education Instructor)",
+        "issuer": "National Financial Educators Council"
+      }
+    ],
+    "credentials": [
+      "CFEI"
+    ],
+    "education": [
+      {
+        "degree": "DBA (Finance concentration)",
+        "school": "Walden University",
+        "year": null
+      },
+      {
+        "degree": "MBA (Finance & Accounting)",
+        "school": "Mississippi College",
+        "year": null
+      },
+      {
+        "degree": "B.S. Math",
+        "school": "Mississippi State University",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 20,
+    "linkedin": "https://www.linkedin.com/in/jefredabrown"
+  },
+  {
+    "id": "james-hyerczyk",
+    "name": "James Hyerczyk",
+    "role": "Senior Market Analyst — FXEmpire",
+    "outletName": "FXEmpire",
+    "bio": "U.S.-based technical analyst, market researcher, educator, and trader with 43 years' experience. Senior market analyst at FX Empire since June 2014. Began career in Chicago in 1982 as futures market analyst for floor traders at the Chicago Board of Trade (CBOT) and the Chicago Mercantile Exchange (CME). Expertise: energy, metals, indices, currencies. Favorite instruments: gold, WTI crude oil, natu",
+    "certifications": [],
+    "credentials": [],
+    "education": [
+      {
+        "degree": "B.A. Business Administration",
+        "school": "St. Xavier University",
+        "year": null
+      },
+      {
+        "degree": "M.S. Financial Markets and Trading",
+        "school": "Illinois Institute of Technology",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 43,
+    "linkedin": "https://www.linkedin.com/in/james-a-hyerczyk-0664bb354/"
+  },
+  {
+    "id": "brian-bollinger",
+    "name": "Brian Bollinger",
+    "role": "Founder, Owner, President & Analyst — Simply Safe Dividends (Seeking Alpha contributor)",
+    "outletName": "Seeking Alpha",
+    "bio": "Founder of Simply Safe Dividends (2015) — online tools and research to help investors generate safe retirement income from dividend stocks. Certified Public Accountant (CPA). Triple-majored in finance, accounting and entrepreneurship at Indiana University's Kelley School of Business, graduated in the top 1% of his class. Former equity research analyst at IronBridge Capital Management (multi-billio",
+    "certifications": [
+      {
+        "name": "CPA",
+        "issuer": "State Board of Accountancy"
+      }
+    ],
+    "credentials": [
+      "CPA"
+    ],
+    "education": [
+      {
+        "degree": "Triple major: Finance, Accounting, Entrepreneurship (top 1% of class)",
+        "school": "Indiana University — Kelley School of Business",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 10,
+    "linkedin": "https://www.linkedin.com/in/brian-bollinger-b6111a11/"
+  }
+]

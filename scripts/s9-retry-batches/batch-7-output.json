@@ -1,0 +1,218 @@
+[
+  {
+    "id": "andres-cardenal",
+    "name": "Andrés Cardenal, CFA",
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyMethod": "directory-search-failed",
+        "verifyNote": "CFA Institute has no publicly queryable member directory; CFA designation asserted on Seeking Alpha author page and byline but not confirmed via issuer directory."
+      }
+    ],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-checked",
+      "crd": null
+    }
+  },
+  {
+    "id": "brian-oconnell-kiplinger",
+    "name": "Brian O'Connell",
+    "certifications": [],
+    "books": [
+      {
+        "title": "The 401(k) Millionaire",
+        "isbn13": "9780812991864",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/401-Millionaire-Started-Nothing-Million/dp/0812991869"
+      },
+      {
+        "title": "CNBC Creating Wealth: An Investor's Guide to Decoding the Market",
+        "isbn13": "9780471399087",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/CNBC-Creating-Wealth-Investors-Decoding/dp/0471399086"
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-checked",
+      "crd": null
+    }
+  },
+  {
+    "id": "david-jensen-cfa-seekingalpha",
+    "name": "David Jensen, CFA",
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyMethod": "directory-search-failed",
+        "verifyNote": "CFA Institute has no publicly queryable member directory; CFA designation asserted on Seeking Alpha author page but not confirmed via issuer directory."
+      }
+    ],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-checked",
+      "crd": null
+    }
+  },
+  {
+    "id": "jack-crooks-babypips",
+    "name": "Jack Crooks (a.k.a. Jack the Pipper)",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-checked",
+      "crd": null
+    }
+  },
+  {
+    "id": "carrie-kirby-coindesk",
+    "name": "Carrie Kirby",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-checked",
+      "crd": null
+    }
+  },
+  {
+    "id": "sean-williams-fool",
+    "name": "Sean Williams",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-checked",
+      "crd": null
+    }
+  },
+  {
+    "id": "ann-logue-thebalancemoney",
+    "name": "Ann Logue",
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyMethod": "directory-search-failed",
+        "verifyNote": "CFA Institute has no publicly queryable member directory; CFA designation asserted on annlogue.com, Wiley Dummies author page, and Britannica editor page."
+      }
+    ],
+    "books": [
+      {
+        "title": "Hedge Funds For Dummies",
+        "isbn13": "9780470049273",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Hedge-Funds-Dummies-Ann-Logue/dp/0470049278"
+      },
+      {
+        "title": "Day Trading For Dummies",
+        "isbn13": "9780470942727",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Day-Trading-Dummies-Ann-Logue/dp/047094272X"
+      },
+      {
+        "title": "Socially Responsible Investing For Dummies",
+        "isbn13": "9780470394717",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Socially-Responsible-Investing-Dummies-Logue/dp/0470394714"
+      },
+      {
+        "title": "Emerging Markets For Dummies",
+        "isbn13": "9780470878934",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Emerging-Markets-Dummies-Ann-Logue/dp/0470878932"
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-checked",
+      "crd": null
+    }
+  },
+  {
+    "id": "nick-marinoff",
+    "name": "Nick Marinoff",
+    "certifications": [],
+    "books": [
+      {
+        "title": "Take a 'Loan' Off Your Shoulders: 14 Simple Tricks for Graduating Debt Free",
+        "isbn13": null,
+        "verified": false,
+        "verifyUrl": "https://www.amazon.com/stores/author/B00Y3UOC7A"
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-checked",
+      "crd": null
+    }
+  },
+  {
+    "id": "daniel-franke",
+    "name": "Daniel Franke",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-checked",
+      "crd": null
+    }
+  },
+  {
+    "id": "edward-sheldon-goodmoneyguide",
+    "name": "Edward Sheldon",
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute",
+        "verified": false,
+        "verifyUrl": "https://www.linkedin.com/in/edward-sheldon-cfa-a6a36359/",
+        "verifyMethod": "linkedin-self-attested",
+        "verifyNote": "CFA Institute has no publicly queryable member directory; CFA designation self-attested on LinkedIn (edward-sheldon-cfa) and Good Money Guide author page (goodmoneyguide.com/author/edwardsheldon-1/ — displayed as 'Ed Sheldon CFA')."
+      },
+      {
+        "name": "IMC",
+        "issuer": "CFA Society UK",
+        "verified": false,
+        "verifyUrl": "https://goodmoneyguide.com/author/edwardsheldon/",
+        "verifyMethod": "publisher-self-attested",
+        "verifyNote": "CFA Society UK IMC has no public directory lookup; IMC self-attested on Good Money Guide author bio and edwardsheldonfinancial.com portfolio page."
+      }
+    ],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-applicable-uk",
+      "crd": null
+    }
+  },
+  {
+    "id": "lyn-alden-modestmoney",
+    "name": "Lyn Alden Schwartzer",
+    "certifications": [],
+    "books": [
+      {
+        "title": "Broken Money: Why Our Financial System is Failing Us and How We Can Make it Better",
+        "isbn13": "9798988666318",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Broken-Money-Financial-System-Failing/dp/B0CG8985FR"
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-checked",
+      "crd": null
+    }
+  },
+  {
+    "id": "richard-berry-goodmoneyguide",
+    "name": "Richard Berry",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-applicable-uk",
+      "crd": null
+    }
+  }
+]

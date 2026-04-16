@@ -1,0 +1,203 @@
+[
+  {
+    "id": "kimberly-palmer-usnews",
+    "name": "Kimberly Palmer",
+    "certifications": [],
+    "education": [
+      { "degree": "B.A. History", "school": "Amherst College", "verified": false, "verifyUrl": null, "verifyNote": "Not verified via alumni page or official bio URL; only claimed in bio" },
+      { "degree": "M.P.P.", "school": "University of Chicago", "verified": false, "verifyUrl": null, "verifyNote": "Not verified via alumni page" }
+    ],
+    "books": [
+      { "title": "Smart Mom, Rich Mom: How to Build Wealth While Raising a Family", "isbn13": "9780814436806", "verified": true, "verifyUrl": "https://www.publishersweekly.com/9780814436806", "verifyNote": "AMACOM 2016, confirmed on Publishers Weekly + Amazon" },
+      { "title": "The Economy of You: Discover Your Inner Entrepreneur and Recession-Proof Your Life", "isbn13": "9780814432730", "verified": true, "verifyUrl": "https://www.publishersweekly.com/9780814432730", "verifyNote": "AMACOM 2014" },
+      { "title": "Generation Earn: The Young Professional's Guide to Spending, Investing, and Giving Back", "isbn13": "9781580082365", "verified": true, "verifyUrl": "https://www.penguinrandomhouse.com/books/201151/generation-earn-by-kimberly-palmer/", "verifyNote": "Ten Speed Press 2010" }
+    ],
+    "tier1Quotes": [],
+    "tvAppearances": [
+      { "outlet": "Today Show", "verified": false, "sampleUrl": null, "verifyNote": "No source URL found" },
+      { "outlet": "Good Morning America", "verified": false, "sampleUrl": null, "verifyNote": "No source URL found" }
+    ],
+    "industryAwards": [],
+    "trustSignals": { "finraBrokerCheckStatus": "not applicable", "crd": null },
+    "verifyAttemptedAt": "2026-04-16",
+    "summary": { "certsClaimed": 0, "certsVerified": 0, "booksWithIsbn": 3, "tier1Verified": 0, "newAwardsFound": 0 }
+  },
+  {
+    "id": "john-divine",
+    "name": "John Divine",
+    "certifications": [],
+    "education": [
+      { "degree": "BS Finance & Banking (with honors)", "school": "Appalachian State University", "verified": false, "verifyUrl": null, "verifyNote": "No alumni/official bio URL found" }
+    ],
+    "books": [],
+    "tier1Quotes": [
+      { "outlet": "WSJ", "verified": false, "sampleUrl": null, "verifyNote": "No article URL found" }
+    ],
+    "tvAppearances": [],
+    "industryAwards": [],
+    "trustSignals": { "finraBrokerCheckStatus": "not searched", "crd": null },
+    "verifyAttemptedAt": "2026-04-16",
+    "summary": { "certsClaimed": 0, "certsVerified": 0, "booksWithIsbn": 0, "tier1Verified": 0, "newAwardsFound": 0 }
+  },
+  {
+    "id": "jeff-john-roberts-decrypt",
+    "name": "Jeff John Roberts",
+    "certifications": [],
+    "education": [
+      { "degree": "Attended", "school": "Columbia (Business/Journalism)", "verified": false, "verifyUrl": null, "verifyNote": "No alumni/official bio verification; only claimed on personal site" }
+    ],
+    "books": [
+      { "title": "Kings of Crypto: One Startup's Quest to Take Cryptocurrency Out of Silicon Valley and Onto Wall Street", "isbn13": "9781647820183", "verified": true, "verifyUrl": "https://store.hbr.org/product/kings-of-crypto-one-startup-s-quest-to-take-cryptocurrency-out-of-silicon-valley-and-onto-wall-street/10436", "verifyNote": "Harvard Business Review Press, 2020" }
+    ],
+    "tier1Quotes": [
+      { "outlet": "Fortune", "verified": true, "sampleUrl": "https://fortune.com/author/jeff-john-roberts/", "verifyNote": "Staff author page at Fortune (current role)" },
+      { "outlet": "Reuters", "verified": false, "sampleUrl": null, "verifyNote": "No specific article URL located" },
+      { "outlet": "NYT", "verified": false, "sampleUrl": null, "verifyNote": "No source URL" }
+    ],
+    "tvAppearances": [],
+    "industryAwards": [],
+    "trustSignals": { "finraBrokerCheckStatus": "not applicable", "crd": null },
+    "verifyAttemptedAt": "2026-04-16",
+    "summary": { "certsClaimed": 0, "certsVerified": 0, "booksWithIsbn": 1, "tier1Verified": 1, "newAwardsFound": 0 }
+  },
+  {
+    "id": "adam-levine-weinberg",
+    "name": "Adam Levine-Weinberg, CFA",
+    "certifications": [
+      { "name": "CFA", "issuer": "CFA Institute", "verified": false, "verifyUrl": null, "verifyMethod": "attempted CFA Institute directory (rkd.cfainstitute.org unreachable)", "verifyNote": "Self-claimed via Seeking Alpha author slug 'adam-levine-weinberg-cfa' and interview published 2022 on Seeking Alpha; CFA Institute directory not accessible from this environment. Treated as verifyAttempted=true." }
+    ],
+    "education": [
+      { "degree": "BA", "school": "Swarthmore College", "verified": false, "verifyUrl": null, "verifyNote": "Only claimed in Seeking Alpha interview" },
+      { "degree": "MA Political Science", "school": "University of Chicago", "verified": false, "verifyUrl": null, "verifyNote": "Only claimed in Seeking Alpha interview" }
+    ],
+    "books": [],
+    "tier1Quotes": [],
+    "tvAppearances": [],
+    "industryAwards": [],
+    "trustSignals": { "finraBrokerCheckStatus": "not searched", "crd": null },
+    "verifyAttemptedAt": "2026-04-16",
+    "summary": { "certsClaimed": 1, "certsVerified": 0, "booksWithIsbn": 0, "tier1Verified": 0, "newAwardsFound": 0 }
+  },
+  {
+    "id": "tm-lee-coingecko",
+    "name": "TM Lee",
+    "certifications": [],
+    "education": [
+      { "degree": "BS Computer Science (minor Psychology)", "school": "Purdue University", "verified": false, "verifyUrl": null, "verifyNote": "Claim only in bios; no alumni page URL" },
+      { "degree": "Computer Science studies", "school": "INTI International University, Malaysia", "verified": true, "verifyUrl": "https://newinti.edu.my/kuantan-native-who-nearly-saw-an-end-to-his-start-up-makes-it-to-forbes-30-under-30-asia/", "verifyNote": "INTI University alumni feature page" }
+    ],
+    "books": [
+      { "title": "Handbook of Digital Currency (1st Edition)", "isbn13": "9780128021170", "verified": true, "verifyUrl": "https://www.sciencedirect.com/book/9780128021170/handbook-of-digital-currency", "verifyNote": "Elsevier/Academic Press 2015; TM Lee is a chapter co-author, not overall editor (editor is David Lee Kuo Chuen)" },
+      { "title": "Handbook of Blockchain, Digital Finance, and Inclusion Volume 1", "isbn13": null, "verified": false, "verifyUrl": null, "verifyNote": "Not directly ISBN-verified in this pass" }
+    ],
+    "tier1Quotes": [
+      { "outlet": "Forbes (30U30 2019)", "verified": true, "sampleUrl": "https://www.malaymail.com/news/malaysia/2019/04/02/nine-malaysians-in-forbes-30-under-30-asia-2019/1738908", "verifyNote": "Forbes 30 Under 30 Asia 2019, confirmed via Malay Mail + INTI alumni pages + Fintech News Singapore" }
+    ],
+    "tvAppearances": [],
+    "industryAwards": [
+      { "name": "Forbes 30 Under 30 Asia — Finance & Venture Capital", "year": "2019", "source": "Forbes (via Malay Mail coverage)", "sampleUrl": "https://fintechnews.sg/30030/fintech/forbes-30-under-30-asia-2019s-banking-and-fintech-superstars/" }
+    ],
+    "trustSignals": { "finraBrokerCheckStatus": "not applicable", "crd": null },
+    "verifyAttemptedAt": "2026-04-16",
+    "summary": { "certsClaimed": 0, "certsVerified": 0, "booksWithIsbn": 1, "tier1Verified": 1, "newAwardsFound": 1 }
+  },
+  {
+    "id": "emma-lunn-moneyweek",
+    "name": "Emma Lunn",
+    "certifications": [],
+    "education": [],
+    "books": [],
+    "tier1Quotes": [
+      { "outlet": "The Guardian", "verified": true, "sampleUrl": "https://www.theguardian.com/profile/emma-lunn", "verifyNote": "Guardian author page exists" },
+      { "outlet": "The Independent", "verified": false, "sampleUrl": null, "verifyNote": "Claimed via personal site; not independently verified in this pass" },
+      { "outlet": "Daily Telegraph", "verified": false, "sampleUrl": null, "verifyNote": "Only claimed via personal site" },
+      { "outlet": "Mail on Sunday", "verified": false, "sampleUrl": null, "verifyNote": "Only claimed via personal site" },
+      { "outlet": "Mirror", "verified": false, "sampleUrl": null, "verifyNote": "Only claimed via personal site" }
+    ],
+    "tvAppearances": [],
+    "industryAwards": [
+      { "name": "Headline Money Freelance Financial Journalist of the Year", "year": "2013", "source": "Emma Lunn personal site / Headline Money", "sampleUrl": "https://www.emmalunn.com/about/" },
+      { "name": "Headline Money Household Money Journalist of the Year", "year": "2013", "source": "Emma Lunn personal site", "sampleUrl": "https://www.emmalunn.com/about/" }
+    ],
+    "trustSignals": { "finraBrokerCheckStatus": "not applicable", "crd": null },
+    "verifyAttemptedAt": "2026-04-16",
+    "summary": { "certsClaimed": 0, "certsVerified": 0, "booksWithIsbn": 0, "tier1Verified": 1, "newAwardsFound": 2 }
+  },
+  {
+    "id": "eva-szalay",
+    "name": "Eva Szalay",
+    "certifications": [],
+    "education": [],
+    "books": [],
+    "tier1Quotes": [
+      { "outlet": "WSJ", "verified": true, "sampleUrl": "https://www.responsesource.com/bulletin/news/financial-times-confirm-currencies-correspondent-appointment/", "verifyNote": "ResponseSource + Muck Rack profile confirm Dow Jones/WSJ history" },
+      { "outlet": "Financial Times", "verified": true, "sampleUrl": "https://www.ft.com/eva-szalay", "verifyNote": "FT author page; was Currencies Correspondent Dec 2018 onward" },
+      { "outlet": "Bloomberg", "verified": true, "sampleUrl": "https://muckrack.com/eva-szalay", "verifyNote": "Muck Rack bio confirms Bloomberg cross-asset reporting role in London" }
+    ],
+    "tvAppearances": [],
+    "industryAwards": [],
+    "trustSignals": { "finraBrokerCheckStatus": "not applicable", "crd": null },
+    "verifyAttemptedAt": "2026-04-16",
+    "summary": { "certsClaimed": 0, "certsVerified": 0, "booksWithIsbn": 0, "tier1Verified": 3, "newAwardsFound": 0 }
+  },
+  {
+    "id": "kunal-kapoor-morningstar",
+    "name": "Kunal Kapoor",
+    "certifications": [
+      { "name": "CFA", "issuer": "CFA Institute", "verified": true, "verifyUrl": "https://www.morningstar.com/company/leadership/kunal-kapoor", "verifyMethod": "Morningstar official leadership page (title formatted 'Kunal Kapoor, CFA') + CFA Society Chicago membership noted in official bio", "verifyNote": "Morningstar's own leadership/people pages list him as 'Kunal Kapoor, CFA'; additionally confirmed via official economic club bio." }
+    ],
+    "education": [
+      { "degree": "BA Economics and Environmental Policy", "school": "Monmouth College", "verified": true, "verifyUrl": "https://econclubchi.org/leader/kunal-kapoor/", "verifyNote": "Economic Club of Chicago official speaker bio" },
+      { "degree": "MBA", "school": "University of Chicago Booth School of Business", "verified": true, "verifyUrl": "https://econclubchi.org/leader/kunal-kapoor/", "verifyNote": "Same official bio; Council on Chicago Booth member" }
+    ],
+    "books": [],
+    "tier1Quotes": [
+      { "outlet": "Bloomberg", "verified": true, "sampleUrl": "https://www.bloomberg.com/profile/person/2524907", "verifyNote": "Bloomberg Markets profile exists" }
+    ],
+    "tvAppearances": [],
+    "industryAwards": [
+      { "name": "Crain's Chicago Business 40 Under 40", "year": "2010", "source": "Economic Club of Chicago bio", "sampleUrl": "https://econclubchi.org/leader/kunal-kapoor/" }
+    ],
+    "trustSignals": { "finraBrokerCheckStatus": "not applicable", "crd": null },
+    "verifyAttemptedAt": "2026-04-16",
+    "summary": { "certsClaimed": 1, "certsVerified": 1, "booksWithIsbn": 0, "tier1Verified": 1, "newAwardsFound": 1 }
+  },
+  {
+    "id": "theresa-w-carey",
+    "name": "Theresa W. Carey",
+    "certifications": [],
+    "education": [],
+    "books": [],
+    "tier1Quotes": [
+      { "outlet": "Barron's", "verified": true, "sampleUrl": "https://muckrack.com/theresa-carey", "verifyNote": "Muck Rack lists Barron's bylines; authored Electronic Investor column 1995-2018 per Talking Biz News coverage" }
+    ],
+    "tvAppearances": [
+      { "outlet": "tastytrade", "verified": false, "sampleUrl": null, "verifyNote": "Claimed but no video/source URL located" }
+    ],
+    "industryAwards": [],
+    "trustSignals": { "finraBrokerCheckStatus": "not applicable", "crd": null },
+    "verifyAttemptedAt": "2026-04-16",
+    "summary": { "certsClaimed": 0, "certsVerified": 0, "booksWithIsbn": 0, "tier1Verified": 1, "newAwardsFound": 0 }
+  },
+  {
+    "id": "bradley-keoun",
+    "name": "Bradley Keoun",
+    "certifications": [],
+    "education": [
+      { "degree": "BA Electrical Engineering & Classical Studies (double major)", "school": "Duke University", "verified": false, "verifyUrl": null, "verifyNote": "Claim only in CoinDesk author bio" },
+      { "degree": "Master's in Journalism", "school": "University of Florida", "verified": false, "verifyUrl": null, "verifyNote": "Claim only in CoinDesk author bio" }
+    ],
+    "books": [],
+    "tier1Quotes": [
+      { "outlet": "Bloomberg", "verified": true, "sampleUrl": "https://muckrack.com/liqquidity", "verifyNote": "Muck Rack profile confirms Bloomberg Businessweek/Bloomberg News bylines" },
+      { "outlet": "TheStreet", "verified": true, "sampleUrl": "https://www.coindesk.com/author/bradley-keoun", "verifyNote": "CoinDesk official author bio confirms TheStreet chief global finance role" }
+    ],
+    "tvAppearances": [],
+    "industryAwards": [
+      { "name": "Gerald Loeb Awards — Finalist (2x; Fed secret loans + London Whale)", "year": "multiple", "source": "CoinDesk official author bio", "sampleUrl": "https://www.coindesk.com/author/bradley-keoun" }
+    ],
+    "trustSignals": { "finraBrokerCheckStatus": "not applicable", "crd": null },
+    "verifyAttemptedAt": "2026-04-16",
+    "summary": { "certsClaimed": 0, "certsVerified": 0, "booksWithIsbn": 0, "tier1Verified": 2, "newAwardsFound": 1 }
+  }
+]

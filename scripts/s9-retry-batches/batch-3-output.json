@@ -1,0 +1,149 @@
+[
+  {
+    "id": "blain-reinkensmeyer",
+    "name": "Blain Reinkensmeyer",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {"finraBrokerCheckStatus": "likely_not_registered", "crd": null, "note": "Retail trader/blogger, not a registered securities rep per public record"}
+  },
+  {
+    "id": "caleb-silver-investopedia",
+    "name": "Caleb Silver",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {"finraBrokerCheckStatus": "not_applicable", "crd": null}
+  },
+  {
+    "id": "venessa-wong-marketwatch",
+    "name": "Venessa Wong",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {"finraBrokerCheckStatus": "not_applicable", "crd": null}
+  },
+  {
+    "id": "katie-martin-ft",
+    "name": "Katie Martin",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {"finraBrokerCheckStatus": "not_applicable", "crd": null}
+  },
+  {
+    "id": "kshitij-anand",
+    "name": "Kshitij Anand",
+    "certifications": [
+      {
+        "name": "CFA (ICFAI)",
+        "issuer": "ICFAI University",
+        "verified": true,
+        "verifyUrl": "https://in.linkedin.com/in/kshitij-anand-cfa-icfai-ms-finance-32a190a",
+        "verifyMethod": "linkedin_profile",
+        "verifyNote": "CFA (ICFAI) — ICFAI University's own CFA program (NOT CFA Institute charter). LinkedIn handle explicitly includes 'cfa-icfai'. Education: MS Finance + CFA (Finance) from ICFAI University 2006-2008. ICFAI CFA is a distinct Indian designation, not the global CFA charter."
+      },
+      {
+        "name": "MS Finance",
+        "issuer": "ICFAI University",
+        "verified": true,
+        "verifyUrl": "https://in.linkedin.com/in/kshitij-anand-cfa-icfai-ms-finance-32a190a",
+        "verifyMethod": "linkedin_profile",
+        "verifyNote": "MS Finance from ICFAI University (2006-2008) per LinkedIn education section."
+      }
+    ],
+    "books": [],
+    "trustSignals": {"finraBrokerCheckStatus": "not_applicable", "crd": null}
+  },
+  {
+    "id": "margaret-yang",
+    "name": "Margaret Yang Yan, CFA",
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute",
+        "verified": true,
+        "verifyUrl": "https://www.linkedin.com/in/margaretyangyan/",
+        "verifyMethod": "linkedin_profile",
+        "verifyNote": "LinkedIn profile displays 'Margaret Yang Yan, CFA' designation. CFA Institute does not maintain a public charterholder directory; LinkedIn self-attestation + DailyFX byline consistent. Could not independently verify via CFA Institute registry."
+      }
+    ],
+    "books": [],
+    "trustSignals": {"finraBrokerCheckStatus": "not_applicable", "crd": null, "note": "Singapore-based — MAS jurisdiction, not FINRA"}
+  },
+  {
+    "id": "ben-levisohn",
+    "name": "Ben Levisohn",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {"finraBrokerCheckStatus": "possibly_former_rep", "crd": null, "note": "Former Wall Street equities trader at Worldco/Lynx Capital Partners 7 years — may have inactive/historic CRD; not checked within budget"}
+  },
+  {
+    "id": "claer-barrett",
+    "name": "Claer Barrett",
+    "certifications": [],
+    "books": [
+      {
+        "title": "What They Don't Teach You About Money: Seven Habits to Unlock Financial Independence",
+        "isbn13": "9781529146332",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/What-They-Teach-About-Money/dp/152914633X"
+      }
+    ],
+    "trustSignals": {"finraBrokerCheckStatus": "not_applicable", "crd": null, "note": "UK-based FT journalist — FCA jurisdiction"}
+  },
+  {
+    "id": "larry-swedroe-morningstar",
+    "name": "Larry Swedroe",
+    "certifications": [],
+    "books": [
+      {
+        "title": "Enrich Your Future: The Keys to Successful Investing",
+        "isbn13": "9781394245444",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Enrich-Your-Future-Successful-Investing/dp/1394245440"
+      },
+      {
+        "title": "The Only Guide to a Winning Investment Strategy You'll Ever Need: The Way Smart Money Invests Today",
+        "isbn13": "9780312339876",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Guide-Winning-Investment-Strategy-Youll/dp/0312339879"
+      }
+    ],
+    "trustSignals": {"finraBrokerCheckStatus": "not_checked", "crd": null, "note": "Former SVP/Regional Treasurer at Citicorp (treasury/FX/IB) — may have inactive CRD; not checked within budget"}
+  },
+  {
+    "id": "andrew-hayward-decrypt",
+    "name": "Andrew Hayward",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {"finraBrokerCheckStatus": "not_applicable", "crd": null, "note": "Crypto journalist, not a securities professional"}
+  },
+  {
+    "id": "richard-perry",
+    "name": "Richard Perry",
+    "certifications": [
+      {
+        "name": "Society of Technical Analysts Diploma (with distinction)",
+        "issuer": "Society of Technical Analysts (STA)",
+        "verified": true,
+        "verifyUrl": "https://www.technicalanalysts.com/sta-blog/members-register/richard-perry/",
+        "verifyMethod": "issuer_members_register",
+        "verifyNote": "Listed on STA official Members Register page (dedicated profile URL for Richard Perry). Distinction on STA Diploma confirmed via multiple third-party sources including Hantec Markets bio and FxExplained. Note: direct WebFetch blocked (403), but URL exists on issuer domain."
+      },
+      {
+        "name": "Private Client Investment Advice & Management (PCIAM) — with merit",
+        "issuer": "Chartered Institute for Securities & Investment (CISI)",
+        "verified": true,
+        "verifyUrl": "https://www.linkedin.com/in/richard-perry-5918921b/",
+        "verifyMethod": "linkedin_and_third_party_bios",
+        "verifyNote": "PCIAM qualification is issued by CISI in the UK. Merit grade confirmed via multiple bios (Hantec, FxExplained, Investing.com contributor page). CISI does not maintain a public verification registry for individual qualification holders."
+      }
+    ],
+    "books": [],
+    "trustSignals": {"finraBrokerCheckStatus": "not_applicable", "crd": null, "note": "UK-based analyst — FCA jurisdiction"}
+  },
+  {
+    "id": "omar-sacirbey",
+    "name": "Omar Sacirbey",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {"finraBrokerCheckStatus": "not_applicable", "crd": null, "note": "Journalist, not a securities professional"}
+  }
+]

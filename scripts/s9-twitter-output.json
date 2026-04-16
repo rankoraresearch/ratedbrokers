@@ -1,0 +1,739 @@
+[
+  {
+    "id": "theresa-w-carey",
+    "name": "Theresa W. Carey",
+    "twitter": "https://x.com/twcarey",
+    "followers": 3905,
+    "following": 1658,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T01:31:45.966Z"
+  },
+  {
+    "id": "margarette-burnette",
+    "name": "Margarette Burnette",
+    "twitter": "https://x.com/Margarette",
+    "followers": 210,
+    "following": 23,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T01:32:07.123Z"
+  },
+  {
+    "id": "veronica-dagher",
+    "name": "Veronica Dagher",
+    "twitter": "https://x.com/veronicadagher",
+    "followers": 6462,
+    "following": 1635,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T01:32:21.610Z"
+  },
+  {
+    "id": "christopher-tepedino",
+    "name": "Christopher Tepedino",
+    "twitter": "https://x.com/ctepster",
+    "followers": 1074,
+    "following": 1188,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T01:32:40.636Z"
+  },
+  {
+    "id": "helen-partz",
+    "name": "Helen Partz",
+    "twitter": "https://x.com/coindanslecoin",
+    "followers": 3201,
+    "following": 2413,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T01:32:57.556Z"
+  },
+  {
+    "id": "martin-young",
+    "name": "Martin Young",
+    "twitter": "https://x.com/crypt0nuts",
+    "followers": 210,
+    "following": 888,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T01:33:10.491Z"
+  },
+  {
+    "id": "prashant-jha",
+    "name": "Prashant Jha",
+    "twitter": "https://x.com/_prashantjha",
+    "followers": 741,
+    "following": 1780,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T01:33:31.991Z"
+  },
+  {
+    "id": "ana-paula-pereira",
+    "name": "Ana Paula Pereira",
+    "twitter": "https://x.com/apaulapr",
+    "followers": 751,
+    "following": 1822,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T01:33:49.110Z"
+  },
+  {
+    "id": "erhan-kahraman",
+    "name": "Erhan Kahraman",
+    "twitter": "https://x.com/erhankahraman",
+    "followers": 1969,
+    "following": 365,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T01:34:06.591Z"
+  },
+  {
+    "id": "brian-beers",
+    "name": "Brian Beers",
+    "twitter": "https://x.com/brian_beers",
+    "followers": 1020,
+    "following": 876,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T01:34:22.808Z"
+  },
+  {
+    "id": "seth-archer",
+    "name": "Seth Archer",
+    "twitter": "https://x.com/sethparcher",
+    "followers": 1081,
+    "following": 2257,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T01:34:40.761Z"
+  },
+  {
+    "id": "bradley-saacks",
+    "name": "Bradley Saacks",
+    "twitter": "https://x.com/saacksattack",
+    "followers": 3343,
+    "following": 1515,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T01:35:01.105Z"
+  },
+  {
+    "id": "emily-graffeo",
+    "name": "Emily Graffeo",
+    "twitter": "https://x.com/emily_graffeo",
+    "followers": 5378,
+    "following": 1435,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T01:35:19.064Z"
+  },
+  {
+    "id": "omkar-godbole",
+    "name": "Omkar Godbole",
+    "twitter": "https://x.com/godbole17",
+    "followers": 14900,
+    "following": 2909,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T01:35:35.675Z"
+  },
+  {
+    "id": "matt-koppenheffer",
+    "name": "Matt Koppenheffer",
+    "twitter": "https://x.com/KoppTheFool",
+    "followers": null,
+    "following": null,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T01:35:50.574Z",
+    "error": "account_gone"
+  },
+  {
+    "id": "sergei-klebnikov",
+    "name": "Sergei Klebnikov",
+    "twitter": "https://x.com/skleb1234",
+    "followers": 2878,
+    "following": 576,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T01:36:06.385Z"
+  },
+  {
+    "id": "aaron-van-wirdum",
+    "name": "Aaron van Wirdum",
+    "twitter": "https://x.com/AaronvanW",
+    "followers": 58300,
+    "following": 2953,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T01:36:24.170Z"
+  },
+  {
+    "id": "narendra-nathan",
+    "name": "Narendra Nathan",
+    "twitter": "https://x.com/dr_nnathan",
+    "followers": 8227,
+    "following": 397,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T01:36:40.262Z"
+  },
+  {
+    "id": "james-chen-investopedia",
+    "name": "James Chen",
+    "twitter": "https://x.com/jameschenfx",
+    "followers": 14700,
+    "following": 137,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T01:36:57.044Z"
+  },
+  {
+    "id": "alicia-adamczyk",
+    "name": "Alicia Adamczyk",
+    "twitter": "https://x.com/aliciaadamczyk",
+    "followers": 5556,
+    "following": 1963,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T01:37:16.699Z"
+  },
+  {
+    "id": "stephanie-goh-coingecko",
+    "name": "Stephanie Goh",
+    "twitter": "https://x.com/StephanieGoh7",
+    "followers": 160,
+    "following": 139,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T01:37:31.644Z"
+  },
+  {
+    "id": "manish-jaradi",
+    "name": "Manish Jaradi",
+    "twitter": "https://x.com/JaradiManish",
+    "followers": null,
+    "following": null,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T01:37:50.586Z",
+    "error": "account_gone"
+  },
+  {
+    "id": "andrew-hayward-decrypt",
+    "name": "Andrew Hayward",
+    "twitter": "https://x.com/ahaywa",
+    "followers": 11800,
+    "following": 801,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T01:38:05.842Z"
+  },
+  {
+    "id": "sophie-rolland",
+    "name": "Sophie Rolland",
+    "twitter": "https://x.com/sorolland",
+    "followers": 3083,
+    "following": 1295,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T01:38:23.793Z"
+  },
+  {
+    "id": "harriet-clarfelt",
+    "name": "Harriet Clarfelt",
+    "twitter": "https://x.com/HClarfelt",
+    "followers": 881,
+    "following": 910,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T01:38:39.133Z"
+  },
+  {
+    "id": "matt-peterson",
+    "name": "Matt Peterson",
+    "twitter": "https://x.com/mattbpete",
+    "followers": 4690,
+    "following": 5066,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T01:38:57.049Z"
+  },
+  {
+    "id": "clint-proctor",
+    "name": "Clint Proctor",
+    "twitter": "https://x.com/clint_proctor_",
+    "followers": 1300,
+    "following": 1133,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T01:39:12.529Z"
+  },
+  {
+    "id": "katie-doyle",
+    "name": "Katie Doyle",
+    "twitter": "https://x.com/katislafevis",
+    "followers": 1140,
+    "following": 1340,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T01:39:33.336Z"
+  },
+  {
+    "id": "james-hunt-theblock",
+    "name": "James Hunt",
+    "twitter": "https://x.com/humanjets",
+    "followers": 5112,
+    "following": 1247,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T01:39:51.364Z"
+  },
+  {
+    "id": "damian-chmiel",
+    "name": "Damian Chmiel",
+    "twitter": "https://x.com/ChmielDk",
+    "followers": null,
+    "following": null,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T01:40:07.060Z",
+    "error": "page.goto: Timeout 25000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://x.com/ChmielDk\", waiting until \"domcontentloaded\"\u001b[22m\n"
+  },
+  {
+    "id": "rachel-mcvearry",
+    "name": "Rachel McVearry",
+    "twitter": "https://x.com/rachelmcvearry",
+    "followers": 48,
+    "following": 157,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T01:54:20.373Z"
+  },
+  {
+    "id": "giuseppe-dellamotta",
+    "name": "Giuseppe Dellamotta",
+    "twitter": "https://x.com/DellamottaGM",
+    "followers": 1402,
+    "following": 84,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T01:54:44.405Z"
+  },
+  {
+    "id": "michael-field",
+    "name": "Michael Field",
+    "twitter": "https://x.com/mstarmarkets_eu",
+    "followers": 498,
+    "following": 1231,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T02:28:37.377Z"
+  },
+  {
+    "id": "jeff-ostrowski",
+    "name": "Jeff Ostrowski",
+    "twitter": "https://x.com/bio561",
+    "followers": null,
+    "following": null,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T03:00:29.935Z",
+    "error": "page.goto: Timeout 25000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://x.com/bio561\", waiting until \"domcontentloaded\"\u001b[22m\n"
+  },
+  {
+    "id": "martine-robert",
+    "name": "Martine Robert",
+    "twitter": "https://x.com/martird",
+    "followers": 8834,
+    "following": 862,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T03:52:31.977Z"
+  },
+  {
+    "id": "mohit-manghnani",
+    "name": "Mohit Manghnani",
+    "twitter": "https://x.com/iMohitManghnani",
+    "followers": 208,
+    "following": 177,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T04:36:15.391Z"
+  },
+  {
+    "id": "emily-stewart",
+    "name": "Emily Stewart",
+    "twitter": "https://x.com/EmilyStewartM",
+    "followers": 11900,
+    "following": 4965,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T05:27:58.580Z"
+  },
+  {
+    "id": "rupert-jones",
+    "name": "Rupert Jones",
+    "twitter": "https://x.com/rupert_jones",
+    "followers": 7230,
+    "following": 124,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T05:53:54.005Z"
+  },
+  {
+    "id": "jonathan-burton",
+    "name": "Jonathan Burton",
+    "twitter": "https://x.com/MKTWBurton",
+    "followers": 8186,
+    "following": 1717,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T06:38:14.852Z"
+  },
+  {
+    "id": "darren-sinden",
+    "name": "Darren Sinden",
+    "twitter": "https://x.com/fatdaz",
+    "followers": 1236,
+    "following": 2356,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T07:29:49.942Z"
+  },
+  {
+    "id": "danielle-park",
+    "name": "Danielle Park, CFA",
+    "twitter": "https://x.com/kdaniellepark",
+    "followers": 4235,
+    "following": 216,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T07:55:39.695Z"
+  },
+  {
+    "id": "merryn-somerset-webb",
+    "name": "Merryn Somerset Webb",
+    "twitter": "https://x.com/MerrynSW",
+    "followers": 64600,
+    "following": 2339,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T08:40:21.226Z"
+  },
+  {
+    "id": "nigam-arora",
+    "name": "Nigam Arora",
+    "twitter": "https://x.com/TheAroraReport",
+    "followers": 107700,
+    "following": 406,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T09:28:13.573Z"
+  },
+  {
+    "id": "jared-blikre",
+    "name": "Jared Blikre",
+    "twitter": "https://x.com/SPYJared",
+    "followers": 8371,
+    "following": 1255,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T09:59:03.946Z"
+  },
+  {
+    "id": "andrey-sergeenkov",
+    "name": "Andrey Sergeenkov",
+    "twitter": "https://x.com/Nikopolos",
+    "followers": null,
+    "following": null,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T10:20:46.182Z",
+    "error": "page.goto: net::ERR_NAME_NOT_RESOLVED at https://x.com/Nikopolos\nCall log:\n\u001b[2m  - navigating to \"https://x.com/Nikopolos\", waiting until \"domcontentloaded\"\u001b[22m\n"
+  },
+  {
+    "id": "justin-freeman",
+    "name": "Justin Freeman",
+    "twitter": "https://x.com/JustinFreeman18",
+    "followers": null,
+    "following": null,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T10:27:32.149Z",
+    "error": "page.goto: net::ERR_INTERNET_DISCONNECTED at https://x.com/JustinFreeman18\nCall log:\n\u001b[2m  - navigating to \"https://x.com/JustinFreeman18\", waiting until \"domcontentloaded\"\u001b[22m\n"
+  },
+  {
+    "id": "davier-m",
+    "name": "Davier M",
+    "twitter": "https://x.com/_veradium",
+    "followers": null,
+    "following": null,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T10:27:43.213Z",
+    "error": "page.goto: Timeout 25000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://x.com/_veradium\", waiting until \"domcontentloaded\"\u001b[22m\n"
+  },
+  {
+    "id": "fran-velasquez",
+    "name": "Fran Velasquez",
+    "twitter": "https://x.com/_franvela",
+    "followers": null,
+    "following": null,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T10:29:04.965Z",
+    "error": "page.goto: net::ERR_INTERNET_DISCONNECTED at https://x.com/_franvela\nCall log:\n\u001b[2m  - navigating to \"https://x.com/_franvela\", waiting until \"domcontentloaded\"\u001b[22m\n"
+  },
+  {
+    "id": "richard-waters-ft",
+    "name": "Richard Waters",
+    "twitter": "https://x.com/RichardWaters",
+    "followers": null,
+    "following": null,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T10:30:50.960Z",
+    "error": "page.goto: net::ERR_INTERNET_DISCONNECTED at https://x.com/RichardWaters\nCall log:\n\u001b[2m  - navigating to \"https://x.com/RichardWaters\", waiting until \"domcontentloaded\"\u001b[22m\n"
+  },
+  {
+    "id": "al-root",
+    "name": "Al Root (Allen Root)",
+    "twitter": "https://x.com/DowJonesAl",
+    "followers": null,
+    "following": null,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T10:31:02.422Z",
+    "error": "page.goto: net::ERR_INTERNET_DISCONNECTED at https://x.com/DowJonesAl\nCall log:\n\u001b[2m  - navigating to \"https://x.com/DowJonesAl\", waiting until \"domcontentloaded\"\u001b[22m\n"
+  },
+  {
+    "id": "joey-shadeck",
+    "name": "Joey Shadeck",
+    "twitter": "https://x.com/jshadeck",
+    "followers": null,
+    "following": null,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T10:36:12.835Z",
+    "error": "page.goto: net::ERR_INTERNET_DISCONNECTED at https://x.com/jshadeck\nCall log:\n\u001b[2m  - navigating to \"https://x.com/jshadeck\", waiting until \"domcontentloaded\"\u001b[22m\n"
+  },
+  {
+    "id": "michael-hewson",
+    "name": "Michael Hewson",
+    "twitter": "https://x.com/mhewson_CMC",
+    "followers": null,
+    "following": null,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T10:36:26.770Z",
+    "error": "page.goto: net::ERR_INTERNET_DISCONNECTED at https://x.com/mhewson_CMC\nCall log:\n\u001b[2m  - navigating to \"https://x.com/mhewson_CMC\", waiting until \"domcontentloaded\"\u001b[22m\n"
+  },
+  {
+    "id": "kshitij-anand",
+    "name": "Kshitij Anand",
+    "twitter": "https://x.com/kshanand",
+    "followers": null,
+    "following": null,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T10:46:03.891Z",
+    "error": "page.goto: net::ERR_INTERNET_DISCONNECTED at https://x.com/kshanand\nCall log:\n\u001b[2m  - navigating to \"https://x.com/kshanand\", waiting until \"domcontentloaded\"\u001b[22m\n"
+  },
+  {
+    "id": "rishabh-surana",
+    "name": "Rishabh Surana",
+    "twitter": "https://x.com/rishabhanalyst",
+    "followers": null,
+    "following": null,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T10:46:20.069Z",
+    "error": "page.goto: Timeout 25000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://x.com/rishabhanalyst\", waiting until \"domcontentloaded\"\u001b[22m\n"
+  },
+  {
+    "id": "matt-egan",
+    "name": "Matt Egan",
+    "twitter": "https://x.com/MattEganCNN",
+    "followers": null,
+    "following": null,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T10:57:23.547Z",
+    "error": "page.goto: net::ERR_INTERNET_DISCONNECTED at https://x.com/MattEganCNN\nCall log:\n\u001b[2m  - navigating to \"https://x.com/MattEganCNN\", waiting until \"domcontentloaded\"\u001b[22m\n"
+  },
+  {
+    "id": "zach-hurwitz",
+    "name": "Zach Hurwitz",
+    "twitter": "https://x.com/ZachHurwitz",
+    "followers": null,
+    "following": null,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T10:58:24.336Z",
+    "error": "page.goto: net::ERR_INTERNET_DISCONNECTED at https://x.com/ZachHurwitz\nCall log:\n\u001b[2m  - navigating to \"https://x.com/ZachHurwitz\", waiting until \"domcontentloaded\"\u001b[22m\n"
+  },
+  {
+    "id": "yogita-khatri",
+    "name": "Yogita Khatri",
+    "twitter": "https://x.com/yogita_khatri5",
+    "followers": 11000,
+    "following": 61,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T10:59:31.803Z"
+  },
+  {
+    "id": "catey-hill",
+    "name": "Catey Hill",
+    "twitter": "https://x.com/cateyhill",
+    "followers": 9194,
+    "following": 1372,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T10:59:51.549Z"
+  },
+  {
+    "id": "andjela-radmilac",
+    "name": "Andjela Radmilac",
+    "twitter": "https://x.com/andjelaradmilac",
+    "followers": 619,
+    "following": 509,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T11:00:13.114Z"
+  },
+  {
+    "id": "christie-harkin",
+    "name": "Christie Harkin",
+    "twitter": "https://x.com/cryptowords",
+    "followers": 2731,
+    "following": 934,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T11:00:31.440Z"
+  },
+  {
+    "id": "rachel-rickard-straus",
+    "name": "Rachel Rickard Straus",
+    "twitter": "https://x.com/rachel_spike",
+    "followers": 3736,
+    "following": 2337,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T11:00:47.183Z"
+  },
+  {
+    "id": "connor-sephton",
+    "name": "Connor Sephton",
+    "twitter": "https://x.com/connorsephton",
+    "followers": 5291,
+    "following": 2144,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T11:01:03.643Z"
+  },
+  {
+    "id": "allison-morrow",
+    "name": "Allison Morrow",
+    "twitter": "https://x.com/allisondmorrow",
+    "followers": 3024,
+    "following": 1395,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T11:01:17.777Z"
+  },
+  {
+    "id": "camila-russo",
+    "name": "Camila Russo",
+    "twitter": "https://x.com/CamiRusso",
+    "followers": 93400,
+    "following": 3806,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T11:01:31.863Z"
+  },
+  {
+    "id": "claer-barrett",
+    "name": "Claer Barrett",
+    "twitter": "https://x.com/claerb",
+    "followers": 22500,
+    "following": 3524,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T11:01:47.089Z"
+  },
+  {
+    "id": "frank-chaparro",
+    "name": "Frank Chaparro",
+    "twitter": "https://x.com/fintechfrank",
+    "followers": 206000,
+    "following": 2710,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T11:02:07.487Z"
+  },
+  {
+    "id": "uma-shashikant",
+    "name": "Uma Shashikant",
+    "twitter": "https://x.com/uma_shashikant",
+    "followers": null,
+    "following": null,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T11:02:21.900Z",
+    "error": "account_gone"
+  },
+  {
+    "id": "tobi-opeyemi-amure",
+    "name": "Tobi Opeyemi Amure",
+    "twitter": "https://x.com/tobiamure",
+    "followers": 5514,
+    "following": 3049,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T11:02:38.733Z"
+  },
+  {
+    "id": "nooresh-merani",
+    "name": "Nooresh Merani",
+    "twitter": "https://x.com/nooreshtech",
+    "followers": 100600,
+    "following": 743,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T11:02:55.159Z"
+  },
+  {
+    "id": "joshua-franklin",
+    "name": "Joshua Franklin",
+    "twitter": "https://x.com/ftjfranklin",
+    "followers": 3980,
+    "following": 943,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T11:03:10.206Z"
+  },
+  {
+    "id": "aislinn-keely",
+    "name": "Aislinn Keely",
+    "twitter": "https://x.com/AislinnKeely",
+    "followers": 1312,
+    "following": 230,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T11:03:31.116Z"
+  },
+  {
+    "id": "guillermo-jimenez",
+    "name": "Guillermo Jimenez",
+    "twitter": "https://x.com/guillermojimnz",
+    "followers": 2217,
+    "following": 1499,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T11:03:46.286Z"
+  },
+  {
+    "id": "lu-wang-bloomberg",
+    "name": "Lu Wang",
+    "twitter": "https://x.com/luwangnyc",
+    "followers": 1946,
+    "following": 416,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T11:04:04.490Z"
+  },
+  {
+    "id": "steven-hatzakis",
+    "name": "Steven Hatzakis",
+    "twitter": "https://x.com/shatzakis",
+    "followers": 4485,
+    "following": 4733,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T11:04:18.518Z"
+  },
+  {
+    "id": "yifan-yu",
+    "name": "Yifan Yu",
+    "twitter": "https://x.com/yifanyunews",
+    "followers": 1608,
+    "following": 473,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T11:04:39.273Z"
+  },
+  {
+    "id": "danny-kunwoong-park",
+    "name": "Danny Kunwoong Park",
+    "twitter": "https://x.com/ParkKunwoong",
+    "followers": 851,
+    "following": 1084,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T11:04:55.033Z"
+  },
+  {
+    "id": "alex-gailey",
+    "name": "Alex Gailey",
+    "twitter": "https://x.com/alex_gailey",
+    "followers": 1102,
+    "following": 1493,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T11:05:08.440Z"
+  },
+  {
+    "id": "tim-copeland",
+    "name": "Tim Copeland",
+    "twitter": "https://x.com/timccopeland",
+    "followers": 41200,
+    "following": 6163,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T11:05:24.731Z"
+  },
+  {
+    "id": "stephen-graves",
+    "name": "Stephen Graves",
+    "twitter": "https://x.com/stephengraves",
+    "followers": 2366,
+    "following": 2398,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T11:05:39.663Z"
+  },
+  {
+    "id": "beverly-harzog",
+    "name": "Beverly Harzog",
+    "twitter": "https://x.com/BeverlyHarzog",
+    "followers": 5239,
+    "following": 2253,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T11:05:55.305Z"
+  }
+]

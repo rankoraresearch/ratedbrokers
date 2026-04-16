@@ -1,0 +1,236 @@
+[
+  {
+    "id": "andres-cardenal",
+    "name": "Andrés Cardenal, CFA",
+    "role": "Contributor / Investing Group Leader (Seeking Alpha)",
+    "outletName": "Seeking Alpha",
+    "bio": "Economist with 25+ years of investment research experience for hedge funds, family offices and asset managers across the US and Latin America. CFA Charterholder. Seeking Alpha analyst since 2017 and Newsletter Editor of 'The Data Driven Investor', focused on evidence-based growth/tech stock analysis and options income ideas. Work featured in The Motley Fool and Business Insider.",
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute"
+      }
+    ],
+    "credentials": [
+      "CFA"
+    ],
+    "education": [],
+    "yearsInIndustry": 25,
+    "linkedin": null
+  },
+  {
+    "id": "brian-oconnell-kiplinger",
+    "name": "Brian O'Connell",
+    "role": "Contributor — Retirement & Personal Finance",
+    "outletName": "Kiplinger",
+    "bio": "Former Wall Street bond trader turned financial journalist with 20+ years of experience covering business news and trends. Author of two books: 'The 401k Millionaire' and 'CNBC's Creating Wealth'. Has written for TheStreet.com, CBS News, The Wall Street Journal, U.S. News & World Report, Forbes, Fox News and others. Contributing writer to U.S. News & World Report since 2016. Current Kiplinger work",
+    "certifications": [],
+    "credentials": [],
+    "education": [
+      {
+        "degree": "Bachelor's",
+        "school": "University of Massachusetts",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 20,
+    "linkedin": null
+  },
+  {
+    "id": "david-jensen-cfa-seekingalpha",
+    "name": "David Jensen, CFA",
+    "role": "Contributor — Seeking Alpha / Principal, Jensen Strategic",
+    "outletName": "Seeking Alpha",
+    "bio": "Mining analyst and precious metals expert with close to two decades of experience in the mining industry. Currently President and COO of a private mining company and provides strategic, operational, risk assessment and precious metals consulting services through Jensen Strategic. Publishes 'Jensen's Economic, Precious Metals, & Markets Newsletter' on Substack (tens of thousands of subscribers). Co",
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute"
+      }
+    ],
+    "credentials": [
+      "CFA"
+    ],
+    "education": [],
+    "yearsInIndustry": 20,
+    "linkedin": null
+  },
+  {
+    "id": "jack-crooks-babypips",
+    "name": "Jack Crooks (a.k.a. Jack the Pipper)",
+    "role": "Contributor — Founder/President Black Swan Capital LLC",
+    "outletName": "BabyPips",
+    "bio": "Founder and President of Black Swan Capital LLC, a foreign exchange and currency market advisory firm. Over 20 years investment experience using both quantitative and qualitative approaches to determine fundamental driving forces behind currency, capital, and commodities markets. Co-editor of the Black Swan Capital Currency Strategist and daily e-letter Currency Currents. Previously founded Ross I",
+    "certifications": [],
+    "credentials": [],
+    "education": [
+      {
+        "degree": "BA Finance",
+        "school": "Florida State University",
+        "year": null
+      },
+      {
+        "degree": "MBA",
+        "school": "University of North Texas",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 25,
+    "linkedin": null
+  },
+  {
+    "id": "carrie-kirby-coindesk",
+    "name": "Carrie Kirby",
+    "role": "Contributor — Freelance Bay Area Reporter",
+    "outletName": "CoinDesk",
+    "bio": "Bay Area freelance reporter with years of experience writing about technology. Helped cover the dot-com boom and bust for the San Francisco Chronicle. Now contributes to the Chronicle, Chicago Tribune, San Francisco magazine, and other publications including CoinDesk. Specialties include travel on miles and points, personal finance, saving money, and tech. Runs The Miles Mom blog focused on helpin",
+    "certifications": [],
+    "credentials": [],
+    "education": [],
+    "yearsInIndustry": 20,
+    "linkedin": "https://www.linkedin.com/in/carrie-kirby-2732775/"
+  },
+  {
+    "id": "sean-williams-fool",
+    "name": "Sean Williams",
+    "role": "Contributing analyst — The Motley Fool (Financial sector)",
+    "outletName": "Motley Fool",
+    "bio": "Data-driven Motley Fool contributing analyst. 27+ years investing experience; author of 15,000+ articles. Specializes in the Financial sector; covers 1,273 stocks. Syndicated at The Guardian, Business Insider, MSN, USA Today, Yahoo News, TIME. Avid fantasy-football fan per public profile.",
+    "certifications": [],
+    "credentials": [],
+    "education": [],
+    "yearsInIndustry": 27,
+    "linkedin": null
+  },
+  {
+    "id": "ann-logue-thebalancemoney",
+    "name": "Ann Logue",
+    "role": "Contributor — Investing writer",
+    "outletName": "The Balance",
+    "bio": "Ann C. Logue, MBA, CFA — writer specializing in business and finance with 22+ years of experience. Worked for 12 years as an investment analyst. MBA in Finance from the University of Chicago Booth School of Business; BA in Economics from Northwestern University. Former Fulbright-García Robles U.S. Studies Chair at the Universidad de Guadalajara; part-time finance instructor at the University of Il",
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute"
+      }
+    ],
+    "credentials": [
+      "CFA",
+      "MBA"
+    ],
+    "education": [
+      {
+        "degree": "BA Economics",
+        "school": "Northwestern University",
+        "year": null
+      },
+      {
+        "degree": "MBA Finance",
+        "school": "University of Chicago Booth School of Business",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 22,
+    "linkedin": null
+  },
+  {
+    "id": "nick-marinoff",
+    "name": "Nick Marinoff",
+    "role": "Staff Writer — Bitcoin Magazine / Lead News Writer & Editor — Money & Tech",
+    "outletName": "Bitcoin Magazine",
+    "bio": "Writer, author and journalist covering cryptocurrency since 2014. Currently lead news writer and editor for Money & Tech (San Francisco-based digital currency broadcasting station). Staff writer at Bitcoin Magazine (147+ posts) and Live Bitcoin News. Work published in Yahoo Finance, Nasdaq, SiliconANGLE, Bitcoinist, NewsBTC, 99 Bitcoins, Decrypt, CryptoSlate, Coin Journal, Benzinga. Published e-bo",
+    "certifications": [],
+    "credentials": [],
+    "education": [],
+    "yearsInIndustry": 11,
+    "linkedin": null
+  },
+  {
+    "id": "daniel-franke",
+    "name": "Daniel Franke",
+    "role": "Founder and Operator — Brokervergleich.de / Franke-Media.net",
+    "outletName": "Brokervergleich",
+    "bio": "Founder of Brokervergleich.de (2011) and Franke-Media.net (2005). BWL (Business Administration) studies at University of Leipzig and FernUniversität Hagen. Spent years in mid-market roles including controlling and procurement before full engagement with financial products from early 2000s. Conducts comprehensive annual online broker test with 100+ criteria since 2012. Recognized as 'Top Performing",
+    "certifications": [],
+    "credentials": [],
+    "education": [
+      {
+        "degree": "BWL (Business Administration)",
+        "school": "University of Leipzig",
+        "year": null
+      },
+      {
+        "degree": "BWL (Business Administration)",
+        "school": "FernUniversität Hagen",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 25,
+    "linkedin": null
+  },
+  {
+    "id": "edward-sheldon-goodmoneyguide",
+    "name": "Edward Sheldon",
+    "role": "Investment Writer — Good Money Guide",
+    "outletName": "Good Money Guide",
+    "bio": "London-based investment writer with 15+ years of experience in private wealth management and institutional asset management across the UK and Australia. Sought-after investment expert whose analyses have been featured on major financial platforms including BlackRock, Credit Suisse, WisdomTree, Motley Fool, eToro and CMC Markets.",
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute"
+      },
+      {
+        "name": "IMC",
+        "issuer": "CFA Society UK"
+      }
+    ],
+    "credentials": [
+      "CFA",
+      "IMC"
+    ],
+    "education": [
+      {
+        "degree": "Commerce degree",
+        "school": "University of Melbourne",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 15,
+    "linkedin": "https://www.linkedin.com/in/edward-sheldon-cfa-a6a36359/"
+  },
+  {
+    "id": "lyn-alden-modestmoney",
+    "name": "Lyn Alden Schwartzer",
+    "role": "Contributor — Founder, Lyn Alden Investment Strategy",
+    "outletName": "Modest Money",
+    "bio": "American investment strategist, founder of Lyn Alden Investment Strategy (2016), and General Partner at Ego Death Capital since 2022. One of today's leading macro strategists, combining fundamental investing principles with a global macroeconomic perspective — focuses on currency dynamics, monetary policy, equity valuations, and digital assets. From 2009 to 2021 she was an electrical engineer and ",
+    "certifications": [],
+    "credentials": [],
+    "education": [
+      {
+        "degree": "BS Electrical Engineering",
+        "school": "Penn State University",
+        "year": null
+      },
+      {
+        "degree": "MSc Engineering Management",
+        "school": "Rowan University",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 16,
+    "linkedin": "https://www.linkedin.com/in/lynalden/"
+  },
+  {
+    "id": "richard-berry-goodmoneyguide",
+    "name": "Richard Berry",
+    "role": "Founder / Managing Director",
+    "outletName": "Good Money Guide",
+    "bio": "Founder and Managing Director of Good Money Guide (established 2015, originally Good Broker Guide) with 20+ years of brokerage-sector expertise. Career in derivatives and stockbroking: Investors Intelligence (broker), MF Global / Man Financial (multi-asset derivatives broker), Walker Crips (private client stockbroker), and Phillip Securities — now King and Shaxson — (private client stockbroker). E",
+    "certifications": [],
+    "credentials": [],
+    "education": [],
+    "yearsInIndustry": 24,
+    "linkedin": "https://www.linkedin.com/in/richardberryuk/"
+  }
+]

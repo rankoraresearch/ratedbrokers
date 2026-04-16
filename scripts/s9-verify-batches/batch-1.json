@@ -1,0 +1,1272 @@
+[
+  {
+    "id": "steven-hatzakis",
+    "name": "Steven Hatzakis",
+    "role": "Global Director of Online Broker Research, Partner — Reink Media Group (StockBrokers.com, ForexBrokers.com, BrokerNotes.co)",
+    "site": "stockbrokers",
+    "outletName": "StockBrokers.com",
+    "bio": "Global Director of Online Broker Research and Partner at Reink Media Group (parent of StockBrokers.com, ForexBrokers.com and BrokerNotes.co). 20+ years in finance. Registered commodity futures representative for domestic and internationally-regulated brokerages; holds Series III license as a Commodity Trading Advisor (CTA) — registered with the CFTC since 2008 (10+ years). Has published 1,000+ articles on the forex industry; early writer on Bitcoin and crypto. Active cryptocurrency researcher, investor and trader (3,000+ crypto trades in 2020). Frequent speaker and moderator at forex and finan",
+    "credentials": [
+      "Series III (CTA)",
+      "CFTC-registered Commodity Trading Advisor since 2008"
+    ],
+    "certifications": [
+      {
+        "claimed": true
+      },
+      {
+        "claimed": true
+      },
+      {
+        "name": "CTA (Commodity Trading Advisor) / Series III",
+        "issuer": "NFA/CFTC",
+        "claimed": true
+      },
+      {
+        "name": "Series 3 (CFTC)",
+        "issuer": "CFTC / NFA",
+        "claimed": true
+      },
+      {
+        "name": "Commodity Trading Advisor (CTA)",
+        "issuer": "CFTC / NFA",
+        "claimed": true
+      }
+    ],
+    "education": [],
+    "yearsInIndustry": 20,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "Bloomberg"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/shatzakis/",
+    "personalSite": "https://www.stevenhatzakis.com/",
+    "authorUrl": "https://www.stockbrokers.com/about/steven-hatzakis",
+    "eeatTier": "S",
+    "finalScore": 150
+  },
+  {
+    "id": "beth-pinsker",
+    "name": "Beth Pinsker",
+    "role": "Financial-planning columnist — MarketWatch",
+    "site": "marketwatch",
+    "outletName": "MarketWatch",
+    "bio": "Financial-planning columnist at MarketWatch. Certified Financial Planner (CFP®) since 2018. B.A. English, Harvard University. Previously worked at Reuters, Fidelity and Walletpop.com. Before personal finance, was a film critic and entertainment business reporter at Entertainment Weekly, The Dallas Morning News and others. Won a SABEW Best in Business award in 2023 for commentary. Author of 'My Mother's Money: A Guide to Financial Caregiving' (Crown Currency, Nov 2025). Bylines in WSJ, USA Today, Forbes, Miami Herald, San Francisco Chronicle, NerdWallet.",
+    "credentials": [
+      "CFP"
+    ],
+    "certifications": [
+      {
+        "name": "CFP",
+        "issuer": "CFP Board",
+        "claimed": true
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.A. English",
+        "school": "Harvard University",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 20,
+    "mediaSignals": {
+      "authoredBooks": [
+        "My Mother's Money: A Guide to Financial Caregiving"
+      ],
+      "quotedInTier1": [
+        "WSJ",
+        "Forbes",
+        "USA Today"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/bpinsker/",
+    "personalSite": "https://bethpinsker.com/",
+    "authorUrl": null,
+    "eeatTier": "S",
+    "finalScore": 144
+  },
+  {
+    "id": "vitaliy-katsenelson",
+    "name": "Vitaliy Katsenelson, CFA",
+    "role": "CEO — Investment Management Associates (Contributor, Seeking Alpha)",
+    "site": "seekingalpha",
+    "outletName": "Seeking Alpha",
+    "bio": "CEO of Investment Management Associates (IMA), a Denver-based value investing firm. Emigrated from Murmansk, Russia, to the US in 1991. Joined IMA in 1997. CFA charterholder (2000). Award-winning writer, author of 'Active Value Investing' and 'Soul in the Game: The Art of a Meaningful Life'. Work cited in Financial Times, Barron's, Institutional Investor, The Wall Street Journal, and Foreign Policy. Forbes Magazine dubbed him 'The New Benjamin Graham'. Runs The Intellectual Investor blog (investor.fm) and My Favorite Classical.",
+    "credentials": [
+      "CFA"
+    ],
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute",
+        "claimed": true
+      }
+    ],
+    "education": [
+      {
+        "degree": "BS Finance",
+        "school": "University of Colorado at Denver",
+        "year": null
+      },
+      {
+        "degree": "MS Finance",
+        "school": "University of Colorado at Denver",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 28,
+    "mediaSignals": {
+      "authoredBooks": [
+        {
+          "title": "Active Value Investing",
+          "year": null
+        },
+        {
+          "title": "Soul in the Game: The Art of a Meaningful Life",
+          "year": null
+        }
+      ],
+      "quotedInTier1": [
+        "FT",
+        "WSJ",
+        "Barron's",
+        "Institutional Investor",
+        "Foreign Policy",
+        "Forbes"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/katsenelson",
+    "personalSite": "https://investor.fm/",
+    "authorUrl": "https://seekingalpha.com/author/vitaliy-katsenelson-cfa",
+    "eeatTier": "S",
+    "finalScore": 144
+  },
+  {
+    "id": "marc-chandler-investing",
+    "name": "Marc Chandler",
+    "role": "Chief Market Strategist & Managing Partner — Bannockburn Global Forex (contributor, Investing.com)",
+    "site": "investing",
+    "outletName": "Investing.com",
+    "bio": "Chief Market Strategist and Managing Partner at Bannockburn Global Forex (since October 2018). 30+ years covering global capital markets. Previously global head of currency strategy at HSBC and Brown Brothers Harriman. Frequent guest on CNBC, Bloomberg Television, FOX Business, Business News Network, and Nightly Business Report. Professor, speaker, and writer. Maintains daily 'Marc to Market' blog. CMT holder (CMT Association presenter). Contributor on Investing.com and Seeking Alpha (since 2008).",
+    "credentials": [
+      "CMT"
+    ],
+    "certifications": [
+      {
+        "name": "CMT",
+        "issuer": "CMT Association",
+        "claimed": true
+      }
+    ],
+    "education": [],
+    "yearsInIndustry": 30,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "CNBC",
+        "Bloomberg",
+        "FOX Business"
+      ],
+      "tvAppearances": [
+        "CNBC",
+        "Bloomberg Television",
+        "FOX Business",
+        "Business News Network",
+        "Nightly Business Report"
+      ]
+    },
+    "linkedin": "https://www.linkedin.com/in/chandlermarc",
+    "personalSite": "https://www.marctomarket.com/",
+    "authorUrl": "https://www.investing.com/members/contributors/39495",
+    "eeatTier": "S",
+    "finalScore": 142
+  },
+  {
+    "id": "beverly-harzog",
+    "name": "Beverly Harzog",
+    "role": "Financial Review Board — Credit Cards Reviewer (Bankrate); Consumer finance analyst and author",
+    "site": "bankrate",
+    "outletName": "Bankrate",
+    "bio": "Nationally recognized consumer finance analyst and credit expert with 30 years in the industry. Host of the Your Personal Economy podcast. Bestselling and award-winning author of five personal finance books. Former CPA. MBA from University of New Haven. Former columnist and media spokesperson for U.S. News & World Report. Expertise: credit cards, banking, consumer loans, mortgages, budgeting, inflation, economic policy, saving. Media appearances on Fox News, CNN, CBS Evening News, NBC News, Cheddar, NBC New York. Published in WSJ, USA Today, Money Magazine, NYT, NY Magazine, Kiplinger, Washing",
+    "credentials": [
+      "CPA (former)",
+      "MBA"
+    ],
+    "certifications": [
+      {
+        "name": "CPA (former)",
+        "issuer": "State Board of Accountancy",
+        "claimed": true
+      }
+    ],
+    "education": [
+      {
+        "degree": "MBA",
+        "school": "University of New Haven",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 30,
+    "mediaSignals": {
+      "authoredBooks": [
+        {
+          "title": "Five personal finance books (bestselling, award-winning)",
+          "year": null
+        }
+      ],
+      "quotedInTier1": [
+        "The Wall Street Journal",
+        "USA Today",
+        "The New York Times",
+        "Washington Post",
+        "Forbes",
+        "Money Magazine",
+        "Kiplinger"
+      ],
+      "tvAppearances": [
+        "Fox News",
+        "CNN",
+        "CBS Evening News",
+        "NBC News",
+        "Cheddar",
+        "NBC New York"
+      ]
+    },
+    "linkedin": "https://www.linkedin.com/in/beverlyharzog/",
+    "personalSite": "https://www.beverlyharzog.com/",
+    "authorUrl": "https://www.bankrate.com/authors/beverly-harzog/",
+    "eeatTier": "S",
+    "finalScore": 141
+  },
+  {
+    "id": "andrea-coombes-bankrate",
+    "name": "Andrea Coombes",
+    "role": "Taxes Editor, Bankrate (CFP®)",
+    "site": "bankrate",
+    "outletName": "Bankrate",
+    "bio": "CERTIFIED FINANCIAL PLANNER (CFP®) and Taxes Editor at Bankrate with 25+ years as a financial coach, personal-finance writer and volunteer tax preparer. Translates complex personal-finance topics into plain English. Spent a decade at MarketWatch (including two years as editor overseeing personal-finance content). At NerdWallet 2017–2020 as investing and retirement writer. Work has been published in The Wall Street Journal, USA Today, MarketWatch and newspapers nationwide. Interviewed on NPR's All Things Considered, CBS News, NASDAQ and Marketplace. Award winner — National Endowment for Financi",
+    "credentials": [
+      "CFP"
+    ],
+    "certifications": [
+      {
+        "name": "CFP®",
+        "issuer": "CFP Board",
+        "claimed": true
+      }
+    ],
+    "education": [],
+    "yearsInIndustry": 25,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "WSJ",
+        "USA Today",
+        "MarketWatch"
+      ],
+      "tvAppearances": [
+        "NPR All Things Considered",
+        "CBS News",
+        "NASDAQ",
+        "Marketplace"
+      ]
+    },
+    "linkedin": "https://www.linkedin.com/in/acoombes/",
+    "personalSite": null,
+    "authorUrl": "https://www.bankrate.com/authors/andrea-coombes/",
+    "eeatTier": "S",
+    "finalScore": 141
+  },
+  {
+    "id": "jennifer-streaks",
+    "name": "Jennifer Streaks",
+    "role": "Senior Personal Finance Reporter — Business Insider",
+    "site": "businessinsider",
+    "outletName": "Business Insider",
+    "bio": "Senior Personal Finance Reporter at Business Insider — writes about credit, budgeting, saving, and how economic trends impact everyday people. Before Business Insider, she was a financial contributor for CNBC and covered personal finance, entrepreneurship, tech, and the economy for Forbes; work also in TheGrio, Black Enterprise, USA Today, and Yahoo Finance. Frequent on-air financial commentator on Good Morning America, Yahoo Finance, CBS, MSNBC, and the NYSE TV studio. Member of the National Association of Black Journalists (NABJ). MBA from Johns Hopkins University; BA/undergrad College of Ch",
+    "credentials": [
+      "MBA"
+    ],
+    "certifications": [],
+    "education": [
+      {
+        "degree": "MBA",
+        "school": "Johns Hopkins University",
+        "year": null
+      },
+      {
+        "degree": "Undergraduate",
+        "school": "College of Charleston",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 15,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "CNBC",
+        "Forbes",
+        "USA Today"
+      ],
+      "tvAppearances": [
+        "Good Morning America",
+        "CBS",
+        "MSNBC",
+        "Yahoo Finance",
+        "NYSE TV"
+      ]
+    },
+    "linkedin": "https://www.linkedin.com/in/jstreaks/",
+    "personalSite": null,
+    "authorUrl": "https://muckrack.com/jstreaks",
+    "eeatTier": "S",
+    "finalScore": 139
+  },
+  {
+    "id": "catey-hill",
+    "name": "Catey Hill",
+    "role": "Founding Editor — MarketWatch Picks; Head of Editorial (affiliate commerce)",
+    "site": "marketwatch",
+    "outletName": "MarketWatch",
+    "bio": "Founding Editor of MarketWatch Picks and head of editorial for MarketWatch's affiliate commerce brands. Previously developed the Upgrade column (1M+ unique monthly visitors). Has written and edited personal finance, career, lifestyle and travel stories for The Wall Street Journal, MarketWatch, Barron's, Worth, SmartMoney, Forbes, Seventeen, and Real Simple. Author of two personal-finance books: The 30-Minute Money Plan for Moms and Shoo, Jimmy Choo! TV personal-finance commentator: Today Show, FOX & Friends, CBS This Morning, plus 100+ radio programs.",
+    "credentials": [],
+    "certifications": [],
+    "education": [],
+    "yearsInIndustry": null,
+    "mediaSignals": {
+      "authoredBooks": [
+        "The 30-Minute Money Plan for Moms",
+        "Shoo, Jimmy Choo!"
+      ],
+      "quotedInTier1": [
+        "WSJ",
+        "MarketWatch",
+        "Barron's",
+        "Forbes"
+      ],
+      "tvAppearances": [
+        "Today Show",
+        "FOX & Friends",
+        "CBS This Morning"
+      ]
+    },
+    "linkedin": "https://www.linkedin.com/in/catey-hill/",
+    "personalSite": "https://www.cateyhill.org/",
+    "authorUrl": null,
+    "eeatTier": "S",
+    "finalScore": 138
+  },
+  {
+    "id": "kerry-hannon",
+    "name": "Kerry Hannon",
+    "role": "Senior Columnist — retirement, careers, personal finance",
+    "site": "yahoofinance",
+    "outletName": "Yahoo Finance",
+    "bio": "Senior Columnist at Yahoo Finance and on-air expert. Workplace futurist and strategist on career transitions, entrepreneurship, personal finance and retirement. Best-selling and award-winning author of 14 books including 'Retirement Bites: A Gen X Guide to Securing Your Financial Future', 'In Control at 50+: How to Succeed in The New World of Work', 'Never Too Old to Get Rich', 'Great Jobs for Everyone 50+', 'Great Pajama Jobs'. Has covered personal finance, retirement and careers for The New York Times, Forbes, Money, U.S. News & World Report and USA Today. Recipient of the 2023 Retirement Pi",
+    "credentials": [],
+    "certifications": [],
+    "education": [],
+    "yearsInIndustry": 25,
+    "mediaSignals": {
+      "authoredBooks": [
+        "Retirement Bites: A Gen X Guide to Securing Your Financial Future",
+        "In Control at 50+",
+        "Never Too Old to Get Rich",
+        "Great Jobs for Everyone 50+",
+        "Great Pajama Jobs"
+      ],
+      "quotedInTier1": [
+        "NYT",
+        "Forbes",
+        "Money",
+        "USN&WR",
+        "USA Today",
+        "Yahoo Finance"
+      ],
+      "tvAppearances": [
+        "Yahoo Finance"
+      ]
+    },
+    "linkedin": "https://www.linkedin.com/in/kerryhannon",
+    "personalSite": "https://kerryhannon.com/",
+    "authorUrl": "https://finance.yahoo.com/author/kerry-hannon/",
+    "eeatTier": "S",
+    "finalScore": 138
+  },
+  {
+    "id": "lawrence-lewitinn-coindesk",
+    "name": "Lawrence Lewitinn",
+    "role": "Former Managing Editor, Markets — CoinDesk (now Managing Editor, N. America — The Block)",
+    "site": "coindesk",
+    "outletName": "CoinDesk",
+    "bio": "Seasoned financial journalist with two decades of finance experience before reporting on it. Former Managing Editor for Markets at CoinDesk and co-host of CoinDesk TV's flagship daily program First Mover. Previously Editor-in-Chief of Modern Consensus and deputy editor of The New York Observer. Earlier traded fixed income, currencies and commodities on Wall Street for Millennium Management and MQS Capital. Currently Managing Editor for North America at The Block. CFA charterholder.",
+    "credentials": [
+      "CFA"
+    ],
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute",
+        "claimed": true
+      }
+    ],
+    "education": [],
+    "yearsInIndustry": 20,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "CNBC"
+      ],
+      "tvAppearances": [
+        "CoinDesk TV — First Mover",
+        "CNBC"
+      ]
+    },
+    "linkedin": "https://www.linkedin.com/in/lvlewitinn/",
+    "personalSite": null,
+    "authorUrl": "https://www.coindesk.com/author/lawrence-lewitinn",
+    "eeatTier": "S",
+    "finalScore": 138
+  },
+  {
+    "id": "dan-kemp-morningstar",
+    "name": "Dan Kemp",
+    "role": "Chief Research and Investment Officer — Morningstar",
+    "site": "morningstar",
+    "outletName": "Morningstar",
+    "bio": "Chief Research and Investment Officer at Morningstar. Leads the Research and Investment team comprising Morningstar's fundamental research, manager selection, and investment management activities. Joined Morningstar in 2014 as co-Head of Investment Consulting and Portfolio Management EMEA, then served as Global Chief Investment Officer for the Wealth Group before the 2024 promotion.",
+    "credentials": [
+      "Investment Management Certificate (IMC)",
+      "Securities Institute Diploma",
+      "Advanced Financial Planning Certificate (AFPC)"
+    ],
+    "certifications": [
+      {
+        "claimed": true
+      },
+      {
+        "claimed": true
+      },
+      {
+        "claimed": true
+      }
+    ],
+    "education": [
+      {
+        "degree": "BA Theology",
+        "school": "King's College London",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 25,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "Investment Week",
+        "Portfolio Adviser"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": "https://uk.linkedin.com/in/dan-kemp-b6779437",
+    "personalSite": null,
+    "authorUrl": "https://www.morningstar.com/people/dan-kemp",
+    "eeatTier": "S",
+    "finalScore": 136
+  },
+  {
+    "id": "molly-moorhead",
+    "name": "Molly Moorhead",
+    "role": "Personal Finance Editor — Yahoo Finance",
+    "site": "yahoofinance",
+    "outletName": "Yahoo Finance",
+    "bio": "Personal Finance Editor at Yahoo Finance; oversees insurance and tax coverage and leads the personal finance news team. Certified Financial Planner (CFP) and Certified Educator in Personal Finance (CEPF). Veteran journalist, formerly editorial writer, editor, and reporter at the Tampa Bay Times. Education: Lehigh University (undergrad, journalism/communications) and Western New England University School of Law (JD). Studied at University of Florida College of Journalism and Communications. Featured on CNBC, NPR, iHeartRadio, CBS Radio, BBC Radio, HuffPost Live, and TF1 France.",
+    "credentials": [
+      "CFP",
+      "CEPF",
+      "JD"
+    ],
+    "certifications": [
+      {
+        "name": "CFP",
+        "issuer": "CFP Board",
+        "claimed": true
+      },
+      {
+        "name": "CEPF",
+        "issuer": "Institute for Financial Literacy",
+        "claimed": true
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor's (journalism/communications)",
+        "school": "Lehigh University",
+        "year": null
+      },
+      {
+        "degree": "JD",
+        "school": "Western New England University School of Law",
+        "year": null
+      },
+      {
+        "degree": "Journalism studies",
+        "school": "University of Florida College of Journalism and Communications",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": null,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "CNBC",
+        "NPR"
+      ],
+      "tvAppearances": [
+        "CNBC",
+        "BBC Radio",
+        "NPR",
+        "iHeartRadio",
+        "CBS Radio",
+        "HuffPost Live",
+        "TF1 France"
+      ]
+    },
+    "linkedin": "https://www.linkedin.com/in/molly-moorhead/",
+    "personalSite": null,
+    "authorUrl": "https://finance.yahoo.com/author/molly-moorhead/",
+    "eeatTier": "A",
+    "finalScore": 134
+  },
+  {
+    "id": "robyn-a-friedman",
+    "name": "Robyn A. Friedman",
+    "role": "Freelance business journalist — columnist at WSJ, contributor at Kiplinger, Boston Globe",
+    "site": "kiplinger",
+    "outletName": "Kiplinger",
+    "bio": "Award-winning freelance business journalist with 20+ years covering real estate and personal finance. Columnist for The Wall Street Journal ('Counting House' column in Mansion section). Regular contributor to Kiplinger Personal Finance, Boston Globe, Multi-Housing News, and City & Shore magazine. Former real estate attorney (builders/developers/community associations). Silver Award, National Association of Real Estate Editors, June 2024. Featured on WSJ 'Your Money Briefing' podcast and Cheddar. Also writes/wrote for Mansion Global, Unique Homes, Robb Report, NY Post, Realtor.com, Bankrate.com",
+    "credentials": [
+      "JD"
+    ],
+    "certifications": [],
+    "education": [
+      {
+        "degree": "J.D. (law)",
+        "school": null,
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 20,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "WSJ",
+        "Boston Globe"
+      ],
+      "tvAppearances": [
+        "Cheddar"
+      ]
+    },
+    "linkedin": "https://www.linkedin.com/in/robynafriedman/",
+    "personalSite": "https://www.robynfriedman.com/about",
+    "authorUrl": "https://www.kiplinger.com/author/robyn-a-friedman",
+    "eeatTier": "S",
+    "finalScore": 133
+  },
+  {
+    "id": "jessica-inskip",
+    "name": "Jessica Inskip",
+    "role": "Director of Investor Research",
+    "site": "stockbrokers",
+    "outletName": "StockBrokers.com",
+    "bio": "Director of Investor Research at StockBrokers.com. 15+ years in retail brokerage, investor education, and trading strategy. Former registered representative with FINRA Series 7, 63, 66 and 4 licenses. Previously at Fidelity (Active Trader Desk), Merrill Edge (Senior Platform Manager, Director of Advanced Trader Strategy), and OptionsPlay (Director of Education and Product). Hosts Market MakeHer podcast. Frequent guest on CNBC, Bloomberg, The Schwab Network, Fox Business, Yahoo! Finance.",
+    "credentials": [
+      "Series 7",
+      "Series 63",
+      "Series 66",
+      "Series 4"
+    ],
+    "certifications": [
+      {
+        "name": "FINRA Series 7",
+        "issuer": "FINRA",
+        "claimed": true
+      },
+      {
+        "name": "FINRA Series 63",
+        "issuer": "FINRA",
+        "claimed": true
+      },
+      {
+        "name": "FINRA Series 66",
+        "issuer": "FINRA",
+        "claimed": true
+      },
+      {
+        "name": "FINRA Series 4",
+        "issuer": "FINRA",
+        "claimed": true
+      }
+    ],
+    "education": [],
+    "yearsInIndustry": 15,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "CNBC",
+        "Bloomberg",
+        "Fox Business"
+      ],
+      "tvAppearances": [
+        "CNBC",
+        "Bloomberg",
+        "The Schwab Network",
+        "Fox Business",
+        "Yahoo! Finance"
+      ]
+    },
+    "linkedin": "https://www.linkedin.com/in/jessica-inskip-5301a065/",
+    "personalSite": null,
+    "authorUrl": "https://www.stockbrokers.com/about/jessica-inskip",
+    "eeatTier": "S",
+    "finalScore": 132
+  },
+  {
+    "id": "josh-lipton",
+    "name": "Josh Lipton",
+    "role": "Host & Co-Anchor — Yahoo Finance ('Asking for a Trend', 'Closing Bell')",
+    "site": "yahoofinance",
+    "outletName": "Yahoo Finance",
+    "bio": "Financial journalist with over 20 years of reporting experience. Host of 'Asking for a Trend' on Yahoo Finance, and co-anchor of 'Closing Bell' alongside veteran journalist Julie Hyman. Previously spent 8+ years at CNBC as Technology Correspondent. Prior editorial roles at Bloomberg and Forbes. Most recently before Yahoo Finance held a corporate communications position at Apple.",
+    "credentials": [],
+    "certifications": [],
+    "education": [],
+    "yearsInIndustry": 20,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "CNBC",
+        "Bloomberg",
+        "Forbes",
+        "Yahoo Finance"
+      ],
+      "tvAppearances": [
+        "CNBC (Tech Correspondent, 8 years)",
+        "Yahoo Finance video programming (host)"
+      ]
+    },
+    "linkedin": "https://www.linkedin.com/in/josh-lipton-9a513112a",
+    "personalSite": null,
+    "authorUrl": "https://finance.yahoo.com/author/josh-lipton/",
+    "eeatTier": "A",
+    "finalScore": 131
+  },
+  {
+    "id": "elaine-king",
+    "name": "Elaine King",
+    "role": "Founder, Family and Money Matters™ Institute — CFP Board Ambassador, Investopedia Top 100 Advisor",
+    "site": "investopedia",
+    "outletName": "Investopedia",
+    "bio": "Founder of Family and Money Matters™ Institute, CFP Board Ambassador, and member of Investopedia's Advisor Council. Named one of Investopedia's Top 10 Most Influential Financial Advisors (2023) and Forbes' 50 Most Powerful Women in Peru (2025). Has advised 1,200+ families and 100 multigenerational family enterprises. Creator of the first family financial program in Latin America and winner of the International Latino Book Awards' Best Parenting Book. Holds CFP, TEP, MBA (Thunderbird), BBA International Business (St. Mary's University), postgraduate in Family Therapy (Bowen Center/Georgetown), ",
+    "credentials": [
+      "CFP",
+      "TEP",
+      "Dr. h.c."
+    ],
+    "certifications": [
+      {
+        "name": "CFP",
+        "issuer": "CFP Board",
+        "claimed": true
+      },
+      {
+        "name": "TEP",
+        "issuer": "STEP (Society of Trust and Estate Practitioners)",
+        "claimed": true
+      }
+    ],
+    "education": [
+      {
+        "degree": "MBA",
+        "school": "Thunderbird School of Global Management",
+        "year": null
+      },
+      {
+        "degree": "BBA International Business",
+        "school": "St. Mary's University",
+        "year": null
+      },
+      {
+        "degree": "Postgraduate, Family Therapy",
+        "school": "Bowen Center for the Study of the Family (Georgetown)",
+        "year": null
+      },
+      {
+        "degree": "Certified Coach (ICF)",
+        "school": "University of Miami",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 20,
+    "mediaSignals": {
+      "authoredBooks": [
+        "Family and Money Matters"
+      ],
+      "quotedInTier1": [
+        "Forbes"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/elainekingcfp/",
+    "personalSite": "https://www.elaineking.com/",
+    "authorUrl": null,
+    "eeatTier": "S",
+    "finalScore": 130
+  },
+  {
+    "id": "drew-limsky",
+    "name": "Drew Limsky",
+    "role": "Contributor — Kiplinger (Freelance Retirement Writer)",
+    "site": "kiplinger",
+    "outletName": "Kiplinger",
+    "bio": "Freelance retirement writer at Kiplinger Digital. Holds BA (summa cum laude) from Emory University, MA from American University, and JD + PhD from New York University. Former editor of Lexus magazine, Cadillac magazine, South Florida Business & Wealth, Business Jet Traveler, Interiors South Florida, and Mariner (Holland America). Writing credits: Wall Street Journal, New York Times, LA Times, Washington Post, Boston Globe, Yahoo, Worth, AD, Robb Report, Metropolis, Men's Journal, Business Insider. Splits time between Miami Beach, Brooklyn, and Cape Cod.",
+    "credentials": [
+      "PhD",
+      "JD"
+    ],
+    "certifications": [],
+    "education": [
+      {
+        "degree": "BA (summa cum laude)",
+        "school": "Emory University",
+        "year": null
+      },
+      {
+        "degree": "MA",
+        "school": "American University",
+        "year": null
+      },
+      {
+        "degree": "JD",
+        "school": "New York University",
+        "year": null
+      },
+      {
+        "degree": "PhD",
+        "school": "New York University",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": null,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "WSJ",
+        "NYT",
+        "LA Times",
+        "Washington Post",
+        "Boston Globe"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/drdrewlimsky/",
+    "personalSite": null,
+    "authorUrl": "https://www.kiplinger.com/author/drew-limsky",
+    "eeatTier": "S",
+    "finalScore": 129
+  },
+  {
+    "id": "adam-hardy-money",
+    "name": "Adam Hardy",
+    "role": "Lead Data Journalist — Money (Money.com)",
+    "site": "money_com",
+    "outletName": "Money.com",
+    "bio": "Money's lead data journalist, joined full-time in 2021. Covering personal finance and economic topics since 2018. Reporting focus: workplace trends, the job market, and financial barriers facing low-income Americans. Previously at Forbes Advisor, The Penny Hoarder, and Creative Loafing. Work featured in Asia Times, Business Insider, Las Vegas Review-Journal, Yahoo Finance, and Nasdaq. Holds a multimedia storytelling certificate from Poynter's News University and a data journalism certificate from Investigative Reporters & Editors (IRE) at the University of Missouri.",
+    "credentials": [],
+    "certifications": [
+      {
+        "name": "Multimedia Storytelling Certificate",
+        "issuer": "Poynter News University",
+        "claimed": true
+      },
+      {
+        "name": "Data Journalism Certificate",
+        "issuer": "IRE / University of Missouri",
+        "claimed": true
+      }
+    ],
+    "education": [],
+    "yearsInIndustry": 8,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/hardyjournalism/",
+    "personalSite": null,
+    "authorUrl": "https://money.com/author/adam-hardy/",
+    "eeatTier": "A",
+    "finalScore": 129
+  },
+  {
+    "id": "brett-arends-marketwatch",
+    "name": "Brett Arends",
+    "role": "Columnist — MarketWatch / Wall Street Journal",
+    "site": "marketwatch",
+    "outletName": "MarketWatch",
+    "bio": "American journalist covering finance and investing. Columnist for MarketWatch and The Wall Street Journal (and other Dow Jones publications) since 2007; writes the daily R.O.I. (Return on Investment) column for the WSJ online edition. Born in Poughkeepsie, New York (1968). Took a double first in History at Cambridge University, followed by postgraduate research at Oxford University. Former analyst and consultant at McKinsey & Co. Prior to joining the WSJ, was a columnist and reporter for the Boston Herald and TheStreet.com. 2012 SABEW Best in Business Journalism award winner. Author of 3 books",
+    "credentials": [],
+    "certifications": [],
+    "education": [
+      {
+        "degree": "Double First in History",
+        "school": "Cambridge University",
+        "year": null
+      },
+      {
+        "degree": "Postgraduate research",
+        "school": "Oxford University",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 25,
+    "mediaSignals": {
+      "authoredBooks": [
+        "Storm Proof Your Money (Wiley, 2009)",
+        "The Romney Files (2012)",
+        "Spread Betting: The Football Fan's Guide to Spread Betting"
+      ],
+      "quotedInTier1": [
+        "WSJ",
+        "MarketWatch"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/brettarends/",
+    "personalSite": null,
+    "authorUrl": null,
+    "eeatTier": "A",
+    "finalScore": 129
+  },
+  {
+    "id": "martin-lewis-mse",
+    "name": "Martin Lewis",
+    "role": "Founder / Executive Chair",
+    "site": "moneysavingexpert",
+    "outletName": "MoneySavingExpert",
+    "bio": "English campaigning journalist, broadcaster, author and charity founder. Founded MoneySavingExpert.com in February 2003 for £100; sold to Moneysupermarket.com Group in 2012 for up to £87 million and remains Executive Chair. Presenter of ITV's The Martin Lewis Money Show and regular on Good Morning Britain and This Morning since 2007. CBE (2022 New Year Honours) for services to broadcasting and consumer rights; previously OBE (2014). Chair and Founder of the Money and Mental Health Policy Institute.",
+    "credentials": [
+      "CBE",
+      "OBE"
+    ],
+    "certifications": [],
+    "education": [],
+    "yearsInIndustry": 23,
+    "mediaSignals": {
+      "authoredBooks": [
+        "The Money Diet"
+      ],
+      "quotedInTier1": [
+        "BBC",
+        "The Times",
+        "The Guardian",
+        "ITV"
+      ],
+      "tvAppearances": [
+        "ITV",
+        "Good Morning Britain",
+        "This Morning",
+        "The Martin Lewis Money Show"
+      ]
+    },
+    "linkedin": null,
+    "personalSite": "https://www.moneysavingexpert.com/site/martin-lewis-biography/",
+    "authorUrl": null,
+    "eeatTier": "S",
+    "finalScore": 128
+  },
+  {
+    "id": "katie-doyle",
+    "name": "Katie Doyle",
+    "role": "SVP Content — Forbes Marketplace",
+    "site": "forbes",
+    "outletName": "Forbes",
+    "bio": "SVP of Content for Forbes Marketplace. Launched, grew and managed HerMoney (Jean Chatzky's personal finance site for women). Former executive editor at Bankrate; joined May 2005, promoted to Director of Content (2010), Managing Editor (2011), Executive Editor (2015). Earlier: copy editor for Palm Beach magazine/newsletter publisher; sports reporter/clerk at The Palm Beach Post.",
+    "credentials": [],
+    "certifications": [],
+    "education": [],
+    "yearsInIndustry": 20,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "Forbes",
+        "Bankrate"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/katiedoyle1/",
+    "personalSite": null,
+    "authorUrl": "https://muckrack.com/katie-doyle",
+    "eeatTier": "A",
+    "finalScore": 128
+  },
+  {
+    "id": "andrew-thurman",
+    "name": "Andrew Thurman",
+    "role": "Content Lead — Nansen (former Senior Tech Correspondent — CoinDesk)",
+    "site": "coinmarketcap",
+    "outletName": "CoinMarketCap",
+    "bio": "Content Lead at Nansen. Former senior technology correspondent at CoinDesk, weekend editor at Cointelegraph, head of communications at Nansen, partnership manager at Chainlink, and co-founder of a smart-contract data marketplace startup. Analysis quoted in The Financial Times, The Washington Post, The Wall Street Journal, Bloomberg, Forbes, Fortune, Reuters, BBC, CNBC. Data Editor background. Based in Washington, DC. Also contributor at Jito and CoinMarketCap Academy/Alexandria.",
+    "credentials": [],
+    "certifications": [],
+    "education": [],
+    "yearsInIndustry": null,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "FT",
+        "Washington Post",
+        "WSJ",
+        "Bloomberg",
+        "Forbes",
+        "Fortune",
+        "Reuters",
+        "BBC",
+        "CNBC"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/andrew-thurman-578b41162/",
+    "personalSite": null,
+    "authorUrl": "https://coinmarketcap.com/academy/author/andrew-thurman",
+    "eeatTier": "S",
+    "finalScore": 128
+  },
+  {
+    "id": "charles-lewis-sizemore",
+    "name": "Charles Lewis Sizemore",
+    "role": "CFA — Contributor, Wealth Creation (Kiplinger); Chief Investment Officer at Sizemore Capital Management LLC",
+    "site": "kiplinger",
+    "outletName": "Kiplinger",
+    "bio": "Chartered Financial Analyst and Chief Investment Officer of Sizemore Capital Management LLC (Dallas, Texas), a registered investment advisor specializing in dividend-focused portfolios and alternative allocations with minimal stock market correlation. MSc Finance & Accounting, London School of Economics. BBA Finance (International Emphasis), Texas Christian University — Magna Cum Laude, Phi Beta Kappa. Frequent guest on CNBC, Bloomberg TV and Fox Business News. Quoted in Barron's, Wall Street Journal, Washington Post. Contributor to Kiplinger, Forbes, GuruFocus, MarketWatch, Young and the Inve",
+    "credentials": [
+      "CFA"
+    ],
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute",
+        "claimed": true
+      }
+    ],
+    "education": [
+      {
+        "degree": "MSc Finance & Accounting",
+        "school": "London School of Economics",
+        "year": null
+      },
+      {
+        "degree": "BBA Finance (International Emphasis) — Magna Cum Laude, Phi Beta Kappa",
+        "school": "Texas Christian University",
+        "year": null
+      },
+      {
+        "degree": "MSc Finance and Accounting",
+        "school": "London School of Economics",
+        "year": null
+      },
+      {
+        "degree": "BBA Finance (International Emphasis), Magna Cum Laude, Phi Beta Kappa",
+        "school": "Texas Christian University",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 20,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "Barron's",
+        "WSJ",
+        "Washington Post",
+        "Forbes",
+        "MarketWatch",
+        "Kiplinger"
+      ],
+      "tvAppearances": [
+        "CNBC",
+        "Bloomberg TV",
+        "Fox Business News",
+        "Fox Business"
+      ]
+    },
+    "linkedin": "https://www.linkedin.com/in/charles-sizemore/",
+    "personalSite": "https://charlessizemore.com",
+    "authorUrl": "https://www.kiplinger.com/author/charles-lewis-sizemore",
+    "eeatTier": "S",
+    "finalScore": 128
+  },
+  {
+    "id": "elizabeth-leary-kiplinger",
+    "name": "Elizabeth Leary",
+    "role": "Contributing Editor — Kiplinger's Personal Finance",
+    "site": "kiplinger",
+    "outletName": "Kiplinger",
+    "bio": "Elizabeth Leary (née Ody), CFA, Contributing Editor at Kiplinger's Personal Finance. First joined Kiplinger in 2006 as a reporter and has held various staff and contributor positions since. Her reporting has appeared in Barron's, Bloomberg Businessweek, The Washington Post and other outlets. Currently also works at Fidelity Investments per LinkedIn.",
+    "credentials": [
+      "CFA"
+    ],
+    "certifications": [
+      {
+        "claimed": true
+      }
+    ],
+    "education": [],
+    "yearsInIndustry": 20,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "Barron's",
+        "Bloomberg Businessweek",
+        "The Washington Post"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/elizabethodyleary/",
+    "personalSite": null,
+    "authorUrl": "https://www.kiplinger.com/author/elizabeth-leary",
+    "eeatTier": "A",
+    "finalScore": 128
+  },
+  {
+    "id": "quentin-fottrell-marketwatch",
+    "name": "Quentin Fottrell",
+    "role": "Managing Editor of Advice Columns & Columnist (The Moneyist) — MarketWatch",
+    "site": "marketwatch",
+    "outletName": "MarketWatch",
+    "bio": "Irish columnist, author, journalist and critic born in Dublin. Managing Editor of Advice Columns at MarketWatch and creator of The Moneyist advice column answering questions on inheritance, marriage, divorce, relationships, weddings and other finance ethics issues. Also a podcaster (On Watch by MarketWatch). Previously Irish correspondent for Dow Jones Newswires and The Wall Street Journal (2003-2011), and columnist/feature writer for The Irish Times.",
+    "credentials": [],
+    "certifications": [],
+    "education": [
+      {
+        "degree": "Psychology",
+        "school": "University College Dublin",
+        "year": null
+      },
+      {
+        "degree": "Journalism",
+        "school": "University College Galway",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 22,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "WSJ",
+        "Dow Jones"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/quantanamo",
+    "personalSite": null,
+    "authorUrl": null,
+    "eeatTier": "A",
+    "finalScore": 128
+  },
+  {
+    "id": "colin-harper-bitcoinmagazine",
+    "name": "Colin Harper",
+    "role": "Former Associate Editor/Staff Writer — Bitcoin Magazine (now Head of Content, Luxor/Hashrate Index; EiC, Blockspace Media)",
+    "site": "bitcoinmagazine",
+    "outletName": "Bitcoin Magazine",
+    "bio": "Bitcoin-mining and cryptocurrency journalist covering the space since 2017. Head of Content at Luxor Technology's Hashrate Index. Editor-in-Chief of Blockspace Media and co-founder/co-host of the Blockspace Podcast (Mining Pod). Freelances for CoinDesk, Forbes, Bitcoin Magazine, VentureBeat, Yahoo Finance and Decrypt. Nashville-based.",
+    "credentials": [],
+    "certifications": [],
+    "education": [],
+    "yearsInIndustry": 9,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "Forbes",
+        "Yahoo Finance"
+      ],
+      "tvAppearances": [
+        "Bitcoin Takeover Podcast S17 E7",
+        "Blockspace Podcast (co-founder)"
+      ]
+    },
+    "linkedin": "https://www.linkedin.com/in/colin-harper-405042142/",
+    "personalSite": null,
+    "authorUrl": "https://bitcoinmagazine.com/authors/colin-harper",
+    "eeatTier": "A",
+    "finalScore": 128
+  },
+  {
+    "id": "dan-caplinger",
+    "name": "Dan Caplinger",
+    "role": "Director of Investment Planning / Senior Writer — The Motley Fool",
+    "site": "fool",
+    "outletName": "Motley Fool",
+    "bio": "Contract writer for The Motley Fool since 2006 and Director of Investment Planning, overseeing much of the personal-finance and investment-planning content on Fool.com. Background as an estate-planning attorney and independent financial consultant; 20+ years across all angles of the financial world. BA Economics (University of Chicago), JD with high honors (University of Texas School of Law). Passed three bar exams. Earned the CFP professional designation in 2004; voluntarily relinquished it in 2012.",
+    "credentials": [
+      "JD",
+      "former CFP"
+    ],
+    "certifications": [
+      {
+        "name": "Certified Financial Planner (CFP)",
+        "issuer": "CFP Board",
+        "claimed": true
+      }
+    ],
+    "education": [
+      {
+        "degree": "BA Economics",
+        "school": "University of Chicago",
+        "year": null
+      },
+      {
+        "degree": "JD (high honors)",
+        "school": "University of Texas School of Law",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 20,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/dan-caplinger-235b7258/",
+    "personalSite": null,
+    "authorUrl": "https://www.fool.com/author/1494/",
+    "eeatTier": "A",
+    "finalScore": 126
+  },
+  {
+    "id": "kathy-lien",
+    "name": "Kathy Lien",
+    "role": "Managing Director of FX Strategy — BK Asset Management",
+    "site": "wikifx",
+    "outletName": "WikiFX",
+    "bio": "Managing Director of FX Strategy for BK Asset Management and Co-Founder of BKForex.com. Graduated NYU's Stern School of Business at age 18. 20+ years in financial markets with specific focus on currencies. Career started at JPMorgan Chase on Interbank FX trading desk and cross-markets proprietary trading. Joined FXCM in 2003 and co-founded DailyFX.com. Started BK Asset Management and BKForex in 2011 with trading partner Boris Schlossberg. CNBC Contributor; regularly quoted in WSJ, FT, Reuters, Bloomberg. Authored three books: 'Day Trading and Swing Trading the Currency Market', 'The Little Boo",
+    "credentials": [],
+    "certifications": [],
+    "education": [
+      {
+        "degree": "BSc Finance (graduated at 18)",
+        "school": "NYU Stern School of Business",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 20,
+    "mediaSignals": {
+      "authoredBooks": [
+        "Day Trading and Swing Trading the Currency Market",
+        "The Little Book of Currency Trading",
+        "Millionaire Traders: How Everyday People Beat Wall Street at its Own Game"
+      ],
+      "quotedInTier1": [
+        "WSJ",
+        "FT",
+        "Reuters",
+        "Bloomberg",
+        "CNBC"
+      ],
+      "tvAppearances": [
+        "CNBC"
+      ]
+    },
+    "linkedin": "https://www.linkedin.com/in/kathylien/",
+    "personalSite": "http://www.bkassetmanagement.com/kathy",
+    "authorUrl": null,
+    "eeatTier": "S",
+    "finalScore": 125
+  },
+  {
+    "id": "dan-blystone",
+    "name": "Dan Blystone",
+    "role": "Broker Analyst — FXEmpire; Senior Market Analyst — Scandinavian Capital Markets",
+    "site": "fxempire",
+    "outletName": "FXEmpire",
+    "bio": "Broker Analyst at FXEmpire (since December 2019) and Senior Market Analyst at Scandinavian Capital Markets. Career started in 1998 as an arb clerk in the CME currency futures pits. Former interbank desk trader at ABN AMRO; bond futures trader at proprietary firms including Altea Trading (Eurex futures overnight); Series 3 licensed futures, options, and forex broker at Infinity Futures in Chicago. Founder of TradersLog.com (2008) and Chicago Traders Group. Technical/price-action medium-term trader. Favorite instruments: GBP/JPY, XAU/USD, BTC/USD.",
+    "credentials": [
+      "Series 3"
+    ],
+    "certifications": [
+      {
+        "name": "Series 3 (NFA — futures, options, forex)",
+        "issuer": "NFA",
+        "claimed": true
+      }
+    ],
+    "education": [
+      {
+        "degree": "BA Philosophy",
+        "school": "College of Wooster",
+        "year": null
+      },
+      {
+        "degree": null,
+        "school": "The College of Wooster",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 27,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/danblystone",
+    "personalSite": "https://www.traderslog.com/",
+    "authorUrl": "https://www.fxempire.com/author/danblystone",
+    "eeatTier": "S",
+    "finalScore": 125
+  },
+  {
+    "id": "steven-ralston-zacks",
+    "name": "Steven Ralston",
+    "role": "Director of Research & Senior Analyst — Zacks Small-Cap Research",
+    "site": "zacks",
+    "outletName": "Zacks",
+    "bio": "CFA, Director of Research and Senior Analyst at Zacks Small-Cap Research with 30+ years in securities and investment. At Zacks since 2004 covering Basic/Precious Materials, Industrials, Energy, Biotechnology, Real Estate, Cannabis, Packaged Foods, Consumer and Financial sectors. Previously Director of Research at First National Bank of Maryland (1983–1995), portfolio manager of General Accident's domestic and Canadian equity pension portfolios, and co-manager of BlackRock's $2.3B Large Cap Growth Fund (Senior Analyst BlackRock 1998–2003). Received initial investment training at Merrill Lynch. ",
+    "credentials": [
+      "CFA"
+    ],
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute",
+        "claimed": true
+      }
+    ],
+    "education": [
+      {
+        "degree": "BS Management Science",
+        "school": "Massachusetts Institute of Technology (MIT)",
+        "year": "1972-1975"
+      }
+    ],
+    "yearsInIndustry": 30,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "WSJ",
+        "Barron's",
+        "Forbes"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/stevenralston/",
+    "personalSite": "https://seekingalpha.com/author/steven-ralston-cfa",
+    "authorUrl": "https://scr.zacks.com/analyst-bios/person-details/default.aspx?ItemId=458bec2b-ad30-4887-9029-ef6c930f2165",
+    "eeatTier": "A",
+    "finalScore": 125
+  }
+]

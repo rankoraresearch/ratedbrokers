@@ -1,0 +1,278 @@
+[
+  {
+    "id": "doug-boneparth",
+    "name": "Doug Boneparth",
+    "role": "CFP — Investopedia Advisor Council; CFP Board Ambassador (NY)",
+    "outletName": "Investopedia",
+    "bio": "President and founder of Bone Fide Wealth, LLC. Became one of the youngest CERTIFIED FINANCIAL PLANNER™ professionals in the country early in his career. Member of the Investopedia Advisor Council (founding group of 25 paid contributors) and CNBC Advisor Council. CFP Board Ambassador for New York. Media source on Millennial finance — appearances on CNBC's On The Money, Nightly Business Report, ABC",
+    "certifications": [
+      {
+        "name": "CFP",
+        "issuer": "CFP Board"
+      },
+      {
+        "name": "AIF",
+        "issuer": "Fi360"
+      }
+    ],
+    "credentials": [
+      "CFP",
+      "AIF",
+      "MBA"
+    ],
+    "education": [
+      {
+        "degree": "MBA",
+        "school": null,
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 15,
+    "linkedin": "https://www.linkedin.com/in/douglasboneparth"
+  },
+  {
+    "id": "jesse-hamilton-coindesk",
+    "name": "Jesse Hamilton",
+    "role": "Deputy Managing Editor, Global Policy & Regulation — CoinDesk",
+    "outletName": "CoinDesk",
+    "bio": "Deputy Managing Editor on CoinDesk's Global Policy and Regulation team, based in Washington, D.C. Joined CoinDesk in 2022 after more than a decade at Bloomberg News and Businessweek covering Wall Street regulation — including early federal deliberations on crypto policy. Prior career as a war correspondent in Iraq and as a police reporter, earning multiple national honours. Graduate of Western Was",
+    "certifications": [],
+    "credentials": [],
+    "education": [
+      {
+        "degree": "Journalism & History (undergraduate)",
+        "school": "Western Washington University",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 20,
+    "linkedin": "https://www.linkedin.com/in/jessehamilton/"
+  },
+  {
+    "id": "riley-adams",
+    "name": "Riley Adams",
+    "role": "Chief Editor and Writer — CompareForexBrokers; Founder/CEO Young and the Invested",
+    "outletName": "CompareForexBrokers",
+    "bio": "Chief Editor of CompareForexBrokers.com and Senior Financial Analyst at Google (Alphabet), leading advertising incentive programs for key partners. Licensed CPA. Founder and CEO of Young and the Invested, a personal finance platform for young investors and parents. Previously Regulatory Strategy Analyst at Entergy Corporation in New Orleans (6 yrs). Cited as authoritative source in CNBC, Time, NBC",
+    "certifications": [
+      {
+        "name": "Certified Public Accountant (CPA)",
+        "issuer": "State board"
+      }
+    ],
+    "credentials": [
+      "CPA"
+    ],
+    "education": [
+      {
+        "degree": "MSc Applied Economics and Demography",
+        "school": "Pennsylvania State University",
+        "year": null
+      },
+      {
+        "degree": "BA Economics",
+        "school": "Centenary College of Louisiana",
+        "year": null
+      },
+      {
+        "degree": "BS Business Administration and Finance",
+        "school": "Centenary College of Louisiana",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 12,
+    "linkedin": "https://www.linkedin.com/in/riley-adams-cpa"
+  },
+  {
+    "id": "michael-hewson",
+    "name": "Michael Hewson",
+    "role": "Senior Financial Strategist — iFOREX / Contributor — Good Money Guide (ex-Chief Market Analyst CMC Markets, 15+ yrs)",
+    "outletName": "Good Money Guide",
+    "bio": "Market analyst with 30+ years in financial markets, focused on both technical and fundamental analysis. Spent 16+ years at CMC Markets (10+ as Chief Market Analyst, based in London) before stepping down in 2024. Background in FX trading; before CMC spent 12+ years in market data, education and support. Now Senior Financial Strategist at iFOREX and podcast contributor / author at Good Money Guide. ",
+    "certifications": [
+      {
+        "name": "MSTA",
+        "issuer": "Society of Technical Analysts"
+      },
+      {
+        "name": "CFTe",
+        "issuer": "International Federation of Technical Analysts"
+      }
+    ],
+    "credentials": [
+      "MSTA",
+      "CFTe"
+    ],
+    "education": [],
+    "yearsInIndustry": 30,
+    "linkedin": "https://uk.linkedin.com/in/michael-hewson-0991432"
+  },
+  {
+    "id": "will-daniel",
+    "name": "Will Daniel",
+    "role": "Senior Reporter — Fortune (former)",
+    "outletName": "Fortune",
+    "bio": "Senior reporter covering markets and the economy. At Fortune magazine since March 2022, covering markets and the economy; per Talking Biz News, has since departed Fortune. Previously at Markets Insider, Markitors and Seeking Alpha. Holds an MS in Business Journalism from Arizona State University's Walter Cronkite School of Journalism and Mass Communication. Bylines at Yahoo Entertainment, Business",
+    "certifications": [],
+    "credentials": [],
+    "education": [
+      {
+        "degree": "MS Business Journalism",
+        "school": "Arizona State University — Walter Cronkite School of Journalism and Mass Communication",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": null,
+    "linkedin": "https://www.linkedin.com/in/willbdaniel/"
+  },
+  {
+    "id": "manish-jaradi",
+    "name": "Manish Jaradi",
+    "role": "Strategist, DailyFX / IG",
+    "outletName": "DailyFX",
+    "bio": "20 years experience identifying market opportunities across timeframes; 14 years as an investment strategist at private banks in Singapore. Joined IG Asia in Singapore and began contributing to DailyFX in 2022. Master's in Development Economics (University of London, UK) and Master's in Financial Services Management (University of Mumbai, India). Chartered Market Technician (CMT) and Certified Fin",
+    "certifications": [
+      {
+        "name": "CMT",
+        "issuer": "CMT Association"
+      },
+      {
+        "name": "CFTe",
+        "issuer": "IFTA"
+      }
+    ],
+    "credentials": [
+      "CMT",
+      "CFTe"
+    ],
+    "education": [
+      {
+        "degree": "MSc Development Economics",
+        "school": "University of London",
+        "year": null
+      },
+      {
+        "degree": "MSc Financial Services Management",
+        "school": "University of Mumbai",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 20,
+    "linkedin": "https://sg.linkedin.com/in/manish-jaradi-b7643438"
+  },
+  {
+    "id": "jeff-ostrowski",
+    "name": "Jeff Ostrowski",
+    "role": "Writer & Housing Market Analyst",
+    "outletName": "Bankrate",
+    "bio": "20+ years covering real estate, business, economy and politics. Writer and Housing Market Analyst at Bankrate. Previously at the Palm Beach Post and South Florida Business Journal. Board member of the National Association of Real Estate Editors (2019-2025); two NAREE gold awards; Best in Business award from the Society for Advancing Business Editing and Writing. Authored 'How to Buy a Home in a Mi",
+    "certifications": [
+      {
+        "name": "NMLS Mortgage Loan Originator (SAFE Test)",
+        "issuer": "NMLS"
+      }
+    ],
+    "credentials": [
+      "NMLS MLO"
+    ],
+    "education": [
+      {
+        "degree": "BS",
+        "school": "University of Illinois at Urbana-Champaign",
+        "year": null
+      },
+      {
+        "degree": "MA",
+        "school": "University of Illinois at Springfield",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 20,
+    "linkedin": "https://www.linkedin.com/in/jeff-ostrowski-920b582/"
+  },
+  {
+    "id": "danielle-park",
+    "name": "Danielle Park, CFA",
+    "role": "Portfolio Manager / Contributor",
+    "outletName": "Seeking Alpha",
+    "bio": "Chartered Financial Analyst and co-founder / Portfolio Manager at Venable Park Investment Counsel Inc., managing assets for high-net-worth Canadian families. Practiced law until 1997, then was recruited to an international securities firm. Author of the best-selling book 'Juggling Dynamite: An insider's wisdom on money management, markets and wealth that lasts' and maintains a daily financial blog",
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute"
+      }
+    ],
+    "credentials": [
+      "CFA"
+    ],
+    "education": [],
+    "yearsInIndustry": 27,
+    "linkedin": "https://www.linkedin.com/in/daniellepark/"
+  },
+  {
+    "id": "suzanne-woolley",
+    "name": "Suzanne Woolley",
+    "role": "Personal Finance Writer — Bloomberg Wealth team",
+    "outletName": "Bloomberg",
+    "bio": "Personal finance writer on Bloomberg's Wealth team in New York, covering saving, investing, retirement, student loans, real estate, banking products and health insurance. Joined Bloomberg's Wealth team in 2018, initially focused on ultra-high-net-worth investors. Previously a personal finance writer and editor on Bloomberg's dedicated digital team, spearheading multi-platform retirement and invest",
+    "certifications": [],
+    "credentials": [],
+    "education": [],
+    "yearsInIndustry": 20,
+    "linkedin": "https://www.linkedin.com/in/suzwoolley/"
+  },
+  {
+    "id": "sharon-epperson",
+    "name": "Sharon Epperson",
+    "role": "Senior Personal Finance Correspondent — CNBC",
+    "outletName": "CNBC",
+    "bio": "CNBC's Senior Personal Finance Correspondent and creator/editor of the 'Money 101 Newsletter'. Also appears on NBC News shows — Today and NBC Nightly News. Adjunct professor at Columbia University's School of International and Public Affairs. Began with CNBC in 1996. Expertise: saving and investing for retirement, paying for college, managing mortgage/student loan/credit card debt, building financ",
+    "certifications": [],
+    "credentials": [],
+    "education": [
+      {
+        "degree": "(see Wikipedia — Smith College/Columbia tradition)",
+        "school": "Columbia University (adjunct faculty)",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 30,
+    "linkedin": "https://www.linkedin.com/in/sharoneppersoncnbc"
+  },
+  {
+    "id": "bob-mason-fxempire",
+    "name": "Bob Mason",
+    "role": "Author / Financial Consultant",
+    "outletName": "FXEmpire",
+    "bio": "Financial consultant and author at FX Empire since December 2016 with 28 years in the financial industry. Co-founder of VersatileQ, a boutique research and advisory firm focused on Asia. Previously managed regional teams across Europe and Asia at global rating agencies and multinational banks. Experience includes building index products for investment banks, risk management, analytics, and macroec",
+    "certifications": [],
+    "credentials": [],
+    "education": [
+      {
+        "degree": "BSc Chemistry / Biology",
+        "school": "Oxford Brookes University",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 28,
+    "linkedin": "https://www.linkedin.com/in/bob-mason-6677192/"
+  },
+  {
+    "id": "daniel-phillips-coinmarketcap",
+    "name": "Daniel Phillips",
+    "role": "Cryptocurrency Writer — CoinMarketCap Academy",
+    "outletName": "CoinMarketCap",
+    "bio": "Blockchain journalist, analyst and Solidity developer with cryptocurrency expertise since 2017. Started in crypto sector as Bitcoin miner in 2015. Masters in Regenerative Medicine before pivoting to blockchain. Specializes in DeSci, AI, DeFi, FHE and altcoin trends. Primary holdings: BTC, ETH, SOL, SUI. Previously wrote for Ledger, Decrypt, OKEx, BeInCrypto, Republic Crypto, and Cryptonews.",
+    "certifications": [],
+    "credentials": [],
+    "education": [
+      {
+        "degree": "Masters in Regenerative Medicine",
+        "school": null,
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 9,
+    "linkedin": "https://www.linkedin.com/in/danielcrypto/"
+  }
+]

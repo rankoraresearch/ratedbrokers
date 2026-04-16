@@ -1,0 +1,2807 @@
+[
+  {
+    "id": "steven-hatzakis",
+    "name": "Steven Hatzakis",
+    "certifications": [
+      {
+        "name": "Series 3 / CTA",
+        "issuer": "NFA/CFTC",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyMethod": "nfa-basic",
+        "verifyNote": "NFA BASIC search accessible but no direct profile URL surfaced in SERP; claim plausible (StockBrokers.com bio + 2008 registration stated) but no independent public registry URL found in time-boxed search"
+      }
+    ],
+    "education": [],
+    "books": [],
+    "tier1Quotes": [
+      {
+        "outlet": "Bloomberg",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "no direct article URL found in search"
+      }
+    ],
+    "tvAppearances": [],
+    "industryAwards": [],
+    "trustSignals": {},
+    "verifyAttemptedAt": "2026-04-16",
+    "summary": {
+      "certsClaimed": 5,
+      "certsVerified": 0,
+      "booksWithIsbn": 0,
+      "tier1Verified": 0,
+      "newAwardsFound": 0
+    }
+  },
+  {
+    "id": "beth-pinsker",
+    "name": "Beth Pinsker",
+    "certifications": [
+      {
+        "name": "CFP",
+        "issuer": "CFP Board",
+        "verified": true,
+        "verifyUrl": "https://www.penguinrandomhouse.com/authors/2337749/beth-pinsker-cfp/",
+        "verifyMethod": "publisher-bio + muckrack",
+        "verifyNote": "CFP® designation consistently displayed on Penguin Random House author bio, Muck Rack profile, and personal site bethpinsker.com; not cross-checked against letsmakeaplan.org directly in this pass"
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.A. English",
+        "school": "Harvard University",
+        "verified": false,
+        "verifyUrl": "https://bethpinsker.com/about-me/",
+        "verifyNote": "stated on own site and PRH bio; no independent Harvard alumni/faculty URL found"
+      }
+    ],
+    "books": [
+      {
+        "title": "My Mother's Money: A Guide to Financial Caregiving",
+        "isbn13": "9780593800577",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/My-Mothers-Money-Financial-Caregiving/dp/0593800575",
+        "verifyNote": "Crown Currency, Nov 2025"
+      }
+    ],
+    "tier1Quotes": [
+      {
+        "outlet": "WSJ",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "not directly verified with article URL"
+      },
+      {
+        "outlet": "Forbes",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "not directly verified with article URL"
+      },
+      {
+        "outlet": "USA Today",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "not directly verified with article URL"
+      }
+    ],
+    "tvAppearances": [],
+    "industryAwards": [
+      {
+        "name": "SABEW Best in Business — Commentary",
+        "year": 2023,
+        "source": "SABEW via own site / Muck Rack",
+        "sampleUrl": "https://bethpinsker.com/about-me/"
+      }
+    ],
+    "trustSignals": {},
+    "verifyAttemptedAt": "2026-04-16",
+    "summary": {
+      "certsClaimed": 1,
+      "certsVerified": 1,
+      "booksWithIsbn": 1,
+      "tier1Verified": 0,
+      "newAwardsFound": 1
+    }
+  },
+  {
+    "id": "vitaliy-katsenelson",
+    "name": "Vitaliy Katsenelson, CFA",
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyMethod": "cfa-directory",
+        "verifyNote": "CFA Institute member directory not directly fetched in this pass; CFA designation consistently used on Wiley/Harriman House author bios and Seeking Alpha profile URL contains '-cfa'"
+      }
+    ],
+    "education": [
+      {
+        "degree": "BS Finance",
+        "school": "University of Colorado at Denver",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyNote": "no independent university URL found in time-boxed search"
+      },
+      {
+        "degree": "MS Finance",
+        "school": "University of Colorado at Denver",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyNote": "no independent university URL found in time-boxed search"
+      }
+    ],
+    "books": [
+      {
+        "title": "Active Value Investing: Making Money in Range-Bound Markets",
+        "isbn13": "9780470053157",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Active-Value-Investing-Range-Bound-Markets/dp/0470053151",
+        "verifyNote": "Wiley Finance, 2007"
+      },
+      {
+        "title": "Soul in the Game: The Art of a Meaningful Life",
+        "isbn13": "9780857199072",
+        "verified": true,
+        "verifyUrl": "https://www.harriman-house.com/soulinthegame",
+        "verifyNote": "Harriman House, 2022"
+      }
+    ],
+    "tier1Quotes": [
+      {
+        "outlet": "FT",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "not directly verified with article URL"
+      },
+      {
+        "outlet": "WSJ",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "not directly verified with article URL"
+      },
+      {
+        "outlet": "Barron's",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "not directly verified with article URL"
+      },
+      {
+        "outlet": "Institutional Investor",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "not directly verified"
+      },
+      {
+        "outlet": "Foreign Policy",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "not directly verified"
+      },
+      {
+        "outlet": "Forbes",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "not directly verified"
+      }
+    ],
+    "tvAppearances": [],
+    "industryAwards": [],
+    "trustSignals": {},
+    "verifyAttemptedAt": "2026-04-16",
+    "summary": {
+      "certsClaimed": 1,
+      "certsVerified": 0,
+      "booksWithIsbn": 2,
+      "tier1Verified": 0,
+      "newAwardsFound": 0
+    }
+  },
+  {
+    "id": "marc-chandler-investing",
+    "name": "Marc Chandler",
+    "certifications": [
+      {
+        "name": "CMT",
+        "issuer": "CMT Association",
+        "verified": false,
+        "verifyUrl": "https://cmtassociation.org/presenter/marc-c-chandler/",
+        "verifyMethod": "cmt-presenter-page",
+        "verifyNote": "CMT Association page exists labeling him as presenter, but this URL describes him as presenter/speaker — does not necessarily confirm CMT charter. Original claim 'CMT holder' remains unverified from this source"
+      }
+    ],
+    "education": [],
+    "books": [],
+    "tier1Quotes": [
+      {
+        "outlet": "CNBC",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "not directly verified"
+      },
+      {
+        "outlet": "Bloomberg",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "not directly verified"
+      },
+      {
+        "outlet": "FOX Business",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "not directly verified"
+      }
+    ],
+    "tvAppearances": [
+      {
+        "outlet": "CNBC",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "Wikipedia mentions frequent guest; no direct video/article URL captured"
+      },
+      {
+        "outlet": "Bloomberg Television",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "same"
+      }
+    ],
+    "industryAwards": [],
+    "trustSignals": {},
+    "verifyAttemptedAt": "2026-04-16",
+    "summary": {
+      "certsClaimed": 1,
+      "certsVerified": 0,
+      "booksWithIsbn": 0,
+      "tier1Verified": 0,
+      "newAwardsFound": 0
+    }
+  },
+  {
+    "id": "beverly-harzog",
+    "name": "Beverly Harzog",
+    "certifications": [
+      {
+        "name": "CPA (former)",
+        "issuer": "State Board of Accountancy",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyNote": "no state specified in input; no state-board directory URL found"
+      }
+    ],
+    "education": [
+      {
+        "degree": "MBA",
+        "school": "University of New Haven",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyNote": "no independent university URL found"
+      }
+    ],
+    "books": [
+      {
+        "title": "The Debt Escape Plan",
+        "isbn13": "9781601633606",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Debt-Escape-Plan-Yourself-Debt-Free/dp/1601633602",
+        "verifyNote": "ASJA 2016 Outstanding Book Award (Self-Help) per Amazon/Barnes & Noble description; specific title was not named in input 'five personal finance books'"
+      }
+    ],
+    "tier1Quotes": [
+      {
+        "outlet": "WSJ",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "not directly verified"
+      },
+      {
+        "outlet": "USA Today",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "not directly verified"
+      },
+      {
+        "outlet": "NYT",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "not directly verified"
+      }
+    ],
+    "tvAppearances": [],
+    "industryAwards": [
+      {
+        "name": "ASJA Outstanding Book Award — Self-Help",
+        "year": 2016,
+        "source": "American Society of Journalists and Authors via publisher/retailer listings",
+        "sampleUrl": "https://www.amazon.com/Debt-Escape-Plan-Yourself-Debt-Free/dp/1601633602"
+      }
+    ],
+    "trustSignals": {},
+    "verifyAttemptedAt": "2026-04-16",
+    "summary": {
+      "certsClaimed": 1,
+      "certsVerified": 0,
+      "booksWithIsbn": 1,
+      "tier1Verified": 0,
+      "newAwardsFound": 1
+    }
+  },
+  {
+    "id": "andrea-coombes-bankrate",
+    "name": "Andrea Coombes",
+    "certifications": [
+      {
+        "name": "CFP",
+        "issuer": "CFP Board",
+        "verified": true,
+        "verifyUrl": "https://www.bankrate.com/authors/andrea-coombes-cfp/",
+        "verifyMethod": "employer-author-page",
+        "verifyNote": "Bankrate official author page lists 'Andrea Coombes, CFP®' in URL slug and title"
+      }
+    ],
+    "education": [],
+    "books": [],
+    "tier1Quotes": [
+      {
+        "outlet": "WSJ",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "Muck Rack shows but no direct article URL captured"
+      },
+      {
+        "outlet": "USA Today",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "not directly verified"
+      },
+      {
+        "outlet": "MarketWatch",
+        "verified": true,
+        "sampleUrl": "https://muckrack.com/andreacoombes/articles",
+        "verifyNote": "Muck Rack article feed shows MarketWatch history (decade tenure as editor)"
+      }
+    ],
+    "tvAppearances": [
+      {
+        "outlet": "NPR All Things Considered",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "Bankrate bio mentions; no direct NPR URL captured"
+      }
+    ],
+    "industryAwards": [],
+    "trustSignals": {},
+    "verifyAttemptedAt": "2026-04-16",
+    "summary": {
+      "certsClaimed": 1,
+      "certsVerified": 1,
+      "booksWithIsbn": 0,
+      "tier1Verified": 1,
+      "newAwardsFound": 0
+    }
+  },
+  {
+    "id": "jennifer-streaks",
+    "name": "Jennifer Streaks",
+    "certifications": [],
+    "education": [
+      {
+        "degree": "MBA",
+        "school": "Johns Hopkins University (Carey School of Business)",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyNote": "stated on bio sources (Muck Rack, Women's Media Center) but no direct Hopkins alumni URL"
+      },
+      {
+        "degree": "Undergraduate",
+        "school": "College of Charleston",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyNote": "no independent university URL found"
+      }
+    ],
+    "books": [],
+    "tier1Quotes": [
+      {
+        "outlet": "CNBC",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "not directly verified with article URL"
+      },
+      {
+        "outlet": "Forbes",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "not directly verified with article URL"
+      },
+      {
+        "outlet": "USA Today",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "not directly verified with article URL"
+      }
+    ],
+    "tvAppearances": [
+      {
+        "outlet": "NYSE TV",
+        "verified": true,
+        "sampleUrl": "https://tv.nyse.com/videos/jennifer-streaks-sr-personal-finance-reporter-business-insider-joins-nyse-tv",
+        "verifyNote": "direct NYSE.com video URL"
+      },
+      {
+        "outlet": "Good Morning America",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "mentioned on WMC bio; no direct ABC URL captured"
+      }
+    ],
+    "industryAwards": [],
+    "trustSignals": {},
+    "verifyAttemptedAt": "2026-04-16",
+    "summary": {
+      "certsClaimed": 0,
+      "certsVerified": 0,
+      "booksWithIsbn": 0,
+      "tier1Verified": 0,
+      "newAwardsFound": 0
+    }
+  },
+  {
+    "id": "catey-hill",
+    "name": "Catey Hill",
+    "certifications": [],
+    "education": [],
+    "books": [
+      {
+        "title": "The 30-Minute Money Plan for Moms",
+        "isbn13": "9781478975656",
+        "verified": true,
+        "verifyUrl": "https://www.hachettebookgroup.com/titles/catey-hill/the-30-minute-money-plan-for-moms/9781478975656/?lens=center-street",
+        "verifyNote": "Hachette/Center Street, 2018"
+      },
+      {
+        "title": "Shoo, Jimmy Choo!",
+        "isbn13": null,
+        "verified": false,
+        "verifyUrl": null,
+        "verifyNote": "not verified in this pass"
+      }
+    ],
+    "tier1Quotes": [
+      {
+        "outlet": "WSJ",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "not directly verified"
+      },
+      {
+        "outlet": "Barron's",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "not directly verified"
+      },
+      {
+        "outlet": "Forbes",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "not directly verified"
+      }
+    ],
+    "tvAppearances": [],
+    "industryAwards": [],
+    "trustSignals": {},
+    "verifyAttemptedAt": "2026-04-16",
+    "summary": {
+      "certsClaimed": 0,
+      "certsVerified": 0,
+      "booksWithIsbn": 1,
+      "tier1Verified": 0,
+      "newAwardsFound": 0
+    }
+  },
+  {
+    "id": "kerry-hannon",
+    "name": "Kerry Hannon",
+    "certifications": [],
+    "education": [],
+    "books": [
+      {
+        "title": "Never Too Old to Get Rich: The Entrepreneur's Guide to Starting a Business Mid-Life",
+        "isbn13": "9781119547907",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Never-Too-Old-Rich-Entrepreneurs/dp/1119547903",
+        "verifyNote": "Wiley, 2019. Input ISBN hint 9781119547297 was incorrect; actual is 9781119547907"
+      }
+    ],
+    "tier1Quotes": [
+      {
+        "outlet": "NYT",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "not directly verified"
+      },
+      {
+        "outlet": "Forbes",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "not directly verified"
+      },
+      {
+        "outlet": "Yahoo Finance",
+        "verified": true,
+        "sampleUrl": "https://finance.yahoo.com/author/kerry-hannon/",
+        "verifyNote": "Yahoo Finance official author page"
+      }
+    ],
+    "tvAppearances": [],
+    "industryAwards": [],
+    "trustSignals": {},
+    "verifyAttemptedAt": "2026-04-16",
+    "summary": {
+      "certsClaimed": 0,
+      "certsVerified": 0,
+      "booksWithIsbn": 1,
+      "tier1Verified": 1,
+      "newAwardsFound": 0
+    }
+  },
+  {
+    "id": "lawrence-lewitinn-coindesk",
+    "name": "Lawrence Lewitinn",
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute",
+        "verified": false,
+        "verifyUrl": "https://www.linkedin.com/in/lvlewitinn/",
+        "verifyMethod": "linkedin-display-name",
+        "verifyNote": "LinkedIn display name shows 'Lawrence Lewitinn, CFA'; no CFA Institute directory URL fetched. Also listed on CoinDesk author page"
+      }
+    ],
+    "education": [],
+    "books": [],
+    "tier1Quotes": [
+      {
+        "outlet": "CNBC",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "prior employer per bio; no specific article URL"
+      }
+    ],
+    "tvAppearances": [
+      {
+        "outlet": "CoinDesk TV — First Mover",
+        "verified": true,
+        "sampleUrl": "https://www.coindesk.com/tv/first-mover",
+        "verifyNote": "CoinDesk TV show page confirms program"
+      }
+    ],
+    "industryAwards": [],
+    "trustSignals": {},
+    "verifyAttemptedAt": "2026-04-16",
+    "summary": {
+      "certsClaimed": 1,
+      "certsVerified": 0,
+      "booksWithIsbn": 0,
+      "tier1Verified": 0,
+      "newAwardsFound": 0
+    }
+  },
+  {
+    "id": "kimberly-palmer-usnews",
+    "name": "Kimberly Palmer",
+    "certifications": [],
+    "education": [
+      {
+        "degree": "B.A. History",
+        "school": "Amherst College",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyNote": "Not verified via alumni page or official bio URL; only claimed in bio"
+      },
+      {
+        "degree": "M.P.P.",
+        "school": "University of Chicago",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyNote": "Not verified via alumni page"
+      }
+    ],
+    "books": [
+      {
+        "title": "Smart Mom, Rich Mom: How to Build Wealth While Raising a Family",
+        "isbn13": "9780814436806",
+        "verified": true,
+        "verifyUrl": "https://www.publishersweekly.com/9780814436806",
+        "verifyNote": "AMACOM 2016, confirmed on Publishers Weekly + Amazon"
+      },
+      {
+        "title": "The Economy of You: Discover Your Inner Entrepreneur and Recession-Proof Your Life",
+        "isbn13": "9780814432730",
+        "verified": true,
+        "verifyUrl": "https://www.publishersweekly.com/9780814432730",
+        "verifyNote": "AMACOM 2014"
+      },
+      {
+        "title": "Generation Earn: The Young Professional's Guide to Spending, Investing, and Giving Back",
+        "isbn13": "9781580082365",
+        "verified": true,
+        "verifyUrl": "https://www.penguinrandomhouse.com/books/201151/generation-earn-by-kimberly-palmer/",
+        "verifyNote": "Ten Speed Press 2010"
+      }
+    ],
+    "tier1Quotes": [],
+    "tvAppearances": [
+      {
+        "outlet": "Today Show",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "No source URL found"
+      },
+      {
+        "outlet": "Good Morning America",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "No source URL found"
+      }
+    ],
+    "industryAwards": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not applicable",
+      "crd": null
+    },
+    "verifyAttemptedAt": "2026-04-16",
+    "summary": {
+      "certsClaimed": 0,
+      "certsVerified": 0,
+      "booksWithIsbn": 3,
+      "tier1Verified": 0,
+      "newAwardsFound": 0
+    }
+  },
+  {
+    "id": "john-divine",
+    "name": "John Divine",
+    "certifications": [],
+    "education": [
+      {
+        "degree": "BS Finance & Banking (with honors)",
+        "school": "Appalachian State University",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyNote": "No alumni/official bio URL found"
+      }
+    ],
+    "books": [],
+    "tier1Quotes": [
+      {
+        "outlet": "WSJ",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "No article URL found"
+      }
+    ],
+    "tvAppearances": [],
+    "industryAwards": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not searched",
+      "crd": null
+    },
+    "verifyAttemptedAt": "2026-04-16",
+    "summary": {
+      "certsClaimed": 0,
+      "certsVerified": 0,
+      "booksWithIsbn": 0,
+      "tier1Verified": 0,
+      "newAwardsFound": 0
+    }
+  },
+  {
+    "id": "jeff-john-roberts-decrypt",
+    "name": "Jeff John Roberts",
+    "certifications": [],
+    "education": [
+      {
+        "degree": "Attended",
+        "school": "Columbia (Business/Journalism)",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyNote": "No alumni/official bio verification; only claimed on personal site"
+      }
+    ],
+    "books": [
+      {
+        "title": "Kings of Crypto: One Startup's Quest to Take Cryptocurrency Out of Silicon Valley and Onto Wall Street",
+        "isbn13": "9781647820183",
+        "verified": true,
+        "verifyUrl": "https://store.hbr.org/product/kings-of-crypto-one-startup-s-quest-to-take-cryptocurrency-out-of-silicon-valley-and-onto-wall-street/10436",
+        "verifyNote": "Harvard Business Review Press, 2020"
+      }
+    ],
+    "tier1Quotes": [
+      {
+        "outlet": "Fortune",
+        "verified": true,
+        "sampleUrl": "https://fortune.com/author/jeff-john-roberts/",
+        "verifyNote": "Staff author page at Fortune (current role)"
+      },
+      {
+        "outlet": "Reuters",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "No specific article URL located"
+      },
+      {
+        "outlet": "NYT",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "No source URL"
+      }
+    ],
+    "tvAppearances": [],
+    "industryAwards": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not applicable",
+      "crd": null
+    },
+    "verifyAttemptedAt": "2026-04-16",
+    "summary": {
+      "certsClaimed": 0,
+      "certsVerified": 0,
+      "booksWithIsbn": 1,
+      "tier1Verified": 1,
+      "newAwardsFound": 0
+    }
+  },
+  {
+    "id": "adam-levine-weinberg",
+    "name": "Adam Levine-Weinberg, CFA",
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyMethod": "attempted CFA Institute directory (rkd.cfainstitute.org unreachable)",
+        "verifyNote": "Self-claimed via Seeking Alpha author slug 'adam-levine-weinberg-cfa' and interview published 2022 on Seeking Alpha; CFA Institute directory not accessible from this environment. Treated as verifyAttempted=true."
+      }
+    ],
+    "education": [
+      {
+        "degree": "BA",
+        "school": "Swarthmore College",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyNote": "Only claimed in Seeking Alpha interview"
+      },
+      {
+        "degree": "MA Political Science",
+        "school": "University of Chicago",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyNote": "Only claimed in Seeking Alpha interview"
+      }
+    ],
+    "books": [],
+    "tier1Quotes": [],
+    "tvAppearances": [],
+    "industryAwards": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not searched",
+      "crd": null
+    },
+    "verifyAttemptedAt": "2026-04-16",
+    "summary": {
+      "certsClaimed": 1,
+      "certsVerified": 0,
+      "booksWithIsbn": 0,
+      "tier1Verified": 0,
+      "newAwardsFound": 0
+    }
+  },
+  {
+    "id": "tm-lee-coingecko",
+    "name": "TM Lee",
+    "certifications": [],
+    "education": [
+      {
+        "degree": "BS Computer Science (minor Psychology)",
+        "school": "Purdue University",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyNote": "Claim only in bios; no alumni page URL"
+      },
+      {
+        "degree": "Computer Science studies",
+        "school": "INTI International University, Malaysia",
+        "verified": true,
+        "verifyUrl": "https://newinti.edu.my/kuantan-native-who-nearly-saw-an-end-to-his-start-up-makes-it-to-forbes-30-under-30-asia/",
+        "verifyNote": "INTI University alumni feature page"
+      }
+    ],
+    "books": [
+      {
+        "title": "Handbook of Digital Currency (1st Edition)",
+        "isbn13": "9780128021170",
+        "verified": true,
+        "verifyUrl": "https://www.sciencedirect.com/book/9780128021170/handbook-of-digital-currency",
+        "verifyNote": "Elsevier/Academic Press 2015; TM Lee is a chapter co-author, not overall editor (editor is David Lee Kuo Chuen)"
+      },
+      {
+        "title": "Handbook of Blockchain, Digital Finance, and Inclusion Volume 1",
+        "isbn13": null,
+        "verified": false,
+        "verifyUrl": null,
+        "verifyNote": "Not directly ISBN-verified in this pass"
+      }
+    ],
+    "tier1Quotes": [
+      {
+        "outlet": "Forbes (30U30 2019)",
+        "verified": true,
+        "sampleUrl": "https://www.malaymail.com/news/malaysia/2019/04/02/nine-malaysians-in-forbes-30-under-30-asia-2019/1738908",
+        "verifyNote": "Forbes 30 Under 30 Asia 2019, confirmed via Malay Mail + INTI alumni pages + Fintech News Singapore"
+      }
+    ],
+    "tvAppearances": [],
+    "industryAwards": [
+      {
+        "name": "Forbes 30 Under 30 Asia — Finance & Venture Capital",
+        "year": "2019",
+        "source": "Forbes (via Malay Mail coverage)",
+        "sampleUrl": "https://fintechnews.sg/30030/fintech/forbes-30-under-30-asia-2019s-banking-and-fintech-superstars/"
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not applicable",
+      "crd": null
+    },
+    "verifyAttemptedAt": "2026-04-16",
+    "summary": {
+      "certsClaimed": 0,
+      "certsVerified": 0,
+      "booksWithIsbn": 1,
+      "tier1Verified": 1,
+      "newAwardsFound": 1
+    }
+  },
+  {
+    "id": "emma-lunn-moneyweek",
+    "name": "Emma Lunn",
+    "certifications": [],
+    "education": [],
+    "books": [],
+    "tier1Quotes": [
+      {
+        "outlet": "The Guardian",
+        "verified": true,
+        "sampleUrl": "https://www.theguardian.com/profile/emma-lunn",
+        "verifyNote": "Guardian author page exists"
+      },
+      {
+        "outlet": "The Independent",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "Claimed via personal site; not independently verified in this pass"
+      },
+      {
+        "outlet": "Daily Telegraph",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "Only claimed via personal site"
+      },
+      {
+        "outlet": "Mail on Sunday",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "Only claimed via personal site"
+      },
+      {
+        "outlet": "Mirror",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "Only claimed via personal site"
+      }
+    ],
+    "tvAppearances": [],
+    "industryAwards": [
+      {
+        "name": "Headline Money Freelance Financial Journalist of the Year",
+        "year": "2013",
+        "source": "Emma Lunn personal site / Headline Money",
+        "sampleUrl": "https://www.emmalunn.com/about/"
+      },
+      {
+        "name": "Headline Money Household Money Journalist of the Year",
+        "year": "2013",
+        "source": "Emma Lunn personal site",
+        "sampleUrl": "https://www.emmalunn.com/about/"
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not applicable",
+      "crd": null
+    },
+    "verifyAttemptedAt": "2026-04-16",
+    "summary": {
+      "certsClaimed": 0,
+      "certsVerified": 0,
+      "booksWithIsbn": 0,
+      "tier1Verified": 1,
+      "newAwardsFound": 2
+    }
+  },
+  {
+    "id": "eva-szalay",
+    "name": "Eva Szalay",
+    "certifications": [],
+    "education": [],
+    "books": [],
+    "tier1Quotes": [
+      {
+        "outlet": "WSJ",
+        "verified": true,
+        "sampleUrl": "https://www.responsesource.com/bulletin/news/financial-times-confirm-currencies-correspondent-appointment/",
+        "verifyNote": "ResponseSource + Muck Rack profile confirm Dow Jones/WSJ history"
+      },
+      {
+        "outlet": "Financial Times",
+        "verified": true,
+        "sampleUrl": "https://www.ft.com/eva-szalay",
+        "verifyNote": "FT author page; was Currencies Correspondent Dec 2018 onward"
+      },
+      {
+        "outlet": "Bloomberg",
+        "verified": true,
+        "sampleUrl": "https://muckrack.com/eva-szalay",
+        "verifyNote": "Muck Rack bio confirms Bloomberg cross-asset reporting role in London"
+      }
+    ],
+    "tvAppearances": [],
+    "industryAwards": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not applicable",
+      "crd": null
+    },
+    "verifyAttemptedAt": "2026-04-16",
+    "summary": {
+      "certsClaimed": 0,
+      "certsVerified": 0,
+      "booksWithIsbn": 0,
+      "tier1Verified": 3,
+      "newAwardsFound": 0
+    }
+  },
+  {
+    "id": "kunal-kapoor-morningstar",
+    "name": "Kunal Kapoor",
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute",
+        "verified": true,
+        "verifyUrl": "https://www.morningstar.com/company/leadership/kunal-kapoor",
+        "verifyMethod": "Morningstar official leadership page (title formatted 'Kunal Kapoor, CFA') + CFA Society Chicago membership noted in official bio",
+        "verifyNote": "Morningstar's own leadership/people pages list him as 'Kunal Kapoor, CFA'; additionally confirmed via official economic club bio."
+      }
+    ],
+    "education": [
+      {
+        "degree": "BA Economics and Environmental Policy",
+        "school": "Monmouth College",
+        "verified": true,
+        "verifyUrl": "https://econclubchi.org/leader/kunal-kapoor/",
+        "verifyNote": "Economic Club of Chicago official speaker bio"
+      },
+      {
+        "degree": "MBA",
+        "school": "University of Chicago Booth School of Business",
+        "verified": true,
+        "verifyUrl": "https://econclubchi.org/leader/kunal-kapoor/",
+        "verifyNote": "Same official bio; Council on Chicago Booth member"
+      }
+    ],
+    "books": [],
+    "tier1Quotes": [
+      {
+        "outlet": "Bloomberg",
+        "verified": true,
+        "sampleUrl": "https://www.bloomberg.com/profile/person/2524907",
+        "verifyNote": "Bloomberg Markets profile exists"
+      }
+    ],
+    "tvAppearances": [],
+    "industryAwards": [
+      {
+        "name": "Crain's Chicago Business 40 Under 40",
+        "year": "2010",
+        "source": "Economic Club of Chicago bio",
+        "sampleUrl": "https://econclubchi.org/leader/kunal-kapoor/"
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not applicable",
+      "crd": null
+    },
+    "verifyAttemptedAt": "2026-04-16",
+    "summary": {
+      "certsClaimed": 1,
+      "certsVerified": 1,
+      "booksWithIsbn": 0,
+      "tier1Verified": 1,
+      "newAwardsFound": 1
+    }
+  },
+  {
+    "id": "theresa-w-carey",
+    "name": "Theresa W. Carey",
+    "certifications": [],
+    "education": [],
+    "books": [],
+    "tier1Quotes": [
+      {
+        "outlet": "Barron's",
+        "verified": true,
+        "sampleUrl": "https://muckrack.com/theresa-carey",
+        "verifyNote": "Muck Rack lists Barron's bylines; authored Electronic Investor column 1995-2018 per Talking Biz News coverage"
+      }
+    ],
+    "tvAppearances": [
+      {
+        "outlet": "tastytrade",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "Claimed but no video/source URL located"
+      }
+    ],
+    "industryAwards": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not applicable",
+      "crd": null
+    },
+    "verifyAttemptedAt": "2026-04-16",
+    "summary": {
+      "certsClaimed": 0,
+      "certsVerified": 0,
+      "booksWithIsbn": 0,
+      "tier1Verified": 1,
+      "newAwardsFound": 0
+    }
+  },
+  {
+    "id": "bradley-keoun",
+    "name": "Bradley Keoun",
+    "certifications": [],
+    "education": [
+      {
+        "degree": "BA Electrical Engineering & Classical Studies (double major)",
+        "school": "Duke University",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyNote": "Claim only in CoinDesk author bio"
+      },
+      {
+        "degree": "Master's in Journalism",
+        "school": "University of Florida",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyNote": "Claim only in CoinDesk author bio"
+      }
+    ],
+    "books": [],
+    "tier1Quotes": [
+      {
+        "outlet": "Bloomberg",
+        "verified": true,
+        "sampleUrl": "https://muckrack.com/liqquidity",
+        "verifyNote": "Muck Rack profile confirms Bloomberg Businessweek/Bloomberg News bylines"
+      },
+      {
+        "outlet": "TheStreet",
+        "verified": true,
+        "sampleUrl": "https://www.coindesk.com/author/bradley-keoun",
+        "verifyNote": "CoinDesk official author bio confirms TheStreet chief global finance role"
+      }
+    ],
+    "tvAppearances": [],
+    "industryAwards": [
+      {
+        "name": "Gerald Loeb Awards — Finalist (2x; Fed secret loans + London Whale)",
+        "year": "multiple",
+        "source": "CoinDesk official author bio",
+        "sampleUrl": "https://www.coindesk.com/author/bradley-keoun"
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not applicable",
+      "crd": null
+    },
+    "verifyAttemptedAt": "2026-04-16",
+    "summary": {
+      "certsClaimed": 0,
+      "certsVerified": 0,
+      "booksWithIsbn": 0,
+      "tier1Verified": 2,
+      "newAwardsFound": 1
+    }
+  },
+  {
+    "id": "lance-cothern",
+    "name": "Lance Cothern",
+    "certifications": [
+      {
+        "name": "CPA",
+        "issuer": "Indiana Board of Accountancy",
+        "verified": false,
+        "verifyUrl": "https://mylicense.in.gov/everification/",
+        "verifyMethod": "IN PLA license lookup requires interactive form submission",
+        "verifyNote": "Could not automate IN PLA or CPAverify lookup through WebFetch (requires form POST + T&C acceptance). Claim is plausible (lancecothern.com/about lists CPA credential) but not directly verified via issuing body URL"
+      }
+    ],
+    "education": [
+      {
+        "degree": "BBA, Accounting",
+        "school": "James Madison University",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyNote": "No alumni directory URL located"
+      }
+    ],
+    "books": [],
+    "tier1Quotes": [
+      {
+        "outlet": "USA Today",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "No direct article URL located in this pass"
+      },
+      {
+        "outlet": "Forbes",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "No direct article URL located in this pass"
+      },
+      {
+        "outlet": "Business Insider",
+        "verified": false,
+        "sampleUrl": null,
+        "verifyNote": "No direct article URL located in this pass"
+      }
+    ],
+    "tvAppearances": [],
+    "industryAwards": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": null,
+      "crd": null
+    },
+    "verifyAttemptedAt": "2026-04-16",
+    "summary": {
+      "certsClaimed": 1,
+      "certsVerified": 0,
+      "booksWithIsbn": 0,
+      "tier1Verified": 0,
+      "newAwardsFound": 0
+    }
+  },
+  {
+    "id": "dan-kemp-morningstar",
+    "name": "Dan Kemp",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {}
+  },
+  {
+    "id": "molly-moorhead",
+    "name": "Molly Moorhead",
+    "certifications": [
+      {
+        "name": "CFP",
+        "issuer": "CFP Board",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyMethod": "letsmakeaplan.org search",
+        "verifyNote": "No public profile for 'Molly Moorhead' found in CFP Board letsmakeaplan.org directory. CFP claim appears in Penny Hoarder author bio but not confirmed in issuing-body registry."
+      },
+      {
+        "name": "CEPF",
+        "issuer": "Institute for Financial Literacy",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyMethod": "issuer search",
+        "verifyNote": "FinCert/Institute for Financial Literacy does not publish a public CEPF holder registry; cannot verify independently."
+      }
+    ],
+    "books": [],
+    "trustSignals": {}
+  },
+  {
+    "id": "robyn-a-friedman",
+    "name": "Robyn A. Friedman",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {}
+  },
+  {
+    "id": "jessica-inskip",
+    "name": "Jessica Inskip",
+    "certifications": [
+      {
+        "name": "FINRA Series 7",
+        "issuer": "FINRA",
+        "verified": true,
+        "verifyUrl": "https://files.brokercheck.finra.org/individual/individual_5693503.pdf",
+        "verifyMethod": "FINRA BrokerCheck PDF report",
+        "verifyNote": "General Securities Representative Examination passed 01/25/2012. CRD# 5693503."
+      },
+      {
+        "name": "FINRA Series 63",
+        "issuer": "FINRA",
+        "verified": true,
+        "verifyUrl": "https://files.brokercheck.finra.org/individual/individual_5693503.pdf",
+        "verifyMethod": "FINRA BrokerCheck PDF report",
+        "verifyNote": "Uniform Securities Agent State Law Examination passed 03/23/2012."
+      },
+      {
+        "name": "FINRA Series 66",
+        "issuer": "FINRA",
+        "verified": true,
+        "verifyUrl": "https://files.brokercheck.finra.org/individual/individual_5693503.pdf",
+        "verifyMethod": "FINRA BrokerCheck PDF report",
+        "verifyNote": "Uniform Combined State Law Examination passed 02/02/2017."
+      },
+      {
+        "name": "FINRA Series 4",
+        "issuer": "FINRA",
+        "verified": true,
+        "verifyUrl": "https://files.brokercheck.finra.org/individual/individual_5693503.pdf",
+        "verifyMethod": "FINRA BrokerCheck PDF report",
+        "verifyNote": "Registered Options Principal Examination passed 12/08/2014."
+      }
+    ],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "Not currently registered; previously registered at Merrill Lynch (2016-2022), Fidelity (2013-2016), Scottrade (2012-2013). No disclosure events.",
+      "crd": "5693503"
+    }
+  },
+  {
+    "id": "josh-lipton",
+    "name": "Josh Lipton",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {}
+  },
+  {
+    "id": "elaine-king",
+    "name": "Elaine King",
+    "certifications": [
+      {
+        "name": "CFP",
+        "issuer": "CFP Board",
+        "verified": true,
+        "verifyUrl": "https://www.cfp.net/about-cfp-board/our-initiatives/increasing-awareness/cfp-board-ambassadors/elaine-king-fuentes-cfp",
+        "verifyMethod": "CFP Board Ambassador profile page",
+        "verifyNote": "Listed by CFP Board as a CERTIFIED FINANCIAL PLANNER professional and CFP Board Ambassador (Elaine King Fuentes, MBA, CFP)."
+      },
+      {
+        "name": "TEP",
+        "issuer": "STEP (Society of Trust and Estate Practitioners)",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyMethod": "STEP directory search",
+        "verifyNote": "STEP directory (step.org) blocks automated access (403). TEP suffix appears on her own bio and LinkedIn but was not independently confirmed in the STEP member directory within time budget."
+      }
+    ],
+    "books": [],
+    "trustSignals": {}
+  },
+  {
+    "id": "drew-limsky",
+    "name": "Drew Limsky",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {}
+  },
+  {
+    "id": "adam-hardy-money",
+    "name": "Adam Hardy",
+    "certifications": [
+      {
+        "name": "Multimedia Storytelling Certificate",
+        "issuer": "Poynter News University",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyMethod": "issuer registry search",
+        "verifyNote": "Poynter News University does not publish a public registry of certificate holders; cannot verify via issuing body."
+      },
+      {
+        "name": "Data Journalism Certificate",
+        "issuer": "IRE / University of Missouri",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyMethod": "issuer registry search",
+        "verifyNote": "IRE/Missouri School of Journalism does not publish a public registry of certificate holders; cannot verify via issuing body."
+      }
+    ],
+    "books": [],
+    "trustSignals": {}
+  },
+  {
+    "id": "brett-arends-marketwatch",
+    "name": "Brett Arends",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {}
+  },
+  {
+    "id": "martin-lewis-mse",
+    "name": "Martin Lewis",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {}
+  },
+  {
+    "id": "katie-doyle",
+    "name": "Katie Doyle",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {}
+  },
+  {
+    "id": "andrew-thurman",
+    "name": "Andrew Thurman",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {}
+  },
+  {
+    "id": "charles-lewis-sizemore",
+    "name": "Charles Lewis Sizemore",
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute",
+        "verified": true,
+        "verifyUrl": "https://www.kiplinger.com/author/charles-lewis-sizemore-cfa",
+        "verifyMethod": "byline+secondary",
+        "verifyNote": "CFA Institute public directory requires login (B2C redirect). Verified via Kiplinger author byline 'Charles Lewis Sizemore, CFA' and Sizemore Capital team page; public CFA post-nominal usage consistent across outlets."
+      }
+    ],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_searched",
+      "crd": null
+    }
+  },
+  {
+    "id": "elizabeth-leary-kiplinger",
+    "name": "Elizabeth Leary",
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute",
+        "verified": true,
+        "verifyUrl": "https://www.kiplinger.com/author/elizabeth-leary",
+        "verifyMethod": "byline",
+        "verifyNote": "CFA Institute public directory requires login. Kiplinger author page and bylines (Elizabeth Ody / Elizabeth Leary, CFA) use the CFA designation publicly; not independently registry-verified."
+      }
+    ],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_searched",
+      "crd": null
+    }
+  },
+  {
+    "id": "quentin-fottrell-marketwatch",
+    "name": "Quentin Fottrell",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null
+    }
+  },
+  {
+    "id": "colin-harper-bitcoinmagazine",
+    "name": "Colin Harper",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null
+    }
+  },
+  {
+    "id": "dan-caplinger",
+    "name": "Dan Caplinger",
+    "certifications": [
+      {
+        "name": "Certified Financial Planner (CFP)",
+        "issuer": "CFP Board",
+        "verified": false,
+        "verifyUrl": "https://www.letsmakeaplan.org/",
+        "verifyMethod": "registry-miss",
+        "verifyNote": "Source bio and multiple references indicate Caplinger formerly held CFP but voluntarily relinquished it in 2012; he is not currently listed on letsmakeaplan.org as an active CFP. Treat as 'former CFP' — not an active credential."
+      }
+    ],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_searched",
+      "crd": null
+    }
+  },
+  {
+    "id": "kathy-lien",
+    "name": "Kathy Lien",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_searched",
+      "crd": null
+    }
+  },
+  {
+    "id": "dan-blystone",
+    "name": "Dan Blystone",
+    "certifications": [
+      {
+        "name": "Series 3 (NFA — futures, options, forex)",
+        "issuer": "NFA",
+        "verified": false,
+        "verifyUrl": "https://www.nfa.futures.org/basicnet/",
+        "verifyMethod": "registry-unreachable",
+        "verifyNote": "NFA BASIC search is a POST form (not directly fetchable); no cached public profile found via search. Claim rests on self-reported bio (Infinity Futures, Chicago). Requires manual BASIC lookup to confirm NFA ID and current status."
+      }
+    ],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_searched",
+      "crd": null
+    }
+  },
+  {
+    "id": "steven-ralston-zacks",
+    "name": "Steven Ralston",
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute",
+        "verified": true,
+        "verifyUrl": "https://scr.zacks.com/analyst-bios/person-details/default.aspx?ItemId=458bec2b-ad30-4887-9029-ef6c930f2165",
+        "verifyMethod": "employer-bio",
+        "verifyNote": "CFA Institute public directory requires login. Verified via Zacks Small-Cap Research official analyst bio naming him 'Steven Ralston, CFA' with 30+ years and Seeking Alpha author page using CFA post-nominal."
+      }
+    ],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_searched",
+      "crd": null
+    }
+  },
+  {
+    "id": "alana-benson",
+    "name": "Alana Benson",
+    "certifications": [],
+    "books": [
+      {
+        "title": "Data Personified: How Fraud Is Transforming the Meaning of Identity",
+        "isbn13": "9781480865396",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Data-Personified-Transforming-Meaning-Identity/dp/1480865397"
+      },
+      {
+        "title": "WTF? Where's the Fraud? — How to Unmask and Stop Identity Fraud's Drain on Our Government",
+        "isbn13": "9781480825604",
+        "verified": true,
+        "verifyUrl": "https://www.abebooks.com/9781480825604/Wtf-Fraud-Larry-Benson-Andy-1480825603/plp"
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null
+    }
+  },
+  {
+    "id": "matt-peterson",
+    "name": "Matt Peterson",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null
+    }
+  },
+  {
+    "id": "james-royal",
+    "name": "James Royal",
+    "certifications": [],
+    "books": [
+      {
+        "title": "The Zen of Thrift Conversions: How To Turn Hidden Bank Stocks Into Big Gains",
+        "isbn13": "9798675760305",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Zen-Thrift-Conversions-Hidden-Stocks/dp/B08KH3THCR"
+      },
+      {
+        "title": "Options Trading 101: From Understanding the Types of Options and Creating a Trade Plan to Analyzing Risk and Selecting Strike Prices",
+        "isbn13": "9781507224038",
+        "verified": true,
+        "verifyUrl": "https://www.simonandschuster.com/books/Options-Trading-101/James-Royal/Adams-101-Series/9781507224038"
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null
+    }
+  },
+  {
+    "id": "natalie-campisi",
+    "name": "Natalie Campisi",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null
+    }
+  },
+  {
+    "id": "blain-reinkensmeyer",
+    "name": "Blain Reinkensmeyer",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "likely_not_registered",
+      "crd": null,
+      "note": "Retail trader/blogger, not a registered securities rep per public record"
+    }
+  },
+  {
+    "id": "caleb-silver-investopedia",
+    "name": "Caleb Silver",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null
+    }
+  },
+  {
+    "id": "venessa-wong-marketwatch",
+    "name": "Venessa Wong",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null
+    }
+  },
+  {
+    "id": "katie-martin-ft",
+    "name": "Katie Martin",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null
+    }
+  },
+  {
+    "id": "kshitij-anand",
+    "name": "Kshitij Anand",
+    "certifications": [
+      {
+        "name": "CFA (ICFAI)",
+        "issuer": "ICFAI University",
+        "verified": true,
+        "verifyUrl": "https://in.linkedin.com/in/kshitij-anand-cfa-icfai-ms-finance-32a190a",
+        "verifyMethod": "linkedin_profile",
+        "verifyNote": "CFA (ICFAI) — ICFAI University's own CFA program (NOT CFA Institute charter). LinkedIn handle explicitly includes 'cfa-icfai'. Education: MS Finance + CFA (Finance) from ICFAI University 2006-2008. ICFAI CFA is a distinct Indian designation, not the global CFA charter."
+      },
+      {
+        "name": "MS Finance",
+        "issuer": "ICFAI University",
+        "verified": true,
+        "verifyUrl": "https://in.linkedin.com/in/kshitij-anand-cfa-icfai-ms-finance-32a190a",
+        "verifyMethod": "linkedin_profile",
+        "verifyNote": "MS Finance from ICFAI University (2006-2008) per LinkedIn education section."
+      }
+    ],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null
+    }
+  },
+  {
+    "id": "margaret-yang",
+    "name": "Margaret Yang Yan, CFA",
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute",
+        "verified": true,
+        "verifyUrl": "https://www.linkedin.com/in/margaretyangyan/",
+        "verifyMethod": "linkedin_profile",
+        "verifyNote": "LinkedIn profile displays 'Margaret Yang Yan, CFA' designation. CFA Institute does not maintain a public charterholder directory; LinkedIn self-attestation + DailyFX byline consistent. Could not independently verify via CFA Institute registry."
+      }
+    ],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null,
+      "note": "Singapore-based — MAS jurisdiction, not FINRA"
+    }
+  },
+  {
+    "id": "ben-levisohn",
+    "name": "Ben Levisohn",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "possibly_former_rep",
+      "crd": null,
+      "note": "Former Wall Street equities trader at Worldco/Lynx Capital Partners 7 years — may have inactive/historic CRD; not checked within budget"
+    }
+  },
+  {
+    "id": "claer-barrett",
+    "name": "Claer Barrett",
+    "certifications": [],
+    "books": [
+      {
+        "title": "What They Don't Teach You About Money: Seven Habits to Unlock Financial Independence",
+        "isbn13": "9781529146332",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/What-They-Teach-About-Money/dp/152914633X"
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null,
+      "note": "UK-based FT journalist — FCA jurisdiction"
+    }
+  },
+  {
+    "id": "larry-swedroe-morningstar",
+    "name": "Larry Swedroe",
+    "certifications": [],
+    "books": [
+      {
+        "title": "Enrich Your Future: The Keys to Successful Investing",
+        "isbn13": "9781394245444",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Enrich-Your-Future-Successful-Investing/dp/1394245440"
+      },
+      {
+        "title": "The Only Guide to a Winning Investment Strategy You'll Ever Need: The Way Smart Money Invests Today",
+        "isbn13": "9780312339876",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Guide-Winning-Investment-Strategy-Youll/dp/0312339879"
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_checked",
+      "crd": null,
+      "note": "Former SVP/Regional Treasurer at Citicorp (treasury/FX/IB) — may have inactive CRD; not checked within budget"
+    }
+  },
+  {
+    "id": "andrew-hayward-decrypt",
+    "name": "Andrew Hayward",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null,
+      "note": "Crypto journalist, not a securities professional"
+    }
+  },
+  {
+    "id": "richard-perry",
+    "name": "Richard Perry",
+    "certifications": [
+      {
+        "name": "Society of Technical Analysts Diploma (with distinction)",
+        "issuer": "Society of Technical Analysts (STA)",
+        "verified": true,
+        "verifyUrl": "https://www.technicalanalysts.com/sta-blog/members-register/richard-perry/",
+        "verifyMethod": "issuer_members_register",
+        "verifyNote": "Listed on STA official Members Register page (dedicated profile URL for Richard Perry). Distinction on STA Diploma confirmed via multiple third-party sources including Hantec Markets bio and FxExplained. Note: direct WebFetch blocked (403), but URL exists on issuer domain."
+      },
+      {
+        "name": "Private Client Investment Advice & Management (PCIAM) — with merit",
+        "issuer": "Chartered Institute for Securities & Investment (CISI)",
+        "verified": true,
+        "verifyUrl": "https://www.linkedin.com/in/richard-perry-5918921b/",
+        "verifyMethod": "linkedin_and_third_party_bios",
+        "verifyNote": "PCIAM qualification is issued by CISI in the UK. Merit grade confirmed via multiple bios (Hantec, FxExplained, Investing.com contributor page). CISI does not maintain a public verification registry for individual qualification holders."
+      }
+    ],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null,
+      "note": "UK-based analyst — FCA jurisdiction"
+    }
+  },
+  {
+    "id": "omar-sacirbey",
+    "name": "Omar Sacirbey",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null,
+      "note": "Journalist, not a securities professional"
+    }
+  },
+  {
+    "id": "doug-boneparth",
+    "name": "Doug Boneparth",
+    "certifications": [
+      {
+        "name": "CFP",
+        "issuer": "CFP Board",
+        "verified": true,
+        "verifyUrl": "https://www.cfp.net/about-cfp-board/our-initiatives/increasing-awareness/cfp-board-ambassadors/douglas-a-boneparth-cfp",
+        "verifyMethod": "CFP Board Ambassador page (cfp.net)",
+        "verifyNote": "Listed by CFP Board as Ambassador for New York — credential verified by issuing body"
+      },
+      {
+        "name": "AIF",
+        "issuer": "Fi360",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyMethod": null,
+        "verifyNote": "Only third-party bios mention AIF; Fi360 designee lookup not confirmed within search budget"
+      }
+    ],
+    "books": [
+      {
+        "title": "The Millennial Money Fix: What You Need to Know About Budgeting, Debt, and Finding Financial Freedom",
+        "isbn13": "9781632651044",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Millennial-Money-Fix-Budgeting-Financial/dp/1632651041"
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_checked",
+      "crd": null
+    }
+  },
+  {
+    "id": "jesse-hamilton-coindesk",
+    "name": "Jesse Hamilton",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "n/a",
+      "crd": null
+    }
+  },
+  {
+    "id": "riley-adams",
+    "name": "Riley Adams",
+    "certifications": [
+      {
+        "name": "Certified Public Accountant (CPA)",
+        "issuer": "State board",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyMethod": "NASBA ALD (cpaverify.org) search pending — state board not identified",
+        "verifyNote": "Widely listed as CPA on author bios (Young and the Invested, Due, WealthUpdate, The Penny Hoarder); state board of issuance not publicly disclosed"
+      }
+    ],
+    "books": [
+      {
+        "title": "How to Invest as a Teenager: Start Investing Under 18",
+        "isbn13": null,
+        "verified": false,
+        "verifyUrl": "https://books.google.com/books/about/How_to_Invest_as_a_Teenager_Start_Invest.html?id=8fLaEAAAQBAJ"
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_checked",
+      "crd": null
+    }
+  },
+  {
+    "id": "michael-hewson",
+    "name": "Michael Hewson",
+    "certifications": [
+      {
+        "name": "MSTA",
+        "issuer": "Society of Technical Analysts",
+        "verified": true,
+        "verifyUrl": "https://www.technicalanalysts.com/executive-committee/michael-hewson/",
+        "verifyMethod": "STA Executive Committee page (technicalanalysts.com)",
+        "verifyNote": "Listed on STA Executive Committee page as MSTA; published by issuing body"
+      },
+      {
+        "name": "CFTe",
+        "issuer": "International Federation of Technical Analysts (IFTA)",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyMethod": "IFTA does not publish searchable designee directory",
+        "verifyNote": "CFTe designation consistently used on CMC Markets, Good Money Guide, FXEmpire and STA bios; IFTA has no public verification database"
+      }
+    ],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "n/a",
+      "crd": null
+    }
+  },
+  {
+    "id": "will-daniel",
+    "name": "Will Daniel",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "n/a",
+      "crd": null
+    }
+  },
+  {
+    "id": "manish-jaradi",
+    "name": "Manish Jaradi",
+    "certifications": [
+      {
+        "name": "CMT",
+        "issuer": "CMT Association",
+        "verified": false,
+        "verifyUrl": "https://www.dailyfx.com/authors/Manish_Jaradi",
+        "verifyMethod": "CMT Association does not publish searchable charterholder directory; attribution confirmed via DailyFX/IG official bio",
+        "verifyNote": "CMT Association no longer has public charterholder lookup; designation consistently referenced on IG/DailyFX official bios"
+      },
+      {
+        "name": "CFTe",
+        "issuer": "IFTA",
+        "verified": false,
+        "verifyUrl": "https://www.ig.com/uk/profile/manish-jaradi-dfx",
+        "verifyMethod": "No IFTA public directory — IG UK official bio as attribution",
+        "verifyNote": "Designation listed on IG UK official bio; IFTA lacks public verification"
+      }
+    ],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "n/a",
+      "crd": null
+    }
+  },
+  {
+    "id": "jeff-ostrowski",
+    "name": "Jeff Ostrowski",
+    "certifications": [
+      {
+        "name": "NMLS Mortgage Loan Originator (SAFE Test passed)",
+        "issuer": "NMLS",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyMethod": "NMLS Consumer Access search requires state/ID",
+        "verifyNote": "SAFE Test noted in Bankrate bio; NMLS ID not publicly disclosed on author page"
+      }
+    ],
+    "books": [
+      {
+        "title": "How to Buy a Home in a Miserable Market",
+        "isbn13": null,
+        "verified": false,
+        "verifyUrl": "https://www.bankrate.com/authors/jeff-ostrowski/"
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "n/a",
+      "crd": null
+    }
+  },
+  {
+    "id": "danielle-park",
+    "name": "Danielle Park, CFA",
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyMethod": "CFA Institute no longer publishes public member directory — no public lookup",
+        "verifyNote": "CFA charter consistently used on Venable Park Investment Counsel and Juggling Dynamite; not verifiable via public CFA directory"
+      }
+    ],
+    "books": [
+      {
+        "title": "Juggling Dynamite: An Insider's Wisdom about Money Management, Markets, and Wealth that Lasts",
+        "isbn13": "9781897178348",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Juggling-Dynamite-insiders-management-markets/dp/1897178344"
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_checked",
+      "crd": null
+    }
+  },
+  {
+    "id": "suzanne-woolley",
+    "name": "Suzanne Woolley",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "n/a",
+      "crd": null
+    }
+  },
+  {
+    "id": "sharon-epperson",
+    "name": "Sharon Epperson",
+    "certifications": [],
+    "books": [
+      {
+        "title": "The Big Payoff: 8 Steps Couples Can Take to Make the Most of Their Money—and Live Richly Ever After",
+        "isbn13": "9780060744885",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Big-Payoff-Couples-Money-Richly/dp/B0013L2EP4"
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "n/a",
+      "crd": null
+    }
+  },
+  {
+    "id": "bob-mason-fxempire",
+    "name": "Bob Mason",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "n/a",
+      "crd": null
+    }
+  },
+  {
+    "id": "daniel-phillips-coinmarketcap",
+    "name": "Daniel Phillips",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "n/a",
+      "crd": null
+    }
+  },
+  {
+    "id": "scott-murdoch-reuters",
+    "name": "Scott Murdoch",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null
+    }
+  },
+  {
+    "id": "anna-bahney-cnn",
+    "name": "Anna Bahney",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null
+    }
+  },
+  {
+    "id": "al-root",
+    "name": "Al Root (Allen Root)",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_searched",
+      "crd": null
+    }
+  },
+  {
+    "id": "connor-sephton",
+    "name": "Connor Sephton",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null
+    }
+  },
+  {
+    "id": "enoch-yiu",
+    "name": "Enoch Yiu",
+    "certifications": [],
+    "books": [
+      {
+        "title": "They Mean Business: 50 exclusive interviews with Hong Kong top executives",
+        "isbn13": null,
+        "verified": false,
+        "verifyUrl": "https://www.nlb.gov.sg/biblio/13057017"
+      },
+      {
+        "title": "Serving with Passion: stories of established catering brands in Hong Kong",
+        "isbn13": null,
+        "verified": false,
+        "verifyUrl": null
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null
+    }
+  },
+  {
+    "id": "eamonn-sheridan",
+    "name": "Eamonn Sheridan",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null
+    }
+  },
+  {
+    "id": "terry-flanagan-tradersmag",
+    "name": "Terry Flanagan",
+    "certifications": [
+      {
+        "name": "CFA (Chartered Financial Analyst)",
+        "issuer": "CFA Institute",
+        "verified": true,
+        "verifyUrl": "https://www.marketsmediagroup.com/team/",
+        "verifyMethod": "bio-confirmed",
+        "verifyNote": "CFA charter earned in 2001 per official Markets Media Group team bio. CFA Institute public directory not searchable without member login."
+      }
+    ],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null
+    }
+  },
+  {
+    "id": "matthew-levy",
+    "name": "Matthew Levy",
+    "certifications": [
+      {
+        "name": "CFA (Chartered Financial Analyst)",
+        "issuer": "CFA Institute",
+        "verified": true,
+        "verifyUrl": "https://www.matthewlevycfa.com/about",
+        "verifyMethod": "bio-confirmed",
+        "verifyNote": "CFA Charter completed in 2015 per own professional site (matthewlevycfa.com). CFA Institute directory not publicly queryable."
+      }
+    ],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null
+    }
+  },
+  {
+    "id": "michael-kim-zacks",
+    "name": "Michael Kim",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_searched",
+      "crd": null
+    }
+  },
+  {
+    "id": "jefreda-r-brown",
+    "name": "JeFreda R. Brown",
+    "certifications": [
+      {
+        "name": "CFEI (Certified Financial Education Instructor)",
+        "issuer": "National Financial Educators Council",
+        "verified": true,
+        "verifyUrl": "https://www.financialeducatorscouncil.org/jefreda-brown/",
+        "verifyMethod": "issuer-directory",
+        "verifyNote": "Listed in NFEC's Personal Finance Speakers Association directory as CFEI."
+      }
+    ],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null
+    }
+  },
+  {
+    "id": "james-hyerczyk",
+    "name": "James Hyerczyk",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_searched",
+      "crd": null
+    }
+  },
+  {
+    "id": "brian-bollinger",
+    "name": "Brian Bollinger",
+    "certifications": [
+      {
+        "name": "CPA (Certified Public Accountant)",
+        "issuer": "State Board of Accountancy",
+        "verified": false,
+        "verifyUrl": "https://www.simplysafedividends.com/about",
+        "verifyMethod": "bio-only",
+        "verifyNote": "CPA claim stated on Simply Safe Dividends official 'About' page; Indiana CPA board verification requires interactive lookup not accessible via WebFetch. State of issuance not specified in public bio."
+      }
+    ],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null
+    }
+  },
+  {
+    "id": "barbara-friedberg",
+    "name": "Barbara Friedberg",
+    "certifications": [],
+    "books": [
+      {
+        "title": "Invest and Beat the Pros - Create and Manage a Successful Investment Portfolio",
+        "isbn13": "9780988855540",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Invest-Pros-Create-Successful-Investment-Portfolio/dp/0988855542"
+      },
+      {
+        "title": "How to Get Rich; Without Winning the Lottery",
+        "isbn13": "9780988855519",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/How-Rich-Without-Winning-Lottery/dp/0988855518"
+      },
+      {
+        "title": "Personal Finance: An Encyclopedia of Modern Money Management",
+        "isbn13": "9781440830310",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Personal-Finance-Encyclopedia-Modern-Management/dp/1440830312"
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null
+    }
+  },
+  {
+    "id": "jon-dulin",
+    "name": "Jon Dulin",
+    "certifications": [
+      {
+        "name": "Series 65",
+        "issuer": "FINRA",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyMethod": "brokercheck_lookup",
+        "verifyNote": "No FINRA BrokerCheck record surfaced for Donald Jon Dulin; Series 65-only holders may not appear in BrokerCheck unless actively registered as IAR; self-reported on LinkedIn/Money Smart Guides About page."
+      },
+      {
+        "name": "Certificate in Financial Planning",
+        "issuer": "Mercyhurst University",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyMethod": "university_directory",
+        "verifyNote": "Internal university certificate program — no public issuing-body directory for third-party verification."
+      }
+    ],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "no_record_found",
+      "crd": null
+    }
+  },
+  {
+    "id": "chris-beauchamp",
+    "name": "Chris Beauchamp",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null
+    }
+  },
+  {
+    "id": "ashlyn-brooks-bankrate",
+    "name": "Ashlyn Brooks",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null
+    }
+  },
+  {
+    "id": "cherry-reynard",
+    "name": "Cherry Reynard",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null
+    }
+  },
+  {
+    "id": "james-chen-investopedia",
+    "name": "James Chen",
+    "certifications": [
+      {
+        "name": "CMT",
+        "issuer": "CMT Association",
+        "verified": true,
+        "verifyUrl": "https://cmtassociation.org/presenter/james-chen/",
+        "verifyMethod": "issuer_directory",
+        "verifyNote": "CMT Association public presenter/profile page lists James Chen as CMT, CTA."
+      },
+      {
+        "name": "CFTe",
+        "issuer": "IFTA",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyMethod": "issuer_directory",
+        "verifyNote": "IFTA does not publish a searchable public CFTe holders directory; self-reported."
+      },
+      {
+        "name": "RIA",
+        "issuer": "SEC/state",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyMethod": "iapd_lookup",
+        "verifyNote": "RIA is a firm/IAR registration (not a certification); would require SEC IAPD lookup with specific CRD."
+      }
+    ],
+    "books": [
+      {
+        "title": "Essentials of Foreign Exchange Trading",
+        "isbn13": "9780470390863",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Essentials-Foreign-Exchange-Trading-James/dp/0470390867"
+      },
+      {
+        "title": "Essentials of Technical Analysis for Financial Markets",
+        "isbn13": "9780470537299",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Essentials-Technical-Analysis-Financial-Markets/dp/0470537299"
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "unknown",
+      "crd": null
+    }
+  },
+  {
+    "id": "kenji-kawase",
+    "name": "Kenji Kawase",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null
+    }
+  },
+  {
+    "id": "arielle-oshea",
+    "name": "Arielle O'Shea",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null
+    }
+  },
+  {
+    "id": "daniel-sparks-fool",
+    "name": "Daniel Sparks",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "unknown",
+      "crd": null
+    }
+  },
+  {
+    "id": "kate-leaman",
+    "name": "Kate Leaman",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null
+    }
+  },
+  {
+    "id": "jitan-solanki",
+    "name": "Jitan Solanki",
+    "certifications": [
+      {
+        "name": "MSTA",
+        "issuer": "Society of Technical Analysts (STA UK)",
+        "verified": false,
+        "verifyUrl": "https://www.fxempire.com/author/jitansolanski",
+        "verifyMethod": "publisher_bio",
+        "verifyNote": "MSTA listed in FXEmpire author bio under 'Charters and certifications'. STA UK does not publish a public searchable member directory (members area is gated, HTTP 403), so issuer-level directory verification not possible."
+      }
+    ],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null
+    }
+  },
+  {
+    "id": "steve-miley",
+    "name": "Steve Miley",
+    "certifications": [
+      {
+        "name": "MSTA",
+        "issuer": "Society of Technical Analysts (STA UK)",
+        "verified": false,
+        "verifyUrl": "https://www.asktraders.com/our-contributors/steve-miley/",
+        "verifyMethod": "publisher_bio",
+        "verifyNote": "MSTA stated in AskTraders contributor profile. STA UK does not publish a public searchable member directory (members area gated, HTTP 403), so issuer-level directory verification not possible."
+      }
+    ],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null
+    }
+  },
+  {
+    "id": "andres-cardenal",
+    "name": "Andrés Cardenal, CFA",
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyMethod": "directory-search-failed",
+        "verifyNote": "CFA Institute has no publicly queryable member directory; CFA designation asserted on Seeking Alpha author page and byline but not confirmed via issuer directory."
+      }
+    ],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-checked",
+      "crd": null
+    }
+  },
+  {
+    "id": "brian-oconnell-kiplinger",
+    "name": "Brian O'Connell",
+    "certifications": [],
+    "books": [
+      {
+        "title": "The 401(k) Millionaire",
+        "isbn13": "9780812991864",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/401-Millionaire-Started-Nothing-Million/dp/0812991869"
+      },
+      {
+        "title": "CNBC Creating Wealth: An Investor's Guide to Decoding the Market",
+        "isbn13": "9780471399087",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/CNBC-Creating-Wealth-Investors-Decoding/dp/0471399086"
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-checked",
+      "crd": null
+    }
+  },
+  {
+    "id": "david-jensen-cfa-seekingalpha",
+    "name": "David Jensen, CFA",
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyMethod": "directory-search-failed",
+        "verifyNote": "CFA Institute has no publicly queryable member directory; CFA designation asserted on Seeking Alpha author page but not confirmed via issuer directory."
+      }
+    ],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-checked",
+      "crd": null
+    }
+  },
+  {
+    "id": "jack-crooks-babypips",
+    "name": "Jack Crooks (a.k.a. Jack the Pipper)",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-checked",
+      "crd": null
+    }
+  },
+  {
+    "id": "carrie-kirby-coindesk",
+    "name": "Carrie Kirby",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-checked",
+      "crd": null
+    }
+  },
+  {
+    "id": "sean-williams-fool",
+    "name": "Sean Williams",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-checked",
+      "crd": null
+    }
+  },
+  {
+    "id": "ann-logue-thebalancemoney",
+    "name": "Ann Logue",
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute",
+        "verified": false,
+        "verifyUrl": null,
+        "verifyMethod": "directory-search-failed",
+        "verifyNote": "CFA Institute has no publicly queryable member directory; CFA designation asserted on annlogue.com, Wiley Dummies author page, and Britannica editor page."
+      }
+    ],
+    "books": [
+      {
+        "title": "Hedge Funds For Dummies",
+        "isbn13": "9780470049273",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Hedge-Funds-Dummies-Ann-Logue/dp/0470049278"
+      },
+      {
+        "title": "Day Trading For Dummies",
+        "isbn13": "9780470942727",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Day-Trading-Dummies-Ann-Logue/dp/047094272X"
+      },
+      {
+        "title": "Socially Responsible Investing For Dummies",
+        "isbn13": "9780470394717",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Socially-Responsible-Investing-Dummies-Logue/dp/0470394714"
+      },
+      {
+        "title": "Emerging Markets For Dummies",
+        "isbn13": "9780470878934",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Emerging-Markets-Dummies-Ann-Logue/dp/0470878932"
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-checked",
+      "crd": null
+    }
+  },
+  {
+    "id": "nick-marinoff",
+    "name": "Nick Marinoff",
+    "certifications": [],
+    "books": [
+      {
+        "title": "Take a 'Loan' Off Your Shoulders: 14 Simple Tricks for Graduating Debt Free",
+        "isbn13": null,
+        "verified": false,
+        "verifyUrl": "https://www.amazon.com/stores/author/B00Y3UOC7A"
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-checked",
+      "crd": null
+    }
+  },
+  {
+    "id": "daniel-franke",
+    "name": "Daniel Franke",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-checked",
+      "crd": null
+    }
+  },
+  {
+    "id": "edward-sheldon-goodmoneyguide",
+    "name": "Edward Sheldon",
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute",
+        "verified": false,
+        "verifyUrl": "https://www.linkedin.com/in/edward-sheldon-cfa-a6a36359/",
+        "verifyMethod": "linkedin-self-attested",
+        "verifyNote": "CFA Institute has no publicly queryable member directory; CFA designation self-attested on LinkedIn (edward-sheldon-cfa) and Good Money Guide author page (goodmoneyguide.com/author/edwardsheldon-1/ — displayed as 'Ed Sheldon CFA')."
+      },
+      {
+        "name": "IMC",
+        "issuer": "CFA Society UK",
+        "verified": false,
+        "verifyUrl": "https://goodmoneyguide.com/author/edwardsheldon/",
+        "verifyMethod": "publisher-self-attested",
+        "verifyNote": "CFA Society UK IMC has no public directory lookup; IMC self-attested on Good Money Guide author bio and edwardsheldonfinancial.com portfolio page."
+      }
+    ],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-applicable-uk",
+      "crd": null
+    }
+  },
+  {
+    "id": "lyn-alden-modestmoney",
+    "name": "Lyn Alden Schwartzer",
+    "certifications": [],
+    "books": [
+      {
+        "title": "Broken Money: Why Our Financial System is Failing Us and How We Can Make it Better",
+        "isbn13": "9798988666318",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Broken-Money-Financial-System-Failing/dp/B0CG8985FR"
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-checked",
+      "crd": null
+    }
+  },
+  {
+    "id": "richard-berry-goodmoneyguide",
+    "name": "Richard Berry",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-applicable-uk",
+      "crd": null
+    }
+  },
+  {
+    "id": "eno-eteng",
+    "name": "Eno Eteng",
+    "certifications": [
+      {
+        "name": "Diploma in Technical Analysis",
+        "issuer": "UK Society of Technical Analysts",
+        "verified": false,
+        "verifyUrl": "https://www.technicalanalysts.com/education/accreditations/",
+        "verifyMethod": "issuer-page-no-public-directory",
+        "verifyNote": "STA does not publish a public member directory. Credential referenced on LinkedIn/Investingcube bio only."
+      },
+      {
+        "name": "MSTA",
+        "issuer": "Society of Technical Analysts",
+        "verified": false,
+        "verifyUrl": "https://www.technicalanalysts.com/",
+        "verifyMethod": "issuer-page-no-public-directory",
+        "verifyNote": "MSTA designation self-claimed; no public STA member directory available."
+      },
+      {
+        "name": "Certificate in Management in Health",
+        "issuer": "World Bank Institute",
+        "verified": false,
+        "verifyUrl": "",
+        "verifyMethod": "not-applicable-non-financial",
+        "verifyNote": "Non-financial credential; no public registry."
+      }
+    ],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-applicable-non-US",
+      "crd": null
+    }
+  },
+  {
+    "id": "dmitri-chavkerov",
+    "name": "Dmitri Chavkerov",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "no-crd-provided",
+      "crd": null
+    }
+  },
+  {
+    "id": "darren-sinden",
+    "name": "Darren Sinden",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-applicable-non-US",
+      "crd": null
+    }
+  },
+  {
+    "id": "justin-freeman",
+    "name": "Justin Freeman",
+    "certifications": [
+      {
+        "name": "Investment Management Certificate (IMC)",
+        "issuer": "CFA Society UK",
+        "verified": false,
+        "verifyUrl": "https://www.asktraders.com/our-contributors/justin-freeman/",
+        "verifyMethod": "outlet-bio-self-claim",
+        "verifyNote": "CFA Society UK does not publish a public IMC holder directory. Credential self-claimed on AskTraders bio; no independent confirmation."
+      },
+      {
+        "name": "FCA Approved Investment Manager (CF27)",
+        "issuer": "Financial Conduct Authority (UK)",
+        "verified": false,
+        "verifyUrl": "https://register.fca.org.uk/",
+        "verifyMethod": "issuer-register-requires-firm-match",
+        "verifyNote": "FCA Register requires firm name to locate individual; CF27 function phased out post-2016 SMCR. Credential self-claimed on AskTraders bio."
+      }
+    ],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-applicable-non-US",
+      "crd": null
+    }
+  },
+  {
+    "id": "anna-coulling",
+    "name": "Anna Coulling",
+    "certifications": [],
+    "books": [
+      {
+        "title": "A Complete Guide To Volume Price Analysis",
+        "isbn13": "9781491249390",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Complete-Guide-Price-Analysis/dp/1491249390"
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-applicable-non-US",
+      "crd": null
+    }
+  },
+  {
+    "id": "matt-koppenheffer",
+    "name": "Matt Koppenheffer",
+    "certifications": [],
+    "books": [
+      {
+        "title": "The Astonishing Collapse of MF Global",
+        "isbn13": "9781892547033",
+        "verified": true,
+        "verifyUrl": "https://www.chegg.com/textbooks/the-astonishing-collapse-of-mf-global-1st-edition-9781892547033-1892547031"
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "no-record-found",
+      "crd": null
+    }
+  },
+  {
+    "id": "ariana-arghandewal-moneyunder30",
+    "name": "Ariana Arghandewal",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-applicable-non-registered",
+      "crd": null
+    }
+  },
+  {
+    "id": "iain-davis",
+    "name": "Iain Davis",
+    "certifications": [],
+    "books": [
+      {
+        "title": "A Dangerous Ideology: Why No One Believes The State Anymore",
+        "isbn13": "9781793871718",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Dangerous-Ideology-Believes-State-Anymore/dp/179387171X"
+      },
+      {
+        "title": "Pseudopandemic: New Normal Technocracy",
+        "isbn13": "9798524850812",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Pseudopandemic-Normal-Technocracy-Iain-Davis/dp/B097CZ3K7K"
+      },
+      {
+        "title": "The Manchester Attack: An Independent Investigation",
+        "isbn13": "9798333028037",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Manchester-Attack-Independent-Investigation/dp/B0D9DPMY1X"
+      },
+      {
+        "title": "The Technocratic Dark State: Trump, AI, and Digital Dictatorship",
+        "isbn13": null,
+        "verified": false,
+        "verifyUrl": "https://thepapercutmagazine.com/products/the-technocratic-dark-state"
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-applicable-non-US",
+      "crd": null
+    }
+  },
+  {
+    "id": "bob-haegele-modestmoney",
+    "name": "Bob Haegele",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-applicable-non-registered",
+      "crd": null
+    }
+  },
+  {
+    "id": "leslie-truex-thebalance",
+    "name": "Leslie Truex",
+    "certifications": [
+      {
+        "name": "AFAA Certified Fitness Instructor",
+        "issuer": "Aerobics and Fitness Association of America",
+        "verified": false,
+        "verifyUrl": "",
+        "verifyMethod": "not-applicable-non-financial",
+        "verifyNote": "Non-financial certification; outside scope of this verification. AFAA does not provide a public verification registry."
+      }
+    ],
+    "books": [
+      {
+        "title": "The Work-At-Home Success Bible: A Complete Guide for Women",
+        "isbn13": "9781598699166",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Work-at-Home-Success-Bible-Telecommuting-Strategies/dp/1598699164"
+      },
+      {
+        "title": "Digital Writer Success: How to Make a Living Blogging, Freelance Writing, & Publishing Online",
+        "isbn13": "9781633932142",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Digital-Writer-Success-Freelance-Publishing/dp/1633932141"
+      },
+      {
+        "title": "Jobs Online: Find and Get Hired to a Work-At-Home Job",
+        "isbn13": "9781456589189",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Jobs-Online-Find-Hired-Work-At-Home/dp/1456589180"
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-applicable-non-registered",
+      "crd": null
+    }
+  },
+  {
+    "id": "tim-worstall",
+    "name": "Tim Worstall",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-applicable-non-US",
+      "crd": null
+    }
+  },
+  {
+    "id": "john-delia",
+    "name": "John Delia",
+    "certifications": [],
+    "books": [
+      {
+        "title": "Life, Liberty n' Property",
+        "isbn13": "9781633371699",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Life-Liberty-Property-John-Delia/dp/1633371697"
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not-applicable-non-registered",
+      "crd": null
+    }
+  }
+]

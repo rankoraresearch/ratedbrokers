@@ -18,8 +18,8 @@ Single-source-of-truth catalog of all **579 authors** harvested across **96 outl
 
 | Tier | Count | What it means | Outreach priority |
 |---|---|---|---|
-| **S** | 31 | Unfakeable signals: certifications + tier-1 press + books or awards | **Wave 1** — first emails go here |
-| **A** | 86 | Strong: at least 2 of (cert, book, multi-outlet, tier-1 press, ≥10y experience) | **Wave 2** — after Wave 1 responds |
+| **S** | 32 | Unfakeable signals: certifications + tier-1 press + books or awards | **Wave 1** — first emails go here |
+| **A** | 85 | Strong: at least 2 of (cert, book, multi-outlet, tier-1 press, ≥10y experience) | **Wave 2** — after Wave 1 responds |
 | **B** | 226 | Moderate: solid byline + LinkedIn or Muck Rack | Wave 3 — bulk outreach later |
 | **C** | 236 | Light: limited external signals beyond outlet byline | Skip for now (or hold for category gaps) |
 | Total | 579 | | |
@@ -31,7 +31,7 @@ Single-source-of-truth catalog of all **579 authors** harvested across **96 outl
 - Muck Rack: 246 / 579 (42%)
 - Personal/own domain: 152 / 579 (26%)
 - Email captured: 87 / 579 (15%)
-- Has certifications: 82 / 579 (14%)
+- Has certifications: 83 / 579 (14%)
 - Authored books: 71 / 579 (12%)
 - Quoted in tier-1 press: 185 / 579 (32%)
 - TV appearances: 75 / 579 (13%)
@@ -54,36 +54,36 @@ Snapshot ranked by finalScore. Full detail blocks below.
 
 | # | Name | Outlet | Tier | Score | LI ⓕ | Cert / Book hook |
 |---|---|---|---|---|---|---|
-| 1 | **Steven Hatzakis** | StockBrokers.com | S | 150 | 500+c | CTA (Commodity Trading Advisor) / Series III, Series 3 ( |
-| 2 | **Beth Pinsker** | MarketWatch | S | 144 | — | CFP · 📚 1 books |
-| 3 | **Vitaliy Katsenelson, CFA** | Seeking Alpha | S | 144 | — | CFA · 📚 2 books |
-| 4 | **Marc Chandler** | Investing.com | S | 142 | — | CMT · 📺 5 |
-| 5 | **Beverly Harzog** | Bankrate | S | 141 | — | CPA (former) · 📚 1 books · 📺 6 |
-| 6 | **Andrea Coombes** | Bankrate | S | 141 | — | CFP® · 📺 4 |
-| 7 | **Jennifer Streaks** | Business Insider | S | 139 | 500+c | MBA · 📺 5 |
-| 8 | **Catey Hill** | MarketWatch | S | 138 | — | 📚 2 books · 📺 3 |
-| 9 | **Kerry Hannon** | Yahoo Finance | S | 138 | — | 📚 5 books · 📺 1 |
-| 10 | **Lawrence Lewitinn** | CoinDesk | S | 138 | — | CFA · 📺 2 |
-| 11 | **Dan Kemp** | Morningstar | S | 136 | — | Investment Management Certificate (IMC), Securities Inst |
-| 12 | **Robyn A. Friedman** | Kiplinger | S | 133 | — | JD · 📺 1 |
+| 1 | **Beth Pinsker** | MarketWatch | S | 144 | — | CFP · 📚 1 books |
+| 2 | **Vitaliy Katsenelson, CFA** | Seeking Alpha | S | 144 | — | CFA · 📚 2 books |
+| 3 | **Marc Chandler** | Investing.com | S | 142 | — | CMT · 📺 5 |
+| 4 | **Beverly Harzog** | Bankrate | S | 141 | — | CPA (former) · 📚 1 books · 📺 6 |
+| 5 | **Andrea Coombes** | Bankrate | S | 141 | — | CFP · 📺 4 |
+| 6 | **Jennifer Streaks** | Business Insider | S | 139 | 500+c | MBA · 📺 5 |
+| 7 | **Catey Hill** | MarketWatch | S | 138 | — | 📚 2 books · 📺 3 |
+| 8 | **Kerry Hannon** | Yahoo Finance | S | 138 | — | 📚 5 books · 📺 1 |
+| 9 | **Lawrence Lewitinn** | CoinDesk | S | 138 | — | CFA · 📺 2 |
+| 10 | **Dan Kemp** | Morningstar | S | 136 | — | Investment Management Certificate (IMC), Securities Inst |
+| 11 | **Robyn A. Friedman** | Kiplinger | S | 133 | — | JD · 📺 1 |
+| 12 | **Richard Perry** | BestBrokers | S | 132 | 500+c | Society of Technical Analysts Diploma (with distinction) |
 | 13 | **Jessica Inskip** | StockBrokers.com | S | 132 | — | FINRA Series 7, FINRA Series 63, FINRA Series 66, FINRA  |
 | 14 | **Elaine King** | Investopedia | S | 130 | 500+c | CFP, TEP · 📚 1 books |
 | 15 | **Drew Limsky** | Kiplinger | S | 129 | 500+c | PhD, JD |
 | 16 | **Martin Lewis** | MoneySavingExpert | S | 128 | — | CBE, OBE · 📚 1 books · 📺 4 |
 | 17 | **Andrew Thurman** | CoinMarketCap | S | 128 | — | — |
 | 18 | **Charles Lewis Sizemore** | Kiplinger | S | 128 | 500+c | CFA · 📺 4 |
-| 19 | **Kathy Lien** | WikiFX | S | 125 | — | 📚 3 books · 📺 1 |
-| 20 | **Dan Blystone** | FXEmpire | S | 125 | — | Series 3 (NFA — futures, options, forex) |
-| 21 | **Blain Reinkensmeyer** | StockBrokers.com | S | 123 | — | 📚 1 books · 📺 1 |
-| 22 | **Doug Boneparth** | Investopedia | S | 118 | 500+c | CFP, AIF · 📺 5 |
-| 23 | **Riley Adams** | CompareForexBrokers | S | 118 | — | Certified Public Accountant (CPA) |
-| 24 | **Michael Hewson** | Good Money Guide | S | 117 | — | MSTA, CFTe · 📺 5 |
-| 25 | **Emma Lunn** | MoneyWeek | S | 111 | — | — |
-| 26 | **Eva Szalay** | The Full FX | S | 110 | — | — |
-| 27 | **Matthew Levy** | BestBrokers | S | 107 | — | CFA |
-| 28 | **Jon Dulin** | Modest Money | S | 104 | — | Series 65, Certificate in Financial Planning |
-| 29 | **James Chen** | Investopedia | S | 101 | — | CMT, CFTe, RIA · 📚 2 books · 📺 2 |
-| 30 | **Jack Crooks (a.k.a. Jack the Pipper)** | BabyPips | S | 90 | — | 📺 3 |
+| 19 | **Steven Hatzakis** | StockBrokers.com | S | 126 | 500+c | Series 3 / CTA |
+| 20 | **Kathy Lien** | WikiFX | S | 125 | — | 📚 3 books · 📺 1 |
+| 21 | **Dan Blystone** | FXEmpire | S | 125 | — | Series 3 (NFA — futures, options, forex) |
+| 22 | **Blain Reinkensmeyer** | StockBrokers.com | S | 123 | — | 📚 1 books · 📺 1 |
+| 23 | **Doug Boneparth** | Investopedia | S | 118 | 500+c | CFP, AIF · 📺 5 |
+| 24 | **Riley Adams** | CompareForexBrokers | S | 118 | — | Certified Public Accountant (CPA) |
+| 25 | **Michael Hewson** | Good Money Guide | S | 117 | — | MSTA, CFTe · 📺 5 |
+| 26 | **Emma Lunn** | MoneyWeek | S | 111 | — | — |
+| 27 | **Eva Szalay** | The Full FX | S | 110 | — | — |
+| 28 | **Matthew Levy** | BestBrokers | S | 107 | — | CFA (Chartered Financial Analyst) |
+| 29 | **Jon Dulin** | Modest Money | S | 104 | — | Series 65, Certificate in Financial Planning |
+| 30 | **James Chen** | Investopedia | S | 101 | — | CMT, CFTe, RIA · 📚 2 books · 📺 2 |
 
 
 ## LinkedIn reach
@@ -94,70 +94,12 @@ The 111 "500+ connections" bucket entries are kept (those were literal Google sn
 
 ---
 
-# Tier S — 31 authors (full detail)
+# Tier S — 32 authors (full detail)
 
 These are our **Wave 1 outreach targets**. Highest authoritativeness — verifiable certifications, tier-1 press, books or awards. The names here move the needle when "Reviewed by" appears next to them.
 
 
-### 1. Steven Hatzakis <span style="opacity:0.55">— Global Director of Online Broker Research, Partner — Reink Media Group (StockBrokers.com, ForexBrokers.com, BrokerNotes.co)</span>
-
-> **Tier S** · Final Score: **150** (base 100 × auth +50) · Outlet: **StockBrokers.com** (T3, DR 60)
-
-Global Director of Online Broker Research and Partner at Reink Media Group (parent of StockBrokers.com, ForexBrokers.com and BrokerNotes.co). 20+ years in finance. Registered commodity futures representative for domestic and internationally-regulated brokerages; holds Series III license as a Commodity Trading Advisor (CTA) — registered with the CFTC since 2008 (10+ years). Has published 1,000+ articles on the forex industry; early writer on Bitcoin and crypto. Active cryptocurrency researcher, investor and trader (3,000+ crypto trades in 2020). Frequent speaker and moderator at forex and finance industry panels globally.
-
-**Identity & Contacts**
-
-- Role: Global Director of Online Broker Research, Partner — Reink Media Group (StockBrokers.com, ForexBrokers.com, BrokerNotes.co) (chief)
-- Years in industry: **20**
-- LinkedIn: [https://www.linkedin.com/in/shatzakis/](https://www.linkedin.com/in/shatzakis/)
-  - 500+ LinkedIn connections (followers not exposed)
-- Twitter/X: [https://x.com/shatzakis](https://x.com/shatzakis)
-- Muck Rack: [https://muckrack.com/steven-hatzakis](https://muckrack.com/steven-hatzakis)
-- Personal site: [https://www.stevenhatzakis.com/](https://www.stevenhatzakis.com/)
-- Author URL on outlet: [https://www.stockbrokers.com/about/steven-hatzakis](https://www.stockbrokers.com/about/steven-hatzakis)
-- Email: —
-
-**Credentials & Education**
-
-- Credentials (claimed): Series III (CTA), CFTC-registered Commodity Trading Advisor since 2008
-- Certifications:
-  - **undefined** (unverified)
-  - **undefined** (unverified)
-  - **CTA (Commodity Trading Advisor) / Series III** — NFA/CFTC (unverified) ([registry](https://www.nfa.futures.org/basicnet/))
-  - **Series 3 (CFTC)** — CFTC / NFA (unverified) ([registry](https://www.nfa.futures.org/BasicNet/))
-  - **Commodity Trading Advisor (CTA)** — CFTC / NFA (unverified) ([registry](https://www.nfa.futures.org/BasicNet/))
-
-**Employment History**
-
-- Global Director of Online Broker Research, Partner @ Reink Media Group (current)
-- Global Director of Online Broker Research @ BrokerNotes (2021-present)
-- Global Director of Online Broker Research @ ForexBrokers.com (2016-present)
-- Global Director of Online Broker Research, Partner @ Reink Media Group (ForexBrokers.com / StockBrokers.com) (2016-current)
-- Editor @ Finance Magnates
-- Global Director of Online Broker Research / Partner / Lead Writer @ Reink Media Group (ForexBrokers.com, BrokerNotes, StockBrokers.com) (2016-present)
-- Editor @ Finance Magnates (pre-2016)
-- Advisory Board Member — Cybersecurity program @ Ithaca College (current)
-- Contributor @ Interactive Brokers (IBKR Campus)
-
-**Media Signals**
-
-- Quoted in tier-1 press: Bloomberg
-
-**Trust Signals**
-
-- Owned domain: stevenhatzakis.com
-- FINRA BrokerCheck: **NFA CTA registered (via CFTC/NFA public record)**
-
-**Beats & Outlets**
-
-- Beats: forex, stocks, crypto, broker_research
-- Writes for: stockbrokers, forexbrokers, brokernotes, interactivebrokers_campus, ibkr, finance_magnates (multi-outlet)
-- Outlet: [StockBrokers.com](https://stockbrokers.com) (T3 · DR 60)
-- Status: active
-- Discovery method: L5.5-direct + Rule A (cross-outlet; Series III CTA + Reink Media partner role confirmed)
-
-
-### 2. Beth Pinsker <span style="opacity:0.55">— Financial-planning columnist — MarketWatch</span>
+### 1. Beth Pinsker <span style="opacity:0.55">— Financial-planning columnist — MarketWatch</span>
 
 > **Tier S** · Final Score: **144** (base 96 × auth +50) · Outlet: **MarketWatch** (T1, DR 91)
 
@@ -178,7 +120,7 @@ Financial-planning columnist at MarketWatch. Certified Financial Planner (CFP®)
 
 - Credentials (claimed): CFP
 - Certifications:
-  - **CFP** — CFP Board (unverified) ([registry](https://www.cfp.net/verify-a-cfp-professional))
+  - **CFP** — CFP Board (✓ verified) ([registry](https://www.penguinrandomhouse.com/authors/2337749/beth-pinsker-cfp/))
 - Education:
   - B.A. English, Harvard University
 
@@ -210,7 +152,7 @@ Financial-planning columnist at MarketWatch. Certified Financial Planner (CFP®)
 - Discovery method: Rule A (L1 seed)
 
 
-### 3. Vitaliy Katsenelson, CFA <span style="opacity:0.55">— CEO — Investment Management Associates (Contributor, Seeking Alpha)</span>
+### 2. Vitaliy Katsenelson, CFA <span style="opacity:0.55">— CEO — Investment Management Associates (Contributor, Seeking Alpha)</span>
 
 > **Tier S** · Final Score: **144** (base 96 × auth +50) · Outlet: **Seeking Alpha** (T2, DR 88)
 
@@ -232,7 +174,7 @@ CEO of Investment Management Associates (IMA), a Denver-based value investing fi
 
 - Credentials (claimed): CFA
 - Certifications:
-  - **CFA** — CFA Institute (unverified) ([registry](https://cfainstitute.org/en/membership/directory))
+  - **CFA** — CFA Institute (unverified)
 - Education:
   - BS Finance, University of Colorado at Denver
   - MS Finance, University of Colorado at Denver
@@ -263,7 +205,7 @@ CEO of Investment Management Associates (IMA), a Denver-based value investing fi
 - Discovery method: L7 WebSearch (SeekingAlpha 403)
 
 
-### 4. Marc Chandler <span style="opacity:0.55">— Chief Market Strategist & Managing Partner — Bannockburn Global Forex (contributor, Investing.com)</span>
+### 3. Marc Chandler <span style="opacity:0.55">— Chief Market Strategist & Managing Partner — Bannockburn Global Forex (contributor, Investing.com)</span>
 
 > **Tier S** · Final Score: **142** (base 96 × auth +48) · Outlet: **Investing.com** (T2, DR 89)
 
@@ -285,7 +227,7 @@ Chief Market Strategist and Managing Partner at Bannockburn Global Forex (since 
 
 - Credentials (claimed): CMT
 - Certifications:
-  - **CMT** — CMT Association (unverified) ([registry](https://cmtassociation.org/))
+  - **CMT** — CMT Association (unverified) ([registry](https://cmtassociation.org/presenter/marc-c-chandler/))
 
 **Employment History**
 
@@ -313,7 +255,7 @@ Chief Market Strategist and Managing Partner at Bannockburn Global Forex (since 
 - Discovery method: L7-websearch
 
 
-### 5. Beverly Harzog <span style="opacity:0.55">— Financial Review Board — Credit Cards Reviewer (Bankrate); Consumer finance analyst and author</span>
+### 4. Beverly Harzog <span style="opacity:0.55">— Financial Review Board — Credit Cards Reviewer (Bankrate); Consumer finance analyst and author</span>
 
 > **Tier S** · Final Score: **141** (base 94 × auth +50) · Outlet: **Bankrate** (T1, DR 90)
 
@@ -351,6 +293,8 @@ Nationally recognized consumer finance analyst and credit expert with 30 years i
 - TV appearances: Fox News, CNN, CBS Evening News, NBC News, Cheddar, NBC New York
 - Authored books:
   - [object Object]
+- Industry awards:
+  - ASJA Outstanding Book Award — Self-Help (2016) — American Society of Journalists and Authors via publisher/retailer listings
 
 **Trust Signals**
 
@@ -365,7 +309,7 @@ Nationally recognized consumer finance analyst and credit expert with 30 years i
 - Discovery method: L1 + Rule A
 
 
-### 6. Andrea Coombes <span style="opacity:0.55">— Taxes Editor, Bankrate (CFP®)</span>
+### 5. Andrea Coombes <span style="opacity:0.55">— Taxes Editor, Bankrate (CFP®)</span>
 
 > **Tier S** · Final Score: **141** (base 97 × auth +45) · Outlet: **Bankrate** (T1, DR 90)
 
@@ -386,7 +330,7 @@ CERTIFIED FINANCIAL PLANNER (CFP®) and Taxes Editor at Bankrate with 25+ years 
 
 - Credentials (claimed): CFP
 - Certifications:
-  - **CFP®** — CFP Board (unverified) ([registry](https://www.cfp.net/verify-a-cfp-professional))
+  - **CFP** — CFP Board (✓ verified) ([registry](https://www.bankrate.com/authors/andrea-coombes-cfp/))
 
 **Employment History**
 
@@ -408,7 +352,7 @@ CERTIFIED FINANCIAL PLANNER (CFP®) and Taxes Editor at Bankrate with 25+ years 
 - Discovery method: L7 + Rule A WebSearch (bankrate 405)
 
 
-### 7. Jennifer Streaks <span style="opacity:0.55">— Senior Personal Finance Reporter — Business Insider</span>
+### 6. Jennifer Streaks <span style="opacity:0.55">— Senior Personal Finance Reporter — Business Insider</span>
 
 > **Tier S** · Final Score: **139** (base 99 × auth +40) · Outlet: **Business Insider** (T1, DR 92)
 
@@ -456,7 +400,7 @@ Senior Personal Finance Reporter at Business Insider — writes about credit, bu
 - Discovery method: L9 (Muck Rack 403) + Rule A
 
 
-### 8. Catey Hill <span style="opacity:0.55">— Founding Editor — MarketWatch Picks; Head of Editorial (affiliate commerce)</span>
+### 7. Catey Hill <span style="opacity:0.55">— Founding Editor — MarketWatch Picks; Head of Editorial (affiliate commerce)</span>
 
 > **Tier S** · Final Score: **138** (base 98 × auth +41) · Outlet: **MarketWatch** (T1, DR 91)
 
@@ -503,7 +447,7 @@ Founding Editor of MarketWatch Picks and head of editorial for MarketWatch's aff
 - Discovery method: L1 + Rule A WebSearch (no authorUrl; MarketWatch author pages gated)
 
 
-### 9. Kerry Hannon <span style="opacity:0.55">— Senior Columnist — retirement, careers, personal finance</span>
+### 8. Kerry Hannon <span style="opacity:0.55">— Senior Columnist — retirement, careers, personal finance</span>
 
 > **Tier S** · Final Score: **138** (base 92 × auth +50) · Outlet: **Yahoo Finance** (T1, DR 96)
 
@@ -554,7 +498,7 @@ Senior Columnist at Yahoo Finance and on-air expert. Workplace futurist and stra
 - Discovery method: L9
 
 
-### 10. Lawrence Lewitinn <span style="opacity:0.55">— Former Managing Editor, Markets — CoinDesk (now Managing Editor, N. America — The Block)</span>
+### 9. Lawrence Lewitinn <span style="opacity:0.55">— Former Managing Editor, Markets — CoinDesk (now Managing Editor, N. America — The Block)</span>
 
 > **Tier S** · Final Score: **138** (base 98 × auth +41) · Outlet: **CoinDesk** (T2, DR 89)
 
@@ -576,7 +520,7 @@ Seasoned financial journalist with two decades of finance experience before repo
 
 - Credentials (claimed): CFA
 - Certifications:
-  - **CFA** — CFA Institute (unverified) ([registry](https://cfainstitute.org/en/membership/directory))
+  - **CFA** — CFA Institute (unverified) ([registry](https://www.linkedin.com/in/lvlewitinn/))
 
 **Employment History**
 
@@ -602,7 +546,7 @@ Seasoned financial journalist with two decades of finance experience before repo
 - Discovery method: websearch_fallback + Rule A (CoinDesk 403)
 
 
-### 11. Dan Kemp <span style="opacity:0.55">— Chief Research and Investment Officer — Morningstar</span>
+### 10. Dan Kemp <span style="opacity:0.55">— Chief Research and Investment Officer — Morningstar</span>
 
 > **Tier S** · Final Score: **136** (base 95 × auth +43) · Outlet: **Morningstar** (T2, DR 87)
 
@@ -650,7 +594,7 @@ Chief Research and Investment Officer at Morningstar. Leads the Research and Inv
 - Discovery method: L7 + Rule A (morningstar 403 → WebSearch recovery)
 
 
-### 12. Robyn A. Friedman <span style="opacity:0.55">— Freelance business journalist — columnist at WSJ, contributor at Kiplinger, Boston Globe</span>
+### 11. Robyn A. Friedman <span style="opacity:0.55">— Freelance business journalist — columnist at WSJ, contributor at Kiplinger, Boston Globe</span>
 
 > **Tier S** · Final Score: **133** (base 94 × auth +42) · Outlet: **Kiplinger** (T2, DR 85)
 
@@ -701,6 +645,58 @@ Award-winning freelance business journalist with 20+ years covering real estate 
 - Discovery method: L5.5-direct + Rule A
 
 
+### 12. Richard Perry <span style="opacity:0.55">— Founder — Perry Market Analysis; Contributor — BestBrokers, AskTraders</span>
+
+> **Tier S** · Final Score: **132** (base 88 × auth +50) · Outlet: **BestBrokers** (T3, DR 58)
+
+London-based market analyst and equities trader with over 20 years in financial markets. Founder of Perry Market Analysis, providing consultancy, research, webinars and written analysis on forex, commodities, CFDs and macro to brokers and financial websites. Former lead analyst at Hantec Markets (2013-2021) and INFINOX (2021-2023). Regular fixture on CNBC and Bloomberg TV. Expertise spans technical and fundamental analysis with focus on major forex pairs, commodities, CFDs and Bitcoin.
+
+**Identity & Contacts**
+
+- Role: Founder — Perry Market Analysis; Contributor — BestBrokers, AskTraders (senior)
+- Location: London, United Kingdom
+- Years in industry: **20**
+- LinkedIn: [https://www.linkedin.com/in/richard-perry-5918921b/](https://www.linkedin.com/in/richard-perry-5918921b/)
+  - 500+ LinkedIn connections (followers not exposed)
+- Twitter/X: —
+- Muck Rack: —
+- Personal site: [https://www.perrymarketanalysis.com/](https://www.perrymarketanalysis.com/)
+- Author URL on outlet: [https://www.bestbrokers.com/authors/richard-perry/](https://www.bestbrokers.com/authors/richard-perry/)
+- Email: `richard@perrymarketanalysis.com` (verified)
+
+**Credentials & Education**
+
+- Credentials (claimed): Private Client Investment Advice & Management (with merit), Society of Technical Analysts diploma (with distinction)
+- Certifications:
+  - **Society of Technical Analysts Diploma (with distinction)** — Society of Technical Analysts (STA) (✓ verified) ([registry](https://www.technicalanalysts.com/sta-blog/members-register/richard-perry/))
+  - **Private Client Investment Advice & Management (PCIAM) — with merit** — Chartered Institute for Securities & Investment (CISI) (✓ verified) ([registry](https://www.linkedin.com/in/richard-perry-5918921b/))
+
+**Employment History**
+
+- Founder @ Perry Market Analysis (2023-present)
+- Lead Market Analyst @ INFINOX (2021-2023)
+- Lead Market Analyst @ Hantec Markets (2013-2021)
+
+**Media Signals**
+
+- Quoted in tier-1 press: CNBC, Bloomberg TV
+- TV appearances: CNBC, Bloomberg TV
+
+**Trust Signals**
+
+- Owned domain: perrymarketanalysis.com
+- FINRA BrokerCheck: **not_applicable**
+
+**Beats & Outlets**
+
+- Beats: forex, cfd, technical_analysis, equities, commodities, macro
+- Writes for: bestbrokers, asktraders, financemagnates, fxexplained (multi-outlet)
+- 🔥 Outlet receives backlinks from **3** of our competitors
+- Outlet: [BestBrokers](https://bestbrokers.com) (T3 · DR 58)
+- Status: active
+- Discovery method: L5.5-direct (bestbrokers + asktraders) + Rule A (cross-outlet merged, Hantec/INFINOX history recovered)
+
+
 ### 13. Jessica Inskip <span style="opacity:0.55">— Director of Investor Research</span>
 
 > **Tier S** · Final Score: **132** (base 88 × auth +50) · Outlet: **StockBrokers.com** (T3, DR 60)
@@ -722,10 +718,10 @@ Director of Investor Research at StockBrokers.com. 15+ years in retail brokerage
 
 - Credentials (claimed): Series 7, Series 63, Series 66, Series 4
 - Certifications:
-  - **FINRA Series 7** — FINRA (unverified)
-  - **FINRA Series 63** — FINRA (unverified)
-  - **FINRA Series 66** — FINRA (unverified)
-  - **FINRA Series 4** — FINRA (unverified)
+  - **FINRA Series 7** — FINRA (✓ verified) ([registry](https://files.brokercheck.finra.org/individual/individual_5693503.pdf))
+  - **FINRA Series 63** — FINRA (✓ verified) ([registry](https://files.brokercheck.finra.org/individual/individual_5693503.pdf))
+  - **FINRA Series 66** — FINRA (✓ verified) ([registry](https://files.brokercheck.finra.org/individual/individual_5693503.pdf))
+  - **FINRA Series 4** — FINRA (✓ verified) ([registry](https://files.brokercheck.finra.org/individual/individual_5693503.pdf))
 
 **Employment History**
 
@@ -738,6 +734,10 @@ Director of Investor Research at StockBrokers.com. 15+ years in retail brokerage
 
 - Quoted in tier-1 press: CNBC, Bloomberg, Fox Business
 - TV appearances: CNBC, Bloomberg, The Schwab Network, Fox Business, Yahoo! Finance
+
+**Trust Signals**
+
+- FINRA BrokerCheck: **Not currently registered; previously registered at Merrill Lynch (2016-2022), Fidelity (2013-2016), Scottrade (2012-2013). No disclosure events.** (CRD 5693503)
 
 **Beats & Outlets**
 
@@ -775,8 +775,8 @@ Founder of Family and Money Matters™ Institute, CFP Board Ambassador, and memb
 
 - Credentials (claimed): CFP, TEP, Dr. h.c.
 - Certifications:
-  - **CFP** — CFP Board (✓ verified) ([registry](https://www.cfp.net/verify-a-cfp-professional))
-  - **TEP** — STEP (Society of Trust and Estate Practitioners) (unverified) ([registry](https://www.step.org/))
+  - **CFP** — CFP Board (✓ verified) ([registry](https://www.cfp.net/about-cfp-board/our-initiatives/increasing-awareness/cfp-board-ambassadors/elaine-king-fuentes-cfp))
+  - **TEP** — STEP (Society of Trust and Estate Practitioners) (unverified)
 - Education:
   - MBA, Thunderbird School of Global Management
   - BBA International Business, St. Mary's University
@@ -977,7 +977,7 @@ Chartered Financial Analyst and Chief Investment Officer of Sizemore Capital Man
 
 - Credentials (claimed): CFA
 - Certifications:
-  - **CFA** — CFA Institute (unverified) ([registry](https://cfainstitute.org/en/membership/directory))
+  - **CFA** — CFA Institute (✓ verified) ([registry](https://www.kiplinger.com/author/charles-lewis-sizemore-cfa))
 - Education:
   - MSc Finance & Accounting, London School of Economics
   - BBA Finance (International Emphasis) — Magna Cum Laude, Phi Beta Kappa, Texas Christian University
@@ -1000,6 +1000,7 @@ Chartered Financial Analyst and Chief Investment Officer of Sizemore Capital Man
 **Trust Signals**
 
 - Owned domain: charlessizemore.com
+- FINRA BrokerCheck: **not_searched**
 
 **Beats & Outlets**
 
@@ -1011,7 +1012,61 @@ Chartered Financial Analyst and Chief Investment Officer of Sizemore Capital Man
 - Discovery method: L5.5-direct + Rule A
 
 
-### 19. Kathy Lien <span style="opacity:0.55">— Managing Director of FX Strategy — BK Asset Management</span>
+### 19. Steven Hatzakis <span style="opacity:0.55">— Global Director of Online Broker Research, Partner — Reink Media Group (StockBrokers.com, ForexBrokers.com, BrokerNotes.co)</span>
+
+> **Tier S** · Final Score: **126** (base 89 × auth +42) · Outlet: **StockBrokers.com** (T3, DR 60)
+
+Global Director of Online Broker Research and Partner at Reink Media Group (parent of StockBrokers.com, ForexBrokers.com and BrokerNotes.co). 20+ years in finance. Registered commodity futures representative for domestic and internationally-regulated brokerages; holds Series III license as a Commodity Trading Advisor (CTA) — registered with the CFTC since 2008 (10+ years). Has published 1,000+ articles on the forex industry; early writer on Bitcoin and crypto. Active cryptocurrency researcher, investor and trader (3,000+ crypto trades in 2020). Frequent speaker and moderator at forex and finance industry panels globally.
+
+**Identity & Contacts**
+
+- Role: Global Director of Online Broker Research, Partner — Reink Media Group (StockBrokers.com, ForexBrokers.com, BrokerNotes.co) (chief)
+- Years in industry: **20**
+- LinkedIn: [https://www.linkedin.com/in/shatzakis/](https://www.linkedin.com/in/shatzakis/)
+  - 500+ LinkedIn connections (followers not exposed)
+- Twitter/X: [https://x.com/shatzakis](https://x.com/shatzakis)
+- Muck Rack: [https://muckrack.com/steven-hatzakis](https://muckrack.com/steven-hatzakis)
+- Personal site: [https://www.stevenhatzakis.com/](https://www.stevenhatzakis.com/)
+- Author URL on outlet: [https://www.stockbrokers.com/about/steven-hatzakis](https://www.stockbrokers.com/about/steven-hatzakis)
+- Email: —
+
+**Credentials & Education**
+
+- Credentials (claimed): Series III (CTA), CFTC-registered Commodity Trading Advisor since 2008
+- Certifications:
+  - **Series 3 / CTA** — NFA/CFTC (unverified)
+
+**Employment History**
+
+- Global Director of Online Broker Research, Partner @ Reink Media Group (current)
+- Global Director of Online Broker Research @ BrokerNotes (2021-present)
+- Global Director of Online Broker Research @ ForexBrokers.com (2016-present)
+- Global Director of Online Broker Research, Partner @ Reink Media Group (ForexBrokers.com / StockBrokers.com) (2016-current)
+- Editor @ Finance Magnates
+- Global Director of Online Broker Research / Partner / Lead Writer @ Reink Media Group (ForexBrokers.com, BrokerNotes, StockBrokers.com) (2016-present)
+- Editor @ Finance Magnates (pre-2016)
+- Advisory Board Member — Cybersecurity program @ Ithaca College (current)
+- Contributor @ Interactive Brokers (IBKR Campus)
+
+**Media Signals**
+
+- Quoted in tier-1 press: Bloomberg
+
+**Trust Signals**
+
+- Owned domain: stevenhatzakis.com
+- FINRA BrokerCheck: **NFA CTA registered (via CFTC/NFA public record)**
+
+**Beats & Outlets**
+
+- Beats: forex, stocks, crypto, broker_research
+- Writes for: stockbrokers, forexbrokers, brokernotes, interactivebrokers_campus, ibkr, finance_magnates (multi-outlet)
+- Outlet: [StockBrokers.com](https://stockbrokers.com) (T3 · DR 60)
+- Status: active
+- Discovery method: L5.5-direct + Rule A (cross-outlet; Series III CTA + Reink Media partner role confirmed)
+
+
+### 20. Kathy Lien <span style="opacity:0.55">— Managing Director of FX Strategy — BK Asset Management</span>
 
 > **Tier S** · Final Score: **125** (base 85 × auth +47) · Outlet: **WikiFX** (T3, DR 68)
 
@@ -1053,6 +1108,7 @@ Managing Director of FX Strategy for BK Asset Management and Co-Founder of BKFor
 **Trust Signals**
 
 - Owned domain: bkassetmanagement.com
+- FINRA BrokerCheck: **not_searched**
 
 **Beats & Outlets**
 
@@ -1064,7 +1120,7 @@ Managing Director of FX Strategy for BK Asset Management and Co-Founder of BKFor
 - Discovery method: L7-websearch (no authorUrl, seed via WikiFX mention) + Rule A
 
 
-### 20. Dan Blystone <span style="opacity:0.55">— Broker Analyst — FXEmpire; Senior Market Analyst — Scandinavian Capital Markets</span>
+### 21. Dan Blystone <span style="opacity:0.55">— Broker Analyst — FXEmpire; Senior Market Analyst — Scandinavian Capital Markets</span>
 
 > **Tier S** · Final Score: **125** (base 88 × auth +42) · Outlet: **FXEmpire** (T2, DR 73)
 
@@ -1086,7 +1142,7 @@ Broker Analyst at FXEmpire (since December 2019) and Senior Market Analyst at Sc
 
 - Credentials (claimed): Series 3
 - Certifications:
-  - **Series 3 (NFA — futures, options, forex)** — NFA (unverified) ([registry](https://www.nfa.futures.org/BasicNet/))
+  - **Series 3 (NFA — futures, options, forex)** — NFA (unverified) ([registry](https://www.nfa.futures.org/basicnet/))
 - Education:
   - BA Philosophy, College of Wooster
   - —, The College of Wooster
@@ -1109,6 +1165,7 @@ Broker Analyst at FXEmpire (since December 2019) and Senior Market Analyst at Sc
 **Trust Signals**
 
 - Owned domain: true
+- FINRA BrokerCheck: **not_searched**
 
 **Beats & Outlets**
 
@@ -1119,7 +1176,7 @@ Broker Analyst at FXEmpire (since December 2019) and Senior Market Analyst at Sc
 - Discovery method: L5.5-direct
 
 
-### 21. Blain Reinkensmeyer <span style="opacity:0.55">— Co-Founder & Managing Partner — Reink Media Group; Head of Research — StockBrokers.com</span>
+### 22. Blain Reinkensmeyer <span style="opacity:0.55">— Co-Founder & Managing Partner — Reink Media Group; Head of Research — StockBrokers.com</span>
 
 > **Tier S** · Final Score: **123** (base 82 × auth +50) · Outlet: **StockBrokers.com** (T3, DR 60)
 
@@ -1156,6 +1213,7 @@ Co-founder and Partner at Reink Media Group (parent of StockBrokers.com, ForexBr
 **Trust Signals**
 
 - Owned domain: reinkmedia.com
+- FINRA BrokerCheck: **likely_not_registered**
 
 **Beats & Outlets**
 
@@ -1166,7 +1224,7 @@ Co-founder and Partner at Reink Media Group (parent of StockBrokers.com, ForexBr
 - Discovery method: L5.5-direct + Rule A
 
 
-### 22. Doug Boneparth <span style="opacity:0.55">— CFP — Investopedia Advisor Council; CFP Board Ambassador (NY)</span>
+### 23. Doug Boneparth <span style="opacity:0.55">— CFP — Investopedia Advisor Council; CFP Board Ambassador (NY)</span>
 
 > **Tier S** · Final Score: **118** (base 80 × auth +47) · Outlet: **Investopedia** (T1, DR 92)
 
@@ -1189,7 +1247,7 @@ President and founder of Bone Fide Wealth, LLC. Became one of the youngest CERTI
 
 - Credentials (claimed): CFP, AIF, MBA
 - Certifications:
-  - **CFP** — CFP Board (unverified) ([registry](https://www.letsmakeaplan.org/))
+  - **CFP** — CFP Board (✓ verified) ([registry](https://www.cfp.net/about-cfp-board/our-initiatives/increasing-awareness/cfp-board-ambassadors/douglas-a-boneparth-cfp))
   - **AIF** — Fi360 (unverified)
 - Education:
   - MBA, —
@@ -1208,6 +1266,7 @@ President and founder of Bone Fide Wealth, LLC. Became one of the youngest CERTI
 **Trust Signals**
 
 - Owned domain: bonefidewealth.com
+- FINRA BrokerCheck: **not_checked**
 
 **Beats & Outlets**
 
@@ -1219,7 +1278,7 @@ President and founder of Bone Fide Wealth, LLC. Became one of the youngest CERTI
 - Discovery method: —
 
 
-### 23. Riley Adams <span style="opacity:0.55">— Chief Editor and Writer — CompareForexBrokers; Founder/CEO Young and the Invested</span>
+### 24. Riley Adams <span style="opacity:0.55">— Chief Editor and Writer — CompareForexBrokers; Founder/CEO Young and the Invested</span>
 
 > **Tier S** · Final Score: **118** (base 81 × auth +46) · Outlet: **CompareForexBrokers** (T3, DR 69)
 
@@ -1260,6 +1319,7 @@ Chief Editor of CompareForexBrokers.com and Senior Financial Analyst at Google (
 **Trust Signals**
 
 - Owned domain: true
+- FINRA BrokerCheck: **not_checked**
 
 **Beats & Outlets**
 
@@ -1270,7 +1330,7 @@ Chief Editor of CompareForexBrokers.com and Senior Financial Analyst at Google (
 - Discovery method: L5.5-direct + Rule A
 
 
-### 24. Michael Hewson <span style="opacity:0.55">— Senior Financial Strategist — iFOREX / Contributor — Good Money Guide (ex-Chief Market Analyst CMC Markets, 15+ yrs)</span>
+### 25. Michael Hewson <span style="opacity:0.55">— Senior Financial Strategist — iFOREX / Contributor — Good Money Guide (ex-Chief Market Analyst CMC Markets, 15+ yrs)</span>
 
 > **Tier S** · Final Score: **117** (base 78 × auth +50) · Outlet: **Good Money Guide** (T4, DR 48)
 
@@ -1292,8 +1352,8 @@ Market analyst with 30+ years in financial markets, focused on both technical an
 
 - Credentials (claimed): MSTA, CFTe
 - Certifications:
-  - **MSTA** — Society of Technical Analysts (unverified)
-  - **CFTe** — International Federation of Technical Analysts (unverified)
+  - **MSTA** — Society of Technical Analysts (✓ verified) ([registry](https://www.technicalanalysts.com/executive-committee/michael-hewson/))
+  - **CFTe** — International Federation of Technical Analysts (IFTA) (unverified)
 
 **Employment History**
 
@@ -1306,6 +1366,10 @@ Market analyst with 30+ years in financial markets, focused on both technical an
 - Quoted in tier-1 press: Bloomberg, CNBC, BBC, CNN, Fox Business
 - TV appearances: Bloomberg, CNBC, BBC, CNN, Fox Business
 
+**Trust Signals**
+
+- FINRA BrokerCheck: **n/a**
+
 **Beats & Outlets**
 
 - Beats: forex, cfd, markets
@@ -1315,7 +1379,7 @@ Market analyst with 30+ years in financial markets, focused on both technical an
 - Discovery method: L5.5-direct + Rule A
 
 
-### 25. Emma Lunn <span style="opacity:0.55">— Freelance Personal Finance Journalist — MoneyWeek</span>
+### 26. Emma Lunn <span style="opacity:0.55">— Freelance Personal Finance Journalist — MoneyWeek</span>
 
 > **Tier S** · Final Score: **111** (base 74 × auth +50) · Outlet: **MoneyWeek** (T2, DR 80)
 
@@ -1355,7 +1419,7 @@ Multi-award-winning freelance journalist with 18+ years specialising in personal
 - Discovery method: L1 + Rule A
 
 
-### 26. Eva Szalay <span style="opacity:0.55">— Contributing Editor-at-Large — The Full FX (primary day role: Director of Media Relations, Hokku PR)</span>
+### 27. Eva Szalay <span style="opacity:0.55">— Contributing Editor-at-Large — The Full FX (primary day role: Director of Media Relations, Hokku PR)</span>
 
 > **Tier S** · Final Score: **110** (base 77 × auth +43) · Outlet: **The Full FX** (T3, DR 55)
 
@@ -1395,7 +1459,7 @@ Veteran FX journalist with 15+ years covering currency markets. Started covering
 - Discovery method: L1 + Rule A
 
 
-### 27. Matthew Levy <span style="opacity:0.55">— Financial Writer & Content Specialist, CFA Charterholder (BestBrokers contributor)</span>
+### 28. Matthew Levy <span style="opacity:0.55">— Financial Writer & Content Specialist, CFA Charterholder (BestBrokers contributor)</span>
 
 > **Tier S** · Final Score: **107** (base 75 × auth +42) · Outlet: **BestBrokers** (T3, DR 58)
 
@@ -1417,7 +1481,7 @@ Freelance financial copywriter and CFA Charterholder (2015) in good standing. 10
 
 - Credentials (claimed): CFA
 - Certifications:
-  - **CFA** — CFA Institute (✓ verified) ([registry](https://credentials.cfainstitute.org/7abb354d-8618-44e1-97d0-e8d5c70f831e?record_view=true))
+  - **CFA (Chartered Financial Analyst)** — CFA Institute (✓ verified) ([registry](https://www.matthewlevycfa.com/about))
 - Education:
   - BSc Economics (business + finance concentrations), University of Victoria, 2010
 
@@ -1435,6 +1499,7 @@ Freelance financial copywriter and CFA Charterholder (2015) in good standing. 10
 **Trust Signals**
 
 - Owned domain: matthewlevycfa.com
+- FINRA BrokerCheck: **not_applicable**
 
 **Beats & Outlets**
 
@@ -1446,7 +1511,7 @@ Freelance financial copywriter and CFA Charterholder (2015) in good standing. 10
 - Discovery method: L5.5-direct + Rule A
 
 
-### 28. Jon Dulin <span style="opacity:0.55">— Founder & Head Writer — Money Smart Guides; Contributor — Modest Money</span>
+### 29. Jon Dulin <span style="opacity:0.55">— Founder & Head Writer — Money Smart Guides; Contributor — Modest Money</span>
 
 > **Tier S** · Final Score: **104** (base 74 × auth +41) · Outlet: **Modest Money** (T3, DR 50)
 
@@ -1467,7 +1532,7 @@ Founder of Money Smart Guides (2011). 15+ years in financial services — back-o
 
 - Credentials (claimed): Series 65, Certificate in Financial Planning
 - Certifications:
-  - **Series 65** — FINRA (unverified) ([registry](https://brokercheck.finra.org/))
+  - **Series 65** — FINRA (unverified)
   - **Certificate in Financial Planning** — Mercyhurst University (unverified)
 - Education:
   - Bachelor of Business, Mercyhurst University
@@ -1487,6 +1552,7 @@ Founder of Money Smart Guides (2011). 15+ years in financial services — back-o
 **Trust Signals**
 
 - Owned domain: moneysmartguides.com
+- FINRA BrokerCheck: **no_record_found**
 
 **Beats & Outlets**
 
@@ -1501,7 +1567,7 @@ Founder of Money Smart Guides (2011). 15+ years in financial services — back-o
 > Layer 5.5 modestmoney.com returned 500 → Rule A WebSearch + moneysmartguides.com/about data.
 
 
-### 29. James Chen <span style="opacity:0.55">— Former Director, Trading & Investing Content (Investopedia)</span>
+### 30. James Chen <span style="opacity:0.55">— Former Director, Trading & Investing Content (Investopedia)</span>
 
 > **Tier S** · Final Score: **101** (base 67 × auth +50) · Outlet: **Investopedia** (T1, DR 92)
 
@@ -1523,7 +1589,7 @@ Trader, investor, Registered Investment Adviser, Chartered Market Technician (CM
 
 - Credentials (claimed): CMT, CFTe, RIA, former CTA
 - Certifications:
-  - **CMT** — CMT Association (unverified) ([registry](https://cmtassociation.org/presenter/james-chen/))
+  - **CMT** — CMT Association (✓ verified) ([registry](https://cmtassociation.org/presenter/james-chen/))
   - **CFTe** — IFTA (unverified)
   - **RIA** — SEC/state (unverified)
 - Education:
@@ -1556,7 +1622,7 @@ Trader, investor, Registered Investment Adviser, Chartered Market Technician (CM
 > Role at Investopedia is past; currently at AlphaSense. Two Wiley books + CMT + tier-1 media appearances = S-tier candidate.
 
 
-### 30. Jack Crooks (a.k.a. Jack the Pipper) <span style="opacity:0.55">— Contributor — Founder/President Black Swan Capital LLC</span>
+### 31. Jack Crooks (a.k.a. Jack the Pipper) <span style="opacity:0.55">— Contributor — Founder/President Black Swan Capital LLC</span>
 
 > **Tier S** · Final Score: **90** (base 63 × auth +43) · Outlet: **BabyPips** (T2, DR 72)
 
@@ -1594,6 +1660,7 @@ Founder and President of Black Swan Capital LLC, a foreign exchange and currency
 **Trust Signals**
 
 - Owned domain: blackswantrading.com
+- FINRA BrokerCheck: **not-checked**
 
 **Beats & Outlets**
 
@@ -1605,7 +1672,7 @@ Founder and President of Black Swan Capital LLC, a foreign exchange and currency
 - Discovery method: L7-websearch (babypips 403 → Rule A confirmed pen-name)
 
 
-### 31. Eno Eteng <span style="opacity:0.55">— Market Research Consultant — 55brokers.com / Market Research Analyst — TradingBull.ai</span>
+### 32. Eno Eteng <span style="opacity:0.55">— Market Research Consultant — 55brokers.com / Market Research Analyst — TradingBull.ai</span>
 
 > **Tier S** · Final Score: **84** (base 60 × auth +40) · Outlet: **55Brokers** (T4, DR 42)
 
@@ -1627,8 +1694,8 @@ Certified Financial Technician (CFTe) and member of UK Society of Technical Anal
 
 - Credentials (claimed): DipTA, MSTA, CFTe
 - Certifications:
-  - **Diploma in Technical Analysis** — UK Society of Technical Analysts (unverified)
-  - **MSTA** — Society of Technical Analysts (unverified)
+  - **Diploma in Technical Analysis** — UK Society of Technical Analysts (unverified) ([registry](https://www.technicalanalysts.com/education/accreditations/))
+  - **MSTA** — Society of Technical Analysts (unverified) ([registry](https://www.technicalanalysts.com/))
   - **Certificate in Management in Health** — World Bank Institute (unverified)
 - Education:
   - Diploma in Technical Analysis, UK Society of Technical Analysts, 2019
@@ -1641,6 +1708,10 @@ Certified Financial Technician (CFTe) and member of UK Society of Technical Anal
 - Web Content Writer @ Moni Talks (2022-2023)
 - Technical Analyst @ Investingcube (2019-2022)
 - CEO @ LINEFAR Project (2015-present)
+
+**Trust Signals**
+
+- FINRA BrokerCheck: **not-applicable-non-US**
 
 **Beats & Outlets**
 

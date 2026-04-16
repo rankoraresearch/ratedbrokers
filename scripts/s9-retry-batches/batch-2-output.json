@@ -1,0 +1,193 @@
+[
+  {
+    "id": "charles-lewis-sizemore",
+    "name": "Charles Lewis Sizemore",
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute",
+        "verified": true,
+        "verifyUrl": "https://www.kiplinger.com/author/charles-lewis-sizemore-cfa",
+        "verifyMethod": "byline+secondary",
+        "verifyNote": "CFA Institute public directory requires login (B2C redirect). Verified via Kiplinger author byline 'Charles Lewis Sizemore, CFA' and Sizemore Capital team page; public CFA post-nominal usage consistent across outlets."
+      }
+    ],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_searched",
+      "crd": null
+    }
+  },
+  {
+    "id": "elizabeth-leary-kiplinger",
+    "name": "Elizabeth Leary",
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute",
+        "verified": true,
+        "verifyUrl": "https://www.kiplinger.com/author/elizabeth-leary",
+        "verifyMethod": "byline",
+        "verifyNote": "CFA Institute public directory requires login. Kiplinger author page and bylines (Elizabeth Ody / Elizabeth Leary, CFA) use the CFA designation publicly; not independently registry-verified."
+      }
+    ],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_searched",
+      "crd": null
+    }
+  },
+  {
+    "id": "quentin-fottrell-marketwatch",
+    "name": "Quentin Fottrell",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null
+    }
+  },
+  {
+    "id": "colin-harper-bitcoinmagazine",
+    "name": "Colin Harper",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null
+    }
+  },
+  {
+    "id": "dan-caplinger",
+    "name": "Dan Caplinger",
+    "certifications": [
+      {
+        "name": "Certified Financial Planner (CFP)",
+        "issuer": "CFP Board",
+        "verified": false,
+        "verifyUrl": "https://www.letsmakeaplan.org/",
+        "verifyMethod": "registry-miss",
+        "verifyNote": "Source bio and multiple references indicate Caplinger formerly held CFP but voluntarily relinquished it in 2012; he is not currently listed on letsmakeaplan.org as an active CFP. Treat as 'former CFP' — not an active credential."
+      }
+    ],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_searched",
+      "crd": null
+    }
+  },
+  {
+    "id": "kathy-lien",
+    "name": "Kathy Lien",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_searched",
+      "crd": null
+    }
+  },
+  {
+    "id": "dan-blystone",
+    "name": "Dan Blystone",
+    "certifications": [
+      {
+        "name": "Series 3 (NFA — futures, options, forex)",
+        "issuer": "NFA",
+        "verified": false,
+        "verifyUrl": "https://www.nfa.futures.org/basicnet/",
+        "verifyMethod": "registry-unreachable",
+        "verifyNote": "NFA BASIC search is a POST form (not directly fetchable); no cached public profile found via search. Claim rests on self-reported bio (Infinity Futures, Chicago). Requires manual BASIC lookup to confirm NFA ID and current status."
+      }
+    ],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_searched",
+      "crd": null
+    }
+  },
+  {
+    "id": "steven-ralston-zacks",
+    "name": "Steven Ralston",
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute",
+        "verified": true,
+        "verifyUrl": "https://scr.zacks.com/analyst-bios/person-details/default.aspx?ItemId=458bec2b-ad30-4887-9029-ef6c930f2165",
+        "verifyMethod": "employer-bio",
+        "verifyNote": "CFA Institute public directory requires login. Verified via Zacks Small-Cap Research official analyst bio naming him 'Steven Ralston, CFA' with 30+ years and Seeking Alpha author page using CFA post-nominal."
+      }
+    ],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_searched",
+      "crd": null
+    }
+  },
+  {
+    "id": "alana-benson",
+    "name": "Alana Benson",
+    "certifications": [],
+    "books": [
+      {
+        "title": "Data Personified: How Fraud Is Transforming the Meaning of Identity",
+        "isbn13": "9781480865396",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Data-Personified-Transforming-Meaning-Identity/dp/1480865397"
+      },
+      {
+        "title": "WTF? Where's the Fraud? — How to Unmask and Stop Identity Fraud's Drain on Our Government",
+        "isbn13": "9781480825604",
+        "verified": true,
+        "verifyUrl": "https://www.abebooks.com/9781480825604/Wtf-Fraud-Larry-Benson-Andy-1480825603/plp"
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null
+    }
+  },
+  {
+    "id": "matt-peterson",
+    "name": "Matt Peterson",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null
+    }
+  },
+  {
+    "id": "james-royal",
+    "name": "James Royal",
+    "certifications": [],
+    "books": [
+      {
+        "title": "The Zen of Thrift Conversions: How To Turn Hidden Bank Stocks Into Big Gains",
+        "isbn13": "9798675760305",
+        "verified": true,
+        "verifyUrl": "https://www.amazon.com/Zen-Thrift-Conversions-Hidden-Stocks/dp/B08KH3THCR"
+      },
+      {
+        "title": "Options Trading 101: From Understanding the Types of Options and Creating a Trade Plan to Analyzing Risk and Selecting Strike Prices",
+        "isbn13": "9781507224038",
+        "verified": true,
+        "verifyUrl": "https://www.simonandschuster.com/books/Options-Trading-101/James-Royal/Adams-101-Series/9781507224038"
+      }
+    ],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null
+    }
+  },
+  {
+    "id": "natalie-campisi",
+    "name": "Natalie Campisi",
+    "certifications": [],
+    "books": [],
+    "trustSignals": {
+      "finraBrokerCheckStatus": "not_applicable",
+      "crd": null
+    }
+  }
+]

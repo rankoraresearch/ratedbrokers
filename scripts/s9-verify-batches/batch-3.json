@@ -1,0 +1,1066 @@
+[
+  {
+    "id": "kimberly-palmer-usnews",
+    "name": "Kimberly Palmer",
+    "role": "Senior Editor / Personal Finance Expert — US News & NerdWallet",
+    "site": "usnews_money",
+    "outletName": "US News — Money",
+    "bio": "Personal-finance expert, spokesperson and author. Was Senior Money Editor at US News & World Report for 9 years and Money Features Editor at AARP; currently Personal Finance Expert at NerdWallet. Author of three critically-acclaimed books: 'Smart Mom, Rich Mom', 'The Economy of You' and 'Generation Earn'. TV appearances on the Today show and Good Morning America. Adjunct professor at American University teaching a course on mastering social media.",
+    "credentials": [],
+    "certifications": [],
+    "education": [
+      {
+        "degree": "B.A. History",
+        "school": "Amherst College",
+        "year": null
+      },
+      {
+        "degree": "M.P.P.",
+        "school": "University of Chicago",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 20,
+    "mediaSignals": {
+      "authoredBooks": [
+        "Smart Mom, Rich Mom",
+        "The Economy of You",
+        "Generation Earn"
+      ],
+      "quotedInTier1": [],
+      "tvAppearances": [
+        "Today Show",
+        "Good Morning America"
+      ]
+    },
+    "linkedin": "https://www.linkedin.com/in/kimberlyspalmer",
+    "personalSite": "http://www.kimberly-palmer.com/about-me",
+    "authorUrl": "https://www.usnews.com/topics/author/kimberly-palmer",
+    "eeatTier": "A",
+    "finalScore": 113
+  },
+  {
+    "id": "john-divine",
+    "name": "John Divine",
+    "role": "Assistant Managing Editor — Investing (U.S. News & World Report)",
+    "site": "usnews_money",
+    "outletName": "US News — Money",
+    "bio": "Assistant Managing Editor at U.S. News & World Report covering stock market, Wall Street and the economy since 2016. Previously covered the stock market for The Motley Fool and InvestorPlace. Bachelor's in Finance & Banking (with honors), Appalachian State University. After college, spent time at Merrill Lynch and Grandbridge Real Estate Capital (commercial real estate arm of Truist Bank / then BB&T). Began investing while in high school, where he founded the school's Stock Market Club. Appeared on Cheddar, Money Life with Chuck Jaffe, the Invest Like a Boss podcast, Market Wrap with Moe Ansar",
+    "credentials": [],
+    "certifications": [],
+    "education": [
+      {
+        "degree": "BS Finance & Banking (with honors)",
+        "school": "Appalachian State University",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 12,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "WSJ"
+      ],
+      "tvAppearances": [
+        "Cheddar",
+        "Money Life with Chuck Jaffe",
+        "Market Wrap with Moe Ansari",
+        "WSJ Radio",
+        "WBBM Chicago",
+        "iHeartRadio"
+      ]
+    },
+    "linkedin": "https://www.linkedin.com/in/johndivine",
+    "personalSite": null,
+    "authorUrl": "https://www.usnews.com/topics/author/john-divine",
+    "eeatTier": "A",
+    "finalScore": 112
+  },
+  {
+    "id": "jeff-john-roberts-decrypt",
+    "name": "Jeff John Roberts",
+    "role": "Finance & Crypto Editor, Fortune (former Executive Editor at Decrypt)",
+    "site": "decrypt",
+    "outletName": "Decrypt",
+    "bio": "Finance & Crypto Editor at Fortune and host of the Fortune Crypto Playbook vodcast. Former lawyer turned journalist; has reported on crypto since 2013. Was Executive Editor of Decrypt (2021–2022) and broke several major stories before returning to Fortune. Previously at Gigaom (ex-PaidContent) and Reuters; work has appeared in BusinessWeek and the New York Times. Author of 'Kings of Crypto: One Startup's Quest to Take Cryptocurrency Out of Silicon Valley and Onto Wall Street' (2019). Attended Columbia.",
+    "credentials": [],
+    "certifications": [],
+    "education": [
+      {
+        "degree": "Attended",
+        "school": "Columbia (Business/Journalism)",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 13,
+    "mediaSignals": {
+      "authoredBooks": [
+        "Kings of Crypto: One Startup's Quest to Take Cryptocurrency Out of Silicon Valley and Onto Wall Street"
+      ],
+      "quotedInTier1": [
+        "Fortune",
+        "Reuters",
+        "BusinessWeek",
+        "NYT"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/jeffjohnroberts",
+    "personalSite": "https://jeffjohnroberts.com/",
+    "authorUrl": "https://decrypt.co/author/jeff-john-roberts",
+    "eeatTier": "A",
+    "finalScore": 112
+  },
+  {
+    "id": "adam-levine-weinberg",
+    "name": "Adam Levine-Weinberg, CFA",
+    "role": "Contributor — value investor",
+    "site": "seekingalpha",
+    "outletName": "Seeking Alpha",
+    "bio": "Value investor researching and writing about stocks for Seeking Alpha and The Motley Fool since 2011. Focus on irrationally beaten-down stocks in aerospace, retail, real estate, and auto sectors. Graduated from Swarthmore College (2007), MA Political Science from the University of Chicago (2009). Received CFA charter in 2017. Investment Analyst at Transamerica Financial Advisors, Inc.",
+    "credentials": [
+      "CFA"
+    ],
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute",
+        "claimed": true
+      }
+    ],
+    "education": [
+      {
+        "degree": "BA",
+        "school": "Swarthmore College",
+        "year": "2007"
+      },
+      {
+        "degree": "MA Political Science",
+        "school": "University of Chicago",
+        "year": "2009"
+      }
+    ],
+    "yearsInIndustry": 14,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/adam-levine-weinberg-b7a312163/",
+    "personalSite": null,
+    "authorUrl": "https://seekingalpha.com/author/adam-levine-weinberg-cfa",
+    "eeatTier": "A",
+    "finalScore": 111
+  },
+  {
+    "id": "tm-lee-coingecko",
+    "name": "TM Lee",
+    "role": "Co-Founder & President — CoinGecko (formerly CEO)",
+    "site": "coingecko",
+    "outletName": "CoinGecko",
+    "bio": "Co-Founder and President of CoinGecko, which he launched in 2014 with Bobby Ong as a bootstrapped cryptocurrency data aggregator. Under his leadership CoinGecko has grown to serve users in over 170 countries, offering NFT data, personal portfolios and historical coin information. Born in Kuantan, Pahang, Malaysia. Co-authored Handbook of Digital Currency (1st Edition) and Handbook of Blockchain, Digital Finance, and Inclusion Volume 1. Research Fellow at Singapore University of Social Sciences assisting with blockchain course development. Listed in Forbes 30 Under 30 (2019).",
+    "credentials": [],
+    "certifications": [],
+    "education": [
+      {
+        "degree": "BS Computer Science (minor Psychology)",
+        "school": "Purdue University",
+        "year": "2012"
+      },
+      {
+        "degree": "Computer Science studies",
+        "school": "INTI International University, Malaysia",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 12,
+    "mediaSignals": {
+      "authoredBooks": [
+        "Handbook of Digital Currency (1st Edition)",
+        "Handbook of Blockchain, Digital Finance, and Inclusion Volume 1"
+      ],
+      "quotedInTier1": [
+        "Forbes (30U30 2019)",
+        "BeInCrypto",
+        "Crunchbase"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": "https://my.linkedin.com/in/leetm",
+    "personalSite": "https://www.coingecko.com/author/tmlee",
+    "authorUrl": "https://www.coingecko.com/author/tmlee",
+    "eeatTier": "A",
+    "finalScore": 111
+  },
+  {
+    "id": "emma-lunn-moneyweek",
+    "name": "Emma Lunn",
+    "role": "Freelance Personal Finance Journalist — MoneyWeek",
+    "site": "moneyweek",
+    "outletName": "MoneyWeek",
+    "bio": "Multi-award-winning freelance journalist with 18+ years specialising in personal finance and consumer issues. Covers mortgages, first-time buyers, leasehold, banking, debt, budgeting, broadband, energy, pensions and investments. Extensive back catalogue with The Guardian, The Independent, Daily Telegraph, Mail on Sunday and Mirror. Completed in-house contracts at The Guardian, The Independent, Mortgage Solutions, Orange and Moneywise. Also writes for Property Hub, Mortgage Strategy, YourMoney.com, Compare My Move, and Royal London.",
+    "credentials": [],
+    "certifications": [],
+    "education": [],
+    "yearsInIndustry": 18,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "The Guardian",
+        "The Independent",
+        "Daily Telegraph",
+        "Mail on Sunday",
+        "Mirror"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": null,
+    "personalSite": "https://www.emmalunn.com/",
+    "authorUrl": "https://moneyweek.com/author/emma-lunn",
+    "eeatTier": "S",
+    "finalScore": 111
+  },
+  {
+    "id": "eva-szalay",
+    "name": "Eva Szalay",
+    "role": "Contributing Editor-at-Large — The Full FX (primary day role: Director of Media Relations, Hokku PR)",
+    "site": "thefullfx",
+    "outletName": "The Full FX",
+    "bio": "Veteran FX journalist with 15+ years covering currency markets. Started covering currencies in 2009 at Dow Jones Newswires / The Wall Street Journal. Became Editor of FX Week (industry publication for global FX markets) in 2014. Joined the Financial Times as Currencies Correspondent in December 2018 for four years. Then joined Bloomberg's cross-asset team. Currently Contributing Editor-at-Large at The Full FX. Primary current day role: Director of Media Relations at Hokku PR. Based in London. Speaker at TradeTech FX USA and FinTech Connect.",
+    "credentials": [],
+    "certifications": [],
+    "education": [],
+    "yearsInIndustry": 17,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "WSJ",
+        "Financial Times",
+        "Bloomberg",
+        "Fortune",
+        "Yahoo Finance"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/eva-szalay-14a22234/",
+    "personalSite": null,
+    "authorUrl": "https://thefullfx.com/the-team/",
+    "eeatTier": "S",
+    "finalScore": 110
+  },
+  {
+    "id": "kunal-kapoor-morningstar",
+    "name": "Kunal Kapoor",
+    "role": "Chief Executive Officer — Morningstar",
+    "site": "morningstar",
+    "outletName": "Morningstar",
+    "bio": "Chief Executive Officer of Morningstar since 2017. Joined Morningstar in 1997 as a data analyst; served as director of mutual fund research, launched Morningstar Investment Services, then director of business strategy for international operations, later president and CIO of Morningstar Investment Services, then President of Morningstar before becoming CEO. Member of CFA Society of Chicago; served on the board of PitchBook prior to Morningstar's acquisition in 2016.",
+    "credentials": [
+      "CFA"
+    ],
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute",
+        "claimed": true
+      }
+    ],
+    "education": [
+      {
+        "degree": "BA Economics and Environmental Policy",
+        "school": "Monmouth College",
+        "year": null
+      },
+      {
+        "degree": "MBA",
+        "school": "University of Chicago Booth School of Business",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 28,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "Morningstar",
+        "Bloomberg"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/kunal-kapoor-morningstar",
+    "personalSite": null,
+    "authorUrl": "https://www.morningstar.com/people/kunal-kapoor",
+    "eeatTier": "A",
+    "finalScore": 110
+  },
+  {
+    "id": "theresa-w-carey",
+    "name": "Theresa W. Carey",
+    "role": "Senior Brokerage Advisor — US & Canada",
+    "site": "brokerchooser",
+    "outletName": "BrokerChooser",
+    "bio": "'The OG of examining and reviewing the retail online brokerage business' — semi-retired, consulting. 19 annual Barron's broker review surveys (20-30 brokers each). Early Barron's Twitter advocate. Publishes across Barron's, Investopedia, PCMag, CIO Insight, eWEEK. 20+ yrs journalism/communications.",
+    "credentials": [],
+    "certifications": [],
+    "education": [],
+    "yearsInIndustry": 20,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "Barron's"
+      ],
+      "tvAppearances": [
+        "tastytrade"
+      ]
+    },
+    "linkedin": "https://www.linkedin.com/in/twcarey/",
+    "personalSite": "https://authory.com/TheresaCarey",
+    "authorUrl": "https://brokerchooser.com/team/theresa-w-carey",
+    "eeatTier": "A",
+    "finalScore": 109
+  },
+  {
+    "id": "bradley-keoun",
+    "name": "Bradley Keoun",
+    "role": "Managing Editor, Tech & Protocols",
+    "site": "coindesk",
+    "outletName": "CoinDesk",
+    "bio": "Managing Editor of Tech & Protocols at CoinDesk; oversees reporters covering blockchain technology. Previously ran CoinDesk's global crypto markets team. Two-time Loeb Awards finalist. Prior roles: Chief Global Finance & Economic Correspondent at TheStreet; editor/reporter at Bloomberg News (New York and Mexico City) covering Wall Street, emerging markets, and energy; general-assignment reporter at the Chicago Tribune; police-beat reporter at the Gainesville Sun. Based in Austin, Texas.",
+    "credentials": [],
+    "certifications": [],
+    "education": [
+      {
+        "degree": "BA Electrical Engineering & Classical Studies (double major)",
+        "school": "Duke University",
+        "year": null
+      },
+      {
+        "degree": "Master's in Journalism",
+        "school": "University of Florida",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 20,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "Bloomberg",
+        "TheStreet"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": null,
+    "personalSite": null,
+    "authorUrl": "https://www.coindesk.com/author/bradley-keoun",
+    "eeatTier": "A",
+    "finalScore": 108
+  },
+  {
+    "id": "al-root",
+    "name": "Al Root (Allen Root)",
+    "role": "Senior Writer / Associate Editor — Barron's",
+    "site": "barrons",
+    "outletName": "Barron's",
+    "bio": "Senior writer / Associate Editor at Barron's (since 2018). 17 years on Wall Street before journalism; joined Barron's from R.W. Baird where he was industrial strategist. Won SABEW's Best in Business Award for JPMorgan Chase reporting (employee backlash on layoffs, DEI changes, pay equity, return-to-office). Frequent guest on Sirius XM, Wharton Business Radio, CBS News, Cheddar, Yahoo Finance, Fox Business (Barron's Roundtable, Claman Countdown, The Big Money Show), Barron's Live podcast, The Readback.",
+    "credentials": [],
+    "certifications": [],
+    "education": [],
+    "yearsInIndustry": 25,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [],
+      "tvAppearances": [
+        "CBS News",
+        "Cheddar",
+        "Yahoo Finance",
+        "Fox Business — Barron's Roundtable",
+        "Fox Business — Claman Countdown",
+        "Fox Business — The Big Money Show",
+        "Sirius XM",
+        "Wharton Business Radio",
+        "Barron's Live podcast"
+      ]
+    },
+    "linkedin": "https://www.linkedin.com/in/allen-root-b0030313/",
+    "personalSite": "https://www.alrootwriting.com/",
+    "authorUrl": null,
+    "eeatTier": "A",
+    "finalScore": 108
+  },
+  {
+    "id": "connor-sephton",
+    "name": "Connor Sephton",
+    "role": "Cryptocurrency Writer / Contributor — CoinMarketCap; Head of Advertorial — Cointelegraph",
+    "site": "coinmarketcap",
+    "outletName": "CoinMarketCap",
+    "bio": "London-based journalist with a 10-year career as reporter, editor, and newsreader for Metro, Sky News, and BBC. Writes features for Alexandria and produces the daily CoinMarketCap newsletter. Freelance online editor for Sky News; newsreader on BBC local radio. Head of advertorial for Cointelegraph. Specialised in crypto news since 2018; also writes for Decrypt, Blockworks, and Cointelegraph. States he does not currently hold any cryptocurrencies.",
+    "credentials": [],
+    "certifications": [],
+    "education": [],
+    "yearsInIndustry": 10,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "BBC",
+        "Sky News"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/connor-sephton-67802316/",
+    "personalSite": null,
+    "authorUrl": "https://coinmarketcap.com/academy/author/connor-sephton",
+    "eeatTier": "A",
+    "finalScore": 108
+  },
+  {
+    "id": "enoch-yiu",
+    "name": "Enoch Yiu",
+    "role": "Chief Business Reporter — South China Morning Post",
+    "site": "scmp",
+    "outletName": "South China Morning Post",
+    "bio": "Chief Business Reporter at South China Morning Post. Joined SCMP as business reporter in 1996. Expertise: financial regulation, banking, pension, insurance, asset management, Hong Kong markets and IPOs. Author of two books: 'They Mean Business: 50 exclusive interviews with Hong Kong top executives' and 'Serving with Passion: stories of established catering brands in Hong Kong'.",
+    "credentials": [],
+    "certifications": [],
+    "education": [
+      {
+        "degree": "Bachelor of Business — Communication in Journalism",
+        "school": "Queensland University of Technology (QUT)",
+        "year": "1991"
+      }
+    ],
+    "yearsInIndustry": 30,
+    "mediaSignals": {
+      "authoredBooks": [
+        "They Mean Business: 50 exclusive interviews with Hong Kong top executives",
+        "Serving with Passion: stories of established catering brands in Hong Kong"
+      ],
+      "quotedInTier1": [
+        "SCMP",
+        "Yahoo Finance",
+        "CNBC"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": "https://hk.linkedin.com/in/enoch-yiu-52779516",
+    "personalSite": null,
+    "authorUrl": "https://www.scmp.com/author/enoch-yiu",
+    "eeatTier": "A",
+    "finalScore": 108
+  },
+  {
+    "id": "eamonn-sheridan",
+    "name": "Eamonn Sheridan",
+    "role": "Chief Asia-Pacific Currency Analyst",
+    "site": "forexlive",
+    "outletName": "ForexLive",
+    "bio": "Chief Asia-Pacific Currency Analyst at investingLive (formerly ForexLive). Spent 13 years at Bankers Trust Australia as spot foreign exchange dealer trading all major currencies across time zones, rising to Vice President running spot operations during busy European time. Left the bank just prior to its sale to run his own business, trading equities, CFDs, and futures. Now active in FX and equity index futures. 95,951+ articles published. Manages the site alongside Adam Button, Mike Paterson, Ryan Littlestone.",
+    "credentials": [],
+    "certifications": [],
+    "education": [
+      {
+        "degree": "Undergraduate",
+        "school": "The University of Melbourne",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 25,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "Nasdaq"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": null,
+    "personalSite": null,
+    "authorUrl": "https://www.investinglive.com/author/eamonn-sheridan",
+    "eeatTier": "A",
+    "finalScore": 108
+  },
+  {
+    "id": "terry-flanagan-tradersmag",
+    "name": "Terry Flanagan",
+    "role": "Managing Director / Editor",
+    "site": "tradersmagazine",
+    "outletName": "Traders Magazine",
+    "bio": "Managing Director at Markets Media Group, overseeing the Markets Media, Traders Magazine, and GlobalTrading platforms. Former Bloomberg reporter and editor (starting 1996 as electricity reporter in the energy group) and former financial research analyst. More than 25 years of journalism experience. Earned Chartered Financial Analyst (CFA) designation in 2001.",
+    "credentials": [
+      "CFA"
+    ],
+    "certifications": [
+      {
+        "name": "CFA (Chartered Financial Analyst)",
+        "issuer": "CFA Institute",
+        "claimed": true
+      }
+    ],
+    "education": [],
+    "yearsInIndustry": 25,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/terflanagan/",
+    "personalSite": null,
+    "authorUrl": "https://www.tradersmagazine.com/staff-authors/terry-flanagan/",
+    "eeatTier": "A",
+    "finalScore": 108
+  },
+  {
+    "id": "matthew-levy",
+    "name": "Matthew Levy",
+    "role": "Financial Writer & Content Specialist, CFA Charterholder (BestBrokers contributor)",
+    "site": "bestbrokers",
+    "outletName": "BestBrokers",
+    "bio": "Freelance financial copywriter and CFA Charterholder (2015) in good standing. 10+ year career in retail finance before pivoting to financial content creation. Managed $600M+ in assets; expertise in portfolio management, securities analysis, trading, back-testing. Graduated BSc Economics (business + finance concentrations) from University of Victoria, 2010. Writing featured at Investing.com, Forbes, Seeking Alpha, FXEmpire, Entrepreneur, BestBrokers. Based in Vancouver, Canada.",
+    "credentials": [
+      "CFA"
+    ],
+    "certifications": [
+      {
+        "name": "CFA",
+        "issuer": "CFA Institute",
+        "claimed": true
+      }
+    ],
+    "education": [
+      {
+        "degree": "BSc Economics (business + finance concentrations)",
+        "school": "University of Victoria",
+        "year": 2010
+      }
+    ],
+    "yearsInIndustry": 15,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "Forbes"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": "https://ca.linkedin.com/in/matthewlevycfa",
+    "personalSite": "https://www.matthewlevycfa.com/",
+    "authorUrl": "https://www.bestbrokers.com/authors/matthew-levy-cfa/",
+    "eeatTier": "S",
+    "finalScore": 107
+  },
+  {
+    "id": "michael-kim-zacks",
+    "name": "Michael Kim",
+    "role": "Senior Analyst — Zacks Small-Cap Research",
+    "site": "zacks",
+    "outletName": "Zacks",
+    "bio": "Senior Analyst at Zacks Small-Cap Research with 20+ years of Equity Research and Investor Relations experience. Spent 16 years in sell-side Equity Research covering financial services companies at Sandler O'Neill + Partners, The Buckingham Research Group, Putnam Lovell NBF Securities, and Banc of America Securities. Recognized by Institutional Investor, The Wall Street Journal, Financial Times, and Starmine. Media appearances on CNBC, WSJ, Barron's, and Bloomberg. Before Zacks, Managing Director at MZ Group helping private and public companies; previously Managing Director at ICR leading Finan",
+    "credentials": [],
+    "certifications": [],
+    "education": [],
+    "yearsInIndustry": 20,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "WSJ",
+        "Financial Times",
+        "Barron's",
+        "Bloomberg",
+        "Institutional Investor"
+      ],
+      "tvAppearances": [
+        "CNBC",
+        "Bloomberg"
+      ]
+    },
+    "linkedin": "https://www.linkedin.com/in/michael-kim-21990a3",
+    "personalSite": null,
+    "authorUrl": "https://scr.zacks.com/analyst-bios/person-details/default.aspx?ItemId=61e014f8-8da1-49e4-bb2b-de081257f278",
+    "eeatTier": "A",
+    "finalScore": 107
+  },
+  {
+    "id": "jefreda-r-brown",
+    "name": "JeFreda R. Brown",
+    "role": "Financial Review Board Member / Financial Writer",
+    "site": "investopedia",
+    "outletName": "Investopedia",
+    "bio": "Certified Financial Education Instructor (CFEI). Financial consultant, entrepreneur, educator, and researcher with 20+ years of financial and business experience. DBA in finance (Walden University), MBA in Finance & Accounting (Mississippi College), B.S. Math (Mississippi State University). Financial Review Board Member and Financial Writer for Investopedia and The Balance. Founder & CEO of Xaris Financial Enterprises. Professor for nearly a decade teaching personal finance, corporate finance, financial and managerial accounting at Cornell, University of Alabama Birmingham, Oregon State, and I",
+    "credentials": [
+      "CFEI"
+    ],
+    "certifications": [
+      {
+        "name": "CFEI (Certified Financial Education Instructor)",
+        "issuer": "National Financial Educators Council",
+        "claimed": true
+      }
+    ],
+    "education": [
+      {
+        "degree": "DBA (Finance concentration)",
+        "school": "Walden University",
+        "year": null
+      },
+      {
+        "degree": "MBA (Finance & Accounting)",
+        "school": "Mississippi College",
+        "year": null
+      },
+      {
+        "degree": "B.S. Math",
+        "school": "Mississippi State University",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 20,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/jefredabrown",
+    "personalSite": "https://www.doctorjefreda.com/",
+    "authorUrl": "https://www.thebalancemoney.com/jefreda-brown-5188075",
+    "eeatTier": "A",
+    "finalScore": 107
+  },
+  {
+    "id": "james-hyerczyk",
+    "name": "James Hyerczyk",
+    "role": "Senior Market Analyst — FXEmpire",
+    "site": "fxempire",
+    "outletName": "FXEmpire",
+    "bio": "U.S.-based technical analyst, market researcher, educator, and trader with 43 years' experience. Senior market analyst at FX Empire since June 2014. Began career in Chicago in 1982 as futures market analyst for floor traders at the Chicago Board of Trade (CBOT) and the Chicago Mercantile Exchange (CME). Expertise: energy, metals, indices, currencies. Favorite instruments: gold, WTI crude oil, natural gas. Published on OilPrice.com, Investopedia, Investing.com, Nasdaq.com. Runs J.A.H. Research and Trading, LLC. Based in Fort Myers, Florida.",
+    "credentials": [],
+    "certifications": [],
+    "education": [
+      {
+        "degree": "B.A. Business Administration",
+        "school": "St. Xavier University",
+        "year": null
+      },
+      {
+        "degree": "M.S. Financial Markets and Trading",
+        "school": "Illinois Institute of Technology",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 43,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "Nasdaq"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/james-a-hyerczyk-0664bb354/",
+    "personalSite": null,
+    "authorUrl": "https://www.fxempire.com/author/jameshyerczyk",
+    "eeatTier": "A",
+    "finalScore": 106
+  },
+  {
+    "id": "brian-bollinger",
+    "name": "Brian Bollinger",
+    "role": "Founder, Owner, President & Analyst — Simply Safe Dividends (Seeking Alpha contributor)",
+    "site": "seekingalpha",
+    "outletName": "Seeking Alpha",
+    "bio": "Founder of Simply Safe Dividends (2015) — online tools and research to help investors generate safe retirement income from dividend stocks. Certified Public Accountant (CPA). Triple-majored in finance, accounting and entrepreneurship at Indiana University's Kelley School of Business, graduated in the top 1% of his class. Former equity research analyst at IronBridge Capital Management (multi-billion-dollar Chicago-area investment firm). Also publishes at Kiplinger and InvestorPlace. Located in Greater Indianapolis.",
+    "credentials": [
+      "CPA"
+    ],
+    "certifications": [
+      {
+        "name": "CPA",
+        "issuer": "State Board of Accountancy",
+        "claimed": true
+      }
+    ],
+    "education": [
+      {
+        "degree": "Triple major: Finance, Accounting, Entrepreneurship (top 1% of class)",
+        "school": "Indiana University — Kelley School of Business",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 10,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/brian-bollinger-b6111a11/",
+    "personalSite": "https://www.simplysafedividends.com/",
+    "authorUrl": "https://seekingalpha.com/author/simply-safe-dividends",
+    "eeatTier": "A",
+    "finalScore": 105
+  },
+  {
+    "id": "barbara-friedberg",
+    "name": "Barbara Friedberg",
+    "role": "Contributor / Freelance columnist",
+    "site": "thebalancemoney",
+    "outletName": "The Balance",
+    "bio": "Freelance columnist since 2010. Former investment portfolio manager and CFO for a real estate holding company (1998–2019). Taught Finance and Investments at Santa Clara University and Lebanon Valley College. CEO of RoboAdvisorPros.com and BarbaraFriedbergPersonalFinance.com. Published three books on personal finance and investing. Based in San Jose, CA.",
+    "credentials": [
+      "MBA",
+      "MS"
+    ],
+    "certifications": [],
+    "education": [
+      {
+        "degree": "MBA Finance",
+        "school": "Pennsylvania State University",
+        "year": null
+      },
+      {
+        "degree": "MS Personnel Services and Counseling",
+        "school": "Miami University (Oxford, Ohio)",
+        "year": null
+      },
+      {
+        "degree": "BA Economics",
+        "school": "University of Cincinnati",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 25,
+    "mediaSignals": {
+      "authoredBooks": [
+        "Personal Finance: An Encyclopedia of Modern Money Management",
+        "Invest and Beat the Pros — Create and Manage a Successful Investment Portfolio",
+        "How to Get Rich; Without Winning the Lottery"
+      ],
+      "quotedInTier1": [],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/barbarafriedberg/",
+    "personalSite": "https://barbarafriedbergpersonalfinance.com",
+    "authorUrl": "https://www.thebalancemoney.com/barbara-friedberg-4775484",
+    "eeatTier": "A",
+    "finalScore": 104
+  },
+  {
+    "id": "jon-dulin",
+    "name": "Jon Dulin",
+    "role": "Founder & Head Writer — Money Smart Guides; Contributor — Modest Money",
+    "site": "modestmoney",
+    "outletName": "Modest Money",
+    "bio": "Founder of Money Smart Guides (2011). 15+ years in financial services — back-office support, mutual fund accounting, tax accounting and as a financial planner. 20+ years helping clients with personal finance via coaching and a financial-planning firm. FINRA Series 65 licensed. Featured in Go Banking Rates, BBC, Wall Street Journal.",
+    "credentials": [
+      "Series 65",
+      "Certificate in Financial Planning"
+    ],
+    "certifications": [
+      {
+        "name": "Series 65",
+        "issuer": "FINRA",
+        "claimed": true
+      },
+      {
+        "name": "Certificate in Financial Planning",
+        "issuer": "Mercyhurst University",
+        "claimed": true
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor of Business",
+        "school": "Mercyhurst University",
+        "year": null
+      },
+      {
+        "degree": "Certificate in Financial Planning",
+        "school": "Mercyhurst University",
+        "year": null
+      },
+      {
+        "degree": "MS Finance",
+        "school": "Saint Joseph's University",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 20,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "WSJ",
+        "BBC"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/donald-jon-dulin-70354540/",
+    "personalSite": "https://www.moneysmartguides.com/",
+    "authorUrl": "https://www.modestmoney.com/author/djdulin/",
+    "eeatTier": "S",
+    "finalScore": 104
+  },
+  {
+    "id": "chris-beauchamp",
+    "name": "Chris Beauchamp",
+    "role": "Chief Market Analyst — IG Group (contributor at DayTrading.com)",
+    "site": "daytrading",
+    "outletName": "DayTrading.com",
+    "bio": "Chief Market Analyst at IG Group since 2019, with IG since 2010 (15+ years). Background in equity research and analysis. Regular commentator and analyst on BBC, Sky News, Bloomberg and other major financial channels. Head of Market Analysis UK.",
+    "credentials": [],
+    "certifications": [],
+    "education": [],
+    "yearsInIndustry": 15,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "Bloomberg",
+        "BBC"
+      ],
+      "tvAppearances": [
+        "BBC",
+        "Sky News",
+        "Bloomberg"
+      ]
+    },
+    "linkedin": "https://uk.linkedin.com/in/chris-beauchamp-3b353aa",
+    "personalSite": "https://www.ig.com/en/profile/chris-beauchamp",
+    "authorUrl": "https://www.daytrading.com/contributors/chris-beauchamp",
+    "eeatTier": "A",
+    "finalScore": 104
+  },
+  {
+    "id": "ashlyn-brooks-bankrate",
+    "name": "Ashlyn Brooks",
+    "role": "Finance Writer — Bankrate (freelance)",
+    "site": "bankrate",
+    "outletName": "Bankrate",
+    "bio": "Finance writer with more than half a decade of experience covering taxes, insurance, investing, retirement, finance news and banking products. Former civil engineer on a mission to help others save and spend smarter through purposeful money habits. Work published across Bankrate, Forbes Advisor, Forbes Home, Investopedia, Kiplinger and Yahoo Finance.",
+    "credentials": [],
+    "certifications": [],
+    "education": [
+      {
+        "degree": "BSc Engineering Technology",
+        "school": null,
+        "year": null
+      },
+      {
+        "degree": "MBA",
+        "school": null,
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 6,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "Forbes",
+        "Yahoo Finance"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/ashlyn-brooks-99196a12a/",
+    "personalSite": "https://www.ashlynbrooks.com/",
+    "authorUrl": "https://www.bankrate.com/authors/ashlyn-brooks/",
+    "eeatTier": "A",
+    "finalScore": 104
+  },
+  {
+    "id": "cherry-reynard",
+    "name": "Cherry Reynard",
+    "role": "Freelance Financial Journalist / Contributor — Boring Money",
+    "site": "boringmoney",
+    "outletName": "Boring Money",
+    "bio": "Multi-award-winning financial journalist since 2000 with 25+ years of experience (following an earlier spell as a tax accountant). Writes regularly for a blend of national, consumer and trade publications including The Times, Telegraph, Investors Chronicle, Money Observer, Boring Money, Moneywise, Morningstar, plus trade titles like Professional Adviser and Trustnet. Large research projects for Cerulli and the Economist Intelligence Unit. Five-time winner of the AIC Freelance Journalist of the Year award (2011–2015) and six-time winner of the IMA Freelance Journalist of the Year award. Co-auth",
+    "credentials": [],
+    "certifications": [],
+    "education": [],
+    "yearsInIndustry": 25,
+    "mediaSignals": {
+      "authoredBooks": [
+        "Investing in Emerging Markets (co-author)"
+      ],
+      "quotedInTier1": [],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/cherry-reynard-b8b59211/",
+    "personalSite": null,
+    "authorUrl": null,
+    "eeatTier": "A",
+    "finalScore": 102
+  },
+  {
+    "id": "james-chen-investopedia",
+    "name": "James Chen",
+    "role": "Former Director, Trading & Investing Content (Investopedia)",
+    "site": "investopedia",
+    "outletName": "Investopedia",
+    "bio": "Trader, investor, Registered Investment Adviser, Chartered Market Technician (CMT) and Certified Financial Technician (CFTe); former Commodity Trading Advisor (CTA). Tufts University graduate. Former Director of Trading & Investing Content at Investopedia (Dotdash Meredith); now Managing Director, Research at AlphaSense. Author of 'Essentials of Foreign Exchange Trading' (Wiley, 2009) and 'Essentials of Technical Analysis for Financial Markets' (Wiley, 2010). Guest expert on CNBC, Bloomberg TV, Forbes, Reuters.",
+    "credentials": [
+      "CMT",
+      "CFTe",
+      "RIA",
+      "former CTA"
+    ],
+    "certifications": [
+      {
+        "name": "CMT",
+        "issuer": "CMT Association",
+        "claimed": true
+      },
+      {
+        "name": "CFTe",
+        "issuer": "IFTA",
+        "claimed": true
+      },
+      {
+        "name": "RIA",
+        "issuer": "SEC/state",
+        "claimed": true
+      }
+    ],
+    "education": [
+      {
+        "degree": "BA",
+        "school": "Tufts University",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 20,
+    "mediaSignals": {
+      "authoredBooks": [
+        "Essentials of Foreign Exchange Trading (Wiley, 2009)",
+        "Essentials of Technical Analysis for Financial Markets (Wiley, 2010)"
+      ],
+      "quotedInTier1": [
+        "CNBC",
+        "Bloomberg TV",
+        "Forbes",
+        "Reuters"
+      ],
+      "tvAppearances": [
+        "CNBC",
+        "Bloomberg TV"
+      ]
+    },
+    "linkedin": "https://www.linkedin.com/in/jameschencontent/",
+    "personalSite": null,
+    "authorUrl": null,
+    "eeatTier": "S",
+    "finalScore": 101
+  },
+  {
+    "id": "kenji-kawase",
+    "name": "Kenji Kawase",
+    "role": "Chief Business News Correspondent — Nikkei Asia",
+    "site": "nikkei_asia",
+    "outletName": "Nikkei Asia",
+    "bio": "Chief Business News Correspondent at Nikkei Asia, based in Hong Kong. ~30 years as one of the most experienced Japanese foreign correspondents in Asia — has covered most parts of the region. Editor of #techAsia, a newsletter on technology in Asia combining reporting from the Financial Times and Nikkei Asia. Bylines across Nikkei Asia, Financial Times, Nikkei, Caixin Global, DealStreetAsia, Yahoo Finance, Markets Insider, Internazionale, RealClear Markets.",
+    "credentials": [],
+    "certifications": [],
+    "education": [],
+    "yearsInIndustry": 30,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "FT"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": null,
+    "personalSite": null,
+    "authorUrl": "https://muckrack.com/kenji-kawase",
+    "eeatTier": "A",
+    "finalScore": 101
+  },
+  {
+    "id": "arielle-oshea",
+    "name": "Arielle O'Shea",
+    "role": "Head of Content — Investing & Taxes",
+    "site": "nerdwallet",
+    "outletName": "NerdWallet",
+    "bio": "Leads NerdWallet's investing and taxes team. 19+ yrs. 80+ articles, 32.3M readers. BA English (Shepherd University), based in Charlottesville VA. Previously researcher/reporter for Jean Chatzky. Appeared on Today show, NBC News, ABC World News Tonight; quoted by NYT, MarketWatch, Bloomberg.",
+    "credentials": [],
+    "certifications": [],
+    "education": [
+      {
+        "degree": "BA English",
+        "school": "Shepherd University",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 19,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "NYT",
+        "MarketWatch",
+        "Bloomberg"
+      ],
+      "tvAppearances": [
+        "Today Show",
+        "NBC News",
+        "ABC World News Tonight"
+      ]
+    },
+    "linkedin": "https://www.linkedin.com/in/arielleoshea/",
+    "personalSite": null,
+    "authorUrl": "https://www.nerdwallet.com/author/arielle-oshea",
+    "eeatTier": "A",
+    "finalScore": 100
+  },
+  {
+    "id": "daniel-sparks-fool",
+    "name": "Daniel Sparks",
+    "role": "Contributor — The Motley Fool (Owner/CIO, Sparks Capital Management)",
+    "site": "fool",
+    "outletName": "Motley Fool",
+    "bio": "Contributing Motley Fool stock-market analyst covering technology, industrials, financials and consumer goods. Owner and Chief Investment Officer of Sparks Capital Management. His work has appeared in CNN Business, Business Insider, MSN (US/CA/UK), USA Today, AOL, TIME and Medium.",
+    "credentials": [],
+    "certifications": [],
+    "education": [],
+    "yearsInIndustry": null,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [
+        "TIME",
+        "CNN Business",
+        "Business Insider",
+        "USA Today"
+      ],
+      "tvAppearances": []
+    },
+    "linkedin": "https://www.linkedin.com/in/danielssparks/",
+    "personalSite": null,
+    "authorUrl": "https://www.fool.com/author/2104/",
+    "eeatTier": "A",
+    "finalScore": 100
+  },
+  {
+    "id": "kate-leaman",
+    "name": "Kate Leaman",
+    "role": "Chief Market Analyst (AvaTrade) / Lead Stock Analyst (AskTraders)",
+    "site": "asktraders",
+    "outletName": "AskTraders",
+    "bio": "Chief Market Analyst at AvaTrade and Lead Stock Analyst at AskTraders. Won the Sky News journalism award and subsequently worked for Sky News, hosting multiple financial news shows. Ex-Head of Content at Investing.com, Director of Institutional Sales at BForex, Marketing Manager at UFX. Delivers in-depth analysis on market trends, Stocks, Forex, ETFs, Crypto, Indices and Commodities for leading global brokerage firms (AvaTrade, Exness, Dukascopy, Plus500, PrimeXBT, Huobi). Based in London.",
+    "credentials": [],
+    "certifications": [],
+    "education": [
+      {
+        "degree": "MA Broadcast Journalism (Finance specialisation)",
+        "school": "University of Westminster",
+        "year": null
+      },
+      {
+        "degree": "BA Diploma Broadcast Journalism",
+        "school": "University of Westminster",
+        "year": null
+      }
+    ],
+    "yearsInIndustry": 15,
+    "mediaSignals": {
+      "authoredBooks": [],
+      "quotedInTier1": [],
+      "tvAppearances": [
+        "Sky News"
+      ]
+    },
+    "linkedin": "https://www.linkedin.com/in/kate-leaman-08803612/",
+    "personalSite": null,
+    "authorUrl": "https://www.asktraders.com/our-contributors/kate-leaman/",
+    "eeatTier": "A",
+    "finalScore": 98
+  }
+]
