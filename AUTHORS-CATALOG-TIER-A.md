@@ -15,6 +15,7 @@ Personal Finance Editor at Yahoo Finance; oversees insurance and tax coverage an
 - LinkedIn: [https://www.linkedin.com/in/molly-moorhead/](https://www.linkedin.com/in/molly-moorhead/)
   - 500+ LinkedIn connections (followers not exposed)
 - Twitter/X: [https://x.com/mollymoorhead](https://x.com/mollymoorhead)
+  - **2,304 followers** on X (fetched 2026-04-16)
 - Muck Rack: [https://muckrack.com/mollymoorhead](https://muckrack.com/mollymoorhead)
 - Personal site: —
 - Author URL on outlet: [https://finance.yahoo.com/author/molly-moorhead/](https://finance.yahoo.com/author/molly-moorhead/)
@@ -63,6 +64,7 @@ Financial journalist with over 20 years of reporting experience. Host of 'Asking
 - LinkedIn: [https://www.linkedin.com/in/josh-lipton-9a513112a](https://www.linkedin.com/in/josh-lipton-9a513112a)
   - 500+ LinkedIn connections (followers not exposed)
 - Twitter/X: [https://x.com/joshuahlipton](https://x.com/joshuahlipton)
+  - **11,600 followers** on X (fetched 2026-04-16)
 - Muck Rack: [https://muckrack.com/joshuahlipton](https://muckrack.com/joshuahlipton)
 - Personal site: —
 - Author URL on outlet: [https://finance.yahoo.com/author/josh-lipton/](https://finance.yahoo.com/author/josh-lipton/)
@@ -627,6 +629,7 @@ Senior Reporter at Forbes Advisor covering personal finance, mortgages, consumer
 - Years in industry: **15**
 - LinkedIn: [https://www.linkedin.com/in/nataliecampisi/](https://www.linkedin.com/in/nataliecampisi/)
 - Twitter/X: [https://x.com/nataliemcampisi](https://x.com/nataliemcampisi)
+  - **1,210 followers** on X (fetched 2026-04-16)
 - Muck Rack: [https://muckrack.com/natalie-campisi](https://muckrack.com/natalie-campisi)
 - Personal site: —
 - Author URL on outlet: [https://muckrack.com/natalie-campisi](https://muckrack.com/natalie-campisi)
@@ -863,6 +866,7 @@ Strategist at DailyFX (IG Group's partner site for FX news and analysis). 9+ yea
 - LinkedIn: [https://sg.linkedin.com/in/margaretyangyan](https://sg.linkedin.com/in/margaretyangyan)
   - 500+ LinkedIn connections (followers not exposed)
 - Twitter/X: [https://twitter.com/margaretyjy](https://twitter.com/margaretyjy)
+  - **5,640 followers** on X (fetched 2026-04-16)
 - Muck Rack: [https://muckrack.com/margaret-yang](https://muckrack.com/margaret-yang)
 - Personal site: —
 - Author URL on outlet: [https://www.dailyfx.com/authors/Margaret_Yang](https://www.dailyfx.com/authors/Margaret_Yang)
@@ -1446,6 +1450,7 @@ CNBC's Senior Personal Finance Correspondent and creator/editor of the 'Money 10
 - LinkedIn: [https://www.linkedin.com/in/sharoneppersoncnbc](https://www.linkedin.com/in/sharoneppersoncnbc)
   - 500+ LinkedIn connections (followers not exposed)
 - Twitter/X: [https://x.com/sharon_epperson](https://x.com/sharon_epperson)
+  - **19,600 followers** on X (fetched 2026-04-16)
 - Muck Rack: [https://muckrack.com/sharon_epperson](https://muckrack.com/sharon_epperson)
 - Personal site: —
 - Author URL on outlet: [https://www.cnbc.com/sharon-epperson/](https://www.cnbc.com/sharon-epperson/)
@@ -1494,6 +1499,7 @@ Financial consultant and author at FX Empire since December 2016 with 28 years i
 - Years in industry: **28**
 - LinkedIn: [https://www.linkedin.com/in/bob-mason-6677192/](https://www.linkedin.com/in/bob-mason-6677192/)
 - Twitter/X: [https://x.com/BobMaso55362638](https://x.com/BobMaso55362638)
+  - **117 followers** on X (fetched 2026-04-16)
 - Muck Rack: [https://muckrack.com/bob-mason-2](https://muckrack.com/bob-mason-2)
 - Personal site: —
 - Author URL on outlet: [https://www.fxempire.com/author/bobmason](https://www.fxempire.com/author/bobmason)
@@ -2227,6 +2233,7 @@ Chief Asia-Pacific Currency Analyst at investingLive (formerly ForexLive). Spent
 - Years in industry: **25**
 - LinkedIn: —
 - Twitter/X: [https://twitter.com/FinMktTrader](https://twitter.com/FinMktTrader)
+  - **999 followers** on X (fetched 2026-04-16)
 - Muck Rack: [https://muckrack.com/eamonn-sheridan](https://muckrack.com/eamonn-sheridan)
 - Personal site: —
 - Author URL on outlet: [https://www.investinglive.com/author/eamonn-sheridan](https://www.investinglive.com/author/eamonn-sheridan)
@@ -2563,6 +2570,7 @@ Chief Market Analyst at IG Group since 2019, with IG since 2010 (15+ years). Bac
 - Years in industry: **15**
 - LinkedIn: [https://uk.linkedin.com/in/chris-beauchamp-3b353aa](https://uk.linkedin.com/in/chris-beauchamp-3b353aa)
 - Twitter/X: [https://x.com/ChrisB_IG](https://x.com/ChrisB_IG)
+  - **9,287 followers** on X (fetched 2026-04-16)
 - Muck Rack: —
 - Personal site: [https://www.ig.com/en/profile/chris-beauchamp](https://www.ig.com/en/profile/chris-beauchamp)
 - Author URL on outlet: [https://www.daytrading.com/contributors/chris-beauchamp](https://www.daytrading.com/contributors/chris-beauchamp)
@@ -2652,6 +2660,7 @@ Multi-award-winning financial journalist since 2000 with 25+ years of experience
 - LinkedIn: [https://www.linkedin.com/in/cherry-reynard-b8b59211/](https://www.linkedin.com/in/cherry-reynard-b8b59211/)
   - 500+ LinkedIn connections (followers not exposed)
 - Twitter/X: [https://x.com/creynard0654](https://x.com/creynard0654)
+  - **788 followers** on X (fetched 2026-04-16)
 - Muck Rack: [https://muckrack.com/cherry-reynard](https://muckrack.com/cherry-reynard)
 - Personal site: —
 - Author URL on outlet: —
@@ -3350,6 +3359,7 @@ Founder of Brokervergleich.de (2011) and Franke-Media.net (2005). BWL (Business 
 - Years in industry: **25**
 - LinkedIn: —
 - Twitter/X: [https://twitter.com/franke_media](https://twitter.com/franke_media)
+  - **26,000 followers** on X (fetched 2026-04-16)
 - Muck Rack: —
 - Personal site: [https://www.franke-media.net/](https://www.franke-media.net/)
 - Author URL on outlet: [https://www.brokervergleich.de/ueber-uns/daniel-franke/](https://www.brokervergleich.de/ueber-uns/daniel-franke/)

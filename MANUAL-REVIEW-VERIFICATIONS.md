@@ -41,34 +41,34 @@ Generated 2026-04-16 from S9 verification pass.
 | Brian Bollinger | 0/1 | 0 | 0 | — | — |
 | Beverly Harzog | 0/1 | 1 | 1 | 5,239 | — |
 | Dmitri Chavkerov | 0/0 | 0 | 0 | — | — |
-| Chris Beauchamp | 0/0 | 0 | 0 | — | — |
+| Chris Beauchamp | 0/0 | 0 | 0 | 9,287 | — |
 | Beth Pinsker | 1/1 | 1 | 1 | — | — |
 | Iain Davis | 0/0 | 3 | 0 | — | — |
 | Sean Williams | 0/0 | 0 | 0 | — | — |
 | Robyn A. Friedman | 0/0 | 0 | 0 | — | — |
-| Molly Moorhead | 0/2 | 0 | 0 | — | 500+ |
+| Molly Moorhead | 0/2 | 0 | 0 | 2,304 | 500+ |
 | Elaine King | 1/2 | 0 | 0 | — | 500+ |
 | Suzanne Woolley | 0/0 | 0 | 0 | — | 500+ |
 | James Royal | 0/0 | 2 | 0 | — | — |
 | Eva Szalay | 0/0 | 0 | 0 | — | — |
-| Andrew Thurman | 0/0 | 0 | 0 | — | — |
-| Matthew Levy | 1/1 | 0 | 0 | — | — |
+| Andrew Thurman | 0/0 | 0 | 0 | 27,400 | — |
+| Matthew Levy | 1/1 | 0 | 0 | 661 | — |
 | Drew Limsky | 0/0 | 0 | 0 | — | 500+ |
 | John Delia | 0/0 | 1 | 0 | — | — |
-| Charles Lewis Sizemore | 1/1 | 0 | 0 | — | 500+ |
-| Natalie Campisi | 0/0 | 0 | 0 | — | — |
+| Charles Lewis Sizemore | 1/1 | 0 | 0 | 8,109 | 500+ |
+| Natalie Campisi | 0/0 | 0 | 0 | 1,210 | — |
 | John Divine | 0/0 | 0 | 0 | — | — |
-| Margaret Yang Yan, CFA | 1/1 | 0 | 0 | — | 500+ |
+| Margaret Yang Yan, CFA | 1/1 | 0 | 0 | 5,640 | 500+ |
 | Kathy Lien | 0/0 | 0 | 0 | — | — |
-| Daniel Franke | 0/0 | 0 | 0 | — | — |
-| Sharon Epperson | 0/0 | 1 | 0 | — | 500+ |
+| Daniel Franke | 0/0 | 0 | 0 | 26,000 | — |
+| Sharon Epperson | 0/0 | 1 | 0 | 19,600 | 500+ |
 | Vitaliy Katsenelson, CFA | 0/1 | 2 | 0 | — | — |
-| Eamonn Sheridan | 0/0 | 0 | 0 | — | — |
+| Eamonn Sheridan | 0/0 | 0 | 0 | 999 | — |
 | Kate Leaman | 0/0 | 0 | 0 | — | 500+ |
-| Kerry Hannon | 0/0 | 1 | 0 | — | — |
+| Kerry Hannon | 0/0 | 1 | 0 | 12,600 | — |
 | Adam Levine-Weinberg, CFA | 0/1 | 0 | 0 | — | 140 |
 | Michael Kim | 0/0 | 0 | 0 | — | — |
-| Bob Mason | 0/0 | 0 | 0 | — | — |
+| Bob Mason | 0/0 | 0 | 0 | 117 | — |
 | Tim Worstall | 0/0 | 0 | 0 | — | — |
 | Adam Hardy | 0/2 | 0 | 0 | — | 500+ |
 | Jesse Hamilton | 0/0 | 0 | 0 | — | — |
@@ -77,13 +77,13 @@ Generated 2026-04-16 from S9 verification pass.
 | Kimberly Palmer | 0/0 | 3 | 0 | — | — |
 | Dan Caplinger | 0/1 | 0 | 0 | — | — |
 | Riley Adams | 0/1 | 0 | 0 | — | — |
-| Cherry Reynard | 0/0 | 0 | 0 | — | 500+ |
-| Dan Blystone | 0/1 | 0 | 0 | — | — |
+| Cherry Reynard | 0/0 | 0 | 0 | 788 | 500+ |
+| Dan Blystone | 0/1 | 0 | 0 | 891 | — |
 | Kenji Kawase | 0/0 | 0 | 0 | — | — |
-| Jennifer Streaks | 0/0 | 0 | 0 | — | 500+ |
-| Jessica Inskip | 4/4 | 0 | 0 | — | — |
+| Jennifer Streaks | 0/0 | 0 | 0 | 3,898 | 500+ |
+| Jessica Inskip | 4/4 | 0 | 0 | 13,900 | — |
 | JeFreda R. Brown | 1/1 | 0 | 0 | — | — |
-| Josh Lipton | 0/0 | 0 | 0 | — | 500+ |
+| Josh Lipton | 0/0 | 0 | 0 | 11,600 | 500+ |
 | Marc Chandler | 0/1 | 0 | 0 | — | — |
 | Ariana Arghandewal | 0/0 | 0 | 0 | — | — |
 | Daniel Phillips | 0/0 | 0 | 0 | — | — |

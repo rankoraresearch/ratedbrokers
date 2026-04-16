@@ -15144,7 +15144,10 @@ export const AUTHORS = [
       "tvAppearances": [],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 1251,
+      "twitterFollowing": 482,
+      "twitterFetchedAt": "2026-04-16T11:11:18.361Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -15434,7 +15437,10 @@ export const AUTHORS = [
       "tvAppearances": [],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 41,
+      "twitterFollowing": 179,
+      "twitterFetchedAt": "2026-04-16T11:11:56.444Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -15518,7 +15524,10 @@ export const AUTHORS = [
       "tvAppearances": [],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 57700,
+      "twitterFollowing": 152,
+      "twitterFetchedAt": "2026-04-16T11:12:12.962Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -15706,7 +15715,10 @@ export const AUTHORS = [
       "tvAppearances": [],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 1290,
+      "twitterFollowing": 5,
+      "twitterFetchedAt": "2026-04-16T11:12:30.613Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -16108,7 +16120,10 @@ export const AUTHORS = [
       "authoredBooks": [],
       "muckrackArticleCount": 25,
       "hasKnowledgePanel": null,
-      "linkedinConnections": "500+"
+      "linkedinConnections": "500+",
+      "twitterFollowers": 6789,
+      "twitterFollowing": 8080,
+      "twitterFetchedAt": "2026-04-16T11:13:02.001Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -16167,7 +16182,10 @@ export const AUTHORS = [
       "tvAppearances": [],
       "authoredBooks": [],
       "muckrackArticleCount": 3,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 11300,
+      "twitterFollowing": 162,
+      "twitterFetchedAt": "2026-04-16T11:13:17.693Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -16226,7 +16244,10 @@ export const AUTHORS = [
       ],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 9287,
+      "twitterFollowing": 2281,
+      "twitterFetchedAt": "2026-04-16T11:13:31.463Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -16339,7 +16360,10 @@ export const AUTHORS = [
       "tvAppearances": [],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 8,
+      "twitterFollowing": 48,
+      "twitterFetchedAt": "2026-04-16T11:13:50.060Z"
     },
     "trustSignals": {
       "ownedDomain": true,
@@ -16782,7 +16806,10 @@ export const AUTHORS = [
       "tvAppearances": [],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 4694,
+      "twitterFollowing": 1194,
+      "twitterFetchedAt": "2026-04-16T11:14:11.290Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -16834,7 +16861,10 @@ export const AUTHORS = [
       "tvAppearances": [],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 5862,
+      "twitterFollowing": 188,
+      "twitterFetchedAt": "2026-04-16T11:14:25.066Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -17170,7 +17200,10 @@ export const AUTHORS = [
       "authoredBooks": [],
       "muckrackArticleCount": null,
       "hasKnowledgePanel": null,
-      "linkedinConnections": "500+"
+      "linkedinConnections": "500+",
+      "twitterFollowers": 2304,
+      "twitterFollowing": 2905,
+      "twitterFetchedAt": "2026-04-16T11:14:42.270Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -17877,7 +17910,10 @@ export const AUTHORS = [
       "authoredBooks": [],
       "muckrackArticleCount": null,
       "hasKnowledgePanel": null,
-      "linkedinConnections": "303"
+      "linkedinConnections": "303",
+      "twitterFollowers": 1587,
+      "twitterFollowing": 432,
+      "twitterFetchedAt": "2026-04-16T11:15:02.789Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -18744,7 +18780,10 @@ export const AUTHORS = [
       "authoredBooks": [],
       "muckrackArticleCount": null,
       "hasKnowledgePanel": null,
-      "articleCount": 213
+      "articleCount": 213,
+      "twitterFollowers": 1759,
+      "twitterFollowing": 1753,
+      "twitterFetchedAt": "2026-04-16T11:15:17.735Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -18839,7 +18878,10 @@ export const AUTHORS = [
       "awards": [
         "RTDNA/NEFE Excellence in Personal Finance Reporting Award (Digital), 2018"
       ],
-      "linkedinConnections": "500+"
+      "linkedinConnections": "500+",
+      "twitterFollowers": 2372,
+      "twitterFollowing": 790,
+      "twitterFetchedAt": "2026-04-16T11:15:31.960Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -18945,7 +18987,10 @@ export const AUTHORS = [
       "tvAppearances": [],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 2553,
+      "twitterFollowing": 214,
+      "twitterFetchedAt": "2026-04-16T11:15:48.830Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -19129,7 +19174,10 @@ export const AUTHORS = [
       "tvAppearances": [],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 12000,
+      "twitterFollowing": 3712,
+      "twitterFetchedAt": "2026-04-16T11:16:01.780Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -19726,7 +19774,10 @@ export const AUTHORS = [
       "tvAppearances": [],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 27400,
+      "twitterFollowing": 3532,
+      "twitterFetchedAt": "2026-04-16T11:16:37.589Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -19815,7 +19866,10 @@ export const AUTHORS = [
       "tvAppearances": [],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 661,
+      "twitterFollowing": 426,
+      "twitterFetchedAt": "2026-04-16T11:16:52.284Z"
     },
     "trustSignals": {
       "ownedDomain": "matthewlevycfa.com",
@@ -20273,7 +20327,10 @@ export const AUTHORS = [
       "awards": [
         "George Polk Award (FTX investigation)",
         "Gerald Loeb Award (FTX investigation)"
-      ]
+      ],
+      "twitterFollowers": 17200,
+      "twitterFollowing": 1364,
+      "twitterFetchedAt": "2026-04-16T11:17:09.279Z"
     },
     "trustSignals": {
       "ownedDomain": "ianallison.org",
@@ -20464,7 +20521,10 @@ export const AUTHORS = [
       "authoredBooks": [],
       "muckrackArticleCount": null,
       "hasKnowledgePanel": null,
-      "linkedinConnections": "500+"
+      "linkedinConnections": "500+",
+      "twitterFollowers": 8109,
+      "twitterFollowing": 1961,
+      "twitterFetchedAt": "2026-04-16T11:17:26.726Z"
     },
     "trustSignals": {
       "ownedDomain": "charlessizemore.com",
@@ -20528,7 +20588,10 @@ export const AUTHORS = [
         "CBS MarketWatch Story Behind the Numbers: How America Made a Killing and Lost its Shirt (Alpha, 2002)"
       ],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 2370,
+      "twitterFollowing": 1387,
+      "twitterFetchedAt": "2026-04-16T11:17:40.358Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -20594,7 +20657,10 @@ export const AUTHORS = [
       "authoredBooks": [],
       "muckrackArticleCount": null,
       "hasKnowledgePanel": null,
-      "linkedinConnections": "500+"
+      "linkedinConnections": "500+",
+      "twitterFollowers": 457,
+      "twitterFollowing": 415,
+      "twitterFetchedAt": "2026-04-16T11:18:00.225Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -20930,7 +20996,10 @@ export const AUTHORS = [
       "tvAppearances": [],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 1210,
+      "twitterFollowing": 1267,
+      "twitterFetchedAt": "2026-04-16T11:18:18.725Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -21089,7 +21158,10 @@ export const AUTHORS = [
       "tvAppearances": [],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 3947,
+      "twitterFollowing": 4889,
+      "twitterFetchedAt": "2026-04-16T11:18:33.831Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -21530,7 +21602,10 @@ export const AUTHORS = [
       "tvAppearances": [],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 302,
+      "twitterFollowing": 3,
+      "twitterFetchedAt": "2026-04-16T11:18:49.263Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -21624,7 +21699,10 @@ export const AUTHORS = [
       "authoredBooks": [],
       "muckrackArticleCount": null,
       "hasKnowledgePanel": null,
-      "linkedinConnections": "500+"
+      "linkedinConnections": "500+",
+      "twitterFollowers": 5640,
+      "twitterFollowing": 196,
+      "twitterFetchedAt": "2026-04-16T11:19:09.101Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -21921,7 +21999,10 @@ export const AUTHORS = [
       "tvAppearances": [],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 26000,
+      "twitterFollowing": 9475,
+      "twitterFetchedAt": "2026-04-16T11:19:22.941Z"
     },
     "trustSignals": {
       "ownedDomain": "brokervergleich.de, franke-media.net",
@@ -22129,7 +22210,10 @@ export const AUTHORS = [
       "tvAppearances": [],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 10700,
+      "twitterFollowing": 6630,
+      "twitterFetchedAt": "2026-04-16T11:19:41.977Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -22202,7 +22286,10 @@ export const AUTHORS = [
       "authoredBooks": [],
       "muckrackArticleCount": null,
       "hasKnowledgePanel": null,
-      "linkedinConnections": "500+"
+      "linkedinConnections": "500+",
+      "twitterFollowers": 5487,
+      "twitterFollowing": 1247,
+      "twitterFetchedAt": "2026-04-16T11:20:03.384Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -22356,7 +22443,10 @@ export const AUTHORS = [
       "linkedinConnections": "500+",
       "bookISBNs": [
         "9780060744885"
-      ]
+      ],
+      "twitterFollowers": 19600,
+      "twitterFollowing": 2432,
+      "twitterFetchedAt": "2026-04-16T11:20:21.637Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -22425,7 +22515,10 @@ export const AUTHORS = [
       "authoredBooks": [],
       "muckrackArticleCount": null,
       "hasKnowledgePanel": null,
-      "linkedinConnections": "379"
+      "linkedinConnections": "379",
+      "twitterFollowers": 9665,
+      "twitterFollowing": 2752,
+      "twitterFetchedAt": "2026-04-16T11:20:37.051Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -22491,7 +22584,10 @@ export const AUTHORS = [
       "tvAppearances": [],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 16400,
+      "twitterFollowing": 1371,
+      "twitterFetchedAt": "2026-04-16T11:20:56.911Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -22814,7 +22910,10 @@ export const AUTHORS = [
       ],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 3470,
+      "twitterFollowing": 1775,
+      "twitterFetchedAt": "2026-04-16T11:21:37.435Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -22994,7 +23093,10 @@ export const AUTHORS = [
       "tvAppearances": [],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 88100,
+      "twitterFollowing": 198,
+      "twitterFetchedAt": "2026-04-16T11:21:57.446Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -23354,7 +23456,10 @@ export const AUTHORS = [
         }
       ],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 63,
+      "twitterFollowing": 85,
+      "twitterFetchedAt": "2026-04-16T11:22:16.511Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -23566,7 +23671,10 @@ export const AUTHORS = [
       "tvAppearances": [],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 999,
+      "twitterFollowing": 673,
+      "twitterFetchedAt": "2026-04-16T11:22:37.798Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -23738,7 +23846,10 @@ export const AUTHORS = [
       "authoredBooks": [],
       "muckrackArticleCount": null,
       "hasKnowledgePanel": null,
-      "linkedinConnections": "424"
+      "linkedinConnections": "424",
+      "twitterFollowers": 560,
+      "twitterFollowing": 624,
+      "twitterFetchedAt": "2026-04-16T11:22:56.124Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -23801,7 +23912,10 @@ export const AUTHORS = [
       "tvAppearances": [],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 2061,
+      "twitterFollowing": 2736,
+      "twitterFetchedAt": "2026-04-16T11:23:11.007Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -23977,7 +24091,10 @@ export const AUTHORS = [
           "outlet": "Yahoo Finance",
           "sampleUrl": "https://finance.yahoo.com/author/kerry-hannon/"
         }
-      ]
+      ],
+      "twitterFollowers": 12600,
+      "twitterFollowing": 10600,
+      "twitterFetchedAt": "2026-04-16T11:23:27.409Z"
     },
     "trustSignals": {
       "ownedDomain": "kerryhannon.com",
@@ -24496,7 +24613,10 @@ export const AUTHORS = [
       "tvAppearances": [],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 117,
+      "twitterFollowing": 169,
+      "twitterFetchedAt": "2026-04-16T11:23:41.716Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -24895,7 +25015,10 @@ export const AUTHORS = [
       "tvAppearances": [],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 128,
+      "twitterFollowing": 0,
+      "twitterFetchedAt": "2026-04-16T11:23:56.290Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -24954,7 +25077,10 @@ export const AUTHORS = [
       ],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 1181,
+      "twitterFollowing": 2313,
+      "twitterFetchedAt": "2026-04-16T11:24:09.596Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -25390,7 +25516,10 @@ export const AUTHORS = [
       "tvAppearances": [],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 31900,
+      "twitterFollowing": 444,
+      "twitterFetchedAt": "2026-04-16T11:24:28.299Z"
     },
     "trustSignals": {
       "ownedDomain": "modestmoney.com",
@@ -25465,7 +25594,10 @@ export const AUTHORS = [
         }
       ],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 5479,
+      "twitterFollowing": 2100,
+      "twitterFetchedAt": "2026-04-16T11:24:45.208Z"
     },
     "trustSignals": {
       "ownedDomain": "stephaniesteinberg.com",
@@ -25719,7 +25851,10 @@ export const AUTHORS = [
       ],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 12100,
+      "twitterFollowing": 72,
+      "twitterFetchedAt": "2026-04-16T11:25:04.743Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -25844,7 +25979,10 @@ export const AUTHORS = [
       "tvAppearances": [],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 15900,
+      "twitterFollowing": 2404,
+      "twitterFetchedAt": "2026-04-16T11:25:18.745Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -25913,7 +26051,10 @@ export const AUTHORS = [
       "tvAppearances": [],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 1228,
+      "twitterFollowing": 415,
+      "twitterFetchedAt": "2026-04-16T11:25:33.729Z"
     },
     "trustSignals": {
       "ownedDomain": "peterdavidconley.com",
@@ -26372,7 +26513,10 @@ export const AUTHORS = [
       "tvAppearances": [],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 28,
+      "twitterFollowing": 94,
+      "twitterFetchedAt": "2026-04-16T11:26:09.038Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -26581,7 +26725,10 @@ export const AUTHORS = [
       "tvAppearances": [],
       "authoredBooks": [],
       "muckrackArticleCount": 29,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 60,
+      "twitterFollowing": 647,
+      "twitterFetchedAt": "2026-04-16T11:26:23.963Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -26646,7 +26793,10 @@ export const AUTHORS = [
       "tvAppearances": [],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 3091,
+      "twitterFollowing": 2659,
+      "twitterFetchedAt": "2026-04-16T11:26:44.580Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -26776,7 +26926,10 @@ export const AUTHORS = [
       "awards": [
         "2023 Gerald Loeb Award — Beat Reporting (FTX collapse coverage)"
       ],
-      "linkedinConnections": "500+"
+      "linkedinConnections": "500+",
+      "twitterFollowers": 7473,
+      "twitterFollowing": 1316,
+      "twitterFetchedAt": "2026-04-16T11:27:02.843Z"
     },
     "trustSignals": {
       "ownedDomain": "sam-kessler.com",
@@ -27219,7 +27372,10 @@ export const AUTHORS = [
       "tvAppearances": [],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 563,
+      "twitterFollowing": 1193,
+      "twitterFetchedAt": "2026-04-16T11:27:21.516Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -27465,7 +27621,10 @@ export const AUTHORS = [
       "tvAppearances": [],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 1280,
+      "twitterFollowing": 1256,
+      "twitterFetchedAt": "2026-04-16T11:27:35.319Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -27601,7 +27760,10 @@ export const AUTHORS = [
       "hasKnowledgePanel": null,
       "awards": [
         "World Economic Forum participant"
-      ]
+      ],
+      "twitterFollowers": 561,
+      "twitterFollowing": 98,
+      "twitterFetchedAt": "2026-04-16T11:27:55.005Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -27653,7 +27815,10 @@ export const AUTHORS = [
       "authoredBooks": [],
       "muckrackArticleCount": null,
       "hasKnowledgePanel": null,
-      "linkedinConnections": "500+"
+      "linkedinConnections": "500+",
+      "twitterFollowers": 535,
+      "twitterFollowing": 631,
+      "twitterFetchedAt": "2026-04-16T11:28:15.264Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -27779,7 +27944,10 @@ export const AUTHORS = [
       "authoredBooks": [],
       "muckrackArticleCount": 1515,
       "hasKnowledgePanel": null,
-      "linkedinConnections": "500+"
+      "linkedinConnections": "500+",
+      "twitterFollowers": 6753,
+      "twitterFollowing": 1508,
+      "twitterFetchedAt": "2026-04-16T11:28:33.551Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -27836,7 +28004,10 @@ export const AUTHORS = [
       "tvAppearances": [],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 3167,
+      "twitterFollowing": 1857,
+      "twitterFetchedAt": "2026-04-16T11:28:51.797Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -28136,7 +28307,10 @@ export const AUTHORS = [
       "authoredBooks": [],
       "muckrackArticleCount": null,
       "hasKnowledgePanel": null,
-      "linkedinConnections": "500+"
+      "linkedinConnections": "500+",
+      "twitterFollowers": 13300,
+      "twitterFollowing": 2013,
+      "twitterFetchedAt": "2026-04-16T11:29:06.674Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -28323,7 +28497,10 @@ export const AUTHORS = [
       "tvAppearances": [],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 174,
+      "twitterFollowing": 57,
+      "twitterFetchedAt": "2026-04-16T11:29:23.372Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -28987,7 +29164,10 @@ export const AUTHORS = [
       "tvAppearances": [],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 1170,
+      "twitterFollowing": 623,
+      "twitterFetchedAt": "2026-04-16T11:29:54.621Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -29175,7 +29355,10 @@ export const AUTHORS = [
       "tvAppearances": [],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 1439,
+      "twitterFollowing": 325,
+      "twitterFetchedAt": "2026-04-16T11:30:12.936Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -29235,7 +29418,10 @@ export const AUTHORS = [
       ],
       "muckrackArticleCount": null,
       "hasKnowledgePanel": null,
-      "linkedinConnections": "500+"
+      "linkedinConnections": "500+",
+      "twitterFollowers": 788,
+      "twitterFollowing": 128,
+      "twitterFetchedAt": "2026-04-16T11:30:27.342Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -29377,7 +29563,10 @@ export const AUTHORS = [
       "tvAppearances": [],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 891,
+      "twitterFollowing": 438,
+      "twitterFetchedAt": "2026-04-16T11:30:44.482Z"
     },
     "trustSignals": {
       "ownedDomain": true,
@@ -29447,7 +29636,10 @@ export const AUTHORS = [
         "DM for Murder"
       ],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 2346,
+      "twitterFollowing": 2239,
+      "twitterFetchedAt": "2026-04-16T11:31:06.267Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -29669,7 +29861,10 @@ export const AUTHORS = [
       "authoredBooks": [],
       "muckrackArticleCount": null,
       "hasKnowledgePanel": null,
-      "linkedinConnections": "500+"
+      "linkedinConnections": "500+",
+      "twitterFollowers": 3898,
+      "twitterFollowing": 1984,
+      "twitterFetchedAt": "2026-04-16T11:31:21.769Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -29793,7 +29988,10 @@ export const AUTHORS = [
       "hasKnowledgePanel": null,
       "podcasts": [
         "Market MakeHer"
-      ]
+      ],
+      "twitterFollowers": 13900,
+      "twitterFollowing": 468,
+      "twitterFetchedAt": "2026-04-16T11:31:42.040Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -30332,7 +30530,10 @@ export const AUTHORS = [
       "tvAppearances": [],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 2065,
+      "twitterFollowing": 290,
+      "twitterFetchedAt": "2026-04-16T11:32:11.878Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -30466,7 +30667,10 @@ export const AUTHORS = [
       "tvAppearances": [],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 2250,
+      "twitterFollowing": 2485,
+      "twitterFetchedAt": "2026-04-16T11:32:31.528Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -30536,7 +30740,10 @@ export const AUTHORS = [
       "awards": [
         "Emmy (breaking news — CBS local)"
       ],
-      "linkedinConnections": "500+"
+      "linkedinConnections": "500+",
+      "twitterFollowers": 2370,
+      "twitterFollowing": 0,
+      "twitterFetchedAt": "2026-04-16T11:32:53.222Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -30602,7 +30809,10 @@ export const AUTHORS = [
       "tvAppearances": [],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 185,
+      "twitterFollowing": 545,
+      "twitterFetchedAt": "2026-04-16T11:33:06.458Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -30667,7 +30877,10 @@ export const AUTHORS = [
       "hasKnowledgePanel": null,
       "awards": [
         "Smeil Award 2013"
-      ]
+      ],
+      "twitterFollowers": 807,
+      "twitterFollowing": 624,
+      "twitterFetchedAt": "2026-04-16T11:33:25.020Z"
     },
     "trustSignals": {
       "ownedDomain": "broker-test.at",
@@ -30753,7 +30966,10 @@ export const AUTHORS = [
       "hasKnowledgePanel": null,
       "socialFollowers": {
         "twitter": 40000
-      }
+      },
+      "twitterFollowers": 40000,
+      "twitterFollowing": 644,
+      "twitterFetchedAt": "2026-04-16T11:33:42.788Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -31007,7 +31223,10 @@ export const AUTHORS = [
       "hasKnowledgePanel": null,
       "socialFollowers": {
         "twitter": 6232
-      }
+      },
+      "twitterFollowers": 6205,
+      "twitterFollowing": 1314,
+      "twitterFetchedAt": "2026-04-16T11:33:56.804Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -31153,7 +31372,10 @@ export const AUTHORS = [
       "hasKnowledgePanel": null,
       "socialFollowers": {
         "twitter": 7760
-      }
+      },
+      "twitterFollowers": 7714,
+      "twitterFollowing": 244,
+      "twitterFetchedAt": "2026-04-16T11:34:12.704Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -31204,7 +31426,10 @@ export const AUTHORS = [
       "tvAppearances": [],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 300,
+      "twitterFollowing": 175,
+      "twitterFetchedAt": "2026-04-16T11:34:31.104Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -31286,7 +31511,10 @@ export const AUTHORS = [
       "authoredBooks": [],
       "muckrackArticleCount": null,
       "hasKnowledgePanel": null,
-      "linkedinConnections": "500+"
+      "linkedinConnections": "500+",
+      "twitterFollowers": 11600,
+      "twitterFollowing": 988,
+      "twitterFetchedAt": "2026-04-16T11:34:45.094Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -31358,7 +31586,10 @@ export const AUTHORS = [
         "One Nation Under Blackmail — Vol. 2 (Trine Day)"
       ],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 689300,
+      "twitterFollowing": 950,
+      "twitterFetchedAt": "2026-04-16T11:35:01.999Z"
     },
     "trustSignals": {
       "ownedDomain": "unlimitedhangout.com",
@@ -31422,7 +31653,10 @@ export const AUTHORS = [
       "awards": [
         "European Search Awards 2022 — Best SEO Campaign (Large)"
       ],
-      "linkedinConnections": "500+"
+      "linkedinConnections": "500+",
+      "twitterFollowers": 569,
+      "twitterFollowing": 380,
+      "twitterFetchedAt": "2026-04-16T11:35:17.748Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -31671,7 +31905,10 @@ export const AUTHORS = [
       "authoredBooks": [],
       "muckrackArticleCount": 2248,
       "hasKnowledgePanel": null,
-      "linkedinConnections": "500+"
+      "linkedinConnections": "500+",
+      "twitterFollowers": 348,
+      "twitterFollowing": 340,
+      "twitterFetchedAt": "2026-04-16T11:35:35.556Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -31872,7 +32109,10 @@ export const AUTHORS = [
       "tvAppearances": [],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 2795,
+      "twitterFollowing": 1075,
+      "twitterFetchedAt": "2026-04-16T11:35:52.875Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -31994,7 +32234,10 @@ export const AUTHORS = [
       "tvAppearances": [],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 34,
+      "twitterFollowing": 120,
+      "twitterFetchedAt": "2026-04-16T11:36:07.824Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -32231,7 +32474,10 @@ export const AUTHORS = [
         "Ernst Schneider Prize",
         "Georg von Holtzbrinck Prize for Business Publishing (team)",
         "Middle East Fellowship"
-      ]
+      ],
+      "twitterFollowers": 704,
+      "twitterFollowing": 844,
+      "twitterFetchedAt": "2026-04-16T11:36:23.232Z"
     },
     "trustSignals": {
       "ownedDomain": null,
@@ -32593,7 +32839,10 @@ export const AUTHORS = [
       "tvAppearances": [],
       "authoredBooks": [],
       "muckrackArticleCount": null,
-      "hasKnowledgePanel": null
+      "hasKnowledgePanel": null,
+      "twitterFollowers": 1285,
+      "twitterFollowing": 779,
+      "twitterFetchedAt": "2026-04-16T11:36:43.837Z"
     },
     "trustSignals": {
       "ownedDomain": null,

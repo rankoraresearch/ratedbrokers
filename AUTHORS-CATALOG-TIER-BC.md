@@ -8,25 +8,25 @@ Bulk tier — condensed table for screening. ⚠ = still flagged for manual revi
 |---|---|---|---|---|---|---|---|---|---|---|
 | 1 | Molly Jane Zuckerman | CoinMarketCap | T1 | B | 122 | — | Content Manager / Writer (former CoinMar | — | 6 | [in](https://ru.linkedin.com/in/molly-jane-zuckerman-6b824a72) [x](https://twitter.com/MollyJZuckerman) [mr](https://muckrack.com/mollyjzuckerman) |
 | 2 | Greg Bartalos | Barron's | T2 | B | 120 | 500+c | Editor-in-Chief, Barron's Wealth & Asset | — | — | [in](https://www.linkedin.com/in/gregbartalos/) [mr](https://muckrack.com/greg-bartalos) |
-| 3 | Greg Michalowski | ForexLive | T2 | B | 119 | — | Director of Technical Analysis & Client  | — | 30 | [in](https://www.linkedin.com/in/greg-michalowski-5201ba9) [x](https://twitter.com/gregmikeFX) [mr](https://muckrack.com/greg-michalowski) |
+| 3 | Greg Michalowski | ForexLive | T2 | B | 119 | 40K | Director of Technical Analysis & Client  | — | 30 | [in](https://www.linkedin.com/in/greg-michalowski-5201ba9) [x](https://twitter.com/gregmikeFX) [mr](https://muckrack.com/greg-michalowski) |
 | 4 | Ana Paula Pereira | Cointelegraph | T2 | B | 118 | 751 | Staff Editor & Senior Writer | — | 15 | [in](https://www.linkedin.com/in/anapaulapereira-/) [x](https://twitter.com/apaulapr) |
 | 5 | Omkar Godbole | CoinDesk | T2 | B | 117 | 15K | Co-Managing Editor, Markets | CMT (Chartered Market  | — | [in](https://in.linkedin.com/in/omkargodbole17) [x](https://twitter.com/godbole17) [mr](https://muckrack.com/omkar-godbole) |
-| 6 | Andy Sharp | Nikkei Asia | T2 | B | 117 | — | Opinion Editor — Nikkei Asia | — | 15 | [in](https://www.linkedin.com/in/andrew-sharp-96361bb/) [x](https://x.com/sharp_writing) [mr](https://muckrack.com/andysharp) |
+| 6 | Andy Sharp | Nikkei Asia | T2 | B | 117 | 12K | Opinion Editor — Nikkei Asia | — | 15 | [in](https://www.linkedin.com/in/andrew-sharp-96361bb/) [x](https://x.com/sharp_writing) [mr](https://muckrack.com/andysharp) |
 | 7 | Rachel Rickard Straus | This is Money | T2 | B | 116 | 3.7K | Money Editor — Daily Mail & Mail on Sund | — | — | [in](https://uk.linkedin.com/in/rachel-rickard-straus-02732153) [x](https://twitter.com/rachel_spike) [mr](https://muckrack.com/rachel-rickard-straus) |
 | 8 | Daniel Howley | Yahoo Finance | T1 | B | 116 | 500+c | Tech Editor — Yahoo Finance | — | 15 | [in](https://www.linkedin.com/in/daniel-howley-0b117712) [x](https://x.com/DanielHowley) [mr](https://muckrack.com/danielhowley) |
 | 9 | Kate Dore, CFP, EA | CNBC | T1 | B | 116 | — | Personal Finance Reporter | CFP (Certified Financi | — | [in](https://www.linkedin.com/in/katedore) [x](https://x.com/katedore) [mr](https://muckrack.com/kate-dore) |
 | 10 | Stephen Graves | Decrypt | T2 | B | 115 | 2.4K | Special Projects Editor — Decrypt | — | — | [in](https://uk.linkedin.com/in/stephengraves1) [x](https://twitter.com/stephengraves) [mr](https://muckrack.com/stephengraves) |
-| 11 | Will Canny | CoinDesk | T2 | B | 115 | — | Senior Reporter — Markets/Finance, CoinD | — | 15 | [in](https://www.linkedin.com/in/will-canny-b787587/) [x](https://x.com/willcanny99) [mr](https://muckrack.com/william-canny) |
+| 11 | Will Canny | CoinDesk | T2 | B | 115 | 1.4K | Senior Reporter — Markets/Finance, CoinD | — | 15 | [in](https://www.linkedin.com/in/will-canny-b787587/) [x](https://x.com/willcanny99) [mr](https://muckrack.com/william-canny) |
 | 12 | Camille Bas-Wohlert | Barron's | T2 | B | 115 | 500+c | Reporter (AFP) — contributor syndicated  | — | — | [in](https://www.linkedin.com/in/cbaswohlert/) [x](https://x.com/baswohlert) [mr](https://muckrack.com/camille-bas-wohlert) |
-| 13 | Danny Nelson | CoinDesk | T2 | B | 114 | 379c | Managing Editor (Data & Tokens) — CoinDe | — | — | [in](https://www.linkedin.com/in/daniel-nelson/) [x](https://x.com/realdannynelson) [mr](https://muckrack.com/emdash) |
+| 13 | Danny Nelson | CoinDesk | T2 | B | 114 | 9.7K | Managing Editor (Data & Tokens) — CoinDe | — | — | [in](https://www.linkedin.com/in/daniel-nelson/) [x](https://x.com/realdannynelson) [mr](https://muckrack.com/emdash) |
 | 14 | Aoyon Ashraf | CoinDesk | T2 | B | 114 | — | Global Head of News — CoinDesk | — | 10 | [in](https://www.linkedin.com/in/aoyon-ashraf-54857319/) [mr](https://muckrack.com/aoyon_a) |
 | 15 | Lee Boyce | This is Money | T2 | B | 114 | — | Editor, This is Money / Mail Online Mone | — | 15 | [in](https://www.linkedin.com/in/lee-boyce-0037175a/) [x](https://x.com/lee_boyce) [mr](https://muckrack.com/lee-boyce) |
 | 16 | Adrian Lowery | This is Money | T2 | B | 113 | — | Deputy Editor — This is Money (columnist | — | 20 | [in](https://www.linkedin.com/in/adrian-lowery-1107a713/) [mr](https://muckrack.com/adrian-lowery) |
-| 17 | Aditi Shrikant | MarketWatch | T1 | B | 113 | — | Advice Columnist & Personal Finance Repo | — | — | [in](https://www.linkedin.com/in/aditi-shrikant-980418ab/) [x](https://x.com/Aditi_Shrikant) [mr](https://muckrack.com/aditi-shrikant) |
+| 17 | Aditi Shrikant | MarketWatch | T1 | B | 113 | 1.3K | Advice Columnist & Personal Finance Repo | — | — | [in](https://www.linkedin.com/in/aditi-shrikant-980418ab/) [x](https://x.com/Aditi_Shrikant) [mr](https://muckrack.com/aditi-shrikant) |
 | 18 | Paul Kim | Business Insider | T1 | B | 113 | 500+c | Personal Finance Reporter / Editor — Bus | — | — | [in](https://www.linkedin.com/in/paulkimjournalist/) [x](https://x.com/PaulKimWrites) [mr](https://muckrack.com/paulkimwrites) |
 | 19 | Matt Haldane | South China Morning Post | T1 | B | 112 | — | Web3/Tech Editor (former SCMP) — now APA | — | 10 | [in](https://www.linkedin.com/in/matthaldane/) [mr](https://muckrack.com/matt-haldane) |
 | 20 | Jonathan Burton | MarketWatch | T1 | B | 112 | 8.2K | Money & Investing Editor / Columnist | — | 25 | [in](https://www.linkedin.com/in/jonathan-burton-3839037/) [x](https://x.com/MKTWBurton) [mr](https://muckrack.com/mktwburton) |
-| 21 | David Levy | CompareForexBrokers | T3 | B | 112 | — | Head of Content (Content Manager, Editor | Salesforce certificati | 7 | [in](https://www.linkedin.com/in/david-levy1/) [x](https://x.com/DavidLLive) |
+| 21 | David Levy | CompareForexBrokers | T3 | B | 112 | 28 | Head of Content (Content Manager, Editor | Salesforce certificati | 7 | [in](https://www.linkedin.com/in/david-levy1/) [x](https://x.com/DavidLLive) |
 | 22 | Moritz Koch | Handelsblatt | T2 | B | 112 | 500+c | Politik Ressortleiter (Politics Editor)  | — | 20 | [in](https://be.linkedin.com/in/moritz-koch-420b0a114) [x](https://x.com/moritzkoch78) [mr](https://muckrack.com/moritz-koch) |
 | 23 | Clint Proctor | Forbes | T1 | B | 111 | 1.3K | Former Lead Editor Credit Cards & Travel | — | — | [in](https://www.linkedin.com/in/clint-proctor-159b29167/) [x](https://x.com/clint_proctor_) [mr](https://muckrack.com/clint-proctor) |
 | 24 | Uma Shashikant | The Economic Times | T2 | B | 111 | — | Chairperson — CIEL (Centre for Investmen | PhD | 37 | [in](https://in.linkedin.com/in/uma-shashikant-0a3b37) [x](https://twitter.com/uma_shashikant) [mr](https://muckrack.com/uma-shashikant) |
@@ -34,37 +34,37 @@ Bulk tier — condensed table for screening. ⚠ = still flagged for manual revi
 | 26 | Teresa Rivas | Barron's | T2 | B | 111 | — | Reporter | — | 15 | [in](https://www.linkedin.com/in/teresamrivas/) [mr](https://muckrack.com/teresamrivas) |
 | 27 | Matt Egan | CNN Business | T1 | B | 110 | 500+c | Senior Reporter — CNN Business (markets, | — | 15 | [in](https://www.linkedin.com/in/matt-egan-7b75542b) [x](https://x.com/MattEganCNN) [mr](https://muckrack.com/mattegancnn) |
 | 28 | Patrick Sanders | US News — Money | T2 | B | 110 | — | Staff Writer — U.S. News (Money section) | — | — | [in](https://www.linkedin.com/in/patrick-sanders-edits) [mr](https://muckrack.com/1patricksanders/articles) |
-| 29 | Antoine Gara | Forbes | T1 | B | 110 | — | US Private & Institutional Capital Corre | — | — | [in](https://www.linkedin.com/in/antoine-gara-7544892) [x](https://x.com/antoinegara) [mr](https://muckrack.com/antoinegara) |
-| 30 | Lauren R. Rublin | Barron's | T2 | B | 110 | — | Senior Managing Editor — Barron's | — | 25 | [in](https://www.linkedin.com/in/lauren-rublin-4853b76) [x](https://x.com/laurenrublin) [mr](https://muckrack.com/lauren-rublin) |
-| 31 | Andrew Keshner | MarketWatch | T1 | B | 110 | — | Personal Finance / Tax Correspondent — M | — | — | [in](https://www.linkedin.com/in/andrew-keshner/) [x](https://x.com/andrewkeshner) [mr](https://muckrack.com/andrew-keshner) |
-| 32 | David Sekera | Morningstar | T2 | B | 109 | — | Chief US Market Strategist — Morningstar | CFA | 30 | [in](https://www.linkedin.com/in/davesekera/) [x](https://x.com/mstarmarkets) |
-| 33 | Ken Shreve | Investors Business Daily | T2 | B | 109 | — | Markets Writer and Reporter — Investor's | — | 10 | [in](https://www.linkedin.com/in/ken-shreve-b6b4a753/) [x](https://x.com/IBD_KShreve) [mr](https://muckrack.com/ken-shreve) |
+| 29 | Antoine Gara | Forbes | T1 | B | 110 | 11K | US Private & Institutional Capital Corre | — | — | [in](https://www.linkedin.com/in/antoine-gara-7544892) [x](https://x.com/antoinegara) [mr](https://muckrack.com/antoinegara) |
+| 30 | Lauren R. Rublin | Barron's | T2 | B | 110 | 561 | Senior Managing Editor — Barron's | — | 25 | [in](https://www.linkedin.com/in/lauren-rublin-4853b76) [x](https://x.com/laurenrublin) [mr](https://muckrack.com/lauren-rublin) |
+| 31 | Andrew Keshner | MarketWatch | T1 | B | 110 | 1.3K | Personal Finance / Tax Correspondent — M | — | — | [in](https://www.linkedin.com/in/andrew-keshner/) [x](https://x.com/andrewkeshner) [mr](https://muckrack.com/andrew-keshner) |
+| 32 | David Sekera | Morningstar | T2 | B | 109 | 58K | Chief US Market Strategist — Morningstar | CFA | 30 | [in](https://www.linkedin.com/in/davesekera/) [x](https://x.com/mstarmarkets) |
+| 33 | Ken Shreve | Investors Business Daily | T2 | B | 109 | 12K | Markets Writer and Reporter — Investor's | — | 10 | [in](https://www.linkedin.com/in/ken-shreve-b6b4a753/) [x](https://x.com/IBD_KShreve) [mr](https://muckrack.com/ken-shreve) |
 | 34 | Jenny Ross | Which? | T2 | B | 109 | — | Editor, Which? Money | — | — | [in](https://www.linkedin.com/in/jenny-ross-62b089179/) [x](https://x.com/jen_ross1) [mr](https://muckrack.com/jenny-ross-1) |
 | 35 | Thomas Kerr | Zacks | T2 | B | 109 | 500+c | Senior Equity Research Analyst — Zacks S | CFA | 25 | [in](https://www.linkedin.com/in/tomkerrcfa/) |
 | 36 | Vandana Singh | Benzinga | T2 | B | 109 | — | Editor — Benzinga Breaking News (healthc | MBA Finance | 10 | [in](https://www.linkedin.com/in/vandanas1904/) [x](https://x.com/Vandana13721371) [mr](https://muckrack.com/vandana-singh) |
 | 37 | Emily Graffeo | Bloomberg | T1 | B | 108 | 5.4K | Cross-asset Reporter | — | — | [in](https://www.linkedin.com/in/emily-graffeo-uva2020/) [x](https://twitter.com/emily_graffeo) [mr](https://muckrack.com/emily-graffeo) |
-| 38 | Ian Allison | CoinDesk | T2 | B | 108 | — | Senior Reporter — CoinDesk (Institutiona | — | — | [in](https://uk.linkedin.com/in/ian-allison-438a4aaa) [x](https://x.com/IanAllison123) [mr](https://muckrack.com/ian-allison) |
-| 39 | Elisabeth Buchwald | CNN Business | T1 | B | 107 | — | Economics Reporter — CNN Business | — | 8 | [in](https://www.linkedin.com/in/elisabeth-buchwald/) [x](https://x.com/BuchElisabeth) [mr](https://muckrack.com/buchelisabeth) |
+| 38 | Ian Allison | CoinDesk | T2 | B | 108 | 17K | Senior Reporter — CoinDesk (Institutiona | — | — | [in](https://uk.linkedin.com/in/ian-allison-438a4aaa) [x](https://x.com/IanAllison123) [mr](https://muckrack.com/ian-allison) |
+| 39 | Elisabeth Buchwald | CNN Business | T1 | B | 107 | 3.5K | Economics Reporter — CNN Business | — | 8 | [in](https://www.linkedin.com/in/elisabeth-buchwald/) [x](https://x.com/BuchElisabeth) [mr](https://muckrack.com/buchelisabeth) |
 | 40 | Sergei Klebnikov | Forbes | T1 | B | 106 | 2.9K | Staff Writer — Wealth Management & Wall  | — | — | [in](https://www.linkedin.com/in/sergei-klebnikov-795a9b75/) [x](https://twitter.com/skleb1234) [mr](https://muckrack.com/sergei-klebnikov) |
 | 41 | Harriet Clarfelt | Financial Times | T1 | B | 106 | 881 | US Capital Markets Correspondent (asset  | — | — | [in](https://www.linkedin.com/in/harriet-clarfelt-4607b466/) [x](https://twitter.com/HClarfelt) [mr](https://muckrack.com/harriet-clarfelt) |
 | 42 | Michael Field | Morningstar | T2 | B | 106 | 498 | Chief Equity Market Strategist EMEA | CFA | — | [in](https://www.linkedin.com/in/michael-field-cfa/) [x](https://x.com/mstarmarkets_eu) |
 | 43 | Rupert Jones | The Guardian — Money | T1 | B | 106 | 7.2K | Deputy Editor, Consumer & Money (Deputy  | — | 20 | [x](https://x.com/rupert_jones) [mr](https://muckrack.com/rupert_jones) |
 | 44 | Alex Gailey | Bankrate | T1 | B | 106 | 1.1K | Data Reporter & Analyst, Personal Financ | — | 7 | [in](https://www.linkedin.com/in/alexandragailey/) [x](https://twitter.com/alex_gailey) |
 | 45 | Benjamin Schiller | CoinDesk | T2 | B | 106 | 500+c | Managing Editor — Features, Opinion & Co | — | 20 | [in](https://www.linkedin.com/in/benschiller) |
-| 46 | Susannah Snider | US News — Money | T2 | B | 106 | 500+c | Managing Editor, Money — U.S. News & Wor | CFP | 15 | [in](https://www.linkedin.com/in/susannah-snider-cfp%C2%AE-53699817/) [x](https://x.com/sussnider) [mr](https://muckrack.com/susannah-snider) |
-| 47 | Stephanie Steinberg | US News — Money | T2 | B | 106 | — | Editor / Staff Writer — U.S. News (forme | — | — | [in](https://www.linkedin.com/in/stephsteinberg) [x](https://twitter.com/Steph_Steinberg) [mr](https://muckrack.com/steph_steinberg) |
+| 46 | Susannah Snider | US News — Money | T2 | B | 106 | 2.4K | Managing Editor, Money — U.S. News & Wor | CFP | 15 | [in](https://www.linkedin.com/in/susannah-snider-cfp%C2%AE-53699817/) [x](https://x.com/sussnider) [mr](https://muckrack.com/susannah-snider) |
+| 47 | Stephanie Steinberg | US News — Money | T2 | B | 106 | 5.5K | Editor / Staff Writer — U.S. News (forme | — | — | [in](https://www.linkedin.com/in/stephsteinberg) [x](https://twitter.com/Steph_Steinberg) [mr](https://muckrack.com/steph_steinberg) |
 | 48 | Jack Caporal | Motley Fool | T1 | B | 106 | — | Research Director / Research Analyst | — | — | [in](https://www.linkedin.com/in/jack-caporal/) [mr](https://muckrack.com/jack-caporal) |
 | 49 | Kalpana Fitzpatrick | MoneyWeek | T2 | B | 106 | — | Digital Editor — MoneyWeek | — | — | [in](https://www.linkedin.com/in/kalpanafitzpatrick/) |
 | 50 | Andjela Radmilac | CryptoSlate | T2 | B | 105 | 619 | Research Analyst / Senior Reporter — Cry | — | 8 | [in](https://www.linkedin.com/in/andjelaradmilac/) [x](https://twitter.com/andjelaradmilac) [mr](https://muckrack.com/andjela-radmilac) |
-| 51 | Greg Iacurci | CNBC | T1 | B | 105 | — | Personal Finance Reporter — CNBC | — | 10 | [in](https://www.linkedin.com/in/gregory-iacurci-bb736331/) [x](https://twitter.com/GregIacurci) [mr](https://muckrack.com/gregiacurci) |
+| 51 | Greg Iacurci | CNBC | T1 | B | 105 | 4.7K | Personal Finance Reporter — CNBC | — | 10 | [in](https://www.linkedin.com/in/gregory-iacurci-bb736331/) [x](https://twitter.com/GregIacurci) [mr](https://muckrack.com/gregiacurci) |
 | 52 | Krisztian Sandor | CoinDesk | T2 | B | 105 | 500+c | U.S. Markets Reporter — CoinDesk (stable | — | 5 | [in](https://www.linkedin.com/in/sandorkrisztian/) [mr](https://muckrack.com/krisztian-sandor) |
 | 53 | Preston Caldwell | Morningstar | T2 | B | 105 | — | Chief US Economist — Morningstar Researc | — | — | [in](https://www.linkedin.com/in/prestondavidcaldwell) [x](https://x.com/pd_caldwell) [mr](https://muckrack.com/preston-caldwell) |
-| 54 | Ryan Weeks | The Block | T2 | B | 104 | 500+c | Senior Editor, Crypto APAC — Bloomberg ( | — | — | [in](https://my.linkedin.com/in/ryan-weeks-75744187) [x](https://x.com/ryanjamesweeks) [mr](https://muckrack.com/ryanjamesweeks) |
+| 54 | Ryan Weeks | The Block | T2 | B | 104 | 5.5K | Senior Editor, Crypto APAC — Bloomberg ( | — | — | [in](https://my.linkedin.com/in/ryan-weeks-75744187) [x](https://x.com/ryanjamesweeks) [mr](https://muckrack.com/ryanjamesweeks) |
 | 55 | Liam Wright | CryptoSlate | T2 | B | 104 | 500+c | Editor-in-Chief — CryptoSlate | — | — | [in](https://www.linkedin.com/in/liamandrewwright/) [mr](https://muckrack.com/liam-wright) |
-| 56 | Anna Gauto | Handelsblatt | T2 | B | 104 | — | Climate Reporter / Business Journalist — | — | — | [in](https://www.linkedin.com/in/anna-gauto-b934a347/) [x](https://twitter.com/carmitgvorn) [mr](https://muckrack.com/anna-gauto) |
+| 56 | Anna Gauto | Handelsblatt | T2 | B | 104 | 704 | Climate Reporter / Business Journalist — | — | — | [in](https://www.linkedin.com/in/anna-gauto-b934a347/) [x](https://twitter.com/carmitgvorn) [mr](https://muckrack.com/anna-gauto) |
 | 57 | Asit Sharma | Motley Fool | T1 | B | 104 | 500+c | Senior Investment Analyst & Lead Advisor | CPA (Certified Public  | — | [in](https://www.linkedin.com/in/asit-sharma-832613a/) [x](https://twitter.com/asitmap) [mr](https://muckrack.com/asit-sharma) |
 | 58 | Rachel McVearry | US News — Money | T2 | B | 103 | 48 | Senior Editor, Investing and Financial A | — | 15 | [in](https://www.linkedin.com/in/rachelmcvearry/) [x](https://x.com/rachelmcvearry) [mr](https://muckrack.com/rachel-mcvearry) |
-| 59 | Ray Salmond | CoinMarketCap | T1 | B | 103 | — | Head of Markets — Cointelegraph / Former | — | — | [x](https://x.com/HorusHughes) [mr](https://muckrack.com/ray-salmond) |
+| 59 | Ray Salmond | CoinMarketCap | T1 | B | 103 | 1.2K | Head of Markets — Cointelegraph / Former | — | — | [x](https://x.com/HorusHughes) [mr](https://muckrack.com/ray-salmond) |
 | 60 | Samuel Potter | Bloomberg | T1 | B | 103 | 500+c | Senior Editor, Markets — Bloomberg News | — | — | [in](https://www.linkedin.com/in/samjpotter/) [x](https://x.com/samjpotter) [mr](https://muckrack.com/samuel-potter) |
 | 61 | Justin Grossbard | CompareForexBrokers | T3 | B | 103 | — | CEO & Co-Founder, Strategic Head of Rese | — | 20 | [in](https://www.linkedin.com/in/justingrossbard/) [x](https://x.com/grossbard01) |
 | 62 | Jared Blikre | Yahoo Finance | T1 | B | 102 | 8.4K | Director, Anchor, Global Markets Editor  | — | 25 | [in](https://www.linkedin.com/in/jared-blikre-14648044/) [x](https://twitter.com/SPYJared) [mr](https://muckrack.com/spyjared) |
@@ -90,11 +90,11 @@ Bulk tier — condensed table for screening. ⚠ = still flagged for manual revi
 | 82 | Sandali Handagama | CoinDesk | T2 | B | 99 | — | Deputy Managing Editor, Policy & Regulat | — | — | [in](https://www.linkedin.com/in/sandalihandagama/) [mr](https://muckrack.com/sandali-handagama) |
 | 83 | Bobby Ong | CoinGecko | T2 | B | 98 | 500+c | Co-Founder & CEO (formerly COO) | — | 12 | [in](https://my.linkedin.com/in/bobbyongce) |
 | 84 | Fran Velasquez | CoinDesk | T2 | B | 98 | — | Reporter — CoinDesk (TV writer); now Yah | — | — | [in](https://www.linkedin.com/in/francisco-velasquez-/) [x](https://twitter.com/_franvela) |
-| 85 | Ross Collins | CompareForexBrokers | T3 | B | 97 | — | Chief Technology Researcher — CompareFor | Open Group Certified D | 35 | [in](https://www.linkedin.com/in/rossfcollins/) [x](https://x.com/OzzieRoscoe) |
+| 85 | Ross Collins | CompareForexBrokers | T3 | B | 97 | 63 | Chief Technology Researcher — CompareFor | Open Group Certified D | 35 | [in](https://www.linkedin.com/in/rossfcollins/) [x](https://x.com/OzzieRoscoe) |
 | 86 | John Vandermosten, CFA | Zacks | T2 | B | 97 | 500+c | Senior Analyst — Zacks Small Cap Researc | CFA (Chartered Financi | 20 | [in](https://www.linkedin.com/in/john-vandermosten-8659b72/) |
-| 87 | Sebastian Matthes | Handelsblatt | T2 | B | 97 | 500+c | Editor-in-Chief — Handelsblatt | — | 15 | [in](https://de.linkedin.com/in/sebastianmatthes) [x](https://x.com/smatthes) [mr](https://muckrack.com/sebastian-matthes) |
-| 88 | Stuart Langridge | CoinMarketCap | T1 | B | 97 | 500+c | SEO Lead — CoinMarketCap | — | 22 | [in](https://mt.linkedin.com/in/stuart-langridge-04043b) [x](https://x.com/stuartlangridge) |
-| 89 | Jose Antonio Lanz | Decrypt | T2 | B | 97 | — | Writer & Translator (Spanish Editor) — D | Law degree | — | [x](https://twitter.com/joselanzd) [mr](https://muckrack.com/jose-lanz) |
+| 87 | Sebastian Matthes | Handelsblatt | T2 | B | 97 | 13K | Editor-in-Chief — Handelsblatt | — | 15 | [in](https://de.linkedin.com/in/sebastianmatthes) [x](https://x.com/smatthes) [mr](https://muckrack.com/sebastian-matthes) |
+| 88 | Stuart Langridge | CoinMarketCap | T1 | B | 97 | 569 | SEO Lead — CoinMarketCap | — | 22 | [in](https://mt.linkedin.com/in/stuart-langridge-04043b) [x](https://x.com/stuartlangridge) |
+| 89 | Jose Antonio Lanz | Decrypt | T2 | B | 97 | 34 | Writer & Translator (Spanish Editor) — D | Law degree | — | [x](https://twitter.com/joselanzd) [mr](https://muckrack.com/jose-lanz) |
 | 90 | Robert Glazer | Money Under 30 | T2 | B | 96 | — | Founder & CEO — Acceleration Partners; C | — | — | [in](https://www.linkedin.com/in/glazer) |
 | 91 | John Kicklighter | DailyFX | T2 | B | 96 | — | Chief Strategist — DailyFX / StoneX Grou | — | 24 | [in](https://www.linkedin.com/in/john-kicklighter-2436134/) |
 | 92 | Matt Frankel | Motley Fool | T1 | B | 96 | — | Contributing Analyst | CFP | — | [in](https://www.linkedin.com/in/mattfrankeltmf/) [x](https://twitter.com/MattFrankelCFP) [mr](https://muckrack.com/matthew-frankel) |
@@ -103,30 +103,30 @@ Bulk tier — condensed table for screening. ⚠ = still flagged for manual revi
 | 95 | Andrey Sergeenkov | CoinMarketCap | T1 | B | 95 | — | Independent Crypto Journalist — multi-ou | — | — | [x](https://x.com/Nikopolos) [mr](https://muckrack.com/andrey-sergeenkov-1) |
 | 96 | Steven Cress | Seeking Alpha | T2 | B | 95 | — | VP / Head of Quantitative Strategy & Mar | — | 30 | [in](https://www.linkedin.com/in/steven-cress-74823119/) |
 | 97 | Sydney Maki | Bloomberg | T1 | B | 95 | — | Senior Editor — Bloomberg News (Markets  | — | — | [in](https://www.linkedin.com/in/sydneymaki/) [mr](https://muckrack.com/sydney-maki) |
-| 98 | Michelle Fox | CNBC | T1 | B | 95 | 500+c | Reporter — Investing / Markets (CNBC Pro | — | 11 | [in](https://www.linkedin.com/in/michelle-fox-producer) [x](https://x.com/mfoxcnbc) [mr](https://muckrack.com/michelle-fox) |
+| 98 | Michelle Fox | CNBC | T1 | B | 95 | 2.4K | Reporter — Investing / Markets (CNBC Pro | — | 11 | [in](https://www.linkedin.com/in/michelle-fox-producer) [x](https://x.com/mfoxcnbc) [mr](https://muckrack.com/michelle-fox) |
 | 99 | Akanksha Bakshi | Benzinga | T2 | B | 95 | — | Editor — Benzinga | — | — | [in](https://in.linkedin.com/in/akanksha-bakshi-56508b27) [mr](https://muckrack.com/akanksha-bakshi) |
 | 100 | Edith Balázs | BrokerChooser | T3 | B | 94 | — | Senior Content Editor (Head) | — | 25 | [in](https://www.linkedin.com/in/edith-balazs/) [mr](https://muckrack.com/edith-balazs/articles) |
 | 101 | Damian Chmiel | Finance Magnates | T2 | B | 94 | — | Senior Analyst & Editor | — | 15 | [in](https://www.linkedin.com/in/damian-chmiel-a0388288/) [x](https://x.com/ChmielDk) [mr](https://muckrack.com/damian-chmiel) |
 | 102 | Ken Clark | The Balance | T2 | B | 94 | — | Contributor (former CFP) — The Balance | CFP (former) | 15 | [in](https://www.linkedin.com/in/kensclark/) |
-| 103 | John D'Antona Jr. | Traders Magazine | T3 | B | 94 | — | Editor — Traders Magazine / Markets Medi | — | 22 | [x](https://twitter.com/JohnnyD_Markets) [mr](https://muckrack.com/john-dantona) |
+| 103 | John D'Antona Jr. | Traders Magazine | T3 | B | 94 | 300 | Editor — Traders Magazine / Markets Medi | — | 22 | [x](https://twitter.com/JohnnyD_Markets) [mr](https://muckrack.com/john-dantona) |
 | 104 | Arnab Shome | Finance Magnates | T2 | B | 94 | 500+c | Editor — Finance Magnates | — | 10 | [in](https://www.linkedin.com/in/shomearnab/) [x](https://x.com/45arnab) [mr](https://muckrack.com/arnab-shome) |
 | 105 | Vlad Cealicu | CryptoCompare | T2 | B | 94 | — | CTO & Co-Founder — CryptoCompare / CCDat | — | 11 | [in](https://uk.linkedin.com/in/vcealicu) [x](https://x.com/vcealicu) |
 | 106 | Martin Young | Cointelegraph | T2 | B | 93 | 210 | Staff Writer | — | 20 | [in](https://www.linkedin.com/in/martin-young-77451510b/) [x](https://x.com/crypt0nuts) |
 | 107 | Richard Waters | Financial Times | T1 | B | 93 | — | West Coast Editor / Technology Correspon | — | 25 | [x](https://x.com/RichardWaters) [mr](https://muckrack.com/richardwaters) |
-| 108 | Miles Brignall | The Guardian — Money | T1 | B | 93 | — | Consumer Champions Journalist — The Guar | — | 20 | [x](https://twitter.com/milesbrignall) [mr](https://muckrack.com/miles-brignall) |
+| 108 | Miles Brignall | The Guardian — Money | T1 | B | 93 | 1.3K | Consumer Champions Journalist — The Guar | — | 20 | [x](https://twitter.com/milesbrignall) [mr](https://muckrack.com/miles-brignall) |
 | 109 | Nigel Frith | LeapRate | T3 | B | 93 | — | Writer / ex-VP Corporate Development, Ca | FCA authorization (his | 18 | [in](https://www.linkedin.com/in/nigelfrith/) |
 | 110 | Simon Thompson | Investors' Chronicle | T2 | B | 92 | — | Writer — share recommendations, Investor | — | 28 | [in](https://uk.linkedin.com/in/simon-thompson-31903812) [mr](https://muckrack.com/simon-thompson) |
-| 111 | Naga Avan-Nomayo | The Block | T2 | B | 92 | — | Crypto Research & Markets Reporter — The | — | 5 | [in](https://ng.linkedin.com/in/naganomayo) [x](https://x.com/JeSuisNaga) [mr](https://muckrack.com/naga-avan-nomayo) |
+| 111 | Naga Avan-Nomayo | The Block | T2 | B | 92 | 3.9K | Crypto Research & Markets Reporter — The | — | 5 | [in](https://ng.linkedin.com/in/naganomayo) [x](https://x.com/JeSuisNaga) [mr](https://muckrack.com/naga-avan-nomayo) |
 | 112 | Gerald Segal | LeapRate | T3 | B | 92 | 500+c | Founder and Managing Editor — FX News Gr | — | 30 | [in](https://il.linkedin.com/in/gerald-segal-5a94095) |
 | 113 | Chris Yates | FXEmpire | T2 | B | 92 | 241c | Contributor / Equity Analyst (Sunbird Po | CFA | — | [in](https://www.linkedin.com/in/chris-yates-cfa-72a03b125/) [x](https://twitter.com/AcheronInsights) |
 | 114 | Alicia Adamczyk | Fortune | T1 | B | 91 | 5.6K | Former Senior Writer (Fortune) | — | 12 | [in](https://www.linkedin.com/in/aliciaadamczyk) [x](https://x.com/aliciaadamczyk) [mr](https://muckrack.com/alicia-adamczyk) |
 | 115 | Nikhilesh De | CoinDesk | T2 | B | 91 | 500+c | Managing Editor, Global Policy & Regulat | — | 9 | [in](https://www.linkedin.com/in/nikhileshde/) |
 | 116 | Alan Brochstein, CFA | Seeking Alpha | T2 | B | 91 | — | Founder 420 Investor / Contributor — See | CFA (Chartered Financi | 40 | [in](https://www.linkedin.com/in/alanbrochstein/) |
-| 117 | Assad Jafri | CryptoSlate | T2 | B | 91 | — | Editor & Reporter — CryptoSlate | — | 13 | [in](https://pk.linkedin.com/in/asad-jafri-76b97015a) [x](https://x.com/Saajthebard) [mr](https://muckrack.com/assad-jafri) |
+| 117 | Assad Jafri | CryptoSlate | T2 | B | 91 | 128 | Editor & Reporter — CryptoSlate | — | 13 | [in](https://pk.linkedin.com/in/asad-jafri-76b97015a) [x](https://x.com/Saajthebard) [mr](https://muckrack.com/assad-jafri) |
 | 118 | Michael MacKenzie | DayTrading.com | T3 | B | 91 | — | Broker Analyst and Editor — DayTrading.c | CIEP Intermediate Memb | 10 | [in](https://www.linkedin.com/in/michael-mackenzie-0b94b6136/) |
 | 119 | Maria Nikolova | FX-News Group | T3 | B | 90 | 338c | Senior Editor — FX News Group | — | 17 | [in](https://bg.linkedin.com/in/maria-nikolova-16200896) [mr](https://muckrack.com/maria-nikolova) |
 | 120 | Nick Cawley | DailyFX | T2 | B | 90 | — | Senior Strategist — DailyFX | — | 30 | [mr](https://muckrack.com/nick-cawley) |
-| 121 | Anjana Kumar | Gulf News | T2 | B | 90 | — | Senior / Chief Reporter (Business) — Gul | — | 17 | [in](https://www.linkedin.com/in/anjanakumarsr/) [x](https://twitter.com/anjanakmr) [mr](https://muckrack.com/anjana-kumar) |
+| 121 | Anjana Kumar | Gulf News | T2 | B | 90 | 174 | Senior / Chief Reporter (Business) — Gul | — | 17 | [in](https://www.linkedin.com/in/anjanakumarsr/) [x](https://twitter.com/anjanakmr) [mr](https://muckrack.com/anjana-kumar) |
 | 122 | Mike Ayers | Money.com | T2 | B | 90 | 500+c | Executive Editor — Money | — | — | [in](https://www.linkedin.com/in/ayersmike/) |
 | 123 | Michael Hewson | FXStreet | T2 | B | 89 | — | Independent Market Analyst | MSTA/CFTe | — | — |
 | 124 | Royston Wild | DayTrading.com | T3 | B | 89 | — | Broker Analyst & Editor / Investment Wri | — | 12 | [in](https://www.linkedin.com/in/royston-wild-681720260/) [mr](https://muckrack.com/bianca-wild) |
@@ -134,7 +134,7 @@ Bulk tier — condensed table for screening. ⚠ = still flagged for manual revi
 | 126 | Ross Cameron | Modest Money | T3 | B | 89 | 500+c | Founder & Full-time Day Trader — Warrior | — | 14 | [in](https://www.linkedin.com/in/ross-cameron-70ba7998/) |
 | 127 | Emily Hohler | MoneyWeek | T2 | B | 89 | — | Politics Editor — MoneyWeek | Nutritional Therapist | 30 | — |
 | 128 | James Barra | DayTrading.com | T3 | B | 89 | — | Head of Content — DayTrading.com | Business Accounting (C | 10 | [in](https://www.linkedin.com/in/james-barra-80a14512b/) |
-| 129 | Tareq Sikder | Finance Magnates | T2 | B | 89 | 500+c | News Editor — Finance Magnates | — | 15 | [in](https://www.linkedin.com/in/tareq-sikder-a2165b70/) [x](https://twitter.com/SikderHTareq) |
+| 129 | Tareq Sikder | Finance Magnates | T2 | B | 89 | 348 | News Editor — Finance Magnates | — | 15 | [in](https://www.linkedin.com/in/tareq-sikder-a2165b70/) [x](https://twitter.com/SikderHTareq) |
 | 130 | Sue Strachan | Benzinga | T2 | B | 89 | 500+c | Copy Editor and Reporter | — | 25 | [in](https://www.linkedin.com/in/sue-strachan-new-orleans/) [mr](https://muckrack.com/suestrachan504) |
 | 131 | Adam Nasli | BrokerChooser | T3 | B | 87 | — | Head of Analyst Team | — | 10 | [in](https://www.linkedin.com/in/adam-nasli/) [mr](https://muckrack.com/adam-nasli-1) |
 | 132 | David Johnson | Cashback Forex | T3 | B | 87 | — | Co-founder — CashBackForex; CEO — Latium | — | 25 | [in](https://www.linkedin.com/in/david-johnson-382b9457/) |
@@ -152,13 +152,13 @@ Bulk tier — condensed table for screening. ⚠ = still flagged for manual revi
 | 144 | Chinmay Soni | TradersUnion | T2 | B | 85 | — | Head of Fact-Checking Department / Finan | Certified Market Profe | 5 | — |
 | 145 | Masayuki Shikata | Nikkei Asia | T2 | B | 84 | — | Finance Reporter — Nikkei Asia / Financi | — | — | [mr](https://muckrack.com/masayuki-shikata) |
 | 146 | Bibhu Pattnaik | Benzinga | T2 | B | 84 | — | Senior Writer / Contributing Writer | — | 20 | [in](https://in.linkedin.com/in/bibhupattnaik) [mr](https://muckrack.com/bibhu-pattnaik-1) |
-| 147 | Whitney Webb | Bitcoin Magazine | T2 | B | 84 | — | Contributor / Investigative Journalist — | — | 10 | [x](https://twitter.com/_whitneywebb) |
+| 147 | Whitney Webb | Bitcoin Magazine | T2 | B | 84 | 689K | Contributor / Investigative Journalist — | — | 10 | [x](https://twitter.com/_whitneywebb) |
 | 148 | Joel Agbo | CoinGecko | T2 | B | 84 | — | Writer (Learn / Buzz) | — | 7 | [in](https://www.linkedin.com/in/agbo-joel-080189124/) [mr](https://muckrack.com/joel-agbo) |
 | 149 | Jay Hawk | Benzinga | T2 | B | 83 | — | Contributor — Benzinga (Co-founder, TheF | — | 40 | [in](https://www.linkedin.com/in/jayhawkforex/) |
 | 150 | Sam Boughedda | Benzinga | T2 | B | 83 | — | Stock Market Analyst — Benzinga Money (c | — | 8 | [in](https://www.linkedin.com/in/sam-boughedda-ab3a7660/) [x](https://twitter.com/SamBoughedda) |
 | 151 | Dominic Frisby | MoneyWeek | T2 | B | 83 | — | Columnist — Gold, Commodities, Currencie | — | 19 | [x](https://x.com/DominicFrisby) |
 | 152 | Tobi Opeyemi Amure | FinanceFeeds | T3 | B | 82 | 5.5K | Editor — FinanceFeeds (freelance finance | — | — | [in](https://www.linkedin.com/in/tobi-amure/) [x](https://twitter.com/tobiamure) |
-| 153 | Adam Button | ForexLive | T2 | B | 82 | — | Leader / Managing Editor — investingLive | — | 15 | [x](https://twitter.com/FX_Button) |
+| 153 | Adam Button | ForexLive | T2 | B | 82 | 16K | Leader / Managing Editor — investingLive | — | 15 | [x](https://twitter.com/FX_Button) |
 | 154 | Itai Levitan | ForexLive | T2 | B | 82 | — | Head of Strategy — investingLive.com | — | 25 | [x](https://twitter.com/itai.levitan) |
 | 155 | Brandon Bovey | BrokerChooser | T3 | B | 81 | — | Senior Broker Analyst | CFA | 15 | [in](https://www.linkedin.com/in/brandon-bovey/) |
 | 156 | Rebecca Lake | SmartAsset | T2 | B | 81 | — | Recurring writer — Retirement / Investin | CEPF | 10 | — |
@@ -166,24 +166,24 @@ Bulk tier — condensed table for screening. ⚠ = still flagged for manual revi
 | 158 | Rick Steves | FinanceFeeds | T3 | B | 81 | — | Managing Editor — FinanceFeeds | — | 17 | [in](https://www.linkedin.com/in/rickstevesfx/) |
 | 159 | Dean Fankhauser | Bitcompare | T3 | B | 81 | — | Founder & CEO — Bitcompare (also Movingt | — | 18 | [in](https://www.linkedin.com/in/deanfankhauser/) |
 | 160 | Veronica Dagher | The Wall Street Journal | T1 | B | 80 | 6.5K | Personal Finance Reporter | — | — | [x](https://x.com/veronicadagher) [mr](https://muckrack.com/veronicadagher) |
-| 161 | Felipe Erazo | FXEmpire | T2 | B | 80 | — | Freelance Financial Journalist — Forex & | — | 16 | [in](https://pk.linkedin.com/in/felipe-erazo-20635241) [x](https://twitter.com/FelipeErazo) |
+| 161 | Felipe Erazo | FXEmpire | T2 | B | 80 | 41 | Freelance Financial Journalist — Forex & | — | 16 | [in](https://pk.linkedin.com/in/felipe-erazo-20635241) [x](https://twitter.com/FelipeErazo) |
 | 162 | Crispus Nyaga | 55Brokers | T4 | B | 80 | 183c | Editor — 55brokers (Investment & Crypto  | — | 9 | [in](https://www.linkedin.com/in/chris-ayden/) |
 | 163 | Joshua Kennon | The Balance | T2 | B | 80 | — | Former contributor — The Balance (ex-Abo | — | 20 | [mr](https://muckrack.com/joshua-kennon-1) |
 | 164 | Alex Preston | CryptoCompare | T2 | B | 79 | — | Chairman | — | 25 | [in](https://www.linkedin.com/in/alex-preston-21a9b52/) |
 | 165 | Thomas Drury | TheInvestorsCentre | T4 | B | 79 | — | Co-founder & Director — The Investors Ce | ACII (Chartered Insura | — | [in](https://uk.linkedin.com/in/thomas-drury-acii-7701a810a) |
 | 166 | Frank Chaparro | The Block | T2 | B | 78 | 206K | Host of The Scoop / Director of Special  | — | 9 | [x](https://x.com/fintechfrank) [mr](https://muckrack.com/fintechfrank) |
 | 167 | Andrew Lockwood | Funded Trading Plus | T3 | B | 78 | 500+c | Head of Trader Education — Funded Tradin | — | 35 | [in](https://uk.linkedin.com/in/andrew-lockwood) |
-| 168 | Jeremy Biberdorf | Modest Money | T3 | B | 78 | — | Founder — Modest Money | — | 20 | [in](https://www.linkedin.com/in/jeremybiberdorf/) [x](https://twitter.com/modestmoney) |
+| 168 | Jeremy Biberdorf | Modest Money | T3 | B | 78 | 32K | Founder — Modest Money | — | 20 | [in](https://www.linkedin.com/in/jeremybiberdorf/) [x](https://twitter.com/modestmoney) |
 | 169 | Nooresh Merani | AskTraders | T3 | B | 77 | 101K | Contributor (technical analyst) — AskTra | SEBI Research Analyst | 17 | [in](https://in.linkedin.com/in/nooreshtech) [x](https://twitter.com/nooreshtech) |
 | 170 | Alyssa Hertig | CoinDesk | T2 | B | 77 | — | Contributing Tech Reporter — CoinDesk (B | — | — | [mr](https://muckrack.com/alyssa-hertig) |
-| 171 | Peter Conley | Bitcoin Magazine | T2 | B | 77 | — | Writer & Web Developer (Bitcoin Magazine | Full-Stack Web Develop | 11 | [in](https://www.linkedin.com/in/peter-conley/) [x](https://twitter.com/PeterDConley) |
+| 171 | Peter Conley | Bitcoin Magazine | T2 | B | 77 | 1.2K | Writer & Web Developer (Bitcoin Magazine | Full-Stack Web Develop | 11 | [in](https://www.linkedin.com/in/peter-conley/) [x](https://twitter.com/PeterDConley) |
 | 172 | Víctor Rosario | Money.com | T2 | B | 77 | — | Staff Writer — Money | — | — | [mr](https://muckrack.com/victor-rosario) |
 | 173 | Margarette Burnette | NerdWallet | T1 | B | 76 | 210 | Senior Writer & Content Strategist | — | 21 | [x](https://twitter.com/Margarette) |
 | 174 | Leo Jakobson | CoinMarketCap | T1 | B | 76 | — | Freelance Journalist (formerly CoinMarke | — | 25 | [in](https://www.linkedin.com/in/leo-jakobson-402b043/) [mr](https://muckrack.com/leoajakobson) |
 | 175 | Molly Rossow | ForexBrokers.com | T3 | B | 76 | 500+c | Global Director of Marketing, Partner —  | — | 17 | [in](https://www.linkedin.com/in/mollyrossow/) |
 | 176 | Holly Mackay | Boring Money | T3 | B | 76 | — | Founder & CEO — Boring Money | — | 27 | [in](https://uk.linkedin.com/in/holly-mackay-9044524) |
-| 177 | Ryan S. Gladwin | Decrypt | T2 | B | 76 | — | Staff Writer (UK) — Decrypt | — | — | [x](https://twitter.com/Ryan_S_Gladwin) |
-| 178 | Matt Bendoris | Boring Money | T3 | B | 76 | — | Chief Features Writer — The Scottish Sun | — | 36 | [x](https://twitter.com/mbendoris) [mr](https://muckrack.com/matt-bendoris) |
+| 177 | Ryan S. Gladwin | Decrypt | T2 | B | 76 | 3.1K | Staff Writer (UK) — Decrypt | — | — | [x](https://twitter.com/Ryan_S_Gladwin) |
+| 178 | Matt Bendoris | Boring Money | T3 | B | 76 | 2.3K | Chief Features Writer — The Scottish Sun | — | 36 | [x](https://twitter.com/mbendoris) [mr](https://muckrack.com/matt-bendoris) |
 | 179 | Chris Weston | DayTrading.com | T3 | B | 76 | — | Head of Research (Pepperstone) | — | 19 | [x](https://twitter.com/ChrisWeston_PS) |
 | 180 | Michelle Hemstedt | The Full FX | T3 | B | 76 | 500+c | Co-Founder — The Full FX (Commercial Dir | — | 20 | [in](https://www.linkedin.com/in/michelle-hemstedt-45512b7/) |
 | 181 | Kathryn Pomroy | Kiplinger | T2 | B | 75 | — | Contributor | — | 18 | [in](https://www.linkedin.com/in/upnorthwriter/) |
@@ -201,7 +201,7 @@ Bulk tier — condensed table for screening. ⚠ = still flagged for manual revi
 | 193 | Natasha Langan | MoneyWeek | T2 | B | 72 | — | Picture Editor / Property & Travel Write | — | 25 | [mr](https://muckrack.com/natasha-langan) |
 | 194 | Ed Ponsi | FXStreet | T2 | B | 71 | — | Premium Speaker, CTA Educator | CTA | 19 | — |
 | 195 | Dr. BJ Johnson | TradersUnion | T2 | B | 71 | — | Developmental English Editor — Traders U | PhD English Language | 15 | — |
-| 196 | Dom Farnell | TheInvestorsCentre | T4 | B | 71 | — | Co-Founder & Investment Strategy Lead —  | — | 11 | [x](https://x.com/domfarnell) |
+| 196 | Dom Farnell | TheInvestorsCentre | T4 | B | 71 | 8 | Co-Founder & Investment Strategy Lead —  | — | 11 | [x](https://x.com/domfarnell) |
 | 197 | Julie Hawk | Benzinga | T2 | B | 71 | — | Contributor (forex reviews) — Benzinga;  | — | 24 | — |
 | 198 | Tobias Robinson | DayTrading.com | T3 | B | 71 | — | CEO & Head of Broker Testing Panel — Day | — | 30 | — |
 | 199 | Gerald Segal | FX-News Group | T3 | B | 71 | 500+c | Founder and Managing Editor | MBA | 25 | [in](https://www.linkedin.com/in/gerald-segal-5a94095/) |
@@ -220,8 +220,8 @@ Bulk tier — condensed table for screening. ⚠ = still flagged for manual revi
 | 212 | Tom Cleveland | AskTraders | T3 | B | 58 | — | Contributor — AskTraders (ex-Visa Intern | — | 30 | [in](https://www.linkedin.com/in/tocleveland/) |
 | 213 | Samuel Junghenn | Traders With Edge | T4 | B | 56 | — | Founder & CEO | — | 25 | [in](https://au.linkedin.com/in/samueljunghenn) |
 | 214 | Ian Foley ⚠ | Bitcoin Magazine | T2 | B | 55 | — | Contributor (cartoonist/writer) | — | 20 | — |
-| 215 | Uwe Rabolt | Brokervergleich | T3 | B | 55 | — | Editor / Contributor — Brokervergleich.d | — | 35 | [x](https://twitter.com/parolemigliori) |
-| 216 | Andreas Greiner | Broker-Test.at | T4 | B | 54 | — | Founder / Sole Operator | — | 28 | [x](https://x.com/brokertest_at) |
+| 215 | Uwe Rabolt | Brokervergleich | T3 | B | 55 | 302 | Editor / Contributor — Brokervergleich.d | — | 35 | [x](https://twitter.com/parolemigliori) |
+| 216 | Andreas Greiner | Broker-Test.at | T4 | B | 54 | 807 | Founder / Sole Operator | — | 28 | [x](https://x.com/brokertest_at) |
 | 217 | Scott Melker | AskTraders | T3 | B | 54 | 950K | Contributor / Podcast Host 'The Wolf Of  | — | — | [x](https://x.com/scottmelker) |
 | 218 | Zach Hurwitz | AskTraders | T3 | B | 53 | — | Contributor — AskTraders / Founder — The | — | 17 | [x](https://x.com/ZachHurwitz) |
 | 219 | Margo Armstrong | The Balance | T2 | B | 52 | — | Contributor — The Balance | — | 26 | — |
@@ -240,42 +240,42 @@ Bulk tier — condensed table for screening. ⚠ = still flagged for manual revi
 |---|---|---|---|---|---|---|---|---|---|---|
 | 1 | Emily Stewart | Business Insider | T1 | C | 109 | 12K | Senior Correspondent — Consumer & Econom | — | — | [in](https://www.linkedin.com/in/emilymarkleystewart/) [x](https://x.com/EmilyStewartM) [mr](https://muckrack.com/emilystewartm) |
 | 2 | Christie Harkin | CoinDesk | T2 | C | 106 | 2.7K | Editor at Large — CoinDesk (formerly Man | — | — | [in](https://ca.linkedin.com/in/christieharkin) [x](https://twitter.com/cryptowords) [mr](https://muckrack.com/christie-harkin) |
-| 3 | Dhanusha Gokulan | Gulf News | T2 | C | 105 | — | Chief Reporter — Business | — | — | [in](https://www.linkedin.com/in/dhanusha-gokulan-587631a/) [x](https://x.com/shootsprintrite) [mr](https://muckrack.com/dhanusha-gokulan) |
-| 4 | Mattie Brignal | The Telegraph — Money | T1 | C | 104 | — | Senior Money Reporter — The Telegraph | — | — | [in](https://www.linkedin.com/in/mattie-brignal-3b9864163/) [x](https://x.com/mattiebrignal) [mr](https://muckrack.com/mattie-brignal-1) |
+| 3 | Dhanusha Gokulan | Gulf News | T2 | C | 105 | 2.1K | Chief Reporter — Business | — | — | [in](https://www.linkedin.com/in/dhanusha-gokulan-587631a/) [x](https://x.com/shootsprintrite) [mr](https://muckrack.com/dhanusha-gokulan) |
+| 4 | Mattie Brignal | The Telegraph — Money | T1 | C | 104 | 563 | Senior Money Reporter — The Telegraph | — | — | [in](https://www.linkedin.com/in/mattie-brignal-3b9864163/) [x](https://x.com/mattiebrignal) [mr](https://muckrack.com/mattie-brignal-1) |
 | 5 | Tim Copeland | The Block | T2 | C | 101 | 41K | Head of Growth — The Block (former Edito | — | 7 | [in](https://uk.linkedin.com/in/timcopeland2) [x](https://x.com/timccopeland) [mr](https://muckrack.com/tim-copeland-3) |
 | 6 | Bradley Saacks | Business Insider | T1 | C | 99 | 3.3K | Hedge Fund Reporter | — | — | [in](https://www.linkedin.com/in/bradley-saacks-837895126/) [x](https://twitter.com/saacksattack) [mr](https://muckrack.com/saacksattack) |
-| 7 | Gary Silverman | Nikkei Asia | T2 | C | 99 | — | Deputy Editor-in-Chief / Business & Mark | — | — | [in](https://www.linkedin.com/in/gary-silverman-825519/) [x](https://x.com/garyrsilverman) [mr](https://muckrack.com/gary-silverman) |
+| 7 | Gary Silverman | Nikkei Asia | T2 | C | 99 | 3.2K | Deputy Editor-in-Chief / Business & Mark | — | — | [in](https://www.linkedin.com/in/gary-silverman-825519/) [x](https://x.com/garyrsilverman) [mr](https://muckrack.com/gary-silverman) |
 | 8 | Madeleine Ross | The Telegraph — Money | T1 | C | 98 | — | Money Reporter — The Daily Telegraph | — | 3 | [in](https://uk.linkedin.com/in/madeleine-ross-9ab9041) [x](https://x.com/journomadeleine) [mr](https://muckrack.com/madeleine-ross) |
 | 9 | Helen Partz | Cointelegraph | T2 | C | 97 | 3.2K | Staff Writer | — | 8 | [in](https://www.linkedin.com/in/helen-partz/) [x](https://twitter.com/coindanslecoin) [mr](https://muckrack.com/helen-partz) |
 | 10 | Luke Jacobi | Benzinga | T2 | C | 96 | — | President — Benzinga (former Director of | — | — | [in](https://www.linkedin.com/in/luke-jacobi-08721646/) [x](https://twitter.com/LukeJacobi) [mr](https://muckrack.com/luke-jacobi-1) |
-| 11 | Lorie Konish | CNBC | T1 | C | 96 | — | Deputy Personal Finance Editor — CNBC | — | — | [in](https://www.linkedin.com/in/loriekonish/) [x](https://twitter.com/LorieKonish) [mr](https://muckrack.com/lorie-konish) |
+| 11 | Lorie Konish | CNBC | T1 | C | 96 | 6.2K | Deputy Personal Finance Editor — CNBC | — | — | [in](https://www.linkedin.com/in/loriekonish/) [x](https://twitter.com/LorieKonish) [mr](https://muckrack.com/lorie-konish) |
 | 12 | Zoe Yuqing Han | MarketWatch | T1 | C | 96 | 500+c | Personal Finance Reporter | — | — | [in](https://www.linkedin.com/in/zoe-yuqing-han/) [x](https://x.com/zoeyuqhan) [mr](https://muckrack.com/zoe-han-1) |
 | 13 | Erhan Kahraman | Cointelegraph | T2 | C | 95 | 2.0K | Senior Advertorial Content Editor & Audi | — | 6 | [in](https://linkedin.com/in/erhankahraman/) [x](https://twitter.com/erhankahraman) |
 | 14 | Joshua Franklin | Financial Times | T1 | C | 95 | 4.0K | US Banking Editor — Financial Times | — | — | [in](https://www.linkedin.com/in/joshua-franklin-06565589) [x](https://x.com/ftjfranklin) [mr](https://muckrack.com/ftjfranklin) |
-| 15 | Preston Fore | Fortune | T1 | C | 95 | 500+c | Reporter — Success team (Fortune) | — | 3 | [in](https://www.linkedin.com/in/forepreston/) [x](https://x.com/forepreston) [mr](https://muckrack.com/preston-fore) |
-| 16 | Yam Yehoshua | Finance Magnates | T2 | C | 95 | — | Editor-in-Chief — Finance Magnates | UX Design | — | [in](https://www.linkedin.com/in/yamyehoshua/) [x](https://twitter.com/yamixy) |
+| 15 | Preston Fore | Fortune | T1 | C | 95 | 457 | Reporter — Success team (Fortune) | — | 3 | [in](https://www.linkedin.com/in/forepreston/) [x](https://x.com/forepreston) [mr](https://muckrack.com/preston-fore) |
+| 16 | Yam Yehoshua | Finance Magnates | T2 | C | 95 | 60 | Editor-in-Chief — Finance Magnates | UX Design | — | [in](https://www.linkedin.com/in/yamyehoshua/) [x](https://twitter.com/yamixy) |
 | 17 | Daniel Kuhn | The Block | T2 | C | 95 | — | Senior Journalist & Editor (Tech) — The  | — | 8 | [in](https://www.linkedin.com/in/daniel-kuhn-a65a7816b) [x](https://x.com/danielgkuhn) [mr](https://muckrack.com/daniel-kuhn) |
 | 18 | Bhaskar Dutta | The Economic Times | T2 | C | 94 | 500+c | FX & Rates Reporter (Bloomberg) — former | — | — | [in](https://www.linkedin.com/in/bhaskar-dutta-596a287b/) [mr](https://muckrack.com/bhaskar-dutta) |
 | 19 | Lu Wang | Bloomberg | T1 | C | 93 | 1.9K | Cross-Asset Correspondent — Bloomberg Ne | — | — | [in](https://www.linkedin.com/in/lu-wang-04004356/) [x](https://x.com/luwangnyc) [mr](https://muckrack.com/luwangnyc) |
-| 20 | Lewis Krauskopf | Reuters | T1 | C | 93 | — | Markets Correspondent — Reuters (stocks, | — | — | [in](https://www.linkedin.com/in/lewiskrauskopf/) [x](https://twitter.com/LKrauskopf) [mr](https://muckrack.com/lewis-krauskopf) |
+| 20 | Lewis Krauskopf | Reuters | T1 | C | 93 | 2.8K | Markets Correspondent — Reuters (stocks, | — | — | [in](https://www.linkedin.com/in/lewiskrauskopf/) [x](https://twitter.com/LKrauskopf) [mr](https://muckrack.com/lewis-krauskopf) |
 | 21 | James Hunt | The Block | T2 | C | 92 | 5.1K | Deputy Managing Editor, The Daily newsle | — | 7 | [in](https://www.linkedin.com/in/james-hunt-b884043b0/) [x](https://x.com/humanjets) [mr](https://muckrack.com/james-hunt-9) |
 | 22 | Yifan Yu | Nikkei Asia | T2 | C | 92 | 1.6K | Technology Correspondent — Nikkei Asia | — | — | [in](https://www.linkedin.com/in/yifanyunews/) [x](https://x.com/yifanyunews) [mr](https://muckrack.com/yifanyunews) |
-| 23 | Steve Gelsi | MarketWatch | T1 | C | 92 | — | Staff Writer — Banking & Cannabis (Marke | — | — | [in](https://www.linkedin.com/in/steve-gelsi/) [x](https://x.com/stevegelsi) [mr](https://muckrack.com/stevegelsi) |
+| 23 | Steve Gelsi | MarketWatch | T1 | C | 92 | 2.4K | Staff Writer — Banking & Cannabis (Marke | — | — | [in](https://www.linkedin.com/in/steve-gelsi/) [x](https://x.com/stevegelsi) [mr](https://muckrack.com/stevegelsi) |
 | 24 | Alice Liu | CoinMarketCap | T1 | C | 91 | — | Research Lead — CoinMarketCap | — | — | [in](https://www.linkedin.com/in/alicejingliu/) |
-| 25 | Medha Singh | Reuters | T1 | C | 91 | 500+c | Senior Breaking News Correspondent — Fin | — | — | [in](https://www.linkedin.com/in/medha-singh-0811/) [x](https://x.com/medhasinghs) [mr](https://muckrack.com/medha-singh) |
+| 25 | Medha Singh | Reuters | T1 | C | 91 | 535 | Senior Breaking News Correspondent — Fin | — | — | [in](https://www.linkedin.com/in/medha-singh-0811/) [x](https://x.com/medhasinghs) [mr](https://muckrack.com/medha-singh) |
 | 26 | Kai Wang, CFA | Morningstar | T2 | C | 90 | — | Senior Equity Analyst / Asia Market Stra | CFA | — | [in](https://www.linkedin.com/in/kaiwang1/) |
 | 27 | Justin Low | ForexLive | T2 | C | 90 | — | Currency Analyst — investingLive (former | — | — | [in](https://www.linkedin.com/in/justin-low-59652b93/) [x](https://twitter.com/kenzyxvw) |
 | 28 | Tracy Wang | CoinDesk | T2 | C | 90 | — | Deputy Managing Editor (Finance & Deals) | — | — | [in](https://www.linkedin.com/in/tracycwang/) [x](https://twitter.com/0x_tracy) [mr](https://muckrack.com/tracycwang) |
-| 29 | Jamie Crawley | CoinDesk | T2 | C | 89 | — | News Reporter — CoinDesk | — | 5 | [in](https://uk.linkedin.com/in/jamie-crawley-08ab95107) [x](https://x.com/jamiecrawleycd) [mr](https://muckrack.com/jamie-crawley) |
-| 30 | Sam Kessler | CoinDesk | T2 | C | 89 | 500+c | Deputy Managing Editor, Tech & Protocols | — | — | [in](https://www.linkedin.com/in/sam-kessler-746089b0/) [x](https://x.com/skesslr) |
+| 29 | Jamie Crawley | CoinDesk | T2 | C | 89 | 5.9K | News Reporter — CoinDesk | — | 5 | [in](https://uk.linkedin.com/in/jamie-crawley-08ab95107) [x](https://x.com/jamiecrawleycd) [mr](https://muckrack.com/jamie-crawley) |
+| 30 | Sam Kessler | CoinDesk | T2 | C | 89 | 7.5K | Deputy Managing Editor, Tech & Protocols | — | — | [in](https://www.linkedin.com/in/sam-kessler-746089b0/) [x](https://x.com/skesslr) |
 | 31 | Turner Wright | Cointelegraph | T2 | C | 88 | — | Staff Writer & Senior Policy Reporter | — | 5 | [in](https://www.linkedin.com/in/turnerwright) |
 | 32 | John Puterbaugh | Bankrate | T1 | C | 88 | 500+c | Editor-in-Chief | — | 30 | [in](https://www.linkedin.com/in/johnputerbaugh) |
-| 33 | Stephen Culp | Reuters | T1 | C | 88 | 303c | Markets Journalist — Reuters (US stock m | — | — | [in](https://www.linkedin.com/in/stephen-culp-08144014/) [x](https://x.com/reutersculp) [mr](https://muckrack.com/stephen-culp) |
+| 33 | Stephen Culp | Reuters | T1 | C | 88 | 1.6K | Markets Journalist — Reuters (US stock m | — | — | [in](https://www.linkedin.com/in/stephen-culp-08144014/) [x](https://x.com/reutersculp) [mr](https://muckrack.com/stephen-culp) |
 | 34 | Emmanuel Nyame | Bankrate | T1 | C | 88 | — | Financial Review Board member (Bankrate) | — | 16 | [in](https://www.linkedin.com/in/emmanuelnyame/) |
 | 35 | Jeremy Nation | The Block | T2 | C | 88 | — | Senior Reporter — blockchain ecosystem | — | — | [in](https://www.linkedin.com/in/jeremy-nation-9a217b58/) [mr](https://muckrack.com/jeremy-nation) |
 | 36 | Nikolai Isayev | FinanceFeeds | T3 | C | 88 | — | COO & Editor-in-Chief — FinanceFeeds / T | — | — | [in](https://cy.linkedin.com/in/nikolaiisayev) |
 | 37 | Sam Reynolds | CoinDesk | T2 | C | 88 | 500+c | Senior Reporter, Asia Markets — CoinDesk | — | — | [in](https://hk.linkedin.com/in/sam-reynolds-996483208) [mr](https://muckrack.com/sam-reynolds) |
-| 38 | Emma Kerr | US News — Money | T2 | C | 88 | — | Personal Finance Editor (former) — U.S.  | — | 10 | [x](https://x.com/emmarkerr) [mr](https://muckrack.com/emma-kerr) |
+| 38 | Emma Kerr | US News — Money | T2 | C | 88 | 1.2K | Personal Finance Editor (former) — U.S.  | — | 10 | [x](https://x.com/emmarkerr) [mr](https://muckrack.com/emma-kerr) |
 | 39 | Jared Kirui | Finance Magnates | T2 | C | 88 | — | Editor — Finance Magnates | — | 5 | [in](https://www.linkedin.com/in/jaredkirui) [mr](https://muckrack.com/jared-kirui) |
 | 40 | Chris Russell | Nikkei Asia | T2 | C | 87 | — | Desk Editor — Business & Finance, Nikkei | — | — | [in](https://jp.linkedin.com/in/chris-russell-9579b84b) [mr](https://muckrack.com/jt_cr) |
 | 41 | Aaron Khoo | CoinMarketCap | T1 | C | 87 | — | Head of Listings & Ecosystem / Writer | — | 7 | [in](https://www.linkedin.com/in/aaronksw/) |
@@ -287,19 +287,19 @@ Bulk tier — condensed table for screening. ⚠ = still flagged for manual revi
 | 47 | Lance Davis | Bankrate | T1 | C | 84 | — | Former VP of Content, Bankrate (now at P | — | 13 | [in](https://www.linkedin.com/in/lance-r-davis/) |
 | 48 | Danny Kunwoong Park | The Block | T2 | C | 84 | 851 | East Asia Reporter — The Block | — | — | [in](https://www.linkedin.com/in/danny-kunwoong-park-5b57651a4/) [x](https://x.com/ParkKunwoong) [mr](https://muckrack.com/danny-park-1) |
 | 49 | Yogita Khatri | The Block | T2 | C | 83 | 11K | Senior Reporter — The Block | — | — | [x](https://x.com/yogita_khatri5) [mr](https://muckrack.com/yogita_khatri5) |
-| 50 | Prashant Mahesh | The Economic Times | T2 | C | 83 | — | Senior Assistant Editor — The Economic T | — | — | [in](https://www.linkedin.com/in/prashant-mahesh-2125335/) [x](https://x.com/PrashantmET) [mr](https://muckrack.com/prashant-mahesh) |
+| 50 | Prashant Mahesh | The Economic Times | T2 | C | 83 | 7.7K | Senior Assistant Editor — The Economic T | — | — | [in](https://www.linkedin.com/in/prashant-mahesh-2125335/) [x](https://x.com/PrashantmET) [mr](https://muckrack.com/prashant-mahesh) |
 | 51 | Guillermo Jimenez | Decrypt | T2 | C | 82 | 2.2K | Editor-in-Chief — Decrypt | — | — | [x](https://x.com/guillermojimnz) |
-| 52 | Rosie Carr | Investors' Chronicle | T2 | C | 82 | 424c | Editor | — | — | [in](https://www.linkedin.com/in/rosie-carr-a9865b8/) [x](https://x.com/carrrosie) [mr](https://muckrack.com/rosie-carr) |
+| 52 | Rosie Carr | Investors' Chronicle | T2 | C | 82 | 560 | Editor | — | — | [in](https://www.linkedin.com/in/rosie-carr-a9865b8/) [x](https://x.com/carrrosie) [mr](https://muckrack.com/rosie-carr) |
 | 53 | Solveig Godeluck | Les Echos | T2 | C | 82 | 500+c | Reporter / US Correspondent | — | — | [in](https://www.linkedin.com/in/solveig-godeluck-8069165/) [x](https://twitter.com/solwii) [mr](https://muckrack.com/solveig-godeluck) |
 | 54 | Leslie Cook | Money.com | T2 | C | 81 | — | Lead Real Estate Editor | — | 6 | [in](https://www.linkedin.com/in/leslie-cook-9829b9198/) [mr](https://muckrack.com/leslie-cook) |
 | 55 | Adonis Adoni | Finance Magnates | T2 | C | 81 | — | News Editor — Finance Magnates | — | 6 | [in](https://www.linkedin.com/in/adonisadoni/) |
-| 56 | Damilola Esebame | FinanceFeeds | T3 | C | 81 | — | Contributing Editor, DeFi — FinanceFeeds | — | 8 | [in](https://www.linkedin.com/in/damilolaesebame/) [x](https://twitter.com/efeoise_) |
+| 56 | Damilola Esebame | FinanceFeeds | T3 | C | 81 | 2.6K | Contributing Editor, DeFi — FinanceFeeds | — | 8 | [in](https://www.linkedin.com/in/damilolaesebame/) [x](https://twitter.com/efeoise_) |
 | 57 | Che Pan | South China Morning Post | T1 | C | 81 | — | Reporter — South China Morning Post (tec | — | 8 | [mr](https://muckrack.com/che-pan) |
 | 58 | Chris Nesi | The Block | T2 | C | 81 | — | Managing Editor — The Block | — | — | [mr](https://muckrack.com/chris-nesi) |
 | 59 | Allison Morrow | CNN Business | T1 | C | 80 | 3.0K | Senior Writer — CNN Business (lead of Ni | — | — | [x](https://x.com/allisondmorrow) [mr](https://muckrack.com/alliwsj) |
 | 60 | Aislinn Keely | The Block | T2 | C | 80 | 1.3K | Reporter (fintech/crypto/legal) — Law360 | — | — | [in](https://www.linkedin.com/in/aislinn-keely-579386161/) [x](https://x.com/AislinnKeely) [mr](https://muckrack.com/aislinn-keely) |
 | 61 | Jason Peterson | Cashback Forex | T3 | C | 80 | — | Co-founder & Chief Technical Architect — | — | — | [in](https://www.linkedin.com/in/grateful-jason/) |
-| 62 | Jason Nelson | Decrypt | T2 | C | 80 | 500+c | Reporter / West Coast Tech Reporter — De | — | — | [in](https://www.linkedin.com/in/jasoncnelson/) [x](https://twitter.com/jasonnelson) [mr](https://muckrack.com/dragonwolftech) |
+| 62 | Jason Nelson | Decrypt | T2 | C | 80 | 6.8K | Reporter / West Coast Tech Reporter — De | — | — | [in](https://www.linkedin.com/in/jasoncnelson/) [x](https://twitter.com/jasonnelson) [mr](https://muckrack.com/dragonwolftech) |
 | 63 | Antonio J. Fernandes Sousa | Trading Economics | T2 | C | 80 | — | Co-Founder & CEO — Trading Economics | — | — | [in](https://pt.linkedin.com/in/antonio-j-sousa-713b85302/pt) |
 | 64 | Noam Korbl | CompareForexBrokers | T3 | C | 80 | — | Co-Founder & CTO (formerly COO) — Compar | — | 12 | [in](https://au.linkedin.com/in/noam-korbl-201a3266) |
 | 65 | Anna Fedec | Trading Economics | T2 | C | 80 | 57c | Founder / Managing Director / Editor-in- | — | — | [in](https://www.linkedin.com/in/anna-fedec-16a7664/) |
@@ -318,7 +318,7 @@ Bulk tier — condensed table for screening. ⚠ = still flagged for manual revi
 | 78 | Sasha Rogelberg | Fortune | T1 | C | 76 | 301c | Reporter — Fortune (retail & business/po | — | — | [in](https://www.linkedin.com/in/sasha-rogelberg-88007612b/) [mr](https://muckrack.com/sasha-rogelberg) |
 | 79 | Jeff Anberg | StockBrokers.com | T3 | C | 75 | — | Senior Editor — StockBrokers.com / Reink | — | — | [in](https://www.linkedin.com/in/jeffanberg/) |
 | 80 | Emma Burleigh | Fortune | T1 | C | 75 | 500+c | Reporter — Fortune Success team | — | 2 | [in](https://www.linkedin.com/in/emma-burleigh-67312819b/) [mr](https://muckrack.com/emma-burleigh) |
-| 81 | Alexandre Counis | Les Echos | T2 | C | 75 | — | Editor-in-Chief, Finance & Markets | — | — | [x](https://x.com/alexandrecounis) [mr](https://muckrack.com/alexandre-counis) |
+| 81 | Alexandre Counis | Les Echos | T2 | C | 75 | 2.1K | Editor-in-Chief, Finance & Markets | — | — | [x](https://x.com/alexandrecounis) [mr](https://muckrack.com/alexandre-counis) |
 | 82 | Jane Lewis | MoneyWeek | T2 | C | 73 | — | Columnist / Profile Writer (MoneyWeek);  | — | — | — |
 | 83 | Thomas Right ⚠ | Investing.com | T2 | C | 73 | — | Vice Editor-in-Chief — Investing.com | — | — | — |
 | 84 | Daniel Dubrovsky | DailyFX | T2 | C | 73 | — | Contributing Senior Strategist / Currenc | — | 12 | [mr](https://muckrack.com/daniel-dubrovsky) |
@@ -335,7 +335,7 @@ Bulk tier — condensed table for screening. ⚠ = still flagged for manual revi
 | 95 | Ronald Wortel ⚠ | Zacks | T2 | C | 70 | — | Analyst — Small Cap Research (Mining cov | P.Eng (Professional En | — | [in](https://www.linkedin.com/in/ronald-wortel-g01deni/) |
 | 96 | Grace Witherden | Which? | T2 | C | 70 | — | Senior Content Writer/Producer — Which?  | — | — | [in](https://www.linkedin.com/in/grace-witherden-35528171/) [mr](https://muckrack.com/grace-witherden) |
 | 97 | Tony Kent (Anthony Kent) | DayTrading.com | T3 | C | 70 | 500+c | Broker Analyst and Editor — DayTrading.c | — | 20 | [in](https://www.linkedin.com/in/anthony-kent-522924/) |
-| 98 | Christina Comben | CryptoSlate | T2 | C | 70 | — | Web3 Editor / Author — CryptoSlate (form | — | — | [in](https://www.linkedin.com/in/christinacomben/) [x](https://x.com/christinacomben) |
+| 98 | Christina Comben | CryptoSlate | T2 | C | 70 | 1.8K | Web3 Editor / Author — CryptoSlate (form | — | — | [in](https://www.linkedin.com/in/christinacomben/) [x](https://x.com/christinacomben) |
 | 99 | Sankrit K | CoinGecko | T2 | C | 70 | — | Web3 SEO Researcher & Writer — CoinGecko | — | 7 | [in](https://www.linkedin.com/in/sankritk/) |
 | 100 | Daniel McCarthy | DailyFX | T2 | C | 70 | 500+c | Strategist (macro inter-market) — DailyF | — | — | [in](https://au.linkedin.com/in/dan-mccarthy-20b4346) [x](https://twitter.com/DanMcCarthyFX) |
 | 101 | Mike Mikhjian | ForexBrokers.com | T3 | C | 69 | — | Chief Technology Officer, Partner — Rein | — | — | [in](https://www.linkedin.com/in/michaelmikhjian/) |
@@ -351,7 +351,7 @@ Bulk tier — condensed table for screening. ⚠ = still flagged for manual revi
 | 111 | Peter Rudegeair | The Wall Street Journal | T1 | C | 67 | — | Finance Reporter | — | — | [mr](https://muckrack.com/rudegeair) |
 | 112 | Dan Gallagher | The Wall Street Journal | T1 | C | 67 | — | Tech / Finance Columnist | — | — | [mr](https://muckrack.com/mwdangallagher) |
 | 113 | Loke Choon Khei | CoinGecko | T2 | C | 67 | — | Writer — CoinGecko (Design & Content Tea | — | 4 | [in](https://www.linkedin.com/in/lokechoonkhei/) |
-| 114 | Gino Matos | CryptoSlate | T2 | C | 67 | 500+c | Reporter — CryptoSlate | — | 6 | [in](https://www.linkedin.com/in/ginomatos/) [x](https://x.com/pelicamatos) |
+| 114 | Gino Matos | CryptoSlate | T2 | C | 67 | 6.8K | Reporter — CryptoSlate | — | 6 | [in](https://www.linkedin.com/in/ginomatos/) [x](https://x.com/pelicamatos) |
 | 115 | Joseph Trevisani ⚠ | FXStreet | T2 | C | 66 | — | Senior Analyst | — | — | — |
 | 116 | Sander Lutz | Decrypt | T2 | C | 66 | — | Senior Writer — Decrypt | — | — | [x](https://twitter.com/s_lutz95) |
 | 117 | David Becker | AskTraders | T3 | C | 66 | — | Equities Trader / Contributor | — | 35 | [in](https://www.linkedin.com/in/david-b-37301717/) |
@@ -364,14 +364,14 @@ Bulk tier — condensed table for screening. ⚠ = still flagged for manual revi
 | 124 | James Brumley ⚠ | Motley Fool | T1 | C | 64 | — | Contributing analyst — Consumer Staples  | — | — | — |
 | 125 | Diego Colman | DailyFX | T2 | C | 64 | — | Contributing Strategist — DailyFX / Mark | — | 10 | — |
 | 126 | Hina Navin | Gulf News | T2 | C | 64 | — | Freelance Business Journalist & Designer | — | — | [in](https://www.linkedin.com/in/hinanavin/) [mr](https://muckrack.com/hina-navin) |
-| 127 | André Beganski | Decrypt | T2 | C | 64 | — | Staff Reporter | — | — | [x](https://twitter.com/andrebeganski) |
+| 127 | André Beganski | Decrypt | T2 | C | 64 | 2.3K | Staff Reporter | — | — | [x](https://twitter.com/andrebeganski) |
 | 128 | Kaitlin Mulhere ⚠ | Money.com | T2 | C | 64 | — | Editor — Higher Education, Student Debt  | — | 10 | — |
 | 129 | Hwee Yan Jau | CoinGecko | T2 | C | 63 | — | HR Associate & Contributing Writer — Coi | — | — | [in](https://www.linkedin.com/in/hwee-yan-jau/) |
 | 130 | Brian Lee Shun Hui | CoinGecko | T2 | C | 63 | — | Growth Marketer / Contributing Writer —  | — | — | [in](https://www.linkedin.com/in/brian-lee-shun-hui-038128193/) |
 | 131 | Gabriel O. Rodriguez Cruz ⚠ | Money.com | T2 | C | 63 | — | Associate Editor — Money (Crypto, Tech,  | — | 5 | — |
 | 132 | Lucia Ariano | Which? | T2 | C | 63 | — | Senior Video Presenter & Producer | — | — | — |
 | 133 | Angela Stevens ⚠ | Investing.com | T2 | C | 63 | — | News Editor | — | — | — |
-| 134 | Tim Backshall ⚠ | ZeroHedge | T2 | C | 63 | — | Credit Derivatives Strategist — former Z | — | — | [in](https://www.linkedin.com/in/tim-backshall-6a30881/) [x](https://x.com/credittrader) |
+| 134 | Tim Backshall ⚠ | ZeroHedge | T2 | C | 63 | 16K | Credit Derivatives Strategist — former Z | — | — | [in](https://www.linkedin.com/in/tim-backshall-6a30881/) [x](https://x.com/credittrader) |
 | 135 | Katie Williams | MoneyWeek | T2 | C | 63 | — | Writer — MoneyWeek | — | 5 | [in](https://uk.linkedin.com/in/katie-williams-34b3a1141) |
 | 136 | Peter Jefferson | Investing.com | T2 | C | 63 | — | News Editor — Investing.com | — | — | — |
 | 137 | Alexandra Owens ⚠ | Investing.com | T2 | C | 63 | — | News Editor — Investing.com | — | — | — |
@@ -391,7 +391,7 @@ Bulk tier — condensed table for screening. ⚠ = still flagged for manual revi
 | 151 | Prashant Jha | Cointelegraph | T2 | C | 59 | 741 | Writer (former) | — | — | [in](https://linkedin.com/in/prashant-jha09/) [x](https://twitter.com/_prashantjha) |
 | 152 | Ivan Makedonski | Bitcoin Magazine | T2 | C | 59 | — | Chief of Staff — Breez (Bitcoin Magazine | — | — | [in](https://www.linkedin.com/in/ivan-makedonski-3730ba44/) |
 | 153 | Hannah Smith | StockBrokers.com | T3 | C | 59 | 269c | Staff Editor — StockBrokers.com / Reink  | — | — | [in](https://www.linkedin.com/in/hannah-smith-b5b6b5136/) |
-| 154 | James Stanley | DailyFX | T2 | C | 59 | — | Former Strategist / Head of Education —  | — | 25 | [in](https://www.linkedin.com/in/james-stanley-480b4b7) [x](https://twitter.com/JStanleyFX) |
+| 154 | James Stanley | DailyFX | T2 | C | 59 | 88K | Former Strategist / Head of Education —  | — | 25 | [in](https://www.linkedin.com/in/james-stanley-480b4b7) [x](https://twitter.com/JStanleyFX) |
 | 155 | Megan Thomas | Which? | T2 | C | 59 | — | Researcher & Writer | — | — | [in](https://www.linkedin.com/in/megan-thomas-a0b385175/) |
 | 156 | Sam Boughedda | AskTraders | T3 | C | 58 | — | Equities Trader / Lead Stock Market News | — | — | [mr](https://muckrack.com/sam-boughedda) |
 | 157 | Chris Cammack | FXScouts | T4 | C | 58 | 196c | Partner Manager (former Head of Content  | — | 15 | [in](https://www.linkedin.com/in/chris-cammack-9325048/) |
@@ -403,7 +403,7 @@ Bulk tier — condensed table for screening. ⚠ = still flagged for manual revi
 | 163 | Mario Hess ⚠ | Brokervergleich | T3 | C | 57 | — | Finance Expert & Media Spokesperson — Fr | — | 15 | — |
 | 164 | Alex Eule | Barron's | T2 | C | 57 | 310c | Senior Managing Editor (former) — Barron | — | 19 | [in](https://www.linkedin.com/in/alex-eule-4b875514/) |
 | 165 | Günay Caymaz ⚠ | Investing.com | T2 | C | 56 | — | Forex analyst / contributor | — | 9 | — |
-| 166 | Steven Hay | Bitcoin Magazine | T2 | C | 56 | — | Writer / Former Trader — Bitcoin Magazin | — | 13 | [x](https://twitter.com/Single_Use_Seal) |
+| 166 | Steven Hay | Bitcoin Magazine | T2 | C | 56 | 11K | Writer / Former Trader — Bitcoin Magazin | — | 13 | [x](https://twitter.com/Single_Use_Seal) |
 | 167 | Ben Strang ⚠ | Barron's | T2 | C | 56 | — | Reporter — Barron's | — | — | — |
 | 168 | Ivan Andriyenko | TradersUnion | T2 | C | 56 | — | Financial Expert and Analyst (Forex, Cry | — | 8 | — |
 | 169 | Zornitsa Stefanova | BestBrokers | T3 | C | 55 | — | Forex and Crypto Analyst | — | — | [in](https://www.linkedin.com/in/zornica-stefanova-73ab39287/) |
@@ -428,7 +428,7 @@ Bulk tier — condensed table for screening. ⚠ = still flagged for manual revi
 | 188 | Alexandreas Kourris | Cashback Forex | T3 | C | 50 | 500+c | Account Manager & Broker Support — CashB | — | 9 | [in](https://www.linkedin.com/in/alexandreas/) |
 | 189 | Myfxbook Team ⚠ | Myfxbook | T3 | C | 50 | — | Collective byline — community platform | — | — | — |
 | 190 | Rishabh Surana | AskTraders | T3 | C | 49 | — | Contributor — AskTraders (Equities Trade | — | 10 | [in](https://www.linkedin.com/in/rishabhsuranamarketanalyst/) [x](https://twitter.com/rishabhanalyst) |
-| 191 | Mike Truppa ⚠ | The Block | T2 | C | 49 | — | Reporter — Blockchain Ecosystems (ZK pro | — | — | [x](https://x.com/miketruppa) |
+| 191 | Mike Truppa ⚠ | The Block | T2 | C | 49 | 185 | Reporter — Blockchain Ecosystems (ZK pro | — | — | [x](https://x.com/miketruppa) |
 | 192 | A. Deniz Akkaya ⚠ | TradersUnion | T2 | C | 49 | — | Team member — Traders Union | — | — | — |
 | 193 | Vuk Martinovic ⚠ | TradersUnion | T2 | C | 48 | — | Content Writer / Contributor — Traders U | — | 6 | — |
 | 194 | Yurii Kitikari | AskTraders | T3 | C | 47 | — | Contributor (Equities Trader / ex-Prop T | — | 14 | [in](https://www.linkedin.com/in/yurii-kitikari-b3b73283/) |
@@ -443,7 +443,7 @@ Bulk tier — condensed table for screening. ⚠ = still flagged for manual revi
 | 203 | Pip Surfer ⚠ | BabyPips | T2 | C | 46 | — | Contributor (pen-name) — BabyPips | — | — | — |
 | 204 | Toshi Moshi ⚠ | BabyPips | T2 | C | 46 | — | Crypto / AI Writer (pen-name) — BabyPips | — | — | — |
 | 205 | Brian Beers | Bankrate | T1 | C | 45 | 1.0K | Former Managing Editor | — | — | [in](https://www.linkedin.com/in/brian-beers/) [x](https://twitter.com/brian_beers) [mr](https://muckrack.com/brian-beers) |
-| 206 | Yousra Anwar Ahmed | CoinMarketCap | T1 | C | 45 | — | Head of Content (former) — CoinMarketCap | — | — | [in](https://www.linkedin.com/in/yousra-anwar) [x](https://twitter.com/YousraAASheikh) |
+| 206 | Yousra Anwar Ahmed | CoinMarketCap | T1 | C | 45 | 1.3K | Head of Content (former) — CoinMarketCap | — | — | [in](https://www.linkedin.com/in/yousra-anwar) [x](https://twitter.com/YousraAASheikh) |
 | 207 | Karen Banes | AskTraders | T3 | C | 45 | — | Freelance Finance/Crypto Writer — Contri | — | — | — |
 | 208 | Melissa Phipps ⚠ | The Balance | T2 | C | 44 | — | Former Contributor — The Balance | — | — | — |
 | 209 | Petra Pirova ⚠ | Lux Trading Firm | T4 | C | 44 | — | Founder & CEO — Lux Trading Firm | — | — | — |

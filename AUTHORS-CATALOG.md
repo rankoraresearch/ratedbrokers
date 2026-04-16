@@ -36,7 +36,7 @@ Single-source-of-truth catalog of all **579 authors** harvested across **96 outl
 - Quoted in tier-1 press: 185 / 579 (32%)
 - TV appearances: 75 / 579 (13%)
 - Multi-outlet (cross-writers): 258 / 579 (45%)
-- Twitter/X followers captured (S9): 64 / 579 (11%)
+- Twitter/X followers captured (S9): 147 / 579 (25%)
 - LinkedIn connections fallback (500+): 111 / 579 (19%)
 - Still flagged needsManualReview: 67 / 579 (12%)
 
@@ -59,29 +59,29 @@ Snapshot ranked by finalScore. Full detail blocks below.
 | 3 | **Marc Chandler** | Investing.com | S | 142 | — | CMT · 📺 5 |
 | 4 | **Beverly Harzog** | Bankrate | S | 141 | 5.2K | CPA (former) · 📚 1 books · 📺 6 |
 | 5 | **Andrea Coombes** | Bankrate | S | 141 | — | CFP · 📺 4 |
-| 6 | **Jennifer Streaks** | Business Insider | S | 139 | 500+c | MBA · 📺 5 |
+| 6 | **Jennifer Streaks** | Business Insider | S | 139 | 3.9K | MBA · 📺 5 |
 | 7 | **Catey Hill** | MarketWatch | S | 138 | 9.2K | 📚 2 books · 📺 3 |
-| 8 | **Kerry Hannon** | Yahoo Finance | S | 138 | — | 📚 5 books · 📺 1 |
+| 8 | **Kerry Hannon** | Yahoo Finance | S | 138 | 13K | 📚 5 books · 📺 1 |
 | 9 | **Lawrence Lewitinn** | CoinDesk | S | 138 | — | CFA · 📺 2 |
 | 10 | **Dan Kemp** | Morningstar | S | 136 | — | Investment Management Certificate (IMC), Securities Inst |
 | 11 | **Robyn A. Friedman** | Kiplinger | S | 133 | — | JD · 📺 1 |
 | 12 | **Richard Perry** | BestBrokers | S | 132 | 500+c | Society of Technical Analysts Diploma (with distinction) |
-| 13 | **Jessica Inskip** | StockBrokers.com | S | 132 | — | FINRA Series 7, FINRA Series 63, FINRA Series 66, FINRA  |
+| 13 | **Jessica Inskip** | StockBrokers.com | S | 132 | 14K | FINRA Series 7, FINRA Series 63, FINRA Series 66, FINRA  |
 | 14 | **Elaine King** | Investopedia | S | 130 | 500+c | CFP, TEP · 📚 1 books |
 | 15 | **Drew Limsky** | Kiplinger | S | 129 | 500+c | PhD, JD |
 | 16 | **Martin Lewis** | MoneySavingExpert | S | 128 | — | CBE, OBE · 📚 1 books · 📺 4 |
-| 17 | **Andrew Thurman** | CoinMarketCap | S | 128 | — | — |
-| 18 | **Charles Lewis Sizemore** | Kiplinger | S | 128 | 500+c | CFA · 📺 4 |
+| 17 | **Andrew Thurman** | CoinMarketCap | S | 128 | 27K | — |
+| 18 | **Charles Lewis Sizemore** | Kiplinger | S | 128 | 8.1K | CFA · 📺 4 |
 | 19 | **Steven Hatzakis** | StockBrokers.com | S | 126 | 4.5K | Series 3 / CTA |
 | 20 | **Kathy Lien** | WikiFX | S | 125 | — | 📚 3 books · 📺 1 |
-| 21 | **Dan Blystone** | FXEmpire | S | 125 | — | Series 3 (NFA — futures, options, forex) |
+| 21 | **Dan Blystone** | FXEmpire | S | 125 | 891 | Series 3 (NFA — futures, options, forex) |
 | 22 | **Blain Reinkensmeyer** | StockBrokers.com | S | 123 | — | 📚 1 books · 📺 1 |
 | 23 | **Doug Boneparth** | Investopedia | S | 118 | 500+c | CFP, AIF · 📺 5 |
 | 24 | **Riley Adams** | CompareForexBrokers | S | 118 | — | Certified Public Accountant (CPA) |
 | 25 | **Michael Hewson** | Good Money Guide | S | 117 | — | MSTA, CFTe · 📺 5 |
 | 26 | **Emma Lunn** | MoneyWeek | S | 111 | — | — |
 | 27 | **Eva Szalay** | The Full FX | S | 110 | — | — |
-| 28 | **Matthew Levy** | BestBrokers | S | 107 | — | CFA (Chartered Financial Analyst) |
+| 28 | **Matthew Levy** | BestBrokers | S | 107 | 661 | CFA (Chartered Financial Analyst) |
 | 29 | **Jon Dulin** | Modest Money | S | 104 | — | Series 65, Certificate in Financial Planning |
 | 30 | **James Chen** | Investopedia | S | 101 | 15K | CMT, CFTe, RIA · 📚 2 books · 📺 2 |
 
@@ -93,35 +93,35 @@ Sorted by verified X follower count (fetched from x.com directly, S9). Substitut
 | # | Name | Outlet | Tier | Score | X Followers | Role |
 |---|---|---|---|---|---|---|
 | 1 | **Scott Melker** | AskTraders | B | 54 | **950,000** | Contributor / Podcast Host 'The Wolf Of All Street |
-| 2 | **Frank Chaparro** | The Block | B | 78 | **206,000** | Host of The Scoop / Director of Special Projects — |
-| 3 | **Nigam Arora** | Benzinga | C | 68 | **107,700** | Founder — The Arora Report (Benzinga Contributor) |
-| 4 | **Nooresh Merani** | AskTraders | B | 77 | **100,600** | Contributor (technical analyst) — AskTraders; Foun |
-| 5 | **Camila Russo** | CoinMarketCap | B | 74 | **93,400** | Contributor (DeFi writer) — former CoinMarketCap;  |
-| 6 | **Merryn Somerset Webb** | MoneyWeek | C | 65 | **64,600** | Founder / Former Editor-in-Chief |
-| 7 | **Aaron van Wirdum** | Bitcoin Magazine | B | 51 | **58,300** | Former Editor-in-Chief |
-| 8 | **Tim Copeland** | The Block | C | 101 | **41,200** | Head of Growth — The Block (former Editor-in-Chief |
-| 9 | **Claer Barrett** | Financial Times | A | 120 | **22,500** | Consumer Editor / Associate Editor — Financial Tim |
-| 10 | **Omkar Godbole** | CoinDesk | B | 117 | **14,900** | Co-Managing Editor, Markets |
-| 11 | **James Chen** | Investopedia | S | 101 | **14,700** | Former Director, Trading & Investing Content (Inve |
-| 12 | **Emily Stewart** | Business Insider | C | 109 | **11,900** | Senior Correspondent — Consumer & Economy |
-| 13 | **Andrew Hayward** | Decrypt | A | 119 | **11,800** | Managing Editor |
-| 14 | **Yogita Khatri** | The Block | C | 83 | **11,000** | Senior Reporter — The Block |
-| 15 | **Catey Hill** | MarketWatch | S | 138 | **9,194** | Founding Editor — MarketWatch Picks; Head of Edito |
-| 16 | **Martine Robert** | Les Echos | C | 68 | **8,834** | Reporter |
-| 17 | **Jared Blikre** | Yahoo Finance | B | 102 | **8,371** | Director, Anchor, Global Markets Editor — Yahoo Fi |
-| 18 | **Narendra Nathan** | The Economic Times | B | 66 | **8,227** | Personal Finance Writer (retired) |
-| 19 | **Jonathan Burton** | MarketWatch | B | 112 | **8,186** | Money & Investing Editor / Columnist |
-| 20 | **Rupert Jones** | The Guardian — Money | B | 106 | **7,230** | Deputy Editor, Consumer & Money (Deputy Personal F |
-| 21 | **Veronica Dagher** | The Wall Street Journal | B | 80 | **6,462** | Personal Finance Reporter |
-| 22 | **Alicia Adamczyk** | Fortune | B | 91 | **5,556** | Former Senior Writer (Fortune) |
-| 23 | **Tobi Opeyemi Amure** | FinanceFeeds | B | 82 | **5,514** | Editor — FinanceFeeds (freelance finance writer) |
-| 24 | **Emily Graffeo** | Bloomberg | B | 108 | **5,378** | Cross-asset Reporter |
-| 25 | **Connor Sephton** | CoinMarketCap | A | 108 | **5,291** | Cryptocurrency Writer / Contributor — CoinMarketCa |
-| 26 | **Beverly Harzog** | Bankrate | S | 141 | **5,239** | Financial Review Board — Credit Cards Reviewer (Ba |
-| 27 | **James Hunt** | The Block | C | 92 | **5,112** | Deputy Managing Editor, The Daily newsletter |
-| 28 | **Matt Peterson** | Barron's | A | 123 | **4,690** | Lead Commentary / Ideas Editor (former Barron's) — |
-| 29 | **Steven Hatzakis** | StockBrokers.com | S | 126 | **4,485** | Global Director of Online Broker Research, Partner |
-| 30 | **Danielle Park, CFA** | Seeking Alpha | A | 116 | **4,235** | Portfolio Manager / Contributor |
+| 2 | **Whitney Webb** | Bitcoin Magazine | B | 84 | **689,300** | Contributor / Investigative Journalist — Bitcoin M |
+| 3 | **Frank Chaparro** | The Block | B | 78 | **206,000** | Host of The Scoop / Director of Special Projects — |
+| 4 | **Nigam Arora** | Benzinga | C | 68 | **107,700** | Founder — The Arora Report (Benzinga Contributor) |
+| 5 | **Nooresh Merani** | AskTraders | B | 77 | **100,600** | Contributor (technical analyst) — AskTraders; Foun |
+| 6 | **Camila Russo** | CoinMarketCap | B | 74 | **93,400** | Contributor (DeFi writer) — former CoinMarketCap;  |
+| 7 | **James Stanley** | DailyFX | C | 59 | **88,100** | Former Strategist / Head of Education — DailyFX (n |
+| 8 | **Merryn Somerset Webb** | MoneyWeek | C | 65 | **64,600** | Founder / Former Editor-in-Chief |
+| 9 | **Aaron van Wirdum** | Bitcoin Magazine | B | 51 | **58,300** | Former Editor-in-Chief |
+| 10 | **David Sekera** | Morningstar | B | 109 | **57,700** | Chief US Market Strategist — Morningstar |
+| 11 | **Tim Copeland** | The Block | C | 101 | **41,200** | Head of Growth — The Block (former Editor-in-Chief |
+| 12 | **Greg Michalowski** | ForexLive | B | 119 | **40,000** | Director of Technical Analysis & Client Education  |
+| 13 | **Jeremy Biberdorf** | Modest Money | B | 78 | **31,900** | Founder — Modest Money |
+| 14 | **Andrew Thurman** | CoinMarketCap | S | 128 | **27,400** | Content Lead — Nansen (former Senior Tech Correspo |
+| 15 | **Daniel Franke** | Brokervergleich | A | 88 | **26,000** | Founder and Operator — Brokervergleich.de / Franke |
+| 16 | **Claer Barrett** | Financial Times | A | 120 | **22,500** | Consumer Editor / Associate Editor — Financial Tim |
+| 17 | **Sharon Epperson** | CNBC | A | 114 | **19,600** | Senior Personal Finance Correspondent — CNBC |
+| 18 | **Ian Allison** | CoinDesk | B | 108 | **17,200** | Senior Reporter — CoinDesk (Institutional & Enterp |
+| 19 | **Adam Button** | ForexLive | B | 82 | **16,400** | Leader / Managing Editor — investingLive (formerly |
+| 20 | **Tim Backshall** | ZeroHedge | C | 63 | **15,900** | Credit Derivatives Strategist — former ZeroHedge c |
+| 21 | **Omkar Godbole** | CoinDesk | B | 117 | **14,900** | Co-Managing Editor, Markets |
+| 22 | **James Chen** | Investopedia | S | 101 | **14,700** | Former Director, Trading & Investing Content (Inve |
+| 23 | **Jessica Inskip** | StockBrokers.com | S | 132 | **13,900** | Director of Investor Research |
+| 24 | **Sebastian Matthes** | Handelsblatt | B | 97 | **13,300** | Editor-in-Chief — Handelsblatt |
+| 25 | **Kerry Hannon** | Yahoo Finance | S | 138 | **12,600** | Senior Columnist — retirement, careers, personal f |
+| 26 | **Ken Shreve** | Investors Business Daily | B | 109 | **12,100** | Markets Writer and Reporter — Investor's Business  |
+| 27 | **Andy Sharp** | Nikkei Asia | B | 117 | **12,000** | Opinion Editor — Nikkei Asia |
+| 28 | **Emily Stewart** | Business Insider | C | 109 | **11,900** | Senior Correspondent — Consumer & Economy |
+| 29 | **Andrew Hayward** | Decrypt | A | 119 | **11,800** | Managing Editor |
+| 30 | **Josh Lipton** | Yahoo Finance | A | 131 | **11,600** | Host & Co-Anchor — Yahoo Finance ('Asking for a Tr |
 
 
 ## LinkedIn reach
@@ -407,6 +407,7 @@ Senior Personal Finance Reporter at Business Insider — writes about credit, bu
 - LinkedIn: [https://www.linkedin.com/in/jstreaks/](https://www.linkedin.com/in/jstreaks/)
   - 500+ LinkedIn connections (followers not exposed)
 - Twitter/X: [https://x.com/jstreaks](https://x.com/jstreaks)
+  - **3,898 followers** on X (fetched 2026-04-16)
 - Muck Rack: [https://muckrack.com/jstreaks](https://muckrack.com/jstreaks)
 - Personal site: —
 - Author URL on outlet: [https://muckrack.com/jstreaks](https://muckrack.com/jstreaks)
@@ -502,6 +503,7 @@ Senior Columnist at Yahoo Finance and on-air expert. Workplace futurist and stra
 - Years in industry: **25**
 - LinkedIn: [https://www.linkedin.com/in/kerryhannon](https://www.linkedin.com/in/kerryhannon)
 - Twitter/X: [https://twitter.com/KerryHannon](https://twitter.com/KerryHannon)
+  - **12,600 followers** on X (fetched 2026-04-16)
 - Muck Rack: [https://muckrack.com/kerryhannon](https://muckrack.com/kerryhannon)
 - Personal site: [https://kerryhannon.com/](https://kerryhannon.com/)
 - Author URL on outlet: [https://finance.yahoo.com/author/kerry-hannon/](https://finance.yahoo.com/author/kerry-hannon/)
@@ -751,6 +753,7 @@ Director of Investor Research at StockBrokers.com. 15+ years in retail brokerage
 - Years in industry: **15**
 - LinkedIn: [https://www.linkedin.com/in/jessica-inskip-5301a065/](https://www.linkedin.com/in/jessica-inskip-5301a065/)
 - Twitter/X: [https://x.com/JessInskip_](https://x.com/JessInskip_)
+  - **13,900 followers** on X (fetched 2026-04-16)
 - Muck Rack: —
 - Personal site: —
 - Author URL on outlet: [https://www.stockbrokers.com/about/jessica-inskip](https://www.stockbrokers.com/about/jessica-inskip)
@@ -967,6 +970,7 @@ Content Lead at Nansen. Former senior technology correspondent at CoinDesk, week
 - Location: Washington, DC, USA
 - LinkedIn: [https://www.linkedin.com/in/andrew-thurman-578b41162/](https://www.linkedin.com/in/andrew-thurman-578b41162/)
 - Twitter/X: [https://twitter.com/Blockanalia](https://twitter.com/Blockanalia)
+  - **27,400 followers** on X (fetched 2026-04-16)
 - Muck Rack: —
 - Personal site: —
 - Author URL on outlet: [https://coinmarketcap.com/academy/author/andrew-thurman](https://coinmarketcap.com/academy/author/andrew-thurman)
@@ -1010,6 +1014,7 @@ Chartered Financial Analyst and Chief Investment Officer of Sizemore Capital Man
 - LinkedIn: [https://www.linkedin.com/in/charles-sizemore/](https://www.linkedin.com/in/charles-sizemore/)
   - 500+ LinkedIn connections (followers not exposed)
 - Twitter/X: [https://twitter.com/CharlesSizemore](https://twitter.com/CharlesSizemore)
+  - **8,109 followers** on X (fetched 2026-04-16)
 - Muck Rack: —
 - Personal site: [https://charlessizemore.com](https://charlessizemore.com)
 - Author URL on outlet: [https://www.kiplinger.com/author/charles-lewis-sizemore](https://www.kiplinger.com/author/charles-lewis-sizemore)
@@ -1176,6 +1181,7 @@ Broker Analyst at FXEmpire (since December 2019) and Senior Market Analyst at Sc
 - Years in industry: **27**
 - LinkedIn: [https://www.linkedin.com/in/danblystone](https://www.linkedin.com/in/danblystone)
 - Twitter/X: [https://twitter.com/DanBlystone](https://twitter.com/DanBlystone)
+  - **891 followers** on X (fetched 2026-04-16)
 - Muck Rack: —
 - Personal site: [https://www.traderslog.com/](https://www.traderslog.com/)
 - Author URL on outlet: [https://www.fxempire.com/author/danblystone](https://www.fxempire.com/author/danblystone)
@@ -1523,6 +1529,7 @@ Freelance financial copywriter and CFA Charterholder (2015) in good standing. 10
 - Years in industry: **15**
 - LinkedIn: [https://ca.linkedin.com/in/matthewlevycfa](https://ca.linkedin.com/in/matthewlevycfa)
 - Twitter/X: [https://twitter.com/matthewlevycfa](https://twitter.com/matthewlevycfa)
+  - **661 followers** on X (fetched 2026-04-16)
 - Muck Rack: —
 - Personal site: [https://www.matthewlevycfa.com/](https://www.matthewlevycfa.com/)
 - Author URL on outlet: [https://www.bestbrokers.com/authors/matthew-levy-cfa/](https://www.bestbrokers.com/authors/matthew-levy-cfa/)
