@@ -63,6 +63,8 @@ function compactAuthor(a) {
       lf: ms.linkedinFollowers ?? null,
       lc: ms.linkedinConnections || null,
       lfa: ms.linkedinFetchedAt || null,
+      tf: ms.twitterFollowers ?? null,
+      tfa: ms.twitterFetchedAt || null,
     },
     score: calcAuthorScore(a),
     auth: calcAuthoritativeness(a),
@@ -93,7 +95,7 @@ export async function handleAdminAuthorsDashboard(request, env) {
   const tierS = authors.filter(a => a.eeatTier === 'S').length;
   const tierA = authors.filter(a => a.eeatTier === 'A').length;
   const withLI = authors.filter(a => a.linkedin).length;
-  const withFollowers = authors.filter(a => a.ms.lf != null).length;
+  const withFollowers = authors.filter(a => a.ms.tf != null).length;
   const withEmail = authors.filter(a => a.email).length;
 
   const html = `<!DOCTYPE html>
@@ -160,14 +162,14 @@ ${adminHeaderHTML('authors', encodedKey)}
 
 <main class="container">
   <h1 class="page-title">Authors Outreach Map</h1>
-  <p class="page-sub">580 authors harvested across 96 outlets. LinkedIn followers via S7 (where Google snippets exposed them).</p>
+  <p class="page-sub">580 authors harvested across 96 outlets. Twitter/X follower counts fetched directly from x.com (S9). LinkedIn followers blocked by anti-bot — not displayed.</p>
 
   <div class="summary-grid">
     <div class="summary-card"><div class="v">${total}</div><div class="k">Authors</div></div>
     <div class="summary-card"><div class="v" style="color:#c4b5fd">${tierS}</div><div class="k">Tier S</div></div>
     <div class="summary-card"><div class="v" style="color:#93c5fd">${tierA}</div><div class="k">Tier A</div></div>
     <div class="summary-card"><div class="v">${withLI}</div><div class="k">With LinkedIn</div></div>
-    <div class="summary-card"><div class="v" style="color:#34d399">${withFollowers}</div><div class="k">LI Followers ✓</div></div>
+    <div class="summary-card"><div class="v" style="color:#34d399">${withFollowers}</div><div class="k">X followers ✓</div></div>
     <div class="summary-card"><div class="v">${withEmail}</div><div class="k">Email captured</div></div>
   </div>
 
@@ -221,7 +223,7 @@ ${adminHeaderHTML('authors', encodedKey)}
         <th class="sortable" data-sort="outletDR">Tier · DR</th>
         <th>Beat</th>
         <th class="sortable" data-sort="yearsInIndustry" title="Years of professional experience in financial journalism / advisory / trading">Yrs exp.</th>
-        <th class="sortable" data-sort="followers" style="text-align:right">LI Ⓕ</th>
+        <th class="sortable" data-sort="followers" style="text-align:right" title="Twitter/X followers (verified from x.com, S9). LinkedIn followers are blocked — not displayed.">X Ⓕ</th>
         <th>Contacts</th>
       </tr>
     </thead>
@@ -247,7 +249,7 @@ ${adminHeaderHTML('authors', encodedKey)}
     a.outletTier = o.tier || 'T4';
     a.outletUrl = o.url || '';
     a.compRefs = o.compRefs || 0;
-    a.followers = a.ms.lf;
+    a.followers = a.ms.tf; // Twitter/X (verified); LI blocked
     a.isMultiOutlet = (a.writesFor && a.writesFor.length > 1);
     a.books = a.ms.books || 0;
     a.qt1 = a.ms.qt1 || 0;
@@ -330,7 +332,7 @@ ${adminHeaderHTML('authors', encodedKey)}
     ].filter(Boolean).join('');
     const formerFlag = a.status === 'former' || a.seniority === 'former' ? '<span class="former">FORMER</span>' : '';
     const reviewFlag = a.needsManualReview ? '<span class="review-flag">⚠</span>' : '';
-    const followersTitle = a.ms.lfa ? 'fetched ' + a.ms.lfa.split('T')[0] : '';
+    const followersTitle = a.ms.tfa ? 'X followers — fetched ' + a.ms.tfa.split('T')[0] : '';
     return '<tr>' +
       '<td><span class="score-pill" style="background:' + scoreColor(a.finalScore) + '" title="base ' + a.score + ' × auth +' + a.auth + '">' + a.finalScore + '</span></td>' +
       '<td><span class="badge badge-' + a.eeatTier + '">' + a.eeatTier + '</span></td>' +

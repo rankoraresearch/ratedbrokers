@@ -172,7 +172,7 @@ export default function AuthorsResearchPage() {
       score: (a, b) => b.score - a.score,
       auth: (a, b) => b.authoritativeness - a.authoritativeness,
       dr: (a, b) => b.outletDR - a.outletDR,
-      followers: (a, b) => (b.mediaSignals?.linkedinFollowers || 0) - (a.mediaSignals?.linkedinFollowers || 0),
+      followers: (a, b) => (b.mediaSignals?.twitterFollowers || 0) - (a.mediaSignals?.twitterFollowers || 0),
       years: (a, b) => (b.yearsInIndustry || 0) - (a.yearsInIndustry || 0),
       books: (a, b) => (b.mediaSignals?.authoredBooks?.length || 0) - (a.mediaSignals?.authoredBooks?.length || 0),
       tier1: (a, b) => (b.mediaSignals?.quotedInTier1?.length || 0) - (a.mediaSignals?.quotedInTier1?.length || 0),
@@ -754,15 +754,15 @@ function AuthorCard({ author, mob }) {
               📚 {author.mediaSignals.authoredBooks.length}
             </span>
           )}
-          {author.mediaSignals?.linkedinFollowers != null && (
-            <span title={`${author.mediaSignals.linkedinFollowers.toLocaleString()} LinkedIn followers (fetched ${author.mediaSignals.linkedinFetchedAt?.split("T")[0] || "—"})`}
+          {author.mediaSignals?.twitterFollowers != null && (
+            <span title={`${author.mediaSignals.twitterFollowers.toLocaleString()} X (Twitter) followers (fetched ${author.mediaSignals.twitterFetchedAt?.split("T")[0] || "—"})`}
               style={{ padding: "2px 6px", background: "#e0f2fe", color: "#075985", borderRadius: 4, fontWeight: 700 }}>
-              📣 {author.mediaSignals.linkedinFollowers >= 1000
-                ? (author.mediaSignals.linkedinFollowers / 1000).toFixed(author.mediaSignals.linkedinFollowers >= 10000 ? 0 : 1) + "K"
-                : author.mediaSignals.linkedinFollowers.toLocaleString()}
+              📣 {author.mediaSignals.twitterFollowers >= 1000
+                ? (author.mediaSignals.twitterFollowers / 1000).toFixed(author.mediaSignals.twitterFollowers >= 10000 ? 0 : 1) + "K"
+                : author.mediaSignals.twitterFollowers.toLocaleString()}
             </span>
           )}
-          {author.mediaSignals?.linkedinFollowers == null && author.mediaSignals?.linkedinConnections && (
+          {author.mediaSignals?.twitterFollowers == null && author.mediaSignals?.linkedinConnections && (
             <span title={`${author.mediaSignals.linkedinConnections} LinkedIn connections (followers not exposed)`}
               style={{ padding: "2px 6px", background: "#f1f5f9", color: "#475569", borderRadius: 4, fontWeight: 600 }}>
               👥 {author.mediaSignals.linkedinConnections}
@@ -898,7 +898,7 @@ function AuthorsTable({ rows, mob }) {
               <Th style={{ width: 50 }}>Badge</Th>
               <Th>Beat</Th>
               <Th style={{ width: 56 }} title="Years of professional experience in financial journalism / advisory / trading">Yrs exp.</Th>
-              <Th style={{ width: 80, textAlign: "right" }}>LI ⓕ</Th>
+              <Th style={{ width: 80, textAlign: "right" }} title="Twitter/X followers (verified from x.com, S9). LinkedIn blocked — not displayed.">X ⓕ</Th>
               <Th style={{ width: 140 }}>Contacts</Th>
               <Th style={{ width: 70 }}>Page</Th>
             </tr>
@@ -976,11 +976,12 @@ function AuthorsTable({ rows, mob }) {
                   </div>
                 </Td>
                 <Td style={{ color: palette.text, textAlign: "center" }}>{a.yearsInIndustry || "—"}</Td>
-                <Td style={{ textAlign: "right", fontFamily: "Outfit, sans-serif", fontWeight: 700, color: palette.navy }}>
-                  {a.mediaSignals?.linkedinFollowers != null
-                    ? a.mediaSignals.linkedinFollowers >= 1000
-                      ? (a.mediaSignals.linkedinFollowers / 1000).toFixed(a.mediaSignals.linkedinFollowers >= 10000 ? 0 : 1) + "K"
-                      : a.mediaSignals.linkedinFollowers.toLocaleString()
+                <Td style={{ textAlign: "right", fontFamily: "Outfit, sans-serif", fontWeight: 700, color: palette.navy }}
+                  title={a.mediaSignals?.twitterFollowers != null ? `X followers — fetched ${a.mediaSignals.twitterFetchedAt?.split("T")[0] || "—"}` : ""}>
+                  {a.mediaSignals?.twitterFollowers != null
+                    ? a.mediaSignals.twitterFollowers >= 1000
+                      ? (a.mediaSignals.twitterFollowers / 1000).toFixed(a.mediaSignals.twitterFollowers >= 10000 ? 0 : 1) + "K"
+                      : a.mediaSignals.twitterFollowers.toLocaleString()
                     : a.mediaSignals?.linkedinConnections
                       ? <span style={{ color: palette.muted, fontWeight: 500, fontSize: 11 }}>{a.mediaSignals.linkedinConnections} conn</span>
                       : <span style={{ color: palette.muted, fontWeight: 400 }}>—</span>}
