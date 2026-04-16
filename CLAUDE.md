@@ -74,6 +74,8 @@ HH:MM — действие — результат
 | `ADMIN-GUIDE.md` | Руководство по 7 разделам админ-панели |
 | `REVIEW-EDITOR-GUIDE.md` | Инструкция по Review Editor (EN/RU) |
 | `IMPROVEMENTS.md` | Трекер улучшений: выполненные + запланированные, связь Frontend/Backend/Admin |
+| `DESIGN-ANTIPATTERNS.md` | **ОБЯЗАТЕЛЬНО** сверяться перед любым редизайном/новой секцией — что Егор НЕ принимает (pale greens, радужные chips, разноцветные категории, шаблонные badges) |
+| `EDITORIAL-ACTIVITY-LOG.md` | Спека гибридной архитектуры editorial-журнала (MD frontmatter bindings + D1 `editorial_actions` events). Питает Recent Activity блок на `/author/:slug` и byline на review/ranking страницах |
 | `backend/README.md` | API reference, D1 schema, все 40+ endpoints |
 
 ## Стек и правила кода

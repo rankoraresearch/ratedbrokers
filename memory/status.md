@@ -1,10 +1,21 @@
 # Status — текущее состояние проекта
 
-Last updated: 2026-04-16 20:17 (Broker Types config locked, cache headers added)
+Last updated: 2026-04-16 21:00 (Author page rewrite + Editorial Activity spec)
 
 ---
 
 ## Frontend / последнее
+
+**Author Page полный редизайн** — коммит TBD (16.04.2026)
+- `/author/:slug` переписан под Variant A (Editorial Authority WSJ-style) — консультация Barbara + Bill
+- Premium Dark hero + Trust Ribbon + Media Coverage с inline wordmark-ами (10 изданий: Bloomberg, REUTERS, WSJ, FT, CNBC, CNN, Forbes, MarketWatch, BUSINESS INSIDER, The Economist) + Editorial Activity feed (underline-табы + группировка по месяцам)
+- Для founder (Yegor): Platform Milestones вместо Media Coverage + Activity
+- **Peer-review полоса удалена** — концептуальная ошибка (ревью на материал, не на человека); переедет на review/ranking с `dateModified`
+- **Verified galochka удалена** с аватаров (правило Егора)
+- Прото `/proto/author` — 3 концепта (A/B/C) + тумблер автора, остался для референса
+- Data module: `src/data/authorActivity.js` (188 строк) — `OUTLET_STYLES`, `MEDIA_MENTIONS`, `ACTIVITY_FEED`, `MILESTONES`, helpers. Shape 1:1 с будущим API `/api/authors/:id/activity`
+- Спека backend системы: `EDITORIAL-ACTIVITY-LOG.md` — hybrid (MD bindings + D1 `editorial_actions` events), 6 API endpoints, admin Publish UI расширения, migration plan 8 спринтов / ~12-15 ч
+- Решения в `DECISIONS.md §25, §26`. Узел `memory/author-page.md`
 
 **Broker Types Section ЗАФИКСИРОВАНА** — коммит `5ffa063` (16.04.2026)
 - Финальный config: `frame=none`, `accent=warm`, `cadence=compact (56)`, `header=fieldLabel`, `meta=off`, `style=unified`

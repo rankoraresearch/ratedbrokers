@@ -750,3 +750,46 @@ Codex-reviewed: каждый спринт 10/10 перед реализацие�
 - Только реальные вертикали из rankings.js (UK=6, USA=6, AU=3, rest=2)
 - ★ Most Popular badge (оранжевый ribbon)
 - Broker count, equal card heights, mobile horizontal scroll
+
+### Author Page Redesign + Editorial Activity (16 апреля 2026)
+
+**Задача:** `/author/:slug` выглядела «супер шаблонно» — resume-стайл с радужными stat-карточками, плоский список ссылок, нет media mentions, нет freshness-сигналов. Полный редизайн + архитектура editorial-журнала.
+
+**Агенты-консультанты:**
+- `Barbara` — 3 концепта дизайна (A/B/C), бриф в `AUTHOR-PAGE-BARBARA.md`
+- `Bill` — SEO/E-E-A-T блоки и риски, бриф в `AUTHOR-PAGE-BILL.md`
+
+**Прото `/proto/author`:** 3 концепта + тумблер автора (Marcus analyst / Yegor founder). Файл `src/pages/AuthorProto.jsx`.
+
+**Выбор:** Concept A (Editorial Authority WSJ-style). Удалена зелёная verified-галка. **Peer-review полоса убрана** с author page как концептуальная ошибка — ревью делается на материал, не на человека; переедет на review/ranking с `dateModified`.
+
+**Реализация (`src/pages/AuthorPage.jsx` полностью переписан):**
+- Premium Dark hero (navy→green gradient) + manifesto + credentials pills navy
+- Trust Ribbon (mono-цифры): Years / Reviews Written / Review/Fact-check passes / Last Update
+- About + Areas
+- **Media Coverage** — карточки-цитаты с inline outlet wordmark. 10 стилизованных wordmark-ов (Bloomberg, REUTERS, The Wall Street Journal, FINANCIAL TIMES, CNBC, CNN, Forbes, MarketWatch, BUSINESS INSIDER, The Economist) в одном монохромном стандарте
+- **Editorial Activity feed** — единая лента с underline-табами (All/Wrote/Reviewed/Fact-checked) + группировка по месяцам (APRIL 2026 · 7 actions). Orange eyebrow `RECENT ACTIVITY` + orange underline для активного таба. Pure typography, zero цветных чипсов
+- Для Yegor (founder): feed → **Platform Milestones** (5 событий), без Media Coverage
+- CTA «Have a question for X?»
+
+**Новый data-модуль `src/data/authorActivity.js`:**
+- `OUTLET_STYLES` — 10 typography-based wordmarks
+- `MEDIA_MENTIONS` — цитаты per author (Marcus 3, Sarah 2, David 1)
+- `ACTIVITY_FEED` — editorial events (Marcus 10, Sarah 7, Elena 6, David 6), shape 1:1 с будущим API
+- `MILESTONES` — 5 событий для Yegor
+- Helpers: `getTrustNumbers`, `getManifesto`, `bucketFeed`, `monthLabel`, `pageTypeLabel`
+
+**Спека editorial-системы:** `EDITORIAL-ACTIVITY-LOG.md` (новый файл)
+- Hybrid архитектура: bindings в MD frontmatter + events в D1 `editorial_actions`
+- SQL schema + 3 индекса, 6 API endpoints (public + admin)
+- Admin Publish расширения: per-row dropdown, bulk panel, Activity Log tab, Due-for-review dashboard
+- Frontend: author page feed + byline на review/ranking + JSON-LD `dateModified`
+- 8-спринтовый migration plan (~12-15 ч)
+
+**Файлы:**
+- `src/pages/AuthorPage.jsx` — rewrite
+- `src/data/authorActivity.js` — новый (188 строк)
+- `src/pages/AuthorProto.jsx` — новый (3 концепта)
+- `EDITORIAL-ACTIVITY-LOG.md`, `AUTHOR-PAGE-BARBARA.md`, `AUTHOR-PAGE-BILL.md` — спеки
+- `src/App.jsx` — route `/proto/author`
+- `DECISIONS.md §25-26`, `memory/author-page.md` — документация

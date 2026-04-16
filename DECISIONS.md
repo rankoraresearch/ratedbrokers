@@ -467,3 +467,51 @@ Frontend → fetch /api/reviews/:slug/overrides → merge HTML over static JS �
 **Smart Placement:** `[placement] mode = "smart"` в wrangler.toml — Workers запускаются ближе к D1, ускорение D1 queries на 30-50%.
 
 **Staging:** `[env.staging]` — preview environment для тестирования backend изменений перед production deploy. `npx wrangler deploy --env staging`.
+
+---
+
+## 25. Author Page — Variant A "Editorial Authority" + Editorial Activity (16.04.2026)
+
+**Выбор:** Полный редизайн `/author/:slug`. Premium Dark hero + navy Trust Ribbon + white Media Coverage + unified Editorial Activity feed. Peer-review строка на странице автора **удалена**.
+
+**Почему:**
+- Предыдущий шаблон (resume-стайл: радужные stat-карточки зелёный/синий/фиолетовый + плоский список ссылок) прямо нарушал `DESIGN-ANTIPATTERNS.md §2/§3` (пастельная палитра per-category) и не давал никаких E-E-A-T-сигналов.
+- Консультация Барбары (дизайн) + Била (SEO/E-E-A-T) сошлась на concept A (Editorial Authority WSJ-style). Детальные брифы: `AUTHOR-PAGE-BARBARA.md`, `AUTHOR-PAGE-BILL.md`.
+- Единый шаблон с переменными покрывает и analyst-case (Marcus/Sarah/Elena/David), и founder-case (Yegor) — без ветвлений в логике. Для founder: manifesto = mission, trust-метрики = platform-stats, Editorial Activity → Platform Milestones.
+- **Peer-review полоса на `/author/:slug` убрана как концептуальная ошибка**: ревью делается НА материал (broker review, ranking), не НА человека. Полоса переезжает на content-страницы (review/ranking) вместе с `dateModified` — там она работает как E-E-A-T для YMYL.
+- Фиктивные credentials без verification — риск, флагнутый Билом. Entity graph через `hasCredential.verifyUrl` (ссылки на CFA Institute, FINRA, CMT Association) — отдельный спринт.
+
+**Отвергнуто:**
+- Concept B (Analyst Terminal, full-dark page) — нарушает `feedback_dark_rhythm.md` (Premium Dark — якорная секция, не фон всей страницы).
+- Concept C (Magazine Profile FT-style с cream-бэндом и pullquote) — рассматривался как fallback, Егор выбрал Concept A.
+- Visible verified checkmark badge на аватаре — удалён (Егор называл «ублюдочный зелёный эмодзи»).
+
+**Файлы:**
+- `src/pages/AuthorPage.jsx` — полностью переписан под Variant A.
+- `src/data/authorActivity.js` — **новый модуль**: `OUTLET_STYLES` (10 wordmarks), `MEDIA_MENTIONS`, `ACTIVITY_FEED`, `MILESTONES`, helpers. Shape 1:1 с будущим API.
+- `src/pages/AuthorProto.jsx` — прото с 3 концептами (A/B/C) + тумблер автора, остаётся на `/proto/author` как референс.
+
+---
+
+## 26. Editorial Activity Log — Hybrid архитектура (16.04.2026)
+
+**Выбор:** Bindings writer/reviewer/factChecker в **MD frontmatter** ревью/рейтинга + журнал событий в **D1 таблице `editorial_actions`**. Спека: `EDITORIAL-ACTIVITY-LOG.md`.
+
+**Почему:**
+- **Bindings в MD**: источник правды в git, деплой-тайм, SSR-friendly (byline всегда в HTML).
+- **Events в D1**: админ может отметить «прошёл фактчек» без PR/redeploy. Связано с существующим разделом Publish (`page_publish`, `publish_log`).
+- На фронт: `/api/authors/:id/activity?limit=10` → Editorial Activity feed на author page. На review/ranking: `/api/pages/:slug/editorial` → byline + `dateModified`.
+- **`dateModified` в JSON-LD Article** = max(acted_at) по странице — критичный SEO-сигнал свежести для YMYL-запросов ("best forex brokers 2026").
+
+**Отвергнуто:**
+- Чистый MD (`updates: [...]` массив в frontmatter) — каждая отметка = commit+redeploy, не масштабируется.
+- Чистый D1 (без MD) — нет git-истории bindings, SSR-unfriendly.
+
+**Где это работает на 10/10 (vs weak на author page):**
+- Byline + last-checked date на broker review/ranking — ранжируется, YMYL, E-E-A-T материален.
+- Author page — trust-asset (entity graph, `Person.sameAs`, `hasCredential`), не money-страница.
+- Editorial Activity блок на author page = freshness-сигнал + internal link hub.
+
+**Миграционный план:** 8 спринтов, ~12-15 часов. Этапы в `EDITORIAL-ACTIVITY-LOG.md §9`.
+
+**Статус:** Спека готова. Реализация — отдельный спринт (пока ACTIVITY_FEED живёт как static mock в `authorActivity.js` с shape 1:1 под API).
