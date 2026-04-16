@@ -202,16 +202,18 @@ export async function handleDonorsDashboard(request, env) {
             <tr>
               <th style="width:40px">#</th>
               <th>Domain</th>
-              <th style="width:60px">DR</th>
-              <th style="width:60px">Ovl</th>
-              <th>Linked from</th>
-              <th style="width:80px">Traffic</th>
-              <th>Email</th>
-              <th>Form</th>
-              <th style="width:100px">Status</th>
+              <th style="width:50px">DR</th>
+              <th style="width:50px">Ovl</th>
+              <th>Primary email</th>
+              <th style="width:70px">Cat</th>
+              <th style="width:70px">Host</th>
+              <th style="width:80px">Source</th>
+              <th>Fallbacks</th>
+              <th style="width:80px">Form</th>
+              <th style="width:90px">Status</th>
             </tr>
           </thead>
-          <tbody id="rows"><tr><td colspan="9" class="loading">Loading...</td></tr></tbody>
+          <tbody id="rows"><tr><td colspan="11" class="loading">Loading...</td></tr></tbody>
         </table>
       </div>
     </div>
@@ -242,31 +244,64 @@ export async function handleDonorsDashboard(request, env) {
     const params = new URLSearchParams({ min_dr: dr, min_overlap: ov, limit });
     if (st) params.set('status', st);
 
-    document.getElementById('rows').innerHTML = '<tr><td colspan="9" class="loading">Loading...</td></tr>';
+    document.getElementById('rows').innerHTML = '<tr><td colspan="11" class="loading">Loading...</td></tr>';
     const res = await fetch('/api/admin/donors/list?' + params, { headers: { 'Authorization': 'Bearer ' + decodeURIComponent(KEY) } });
     const { rows } = await res.json();
     const filtered = search ? rows.filter(r => r.domain.includes(search)) : rows;
     document.getElementById('count').textContent = filtered.length + ' / ' + rows.length + ' shown';
 
     if (filtered.length === 0) {
-      document.getElementById('rows').innerHTML = '<tr><td colspan="9" class="loading">No results.</td></tr>';
+      document.getElementById('rows').innerHTML = '<tr><td colspan="11" class="loading">No results.</td></tr>';
       return;
+    }
+
+    function esc(s) { return String(s || '').replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c])); }
+    function catColor(cat) {
+      if (cat === 'guest' || cat === 'editor') return 'var(--green)';
+      if (cat === 'pr' || cat === 'partnerships') return 'var(--cyan)';
+      if (cat === 'contact') return 'var(--amber)';
+      if (cat === 'support' || cat === 'other') return 'var(--text-secondary)';
+      return 'var(--text-muted)';
+    }
+    function hostColor(h) {
+      if (h === 'on_domain' || h === 'same_site') return 'var(--green)';
+      if (h === 'foreign_provider') return 'var(--red)';
+      return 'var(--amber)';
     }
 
     const html = filtered.map((r, i) => {
       const dr = r.max_dr || 0;
-      const traffic = (r.max_traffic || 0).toLocaleString();
       const status = r.status || 'pending';
-      const email = r.email ? '<a href="mailto:' + r.email + '" style="color:var(--blue)">' + r.email + '</a>' : '—';
-      const form = r.contact_form_url ? '<a href="' + r.contact_form_url + '" target="_blank" rel="noopener" style="color:var(--blue)">form</a>' : '—';
+      const primaryEmail = r.primary_email || r.email;
+      let allEmails = [];
+      try { allEmails = r.all_emails ? JSON.parse(r.all_emails) : []; } catch {}
+      const primaryMeta = allEmails[0] || {};
+      const emailCell = primaryEmail
+        ? '<a href="mailto:' + esc(primaryEmail) + '" style="color:var(--blue);font-weight:500">' + esc(primaryEmail) + '</a>'
+          + (r.source_url ? ' <a href="' + esc(r.source_url) + '" target="_blank" rel="noopener nofollow" title="' + esc((r.source_snippet||'').slice(0,200)) + '" style="color:var(--text-muted);font-size:10px;text-decoration:none">↗</a>' : '')
+        : '—';
+      const cat = primaryMeta.cat || '';
+      const host = primaryMeta.host || '';
+      const catCell = cat ? '<span style="font-size:10px;color:' + catColor(cat) + ';font-weight:600;text-transform:uppercase">' + esc(cat) + '</span>' : '—';
+      const hostCell = host ? '<span style="font-size:10px;color:' + hostColor(host) + '" title="' + esc(host) + '">' + esc(host.replace('_',' ').slice(0,8)) + '</span>' : '—';
+      const sourceCell = r.source_method ? '<span style="font-size:10px;color:var(--text-muted)">' + esc(r.source_method) + '</span>' : '—';
+      const fallbacks = [r.fallback_email_1, r.fallback_email_2].filter(Boolean);
+      const fbCell = fallbacks.length
+        ? '<span style="font-size:11px;color:var(--text-secondary)" title="' + esc(fallbacks.join(', ')) + '">' + esc(fallbacks[0]) + (fallbacks.length > 1 ? ' +' + (fallbacks.length - 1) : '') + '</span>'
+        : '—';
+      const form = r.contact_form_url ? '<a href="' + esc(r.contact_form_url) + '" target="_blank" rel="noopener" style="color:var(--blue);font-size:11px">form</a>' : '—';
       return '<tr>' +
         '<td style="color:var(--text-muted);font-size:11px">' + (i+1) + '</td>' +
-        '<td class="domain-cell"><a href="https://' + r.domain + '" target="_blank" rel="noopener noreferrer nofollow">' + r.domain + '</a></td>' +
+        '<td class="domain-cell"><a href="https://' + esc(r.domain) + '" target="_blank" rel="noopener noreferrer nofollow">' + esc(r.domain) + '</a>' +
+          (r.competitors ? '<div style="font-size:10px;color:var(--text-muted);margin-top:2px" title="' + esc(r.competitors) + '">' + esc(r.competitors.split(', ').slice(0,3).join(', ')) + (r.competitors.split(', ').length > 3 ? ' +' + (r.competitors.split(', ').length - 3) : '') + '</div>' : '') +
+        '</td>' +
         '<td><span class="dr-badge ' + drClass(dr) + '">' + dr.toFixed(0) + '</span></td>' +
         '<td><span class="overlap-chip">' + (r.overlap || 1) + '</span></td>' +
-        '<td class="competitors-cell">' + (r.competitors || '') + '</td>' +
-        '<td style="color:var(--text-secondary);font-variant-numeric:tabular-nums">' + traffic + '</td>' +
-        '<td>' + email + '</td>' +
+        '<td>' + emailCell + '</td>' +
+        '<td>' + catCell + '</td>' +
+        '<td>' + hostCell + '</td>' +
+        '<td>' + sourceCell + '</td>' +
+        '<td>' + fbCell + '</td>' +
         '<td>' + form + '</td>' +
         '<td><span class="status-pill status-' + status + '">' + status.replace('_',' ') + '</span></td>' +
       '</tr>';

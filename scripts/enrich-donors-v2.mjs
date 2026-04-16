@@ -37,14 +37,31 @@ const VALID_TLDS = new Set([
 const BAD_LOCAL = /^(noreply|no-?reply|donotreply|do-?not-?reply|postmaster|abuse|webmaster|mailer-daemon|bounce|notifications?|www|ftp|http|https|root|daemon|username|user|yourname|firstname|lastname|yourname|email|example)@/i;
 // Non-outreach-relevant (store but never primary). Match ONLY local part, not trailing chars.
 function isNonOutreach(local) {
-  return /^(jobs?|careers?|recruit(ing|ment)?|hr|investor(s|ship)?|legal|compliance|dmca|privacy|security|vulnerability|gdpr|copyright|complaints?|tax|accounting|finance|billing|purchase|procurement)$/i.test(local);
+  return /^(jobs?|careers?|recruit(ing|ment)?|hr|investor(s|ship)?|legal|compliance|dmca|privacy|security|vulnerability|gdpr|copyright|complaints?|tax|accounting|finance|billing|purchase|procurement|corrections?|feedback|tips|story|whistle(blower)?|unsubscribe|subscription|subscriptions|newsletter|opt-?out)$/i.test(local);
 }
-// Placeholder domains (never real outreach targets)
+// Placeholder domains (never real outreach targets, multi-language)
 const PLACEHOLDER_HOSTS = new Set([
+  // English
   'example.com', 'example.org', 'example.net', 'domain.com', 'yoursite.com',
   'yourdomain.com', 'test.com', 'email.com', 'mail.com', 'sample.com',
-  'website.com', 'site.com', 'company.com',
+  'website.com', 'site.com', 'company.com', 'foo.com', 'bar.com',
+  // Dutch
+  'voorbeeld.nl', 'domein.com', 'domein.nl',
+  // German
+  'beispiel.de', 'domain.de', 'muster.de',
+  // French
+  'exemple.com', 'exemple.fr', 'domaine.fr',
+  // Italian
+  'esempio.it', 'dominio.it',
+  // Spanish
+  'ejemplo.com', 'ejemplo.es', 'dominio.es',
+  // Russian/Cyrillic-ish
+  'primer.ru', 'test.ru',
 ]);
+// Placeholder local parts (multi-language "example"/"your name"/etc)
+function isPlaceholderLocal(local) {
+  return /^(example|sample|test|foo|bar|baz|yourname|yourmail|firstname|lastname|name|voorbeeld|beispiel|exemple|esempio|ejemplo|primer|xxx|abc)$/i.test(local);
+}
 // Known personal email providers — foreign (not owner's site inbox). Store but demote.
 const FOREIGN_EMAIL_HOSTS = new Set([
   'gmail.com', 'googlemail.com', 'yahoo.com', 'yahoo.co.uk', 'hotmail.com', 'outlook.com',
@@ -122,7 +139,8 @@ function looksLikeRealEmail(email) {
   if (local.length < 2) return false;
   if (!/[a-z]/i.test(local)) return false;
   if (BAD_LOCAL.test(email + '@')) return false;
-  if (PLACEHOLDER_HOSTS.has(host)) return false;  // reject me@example.com etc
+  if (PLACEHOLDER_HOSTS.has(host)) return false;
+  if (isPlaceholderLocal(local)) return false;
   return true;
 }
 
