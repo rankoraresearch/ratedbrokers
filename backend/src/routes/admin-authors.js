@@ -189,7 +189,7 @@ ${adminHeaderHTML('authors', encodedKey)}
     <input id="f-minFollowers" type="number" placeholder="min followers" min="0">
     <select id="f-sort">
       <option value="finalScore">Sort: Final score ↓</option>
-      <option value="followers">Sort: LI followers ↓</option>
+      <option value="followers">Sort: X followers ↓</option>
       <option value="score">Sort: Base score ↓</option>
       <option value="auth">Sort: E-E-A-T (auth) ↓</option>
       <option value="outletDR">Sort: Outlet DR ↓</option>

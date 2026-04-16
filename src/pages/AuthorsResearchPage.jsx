@@ -335,7 +335,7 @@ export default function AuthorsResearchPage() {
           <FilterSelect label="Sort" value={sortBy} onChange={setSortBy}
             options={[
               ["final", "Sort: final ↓"],
-              ["followers", "Sort: LI followers ↓"],
+              ["followers", "Sort: X followers ↓"],
               ["score", "Sort: base score ↓"],
               ["auth", "Sort: E-E-A-T ↓"],
               ["dr", "Sort: outlet DR ↓"],
