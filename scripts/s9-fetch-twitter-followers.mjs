@@ -35,10 +35,16 @@ console.log(`[fetch] ${input.length} authors with twitter URL`);
 // ─── Resume support
 let output = [];
 const done = new Set();
+// Resume policy: only SUCCESS and terminal failures count as "done".
+// Transient errors (timeout, login_wall, no_count_found) stay retryable.
+const TERMINAL_ERRORS = new Set(["account_gone", "HTTP 404"]);
 if (fs.existsSync(OUTPUT)) {
   output = JSON.parse(fs.readFileSync(OUTPUT, "utf8"));
-  for (const r of output) if (r.followers != null || r.error) done.add(r.id);
-  console.log(`[fetch] Resuming. Already done: ${done.size}`);
+  for (const r of output) {
+    if (r.followers != null) done.add(r.id);
+    else if (r.error && TERMINAL_ERRORS.has(r.error)) done.add(r.id);
+  }
+  console.log(`[fetch] Resuming. Already done (success + terminal): ${done.size}`);
 }
 
 const remaining = input.filter((a) => !done.has(a.id));
@@ -99,15 +105,29 @@ for (const a of remaining) {
         result.error = "login_wall";
         blocked += 1;
       } else {
-        const text = await page.evaluate(() => document.body.innerText);
-        const fMatch = text.match(/([\d.,KkMmBb]+)\s+Followers/);
-        const fwMatch = text.match(/([\d.,KkMmBb]+)\s+Following/);
-        result.followers = fMatch ? parseCount(fMatch[1]) : null;
-        result.following = fwMatch ? parseCount(fwMatch[1]) : null;
-        if (result.followers == null) {
-          // sometimes account doesn't exist
-          if (/doesn't exist|account suspended|This account/i.test(text)) result.error = "account_gone";
-          else result.error = "no_count_found";
+        // Expected handle from URL — use it to verify we're reading
+        // THIS profile's numbers, not some adjacent module.
+        const expectHandle = (u.match(/x\.com\/([A-Za-z0-9_]+)/) || [,""])[1].toLowerCase();
+        const { text, titleHandle } = await page.evaluate(() => {
+          const t = document.title || "";
+          // Title shape: "Display Name (@handle) / X"
+          const hm = t.match(/\(@([A-Za-z0-9_]+)\)/);
+          return { text: document.body.innerText, titleHandle: hm ? hm[1].toLowerCase() : "" };
+        });
+        // Guard: title must name the same handle we navigated to. If not,
+        // x.com redirected us (rename, suspension) — don't trust counts.
+        if (expectHandle && titleHandle && expectHandle !== titleHandle) {
+          result.error = `handle_mismatch(${titleHandle})`;
+        } else {
+          const fMatch = text.match(/([\d.,KkMmBb]+)\s+Followers/);
+          const fwMatch = text.match(/([\d.,KkMmBb]+)\s+Following/);
+          result.followers = fMatch ? parseCount(fMatch[1]) : null;
+          result.following = fwMatch ? parseCount(fwMatch[1]) : null;
+          result.verifiedHandle = titleHandle || null;
+          if (result.followers == null) {
+            if (/doesn't exist|account suspended|This account/i.test(text)) result.error = "account_gone";
+            else result.error = "no_count_found";
+          }
         }
       }
     }
@@ -129,9 +149,11 @@ for (const a of remaining) {
     : `MISS (${result.error})`;
   console.log(`[${i}/${remaining.length}] ${a.name.slice(0, 28).padEnd(28)} | ${status.padEnd(28)} | ${took}ms`);
 
-  // If we hit blocked > 5 times in a row, back off harder
+  // Reset blocked counter after each clean fetch so we only trip the
+  // backoff on CONSECUTIVE login walls, not cumulative across the run.
+  if (!result.error) blocked = 0;
   if (blocked > 5) {
-    console.log(`[fetch] ${blocked} login walls — backing off 60s`);
+    console.log(`[fetch] ${blocked} consecutive login walls — backing off 60s`);
     await sleep(60000);
     blocked = 0;
   }
