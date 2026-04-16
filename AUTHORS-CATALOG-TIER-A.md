@@ -194,6 +194,7 @@ SVP of Content for Forbes Marketplace. Launched, grew and managed HerMoney (Jean
 - Years in industry: **20**
 - LinkedIn: [https://www.linkedin.com/in/katiedoyle1/](https://www.linkedin.com/in/katiedoyle1/)
 - Twitter/X: [https://twitter.com/katislafevis](https://twitter.com/katislafevis)
+  - **1,140 followers** on X (fetched 2026-04-16)
 - Muck Rack: [https://muckrack.com/katie-doyle](https://muckrack.com/katie-doyle)
 - Personal site: —
 - Author URL on outlet: [https://muckrack.com/katie-doyle](https://muckrack.com/katie-doyle)
@@ -501,6 +502,10 @@ CFA, Director of Research and Senior Analyst at Zacks Small-Cap Research with 30
 - Authored books:
   - [object Object]
 
+**Trust Signals**
+
+- FINRA BrokerCheck: **not_applicable**
+
 **Beats & Outlets**
 
 - Beats: investing, crypto, stocks, mutual-funds, hsa, sri
@@ -522,6 +527,7 @@ Politics, policy, and ideas editor at Barron's; oversaw guest commentary across 
 - Location: USA
 - LinkedIn: [https://www.linkedin.com/in/matt-peterson-057327a/](https://www.linkedin.com/in/matt-peterson-057327a/)
 - Twitter/X: [https://x.com/mattbpete](https://x.com/mattbpete)
+  - **4,690 followers** on X (fetched 2026-04-16)
 - Muck Rack: [https://muckrack.com/mattbpete](https://muckrack.com/mattbpete)
 - Personal site: [https://www.mattpeterson.me](https://www.mattpeterson.me)
 - Author URL on outlet: [https://www.mattpeterson.me](https://www.mattpeterson.me)
@@ -957,6 +963,7 @@ Associate Editor and Consumer Editor at Financial Times. Presents weekly Money C
 - Years in industry: **15**
 - LinkedIn: [https://uk.linkedin.com/in/claer-barrett-74088414](https://uk.linkedin.com/in/claer-barrett-74088414)
 - Twitter/X: [https://x.com/claerb](https://x.com/claerb)
+  - **22,500 followers** on X (fetched 2026-04-16)
 - Muck Rack: [https://muckrack.com/claerb](https://muckrack.com/claerb)
 - Personal site: [https://www.claerbarrett.com/](https://www.claerbarrett.com/)
 - Author URL on outlet: [https://www.ft.com/claer-barrett](https://www.ft.com/claer-barrett)
@@ -977,6 +984,7 @@ Associate Editor and Consumer Editor at Financial Times. Presents weekly Money C
 **Trust Signals**
 
 - Owned domain: claerbarrett.com
+- FINRA BrokerCheck: **not_applicable**
 
 **Beats & Outlets**
 
@@ -1053,6 +1061,7 @@ Managing Editor at Decrypt since 2019. 15-year freelance career prior, with byli
 - Years in industry: **15**
 - LinkedIn: [https://www.linkedin.com/in/andrewhayward/](https://www.linkedin.com/in/andrewhayward/)
 - Twitter/X: [https://twitter.com/ahaywa](https://twitter.com/ahaywa)
+  - **11,800 followers** on X (fetched 2026-04-16)
 - Muck Rack: —
 - Personal site: —
 - Author URL on outlet: [https://decrypt.co/author/andrew-hayward](https://decrypt.co/author/andrew-hayward)
@@ -1341,6 +1350,7 @@ Chartered Financial Analyst and co-founder / Portfolio Manager at Venable Park I
 - Years in industry: **27**
 - LinkedIn: [https://www.linkedin.com/in/daniellepark/](https://www.linkedin.com/in/daniellepark/)
 - Twitter/X: [https://x.com/kdaniellepark](https://x.com/kdaniellepark)
+  - **4,235 followers** on X (fetched 2026-04-16)
 - Muck Rack: —
 - Personal site: [https://jugglingdynamite.com/](https://jugglingdynamite.com/)
 - Author URL on outlet: [https://seekingalpha.com/author/danielle-park-cfa](https://seekingalpha.com/author/danielle-park-cfa)
@@ -1366,6 +1376,7 @@ Chartered Financial Analyst and co-founder / Portfolio Manager at Venable Park I
 **Trust Signals**
 
 - Owned domain: jugglingdynamite.com
+- FINRA BrokerCheck: **not_checked**
 
 **Beats & Outlets**
 
@@ -1696,6 +1707,7 @@ Personal-finance expert, spokesperson and author. Was Senior Money Editor at US 
 **Trust Signals**
 
 - Owned domain: kimberly-palmer.com
+- FINRA BrokerCheck: **not applicable**
 
 **Beats & Outlets**
 
@@ -1740,6 +1752,10 @@ Assistant Managing Editor at U.S. News & World Report covering stock market, Wal
 
 - Quoted in tier-1 press: WSJ
 - TV appearances: Cheddar, Money Life with Chuck Jaffe, Market Wrap with Moe Ansari, WSJ Radio, WBBM Chicago, iHeartRadio
+
+**Trust Signals**
+
+- FINRA BrokerCheck: **not searched**
 
 **Beats & Outlets**
 
@@ -1789,6 +1805,7 @@ Finance & Crypto Editor at Fortune and host of the Fortune Crypto Playbook vodca
 **Trust Signals**
 
 - Owned domain: jeffjohnroberts.com
+- FINRA BrokerCheck: **not applicable**
 
 **Beats & Outlets**
 
@@ -1837,6 +1854,10 @@ Value investor researching and writing about stocks for Seeking Alpha and The Mo
 - Contributor (stocks) @ Seeking Alpha (since 2011)
 - Contributor (stocks) @ The Motley Fool (since 2011)
 
+**Trust Signals**
+
+- FINRA BrokerCheck: **not searched**
+
 **Beats & Outlets**
 
 - Beats: stocks, investing, equity
@@ -1884,10 +1905,13 @@ Co-Founder and President of CoinGecko, which he launched in 2014 with Bobby Ong 
 - Authored books:
   - Handbook of Digital Currency (1st Edition)
   - Handbook of Blockchain, Digital Finance, and Inclusion Volume 1
+- Industry awards:
+  - Forbes 30 Under 30 Asia — Finance & Venture Capital (2019) — Forbes (via Malay Mail coverage)
 
 **Trust Signals**
 
 - Owned domain: coingecko.com
+- FINRA BrokerCheck: **not applicable**
 
 **Beats & Outlets**
 
@@ -1937,6 +1961,12 @@ Chief Executive Officer of Morningstar since 2017. Joined Morningstar in 1997 as
 **Media Signals**
 
 - Quoted in tier-1 press: Morningstar, Bloomberg
+- Industry awards:
+  - Crain's Chicago Business 40 Under 40 (2010) — Economic Club of Chicago bio
+
+**Trust Signals**
+
+- FINRA BrokerCheck: **not applicable**
 
 **Beats & Outlets**
 
@@ -1960,6 +1990,7 @@ Chief Executive Officer of Morningstar since 2017. Joined Morningstar in 1997 as
 - Years in industry: **20**
 - LinkedIn: [https://www.linkedin.com/in/twcarey/](https://www.linkedin.com/in/twcarey/)
 - Twitter/X: [https://twitter.com/twcarey](https://twitter.com/twcarey)
+  - **3,905 followers** on X (fetched 2026-04-16)
 - Muck Rack: [https://muckrack.com/theresa-carey](https://muckrack.com/theresa-carey)
 - Personal site: [https://authory.com/TheresaCarey](https://authory.com/TheresaCarey)
 - Author URL on outlet: [https://brokerchooser.com/team/theresa-w-carey](https://brokerchooser.com/team/theresa-w-carey)
@@ -1980,6 +2011,7 @@ Chief Executive Officer of Morningstar since 2017. Joined Morningstar in 1997 as
 **Trust Signals**
 
 - Owned domain: authory.com/TheresaCarey
+- FINRA BrokerCheck: **not applicable**
 
 **Beats & Outlets**
 
@@ -2025,6 +2057,12 @@ Managing Editor of Tech & Protocols at CoinDesk; oversees reporters covering blo
 **Media Signals**
 
 - Quoted in tier-1 press: Bloomberg, TheStreet
+- Industry awards:
+  - Gerald Loeb Awards — Finalist (2x; Fed secret loans + London Whale) (multiple) — CoinDesk official author bio
+
+**Trust Signals**
+
+- FINRA BrokerCheck: **not applicable**
 
 **Beats & Outlets**
 
@@ -2094,6 +2132,7 @@ London-based journalist with a 10-year career as reporter, editor, and newsreade
 - Years in industry: **10**
 - LinkedIn: [https://www.linkedin.com/in/connor-sephton-67802316/](https://www.linkedin.com/in/connor-sephton-67802316/)
 - Twitter/X: [https://x.com/connorsephton](https://x.com/connorsephton)
+  - **5,291 followers** on X (fetched 2026-04-16)
 - Muck Rack: —
 - Personal site: —
 - Author URL on outlet: [https://coinmarketcap.com/academy/author/connor-sephton](https://coinmarketcap.com/academy/author/connor-sephton)
@@ -2714,6 +2753,10 @@ Leads NerdWallet's investing and taxes team. 19+ yrs. 80+ articles, 32.3M reader
 
 - Quoted in tier-1 press: NYT, MarketWatch, Bloomberg
 - TV appearances: Today Show, NBC News, ABC World News Tonight
+
+**Trust Signals**
+
+- FINRA BrokerCheck: **not_applicable**
 
 **Beats & Outlets**
 
@@ -3541,6 +3584,7 @@ Editor & Financial Analyst at Good Money Guide with 35 years of experience acros
 - Years in industry: **35**
 - LinkedIn: [https://www.linkedin.com/in/darren-sinden-20018245/](https://www.linkedin.com/in/darren-sinden-20018245/)
 - Twitter/X: [https://twitter.com/fatdaz](https://twitter.com/fatdaz)
+  - **1,236 followers** on X (fetched 2026-04-16)
 - Muck Rack: —
 - Personal site: —
 - Author URL on outlet: [https://goodmoneyguide.com/author/darrensinden-1/](https://goodmoneyguide.com/author/darrensinden-1/)

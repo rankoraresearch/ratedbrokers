@@ -20,8 +20,8 @@ Single-source-of-truth catalog of all **579 authors** harvested across **96 outl
 |---|---|---|---|
 | **S** | 32 | Unfakeable signals: certifications + tier-1 press + books or awards | **Wave 1** — first emails go here |
 | **A** | 85 | Strong: at least 2 of (cert, book, multi-outlet, tier-1 press, ≥10y experience) | **Wave 2** — after Wave 1 responds |
-| **B** | 226 | Moderate: solid byline + LinkedIn or Muck Rack | Wave 3 — bulk outreach later |
-| **C** | 236 | Light: limited external signals beyond outlet byline | Skip for now (or hold for category gaps) |
+| **B** | 227 | Moderate: solid byline + LinkedIn or Muck Rack | Wave 3 — bulk outreach later |
+| **C** | 235 | Light: limited external signals beyond outlet byline | Skip for now (or hold for category gaps) |
 | Total | 579 | | |
 
 ## External-signal coverage
@@ -31,12 +31,12 @@ Single-source-of-truth catalog of all **579 authors** harvested across **96 outl
 - Muck Rack: 246 / 579 (42%)
 - Personal/own domain: 152 / 579 (26%)
 - Email captured: 87 / 579 (15%)
-- Has certifications: 83 / 579 (14%)
+- Has certifications: 84 / 579 (15%)
 - Authored books: 71 / 579 (12%)
 - Quoted in tier-1 press: 185 / 579 (32%)
 - TV appearances: 75 / 579 (13%)
 - Multi-outlet (cross-writers): 258 / 579 (45%)
-- LinkedIn followers captured (S7): 0 / 579 (0%)
+- Twitter/X followers captured (S9): 64 / 579 (11%)
 - LinkedIn connections fallback (500+): 111 / 579 (19%)
 - Still flagged needsManualReview: 67 / 579 (12%)
 
@@ -57,10 +57,10 @@ Snapshot ranked by finalScore. Full detail blocks below.
 | 1 | **Beth Pinsker** | MarketWatch | S | 144 | — | CFP · 📚 1 books |
 | 2 | **Vitaliy Katsenelson, CFA** | Seeking Alpha | S | 144 | — | CFA · 📚 2 books |
 | 3 | **Marc Chandler** | Investing.com | S | 142 | — | CMT · 📺 5 |
-| 4 | **Beverly Harzog** | Bankrate | S | 141 | — | CPA (former) · 📚 1 books · 📺 6 |
+| 4 | **Beverly Harzog** | Bankrate | S | 141 | 5.2K | CPA (former) · 📚 1 books · 📺 6 |
 | 5 | **Andrea Coombes** | Bankrate | S | 141 | — | CFP · 📺 4 |
 | 6 | **Jennifer Streaks** | Business Insider | S | 139 | 500+c | MBA · 📺 5 |
-| 7 | **Catey Hill** | MarketWatch | S | 138 | — | 📚 2 books · 📺 3 |
+| 7 | **Catey Hill** | MarketWatch | S | 138 | 9.2K | 📚 2 books · 📺 3 |
 | 8 | **Kerry Hannon** | Yahoo Finance | S | 138 | — | 📚 5 books · 📺 1 |
 | 9 | **Lawrence Lewitinn** | CoinDesk | S | 138 | — | CFA · 📺 2 |
 | 10 | **Dan Kemp** | Morningstar | S | 136 | — | Investment Management Certificate (IMC), Securities Inst |
@@ -72,7 +72,7 @@ Snapshot ranked by finalScore. Full detail blocks below.
 | 16 | **Martin Lewis** | MoneySavingExpert | S | 128 | — | CBE, OBE · 📚 1 books · 📺 4 |
 | 17 | **Andrew Thurman** | CoinMarketCap | S | 128 | — | — |
 | 18 | **Charles Lewis Sizemore** | Kiplinger | S | 128 | 500+c | CFA · 📺 4 |
-| 19 | **Steven Hatzakis** | StockBrokers.com | S | 126 | 500+c | Series 3 / CTA |
+| 19 | **Steven Hatzakis** | StockBrokers.com | S | 126 | 4.5K | Series 3 / CTA |
 | 20 | **Kathy Lien** | WikiFX | S | 125 | — | 📚 3 books · 📺 1 |
 | 21 | **Dan Blystone** | FXEmpire | S | 125 | — | Series 3 (NFA — futures, options, forex) |
 | 22 | **Blain Reinkensmeyer** | StockBrokers.com | S | 123 | — | 📚 1 books · 📺 1 |
@@ -83,7 +83,45 @@ Snapshot ranked by finalScore. Full detail blocks below.
 | 27 | **Eva Szalay** | The Full FX | S | 110 | — | — |
 | 28 | **Matthew Levy** | BestBrokers | S | 107 | — | CFA (Chartered Financial Analyst) |
 | 29 | **Jon Dulin** | Modest Money | S | 104 | — | Series 65, Certificate in Financial Planning |
-| 30 | **James Chen** | Investopedia | S | 101 | — | CMT, CFTe, RIA · 📚 2 books · 📺 2 |
+| 30 | **James Chen** | Investopedia | S | 101 | 15K | CMT, CFTe, RIA · 📚 2 books · 📺 2 |
+
+
+## Top 30 by Twitter/X reach
+
+Sorted by verified X follower count (fetched from x.com directly, S9). Substitute for the LinkedIn-reach metric we originally planned — LI was blocked during the overnight pass; the 43 "exact" LI counts we had earlier were hallucinated and have been purged (see MANUAL-REVIEW-VERIFICATIONS.md).
+
+| # | Name | Outlet | Tier | Score | X Followers | Role |
+|---|---|---|---|---|---|---|
+| 1 | **Scott Melker** | AskTraders | B | 54 | **950,000** | Contributor / Podcast Host 'The Wolf Of All Street |
+| 2 | **Frank Chaparro** | The Block | B | 78 | **206,000** | Host of The Scoop / Director of Special Projects — |
+| 3 | **Nigam Arora** | Benzinga | C | 68 | **107,700** | Founder — The Arora Report (Benzinga Contributor) |
+| 4 | **Nooresh Merani** | AskTraders | B | 77 | **100,600** | Contributor (technical analyst) — AskTraders; Foun |
+| 5 | **Camila Russo** | CoinMarketCap | B | 74 | **93,400** | Contributor (DeFi writer) — former CoinMarketCap;  |
+| 6 | **Merryn Somerset Webb** | MoneyWeek | C | 65 | **64,600** | Founder / Former Editor-in-Chief |
+| 7 | **Aaron van Wirdum** | Bitcoin Magazine | B | 51 | **58,300** | Former Editor-in-Chief |
+| 8 | **Tim Copeland** | The Block | C | 101 | **41,200** | Head of Growth — The Block (former Editor-in-Chief |
+| 9 | **Claer Barrett** | Financial Times | A | 120 | **22,500** | Consumer Editor / Associate Editor — Financial Tim |
+| 10 | **Omkar Godbole** | CoinDesk | B | 117 | **14,900** | Co-Managing Editor, Markets |
+| 11 | **James Chen** | Investopedia | S | 101 | **14,700** | Former Director, Trading & Investing Content (Inve |
+| 12 | **Emily Stewart** | Business Insider | C | 109 | **11,900** | Senior Correspondent — Consumer & Economy |
+| 13 | **Andrew Hayward** | Decrypt | A | 119 | **11,800** | Managing Editor |
+| 14 | **Yogita Khatri** | The Block | C | 83 | **11,000** | Senior Reporter — The Block |
+| 15 | **Catey Hill** | MarketWatch | S | 138 | **9,194** | Founding Editor — MarketWatch Picks; Head of Edito |
+| 16 | **Martine Robert** | Les Echos | C | 68 | **8,834** | Reporter |
+| 17 | **Jared Blikre** | Yahoo Finance | B | 102 | **8,371** | Director, Anchor, Global Markets Editor — Yahoo Fi |
+| 18 | **Narendra Nathan** | The Economic Times | B | 66 | **8,227** | Personal Finance Writer (retired) |
+| 19 | **Jonathan Burton** | MarketWatch | B | 112 | **8,186** | Money & Investing Editor / Columnist |
+| 20 | **Rupert Jones** | The Guardian — Money | B | 106 | **7,230** | Deputy Editor, Consumer & Money (Deputy Personal F |
+| 21 | **Veronica Dagher** | The Wall Street Journal | B | 80 | **6,462** | Personal Finance Reporter |
+| 22 | **Alicia Adamczyk** | Fortune | B | 91 | **5,556** | Former Senior Writer (Fortune) |
+| 23 | **Tobi Opeyemi Amure** | FinanceFeeds | B | 82 | **5,514** | Editor — FinanceFeeds (freelance finance writer) |
+| 24 | **Emily Graffeo** | Bloomberg | B | 108 | **5,378** | Cross-asset Reporter |
+| 25 | **Connor Sephton** | CoinMarketCap | A | 108 | **5,291** | Cryptocurrency Writer / Contributor — CoinMarketCa |
+| 26 | **Beverly Harzog** | Bankrate | S | 141 | **5,239** | Financial Review Board — Credit Cards Reviewer (Ba |
+| 27 | **James Hunt** | The Block | C | 92 | **5,112** | Deputy Managing Editor, The Daily newsletter |
+| 28 | **Matt Peterson** | Barron's | A | 123 | **4,690** | Lead Commentary / Ideas Editor (former Barron's) — |
+| 29 | **Steven Hatzakis** | StockBrokers.com | S | 126 | **4,485** | Global Director of Online Broker Research, Partner |
+| 30 | **Danielle Park, CFA** | Seeking Alpha | A | 116 | **4,235** | Portfolio Manager / Contributor |
 
 
 ## LinkedIn reach
@@ -137,6 +175,8 @@ Financial-planning columnist at MarketWatch. Certified Financial Planner (CFP®)
 - Quoted in tier-1 press: WSJ, Forbes, USA Today
 - Authored books:
   - My Mother's Money: A Guide to Financial Caregiving
+- Industry awards:
+  - SABEW Best in Business — Commentary (2023) — SABEW via own site / Muck Rack
 
 **Trust Signals**
 
@@ -267,6 +307,7 @@ Nationally recognized consumer finance analyst and credit expert with 30 years i
 - Years in industry: **30**
 - LinkedIn: [https://www.linkedin.com/in/beverlyharzog/](https://www.linkedin.com/in/beverlyharzog/)
 - Twitter/X: [https://twitter.com/BeverlyHarzog](https://twitter.com/BeverlyHarzog)
+  - **5,239 followers** on X (fetched 2026-04-16)
 - Muck Rack: —
 - Personal site: [https://www.beverlyharzog.com/](https://www.beverlyharzog.com/)
 - Author URL on outlet: [https://www.bankrate.com/authors/beverly-harzog/](https://www.bankrate.com/authors/beverly-harzog/)
@@ -412,6 +453,7 @@ Founding Editor of MarketWatch Picks and head of editorial for MarketWatch's aff
 - Location: USA
 - LinkedIn: [https://www.linkedin.com/in/catey-hill/](https://www.linkedin.com/in/catey-hill/)
 - Twitter/X: [https://x.com/cateyhill](https://x.com/cateyhill)
+  - **9,194 followers** on X (fetched 2026-04-16)
 - Muck Rack: [https://muckrack.com/catey-hill](https://muckrack.com/catey-hill)
 - Personal site: [https://www.cateyhill.org/](https://www.cateyhill.org/)
 - Author URL on outlet: —
@@ -1025,6 +1067,7 @@ Global Director of Online Broker Research and Partner at Reink Media Group (pare
 - LinkedIn: [https://www.linkedin.com/in/shatzakis/](https://www.linkedin.com/in/shatzakis/)
   - 500+ LinkedIn connections (followers not exposed)
 - Twitter/X: [https://x.com/shatzakis](https://x.com/shatzakis)
+  - **4,485 followers** on X (fetched 2026-04-16)
 - Muck Rack: [https://muckrack.com/steven-hatzakis](https://muckrack.com/steven-hatzakis)
 - Personal site: [https://www.stevenhatzakis.com/](https://www.stevenhatzakis.com/)
 - Author URL on outlet: [https://www.stockbrokers.com/about/steven-hatzakis](https://www.stockbrokers.com/about/steven-hatzakis)
@@ -1405,10 +1448,14 @@ Multi-award-winning freelance journalist with 18+ years specialising in personal
 **Media Signals**
 
 - Quoted in tier-1 press: The Guardian, The Independent, Daily Telegraph, Mail on Sunday, Mirror
+- Industry awards:
+  - Headline Money Freelance Financial Journalist of the Year (2013) — Emma Lunn personal site / Headline Money
+  - Headline Money Household Money Journalist of the Year (2013) — Emma Lunn personal site
 
 **Trust Signals**
 
 - Owned domain: emmalunn.com
+- FINRA BrokerCheck: **not applicable**
 
 **Beats & Outlets**
 
@@ -1449,6 +1496,10 @@ Veteran FX journalist with 15+ years covering currency markets. Started covering
 **Media Signals**
 
 - Quoted in tier-1 press: WSJ, Financial Times, Bloomberg, Fortune, Yahoo Finance
+
+**Trust Signals**
+
+- FINRA BrokerCheck: **not applicable**
 
 **Beats & Outlets**
 
@@ -1580,6 +1631,7 @@ Trader, investor, Registered Investment Adviser, Chartered Market Technician (CM
 - Years in industry: **20**
 - LinkedIn: [https://www.linkedin.com/in/jameschencontent/](https://www.linkedin.com/in/jameschencontent/)
 - Twitter/X: [https://x.com/jameschenfx](https://x.com/jameschenfx)
+  - **14,700 followers** on X (fetched 2026-04-16)
 - Muck Rack: —
 - Personal site: —
 - Author URL on outlet: —
@@ -1607,6 +1659,10 @@ Trader, investor, Registered Investment Adviser, Chartered Market Technician (CM
 - Authored books:
   - Essentials of Foreign Exchange Trading (Wiley, 2009)
   - Essentials of Technical Analysis for Financial Markets (Wiley, 2010)
+
+**Trust Signals**
+
+- FINRA BrokerCheck: **unknown**
 
 **Beats & Outlets**
 

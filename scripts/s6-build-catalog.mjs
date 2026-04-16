@@ -97,6 +97,9 @@ function fullBlock(a, idx) {
     lines.push(`  - ${a.mediaSignals.linkedinConnections} LinkedIn connections (followers not exposed)`);
   }
   lines.push(`- Twitter/X: ${link(a.twitter || "—", a.twitter)}`);
+  if (a.mediaSignals?.twitterFollowers != null) {
+    lines.push(`  - **${a.mediaSignals.twitterFollowers.toLocaleString()} followers** on X (fetched ${a.mediaSignals.twitterFetchedAt?.split("T")[0] || "—"})`);
+  }
   lines.push(`- Muck Rack: ${link(a.muckrack || "—", a.muckrack)}`);
   lines.push(`- Personal site: ${link(a.personalSite || a.trustSignals?.ownedDomain || "—", a.personalSite || a.trustSignals?.ownedDomain)}`);
   lines.push(`- Author URL on outlet: ${link(a.authorUrl || "—", a.authorUrl)}`);
@@ -217,11 +220,12 @@ function condensedRow(a, idx) {
 
 // Format LinkedIn follower count for tables: "12.4K", "500+", or "—"
 function fmtFollowers(a) {
-  const n = a.mediaSignals?.linkedinFollowers;
-  if (n != null) {
-    if (n >= 10000) return `${Math.round(n / 1000)}K`;
-    if (n >= 1000) return `${(n / 1000).toFixed(1)}K`;
-    return n.toLocaleString();
+  // Prefer X/Twitter (verified), fallback to LI connections bucket.
+  const x = a.mediaSignals?.twitterFollowers;
+  if (x != null) {
+    if (x >= 10000) return `${Math.round(x / 1000)}K`;
+    if (x >= 1000) return `${(x / 1000).toFixed(1)}K`;
+    return x.toLocaleString();
   }
   if (a.mediaSignals?.linkedinConnections) return `${a.mediaSignals.linkedinConnections}c`;
   return "—";
@@ -274,8 +278,8 @@ main.push(`- Authored books: ${cov((a) => a.mediaSignals?.authoredBooks?.length 
 main.push(`- Quoted in tier-1 press: ${cov((a) => a.mediaSignals?.quotedInTier1?.length > 0)}`);
 main.push(`- TV appearances: ${cov((a) => a.mediaSignals?.tvAppearances?.length > 0)}`);
 main.push(`- Multi-outlet (cross-writers): ${cov((a) => (a.writesFor?.length || 1) > 1)}`);
-main.push(`- LinkedIn followers captured (S7): ${cov((a) => a.mediaSignals?.linkedinFollowers != null)}`);
-main.push(`- LinkedIn connections fallback (500+): ${cov((a) => a.mediaSignals?.linkedinFollowers == null && a.mediaSignals?.linkedinConnections)}`);
+main.push(`- Twitter/X followers captured (S9): ${cov((a) => a.mediaSignals?.twitterFollowers != null)}`);
+main.push(`- LinkedIn connections fallback (500+): ${cov((a) => a.mediaSignals?.linkedinConnections)}`);
 main.push(`- Still flagged needsManualReview: ${cov((a) => a.needsManualReview)}`);
 main.push(``);
 
@@ -305,7 +309,25 @@ enriched.slice(0, 30).forEach((a, i) => {
 });
 main.push(``);
 
-// Top-30 by LinkedIn reach (only renders when we have verified data)
+// Top-30 by Twitter/X reach (S9 — verified from x.com). We use X
+// because LinkedIn was blocked during S9; any LI follower numbers
+// stored earlier were hallucinated and have been purged.
+const byTwitter = enriched.filter((a) => a.mediaSignals?.twitterFollowers != null)
+  .sort((a, b) => b.mediaSignals.twitterFollowers - a.mediaSignals.twitterFollowers);
+if (byTwitter.length > 0) {
+  main.push(``);
+  main.push(`## Top 30 by Twitter/X reach`);
+  main.push(``);
+  main.push(`Sorted by verified X follower count (fetched from x.com directly, S9). Substitute for the LinkedIn-reach metric we originally planned — LI was blocked during the overnight pass; the 43 "exact" LI counts we had earlier were hallucinated and have been purged (see MANUAL-REVIEW-VERIFICATIONS.md).`);
+  main.push(``);
+  main.push(`| # | Name | Outlet | Tier | Score | X Followers | Role |`);
+  main.push(`|---|---|---|---|---|---|---|`);
+  byTwitter.slice(0, 30).forEach((a, i) => {
+    main.push(`| ${i + 1} | **${esc(a.name)}** | ${esc(a.outletName)} | ${a.eeatTier} | ${a.finalScore} | **${a.mediaSignals.twitterFollowers.toLocaleString()}** | ${esc(a.role).slice(0, 50)} |`);
+  });
+  main.push(``);
+}
+// Legacy LI follower section (will almost always be empty after S7 purge).
 const byFollowers = enriched.filter((a) => a.mediaSignals?.linkedinFollowers != null)
   .sort((a, b) => b.mediaSignals.linkedinFollowers - a.mediaSignals.linkedinFollowers);
 if (byFollowers.length > 0) {
@@ -386,6 +408,7 @@ const cols = [
   "education", "yearsInIndustry", "location",
   "linkedin", "twitter", "muckrack", "personalSite", "authorUrl", "email", "emailVerified",
   "quotedInTier1", "tvAppearances", "authoredBooks", "industryAwards",
+  "twitterFollowers", "twitterFetchedAt",
   "linkedinFollowers", "linkedinConnections", "linkedinFetchedAt",
   "muckrackArticleCount", "hasKnowledgePanel",
   "ownedDomain", "finraBrokerCheckStatus",
@@ -408,6 +431,7 @@ for (const a of enriched) {
     eduStr, a.yearsInIndustry || "", a.location || "",
     a.linkedin || "", a.twitter || "", a.muckrack || "", a.personalSite || "", a.authorUrl || "", a.email || "", a.emailVerified ? "y" : "",
     (ms.quotedInTier1 || []).join("; "), (ms.tvAppearances || []).join("; "), (ms.authoredBooks || []).join("; "), awardsStr,
+    ms.twitterFollowers ?? "", ms.twitterFetchedAt || "",
     ms.linkedinFollowers ?? "", ms.linkedinConnections || "", ms.linkedinFetchedAt || "",
     ms.muckrackArticleCount || "", ms.hasKnowledgePanel ? "y" : "",
     ts.ownedDomain || "", ts.finraBrokerCheckStatus || "",
