@@ -173,6 +173,12 @@ export default function AuthorsResearchPage() {
       auth: (a, b) => b.authoritativeness - a.authoritativeness,
       dr: (a, b) => b.outletDR - a.outletDR,
       followers: (a, b) => (b.mediaSignals?.linkedinFollowers || 0) - (a.mediaSignals?.linkedinFollowers || 0),
+      years: (a, b) => (b.yearsInIndustry || 0) - (a.yearsInIndustry || 0),
+      books: (a, b) => (b.mediaSignals?.authoredBooks?.length || 0) - (a.mediaSignals?.authoredBooks?.length || 0),
+      tier1: (a, b) => (b.mediaSignals?.quotedInTier1?.length || 0) - (a.mediaSignals?.quotedInTier1?.length || 0),
+      tv: (a, b) => (b.mediaSignals?.tvAppearances?.length || 0) - (a.mediaSignals?.tvAppearances?.length || 0),
+      certs: (a, b) => (b.certifications?.length || 0) - (a.certifications?.length || 0),
+      multi: (a, b) => (b.writesFor?.length || 1) - (a.writesFor?.length || 1),
       name: (a, b) => a.name.localeCompare(b.name),
       outlet: (a, b) => a.outletName.localeCompare(b.outletName) || b.finalScore - a.finalScore,
     };
@@ -327,7 +333,21 @@ export default function AuthorsResearchPage() {
           <FilterSelect label="E-E-A-T" value={filterEEAT} onChange={setFilterEEAT}
             options={[["all", "All E-E-A-T"], ["S", "S · Google-ideal"], ["A", "A · Verifiable"], ["B", "B · Exp. low verify"], ["C", "C · Generic"]]} />
           <FilterSelect label="Sort" value={sortBy} onChange={setSortBy}
-            options={[["final", "Sort: final ↓"], ["score", "Sort: base score ↓"], ["auth", "Sort: E-E-A-T ↓"], ["dr", "Sort: DR ↓"], ["followers", "Sort: LI followers ↓"], ["name", "Name A→Z"], ["outlet", "Outlet"]]} />
+            options={[
+              ["final", "Sort: final ↓"],
+              ["followers", "Sort: LI followers ↓"],
+              ["score", "Sort: base score ↓"],
+              ["auth", "Sort: E-E-A-T ↓"],
+              ["dr", "Sort: outlet DR ↓"],
+              ["years", "Sort: years exp ↓"],
+              ["books", "Sort: books ↓"],
+              ["tier1", "Sort: tier-1 quotes ↓"],
+              ["tv", "Sort: TV apps ↓"],
+              ["certs", "Sort: cert count ↓"],
+              ["multi", "Sort: multi-outlet ↓"],
+              ["name", "Name A→Z"],
+              ["outlet", "Outlet A→Z"],
+            ]} />
           <MinScoreSlider value={minScore} onChange={setMinScore} />
           <Toggle label="Has LinkedIn" icon={<Linkedin size={12} />} on={filterLinkedIn} onChange={setFilterLinkedIn} />
           <Toggle label="Has email" icon={<Mail size={12} />} on={filterEmail} onChange={setFilterEmail} />

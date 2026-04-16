@@ -185,6 +185,21 @@ ${adminHeaderHTML('authors', encodedKey)}
     </select>
     <input id="f-minScore" type="number" placeholder="min score" min="0" max="200">
     <input id="f-minFollowers" type="number" placeholder="min followers" min="0">
+    <select id="f-sort">
+      <option value="finalScore">Sort: Final score ↓</option>
+      <option value="followers">Sort: LI followers ↓</option>
+      <option value="score">Sort: Base score ↓</option>
+      <option value="auth">Sort: E-E-A-T (auth) ↓</option>
+      <option value="outletDR">Sort: Outlet DR ↓</option>
+      <option value="yearsInIndustry">Sort: Years exp ↓</option>
+      <option value="books">Sort: Book count ↓</option>
+      <option value="qt1">Sort: Tier-1 quotes ↓</option>
+      <option value="tv">Sort: TV apps ↓</option>
+      <option value="certCount">Sort: Cert count ↓</option>
+      <option value="outletCount">Sort: Outlet count ↓</option>
+      <option value="name">Sort: Name A→Z</option>
+      <option value="outletName">Sort: Outlet A→Z</option>
+    </select>
     <span class="toggle" data-tog="hasLinkedIn">LinkedIn</span>
     <span class="toggle" data-tog="hasEmail">Email</span>
     <span class="toggle" data-tog="hasCerts">Certified</span>
@@ -203,7 +218,7 @@ ${adminHeaderHTML('authors', encodedKey)}
         <th class="sortable" data-sort="name">Author</th>
         <th>Role</th>
         <th class="sortable" data-sort="outletName">Outlet</th>
-        <th>Tier</th>
+        <th class="sortable" data-sort="outletDR">Tier · DR</th>
         <th>Beat</th>
         <th class="sortable" data-sort="yearsInIndustry">Yrs</th>
         <th class="sortable" data-sort="followers" style="text-align:right">LI Ⓕ</th>
@@ -224,7 +239,7 @@ ${adminHeaderHTML('authors', encodedKey)}
   const OUTLETS = JSON.parse(document.getElementById('outlets-data').textContent);
   const BEATS = JSON.parse(document.getElementById('beats-data').textContent);
 
-  // Enrich with computed display fields
+  // Enrich with computed display + sort fields
   AUTHORS.forEach(a => {
     const o = OUTLETS[a.site] || {};
     a.outletName = o.name || a.site;
@@ -234,6 +249,11 @@ ${adminHeaderHTML('authors', encodedKey)}
     a.compRefs = o.compRefs || 0;
     a.followers = a.ms.lf;
     a.isMultiOutlet = (a.writesFor && a.writesFor.length > 1);
+    a.books = a.ms.books || 0;
+    a.qt1 = a.ms.qt1 || 0;
+    a.tv = a.ms.tv || 0;
+    a.certCount = (a.certifications || []).length;
+    a.outletCount = (a.writesFor || [a.site]).length;
   });
 
   const state = {
@@ -342,6 +362,12 @@ ${adminHeaderHTML('authors', encodedKey)}
   document.getElementById('f-outletTier').addEventListener('change', e => { state.outletTier = e.target.value; render(); });
   document.getElementById('f-minScore').addEventListener('input', e => { state.minScore = Number(e.target.value) || 0; render(); });
   document.getElementById('f-minFollowers').addEventListener('input', e => { state.minFollowers = Number(e.target.value) || 0; render(); });
+  document.getElementById('f-sort').addEventListener('change', e => {
+    state.sortKey = e.target.value;
+    state.sortDir = (e.target.value === 'name' || e.target.value === 'outletName') ? 'asc' : 'desc';
+    updateHeaderArrows();
+    render();
+  });
   document.querySelectorAll('.toggle').forEach(el => {
     el.addEventListener('click', () => {
       const k = el.dataset.tog;
@@ -350,17 +376,23 @@ ${adminHeaderHTML('authors', encodedKey)}
       render();
     });
   });
-  // Sort
+  function updateHeaderArrows() {
+    document.querySelectorAll('th.sortable').forEach(t => {
+      const base = t.textContent.replace(/[↓↑]/g, '').trim();
+      t.textContent = base + (t.dataset.sort === state.sortKey ? (state.sortDir === 'desc' ? ' ↓' : ' ↑') : '');
+    });
+    // Sync dropdown if a header click moved sort to a column-dim
+    const dd = document.getElementById('f-sort');
+    if (dd && [...dd.options].some(o => o.value === state.sortKey)) dd.value = state.sortKey;
+  }
+
+  // Sort by clicking column headers
   document.querySelectorAll('th.sortable').forEach(th => {
     th.addEventListener('click', () => {
       const k = th.dataset.sort;
       if (state.sortKey === k) state.sortDir = state.sortDir === 'desc' ? 'asc' : 'desc';
       else { state.sortKey = k; state.sortDir = (k === 'name' || k === 'outletName') ? 'asc' : 'desc'; }
-      // Update header arrow
-      document.querySelectorAll('th.sortable').forEach(t => {
-        const base = t.textContent.replace(/[↓↑]/g, '').trim();
-        t.textContent = base + (t.dataset.sort === state.sortKey ? (state.sortDir === 'desc' ? ' ↓' : ' ↑') : '');
-      });
+      updateHeaderArrows();
       render();
     });
   });
