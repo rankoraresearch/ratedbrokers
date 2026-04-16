@@ -470,11 +470,15 @@ export default function Header() {
                       </div>
                     </div>
                     <Link to={lp("/best-forex-brokers")} style={{
-                      display: "block", marginTop: 16, padding: "10px 14px", borderRadius: 8,
+                      display: "block", marginTop: 16, padding: "10px 14px", borderRadius: 0,
                       background: "#f8fafc", color: "#047857", fontSize: 14, fontWeight: 700,
                       textDecoration: "none", textAlign: "left",
-                      borderTop: "1px solid #e2e8f0", borderLeft: "3px solid #059669", borderRadius: 0,
-                    }}>Best Forex Brokers 2026 — Full Rankings &amp; Comparison <ArrowRight size={14} style={{ verticalAlign: "middle" }} /></Link>
+                      borderTop: "1px solid #e2e8f0", borderLeft: "3px solid #059669",
+                      transition: "background 160ms",
+                    }}
+                      onMouseEnter={(e) => { e.currentTarget.style.background = "#f1f5f9"; }}
+                      onMouseLeave={(e) => { e.currentTarget.style.background = "#f8fafc"; }}
+                    >Best Forex Brokers 2026 — Full Rankings &amp; Comparison <ArrowRight size={14} style={{ verticalAlign: "middle" }} /></Link>
                     <Link to={lp("/rankings")} style={{
                       display: "block", marginTop: 6, padding: "8px 14px", borderRadius: 8,
                       background: "transparent", color: "#1f2937", fontSize: 13, fontWeight: 600,
@@ -541,11 +545,15 @@ export default function Header() {
                       </div>
                     </div>
                     <Link to={lp("/best-crypto-brokers")} style={{
-                      display: "block", marginTop: 16, padding: "10px 14px", borderRadius: 8,
+                      display: "block", marginTop: 16, padding: "10px 14px", borderRadius: 0,
                       background: "#f8fafc", color: "#047857", fontSize: 14, fontWeight: 700,
                       textDecoration: "none", textAlign: "left",
-                      borderTop: "1px solid #e2e8f0", borderLeft: "3px solid #059669", borderRadius: 0,
-                    }}>Best Crypto Brokers 2026 — Full Rankings &amp; Comparison <ArrowRight size={14} style={{ verticalAlign: "middle" }} /></Link>
+                      borderTop: "1px solid #e2e8f0", borderLeft: "3px solid #059669",
+                      transition: "background 160ms",
+                    }}
+                      onMouseEnter={(e) => { e.currentTarget.style.background = "#f1f5f9"; }}
+                      onMouseLeave={(e) => { e.currentTarget.style.background = "#f8fafc"; }}
+                    >Best Crypto Brokers 2026 — Full Rankings &amp; Comparison <ArrowRight size={14} style={{ verticalAlign: "middle" }} /></Link>
                   </div>
                 )}
               </div>
@@ -607,7 +615,11 @@ export default function Header() {
                           background: "#f8fafc", color: "#047857", fontSize: 14, fontWeight: 700,
                           textDecoration: "none", textAlign: "left",
                           borderTop: "1px solid #e2e8f0", borderLeft: "3px solid #059669",
-                        }}>Best Forex Brokers 2026 — Full Rankings</Link>
+                          transition: "background 160ms",
+                        }}
+                          onMouseEnter={(e) => { e.currentTarget.style.background = "#f1f5f9"; }}
+                          onMouseLeave={(e) => { e.currentTarget.style.background = "#f8fafc"; }}
+                        >Best Forex Brokers 2026 — Full Rankings</Link>
                       </div>
                     </div>
                   </div>
