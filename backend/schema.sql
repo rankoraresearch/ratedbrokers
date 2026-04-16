@@ -135,7 +135,16 @@ CREATE TABLE IF NOT EXISTS donors (
   status TEXT NOT NULL DEFAULT 'pending',
   notes TEXT,
   checked_at TEXT,
-  created_at TEXT DEFAULT (datetime('now'))
+  created_at TEXT DEFAULT (datetime('now')),
+  -- v2 enrichment (2026-04-16): store all emails + provenance
+  all_emails TEXT,           -- JSON array: [{email, tier, weight, source_url, source_method, snippet}, ...]
+  primary_email TEXT,        -- selected for outreach (DR-aware rules)
+  fallback_email_1 TEXT,     -- 2nd choice
+  fallback_email_2 TEXT,     -- 3rd choice
+  source_url TEXT,           -- where primary_email was extracted from
+  source_method TEXT,        -- plain | cfemail | mailto | json-ld | obfuscated
+  source_snippet TEXT,       -- 300 chars of HTML around the email (proof of provenance)
+  enriched_v2_at TEXT        -- timestamp of v2 re-crawl
 );
 CREATE INDEX IF NOT EXISTS idx_donors_overlap ON donors(overlap DESC);
 CREATE INDEX IF NOT EXISTS idx_donors_dr ON donors(max_dr DESC);

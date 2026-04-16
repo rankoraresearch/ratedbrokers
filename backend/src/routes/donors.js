@@ -68,7 +68,9 @@ export async function handleDonorUpdate(request, env, domain) {
   if (!checkAuth(request, env)) return Response.json({ error: 'Unauthorized' }, { status: 401, headers });
 
   const body = await request.json();
-  const allowed = ['email','contact_form_url','contact_page_url','status','notes','tier'];
+  const allowed = ['email','contact_form_url','contact_page_url','status','notes','tier',
+    'all_emails','primary_email','fallback_email_1','fallback_email_2',
+    'source_url','source_method','source_snippet','enriched_v2_at'];
   const sets = [];
   const args = [];
   for (const k of allowed) {
@@ -142,13 +144,14 @@ export async function handleDonorsDashboard(request, env) {
 
   .loading { text-align: center; padding: 60px; color: var(--text-muted); }
 </style>
+<script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
 </head>
 <body>
 <div class="admin-shell">
   ${adminHeaderHTML('donors', encodedKey)}
 
   <main class="admin-main">
-    <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:20px">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:20px;gap:16px;flex-wrap:wrap">
       <div>
         <h1 style="font-size:24px;font-weight:700">Donors — Outreach List</h1>
         <p style="font-size:13px;color:var(--text-secondary);margin-top:4px">
@@ -156,6 +159,9 @@ export async function handleDonorsDashboard(request, env) {
           Source: Ahrefs pull 2026-04-15. Noindex, admin-only.
         </p>
       </div>
+      <button id="btn-xlsx" class="btn-primary" onclick="exportXlsx()" style="align-self:center">
+        📥 Download XLSX
+      </button>
     </div>
 
     <div class="summary-grid">
@@ -266,6 +272,75 @@ export async function handleDonorsDashboard(request, env) {
       '</tr>';
     }).join('');
     document.getElementById('rows').innerHTML = html;
+  }
+
+  async function exportXlsx() {
+    const btn = document.getElementById('btn-xlsx');
+    const orig = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = '⏳ Fetching…';
+    try {
+      const res = await fetch('/api/admin/donors/list?limit=10000&min_dr=0&min_overlap=0',
+        { headers: { 'Authorization': 'Bearer ' + decodeURIComponent(KEY) } });
+      const { rows } = await res.json();
+      btn.textContent = '⚙️ Building…';
+
+      const cols = ['domain','max_dr','overlap','tier','status','email','contact_form_url','contact_page_url','competitors','total_links','total_dofollow','max_traffic','notes','checked_at'];
+      const pick = r => Object.fromEntries(cols.map(c => [c, r[c] ?? '']));
+
+      const byStatus = {}, byTier = {};
+      let withEmail = 0, withForm = 0, withBoth = 0;
+      for (const r of rows) {
+        byStatus[r.status] = (byStatus[r.status] || 0) + 1;
+        byTier[r.tier || 'unknown'] = (byTier[r.tier || 'unknown'] || 0) + 1;
+        if (r.email) withEmail++;
+        if (r.contact_form_url) withForm++;
+        if (r.email && r.contact_form_url) withBoth++;
+      }
+
+      const summary = [
+        { metric: 'Total donors', value: rows.length },
+        { metric: '— with email', value: withEmail },
+        { metric: '— with contact form', value: withForm },
+        { metric: '— with both', value: withBoth },
+        { metric: '', value: '' },
+        { metric: 'Status: found', value: byStatus.found || 0 },
+        { metric: 'Status: no_contact', value: byStatus.no_contact || 0 },
+        { metric: 'Status: blocked', value: byStatus.blocked || 0 },
+        { metric: 'Status: dead', value: byStatus.dead || 0 },
+        { metric: '', value: '' },
+        { metric: 'Tier: priority', value: byTier.priority || 0 },
+        { metric: 'Tier: high-dr', value: byTier['high-dr'] || 0 },
+        { metric: 'Tier: mid-dr', value: byTier['mid-dr'] || 0 },
+        { metric: 'Tier: low', value: byTier.low || 0 },
+        { metric: '', value: '' },
+        { metric: 'Exported', value: new Date().toISOString() },
+      ];
+
+      const wb = XLSX.utils.book_new();
+      function addSheet(data, name) {
+        const ws = XLSX.utils.json_to_sheet(data.map(pick), { header: cols });
+        ws['!cols'] = cols.map(c => ({ wch: c === 'domain' ? 28 : c === 'competitors' ? 40 : (c.startsWith('contact_') || c === 'notes') ? 40 : c === 'email' ? 32 : 12 }));
+        XLSX.utils.book_append_sheet(wb, ws, name);
+      }
+      XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(summary), 'Summary');
+      addSheet(rows.filter(r => r.status === 'found'), 'Found (' + (byStatus.found||0) + ')');
+      addSheet(rows.filter(r => r.tier === 'priority'), 'Priority (' + (byTier.priority||0) + ')');
+      addSheet(rows.filter(r => r.status === 'no_contact'), 'No Contact');
+      addSheet(rows.filter(r => r.status === 'blocked'), 'Blocked');
+      addSheet(rows.filter(r => r.status === 'dead'), 'Dead');
+      addSheet(rows, 'All (' + rows.length + ')');
+
+      const date = new Date().toISOString().slice(0,10);
+      XLSX.writeFile(wb, 'Donor-List-' + date + '.xlsx');
+      btn.textContent = '✅ Done';
+    } catch (e) {
+      console.error(e);
+      btn.textContent = '❌ Error';
+      alert('Export failed: ' + e.message);
+    } finally {
+      setTimeout(() => { btn.disabled = false; btn.textContent = orig; }, 2000);
+    }
   }
 
   loadDonors();
