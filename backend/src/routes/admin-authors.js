@@ -220,7 +220,7 @@ ${adminHeaderHTML('authors', encodedKey)}
         <th class="sortable" data-sort="outletName">Outlet</th>
         <th class="sortable" data-sort="outletDR">Tier · DR</th>
         <th>Beat</th>
-        <th class="sortable" data-sort="yearsInIndustry">Yrs</th>
+        <th class="sortable" data-sort="yearsInIndustry" title="Years of professional experience in financial journalism / advisory / trading">Yrs exp.</th>
         <th class="sortable" data-sort="followers" style="text-align:right">LI Ⓕ</th>
         <th>Contacts</th>
       </tr>

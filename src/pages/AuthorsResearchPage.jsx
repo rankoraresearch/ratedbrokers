@@ -897,7 +897,7 @@ function AuthorsTable({ rows, mob }) {
               <Th style={{ width: 56 }}>Tier</Th>
               <Th style={{ width: 50 }}>Badge</Th>
               <Th>Beat</Th>
-              <Th style={{ width: 50 }}>Yrs</Th>
+              <Th style={{ width: 56 }} title="Years of professional experience in financial journalism / advisory / trading">Yrs exp.</Th>
               <Th style={{ width: 80, textAlign: "right" }}>LI ⓕ</Th>
               <Th style={{ width: 140 }}>Contacts</Th>
               <Th style={{ width: 70 }}>Page</Th>
@@ -1026,9 +1026,9 @@ function IconLink({ url, title, children }) {
   );
 }
 
-function Th({ children, style }) {
+function Th({ children, style, title }) {
   return (
-    <th style={{
+    <th title={title} style={{
       padding: "10px 10px", textAlign: "left",
       fontSize: 10, fontWeight: 700, color: "#64748b",
       textTransform: "uppercase", letterSpacing: 0.5,
