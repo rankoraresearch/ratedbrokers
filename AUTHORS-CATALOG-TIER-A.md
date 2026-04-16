@@ -195,6 +195,7 @@ SVP of Content for Forbes Marketplace. Launched, grew and managed HerMoney (Jean
 - Location: Florida, USA
 - Years in industry: **20**
 - LinkedIn: [https://www.linkedin.com/in/katiedoyle1/](https://www.linkedin.com/in/katiedoyle1/)
+  - **1,950 followers** on LinkedIn (fetched 2026-04-16)
 - Twitter/X: [https://twitter.com/katislafevis](https://twitter.com/katislafevis)
   - **1,140 followers** on X (fetched 2026-04-16)
 - Muck Rack: [https://muckrack.com/katie-doyle](https://muckrack.com/katie-doyle)
@@ -481,6 +482,7 @@ CFA, Director of Research and Senior Analyst at Zacks Small-Cap Research with 30
 - Role: Editor & Content Strategist (editor)
 - Years in industry: **6**
 - LinkedIn: [https://www.linkedin.com/in/alana-benson/](https://www.linkedin.com/in/alana-benson/)
+  - **445 followers** on LinkedIn (fetched 2026-04-16)
 - Twitter/X: —
 - Muck Rack: [https://muckrack.com/alana-benson](https://muckrack.com/alana-benson)
 - Personal site: —
@@ -530,6 +532,7 @@ Politics, policy, and ideas editor at Barron's; oversaw guest commentary across 
 - Role: Lead Commentary / Ideas Editor (former Barron's) — now Senior Economics Writer at CNBC (editor)
 - Location: USA
 - LinkedIn: [https://www.linkedin.com/in/matt-peterson-057327a/](https://www.linkedin.com/in/matt-peterson-057327a/)
+  - **2,385 followers** on LinkedIn (fetched 2026-04-16)
 - Twitter/X: [https://x.com/mattbpete](https://x.com/mattbpete)
   - **4,690 followers** on X (fetched 2026-04-16)
 - Muck Rack: [https://muckrack.com/mattbpete](https://muckrack.com/mattbpete)
@@ -1068,6 +1071,7 @@ Managing Editor at Decrypt since 2019. 15-year freelance career prior, with byli
 - Role: Managing Editor (editor)
 - Years in industry: **15**
 - LinkedIn: [https://www.linkedin.com/in/andrewhayward/](https://www.linkedin.com/in/andrewhayward/)
+  - **1,079 followers** on LinkedIn (fetched 2026-04-16)
 - Twitter/X: [https://twitter.com/ahaywa](https://twitter.com/ahaywa)
   - **11,800 followers** on X (fetched 2026-04-16)
 - Muck Rack: —
@@ -1109,6 +1113,7 @@ Startups Investing Editor at Benzinga (joined Sep 2025). Award-winning journalis
 - Role: Startups Investing Editor (editor)
 - Years in industry: **29**
 - LinkedIn: [https://www.linkedin.com/in/omar-sacirbey-94428531/](https://www.linkedin.com/in/omar-sacirbey-94428531/)
+  - 500+ LinkedIn connections (followers not exposed)
 - Twitter/X: —
 - Muck Rack: —
 - Personal site: [http://www.omarsacirbey.com/](http://www.omarsacirbey.com/)
@@ -1259,6 +1264,7 @@ Senior reporter covering markets and the economy. At Fortune magazine since Marc
 - Location: Singapore
 - Years in industry: **20**
 - LinkedIn: [https://sg.linkedin.com/in/manish-jaradi-b7643438](https://sg.linkedin.com/in/manish-jaradi-b7643438)
+  - **588 followers** on LinkedIn (fetched 2026-04-16)
 - Twitter/X: [https://twitter.com/JaradiManish](https://twitter.com/JaradiManish)
 - Muck Rack: —
 - Personal site: —
@@ -1304,6 +1310,7 @@ Senior reporter covering markets and the economy. At Fortune magazine since Marc
 - Role: Writer & Housing Market Analyst (senior)
 - Years in industry: **20**
 - LinkedIn: [https://www.linkedin.com/in/jeff-ostrowski-920b582/](https://www.linkedin.com/in/jeff-ostrowski-920b582/)
+  - **4,998 followers** on LinkedIn (fetched 2026-04-16)
 - Twitter/X: [https://twitter.com/bio561](https://twitter.com/bio561)
 - Muck Rack: —
 - Personal site: —
@@ -1357,6 +1364,7 @@ Chartered Financial Analyst and co-founder / Portfolio Manager at Venable Park I
 - Location: Canada
 - Years in industry: **27**
 - LinkedIn: [https://www.linkedin.com/in/daniellepark/](https://www.linkedin.com/in/daniellepark/)
+  - **363 followers** on LinkedIn (fetched 2026-04-16)
 - Twitter/X: [https://x.com/kdaniellepark](https://x.com/kdaniellepark)
   - **4,235 followers** on X (fetched 2026-04-16)
 - Muck Rack: —
@@ -2002,6 +2010,7 @@ Chief Executive Officer of Morningstar since 2017. Joined Morningstar in 1997 as
 - Role: Senior Brokerage Advisor — US & Canada (editor)
 - Years in industry: **20**
 - LinkedIn: [https://www.linkedin.com/in/twcarey/](https://www.linkedin.com/in/twcarey/)
+  - **1,398 followers** on LinkedIn (fetched 2026-04-16)
 - Twitter/X: [https://twitter.com/twcarey](https://twitter.com/twcarey)
   - **3,905 followers** on X (fetched 2026-04-16)
 - Muck Rack: [https://muckrack.com/theresa-carey](https://muckrack.com/theresa-carey)
@@ -2749,6 +2758,7 @@ Leads NerdWallet's investing and taxes team. 19+ yrs. 80+ articles, 32.3M reader
 - Location: Charlottesville, VA
 - Years in industry: **19**
 - LinkedIn: [https://www.linkedin.com/in/arielleoshea/](https://www.linkedin.com/in/arielleoshea/)
+  - **1,859 followers** on LinkedIn (fetched 2026-04-16)
 - Twitter/X: —
 - Muck Rack: —
 - Personal site: —
@@ -3604,6 +3614,7 @@ Editor & Financial Analyst at Good Money Guide with 35 years of experience acros
 - Location: United Kingdom
 - Years in industry: **35**
 - LinkedIn: [https://www.linkedin.com/in/darren-sinden-20018245/](https://www.linkedin.com/in/darren-sinden-20018245/)
+  - **3,286 followers** on LinkedIn (fetched 2026-04-16)
 - Twitter/X: [https://twitter.com/fatdaz](https://twitter.com/fatdaz)
   - **1,236 followers** on X (fetched 2026-04-16)
 - Muck Rack: —
@@ -3647,6 +3658,7 @@ Active trader with 20+ years in financial markets. Roles at Citigroup, D.E. Shaw
 - Location: United Kingdom
 - Years in industry: **20**
 - LinkedIn: [https://www.linkedin.com/in/justin-freeman-2a6935b](https://www.linkedin.com/in/justin-freeman-2a6935b)
+  - **1,017 followers** on LinkedIn (fetched 2026-04-16)
 - Twitter/X: [https://twitter.com/JustinFreeman18](https://twitter.com/JustinFreeman18)
 - Muck Rack: —
 - Personal site: —
@@ -3739,6 +3751,7 @@ Former full-time Motley Fool employee 2012-2025. Wrote for Fool.com, built Fool.
 - Location: Greenville-Spartanburg-Anderson, South Carolina, USA
 - Years in industry: **13**
 - LinkedIn: [https://www.linkedin.com/in/matt-koppenheffer-316b841/](https://www.linkedin.com/in/matt-koppenheffer-316b841/)
+  - 500+ LinkedIn connections (followers not exposed)
 - Twitter/X: [https://twitter.com/KoppTheFool](https://twitter.com/KoppTheFool)
 - Muck Rack: [https://muckrack.com/KoppTheFool](https://muckrack.com/KoppTheFool)
 - Personal site: —

@@ -4,27 +4,27 @@ Generated 2026-04-16 from S9 verification pass.
 
 | Author | Certs verified | Books w/ ISBN | Awards | X followers | LI followers |
 |---|---|---|---|---|---|
-| Theresa W. Carey | 0/0 | 0 | 0 | 3,905 | — |
-| Alana Benson | 0/0 | 2 | 0 | — | — |
-| Arielle O'Shea | 0/0 | 0 | 0 | — | — |
+| Theresa W. Carey | 0/0 | 0 | 0 | 3,905 | 1398 |
+| Alana Benson | 0/0 | 2 | 0 | — | 445 |
+| Arielle O'Shea | 0/0 | 0 | 0 | — | 1859 |
 | Michael Hewson | 1/2 | 0 | 0 | — | — |
-| Omar Sacirbey | 0/0 | 0 | 0 | — | — |
-| Matt Koppenheffer | 0/0 | 1 | 0 | — | — |
-| James Chen | 1/3 | 2 | 0 | 14,700 | — |
-| Manish Jaradi | 0/2 | 0 | 0 | — | — |
-| Andrew Hayward | 0/0 | 0 | 0 | 11,800 | — |
+| Omar Sacirbey | 0/0 | 0 | 0 | — | 500+ |
+| Matt Koppenheffer | 0/0 | 1 | 0 | — | 500+ |
+| James Chen | 1/3 | 2 | 0 | 14,700 | 5341 |
+| Manish Jaradi | 0/2 | 0 | 0 | — | 588 |
+| Andrew Hayward | 0/0 | 0 | 0 | 11,800 | 1079 |
 | Andrés Cardenal, CFA | 0/1 | 0 | 0 | — | — |
 | Martin Lewis | 0/0 | 0 | 0 | — | — |
 | Barbara Friedberg | 0/0 | 3 | 0 | — | 500+ |
-| Matt Peterson | 0/0 | 0 | 0 | 4,690 | — |
-| Katie Doyle | 0/0 | 0 | 0 | 1,140 | — |
-| Jon Dulin | 0/2 | 0 | 0 | — | — |
-| Jeff Ostrowski | 0/1 | 0 | 0 | — | — |
+| Matt Peterson | 0/0 | 0 | 0 | 4,690 | 2385 |
+| Katie Doyle | 0/0 | 0 | 0 | 1,140 | 1950 |
+| Jon Dulin | 0/2 | 0 | 0 | — | 195 |
+| Jeff Ostrowski | 0/1 | 0 | 0 | — | 4998 |
 | Bradley Keoun | 0/0 | 0 | 1 | — | — |
-| Doug Boneparth | 1/2 | 1 | 0 | — | 500+ |
-| Darren Sinden | 0/0 | 0 | 0 | 1,236 | — |
-| Danielle Park, CFA | 0/1 | 1 | 0 | 4,235 | — |
-| Justin Freeman | 0/2 | 0 | 0 | — | — |
+| Doug Boneparth | 1/2 | 1 | 0 | — | 12359 |
+| Darren Sinden | 0/0 | 0 | 0 | 1,236 | 3286 |
+| Danielle Park, CFA | 0/1 | 1 | 0 | 4,235 | 363 |
+| Justin Freeman | 0/2 | 0 | 0 | — | 1017 |
 | Al Root (Allen Root) | 0/0 | 0 | 0 | — | — |
 | Michael Hewson | 1/2 | 0 | 0 | — | — |
 | Eno Eteng | 0/3 | 0 | 0 | — | — |

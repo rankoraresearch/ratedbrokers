@@ -37,7 +37,7 @@ Single-source-of-truth catalog of all **579 authors** harvested across **96 outl
 - TV appearances: 75 / 579 (13%)
 - Multi-outlet (cross-writers): 258 / 579 (45%)
 - Twitter/X followers captured (S9): 199 / 579 (34%)
-- LinkedIn connections fallback (500+): 111 / 579 (19%)
+- LinkedIn connections fallback (500+): 160 / 579 (28%)
 - Still flagged needsManualReview: 67 / 579 (12%)
 
 ## Score formula
@@ -82,7 +82,7 @@ Snapshot ranked by finalScore. Full detail blocks below.
 | 26 | **Emma Lunn** | MoneyWeek | S | 111 | 10K | — |
 | 27 | **Eva Szalay** | The Full FX | S | 110 | — | — |
 | 28 | **Matthew Levy** | BestBrokers | S | 107 | 661 | CFA (Chartered Financial Analyst) |
-| 29 | **Jon Dulin** | Modest Money | S | 104 | — | Series 65, Certificate in Financial Planning |
+| 29 | **Jon Dulin** | Modest Money | S | 104 | 174+c | Series 65, Certificate in Financial Planning |
 | 30 | **James Chen** | Investopedia | S | 101 | 15K | CMT, CFTe, RIA · 📚 2 books · 📺 2 |
 
 
@@ -124,11 +124,42 @@ Sorted by verified X follower count (fetched from x.com directly, S9). Substitut
 | 30 | **James Chen** | Investopedia | S | 101 | **14,700** | Former Director, Trading & Investing Content (Inve |
 
 
-## LinkedIn reach
+## Top 30 by LinkedIn reach
 
-> ⚠ **No verified follower counts available.** S7 WebSearch agents hallucinated counts (verified by Larry Swedroe spot-check: claimed 280,836 / actual 9,229). Purged 2026-04-16. Variant A (Playwright with proper throttle) pending — retry after LinkedIn cool-down (~48-72h from the original block).
+Sorted by absolute follower count. The "wow factor" lever — these are the authors whose endorsement carries the most distribution if they share our work.
 
-The 111 "500+ connections" bucket entries are kept (those were literal Google snippet quotes, not invented).
+| # | Name | Outlet | Tier | Score | LI Followers | Role |
+|---|---|---|---|---|---|---|
+| 1 | **Loke Choon Khei** | CoinGecko | C | 67 | **18,769** | Writer — CoinGecko (Design & Content Team) |
+| 2 | **Nigam Arora** | Benzinga | C | 68 | **13,777** | Founder — The Arora Report (Benzinga Contributor) |
+| 3 | **Doug Boneparth** | Investopedia | S | 118 | **12,359** | CFP — Investopedia Advisor Council; CFP Board Amba |
+| 4 | **Bobby Ong** | CoinGecko | B | 98 | **12,120** | Co-Founder & CEO (formerly COO) |
+| 5 | **Emily Stewart** | Business Insider | C | 109 | **8,845** | Senior Correspondent — Consumer & Economy |
+| 6 | **Bradley Saacks** | Business Insider | C | 99 | **8,002** | Hedge Fund Reporter |
+| 7 | **Jared Blikre** | Yahoo Finance | B | 102 | **6,522** | Director, Anchor, Global Markets Editor — Yahoo Fi |
+| 8 | **James Chen** | Investopedia | S | 101 | **5,341** | Former Director, Trading & Investing Content (Inve |
+| 9 | **Jeff Ostrowski** | Bankrate | A | 116 | **4,998** | Writer & Housing Market Analyst |
+| 10 | **Prashant Jha** | Cointelegraph | C | 59 | **4,401** | Writer (former) |
+| 11 | **Nikhilesh De** | CoinDesk | B | 91 | **4,277** | Managing Editor, Global Policy & Regulation |
+| 12 | **Darren Sinden** | Good Money Guide | A | 81 | **3,286** | Market Analyst / Editor |
+| 13 | **Ronald Wortel** | Zacks | C | 70 | **3,035** | Analyst — Small Cap Research (Mining coverage) |
+| 14 | **Damian Chmiel** | Finance Magnates | B | 94 | **3,024** | Senior Analyst & Editor |
+| 15 | **Erhan Kahraman** | Cointelegraph | C | 95 | **2,877** | Senior Advertorial Content Editor & Auditor |
+| 16 | **Ana Paula Pereira** | Cointelegraph | B | 118 | **2,819** | Staff Editor & Senior Writer |
+| 17 | **Christopher Tepedino** | Cointelegraph | C | 60 | **2,521** | Crypto Reporter (former) |
+| 18 | **Omkar Godbole** | CoinDesk | B | 117 | **2,477** | Co-Managing Editor, Markets |
+| 19 | **Matt Peterson** | Barron's | A | 123 | **2,385** | Lead Commentary / Ideas Editor (former Barron's) — |
+| 20 | **Alicia Adamczyk** | Fortune | B | 91 | **2,264** | Former Senior Writer (Fortune) |
+| 21 | **Jonathan Burton** | MarketWatch | B | 112 | **2,184** | Money & Investing Editor / Columnist |
+| 22 | **Sophie Rolland** | Les Echos | C | 85 | **2,095** | Cheffe du service Marchés Financiers (Head of Fina |
+| 23 | **Lance Davis** | Bankrate | C | 84 | **2,011** | Former VP of Content, Bankrate (now at Pillar4 Med |
+| 24 | **John Puterbaugh** | Bankrate | C | 88 | **1,974** | Editor-in-Chief |
+| 25 | **Katie Doyle** | Forbes | A | 128 | **1,950** | SVP Content — Forbes Marketplace |
+| 26 | **Arielle O'Shea** | NerdWallet | A | 100 | **1,859** | Head of Content — Investing & Taxes |
+| 27 | **Matt Haldane** | South China Morning Post | B | 112 | **1,774** | Web3/Tech Editor (former SCMP) — now APAC Crypto E |
+| 28 | **Adam Nasli** | BrokerChooser | B | 87 | **1,762** | Head of Analyst Team |
+| 29 | **Seth Archer** | Business Insider | C | 51 | **1,730** | Former Markets Reporter / Director of Markets Insi |
+| 30 | **Mike Mikhjian** | ForexBrokers.com | C | 69 | **1,716** | Chief Technology Officer, Partner — Reink Media Gr |
 
 ---
 
@@ -1286,7 +1317,7 @@ President and founder of Bone Fide Wealth, LLC. Became one of the youngest CERTI
 - Location: New York, NY, USA
 - Years in industry: **15**
 - LinkedIn: [https://www.linkedin.com/in/douglasboneparth](https://www.linkedin.com/in/douglasboneparth)
-  - 500+ LinkedIn connections (followers not exposed)
+  - **12,359 followers** on LinkedIn (fetched 2026-04-16)
 - Twitter/X: —
 - Muck Rack: —
 - Personal site: [bonefidewealth.com](bonefidewealth.com)
@@ -1582,6 +1613,7 @@ Founder of Money Smart Guides (2011). 15+ years in financial services — back-o
 - Role: Founder & Head Writer — Money Smart Guides; Contributor — Modest Money (contributor)
 - Years in industry: **20**
 - LinkedIn: [https://www.linkedin.com/in/donald-jon-dulin-70354540/](https://www.linkedin.com/in/donald-jon-dulin-70354540/)
+  - **195 followers** on LinkedIn (fetched 2026-04-16)
 - Twitter/X: —
 - Muck Rack: [https://muckrack.com/jon-dulin](https://muckrack.com/jon-dulin)
 - Personal site: [https://www.moneysmartguides.com/](https://www.moneysmartguides.com/)
@@ -1639,6 +1671,7 @@ Trader, investor, Registered Investment Adviser, Chartered Market Technician (CM
 - Location: United States
 - Years in industry: **20**
 - LinkedIn: [https://www.linkedin.com/in/jameschencontent/](https://www.linkedin.com/in/jameschencontent/)
+  - **5,341 followers** on LinkedIn (fetched 2026-04-16)
 - Twitter/X: [https://x.com/jameschenfx](https://x.com/jameschenfx)
   - **14,700 followers** on X (fetched 2026-04-16)
 - Muck Rack: —

@@ -65,7 +65,9 @@ console.log(`[cdp] Remaining: ${remaining.length}`);
 // ─── Connect to user's real Chrome
 let browser;
 try {
-  browser = await chromium.connectOverCDP("http://localhost:9222");
+  // Force IPv4 — macOS resolves "localhost" to ::1 first but Chrome
+  // binds to 127.0.0.1 only on the debug port.
+  browser = await chromium.connectOverCDP("http://127.0.0.1:9222");
 } catch (e) {
   console.error(`\n[cdp] ERROR — can't reach Chrome at localhost:9222.`);
   console.error(`Start Chrome like this from a terminal (keep the window open):\n`);
@@ -105,41 +107,47 @@ function parseN(s) {
   return Number.isNaN(n) ? null : n;
 }
 
-// Extract follower + connections ONLY from the profile's top-card
-// region. Anchored on the profile h1 — we never look at sidebar or
-// suggested-people modules, so S7's wrong-number bug can't recur.
+// Extract follower + connection counts from the profile page.
+// Method: take the FIRST "X followers" match in body.innerText. LI
+// renders the profile header before any sidebar recommendations, so
+// the first match is always the page-owner's own count. We also
+// validate that the match appears within the first 2500 chars (i.e.
+// before the "People who follow" sidebar block).
 async function extract(page) {
   return await page.evaluate(() => {
     const out = { followers: null, connections: null, cardText: null, expectHeadline: null };
-    const h1 = document.querySelector("h1");
-    if (!h1) { out.error = "no_h1"; return out; }
-    out.expectHeadline = h1.innerText.trim();
+    const body = document.body.innerText || "";
+    out.cardText = body.slice(0, 500);
 
-    // Walk up to the card section (class names LI uses: pv-top-card,
-    // pv-text-details-about-this-profile, ph5 pb5).
-    let card = h1.parentElement;
-    for (let d = 0; d < 8 && card; d++) {
-      const cn = (card.className || "").toString();
-      if (/top-card|pv-text-details|ph5|artdeco-card/.test(cn)) break;
-      card = card.parentElement;
+    // Find the profile name heading — now H2 on modern LI, used only
+    // for the audit record, not for gating the follower extraction.
+    const h2s = [...document.querySelectorAll("h2")];
+    const profileH2 = h2s.find((h) => {
+      const s = (h.innerText || "").trim();
+      return s.length > 0 && !/(notifications|Ad Options|Activity|^\d+$|People who)/.test(s);
+    });
+    out.expectHeadline = profileH2 ? profileH2.innerText.trim() : null;
+
+    // Follower count — EN + RU. Take FIRST match only.
+    const fm = body.match(/([\d\s.,KkMmBbКкМмБб]+)\s+(?:followers?|отслеживающих|подписчиков)\b/);
+    if (fm && fm.index < 2500) {
+      out.followers = fm[1].trim();
+      out.followersIdx = fm.index;
+    } else if (fm) {
+      // Match exists but too deep in DOM — probably sidebar
+      out.followersDeepIdx = fm.index;
     }
-    const region = card || h1.closest("section") || h1.parentElement;
-    const t = region.innerText || "";
-    out.cardText = t.slice(0, 600);
 
-    // Followers — English and Russian variants
-    let fm = t.match(/([\d\s.,KkMmBbКкМмБб]+)\s+(?:followers?|отслеживающих|подписчиков)\b/);
-    if (fm) out.followers = fm[1].trim();
-    // Connections — various formats
-    let cm = t.match(/([\d,]+\+?)\s+(?:connections?)\b/i);
-    if (!cm) cm = t.match(/Более\s+(\d+\+?)\s+контакт/i);
-    if (cm) out.connections = cm[1].includes("+") ? cm[1] : (cm[1] + (t.includes("Более") ? "+" : ""));
+    // Connections — "500+ connections" / "Более 500 контакты"
+    let cm = body.match(/(\d+\+?)\s+(?:connections?)\b/i);
+    if (!cm) cm = body.match(/Более\s+(\d+\+?)\s+контакт/i);
+    if (cm && cm.index < 2500) out.connections = cm[1].includes("+") ? cm[1] : cm[1] + "+";
     return out;
   });
 }
 
-// ─── Reuse one tab for the whole run
-const page = await ctx.newPage();
+// Fresh page per fetch — resilient to Chrome restarts and orphan
+// tabs from past runs. One-time probe page closed before loop.
 await probe.close();
 console.log(`[cdp] Session OK. Starting loop — ${remaining.length} profiles, ~20-35s throttle each.`);
 
@@ -156,7 +164,9 @@ for (let i = 0; i < remaining.length; i++) {
     fetchedAt: new Date().toISOString(),
   };
 
+  let page;
   try {
+    page = await ctx.newPage();
     const resp = await page.goto(a.linkedin, { waitUntil: "domcontentloaded", timeout: 30000 });
     const finalUrl = page.url();
     if (/\/authwall|\/login|\/checkpoint/.test(finalUrl)) {
@@ -166,7 +176,8 @@ for (let i = 0; i < remaining.length; i++) {
       result.error = `HTTP ${resp ? resp.status() : "none"}`;
     } else {
       // Human pacing: scroll a bit, wait
-      await sleep(rand(1800, 3200));
+      // Wait longer for LI's React/SPA to render the header numbers.
+      await sleep(rand(3500, 5000));
       try { await page.mouse.wheel(0, rand(200, 600)); await sleep(rand(400, 900)); } catch {}
       const data = await extract(page);
       if (data.error) {
@@ -192,6 +203,8 @@ for (let i = 0; i < remaining.length; i++) {
   } catch (e) {
     result.error = String(e.message || e).slice(0, 200);
     consecutiveFails += 1;
+  } finally {
+    if (page) { try { await page.close(); } catch {} }
   }
 
   output.push(result);
@@ -217,7 +230,6 @@ for (let i = 0; i < remaining.length; i++) {
 }
 
 fs.writeFileSync(OUTPUT, JSON.stringify(output, null, 2));
-await page.close();
 await browser.close();  // detaches from user's Chrome but leaves it running
 console.log(`\n[done] Total: ${remaining.length} | hits: ${hits} | miss: ${miss}`);
 console.log(`[done] Output: ${OUTPUT}`);

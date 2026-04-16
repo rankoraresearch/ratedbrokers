@@ -49,10 +49,13 @@ if (fs.existsSync(twitterPath)) {
     if (r && r.id && r.followers != null) twitterByAuthor.set(r.id, r);
   }
 }
-const liPath = path.resolve(here, "s9-li-output.json");
+// LinkedIn fetch outputs — merge both S9 (blocked early) and S10 (CDP).
+// S10 later takes precedence for same id.
 const liByAuthor = new Map();
-if (fs.existsSync(liPath)) {
-  for (const r of JSON.parse(fs.readFileSync(liPath, "utf8"))) {
+for (const p of ["s9-li-output.json", "s10-li-cdp-output.json"]) {
+  const full = path.resolve(here, p);
+  if (!fs.existsSync(full)) continue;
+  for (const r of JSON.parse(fs.readFileSync(full, "utf8"))) {
     if (r && r.id && (r.followers != null || r.connections)) liByAuthor.set(r.id, r);
   }
 }
