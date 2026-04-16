@@ -7,6 +7,186 @@
 
 ## История запросов
 
+### Запрос #4 — 2026-04-16 — v2 Enrichment (improved primary selection + all_emails)
+
+**Цель:** после сбора 3,755 контактов в Запросе #3 — переработать выбор primary с учётом DR, сохранить все email'ы на домене, добавить provenance (source_url + source_snippet).
+
+**Скрипты:**
+- `scripts/enrich-donors-v2.mjs` — v2 crawler с DR-aware scoring, retry, bounded body, structured logging
+- `scripts/donors-rescore.mjs` — re-apply rules на all_emails без повторного fetch
+
+**Schema changes (D1):**
+- `all_emails TEXT` — JSON массив: `[{email, cat, w, m, host, score}, ...]`
+- `primary_email TEXT` — выбранный по новым правилам
+- `fallback_email_1, fallback_email_2 TEXT`
+- `source_url, source_method, source_snippet TEXT` — provenance
+- `enriched_v2_at TEXT` — timestamp обработки
+
+**Ключевые правила v2:**
+- **DR-aware weights:** contact@ wins на DR<60 (weight 80), pr@ wins на DR≥80 (weight 85)
+- **Host classification:** on_domain +30, foreign_provider −25 (gmail/yahoo etc)
+- **Non-outreach exclusion:** jobs, careers, privacy, legal, corrections, feedback — никогда primary
+- **Multi-lang placeholder filter:** example.com, voorbeeld@domein.com, beispiel@domain.de, ejemplo@dominio.es, exemple@domaine.fr
+- **Methods:** plain regex + Cloudflare email decode + mailto URL-decode + JSON-LD ContactPoint + obfuscated (&#64;)
+
+**Codex Review:** 3 HIGH findings выявлены и пофикшены:
+1. H1 — failed crawl → D1 write null (затирало legacy v1 data) → добавлен `anySuccess` флаг, если все 9 fetches упали → **skip D1 write**
+2. H2 — нет retry/backoff на 408/425/429/5xx → добавлен exp backoff + jitter
+3. H3 — drop-телеметрия → structured NDJSON лог в `logs/enrich/v2-errors-*.ndjson`
+
+**Recovery 312 records:** во время transient event 259 доменов подряд записали primary_email=null, all_emails=[]. После codex fix я сбросил их `enriched_v2_at=NULL` и перезапустил pending-only прогон.
+
+**Финальные результаты v2:**
+
+| Метрика | Значение |
+|---|---|
+| v2 processed | **3,559 / 3,755** (95%) |
+| with new primary_email | **2,902** |
+| with fallback_email_1 | **1,308** |
+| with fallback_email_2 | **722** |
+| primary changed vs v1 | **497** (~13%) |
+| rescore updates | **120 changed + 12 placeholders cleared** |
+| errors in final | **0** |
+
+**Total all_emails flat:** **8,620** email-записей across all domains (primary + fallbacks + rank_N).
+
+**Файлы:**
+- `Donor-List-2026-04-16-FINAL.xlsx` — 9 вкладок, 26 MB (+ backup в `data/backups/`)
+- `logs/enrich/v2-full-*.log`, `v2-resume-*.log` — полные логи прогонов
+- `logs/enrich/v2-errors-*.ndjson` — structured error log
+
+**Коммиты:**
+- `c3d4de5` — donors infrastructure
+- `9928777` — v2 enrichment baseline
+- `402b897` — resilience fixes (codex review)
+- `93ec61b` — rescore + dashboard UI + final xlsx
+
+**Credits Ahrefs:** 0 (всё self-hosted fetch).
+
+---
+
+### Запрос #3 — 2026-04-15/16 — Contact Enrichment (donors → outreach contacts)
+
+**Цель:** Обогатить 7,805 refdomains (из Запроса #2) реальными email/contact-form URL для будущих outreach-кампаний.
+
+**Скрипты:**
+- `scripts/enrich-donors.mjs` — базовый (fetch + regex)
+- `scripts/enrich-donors-headless.mjs` — Playwright+stealth для blocked/JS-heavy
+
+**Правила:** `OUTREACH-EMAIL-RULES.md` (tier-scoring, extraction, placeholder filters)
+**Спринты:** `OUTREACH-SPRINTS.md` (8 фаз от калибровки до campaign export)
+
+**Хранение:** D1 таблица `donors` (schema в `backend/schema.sql`), dashboard `/api/admin/donors/dashboard`.
+
+**Результаты на 2026-04-16:**
+
+| Статус | Кол-во | % от 7,805 |
+|---|---|---|
+| ✅ **found** (email или contact form) | **3,755** | **48%** |
+| ⚪ no_contact | 2,556 | 33% |
+| 🛑 blocked | 684 | 9% |
+| 💀 dead | 810 | 10% |
+
+**По tier (из 3,755 found — точная раскладка на момент 3,616 до Sprint A):**
+- tier1 (guest-post): 3
+- tier2 (editorial): ~80+
+- tier3 (PR): ~33+
+- tier4 (partnerships): ~15+
+- tier5 (info/support): ~326+
+- tier9 (personal domain): ~88+
+- Contact form URL: ~72+
+
+**Этапы прогона:**
+1. **Базовый regex** (3,616 found) — fetch + regex на 7,805 доменов
+2. **Sprint A v1 — Playwright+stealth** (+133 → 3,749): зависание на batch 68, killed
+3. **Sprint A v2 — hard-timeout 35s** (+6 чистых → 3,755, batch 107/431 до остановки): часть PUT в 404 из-за временной потери routes
+
+**Непробиваемые классы (~30% от всего):**
+- Enterprise bot shields (muckrack, crunchbase до починки) — даже с stealth
+- Гео-блоки (iau.ir)
+- SPA без публичного email (aol.com, forexfactory.com)
+- Платформы без контента (github.io)
+
+**Откат деплоя:** Worker потерял donors-routes в середине Sprint A v2 → PUT 404. Перезадеплоили 16.04 01:10 UTC. D1 данные не потеряны, но часть upgraded-статусов из v2 не записались.
+
+**Credits Ahrefs использовано:** 0 (enrichment не использует Ahrefs, только self-hosted fetch + Playwright).
+
+---
+
+### Запрос #2 — 2026-04-15 — Competitor refdomains pull (11 конкурентов)
+
+**Цель:** Собрать все ссылающиеся домены 11 конкурентов для outreach-стратегии линкбилдинга.
+
+**Команда Егора:** "У Ахревса точно есть возможность скачивать бэк ссылки... Ты можешь это сделать для наших конкурентов." + уточнил: "обратные ссылки не нужно, просто домены, ссылающиеся".
+
+**Конкуренты:** forexbrokers, bestbrokers, brokerchooser, investopedia, nerdwallet, bankrate, fxempire, compareforexbrokers, tradersunion, fxscouts, investing.com
+
+**Endpoints:**
+- `GET /v3/site-explorer/domain-rating` — DR per domain
+- `GET /v3/site-explorer/backlinks-stats` — total backlinks/refdomains
+- `GET /v3/site-explorer/metrics` — org_traffic/org_keywords
+- `GET /v3/site-explorer/refdomains` — список refdomains (с keyset pagination через `where={"field":"domain_rating","is":["lte",N]}`)
+
+**Скрипт:** `scripts/ahrefs-backlinks.mjs` (команды: `metrics`, `refdomains [limit]`). Keyset pagination (Ahrefs v3 не поддерживает `offset`), дедупликация на клиенте, resume-friendly (скипает сайты с существующим CSV).
+
+**Входные данные:** хардкод 11 доменов в скрипте.
+**Выходные данные:** `data/ahrefs-refdomains-2026-04-14/<domain>.csv` (11 файлов) + `_summary.json`.
+
+**Колонки CSV:** domain, domain_rating, traffic_domain, first_seen, last_seen, links_to_target, dofollow_links, dofollow_refdomains, is_root_domain, is_spam
+
+**Результаты pull:**
+
+| Конкурент | Rows | Cutoff DR | Покрытие от total | Статус |
+|---|---|---|---|---|
+| investopedia.com | 106,141 | 2.3 | ~33% от 320K | ✅ Ценное ниже DR 2 — спам |
+| tradersunion.com | 3,977 | 38 | ~30% от 13K | ⚠️ Частично |
+| investing.com | 3,912 | 76 | ~5% от 83K | ⚠️ Только top |
+| fxempire.com | 3,000 | 49 | ~26% от 12K | ⚠️ Частично |
+| forexbrokers.com | 1,000 | 35 | ~18% (top-1000 by DR) | ✅ Full по ценности |
+| brokerchooser.com | 1,000 | 49 | ~14% (top-1000 by DR) | ✅ Full cream |
+| bestbrokers.com | 1,000 | 38 | ~38% | ✅ Full |
+| compareforexbrokers.com | 1,000 | 35 | ~46% | ✅ Full |
+| fxscouts.com | 1,000 | 16 | ~35% | ✅ Full |
+| **nerdwallet.com** | **0** | — | 0% | ❌ Потерян |
+| **bankrate.com** | **0** | — | 0% | ❌ Потерян |
+
+**Total:** 122,031 refdomains across 11 CSVs.
+
+**Credits использовано:** ~20M units (исчерпан месячный лимит workspace). **API units left: 0.**
+
+**Узнали про Ahrefs API v3:**
+- Стоимость одной страницы `refdomains` с `where`+`select`(10 cols)+`order_by` = ~23,000 units за 1000 rows (гораздо дороже обычного 1 unit/row). Запрос без `where` дешевле.
+- `offset` параметр **НЕ поддерживается**. Только keyset pagination через `where`.
+- `where` syntax: `{"field":"X","is":["<op>",value]}` (ключ `is`, не `operator`). Операторы: `eq/neq/gt/gte/lt/lte/substring/prefix/empty/is_null`. Для массивов: `list_is`.
+- `mode: 'domain'` исключает поддомены — для крупных сайтов (investopedia.com → www.investopedia.com) нужен `mode: 'subdomains'`.
+- Эндпоинт `metrics` не возвращает `domain_rating`/`backlinks` — для них отдельные endpoints: `domain-rating` и `backlinks-stats`.
+
+**Ошибка сессии:** перед full pull я удалил CSV nerdwallet и bankrate, чтобы keyset начался с DR=100. Rerun упёрся в 403 на первом запросе каждого сайта → сохранены пустые CSV. Top-1000 cream, который уже был с предыдущего запуска (из первого pull с offset), оказался потерян. **Вывод:** при будущих pulls не удалять существующие файлы — делать отдельный `refdomains-continue` режим, который читает существующий CSV, находит последний DR и продолжает keyset оттуда.
+
+**Следующий шаг (после reset месячного лимита):**
+- Доделать nerdwallet, bankrate, investing, fxempire, tradersunion до DR 20.
+- Ожидаемая стоимость: ~5-10M units (только крупные, с фильтром `where domain_rating:gte:20`, чтобы не тянуть шлак).
+
+**Metrics snapshot (из первой части Запроса #2, до исчерпания):**
+
+| target | DR | backlinks | refdomains | org_traffic |
+|---|---|---|---|---|
+| investopedia.com | 92 | 10M | 320K | 19M |
+| nerdwallet.com | 90 | 3.5M | 98K | 7.7M |
+| bankrate.com | 90 | 6M | 98K | 10.2M |
+| investing.com | 89 | 25M | 83K | 93M |
+| fxempire.com | 73 | 341K | 12K | 224K |
+| tradersunion.com | 72 | 978K | 13K | 1.5M |
+| compareforexbrokers.com | 69 | 12K | 2K | 881 |
+| brokerchooser.com | 66 | 198K | 7K | 89K |
+| forexbrokers.com | 61 | 25K | 5K | 96K |
+| bestbrokers.com | 58 | 21K | 3K | 25K |
+| fxscouts.com | 30 | 14K | 3K | 15K |
+
+Файл: `data/ahrefs-competitors-metrics-2026-04-14.json`
+
+---
+
 ### Запрос #1 — 2026-04-15 — Initial keyword segmentation (293 rankings + 51 reviews)
 
 **Цель:** Сегментировать 293 тематических рейтинга + 51 ревью на tier S/A/B/C по потенциалу трафика, чтобы определить приоритет написания контента (1.89M слов с нуля).
