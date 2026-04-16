@@ -36,7 +36,7 @@ Single-source-of-truth catalog of all **579 authors** harvested across **96 outl
 - Quoted in tier-1 press: 185 / 579 (32%)
 - TV appearances: 75 / 579 (13%)
 - Multi-outlet (cross-writers): 258 / 579 (45%)
-- Twitter/X followers captured (S9): 147 / 579 (25%)
+- Twitter/X followers captured (S9): 199 / 579 (34%)
 - LinkedIn connections fallback (500+): 111 / 579 (19%)
 - Still flagged needsManualReview: 67 / 579 (12%)
 
@@ -58,7 +58,7 @@ Snapshot ranked by finalScore. Full detail blocks below.
 | 2 | **Vitaliy Katsenelson, CFA** | Seeking Alpha | S | 144 | — | CFA · 📚 2 books |
 | 3 | **Marc Chandler** | Investing.com | S | 142 | — | CMT · 📺 5 |
 | 4 | **Beverly Harzog** | Bankrate | S | 141 | 5.2K | CPA (former) · 📚 1 books · 📺 6 |
-| 5 | **Andrea Coombes** | Bankrate | S | 141 | — | CFP · 📺 4 |
+| 5 | **Andrea Coombes** | Bankrate | S | 141 | 8.8K | CFP · 📺 4 |
 | 6 | **Jennifer Streaks** | Business Insider | S | 139 | 3.9K | MBA · 📺 5 |
 | 7 | **Catey Hill** | MarketWatch | S | 138 | 9.2K | 📚 2 books · 📺 3 |
 | 8 | **Kerry Hannon** | Yahoo Finance | S | 138 | 13K | 📚 5 books · 📺 1 |
@@ -79,7 +79,7 @@ Snapshot ranked by finalScore. Full detail blocks below.
 | 23 | **Doug Boneparth** | Investopedia | S | 118 | 500+c | CFP, AIF · 📺 5 |
 | 24 | **Riley Adams** | CompareForexBrokers | S | 118 | — | Certified Public Accountant (CPA) |
 | 25 | **Michael Hewson** | Good Money Guide | S | 117 | — | MSTA, CFTe · 📺 5 |
-| 26 | **Emma Lunn** | MoneyWeek | S | 111 | — | — |
+| 26 | **Emma Lunn** | MoneyWeek | S | 111 | 10K | — |
 | 27 | **Eva Szalay** | The Full FX | S | 110 | — | — |
 | 28 | **Matthew Levy** | BestBrokers | S | 107 | 661 | CFA (Chartered Financial Analyst) |
 | 29 | **Jon Dulin** | Modest Money | S | 104 | — | Series 65, Certificate in Financial Planning |
@@ -92,36 +92,36 @@ Sorted by verified X follower count (fetched from x.com directly, S9). Substitut
 
 | # | Name | Outlet | Tier | Score | X Followers | Role |
 |---|---|---|---|---|---|---|
-| 1 | **Scott Melker** | AskTraders | B | 54 | **950,000** | Contributor / Podcast Host 'The Wolf Of All Street |
-| 2 | **Whitney Webb** | Bitcoin Magazine | B | 84 | **689,300** | Contributor / Investigative Journalist — Bitcoin M |
-| 3 | **Frank Chaparro** | The Block | B | 78 | **206,000** | Host of The Scoop / Director of Special Projects — |
-| 4 | **Nigam Arora** | Benzinga | C | 68 | **107,700** | Founder — The Arora Report (Benzinga Contributor) |
-| 5 | **Nooresh Merani** | AskTraders | B | 77 | **100,600** | Contributor (technical analyst) — AskTraders; Foun |
-| 6 | **Camila Russo** | CoinMarketCap | B | 74 | **93,400** | Contributor (DeFi writer) — former CoinMarketCap;  |
-| 7 | **James Stanley** | DailyFX | C | 59 | **88,100** | Former Strategist / Head of Education — DailyFX (n |
-| 8 | **Merryn Somerset Webb** | MoneyWeek | C | 65 | **64,600** | Founder / Former Editor-in-Chief |
-| 9 | **Aaron van Wirdum** | Bitcoin Magazine | B | 51 | **58,300** | Former Editor-in-Chief |
-| 10 | **David Sekera** | Morningstar | B | 109 | **57,700** | Chief US Market Strategist — Morningstar |
-| 11 | **Tim Copeland** | The Block | C | 101 | **41,200** | Head of Growth — The Block (former Editor-in-Chief |
-| 12 | **Greg Michalowski** | ForexLive | B | 119 | **40,000** | Director of Technical Analysis & Client Education  |
-| 13 | **Jeremy Biberdorf** | Modest Money | B | 78 | **31,900** | Founder — Modest Money |
-| 14 | **Andrew Thurman** | CoinMarketCap | S | 128 | **27,400** | Content Lead — Nansen (former Senior Tech Correspo |
-| 15 | **Daniel Franke** | Brokervergleich | A | 88 | **26,000** | Founder and Operator — Brokervergleich.de / Franke |
-| 16 | **Claer Barrett** | Financial Times | A | 120 | **22,500** | Consumer Editor / Associate Editor — Financial Tim |
-| 17 | **Sharon Epperson** | CNBC | A | 114 | **19,600** | Senior Personal Finance Correspondent — CNBC |
-| 18 | **Ian Allison** | CoinDesk | B | 108 | **17,200** | Senior Reporter — CoinDesk (Institutional & Enterp |
-| 19 | **Adam Button** | ForexLive | B | 82 | **16,400** | Leader / Managing Editor — investingLive (formerly |
-| 20 | **Tim Backshall** | ZeroHedge | C | 63 | **15,900** | Credit Derivatives Strategist — former ZeroHedge c |
-| 21 | **Omkar Godbole** | CoinDesk | B | 117 | **14,900** | Co-Managing Editor, Markets |
-| 22 | **James Chen** | Investopedia | S | 101 | **14,700** | Former Director, Trading & Investing Content (Inve |
-| 23 | **Jessica Inskip** | StockBrokers.com | S | 132 | **13,900** | Director of Investor Research |
-| 24 | **Sebastian Matthes** | Handelsblatt | B | 97 | **13,300** | Editor-in-Chief — Handelsblatt |
-| 25 | **Kerry Hannon** | Yahoo Finance | S | 138 | **12,600** | Senior Columnist — retirement, careers, personal f |
-| 26 | **Ken Shreve** | Investors Business Daily | B | 109 | **12,100** | Markets Writer and Reporter — Investor's Business  |
-| 27 | **Andy Sharp** | Nikkei Asia | B | 117 | **12,000** | Opinion Editor — Nikkei Asia |
-| 28 | **Emily Stewart** | Business Insider | C | 109 | **11,900** | Senior Correspondent — Consumer & Economy |
-| 29 | **Andrew Hayward** | Decrypt | A | 119 | **11,800** | Managing Editor |
-| 30 | **Josh Lipton** | Yahoo Finance | A | 131 | **11,600** | Host & Co-Anchor — Yahoo Finance ('Asking for a Tr |
+| 1 | **Scott Melker** | AskTraders | B | 54 | **1,000,000** | Contributor / Podcast Host 'The Wolf Of All Street |
+| 2 | **Lyn Alden Schwartzer** | Modest Money | A | 86 | **908,000** | Contributor — Founder, Lyn Alden Investment Strate |
+| 3 | **Whitney Webb** | Bitcoin Magazine | B | 84 | **689,300** | Contributor / Investigative Journalist — Bitcoin M |
+| 4 | **Frank Chaparro** | The Block | B | 78 | **206,000** | Host of The Scoop / Director of Special Projects — |
+| 5 | **Nigam Arora** | Benzinga | C | 68 | **107,700** | Founder — The Arora Report (Benzinga Contributor) |
+| 6 | **Nooresh Merani** | AskTraders | B | 77 | **100,600** | Contributor (technical analyst) — AskTraders; Foun |
+| 7 | **Camila Russo** | CoinMarketCap | B | 74 | **93,400** | Contributor (DeFi writer) — former CoinMarketCap;  |
+| 8 | **James Stanley** | DailyFX | C | 59 | **88,100** | Former Strategist / Head of Education — DailyFX (n |
+| 9 | **Dominic Frisby** | MoneyWeek | B | 83 | **82,700** | Columnist — Gold, Commodities, Currencies, Crypto |
+| 10 | **Merryn Somerset Webb** | MoneyWeek | C | 65 | **64,600** | Founder / Former Editor-in-Chief |
+| 11 | **Aaron van Wirdum** | Bitcoin Magazine | B | 51 | **58,300** | Former Editor-in-Chief |
+| 12 | **David Sekera** | Morningstar | B | 109 | **57,700** | Chief US Market Strategist — Morningstar |
+| 13 | **Tim Copeland** | The Block | C | 101 | **41,200** | Head of Growth — The Block (former Editor-in-Chief |
+| 14 | **Greg Michalowski** | ForexLive | B | 119 | **40,000** | Director of Technical Analysis & Client Education  |
+| 15 | **Jeremy Biberdorf** | Modest Money | B | 78 | **31,900** | Founder — Modest Money |
+| 16 | **Chris Weston** | DayTrading.com | B | 76 | **28,000** | Head of Research (Pepperstone) |
+| 17 | **Andrew Thurman** | CoinMarketCap | S | 128 | **27,400** | Content Lead — Nansen (former Senior Tech Correspo |
+| 18 | **Ed Carson** | Investors Business Daily | B | 99 | **26,300** | News Editor — Investor's Business Daily |
+| 19 | **Daniel Franke** | Brokervergleich | A | 88 | **26,000** | Founder and Operator — Brokervergleich.de / Franke |
+| 20 | **Claer Barrett** | Financial Times | A | 120 | **22,500** | Consumer Editor / Associate Editor — Financial Tim |
+| 21 | **Mark Goodwin** | Bitcoin Magazine | B | 102 | **20,400** | Editor-in-Chief — Bitcoin Magazine |
+| 22 | **Sharon Epperson** | CNBC | A | 114 | **19,600** | Senior Personal Finance Correspondent — CNBC |
+| 23 | **Larry Swedroe** | Morningstar | A | 120 | **19,500** | Contributor — Director of Research, Buckingham Str |
+| 24 | **Alissa Coram** | Investors Business Daily | B | 102 | **17,500** | Executive Editor, Multimedia |
+| 25 | **Ian Allison** | CoinDesk | B | 108 | **17,200** | Senior Reporter — CoinDesk (Institutional & Enterp |
+| 26 | **Adam Button** | ForexLive | B | 82 | **16,400** | Leader / Managing Editor — investingLive (formerly |
+| 27 | **Tim Backshall** | ZeroHedge | C | 63 | **15,900** | Credit Derivatives Strategist — former ZeroHedge c |
+| 28 | **Quentin Fottrell** | MarketWatch | A | 128 | **15,100** | Managing Editor of Advice Columns & Columnist (The |
+| 29 | **Omkar Godbole** | CoinDesk | B | 117 | **14,900** | Co-Managing Editor, Markets |
+| 30 | **James Chen** | Investopedia | S | 101 | **14,700** | Former Director, Trading & Investing Content (Inve |
 
 
 ## LinkedIn reach
@@ -362,6 +362,7 @@ CERTIFIED FINANCIAL PLANNER (CFP®) and Taxes Editor at Bankrate with 25+ years 
 - Years in industry: **25**
 - LinkedIn: [https://www.linkedin.com/in/acoombes/](https://www.linkedin.com/in/acoombes/)
 - Twitter/X: [https://x.com/andreacoombes](https://x.com/andreacoombes)
+  - **8,831 followers** on X (fetched 2026-04-16)
 - Muck Rack: [https://muckrack.com/andreacoombes](https://muckrack.com/andreacoombes)
 - Personal site: —
 - Author URL on outlet: [https://www.bankrate.com/authors/andrea-coombes/](https://www.bankrate.com/authors/andrea-coombes/)
@@ -1441,6 +1442,7 @@ Multi-award-winning freelance journalist with 18+ years specialising in personal
 - Years in industry: **18**
 - LinkedIn: —
 - Twitter/X: [https://x.com/emmalunn](https://x.com/emmalunn)
+  - **10,000 followers** on X (fetched 2026-04-16)
 - Muck Rack: [https://muckrack.com/emma-lunn](https://muckrack.com/emma-lunn)
 - Personal site: [https://www.emmalunn.com/](https://www.emmalunn.com/)
 - Author URL on outlet: [https://moneyweek.com/author/emma-lunn](https://moneyweek.com/author/emma-lunn)

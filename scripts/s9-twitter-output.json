@@ -1552,5 +1552,522 @@
     "following": 779,
     "source": "playwright-x",
     "fetchedAt": "2026-04-16T11:36:43.837Z"
+  },
+  {
+    "id": "madeleine-ross-telegraph",
+    "name": "Madeleine Ross",
+    "twitter": "https://x.com/journomadeleine",
+    "followers": 1465,
+    "following": 1032,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T11:52:14.662Z"
+  },
+  {
+    "id": "preston-caldwell-morningstar",
+    "name": "Preston Caldwell",
+    "twitter": "https://x.com/pd_caldwell",
+    "followers": 365,
+    "following": 221,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T11:52:32.773Z"
+  },
+  {
+    "id": "jenny-ross-which",
+    "name": "Jenny Ross",
+    "twitter": "https://x.com/jen_ross1",
+    "followers": 515,
+    "following": 572,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T11:56:48.218Z"
+  },
+  {
+    "id": "tm-lee-coingecko",
+    "name": "TM Lee",
+    "twitter": "https://x.com/tmlee",
+    "followers": 12500,
+    "following": 1474,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T11:57:02.283Z"
+  },
+  {
+    "id": "paul-kim-businessinsider",
+    "name": "Paul Kim",
+    "twitter": "https://x.com/PaulKimWrites",
+    "followers": 669,
+    "following": 2123,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T11:57:22.339Z"
+  },
+  {
+    "id": "joshua-unseth-bitcoinmagazine",
+    "name": "Joshua Unseth",
+    "twitter": "https://x.com/junseth",
+    "followers": null,
+    "following": null,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T11:57:39.365Z",
+    "error": "account_gone"
+  },
+  {
+    "id": "justin-low-forexlive",
+    "name": "Justin Low",
+    "twitter": "https://x.com/kenzyxvw",
+    "followers": 1133,
+    "following": 30,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T11:57:54.956Z"
+  },
+  {
+    "id": "scott-murdoch-reuters",
+    "name": "Scott Murdoch",
+    "twitter": "https://x.com/murdochsj",
+    "followers": 5684,
+    "following": 6102,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T11:58:14.179Z"
+  },
+  {
+    "id": "mark-goodwin-bitcoinmagazine",
+    "name": "Mark Goodwin",
+    "twitter": "https://x.com/markgoodw_in",
+    "followers": 20400,
+    "following": 2567,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T11:58:34.312Z"
+  },
+  {
+    "id": "andrea-coombes-bankrate",
+    "name": "Andrea Coombes",
+    "twitter": "https://x.com/andreacoombes",
+    "followers": 8831,
+    "following": 1424,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T11:58:54.817Z"
+  },
+  {
+    "id": "dominic-frisby-moneyweek",
+    "name": "Dominic Frisby",
+    "twitter": "https://x.com/DominicFrisby",
+    "followers": 82700,
+    "following": 1730,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T11:59:13.145Z"
+  },
+  {
+    "id": "simon-lambert-thisismoney",
+    "name": "Simon Lambert",
+    "twitter": "https://x.com/_simonlambert",
+    "followers": 10900,
+    "following": 2223,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T11:59:30.209Z"
+  },
+  {
+    "id": "samuel-potter-bloomberg",
+    "name": "Samuel Potter",
+    "twitter": "https://x.com/samjpotter",
+    "followers": 2152,
+    "following": 1369,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T11:59:51.151Z"
+  },
+  {
+    "id": "chris-weston-pepperstone",
+    "name": "Chris Weston",
+    "twitter": "https://x.com/ChrisWeston_PS",
+    "followers": 28000,
+    "following": 1403,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:00:10.077Z"
+  },
+  {
+    "id": "zoe-yuqing-han",
+    "name": "Zoe Yuqing Han",
+    "twitter": "https://x.com/zoeyuqhan",
+    "followers": 638,
+    "following": 901,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:00:26.532Z"
+  },
+  {
+    "id": "evangeline-elsa",
+    "name": "Evangeline Elsa",
+    "twitter": "https://x.com/EvangelineElsa",
+    "followers": 141,
+    "following": 202,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:02:01.495Z"
+  },
+  {
+    "id": "helene-braun",
+    "name": "Helene Braun",
+    "twitter": "https://x.com/helenebraunn",
+    "followers": 3474,
+    "following": 242,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:02:14.849Z"
+  },
+  {
+    "id": "tracy-wang",
+    "name": "Tracy Wang",
+    "twitter": "https://x.com/0x_tracy",
+    "followers": 11900,
+    "following": 2334,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:02:32.331Z"
+  },
+  {
+    "id": "molly-jane-zuckerman",
+    "name": "Molly Jane Zuckerman",
+    "twitter": "https://x.com/MollyJZuckerman",
+    "followers": 4280,
+    "following": 1740,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:02:51.527Z"
+  },
+  {
+    "id": "lee-boyce",
+    "name": "Lee Boyce",
+    "twitter": "https://x.com/lee_boyce",
+    "followers": 6914,
+    "following": 1304,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:03:07.182Z"
+  },
+  {
+    "id": "vandana-singh-benzinga",
+    "name": "Vandana Singh",
+    "twitter": "https://x.com/Vandana13721371",
+    "followers": null,
+    "following": null,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:03:24.374Z",
+    "error": "account_gone"
+  },
+  {
+    "id": "daniel-howley-yahoofinance",
+    "name": "Daniel Howley",
+    "twitter": "https://x.com/DanielHowley",
+    "followers": 7462,
+    "following": 2896,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:03:36.995Z"
+  },
+  {
+    "id": "hilary-osborne-theguardian",
+    "name": "Hilary Osborne",
+    "twitter": "https://x.com/hilaryosborne",
+    "followers": 14500,
+    "following": 1996,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:03:53.972Z"
+  },
+  {
+    "id": "edward-sheldon-goodmoneyguide",
+    "name": "Edward Sheldon",
+    "twitter": "https://x.com/edwardsheldon7",
+    "followers": 145,
+    "following": 78,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:04:08.585Z"
+  },
+  {
+    "id": "nathaniel-meyersohn-cnn",
+    "name": "Nathaniel Meyersohn",
+    "twitter": "https://x.com/nmeyersohn",
+    "followers": 14500,
+    "following": 7089,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:04:23.229Z"
+  },
+  {
+    "id": "anna-bahney-cnn",
+    "name": "Anna Bahney",
+    "twitter": "https://x.com/annabahney",
+    "followers": 1475,
+    "following": 519,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:04:41.774Z"
+  },
+  {
+    "id": "caroline-mignon-lesechos",
+    "name": "Caroline Mignon",
+    "twitter": "https://x.com/carolinemignon",
+    "followers": 375,
+    "following": 83,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:05:00.392Z"
+  },
+  {
+    "id": "patrick-seitz-investors",
+    "name": "Patrick Seitz",
+    "twitter": "https://x.com/IBD_PSeitz",
+    "followers": 7456,
+    "following": 1660,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:05:17.263Z"
+  },
+  {
+    "id": "scott-melker-asktraders",
+    "name": "Scott Melker",
+    "twitter": "https://x.com/scottmelker",
+    "followers": 1000000,
+    "following": 1208,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:05:30.845Z"
+  },
+  {
+    "id": "werner-vermaak-coinmarketcap",
+    "name": "Werner Vermaak",
+    "twitter": "https://x.com/cryptoverno",
+    "followers": 2148,
+    "following": 1257,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:05:52.116Z"
+  },
+  {
+    "id": "quentin-fottrell-marketwatch",
+    "name": "Quentin Fottrell",
+    "twitter": "https://x.com/quantanamo",
+    "followers": 15100,
+    "following": 1946,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:06:07.616Z"
+  },
+  {
+    "id": "samuel-pearton-cryptoslate",
+    "name": "Samuel Pearton",
+    "twitter": "https://x.com/sampearton",
+    "followers": 680,
+    "following": 32,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:06:25.459Z"
+  },
+  {
+    "id": "colin-harper-bitcoinmagazine",
+    "name": "Colin Harper",
+    "twitter": "https://x.com/AsILayHodling",
+    "followers": 5901,
+    "following": 856,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:06:39.766Z"
+  },
+  {
+    "id": "daniel-mccarthy-dailyfx",
+    "name": "Daniel McCarthy",
+    "twitter": "https://x.com/DanMcCarthyFX",
+    "followers": 839,
+    "following": 259,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:06:53.019Z"
+  },
+  {
+    "id": "ed-carson-investors",
+    "name": "Ed Carson",
+    "twitter": "https://x.com/ibd_ecarson",
+    "followers": 26300,
+    "following": 635,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:07:13.118Z"
+  },
+  {
+    "id": "daniel-kuhn-theblock",
+    "name": "Daniel Kuhn",
+    "twitter": "https://x.com/danielgkuhn",
+    "followers": 5485,
+    "following": 3035,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:07:30.354Z"
+  },
+  {
+    "id": "moritz-koch-handelsblatt",
+    "name": "Moritz Koch",
+    "twitter": "https://x.com/moritzkoch78",
+    "followers": 2099,
+    "following": 1958,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:07:49.671Z"
+  },
+  {
+    "id": "arnab-shome-financemagnates",
+    "name": "Arnab Shome",
+    "twitter": "https://x.com/45arnab",
+    "followers": 175,
+    "following": 185,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:08:06.300Z"
+  },
+  {
+    "id": "brett-arends-marketwatch",
+    "name": "Brett Arends",
+    "twitter": "https://x.com/brettarends",
+    "followers": null,
+    "following": null,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:08:22.882Z",
+    "error": "account_gone"
+  },
+  {
+    "id": "larry-swedroe-morningstar",
+    "name": "Larry Swedroe",
+    "twitter": "https://x.com/larryswedroe",
+    "followers": 19500,
+    "following": 171,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:08:43.286Z"
+  },
+  {
+    "id": "vlad-cealicu-cryptocompare",
+    "name": "Vlad Cealicu",
+    "twitter": "https://x.com/vcealicu",
+    "followers": 967,
+    "following": 391,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:08:58.308Z"
+  },
+  {
+    "id": "venessa-wong-marketwatch",
+    "name": "Venessa Wong",
+    "twitter": "https://x.com/venessawong",
+    "followers": 8913,
+    "following": 1559,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:09:17.719Z"
+  },
+  {
+    "id": "emma-lunn-moneyweek",
+    "name": "Emma Lunn",
+    "twitter": "https://x.com/emmalunn",
+    "followers": 10000,
+    "following": 787,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:09:35.010Z"
+  },
+  {
+    "id": "jeffrey-dastin-reuters",
+    "name": "Jeffrey Dastin",
+    "twitter": "https://x.com/jldastin",
+    "followers": 3504,
+    "following": 1128,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:09:55.760Z"
+  },
+  {
+    "id": "lyn-alden-modestmoney",
+    "name": "Lyn Alden Schwartzer",
+    "twitter": "https://x.com/LynAldenContact",
+    "followers": 908000,
+    "following": 985,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:10:14.224Z"
+  },
+  {
+    "id": "asit-sharma-fool",
+    "name": "Asit Sharma",
+    "twitter": "https://x.com/asitmap",
+    "followers": null,
+    "following": null,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:10:27.269Z",
+    "error": "account_gone"
+  },
+  {
+    "id": "alissa-coram-investors",
+    "name": "Alissa Coram",
+    "twitter": "https://x.com/AlissaCoram",
+    "followers": 17500,
+    "following": 1167,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:10:41.711Z"
+  },
+  {
+    "id": "kate-dore-cnbc",
+    "name": "Kate Dore, CFP, EA",
+    "twitter": "https://x.com/katedore",
+    "followers": 9478,
+    "following": 1848,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:10:56.122Z"
+  },
+  {
+    "id": "lance-cothern",
+    "name": "Lance Cothern",
+    "twitter": "https://x.com/money_manifesto",
+    "followers": 5309,
+    "following": 356,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:11:12.882Z"
+  },
+  {
+    "id": "solveig-godeluck",
+    "name": "Solveig Godeluck",
+    "twitter": "https://x.com/solwii",
+    "followers": 9529,
+    "following": 864,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:11:33.685Z"
+  },
+  {
+    "id": "gabriel-alpert",
+    "name": "Gabriel Alpert",
+    "twitter": "https://x.com/AlpertGabe",
+    "followers": 25,
+    "following": 72,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:11:52.518Z"
+  },
+  {
+    "id": "chris-yates-fxempire",
+    "name": "Chris Yates",
+    "twitter": "https://x.com/AcheronInsights",
+    "followers": 594,
+    "following": 265,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:12:07.717Z"
+  },
+  {
+    "id": "justin-grossbard",
+    "name": "Justin Grossbard",
+    "twitter": "https://x.com/grossbard01",
+    "followers": 135,
+    "following": 90,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:12:24.364Z"
+  },
+  {
+    "id": "bastien-bouchaud",
+    "name": "Bastien Bouchaud",
+    "twitter": "https://x.com/bastienbouchaud",
+    "followers": 568,
+    "following": 595,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:12:38.799Z"
+  },
+  {
+    "id": "zaheer-anwari-asktraders",
+    "name": "Zaheer Anwari",
+    "twitter": "https://x.com/ZaheerAnwari",
+    "followers": 2636,
+    "following": 131,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:12:54.181Z"
+  },
+  {
+    "id": "camille-bas-wohlert-barrons",
+    "name": "Camille Bas-Wohlert",
+    "twitter": "https://x.com/baswohlert",
+    "followers": 616,
+    "following": 1743,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:13:07.655Z"
+  },
+  {
+    "id": "richard-berry-goodmoneyguide",
+    "name": "Richard Berry",
+    "twitter": "https://x.com/GoodMoneyGuide",
+    "followers": 456,
+    "following": 269,
+    "source": "playwright-x",
+    "fetchedAt": "2026-04-16T12:13:23.878Z"
   }
 ]

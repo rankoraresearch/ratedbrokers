@@ -290,6 +290,7 @@ Irish columnist, author, journalist and critic born in Dublin. Managing Editor o
 - Years in industry: **22**
 - LinkedIn: [https://www.linkedin.com/in/quantanamo](https://www.linkedin.com/in/quantanamo)
 - Twitter/X: [https://x.com/quantanamo](https://x.com/quantanamo)
+  - **15,100 followers** on X (fetched 2026-04-16)
 - Muck Rack: [https://muckrack.com/quantanamo](https://muckrack.com/quantanamo)
 - Personal site: —
 - Author URL on outlet: —
@@ -340,6 +341,7 @@ Bitcoin-mining and cryptocurrency journalist covering the space since 2017. Head
 - LinkedIn: [https://www.linkedin.com/in/colin-harper-405042142/](https://www.linkedin.com/in/colin-harper-405042142/)
   - 500+ LinkedIn connections (followers not exposed)
 - Twitter/X: [https://x.com/AsILayHodling](https://x.com/AsILayHodling)
+  - **5,901 followers** on X (fetched 2026-04-16)
 - Muck Rack: [https://muckrack.com/colin-harper](https://muckrack.com/colin-harper)
 - Personal site: —
 - Author URL on outlet: [https://bitcoinmagazine.com/authors/colin-harper](https://bitcoinmagazine.com/authors/colin-harper)
@@ -725,6 +727,7 @@ Personal Finance Reporter at MarketWatch based in New York City. Previously spen
 - Years in industry: **15**
 - LinkedIn: [https://www.linkedin.com/in/venessawwong/](https://www.linkedin.com/in/venessawwong/)
 - Twitter/X: [https://x.com/venessawong](https://x.com/venessawong)
+  - **8,913 followers** on X (fetched 2026-04-16)
 - Muck Rack: [https://muckrack.com/venessawwong](https://muckrack.com/venessawwong)
 - Personal site: —
 - Author URL on outlet: [https://muckrack.com/venessawwong](https://muckrack.com/venessawwong)
@@ -1013,6 +1016,7 @@ Principal and Director of Research at Buckingham Strategic Wealth / Buckingham S
 - Years in industry: **40**
 - LinkedIn: [https://www.linkedin.com/in/larry-swedroe-18778267/](https://www.linkedin.com/in/larry-swedroe-18778267/)
 - Twitter/X: [https://x.com/larryswedroe](https://x.com/larryswedroe)
+  - **19,500 followers** on X (fetched 2026-04-16)
 - Muck Rack: [https://muckrack.com/larryswedroe](https://muckrack.com/larryswedroe)
 - Personal site: —
 - Author URL on outlet: [https://www.morningstar.com/people/larry-swedroe](https://www.morningstar.com/people/larry-swedroe)
@@ -1593,6 +1597,7 @@ Lead Writer for Asia Finance & Markets at Reuters (formerly Asia Capital Markets
 - Years in industry: **22**
 - LinkedIn: [https://au.linkedin.com/in/scott-murdoch-882b20146](https://au.linkedin.com/in/scott-murdoch-882b20146)
 - Twitter/X: [https://twitter.com/murdochsj](https://twitter.com/murdochsj)
+  - **5,684 followers** on X (fetched 2026-04-16)
 - Muck Rack: [https://muckrack.com/scott-murdoch](https://muckrack.com/scott-murdoch)
 - Personal site: —
 - Author URL on outlet: [https://muckrack.com/scott-murdoch](https://muckrack.com/scott-murdoch)
@@ -1635,6 +1640,7 @@ Writer for CNN covering investments and real estate, focusing on traditional, al
 - Years in industry: **20**
 - LinkedIn: [https://www.linkedin.com/in/annabahney/](https://www.linkedin.com/in/annabahney/)
 - Twitter/X: [https://x.com/annabahney](https://x.com/annabahney)
+  - **1,475 followers** on X (fetched 2026-04-16)
 - Muck Rack: [https://muckrack.com/annabahney](https://muckrack.com/annabahney)
 - Personal site: [http://www.annabahney.com/about](http://www.annabahney.com/about)
 - Author URL on outlet: [https://muckrack.com/annabahney](https://muckrack.com/annabahney)
@@ -1887,6 +1893,7 @@ Co-Founder and President of CoinGecko, which he launched in 2014 with Bobby Ong 
 - Years in industry: **12**
 - LinkedIn: [https://my.linkedin.com/in/leetm](https://my.linkedin.com/in/leetm)
 - Twitter/X: [https://x.com/tmlee](https://x.com/tmlee)
+  - **12,500 followers** on X (fetched 2026-04-16)
 - Muck Rack: —
 - Personal site: [https://www.coingecko.com/author/tmlee](https://www.coingecko.com/author/tmlee)
 - Author URL on outlet: [https://www.coingecko.com/author/tmlee](https://www.coingecko.com/author/tmlee)
@@ -2879,6 +2886,7 @@ Certified Public Accountant (CPA) licensed in Indiana (also holds CPA in Commonw
 - LinkedIn: [https://www.linkedin.com/in/lancecothern/](https://www.linkedin.com/in/lancecothern/)
   - 484 LinkedIn connections (followers not exposed)
 - Twitter/X: [https://twitter.com/money_manifesto](https://twitter.com/money_manifesto)
+  - **5,309 followers** on X (fetched 2026-04-16)
 - Muck Rack: —
 - Personal site: [https://www.moneymanifesto.com/](https://www.moneymanifesto.com/)
 - Author URL on outlet: [https://www.moneyunder30.com/author/lance-cothern](https://www.moneyunder30.com/author/lance-cothern)
@@ -3409,6 +3417,7 @@ London-based investment writer with 15+ years of experience in private wealth ma
 - LinkedIn: [https://www.linkedin.com/in/edward-sheldon-cfa-a6a36359/](https://www.linkedin.com/in/edward-sheldon-cfa-a6a36359/)
   - 500+ LinkedIn connections (followers not exposed)
 - Twitter/X: [https://twitter.com/edwardsheldon7](https://twitter.com/edwardsheldon7)
+  - **145 followers** on X (fetched 2026-04-16)
 - Muck Rack: —
 - Personal site: —
 - Author URL on outlet: [https://goodmoneyguide.com/author/edwardsheldon-1/](https://goodmoneyguide.com/author/edwardsheldon-1/)
@@ -3454,6 +3463,7 @@ American investment strategist, founder of Lyn Alden Investment Strategy (2016),
 - Years in industry: **16**
 - LinkedIn: [https://www.linkedin.com/in/lynalden/](https://www.linkedin.com/in/lynalden/)
 - Twitter/X: [https://x.com/LynAldenContact](https://x.com/LynAldenContact)
+  - **908,000 followers** on X (fetched 2026-04-16)
 - Muck Rack: —
 - Personal site: [https://www.lynalden.com/](https://www.lynalden.com/)
 - Author URL on outlet: [https://www.modestmoney.com/author/lynalden/](https://www.modestmoney.com/author/lynalden/)
@@ -3507,6 +3517,7 @@ Founder and Managing Director of Good Money Guide (established 2015, originally 
 - LinkedIn: [https://www.linkedin.com/in/richardberryuk/](https://www.linkedin.com/in/richardberryuk/)
   - 500+ LinkedIn connections (followers not exposed)
 - Twitter/X: [https://twitter.com/GoodMoneyGuide](https://twitter.com/GoodMoneyGuide)
+  - **456 followers** on X (fetched 2026-04-16)
 - Muck Rack: —
 - Personal site: [https://goodmoneyguide.com](https://goodmoneyguide.com)
 - Author URL on outlet: [https://goodmoneyguide.com/author/richard-berry/](https://goodmoneyguide.com/author/richard-berry/)

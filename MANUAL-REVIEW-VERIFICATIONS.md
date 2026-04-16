@@ -89,36 +89,36 @@ Generated 2026-04-16 from S9 verification pass.
 | Daniel Phillips | 0/0 | 0 | 0 | — | — |
 | Dan Kemp | 0/0 | 0 | 0 | — | — |
 | Elizabeth Leary | 1/1 | 0 | 0 | — | — |
-| TM Lee | 0/0 | 1 | 1 | — | — |
-| Scott Murdoch | 0/0 | 0 | 0 | — | — |
+| TM Lee | 0/0 | 1 | 1 | 12,500 | — |
+| Scott Murdoch | 0/0 | 0 | 0 | 5,684 | — |
 | Leslie Truex | 0/1 | 3 | 0 | — | 500+ |
 | Jeff John Roberts | 0/0 | 1 | 0 | — | 500+ |
-| Andrea Coombes | 1/1 | 0 | 0 | — | — |
+| Andrea Coombes | 1/1 | 0 | 0 | 8,831 | — |
 | Steven Ralston | 1/1 | 0 | 0 | — | — |
 | Brian O'Connell | 0/0 | 2 | 0 | — | — |
-| Edward Sheldon | 0/2 | 0 | 0 | — | 500+ |
-| Anna Bahney | 0/0 | 0 | 0 | — | — |
+| Edward Sheldon | 0/2 | 0 | 0 | 145 | 500+ |
+| Anna Bahney | 0/0 | 0 | 0 | 1,475 | — |
 | Lawrence Lewitinn | 0/1 | 0 | 0 | — | — |
-| Quentin Fottrell | 0/0 | 0 | 0 | — | — |
+| Quentin Fottrell | 0/0 | 0 | 0 | 15,100 | — |
 | Bob Haegele | 0/0 | 0 | 0 | — | — |
 | Katie Martin | 0/0 | 0 | 0 | — | — |
 | Daniel Sparks | 0/0 | 0 | 0 | — | — |
-| Colin Harper | 0/0 | 0 | 0 | — | 500+ |
+| Colin Harper | 0/0 | 0 | 0 | 5,901 | 500+ |
 | David Jensen, CFA | 0/1 | 0 | 0 | — | — |
 | Caleb Silver | 0/0 | 0 | 0 | — | — |
 | Ashlyn Brooks | 0/0 | 0 | 0 | — | — |
 | Brett Arends | 0/0 | 0 | 0 | — | — |
-| Larry Swedroe | 0/0 | 2 | 0 | — | — |
+| Larry Swedroe | 0/0 | 2 | 0 | 19,500 | — |
 | Jack Crooks (a.k.a. Jack the Pipper) | 0/0 | 0 | 0 | — | — |
-| Venessa Wong | 0/0 | 0 | 0 | — | — |
+| Venessa Wong | 0/0 | 0 | 0 | 8,913 | — |
 | Kunal Kapoor | 1/1 | 0 | 1 | — | 500+ |
-| Emma Lunn | 0/0 | 0 | 2 | — | — |
-| Lyn Alden Schwartzer | 0/0 | 1 | 0 | — | — |
+| Emma Lunn | 0/0 | 0 | 2 | 10,000 | — |
+| Lyn Alden Schwartzer | 0/0 | 1 | 0 | 908,000 | — |
 | Carrie Kirby | 0/0 | 0 | 0 | — | — |
 | Terry Flanagan | 1/1 | 0 | 0 | — | — |
-| Lance Cothern | 0/1 | 0 | 0 | — | 484 |
+| Lance Cothern | 0/1 | 0 | 0 | 5,309 | 484 |
 | Ben Levisohn | 0/0 | 0 | 0 | — | 500+ |
 | Steve Miley | 0/1 | 0 | 0 | — | — |
 | Anna Coulling | 0/0 | 1 | 0 | — | — |
 | Ann Logue | 0/1 | 4 | 0 | — | — |
-| Richard Berry | 0/0 | 0 | 0 | — | 500+ |
+| Richard Berry | 0/0 | 0 | 0 | 456 | 500+ |
