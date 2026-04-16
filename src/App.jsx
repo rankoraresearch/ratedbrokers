@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route, Navigate, Outlet, useParams } from "react
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { LanguageProvider } from "./i18n/LanguageContext";
-import { BrokerTypeProvider, BrokerTypeDevBar } from "./components/BrokerTypeButtons";
 
 // ─── Production pages (lazy loaded) ───
 const Home = lazy(() => import("./pages/Home"));
@@ -67,6 +66,7 @@ const AllBrokersProto = import.meta.env.DEV ? lazy(() => import("./pages/AllBrok
 const HomeUnifiedProto = import.meta.env.DEV ? lazy(() => import("./pages/HomeUnifiedProto")) : null;
 const AccentColorProto = import.meta.env.DEV ? lazy(() => import("./pages/AccentColorProto")) : null;
 const AccentColorRealProto = import.meta.env.DEV ? lazy(() => import("./pages/AccentColorRealProto")) : null;
+const AuthorProto = import.meta.env.DEV ? lazy(() => import("./pages/AuthorProto")) : null;
 const ProtoMenu = import.meta.env.DEV ? lazy(() => import("./pages/ProtoMenu")) : null;
 const ProtoLinks = import.meta.env.DEV ? lazy(() => import("./pages/ProtoLinks")) : null;
 
@@ -82,16 +82,13 @@ function PageLoader() {
 function Layout() {
   return (
     <LanguageProvider>
-      <BrokerTypeProvider>
-        {import.meta.env.DEV && <BrokerTypeDevBar />}
-        <Header />
-        <div style={{ paddingTop: `calc(64px + var(--rb-devbar-h, 0px))` }}>
-          <Suspense fallback={<PageLoader />}>
-            <Outlet />
-          </Suspense>
-        </div>
-        <Footer />
-      </BrokerTypeProvider>
+      <Header />
+      <div style={{ paddingTop: 64 }}>
+        <Suspense fallback={<PageLoader />}>
+          <Outlet />
+        </Suspense>
+      </div>
+      <Footer />
     </LanguageProvider>
   );
 }
@@ -138,6 +135,7 @@ function AppRoutes() {
         <Route path="proto/home-unified" element={<Layout />}><Route index element={<HomeUnifiedProto />} /></Route>
         <Route path="proto/accent-color" element={<Layout />}><Route index element={<AccentColorProto />} /></Route>
         <Route path="proto/accent-color-real" element={<Layout />}><Route index element={<AccentColorRealProto />} /></Route>
+        <Route path="proto/author" element={<Layout />}><Route index element={<AuthorProto />} /></Route>
         <Route path="proto/menu" element={<LanguageProvider><Suspense fallback={<PageLoader />}><ProtoMenu /></Suspense></LanguageProvider>} />
         <Route path="proto/links" element={<Suspense fallback={<PageLoader />}><ProtoLinks /></Suspense>} />
       </>}

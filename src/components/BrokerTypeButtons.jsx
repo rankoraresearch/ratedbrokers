@@ -1,16 +1,7 @@
 /**
- * BrokerTypeButtons — shared components for "Browse by Broker Type" section.
- *
- * Exports:
- *   BrokerTypeProvider  — context + localStorage persist
- *   useBrokerTypeConfig — hook
- *   BrokerTypeSection   — the 8-button grid (for Home.jsx)
- *   BrokerTypeDevBar    — floating DEV toolbar above the Header
- *
- * In production (non-DEV): BrokerTypeSection uses saved config from localStorage
- * or falls back to defaults. Dev bar is not rendered.
+ * BrokerTypeButtons — "Browse by Broker Type" 8-button section for Home.jsx.
+ * Frozen config (Egor 2026-04-16): frame=none · accent=warm · cadence=56 · header=Field · meta=off.
  */
-import { createContext, useContext, useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useMedia } from "../hooks/useMedia";
 import { ArrowRight, TrendingUp, BarChart3, Handshake, Target, Bitcoin, Building2, Layers, Clock } from "lucide-react";
@@ -307,37 +298,6 @@ const META_CONTENT = {
   counters:    "51 brokers tested · 293 rankings · 8 verticals",
   process:     "Methodology → Testing → Expert review → Publication",
 };
-
-/* Preset combos — единый язык за один клик */
-const PRESETS = [
-  { id: "prod",           label: "★ Production",      patch: { style: "unified", bg: "soft",        skin: "whiteGreen", motion: "brand",  shadowFam: "neutral", lift: "subtle", showArrow: true  } },
-  { id: "hero-match",     label: "Hero Match",        patch: { style: "glass",   bg: "premiumDark", skin: "whiteGreen", motion: "brand",  shadowFam: "neutral", lift: "subtle", showArrow: true  } },
-  { id: "howwerate-match",label: "How-We-Rate Match", patch: { style: "tile",    bg: "premiumDark", skin: "whiteGreen", motion: "brand",  shadowFam: "none",    lift: "subtle", showArrow: true  } },
-  { id: "minimal-nav",    label: "Minimal Nav",       patch: { style: "pill",    bg: "soft",        skin: "whiteNavy",  motion: "snappy", shadowFam: "none",    lift: "subtle", showArrow: false } },
-  { id: "convex-light",   label: "Convex Light",      patch: { style: "convex",  bg: "soft",        skin: "whiteGreen", motion: "brand",  shadowFam: "neutral", lift: "subtle", showArrow: false } },
-  { id: "editorial-authority", label: "★ Editorial Authority",
-    patch: { style: "unified", frame: "editorial", rhythm: "3+3+2", cadence: "expansive", anchor: "full", meta: "credentials", showArrow: true } },
-];
-const LS_KEY = "rb-broker-types-config-v2";
-const BrokerTypeContext = createContext({ cfg: DEFAULT, set: () => {} });
-
-export function BrokerTypeProvider({ children }) {
-  const [cfg, setCfg] = useState(() => {
-    if (typeof window === "undefined") return DEFAULT;
-    try {
-      const raw = window.localStorage.getItem(LS_KEY);
-      if (raw) return { ...DEFAULT, ...JSON.parse(raw) };
-    } catch {}
-    return DEFAULT;
-  });
-  useEffect(() => {
-    try { window.localStorage.setItem(LS_KEY, JSON.stringify(cfg)); } catch {}
-  }, [cfg]);
-  const set = (patch) => setCfg(prev => ({ ...prev, ...patch }));
-  return <BrokerTypeContext.Provider value={{ cfg, set }}>{children}</BrokerTypeContext.Provider>;
-}
-
-export const useBrokerTypeConfig = () => useContext(BrokerTypeContext);
 
 /* ════════════════════════════════════════════════════════════
    BUTTON + SECTION
@@ -1012,10 +972,9 @@ const FRAMES = {
   heroEcho:   { label: "Hero Echo",  Wrapper: HeroEchoFrame   },
   orangeRail: { label: "Orange Rail",Wrapper: OrangeRailFrame },
 };
-const FRAME_KEYS = Object.keys(FRAMES);
 
 export function BrokerTypeSection() {
-  const { cfg } = useBrokerTypeConfig();
+  const cfg = DEFAULT;
   const { mob, tab } = useMedia();
   const Renderer = cfg.style === "unified" ? UnifiedBtn
                  : cfg.style === "glass"   ? GlassBtn
@@ -1027,143 +986,3 @@ export function BrokerTypeSection() {
   return <Wrapper cfg={cfg} mob={mob} tab={tab} grid={grid} />;
 }
 
-/* ════════════════════════════════════════════════════════════
-   DEV TOOLBAR (выше Header)
-   ════════════════════════════════════════════════════════════ */
-function Seg({ value, onChange, options, label, small }) {
-  return (
-    <div style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
-      {label && <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.08em", color: "#94a3b8", textTransform: "uppercase" }}>{label}</span>}
-      <div style={{ display: "inline-flex", padding: 2, borderRadius: 999, background: "#f1f5f9", border: "1px solid #e2e8f0" }}>
-        {options.map(o => (
-          <button key={String(o.value)} onClick={() => onChange(o.value)}
-            style={{
-              padding: small ? "4px 8px" : "5px 10px", borderRadius: 999, cursor: "pointer", border: "none",
-              background: value === o.value ? NAVY : "transparent",
-              color: value === o.value ? "#fff" : "#64748b",
-              fontFamily: "'Outfit',sans-serif", fontWeight: 600, fontSize: 11, whiteSpace: "nowrap",
-            }}>{o.label}</button>
-        ))}
-      </div>
-    </div>
-  );
-}
-function SkinBtn({ skinKey, active, onSelect }) {
-  const s = SKINS[skinKey];
-  const isActive = active === skinKey;
-  const gradient = `linear-gradient(180deg, ${s.baseLight} 0%, ${s.baseDark} 100%)`;
-  return (
-    <button onClick={() => onSelect(skinKey)}
-      title={s.label}
-      style={{
-        padding: "3px 8px", borderRadius: 6, cursor: "pointer",
-        border: isActive ? `1.5px solid ${s.edgeColor}` : "1px solid #e2e8f0",
-        background: isActive ? gradient : "#fff", backgroundImage: isActive ? gradient : undefined,
-        color: NAVY,
-        fontFamily: "'Outfit',sans-serif", fontWeight: 600, fontSize: 10.5,
-        display: "inline-flex", alignItems: "center", gap: 5,
-        boxShadow: isActive ? `0 2px 0 ${s.edgeColor}` : "none",
-      }}>
-      <span style={{ width: 8, height: 8, borderRadius: 2, background: s.edgeColor, flexShrink: 0 }} />
-      {s.label}
-    </button>
-  );
-}
-
-export function BrokerTypeDevBar() {
-  const { cfg, set } = useBrokerTypeConfig();
-  const ref = useRef(null);
-
-  // Publish height as CSS var so Header shifts down
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const publish = () => {
-      document.documentElement.style.setProperty("--rb-devbar-h", `${el.offsetHeight}px`);
-    };
-    publish();
-    const ro = new ResizeObserver(publish);
-    ro.observe(el);
-    return () => ro.disconnect();
-  }, []);
-
-  return (
-    <>
-      <style>{`header { top: var(--rb-devbar-h, 0) !important; }`}</style>
-      <div ref={ref}
-        style={{
-          position: "fixed", top: 0, left: 0, right: 0, zIndex: 1001,
-          background: "#fff", borderBottom: "2px solid #f59e0b",
-          padding: "6px 12px", boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
-          fontFamily: "'Outfit',sans-serif",
-        }}>
-        <div style={{ maxWidth: 1400, margin: "0 auto", display: "flex", flexDirection: "column", gap: 6 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
-            <span style={{ padding: "2px 6px", background: "#f59e0b", color: NAVY, borderRadius: 3, fontSize: 10, fontWeight: 800 }}>DEV</span>
-            <Seg label="Quick Links" value={cfg.showQuickLinks} onChange={v => set({ showQuickLinks: v })} options={[
-              { value: true,  label: "Show" }, { value: false, label: "Hide" },
-            ]} />
-            <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.08em", color: "#94a3b8", textTransform: "uppercase" }}>Frame</span>
-            <div style={{ display: "inline-flex", gap: 4, flexWrap: "wrap" }}>
-              {FRAME_KEYS.map(k => (
-                <button key={k} onClick={() => set({ frame: k })}
-                  style={{
-                    padding: "4px 8px", borderRadius: 6, cursor: "pointer",
-                    border: cfg.frame === k ? "1.5px solid #0f172a" : "1px solid #e2e8f0",
-                    background: cfg.frame === k ? NAVY : "#fff",
-                    color: cfg.frame === k ? "#fff" : "#475569",
-                    fontFamily: "'Outfit',sans-serif", fontWeight: 600, fontSize: 10.5,
-                  }}>
-                  {FRAMES[k].label}
-                </button>
-              ))}
-            </div>
-            <button onClick={() => set(PRESETS.find(p => p.id === "editorial-authority").patch)}
-              style={{
-                padding: "4px 10px", borderRadius: 6, cursor: "pointer", border: "1px solid #059669",
-                background: "#fff", color: "#047857",
-                fontFamily: "'Outfit',sans-serif", fontWeight: 700, fontSize: 10.5, marginLeft: "auto",
-              }}>
-              ★ Editorial Authority
-            </button>
-          </div>
-
-          <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap", paddingTop: 4, borderTop: "1px dashed #e2e8f0" }}>
-            <Seg label="Accent" value={cfg.accent} onChange={v => set({ accent: v })} options={[
-              { value: "off",    label: "Off"    },
-              { value: "subtle", label: "Subtle" },
-              { value: "warm",   label: "Warm"   },
-              { value: "bold",   label: "Bold"   },
-            ]} />
-            <Seg label="Cadence" value={cfg.cadence} onChange={v => set({ cadence: v })} options={[
-              { value: "compact",    label: "56" },
-              { value: "standard",   label: "96" },
-              { value: "expansive",  label: "128" },
-              { value: "monumental", label: "160" },
-            ]} />
-            <Seg label="Header" value={cfg.header} onChange={v => set({ header: v })} options={[
-              { value: "fieldLabel", label: "Field" },
-              { value: "numeric",    label: "Numeric" },
-              { value: "tagline",    label: "Tagline" },
-              { value: "range",      label: "Range" },
-              { value: "silent",     label: "Silent" },
-            ]} />
-            <Seg label="Meta" value={cfg.meta} onChange={v => set({ meta: v })} options={[
-              { value: "off",         label: "Off" },
-              { value: "credentials", label: "Creds" },
-              { value: "counters",    label: "Counts" },
-              { value: "process",     label: "Process" },
-            ]} />
-            {cfg.frame === "editorial" && (
-              <Seg label="Anchor" value={cfg.anchor} onChange={v => set({ anchor: v })} options={[
-                { value: "compact",  label: "Compact" },
-                { value: "full",     label: "Full" },
-                { value: "numbered", label: "Numbered" },
-              ]} />
-            )}
-          </div>
-        </div>
-      </div>
-    </>
-  );
-}

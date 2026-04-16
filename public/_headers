@@ -1,0 +1,17 @@
+/*
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# HTML — всегда свежий: index.html ссылается на хешированные assets,
+# поэтому браузеры не должны его кэшировать (иначе старые chunks остаются)
+/
+  Cache-Control: public, max-age=0, must-revalidate
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Хешированные ассеты — immutable
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable

@@ -9,7 +9,7 @@ import RANKINGS from "../data/rankings";
 import HUBS, { getRankingsForHub } from "../data/categoryHubs";
 import { POPULAR_PAIRS_BY_VERTICAL, canonicalPair, VERTICALS } from "../data/comparisons";
 import BrokerLogo from "../components/BrokerLogo";
-import { BrokerTypeSection, useBrokerTypeConfig } from "../components/BrokerTypeButtons";
+import { BrokerTypeSection } from "../components/BrokerTypeButtons";
 import Icon from "../components/Icon";
 import { ArrowRight, ArrowUpRight, BarChart3, BookOpen, Target, ChevronDown, ChevronUp, ArrowRightLeft, ChartCandlestick, Users, Dices, Bitcoin, TrendingUp, GitBranch, Hourglass, Shield, DollarSign, Star, Eye, Monitor, Zap } from "lucide-react";
 import HOMEPAGE_SEO from "../data/homepageSeoContent";
@@ -34,57 +34,8 @@ const CAT_ICONS = {
   "spread-betting": Dices, crypto: Bitcoin, stocks: TrendingUp, options: GitBranch, futures: Hourglass,
 };
 const IC = { forex: "#fbbf24", cfd: "#60a5fa", "copy-trading": "#34d399", "spread-betting": "#f87171", crypto: "#f59e0b", stocks: "#38bdf8", options: "#a78bfa", futures: "#94a3b8" };
-const PILL_ROWS = [
-  { links: [
-    { label: "Forex Brokers UK", path: "/best-forex-brokers-uk" },
-    { label: "Lowest Spread Brokers", path: "/lowest-spread-forex-brokers" },
-    { label: "ECN FX Brokers", path: "/best-ecn-forex-brokers" },
-    { label: "MT5 Forex Brokers", path: "/best-mt5-forex-brokers" },
-    { label: "Bitcoin Brokers", path: "/best-crypto-brokers" },
-    { label: "Forex Brokers for Scalping", path: "/best-forex-brokers-for-scalping" },
-    { label: "Zero Spread Forex Brokers", path: "/zero-spread-forex-brokers" },
-    { label: "Forex Brokers India", path: "/best-forex-brokers-india" },
-  ]},
-];
-
-function CategoryNav({ mob }) {
-  const { cfg } = useBrokerTypeConfig();
-  const hubsData = HUBS.map(hub => ({
-    ...hub,
-    IconComp: CAT_ICONS[hub.slug] || ArrowRight,
-  }));
-  const hex2rgb = (h) => `${parseInt(h.slice(1,3),16)},${parseInt(h.slice(3,5),16)},${parseInt(h.slice(5,7),16)}`;
-  return (
-    <>
-      {/* Quick Links — single pill strip (Dark + Stripes) — toggleable via DevBar */}
-      {cfg.showQuickLinks && (
-      <div style={{ background: "#1a2332", borderBottom: "1px solid rgba(255,255,255,0.06)", padding: mob ? "10px 16px" : "12px 28px", overflowX: mob ? "auto" : "hidden", WebkitOverflowScrolling: "touch", position: "relative" }}>
-        <div style={{ position: "absolute", inset: 0, pointerEvents: "none", background: "repeating-linear-gradient(135deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 12px)" }} />
-        <div style={{
-          maxWidth: 1200, margin: "0 auto", padding: mob ? "0 4px" : "0 32px",
-          display: "flex", alignItems: "center", gap: mob ? 8 : 6,
-          ...(mob ? { minWidth: "max-content" } : {}),
-        }}>
-          {PILL_ROWS[0].links.map(ql => (
-            <Link key={ql.path} to={ql.path} style={{
-              display: "inline-flex", alignItems: "center", justifyContent: "center",
-              padding: "6px 13px", borderRadius: 8,
-              background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)",
-              color: "rgba(255,255,255,0.65)", fontSize: 11, fontWeight: 600,
-              textDecoration: "none", whiteSpace: "nowrap", transition: "all 0.15s",
-              ...(mob ? {} : { flex: 1 }),
-            }}
-              onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.12)"; e.currentTarget.style.color = "#fff"; }}
-              onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.06)"; e.currentTarget.style.color = "rgba(255,255,255,0.65)"; }}
-            >{ql.label}</Link>
-          ))}
-        </div>
-      </div>
-      )}
-      {/* 8 Category Buttons — controlled by BrokerTypeSection (convex + toggle-driven) */}
-      <BrokerTypeSection />
-    </>
-  );
+function CategoryNav() {
+  return <BrokerTypeSection />;
 }
 
 // ══════════════════════════════════════════════════════
