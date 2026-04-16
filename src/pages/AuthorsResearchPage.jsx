@@ -920,18 +920,26 @@ function AuthorsTable({ rows, mob }) {
                 </Td>
                 <Td>{a.outletName}</Td>
                 <Td>
-                  <span style={{
-                    fontSize: 10, fontWeight: 700, padding: "1px 6px", borderRadius: 4,
-                    color: TIER_STYLES[a.outletTier].color, background: TIER_STYLES[a.outletTier].bg,
-                  }}>{a.outletTier} · {a.outletDR}</span>
+                  {(() => {
+                    const t = TIER_STYLES[a.outletTier] || { color: "#64748b", bg: "#f1f5f9" };
+                    return (
+                      <span style={{
+                        fontSize: 10, fontWeight: 700, padding: "1px 6px", borderRadius: 4,
+                        color: t.color, background: t.bg,
+                      }}>{a.outletTier || "—"} · {a.outletDR}</span>
+                    );
+                  })()}
                 </Td>
                 <Td>
-                  {a.badge && (
-                    <span style={{
-                      fontSize: 10, fontWeight: 700, padding: "1px 6px", borderRadius: 4,
-                      color: BADGE_STYLES[a.badge].color, background: BADGE_STYLES[a.badge].bg,
-                    }}>{a.badge}</span>
-                  )}
+                  {a.badge && (() => {
+                    const b = BADGE_STYLES[a.badge] || { color: "#64748b", bg: "#f1f5f9" };
+                    return (
+                      <span style={{
+                        fontSize: 10, fontWeight: 700, padding: "1px 6px", borderRadius: 4,
+                        color: b.color, background: b.bg,
+                      }}>{a.badge}</span>
+                    );
+                  })()}
                 </Td>
                 <Td style={{ maxWidth: 220 }}>
                   <div style={{ display: "flex", gap: 3, flexWrap: "wrap" }}>
