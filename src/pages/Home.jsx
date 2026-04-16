@@ -861,60 +861,164 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== OUR EXPERT TEAM ===== */}
-      <section style={{ ...cn, padding: mob ? "40px 16px" : "60px 24px" }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
-          <h2 style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: mob ? 22 : 30, color: "#0f172a", letterSpacing: "-0.03em" }}>
-            Our Expert Team
-          </h2>
+      {/* ===== EDITORIAL TEAM (V8 — Plate B + hover OFF, ported from /proto/home-unified, 2026-04-16) ===== */}
+      <section style={{ maxWidth: 1200, margin: "0 auto", padding: mob ? "44px 16px" : "64px 24px" }}>
+        <div style={{ maxWidth: 680, marginBottom: mob ? 20 : 28 }}>
+          <div style={{
+            fontFamily: "'JetBrains Mono',monospace", fontSize: 11, fontWeight: 700,
+            letterSpacing: "0.18em", textTransform: "uppercase",
+            color: "#059669", marginBottom: 10,
+          }}>Editorial Team</div>
+          <h2 style={{
+            fontFamily: "'Outfit',sans-serif", fontWeight: 800,
+            fontSize: mob ? 24 : 28, color: "#0f172a",
+            letterSpacing: "-0.02em", margin: 0,
+          }}>Meet the team behind every review</h2>
+          <p style={{
+            fontSize: mob ? 14 : 15, color: "#64748b",
+            lineHeight: 1.65, margin: "8px 0 0", maxWidth: 680,
+          }}>
+            Seven analysts and editors. Every broker review carries a byline and goes through
+            a three-step editorial process — written, peer-reviewed, fact-checked against
+            regulator databases. Click any name to see their full profile, credentials, and published reviews.
+          </p>
         </div>
-        <p style={{ fontSize: 15, color: "#64748b", marginBottom: 24, maxWidth: 600 }}>
-          Every review is written, peer-reviewed, and fact-checked by certified industry professionals with real trading experience.
-        </p>
 
-        {/* All team members — equal cards, founder first */}
         <div style={{
           display: "grid",
-          gridTemplateColumns: mob ? "1fr 1fr" : tab ? "repeat(3, 1fr)" : "repeat(5, 1fr)",
-          gap: 12,
+          gridTemplateColumns: mob ? "1fr 1fr" : tab ? "repeat(3, 1fr)" : "repeat(4, 1fr)",
+          gap: mob ? 10 : 14,
         }}>
           {[
             ...Object.values(AUTHORS).filter(a => a.isFounder),
             ...Object.values(AUTHORS).filter(a => !a.isFounder),
           ].map((a) => (
             <Link key={a.id} to={lp(`/author/${a.id}`)} style={{
-              display: "flex", flexDirection: "column", alignItems: "center", gap: 10,
-              padding: mob ? "20px 12px" : "24px 16px", borderRadius: 14,
-              background: "#fff",
-              border: a.isFounder ? "2px solid #059669" : "1px solid #e2e8f0",
-              textDecoration: "none", color: "#111827", transition: "all 0.2s",
-              position: "relative",
+              display: "flex", flexDirection: "column", alignItems: "center",
+              textDecoration: "none", color: "#0f172a",
+              background: "#fff", borderRadius: 12,
+              border: "1px solid #e8ecf1",
+              boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)",
+              position: "relative", overflow: "hidden",
+              transition: "border-color 0.25s, box-shadow 0.25s",
+              minHeight: mob ? 280 : 320,
             }}
-              onMouseEnter={e => { e.currentTarget.style.borderColor = "#a7f3d0"; e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 4px 16px rgba(5,150,105,0.08)"; }}
-              onMouseLeave={e => { e.currentTarget.style.borderColor = a.isFounder ? "#059669" : "#e2e8f0"; e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "none"; }}
+              onMouseEnter={e => {
+                const v = e.currentTarget.querySelector("[data-view-link]");
+                if (v) v.style.color = "#059669";
+              }}
+              onMouseLeave={e => {
+                const v = e.currentTarget.querySelector("[data-view-link]");
+                if (v) v.style.color = "#64748b";
+              }}
             >
-              {a.isFounder && (
-                <span style={{
-                  position: "absolute", top: -8, left: "50%", transform: "translateX(-50%)",
-                  padding: "2px 8px", borderRadius: 4,
-                  background: "#059669", color: "#fff",
-                  fontSize: 9, fontWeight: 800, letterSpacing: "0.05em", textTransform: "uppercase",
-                  whiteSpace: "nowrap",
-                }}>Founder</span>
-              )}
-              <AuthorAvatar author={a} size={mob ? 48 : 56} showVerified />
-              <div style={{ textAlign: "center" }}>
-                <div style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 700, fontSize: mob ? 13 : 15 }}>{a.name}</div>
-                <div style={{ fontSize: 13, color: "#64748b", marginTop: 2 }}>{a.role}</div>
+              {/* Plate B — solid 3px green top strip */}
+              <div style={{
+                position: "absolute", top: 0, left: 0, right: 0,
+                height: 3, pointerEvents: "none",
+                background: "linear-gradient(90deg, #047857 0%, #10b981 50%, #047857 100%)",
+              }} />
+
+              <div style={{
+                display: "flex", flexDirection: "column", alignItems: "center",
+                padding: mob ? "32px 16px 20px" : "36px 20px 24px",
+                flex: 1, width: "100%", position: "relative",
+              }}>
+                {/* Circular avatar grounded with ring + floor shadow */}
+                <div style={{
+                  width: mob ? 76 : 84, height: mob ? 76 : 84,
+                  borderRadius: "50%", overflow: "hidden", position: "relative",
+                  background: "linear-gradient(180deg, #f8f9fb, #e8ecf1)",
+                  flexShrink: 0,
+                  boxShadow: [
+                    "0 0 0 1px #fff",
+                    "0 0 0 2px #e8ecf1",
+                    "0 8px 16px rgba(15,23,42,0.08)",
+                    "0 2px 4px rgba(15,23,42,0.06)",
+                  ].join(", "),
+                  marginBottom: 16,
+                }}>
+                  {a.image ? (
+                    <img src={`${import.meta.env.BASE_URL}${a.image.replace(/^\//, "")}`} alt={a.name}
+                      style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                      onError={e => { e.target.style.display = "none"; }}
+                    />
+                  ) : (
+                    <div style={{
+                      width: "100%", height: "100%",
+                      display: "flex", alignItems: "center", justifyContent: "center",
+                      fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: 28, color: "#059669",
+                    }}>{a.initials || a.name?.slice(0, 1)}</div>
+                  )}
+                </div>
+
+                <div style={{
+                  fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: mob ? 15 : 16.5,
+                  color: "#0f172a", letterSpacing: "-0.015em", textAlign: "center",
+                  lineHeight: 1.25, marginBottom: 4,
+                }}>{a.name}</div>
+
                 {a.credentials && a.credentials.length > 0 && (
-                  <div style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11, color: "#059669", fontWeight: 700, marginTop: 4 }}>
-                    {a.credentials.join(" · ")}
-                  </div>
+                  <div style={{
+                    fontFamily: "'JetBrains Mono',monospace", fontSize: 10.5, fontWeight: 700,
+                    color: "#059669", letterSpacing: "0.1em", textAlign: "center",
+                    marginBottom: 8,
+                  }}>{a.credentials.join(" · ")}</div>
                 )}
+
+                <div style={{
+                  fontSize: mob ? 12 : 12.5, color: "#64748b", fontWeight: 500,
+                  textAlign: "center", lineHeight: 1.4, marginBottom: 2,
+                }}>{a.role}</div>
+                {a.exp && (
+                  <div style={{
+                    fontFamily: "'JetBrains Mono',monospace", fontSize: 10.5, color: "#94a3b8", fontWeight: 600,
+                    textAlign: "center", letterSpacing: "0.04em",
+                  }}>{a.exp.toUpperCase()}</div>
+                )}
+
+                <div style={{
+                  width: 32, height: 1, background: "#e8ecf1",
+                  margin: mob ? "14px 0 12px" : "16px 0 14px",
+                }} />
+
+                {a.specialty && (
+                  <div style={{
+                    fontSize: mob ? 11.5 : 12, color: "#374151", fontWeight: 500,
+                    textAlign: "center", lineHeight: 1.5, maxWidth: 200,
+                  }}>{a.specialty}</div>
+                )}
+
+                <div data-view-link style={{
+                  marginTop: "auto", paddingTop: mob ? 16 : 20,
+                  fontFamily: "'Outfit',sans-serif", fontSize: 12, fontWeight: 700,
+                  color: "#64748b", letterSpacing: "-0.01em",
+                  display: "inline-flex", alignItems: "center", gap: 4,
+                  transition: "color 0.2s",
+                }}>
+                  View full profile <ArrowRight size={12} />
+                </div>
               </div>
-              <span style={{ fontSize: 12, fontWeight: 600, color: "#059669" }}>View Profile →</span>
             </Link>
           ))}
+        </div>
+
+        <div style={{
+          marginTop: mob ? 24 : 32,
+          display: "flex", alignItems: "center", gap: 16, flexWrap: "wrap",
+          fontSize: 13,
+        }}>
+          <Link to={lp("/trust-score")} className="link-green">
+            Editorial standards <ArrowRight size={12} className="link-arrow" />
+          </Link>
+          <span style={{ color: "#cbd5e1" }}>·</span>
+          <Link to={lp("/methodology")} className="link-green">
+            Scoring methodology <ArrowRight size={12} className="link-arrow" />
+          </Link>
+          <span style={{ color: "#cbd5e1" }}>·</span>
+          <Link to={lp("/how-we-make-money")} className="link-green">
+            How we make money <ArrowRight size={12} className="link-arrow" />
+          </Link>
         </div>
       </section>
 
