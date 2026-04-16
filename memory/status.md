@@ -1,10 +1,25 @@
 # Status — текущее состояние проекта
 
-Last updated: 2026-04-16 evening (after S7-S10 authors data pass)
+Last updated: 2026-04-16 20:17 (Broker Types config locked, cache headers added)
 
 ---
 
-## Что в работе / последнее
+## Frontend / последнее
+
+**Broker Types Section ЗАФИКСИРОВАНА** — коммит `5ffa063` (16.04.2026)
+- Финальный config: `frame=none`, `accent=warm`, `cadence=compact (56)`, `header=fieldLabel`, `meta=off`, `style=unified`
+- DEV-бар + Provider + Context + Quick Links pill strip удалены (-180 строк)
+- `BrokerTypeSection()` читает hardcoded DEFAULT напрямую
+- 10 FRAMES + 5 knobs остались в коде на случай будущих proto
+
+**Cache fix** — `public/_headers` (тот же коммит)
+- HTML → no-cache (max-age=0, must-revalidate)
+- /assets/* → immutable (max-age=31536000)
+- Решает проблему "залипания" старого 8-кнопочного блока в браузерах
+
+---
+
+## Что в работе / последнее (Backend/Data)
 
 **Authors outreach data pipeline** — M4. 579 авторов с verified reach + credentials.
 

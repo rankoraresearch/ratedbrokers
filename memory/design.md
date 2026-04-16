@@ -14,9 +14,21 @@
 
 **RED FLAG**: любая кнопка, у которой ≤4/7 совпадают — читается "из другого учебника дизайна". Стремиться к 7/7.
 
-## Broker Types Section (2026-04-15/16) — Home page
+## Broker Types Section (2026-04-15/16) — Home page · ЗАФИКСИРОВАНО
 
-8 convex-кнопок под Hero (после optional Quick Links pill strip). Grid 4×2 desktop / 2×4 mobile (зафиксировано, не менять).
+8 convex-кнопок под Hero. Grid 4×2 desktop / 2×4 mobile (зафиксировано, не менять).
+
+**Финальный config (Egor 2026-04-16, коммит `5ffa063`):**
+| knob | value | description |
+|------|-------|-------------|
+| `frame` | `none` | без архитектурной обёртки — кнопки прямо на странице |
+| `accent` | `warm` | irrelevant без frame, но сохранён в DEFAULT |
+| `cadence` | `compact` (56) | вертикальный padding-block 56px |
+| `header` | `fieldLabel` | overline "By broker type" |
+| `meta` | `off` | без bottom strip |
+| `style` | `unified` | white tile + 3px green left accent |
+
+**DEV-бар, BrokerTypeProvider, BrokerTypeContext, useBrokerTypeConfig, Quick Links pill strip — УДАЛЕНЫ.** `BrokerTypeSection()` читает hardcoded `DEFAULT` напрямую. Если понадобятся новые knobs — отдельный proto-роут `/proto/broker-types` (уже существует).
 
 **Unified button style** (финальный после 12 итераций):
 ```css
@@ -66,9 +78,9 @@ Hover: border → #cbd5e1, left-border → #047857, shadow → `0 8px 24px rgba(
 - Corner marks (L-брекеты) — декорация
 - Hard-edge shadows `0 3px 0 color` в convex-кнопках — "paper UI" / детский конструктор
 
-**Reference commit:** `31242c5 feat: unified Broker Types section + bottom-anchored Quick Links dev toggle` (2026-04-15, push'ен в main)
-
-**DEV toolbar:** fixed top, только в `import.meta.env.DEV`. Подписывается CSS var `--rb-devbar-h` для сдвига Header. Config персистится в `localStorage["rb-broker-types-config-v2"]`.
+**Reference commits:**
+- `31242c5 feat: unified Broker Types section + bottom-anchored Quick Links dev toggle` (2026-04-15) — initial 10 frames + 5 knobs + DEV bar
+- `5ffa063 feat: lock Broker Types config, drop dev toolbar, add no-cache HTML headers` (2026-04-16) — финальный фриз config, удаление DEV-бара (-180 строк)
 
 ## Концепция: Premium Dark (2026-04-14)
 
