@@ -281,11 +281,11 @@ const DEFAULT = {
   shadowFam: "neutral",   // neutral | glow | none
   lift: "subtle",         // none | subtle | medium
   showQuickLinks: false,  // Quick Links pill strip above the 8 buttons (dev toggle)
-  frame: "editorial",     // section framing: none | editorial | inset | darkFrame | cream
+  frame: "none",          // section framing: none | editorial | inset | darkFrame | cream  (Egor 2026-04-16: None)
   // ── Architectural knobs (Barbara round 4) ──
-  cadence:  "standard",   // vertical cadence: compact | standard | expansive | monumental
-  header:   "fieldLabel", // header variant (non-Editorial): fieldLabel | numeric | tagline | range | silent
-  meta:     "off",        // bottom meta strip: off | credentials | counters | process
+  cadence:  "compact",    // vertical cadence: compact | standard | expansive | monumental  (Egor 2026-04-16: 56)
+  header:   "fieldLabel", // header variant (non-Editorial): fieldLabel | numeric | tagline | range | silent  (Egor: Field)
+  meta:     "off",        // bottom meta strip: off | credentials | counters | process  (Egor: Off)
   anchor:   "compact",    // Editorial left anchor: compact | full | numbered
   accent:   "warm",       // orange accent intensity: off | subtle | warm | bold
 };
