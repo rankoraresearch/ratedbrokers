@@ -1,0 +1,802 @@
+[
+  {
+    "id": "dan-kemp-morningstar",
+    "name": "Dan Kemp",
+    "site": "morningstar",
+    "outletName": "Morningstar",
+    "role": "Chief Research and Investment Officer — Morningstar",
+    "linkedin": "https://uk.linkedin.com/in/dan-kemp-b6779437"
+  },
+  {
+    "id": "preston-caldwell-morningstar",
+    "name": "Preston Caldwell",
+    "site": "morningstar",
+    "outletName": "Morningstar",
+    "role": "Chief US Economist — Morningstar Research Services",
+    "linkedin": "https://www.linkedin.com/in/prestondavidcaldwell"
+  },
+  {
+    "id": "martin-jensen-propfirmmatch",
+    "name": "Martin Jensen",
+    "site": "propfirmmatch",
+    "outletName": "PropFirmMatch",
+    "role": "Co-Founder & CEO — Prop Firm Match",
+    "linkedin": "https://www.linkedin.com/in/martin-jensen-pfm/"
+  },
+  {
+    "id": "jenny-ross-which",
+    "name": "Jenny Ross",
+    "site": "which",
+    "outletName": "Which?",
+    "role": "Editor, Which? Money",
+    "linkedin": "https://www.linkedin.com/in/jenny-ross-62b089179/"
+  },
+  {
+    "id": "elizabeth-leary-kiplinger",
+    "name": "Elizabeth Leary",
+    "site": "kiplinger",
+    "outletName": "Kiplinger",
+    "role": "Contributing Editor — Kiplinger's Personal Finance",
+    "linkedin": "https://www.linkedin.com/in/elizabethodyleary/"
+  },
+  {
+    "id": "tm-lee-coingecko",
+    "name": "TM Lee",
+    "site": "coingecko",
+    "outletName": "CoinGecko",
+    "role": "Co-Founder & President — CoinGecko (formerly CEO)",
+    "linkedin": "https://my.linkedin.com/in/leetm"
+  },
+  {
+    "id": "paul-kim-businessinsider",
+    "name": "Paul Kim",
+    "site": "businessinsider",
+    "outletName": "Business Insider",
+    "role": "Personal Finance Reporter / Editor — Business Insider",
+    "linkedin": "https://www.linkedin.com/in/paulkimjournalist/"
+  },
+  {
+    "id": "joshua-unseth-bitcoinmagazine",
+    "name": "Joshua Unseth",
+    "site": "bitcoinmagazine",
+    "outletName": "Bitcoin Magazine",
+    "role": "Contributor — Bitcoin Magazine (primary: Director of Marketing, Alarm Grid)",
+    "linkedin": "https://www.linkedin.com/in/junseth/"
+  },
+  {
+    "id": "justin-low-forexlive",
+    "name": "Justin Low",
+    "site": "forexlive",
+    "outletName": "ForexLive",
+    "role": "Currency Analyst — investingLive (formerly ForexLive), ex-CIMB Investment Bank",
+    "linkedin": "https://www.linkedin.com/in/justin-low-59652b93/"
+  },
+  {
+    "id": "scott-murdoch-reuters",
+    "name": "Scott Murdoch",
+    "site": "reuters",
+    "outletName": "Reuters",
+    "role": "Lead Writer, Asia Finance & Markets — Reuters",
+    "linkedin": "https://au.linkedin.com/in/scott-murdoch-882b20146"
+  },
+  {
+    "id": "mark-goodwin-bitcoinmagazine",
+    "name": "Mark Goodwin",
+    "site": "bitcoinmagazine",
+    "outletName": "Bitcoin Magazine",
+    "role": "Editor-in-Chief — Bitcoin Magazine",
+    "linkedin": "https://www.linkedin.com/in/mark-goodwin-000ab622a/"
+  },
+  {
+    "id": "leslie-truex-thebalance",
+    "name": "Leslie Truex",
+    "site": "thebalancemoney",
+    "outletName": "The Balance",
+    "role": "Home Business Expert (former About.com / The Balance Small Business)",
+    "linkedin": "https://www.linkedin.com/in/leslietruex/"
+  },
+  {
+    "id": "jeff-john-roberts-decrypt",
+    "name": "Jeff John Roberts",
+    "site": "decrypt",
+    "outletName": "Decrypt",
+    "role": "Finance & Crypto Editor, Fortune (former Executive Editor at Decrypt)",
+    "linkedin": "https://www.linkedin.com/in/jeffjohnroberts"
+  },
+  {
+    "id": "andrea-coombes-bankrate",
+    "name": "Andrea Coombes",
+    "site": "bankrate",
+    "outletName": "Bankrate",
+    "role": "Taxes Editor, Bankrate (CFP®)",
+    "linkedin": "https://www.linkedin.com/in/acoombes/"
+  },
+  {
+    "id": "steven-ralston-zacks",
+    "name": "Steven Ralston",
+    "site": "zacks",
+    "outletName": "Zacks",
+    "role": "Director of Research & Senior Analyst — Zacks Small-Cap Research",
+    "linkedin": "https://www.linkedin.com/in/stevenralston/"
+  },
+  {
+    "id": "kalpana-fitzpatrick-moneyweek",
+    "name": "Kalpana Fitzpatrick",
+    "site": "moneyweek",
+    "outletName": "MoneyWeek",
+    "role": "Digital Editor — MoneyWeek",
+    "linkedin": "https://www.linkedin.com/in/kalpanafitzpatrick/"
+  },
+  {
+    "id": "simon-lambert-thisismoney",
+    "name": "Simon Lambert",
+    "site": "thisismoney",
+    "outletName": "This is Money",
+    "role": "Publisher / Money, Property & Motoring Editor — This is Money (DMG Media)",
+    "linkedin": "https://uk.linkedin.com/in/simon-lambert-26013233"
+  },
+  {
+    "id": "samuel-potter-bloomberg",
+    "name": "Samuel Potter",
+    "site": "bloomberg",
+    "outletName": "Bloomberg",
+    "role": "Senior Editor, Markets — Bloomberg News",
+    "linkedin": "https://www.linkedin.com/in/samjpotter/"
+  },
+  {
+    "id": "terry-chrisomalis-modestmoney",
+    "name": "Terry Chrisomalis",
+    "site": "modestmoney",
+    "outletName": "Modest Money",
+    "role": "Contributor — Pharma/Biotech Analyst",
+    "linkedin": "https://www.linkedin.com/in/terry-chrisomalis-72084395/"
+  },
+  {
+    "id": "charles-hayter",
+    "name": "Charles Hayter",
+    "site": "cryptocompare",
+    "outletName": "CryptoCompare",
+    "role": "CEO & Co-Founder",
+    "linkedin": "https://uk.linkedin.com/in/charles-hayter-ab785425"
+  },
+  {
+    "id": "zoe-yuqing-han",
+    "name": "Zoe Yuqing Han",
+    "site": "marketwatch",
+    "outletName": "MarketWatch",
+    "role": "Personal Finance Reporter",
+    "linkedin": "https://www.linkedin.com/in/zoe-yuqing-han/"
+  },
+  {
+    "id": "tanya-chepkova",
+    "name": "Tanya Chepkova",
+    "site": "financemagnates",
+    "outletName": "Finance Magnates",
+    "role": "News Editor / Editor-in-Chief (RU) BeInCrypto",
+    "linkedin": "https://www.linkedin.com/in/tanya-chepkova-26805035/"
+  },
+  {
+    "id": "eden-alemayehu",
+    "name": "Eden Alemayehu",
+    "site": "morningstar",
+    "outletName": "Morningstar",
+    "role": "Associate Equity Analyst",
+    "linkedin": "https://www.linkedin.com/in/e-alemayehu/"
+  },
+  {
+    "id": "abdelaziz-fathi",
+    "name": "Abdelaziz Fathi",
+    "site": "financefeeds",
+    "outletName": "FinanceFeeds",
+    "role": "Editor / Financial News Correspondent",
+    "linkedin": "https://www.linkedin.com/in/aziz-q-5a8288106/"
+  },
+  {
+    "id": "helene-braun",
+    "name": "Helene Braun",
+    "site": "coindesk",
+    "outletName": "CoinDesk",
+    "role": "Markets Reporter",
+    "linkedin": "https://www.linkedin.com/in/helenebraunn/"
+  },
+  {
+    "id": "tracy-wang",
+    "name": "Tracy Wang",
+    "site": "coindesk",
+    "outletName": "CoinDesk",
+    "role": "Deputy Managing Editor (Finance & Deals) — former CoinDesk",
+    "linkedin": "https://www.linkedin.com/in/tracycwang/"
+  },
+  {
+    "id": "molly-jane-zuckerman",
+    "name": "Molly Jane Zuckerman",
+    "site": "coinmarketcap",
+    "outletName": "CoinMarketCap",
+    "role": "Content Manager / Writer (former CoinMarketCap)",
+    "linkedin": "https://ru.linkedin.com/in/molly-jane-zuckerman-6b824a72"
+  },
+  {
+    "id": "bhaskar-dutta",
+    "name": "Bhaskar Dutta",
+    "site": "economictimes",
+    "outletName": "The Economic Times",
+    "role": "FX & Rates Reporter (Bloomberg) — former ET Markets Principal Digital Content Creator",
+    "linkedin": "https://www.linkedin.com/in/bhaskar-dutta-596a287b/"
+  },
+  {
+    "id": "lee-boyce",
+    "name": "Lee Boyce",
+    "site": "thisismoney",
+    "outletName": "This is Money",
+    "role": "Editor, This is Money / Mail Online Money",
+    "linkedin": "https://www.linkedin.com/in/lee-boyce-0037175a/"
+  },
+  {
+    "id": "yurii-kitikari",
+    "name": "Yurii Kitikari",
+    "site": "asktraders",
+    "outletName": "AskTraders",
+    "role": "Contributor (Equities Trader / ex-Prop Trader & Fund Manager)",
+    "linkedin": "https://www.linkedin.com/in/yurii-kitikari-b3b73283/"
+  },
+  {
+    "id": "noam-korbl-compareforexbrokers",
+    "name": "Noam Korbl",
+    "site": "compareforexbrokers",
+    "outletName": "CompareForexBrokers",
+    "role": "Co-Founder & CTO (formerly COO) — CompareForexBrokers",
+    "linkedin": "https://au.linkedin.com/in/noam-korbl-201a3266"
+  },
+  {
+    "id": "thomas-kerr-zacks",
+    "name": "Thomas Kerr",
+    "site": "zacks",
+    "outletName": "Zacks",
+    "role": "Senior Equity Research Analyst — Zacks Small-Cap Research",
+    "linkedin": "https://www.linkedin.com/in/tomkerrcfa/"
+  },
+  {
+    "id": "vandana-singh-benzinga",
+    "name": "Vandana Singh",
+    "site": "benzinga",
+    "outletName": "Benzinga",
+    "role": "Editor — Benzinga Breaking News (healthcare sector)",
+    "linkedin": "https://www.linkedin.com/in/vandanas1904/"
+  },
+  {
+    "id": "daniel-howley-yahoofinance",
+    "name": "Daniel Howley",
+    "site": "yahoofinance",
+    "outletName": "Yahoo Finance",
+    "role": "Tech Editor — Yahoo Finance",
+    "linkedin": "https://www.linkedin.com/in/daniel-howley-0b117712"
+  },
+  {
+    "id": "eugene-lee-bestbrokers",
+    "name": "Eugene Lee",
+    "site": "bestbrokers",
+    "outletName": "BestBrokers",
+    "role": "Investment Strategist & Quantitative Researcher — BestBrokers",
+    "linkedin": "https://www.linkedin.com/in/etlpro"
+  },
+  {
+    "id": "hilary-osborne-theguardian",
+    "name": "Hilary Osborne",
+    "site": "theguardian_money",
+    "outletName": "The Guardian — Money",
+    "role": "Money & Consumer Editor — The Guardian",
+    "linkedin": "https://uk.linkedin.com/in/hilary-osborne-58a36019"
+  },
+  {
+    "id": "edward-sheldon-goodmoneyguide",
+    "name": "Edward Sheldon",
+    "site": "goodmoneyguide",
+    "outletName": "Good Money Guide",
+    "role": "Investment Writer — Good Money Guide",
+    "linkedin": "https://www.linkedin.com/in/edward-sheldon-cfa-a6a36359/"
+  },
+  {
+    "id": "nathaniel-meyersohn-cnn",
+    "name": "Nathaniel Meyersohn",
+    "site": "cnn_business",
+    "outletName": "CNN Business",
+    "role": "Consumer Reporter — CNN Business",
+    "linkedin": "https://www.linkedin.com/in/nathaniel-meyersohn-8b297592"
+  },
+  {
+    "id": "anna-bahney-cnn",
+    "name": "Anna Bahney",
+    "site": "cnn_business",
+    "outletName": "CNN Business",
+    "role": "Housing & Personal Finance Reporter — CNN Business",
+    "linkedin": "https://www.linkedin.com/in/annabahney/"
+  },
+  {
+    "id": "caroline-mignon-lesechos",
+    "name": "Caroline Mignon",
+    "site": "lesechos",
+    "outletName": "Les Echos",
+    "role": "Journalist (Asset Management) — Les Échos",
+    "linkedin": "https://www.linkedin.com/in/caroline-mignon-4abb7a53/"
+  },
+  {
+    "id": "namrata-sen-benzinga",
+    "name": "Namrata Sen",
+    "site": "benzinga",
+    "outletName": "Benzinga",
+    "role": "Staff Writer — Benzinga (US stock market coverage)",
+    "linkedin": "https://in.linkedin.com/in/namratasen"
+  },
+  {
+    "id": "patrick-seitz-investors",
+    "name": "Patrick Seitz",
+    "site": "investors_com",
+    "outletName": "Investors Business Daily",
+    "role": "Senior Reporter/Writer — Investor's Business Daily (Management & Work newsletter)",
+    "linkedin": "https://www.linkedin.com/in/patrickseitz/"
+  },
+  {
+    "id": "michael-dempster-moneyunder30",
+    "name": "Michael Dempster",
+    "site": "moneyunder30",
+    "outletName": "Money Under 30",
+    "role": "Contributor — Credit Cards & Personal Finance",
+    "linkedin": "https://www.linkedin.com/in/michael-dempster-a08322b3/"
+  },
+  {
+    "id": "werner-vermaak-coinmarketcap",
+    "name": "Werner Vermaak",
+    "site": "coinmarketcap",
+    "outletName": "CoinMarketCap",
+    "role": "Technical Writer & Crypto Content Strategist",
+    "linkedin": "https://tw.linkedin.com/in/werner-vermaak-36293424"
+  },
+  {
+    "id": "jared-kirui-financemagnates",
+    "name": "Jared Kirui",
+    "site": "financemagnates",
+    "outletName": "Finance Magnates",
+    "role": "Editor — Finance Magnates",
+    "linkedin": "https://www.linkedin.com/in/jaredkirui"
+  },
+  {
+    "id": "lawrence-lewitinn-coindesk",
+    "name": "Lawrence Lewitinn",
+    "site": "coindesk",
+    "outletName": "CoinDesk",
+    "role": "Former Managing Editor, Markets — CoinDesk (now Managing Editor, N. America — The Block)",
+    "linkedin": "https://www.linkedin.com/in/lvlewitinn/"
+  },
+  {
+    "id": "george-rossi-55brokers",
+    "name": "George Rossi",
+    "site": "55brokers",
+    "outletName": "55Brokers",
+    "role": "Chief Market and Broker Analyst — 55brokers.com",
+    "linkedin": "https://www.linkedin.com/in/george-r-a275891b2/"
+  },
+  {
+    "id": "quentin-fottrell-marketwatch",
+    "name": "Quentin Fottrell",
+    "site": "marketwatch",
+    "outletName": "MarketWatch",
+    "role": "Managing Editor of Advice Columns & Columnist (The Moneyist) — MarketWatch",
+    "linkedin": "https://www.linkedin.com/in/quantanamo"
+  },
+  {
+    "id": "samuel-pearton-cryptoslate",
+    "name": "Samuel Pearton",
+    "site": "cryptoslate",
+    "outletName": "CryptoSlate",
+    "role": "Contributor (CMO — Polyhedra) — CryptoSlate",
+    "linkedin": "https://www.linkedin.com/in/samuelpearton/"
+  },
+  {
+    "id": "bob-haegele-modestmoney",
+    "name": "Bob Haegele",
+    "site": "modestmoney",
+    "outletName": "Modest Money",
+    "role": "Freelance Personal Finance Writer — The Frugal Fellow",
+    "linkedin": "https://www.linkedin.com/in/rwhaegele/"
+  },
+  {
+    "id": "daniel-sparks-fool",
+    "name": "Daniel Sparks",
+    "site": "fool",
+    "outletName": "Motley Fool",
+    "role": "Contributor — The Motley Fool (Owner/CIO, Sparks Capital Management)",
+    "linkedin": "https://www.linkedin.com/in/danielssparks/"
+  },
+  {
+    "id": "colin-harper-bitcoinmagazine",
+    "name": "Colin Harper",
+    "site": "bitcoinmagazine",
+    "outletName": "Bitcoin Magazine",
+    "role": "Former Associate Editor/Staff Writer — Bitcoin Magazine (now Head of Content, Luxor/Hashrate Index; EiC, Blockspace Media)",
+    "linkedin": "https://www.linkedin.com/in/colin-harper-405042142/"
+  },
+  {
+    "id": "daniel-mccarthy-dailyfx",
+    "name": "Daniel McCarthy",
+    "site": "dailyfx",
+    "outletName": "DailyFX",
+    "role": "Strategist (macro inter-market) — DailyFX / IG",
+    "linkedin": "https://au.linkedin.com/in/dan-mccarthy-20b4346"
+  },
+  {
+    "id": "sean-ahearn-compareforexbrokers",
+    "name": "Sean A'Hearn",
+    "site": "compareforexbrokers",
+    "outletName": "CompareForexBrokers",
+    "role": "Senior Forex Content Writer — CompareForexBrokers",
+    "linkedin": "https://www.linkedin.com/in/seanahearn88/"
+  },
+  {
+    "id": "nigel-frith-leaprate",
+    "name": "Nigel Frith",
+    "site": "leaprate",
+    "outletName": "LeapRate",
+    "role": "Writer / ex-VP Corporate Development, Catena Media (LeapRate owner)",
+    "linkedin": "https://www.linkedin.com/in/nigelfrith/"
+  },
+  {
+    "id": "ed-carson-investors",
+    "name": "Ed Carson",
+    "site": "investors_com",
+    "outletName": "Investors Business Daily",
+    "role": "News Editor — Investor's Business Daily",
+    "linkedin": "https://www.linkedin.com/in/ed-carson-a2933420"
+  },
+  {
+    "id": "daniel-kuhn-theblock",
+    "name": "Daniel Kuhn",
+    "site": "theblock",
+    "outletName": "The Block",
+    "role": "Senior Journalist & Editor (Tech) — The Block",
+    "linkedin": "https://www.linkedin.com/in/daniel-kuhn-a65a7816b"
+  },
+  {
+    "id": "michelle-hemstedt-thefullfx",
+    "name": "Michelle Hemstedt",
+    "site": "thefullfx",
+    "outletName": "The Full FX",
+    "role": "Co-Founder — The Full FX (Commercial Director)",
+    "linkedin": "https://www.linkedin.com/in/michelle-hemstedt-45512b7/"
+  },
+  {
+    "id": "casey-fleming-bankrate",
+    "name": "Casey Fleming",
+    "site": "bankrate",
+    "outletName": "Bankrate",
+    "role": "Financial Review Board (Mortgages) — Bankrate / Mortgage Advisor — C2 Financial",
+    "linkedin": "https://www.linkedin.com/in/casey-fleming-the-loan-guide/"
+  },
+  {
+    "id": "caleb-silver-investopedia",
+    "name": "Caleb Silver",
+    "site": "investopedia",
+    "outletName": "Investopedia",
+    "role": "Editor-in-Chief & SVP Content — Investopedia",
+    "linkedin": "https://www.linkedin.com/in/caleb-silver-9639585/"
+  },
+  {
+    "id": "ashlyn-brooks-bankrate",
+    "name": "Ashlyn Brooks",
+    "site": "bankrate",
+    "outletName": "Bankrate",
+    "role": "Finance Writer — Bankrate (freelance)",
+    "linkedin": "https://www.linkedin.com/in/ashlyn-brooks-99196a12a/"
+  },
+  {
+    "id": "moritz-koch-handelsblatt",
+    "name": "Moritz Koch",
+    "site": "handelsblatt",
+    "outletName": "Handelsblatt",
+    "role": "Politik Ressortleiter (Politics Editor) — Handelsblatt",
+    "linkedin": "https://be.linkedin.com/in/moritz-koch-420b0a114"
+  },
+  {
+    "id": "arnab-shome-financemagnates",
+    "name": "Arnab Shome",
+    "site": "financemagnates",
+    "outletName": "Finance Magnates",
+    "role": "Editor — Finance Magnates",
+    "linkedin": "https://www.linkedin.com/in/shomearnab/"
+  },
+  {
+    "id": "brett-arends-marketwatch",
+    "name": "Brett Arends",
+    "site": "marketwatch",
+    "outletName": "MarketWatch",
+    "role": "Columnist — MarketWatch / Wall Street Journal",
+    "linkedin": "https://www.linkedin.com/in/brettarends/"
+  },
+  {
+    "id": "larry-swedroe-morningstar",
+    "name": "Larry Swedroe",
+    "site": "morningstar",
+    "outletName": "Morningstar",
+    "role": "Contributor — Director of Research, Buckingham Strategic Wealth",
+    "linkedin": "https://www.linkedin.com/in/larry-swedroe-18778267/"
+  },
+  {
+    "id": "vlad-cealicu-cryptocompare",
+    "name": "Vlad Cealicu",
+    "site": "cryptocompare",
+    "outletName": "CryptoCompare",
+    "role": "CTO & Co-Founder — CryptoCompare / CCData",
+    "linkedin": "https://uk.linkedin.com/in/vcealicu"
+  },
+  {
+    "id": "venessa-wong-marketwatch",
+    "name": "Venessa Wong",
+    "site": "marketwatch",
+    "outletName": "MarketWatch",
+    "role": "Personal Finance Reporter — MarketWatch",
+    "linkedin": "https://www.linkedin.com/in/venessawwong/"
+  },
+  {
+    "id": "michael-mackenzie-daytrading",
+    "name": "Michael MacKenzie",
+    "site": "daytrading",
+    "outletName": "DayTrading.com",
+    "role": "Broker Analyst and Editor — DayTrading.com",
+    "linkedin": "https://www.linkedin.com/in/michael-mackenzie-0b94b6136/"
+  },
+  {
+    "id": "kunal-kapoor-morningstar",
+    "name": "Kunal Kapoor",
+    "site": "morningstar",
+    "outletName": "Morningstar",
+    "role": "Chief Executive Officer — Morningstar",
+    "linkedin": "https://www.linkedin.com/in/kunal-kapoor-morningstar"
+  },
+  {
+    "id": "anna-fedec-tradingeconomics",
+    "name": "Anna Fedec",
+    "site": "tradingeconomics",
+    "outletName": "Trading Economics",
+    "role": "Founder / Managing Director / Editor-in-Chief — TradingEconomics",
+    "linkedin": "https://www.linkedin.com/in/anna-fedec-16a7664/"
+  },
+  {
+    "id": "jeffrey-dastin-reuters",
+    "name": "Jeffrey Dastin",
+    "site": "reuters",
+    "outletName": "Reuters",
+    "role": "Technology Correspondent — Reuters",
+    "linkedin": "https://www.linkedin.com/in/jeffreydastin"
+  },
+  {
+    "id": "lyn-alden-modestmoney",
+    "name": "Lyn Alden Schwartzer",
+    "site": "modestmoney",
+    "outletName": "Modest Money",
+    "role": "Contributor — Founder, Lyn Alden Investment Strategy",
+    "linkedin": "https://www.linkedin.com/in/lynalden/"
+  },
+  {
+    "id": "carrie-kirby-coindesk",
+    "name": "Carrie Kirby",
+    "site": "coindesk",
+    "outletName": "CoinDesk",
+    "role": "Contributor — Freelance Bay Area Reporter",
+    "linkedin": "https://www.linkedin.com/in/carrie-kirby-2732775/"
+  },
+  {
+    "id": "asit-sharma-fool",
+    "name": "Asit Sharma",
+    "site": "fool",
+    "outletName": "Motley Fool",
+    "role": "Senior Investment Analyst & Lead Advisor",
+    "linkedin": "https://www.linkedin.com/in/asit-sharma-832613a/"
+  },
+  {
+    "id": "alissa-coram-investors",
+    "name": "Alissa Coram",
+    "site": "investors_com",
+    "outletName": "Investors Business Daily",
+    "role": "Executive Editor, Multimedia",
+    "linkedin": "https://www.linkedin.com/in/alissacoram/"
+  },
+  {
+    "id": "terry-flanagan-tradersmag",
+    "name": "Terry Flanagan",
+    "site": "tradersmagazine",
+    "outletName": "Traders Magazine",
+    "role": "Managing Director / Editor",
+    "linkedin": "https://www.linkedin.com/in/terflanagan/"
+  },
+  {
+    "id": "kate-dore-cnbc",
+    "name": "Kate Dore, CFP, EA",
+    "site": "cnbc",
+    "outletName": "CNBC",
+    "role": "Personal Finance Reporter",
+    "linkedin": "https://www.linkedin.com/in/katedore"
+  },
+  {
+    "id": "david-becker-asktraders",
+    "name": "David Becker",
+    "site": "asktraders",
+    "outletName": "AskTraders",
+    "role": "Equities Trader / Contributor",
+    "linkedin": "https://www.linkedin.com/in/david-b-37301717/"
+  },
+  {
+    "id": "gerald-segal-fxnewsgroup",
+    "name": "Gerald Segal",
+    "site": "fxnewsgroup",
+    "outletName": "FX-News Group",
+    "role": "Founder and Managing Editor",
+    "linkedin": "https://www.linkedin.com/in/gerald-segal-5a94095/"
+  },
+  {
+    "id": "bob-rose-barrons",
+    "name": "Bob Rose",
+    "site": "barrons",
+    "outletName": "Barron's",
+    "role": "Executive Editor",
+    "linkedin": "https://www.linkedin.com/in/bob-rose-05752313/"
+  },
+  {
+    "id": "joel-agbo-coingecko",
+    "name": "Joel Agbo",
+    "site": "coingecko",
+    "outletName": "CoinGecko",
+    "role": "Writer (Learn / Buzz)",
+    "linkedin": "https://www.linkedin.com/in/agbo-joel-080189124/"
+  },
+  {
+    "id": "david-saito-chung-investors",
+    "name": "David Saito-Chung",
+    "site": "investors_com",
+    "outletName": "Investors Business Daily",
+    "role": "Deputy Markets Editor / Senior Writer / Senior IBD Leaderboard Editor",
+    "linkedin": "https://www.linkedin.com/in/david-saito-chung-44b15820/"
+  },
+  {
+    "id": "john-ramos-propfirmmatch",
+    "name": "John Ramos",
+    "site": "propfirmmatch",
+    "outletName": "PropFirmMatch",
+    "role": "Co-Founder & CTO",
+    "linkedin": "https://www.linkedin.com/in/john-ramos-264522288/"
+  },
+  {
+    "id": "sue-strachan-benzinga",
+    "name": "Sue Strachan",
+    "site": "benzinga",
+    "outletName": "Benzinga",
+    "role": "Copy Editor and Reporter",
+    "linkedin": "https://www.linkedin.com/in/sue-strachan-new-orleans/"
+  },
+  {
+    "id": "lance-cothern",
+    "name": "Lance Cothern",
+    "site": "moneyunder30",
+    "outletName": "Money Under 30",
+    "role": "Contributor / Founder Money Manifesto",
+    "linkedin": "https://www.linkedin.com/in/lancecothern/"
+  },
+  {
+    "id": "sandali-handagama",
+    "name": "Sandali Handagama",
+    "site": "coindesk",
+    "outletName": "CoinDesk",
+    "role": "Deputy Managing Editor, Policy & Regulations EMEA",
+    "linkedin": "https://www.linkedin.com/in/sandalihandagama/"
+  },
+  {
+    "id": "teresa-rivas",
+    "name": "Teresa Rivas",
+    "site": "barrons",
+    "outletName": "Barron's",
+    "role": "Reporter",
+    "linkedin": "https://www.linkedin.com/in/teresamrivas/"
+  },
+  {
+    "id": "solveig-godeluck",
+    "name": "Solveig Godeluck",
+    "site": "lesechos",
+    "outletName": "Les Echos",
+    "role": "Reporter / US Correspondent",
+    "linkedin": "https://www.linkedin.com/in/solveig-godeluck-8069165/"
+  },
+  {
+    "id": "gabriel-alpert",
+    "name": "Gabriel Alpert",
+    "site": "morningstar",
+    "outletName": "Morningstar",
+    "role": "Fund Reporter",
+    "linkedin": "https://www.linkedin.com/in/gabe-alpert-b209555a/"
+  },
+  {
+    "id": "chris-yates-fxempire",
+    "name": "Chris Yates",
+    "site": "fxempire",
+    "outletName": "FXEmpire",
+    "role": "Contributor / Equity Analyst (Sunbird Portfolios)",
+    "linkedin": "https://www.linkedin.com/in/chris-yates-cfa-72a03b125/"
+  },
+  {
+    "id": "camille-dash",
+    "name": "Camille J. Dash",
+    "site": "marketwatch",
+    "outletName": "MarketWatch",
+    "role": "Digital Editor",
+    "linkedin": "https://www.linkedin.com/in/camillejdash/"
+  },
+  {
+    "id": "ben-levisohn",
+    "name": "Ben Levisohn",
+    "site": "barrons",
+    "outletName": "Barron's",
+    "role": "Editor in Chief (was Senior Managing Editor)",
+    "linkedin": "https://www.linkedin.com/in/ben-levisohn-5586972/"
+  },
+  {
+    "id": "steve-miley",
+    "name": "Steve Miley",
+    "site": "asktraders",
+    "outletName": "AskTraders",
+    "role": "Contributor / Founder Market Chartist",
+    "linkedin": "https://www.linkedin.com/in/stevemileymarketchartist/"
+  },
+  {
+    "id": "justin-grossbard",
+    "name": "Justin Grossbard",
+    "site": "compareforexbrokers",
+    "outletName": "CompareForexBrokers",
+    "role": "CEO & Co-Founder, Strategic Head of Research",
+    "linkedin": "https://www.linkedin.com/in/justingrossbard/"
+  },
+  {
+    "id": "zaheer-anwari-asktraders",
+    "name": "Zaheer Anwari",
+    "site": "asktraders",
+    "outletName": "AskTraders",
+    "role": "Equities Trader / Contributor",
+    "linkedin": "https://www.linkedin.com/in/zaheeranwari/"
+  },
+  {
+    "id": "charles-gakiba-55brokers",
+    "name": "Charles Gakiba",
+    "site": "55brokers",
+    "outletName": "55Brokers",
+    "role": "Contributor — Cryptocurrency Trader (Freelance)",
+    "linkedin": "https://www.linkedin.com/in/charlie-smart-3739751aa/"
+  },
+  {
+    "id": "camille-bas-wohlert-barrons",
+    "name": "Camille Bas-Wohlert",
+    "site": "barrons",
+    "outletName": "Barron's",
+    "role": "Reporter (AFP) — contributor syndicated to Barron's",
+    "linkedin": "https://www.linkedin.com/in/cbaswohlert/"
+  },
+  {
+    "id": "david-weliver-moneyunder30",
+    "name": "David Weliver",
+    "site": "moneyunder30",
+    "outletName": "Money Under 30",
+    "role": "Founder / Editor",
+    "linkedin": "https://www.linkedin.com/in/weliver"
+  },
+  {
+    "id": "ola-alder-fxempire",
+    "name": "Ola Alder",
+    "site": "fxempire",
+    "outletName": "FXEmpire",
+    "role": "Senior Content Editor",
+    "linkedin": "https://www.linkedin.com/in/ola-alder-42645358/"
+  },
+  {
+    "id": "richard-berry-goodmoneyguide",
+    "name": "Richard Berry",
+    "site": "goodmoneyguide",
+    "outletName": "Good Money Guide",
+    "role": "Founder / Managing Director",
+    "linkedin": "https://www.linkedin.com/in/richardberryuk/"
+  }
+]

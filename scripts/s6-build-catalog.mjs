@@ -91,6 +91,11 @@ function fullBlock(a, idx) {
   if (a.location) lines.push(`- Location: ${a.location}`);
   if (a.yearsInIndustry) lines.push(`- Years in industry: **${a.yearsInIndustry}**`);
   lines.push(`- LinkedIn: ${link(a.linkedin || "—", a.linkedin)}`);
+  if (a.mediaSignals?.linkedinFollowers != null) {
+    lines.push(`  - **${a.mediaSignals.linkedinFollowers.toLocaleString()} followers** on LinkedIn (fetched ${a.mediaSignals.linkedinFetchedAt?.split("T")[0] || "—"})`);
+  } else if (a.mediaSignals?.linkedinConnections) {
+    lines.push(`  - ${a.mediaSignals.linkedinConnections} LinkedIn connections (followers not exposed)`);
+  }
   lines.push(`- Twitter/X: ${link(a.twitter || "—", a.twitter)}`);
   lines.push(`- Muck Rack: ${link(a.muckrack || "—", a.muckrack)}`);
   lines.push(`- Personal site: ${link(a.personalSite || a.trustSignals?.ownedDomain || "—", a.personalSite || a.trustSignals?.ownedDomain)}`);
@@ -206,7 +211,20 @@ function condensedRow(a, idx) {
   const mr = a.muckrack ? `[mr](${a.muckrack})` : "—";
   const social = [linkedin, tw, mr].filter((x) => x !== "—").join(" ");
   const flag = a.needsManualReview ? " ⚠" : "";
-  return `| ${idx} | ${esc(a.name)}${flag} | ${esc(a.outletName)} | ${a.outletTier} | ${a.eeatTier} | ${a.finalScore} | ${esc(a.role).slice(0, 45)} | ${esc(certs).slice(0, 25)} | ${a.yearsInIndustry || "—"} | ${social || "—"} |`;
+  const lif = fmtFollowers(a);
+  return `| ${idx} | ${esc(a.name)}${flag} | ${esc(a.outletName)} | ${a.outletTier} | ${a.eeatTier} | ${a.finalScore} | ${lif} | ${esc(a.role).slice(0, 40)} | ${esc(certs).slice(0, 22)} | ${a.yearsInIndustry || "—"} | ${social || "—"} |`;
+}
+
+// Format LinkedIn follower count for tables: "12.4K", "500+", or "—"
+function fmtFollowers(a) {
+  const n = a.mediaSignals?.linkedinFollowers;
+  if (n != null) {
+    if (n >= 10000) return `${Math.round(n / 1000)}K`;
+    if (n >= 1000) return `${(n / 1000).toFixed(1)}K`;
+    return n.toLocaleString();
+  }
+  if (a.mediaSignals?.linkedinConnections) return `${a.mediaSignals.linkedinConnections}c`;
+  return "—";
 }
 
 // ============================================================
@@ -256,6 +274,8 @@ main.push(`- Authored books: ${cov((a) => a.mediaSignals?.authoredBooks?.length 
 main.push(`- Quoted in tier-1 press: ${cov((a) => a.mediaSignals?.quotedInTier1?.length > 0)}`);
 main.push(`- TV appearances: ${cov((a) => a.mediaSignals?.tvAppearances?.length > 0)}`);
 main.push(`- Multi-outlet (cross-writers): ${cov((a) => (a.writesFor?.length || 1) > 1)}`);
+main.push(`- LinkedIn followers captured (S7): ${cov((a) => a.mediaSignals?.linkedinFollowers != null)}`);
+main.push(`- LinkedIn connections fallback (500+): ${cov((a) => a.mediaSignals?.linkedinFollowers == null && a.mediaSignals?.linkedinConnections)}`);
 main.push(`- Still flagged needsManualReview: ${cov((a) => a.needsManualReview)}`);
 main.push(``);
 
@@ -274,14 +294,29 @@ main.push(`## Top 30 outreach board`);
 main.push(``);
 main.push(`Snapshot ranked by finalScore. Full detail blocks below.`);
 main.push(``);
-main.push(`| # | Name | Outlet | Tier | Score | Cert / Book hook |`);
-main.push(`|---|---|---|---|---|---|`);
+main.push(`| # | Name | Outlet | Tier | Score | LI ⓕ | Cert / Book hook |`);
+main.push(`|---|---|---|---|---|---|---|`);
 enriched.slice(0, 30).forEach((a, i) => {
   const certs = (a.certifications || []).map((c) => c.name).filter(Boolean).join(", ") || (a.credentials || []).filter(Boolean).join(", ") || "";
   const books = a.mediaSignals?.authoredBooks?.length ? `📚 ${a.mediaSignals.authoredBooks.length} books` : "";
   const tv = a.mediaSignals?.tvAppearances?.length ? `📺 ${a.mediaSignals.tvAppearances.length}` : "";
   const hook = [certs, books, tv].filter(Boolean).join(" · ");
-  main.push(`| ${i + 1} | **${esc(a.name)}** | ${esc(a.outletName)} | ${a.eeatTier} | ${a.finalScore} | ${esc(hook).slice(0, 60) || "—"} |`);
+  main.push(`| ${i + 1} | **${esc(a.name)}** | ${esc(a.outletName)} | ${a.eeatTier} | ${a.finalScore} | ${fmtFollowers(a)} | ${esc(hook).slice(0, 56) || "—"} |`);
+});
+main.push(``);
+
+// Top-30 by LinkedIn reach (independent of finalScore)
+main.push(``);
+main.push(`## Top 30 by LinkedIn reach`);
+main.push(``);
+main.push(`Sorted by absolute follower count. The "wow factor" lever — these are the authors whose endorsement carries the most distribution if they share our work.`);
+main.push(``);
+main.push(`| # | Name | Outlet | Tier | Score | LI Followers | Role |`);
+main.push(`|---|---|---|---|---|---|---|`);
+const byFollowers = enriched.filter((a) => a.mediaSignals?.linkedinFollowers != null)
+  .sort((a, b) => b.mediaSignals.linkedinFollowers - a.mediaSignals.linkedinFollowers);
+byFollowers.slice(0, 30).forEach((a, i) => {
+  main.push(`| ${i + 1} | **${esc(a.name)}** | ${esc(a.outletName)} | ${a.eeatTier} | ${a.finalScore} | **${a.mediaSignals.linkedinFollowers.toLocaleString()}** | ${esc(a.role).slice(0, 50)} |`);
 });
 main.push(``);
 
@@ -318,14 +353,14 @@ mbc.push(`Bulk tier — condensed table for screening. ⚠ = still flagged for m
 mbc.push(``);
 mbc.push(`## Tier B — ${tierB.length} authors`);
 mbc.push(``);
-mbc.push(`| # | Name | Outlet | OutletTier | EEAT | Score | Role | Certs | Years | Social |`);
-mbc.push(`|---|---|---|---|---|---|---|---|---|---|`);
+mbc.push(`| # | Name | Outlet | OutletTier | EEAT | Score | LI ⓕ | Role | Certs | Years | Social |`);
+mbc.push(`|---|---|---|---|---|---|---|---|---|---|---|`);
 tierB.forEach((a, i) => mbc.push(condensedRow(a, i + 1)));
 mbc.push(``);
 mbc.push(`## Tier C — ${tierC.length} authors`);
 mbc.push(``);
-mbc.push(`| # | Name | Outlet | OutletTier | EEAT | Score | Role | Certs | Years | Social |`);
-mbc.push(`|---|---|---|---|---|---|---|---|---|---|`);
+mbc.push(`| # | Name | Outlet | OutletTier | EEAT | Score | LI ⓕ | Role | Certs | Years | Social |`);
+mbc.push(`|---|---|---|---|---|---|---|---|---|---|---|`);
 tierC.forEach((a, i) => mbc.push(condensedRow(a, i + 1)));
 fs.writeFileSync(path.resolve(root, "AUTHORS-CATALOG-TIER-BC.md"), mbc.join("\n"));
 
@@ -341,6 +376,7 @@ const cols = [
   "education", "yearsInIndustry", "location",
   "linkedin", "twitter", "muckrack", "personalSite", "authorUrl", "email", "emailVerified",
   "quotedInTier1", "tvAppearances", "authoredBooks", "industryAwards",
+  "linkedinFollowers", "linkedinConnections", "linkedinFetchedAt",
   "muckrackArticleCount", "hasKnowledgePanel",
   "ownedDomain", "finraBrokerCheckStatus",
   "discoveryMethod", "notes", "bio",
@@ -362,6 +398,7 @@ for (const a of enriched) {
     eduStr, a.yearsInIndustry || "", a.location || "",
     a.linkedin || "", a.twitter || "", a.muckrack || "", a.personalSite || "", a.authorUrl || "", a.email || "", a.emailVerified ? "y" : "",
     (ms.quotedInTier1 || []).join("; "), (ms.tvAppearances || []).join("; "), (ms.authoredBooks || []).join("; "), awardsStr,
+    ms.linkedinFollowers ?? "", ms.linkedinConnections || "", ms.linkedinFetchedAt || "",
     ms.muckrackArticleCount || "", ms.hasKnowledgePanel ? "y" : "",
     ts.ownedDomain || "", ts.finraBrokerCheckStatus || "",
     a.discoveryMethod || "", a.notes || a.discoveryNote || "", (a.bio || "").slice(0, 800),

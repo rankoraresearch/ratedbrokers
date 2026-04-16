@@ -1,0 +1,2402 @@
+[
+  {
+    "id": "adam-nasli",
+    "name": "Adam Nasli",
+    "site": "brokerchooser",
+    "linkedin": "https://www.linkedin.com/in/adam-nasli/"
+  },
+  {
+    "id": "krisztian-gatonyi",
+    "name": "Krisztián Gátonyi",
+    "site": "brokerchooser",
+    "linkedin": "https://www.linkedin.com/in/krisztiangatonyi/"
+  },
+  {
+    "id": "brandon-bovey",
+    "name": "Brandon Bovey",
+    "site": "brokerchooser",
+    "linkedin": "https://www.linkedin.com/in/brandon-bovey/"
+  },
+  {
+    "id": "andras-regely",
+    "name": "András Régely",
+    "site": "brokerchooser",
+    "linkedin": "https://www.linkedin.com/in/andrasregely/"
+  },
+  {
+    "id": "edith-balazs",
+    "name": "Edith Balázs",
+    "site": "brokerchooser",
+    "linkedin": "https://www.linkedin.com/in/edith-balazs/"
+  },
+  {
+    "id": "theresa-w-carey",
+    "name": "Theresa W. Carey",
+    "site": "brokerchooser",
+    "linkedin": "https://www.linkedin.com/in/twcarey/"
+  },
+  {
+    "id": "alana-benson",
+    "name": "Alana Benson",
+    "site": "nerdwallet",
+    "linkedin": "https://www.linkedin.com/in/alana-benson/"
+  },
+  {
+    "id": "arielle-oshea",
+    "name": "Arielle O'Shea",
+    "site": "nerdwallet",
+    "linkedin": "https://www.linkedin.com/in/arielleoshea/"
+  },
+  {
+    "id": "connor-emmert",
+    "name": "Connor Emmert",
+    "site": "nerdwallet",
+    "linkedin": "https://www.linkedin.com/in/connor-emmert-52671756/"
+  },
+  {
+    "id": "christopher-tepedino",
+    "name": "Christopher Tepedino",
+    "site": "cointelegraph",
+    "linkedin": "https://www.linkedin.com/in/chrisptepedino/"
+  },
+  {
+    "id": "helen-partz",
+    "name": "Helen Partz",
+    "site": "cointelegraph",
+    "linkedin": "https://www.linkedin.com/in/helen-partz/"
+  },
+  {
+    "id": "martin-young",
+    "name": "Martin Young",
+    "site": "cointelegraph",
+    "linkedin": "https://www.linkedin.com/in/martin-young-77451510b/"
+  },
+  {
+    "id": "prashant-jha",
+    "name": "Prashant Jha",
+    "site": "cointelegraph",
+    "linkedin": "https://linkedin.com/in/prashant-jha09/"
+  },
+  {
+    "id": "ana-paula-pereira",
+    "name": "Ana Paula Pereira",
+    "site": "cointelegraph",
+    "linkedin": "https://www.linkedin.com/in/anapaulapereira-/"
+  },
+  {
+    "id": "turner-wright",
+    "name": "Turner Wright",
+    "site": "cointelegraph",
+    "linkedin": "https://www.linkedin.com/in/turnerwright"
+  },
+  {
+    "id": "erhan-kahraman",
+    "name": "Erhan Kahraman",
+    "site": "cointelegraph",
+    "linkedin": "https://linkedin.com/in/erhankahraman/"
+  },
+  {
+    "id": "brian-beers",
+    "name": "Brian Beers",
+    "site": "bankrate",
+    "linkedin": "https://www.linkedin.com/in/brian-beers/"
+  },
+  {
+    "id": "stephanie-liu",
+    "name": "Stephanie Liu",
+    "site": "coinmarketcap",
+    "linkedin": "https://www.linkedin.com/in/stephanieliu/"
+  },
+  {
+    "id": "seth-archer",
+    "name": "Seth Archer",
+    "site": "businessinsider",
+    "linkedin": "https://www.linkedin.com/in/sethparcher/"
+  },
+  {
+    "id": "bradley-saacks",
+    "name": "Bradley Saacks",
+    "site": "businessinsider",
+    "linkedin": "https://www.linkedin.com/in/bradley-saacks-837895126/"
+  },
+  {
+    "id": "emily-graffeo",
+    "name": "Emily Graffeo",
+    "site": "bloomberg",
+    "linkedin": "https://www.linkedin.com/in/emily-graffeo-uva2020/"
+  },
+  {
+    "id": "omar-sacirbey",
+    "name": "Omar Sacirbey",
+    "site": "benzinga",
+    "linkedin": "https://www.linkedin.com/in/omar-sacirbey-94428531/"
+  },
+  {
+    "id": "omkar-godbole",
+    "name": "Omkar Godbole",
+    "site": "coindesk",
+    "linkedin": "https://in.linkedin.com/in/omkargodbole17"
+  },
+  {
+    "id": "matt-koppenheffer",
+    "name": "Matt Koppenheffer",
+    "site": "fool",
+    "linkedin": "https://www.linkedin.com/in/matt-koppenheffer-316b841/"
+  },
+  {
+    "id": "sergei-klebnikov",
+    "name": "Sergei Klebnikov",
+    "site": "forbes",
+    "linkedin": "https://www.linkedin.com/in/sergei-klebnikov-795a9b75/"
+  },
+  {
+    "id": "narendra-nathan",
+    "name": "Narendra Nathan",
+    "site": "economictimes",
+    "linkedin": "https://www.linkedin.com/in/dr-narendra-nathan-315b3b21/"
+  },
+  {
+    "id": "ryan-wilcox-fool",
+    "name": "Ryan Wilcox",
+    "site": "fool",
+    "linkedin": "https://www.linkedin.com/in/ryantwilcox/"
+  },
+  {
+    "id": "james-chen-investopedia",
+    "name": "James Chen",
+    "site": "investopedia",
+    "linkedin": "https://www.linkedin.com/in/jameschencontent/"
+  },
+  {
+    "id": "jemma-grist",
+    "name": "Jemma Grist",
+    "site": "daytrading",
+    "linkedin": "https://www.linkedin.com/in/jemma-grist/"
+  },
+  {
+    "id": "alicia-adamczyk",
+    "name": "Alicia Adamczyk",
+    "site": "fortune",
+    "linkedin": "https://www.linkedin.com/in/aliciaadamczyk"
+  },
+  {
+    "id": "brian-danga",
+    "name": "Brian Danga",
+    "site": "theblock",
+    "linkedin": "https://www.linkedin.com/in/brian-danga-a72088208/"
+  },
+  {
+    "id": "kathryn-pomroy",
+    "name": "Kathryn Pomroy",
+    "site": "kiplinger",
+    "linkedin": "https://www.linkedin.com/in/upnorthwriter/"
+  },
+  {
+    "id": "alex-preston-cryptocompare",
+    "name": "Alex Preston",
+    "site": "cryptocompare",
+    "linkedin": "https://www.linkedin.com/in/alex-preston-21a9b52/"
+  },
+  {
+    "id": "stephanie-goh-coingecko",
+    "name": "Stephanie Goh",
+    "site": "coingecko",
+    "linkedin": "https://www.linkedin.com/in/stephaniegohsy/"
+  },
+  {
+    "id": "manish-jaradi",
+    "name": "Manish Jaradi",
+    "site": "dailyfx",
+    "linkedin": "https://sg.linkedin.com/in/manish-jaradi-b7643438"
+  },
+  {
+    "id": "andrew-hayward-decrypt",
+    "name": "Andrew Hayward",
+    "site": "decrypt",
+    "linkedin": "https://www.linkedin.com/in/andrewhayward/"
+  },
+  {
+    "id": "bobby-ong",
+    "name": "Bobby Ong",
+    "site": "coingecko",
+    "linkedin": "https://my.linkedin.com/in/bobbyongce"
+  },
+  {
+    "id": "sophie-rolland",
+    "name": "Sophie Rolland",
+    "site": "lesechos",
+    "linkedin": "https://www.linkedin.com/in/sophie-rolland-10119329/"
+  },
+  {
+    "id": "barbara-friedberg",
+    "name": "Barbara Friedberg",
+    "site": "thebalancemoney",
+    "linkedin": "https://www.linkedin.com/in/barbarafriedberg/"
+  },
+  {
+    "id": "matt-haldane",
+    "name": "Matt Haldane",
+    "site": "scmp",
+    "linkedin": "https://www.linkedin.com/in/matthaldane/"
+  },
+  {
+    "id": "harriet-clarfelt",
+    "name": "Harriet Clarfelt",
+    "site": "ft",
+    "linkedin": "https://www.linkedin.com/in/harriet-clarfelt-4607b466/"
+  },
+  {
+    "id": "zornitsa-stefanova",
+    "name": "Zornitsa Stefanova",
+    "site": "bestbrokers",
+    "linkedin": "https://www.linkedin.com/in/zornica-stefanova-73ab39287/"
+  },
+  {
+    "id": "matt-peterson",
+    "name": "Matt Peterson",
+    "site": "barrons",
+    "linkedin": "https://www.linkedin.com/in/matt-peterson-057327a/"
+  },
+  {
+    "id": "clint-proctor",
+    "name": "Clint Proctor",
+    "site": "forbes",
+    "linkedin": "https://www.linkedin.com/in/clint-proctor-159b29167/"
+  },
+  {
+    "id": "katie-doyle",
+    "name": "Katie Doyle",
+    "site": "forbes",
+    "linkedin": "https://www.linkedin.com/in/katiedoyle1/"
+  },
+  {
+    "id": "lance-davis",
+    "name": "Lance Davis",
+    "site": "bankrate",
+    "linkedin": "https://www.linkedin.com/in/lance-r-davis/"
+  },
+  {
+    "id": "nikhilesh-de",
+    "name": "Nikhilesh De",
+    "site": "coindesk",
+    "linkedin": "https://www.linkedin.com/in/nikhileshde/"
+  },
+  {
+    "id": "leslie-cook",
+    "name": "Leslie Cook",
+    "site": "money_com",
+    "linkedin": "https://www.linkedin.com/in/leslie-cook-9829b9198/"
+  },
+  {
+    "id": "james-hunt-theblock",
+    "name": "James Hunt",
+    "site": "theblock",
+    "linkedin": "https://www.linkedin.com/in/james-hunt-b884043b0/"
+  },
+  {
+    "id": "liz-edwards",
+    "name": "Liz Edwards",
+    "site": "goodmoneyguide",
+    "linkedin": "https://www.linkedin.com/in/liz-edwards-020b111b/"
+  },
+  {
+    "id": "john-puterbaugh",
+    "name": "John Puterbaugh",
+    "site": "bankrate",
+    "linkedin": "https://www.linkedin.com/in/johnputerbaugh"
+  },
+  {
+    "id": "damian-chmiel",
+    "name": "Damian Chmiel",
+    "site": "financemagnates",
+    "linkedin": "https://www.linkedin.com/in/damian-chmiel-a0388288/"
+  },
+  {
+    "id": "rachel-mcvearry",
+    "name": "Rachel McVearry",
+    "site": "usnews_money",
+    "linkedin": "https://www.linkedin.com/in/rachelmcvearry/"
+  },
+  {
+    "id": "giuseppe-dellamotta",
+    "name": "Giuseppe Dellamotta",
+    "site": "forexlive",
+    "linkedin": "https://www.linkedin.com/in/giuseppe-dellamotta-a41191354/"
+  },
+  {
+    "id": "michael-field",
+    "name": "Michael Field",
+    "site": "morningstar",
+    "linkedin": "https://www.linkedin.com/in/michael-field-cfa/"
+  },
+  {
+    "id": "jon-dulin",
+    "name": "Jon Dulin",
+    "site": "modestmoney",
+    "linkedin": "https://www.linkedin.com/in/donald-jon-dulin-70354540/"
+  },
+  {
+    "id": "jeff-ostrowski",
+    "name": "Jeff Ostrowski",
+    "site": "bankrate",
+    "linkedin": "https://www.linkedin.com/in/jeff-ostrowski-920b582/"
+  },
+  {
+    "id": "martine-robert",
+    "name": "Martine Robert",
+    "site": "lesechos",
+    "linkedin": "https://fr.linkedin.com/in/martine-robert-84088712"
+  },
+  {
+    "id": "mohit-manghnani",
+    "name": "Mohit Manghnani",
+    "site": "benzinga",
+    "linkedin": "https://www.linkedin.com/in/mohit-manghnani-b5241918/"
+  },
+  {
+    "id": "emily-stewart",
+    "name": "Emily Stewart",
+    "site": "businessinsider",
+    "linkedin": "https://www.linkedin.com/in/emilymarkleystewart/"
+  },
+  {
+    "id": "richard-krugel",
+    "name": "Richard Krugel",
+    "site": "asktraders",
+    "linkedin": "https://www.linkedin.com/in/richard-krugel-b851a53a/"
+  },
+  {
+    "id": "jonathan-burton",
+    "name": "Jonathan Burton",
+    "site": "marketwatch",
+    "linkedin": "https://www.linkedin.com/in/jonathan-burton-3839037/"
+  },
+  {
+    "id": "doug-boneparth",
+    "name": "Doug Boneparth",
+    "site": "investopedia",
+    "linkedin": "https://www.linkedin.com/in/douglasboneparth"
+  },
+  {
+    "id": "royston-wild",
+    "name": "Royston Wild",
+    "site": "daytrading",
+    "linkedin": "https://www.linkedin.com/in/royston-wild-681720260/"
+  },
+  {
+    "id": "darren-sinden",
+    "name": "Darren Sinden",
+    "site": "goodmoneyguide",
+    "linkedin": "https://www.linkedin.com/in/darren-sinden-20018245/"
+  },
+  {
+    "id": "danielle-park",
+    "name": "Danielle Park, CFA",
+    "site": "seekingalpha",
+    "linkedin": "https://www.linkedin.com/in/daniellepark/"
+  },
+  {
+    "id": "merryn-somerset-webb",
+    "name": "Merryn Somerset Webb",
+    "site": "moneyweek",
+    "linkedin": "https://www.linkedin.com/in/merryn-somerset-webb-080558"
+  },
+  {
+    "id": "ronald-wortel",
+    "name": "Ronald Wortel",
+    "site": "zacks",
+    "linkedin": "https://www.linkedin.com/in/ronald-wortel-g01deni/"
+  },
+  {
+    "id": "nigam-arora",
+    "name": "Nigam Arora",
+    "site": "benzinga",
+    "linkedin": "https://www.linkedin.com/in/nigamarora/"
+  },
+  {
+    "id": "mike-mikhjian",
+    "name": "Mike Mikhjian",
+    "site": "forexbrokers",
+    "linkedin": "https://www.linkedin.com/in/michaelmikhjian/"
+  },
+  {
+    "id": "jared-blikre",
+    "name": "Jared Blikre",
+    "site": "yahoofinance",
+    "linkedin": "https://www.linkedin.com/in/jared-blikre-14648044/"
+  },
+  {
+    "id": "loke-choon-khei",
+    "name": "Loke Choon Khei",
+    "site": "coingecko",
+    "linkedin": "https://www.linkedin.com/in/lokechoonkhei/"
+  },
+  {
+    "id": "justin-freeman",
+    "name": "Justin Freeman",
+    "site": "asktraders",
+    "linkedin": "https://www.linkedin.com/in/justin-freeman-2a6935b"
+  },
+  {
+    "id": "fran-velasquez",
+    "name": "Fran Velasquez",
+    "site": "coindesk",
+    "linkedin": "https://www.linkedin.com/in/francisco-velasquez-/"
+  },
+  {
+    "id": "steven-cress",
+    "name": "Steven Cress",
+    "site": "seekingalpha",
+    "linkedin": "https://www.linkedin.com/in/steven-cress-74823119/"
+  },
+  {
+    "id": "al-root",
+    "name": "Al Root (Allen Root)",
+    "site": "barrons",
+    "linkedin": "https://www.linkedin.com/in/allen-root-b0030313/"
+  },
+  {
+    "id": "joey-shadeck",
+    "name": "Joey Shadeck",
+    "site": "forexbrokers",
+    "linkedin": "https://www.linkedin.com/in/josephshadeck/"
+  },
+  {
+    "id": "grace-witherden",
+    "name": "Grace Witherden",
+    "site": "which",
+    "linkedin": "https://www.linkedin.com/in/grace-witherden-35528171/"
+  },
+  {
+    "id": "michael-hewson",
+    "name": "Michael Hewson",
+    "site": "goodmoneyguide",
+    "linkedin": "https://uk.linkedin.com/in/michael-hewson-0991432"
+  },
+  {
+    "id": "lisa-dammeyer",
+    "name": "Lisa Dammeyer",
+    "site": "bankrate",
+    "linkedin": "https://www.linkedin.com/in/lisa-dammeyer-661251b/"
+  },
+  {
+    "id": "eno-eteng",
+    "name": "Eno Eteng",
+    "site": "55brokers",
+    "linkedin": "https://www.linkedin.com/in/dieumerc/"
+  },
+  {
+    "id": "kshitij-anand",
+    "name": "Kshitij Anand",
+    "site": "economictimes",
+    "linkedin": "https://in.linkedin.com/in/kshitij-anand-cfa-icfai-ms-finance-32a190a"
+  },
+  {
+    "id": "rishabh-surana",
+    "name": "Rishabh Surana",
+    "site": "asktraders",
+    "linkedin": "https://www.linkedin.com/in/rishabhsuranamarketanalyst/"
+  },
+  {
+    "id": "matt-egan",
+    "name": "Matt Egan",
+    "site": "cnn_business",
+    "linkedin": "https://www.linkedin.com/in/matt-egan-7b75542b"
+  },
+  {
+    "id": "jake-torres-lux",
+    "name": "Jake Torres",
+    "site": "luxtradingfirm",
+    "linkedin": "https://www.linkedin.com/in/jake-torres-859790321/"
+  },
+  {
+    "id": "james-hyerczyk",
+    "name": "James Hyerczyk",
+    "site": "fxempire",
+    "linkedin": "https://www.linkedin.com/in/james-a-hyerczyk-0664bb354/"
+  },
+  {
+    "id": "robert-glazer",
+    "name": "Robert Glazer",
+    "site": "moneyunder30",
+    "linkedin": "https://www.linkedin.com/in/glazer"
+  },
+  {
+    "id": "catey-hill",
+    "name": "Catey Hill",
+    "site": "marketwatch",
+    "linkedin": "https://www.linkedin.com/in/catey-hill/"
+  },
+  {
+    "id": "hwee-yan-jau",
+    "name": "Hwee Yan Jau",
+    "site": "coingecko",
+    "linkedin": "https://www.linkedin.com/in/hwee-yan-jau/"
+  },
+  {
+    "id": "andjela-radmilac",
+    "name": "Andjela Radmilac",
+    "site": "cryptoslate",
+    "linkedin": "https://www.linkedin.com/in/andjelaradmilac/"
+  },
+  {
+    "id": "christie-harkin",
+    "name": "Christie Harkin",
+    "site": "coindesk",
+    "linkedin": "https://ca.linkedin.com/in/christieharkin"
+  },
+  {
+    "id": "brian-lee-coingecko",
+    "name": "Brian Lee Shun Hui",
+    "site": "coingecko",
+    "linkedin": "https://www.linkedin.com/in/brian-lee-shun-hui-038128193/"
+  },
+  {
+    "id": "rachel-rickard-straus",
+    "name": "Rachel Rickard Straus",
+    "site": "thisismoney",
+    "linkedin": "https://uk.linkedin.com/in/rachel-rickard-straus-02732153"
+  },
+  {
+    "id": "connor-sephton",
+    "name": "Connor Sephton",
+    "site": "coinmarketcap",
+    "linkedin": "https://www.linkedin.com/in/connor-sephton-67802316/"
+  },
+  {
+    "id": "david-johnson-cashbackforex",
+    "name": "David Johnson",
+    "site": "cashbackforex",
+    "linkedin": "https://www.linkedin.com/in/david-johnson-382b9457/"
+  },
+  {
+    "id": "enoch-yiu",
+    "name": "Enoch Yiu",
+    "site": "scmp",
+    "linkedin": "https://hk.linkedin.com/in/enoch-yiu-52779516"
+  },
+  {
+    "id": "claer-barrett",
+    "name": "Claer Barrett",
+    "site": "ft",
+    "linkedin": "https://uk.linkedin.com/in/claer-barrett-74088414"
+  },
+  {
+    "id": "chris-russell-nikkei",
+    "name": "Chris Russell",
+    "site": "nikkei_asia",
+    "linkedin": "https://jp.linkedin.com/in/chris-russell-9579b84b"
+  },
+  {
+    "id": "mikhail-vnuchkov",
+    "name": "Mikhail Vnuchkov",
+    "site": "tradersunion",
+    "linkedin": "https://www.linkedin.com/in/michael-vnuchkov-66a330240/"
+  },
+  {
+    "id": "uma-shashikant",
+    "name": "Uma Shashikant",
+    "site": "economictimes",
+    "linkedin": "https://in.linkedin.com/in/uma-shashikant-0a3b37"
+  },
+  {
+    "id": "andrew-lockwood",
+    "name": "Andrew Lockwood",
+    "site": "fundedtradingplus",
+    "linkedin": "https://uk.linkedin.com/in/andrew-lockwood"
+  },
+  {
+    "id": "tobi-opeyemi-amure",
+    "name": "Tobi Opeyemi Amure",
+    "site": "financefeeds",
+    "linkedin": "https://www.linkedin.com/in/tobi-amure/"
+  },
+  {
+    "id": "nooresh-merani",
+    "name": "Nooresh Merani",
+    "site": "asktraders",
+    "linkedin": "https://in.linkedin.com/in/nooreshtech"
+  },
+  {
+    "id": "george-sweeney",
+    "name": "George Sweeney",
+    "site": "compareforexbrokers",
+    "linkedin": "https://www.linkedin.com/in/george-sweeney-dipfa-7543b197/"
+  },
+  {
+    "id": "simon-thompson-ic",
+    "name": "Simon Thompson",
+    "site": "investorschronicle",
+    "linkedin": "https://uk.linkedin.com/in/simon-thompson-31903812"
+  },
+  {
+    "id": "joshua-franklin",
+    "name": "Joshua Franklin",
+    "site": "ft",
+    "linkedin": "https://www.linkedin.com/in/joshua-franklin-06565589"
+  },
+  {
+    "id": "rick-steves-financefeeds",
+    "name": "Rick Steves",
+    "site": "financefeeds",
+    "linkedin": "https://www.linkedin.com/in/rickstevesfx/"
+  },
+  {
+    "id": "richard-perry",
+    "name": "Richard Perry",
+    "site": "bestbrokers",
+    "linkedin": "https://www.linkedin.com/in/richard-perry-5918921b/"
+  },
+  {
+    "id": "aislinn-keely",
+    "name": "Aislinn Keely",
+    "site": "theblock",
+    "linkedin": "https://www.linkedin.com/in/aislinn-keely-579386161/"
+  },
+  {
+    "id": "adam-james",
+    "name": "Adam James",
+    "site": "theblock",
+    "linkedin": "https://www.linkedin.com/in/adam-james-b364b9240/"
+  },
+  {
+    "id": "lu-wang-bloomberg",
+    "name": "Lu Wang",
+    "site": "bloomberg",
+    "linkedin": "https://www.linkedin.com/in/lu-wang-04004356/"
+  },
+  {
+    "id": "steven-hatzakis",
+    "name": "Steven Hatzakis",
+    "site": "stockbrokers",
+    "linkedin": "https://www.linkedin.com/in/shatzakis/"
+  },
+  {
+    "id": "yifan-yu",
+    "name": "Yifan Yu",
+    "site": "nikkei_asia",
+    "linkedin": "https://www.linkedin.com/in/yifanyunews/"
+  },
+  {
+    "id": "danny-kunwoong-park",
+    "name": "Danny Kunwoong Park",
+    "site": "theblock",
+    "linkedin": "https://www.linkedin.com/in/danny-kunwoong-park-5b57651a4/"
+  },
+  {
+    "id": "jitan-solanki",
+    "name": "Jitan Solanki",
+    "site": "fxempire",
+    "linkedin": "https://www.linkedin.com/in/jitansolanki/"
+  },
+  {
+    "id": "jeff-anberg",
+    "name": "Jeff Anberg",
+    "site": "stockbrokers",
+    "linkedin": "https://www.linkedin.com/in/jeffanberg/"
+  },
+  {
+    "id": "brian-bollinger",
+    "name": "Brian Bollinger",
+    "site": "seekingalpha",
+    "linkedin": "https://www.linkedin.com/in/brian-bollinger-b6111a11/"
+  },
+  {
+    "id": "rt-watson",
+    "name": "RT Watson",
+    "site": "theblock",
+    "linkedin": "https://www.linkedin.com/in/rt-watson-a4795587/"
+  },
+  {
+    "id": "alex-gailey",
+    "name": "Alex Gailey",
+    "site": "bankrate",
+    "linkedin": "https://www.linkedin.com/in/alexandragailey/"
+  },
+  {
+    "id": "tim-copeland",
+    "name": "Tim Copeland",
+    "site": "theblock",
+    "linkedin": "https://uk.linkedin.com/in/timcopeland2"
+  },
+  {
+    "id": "stephen-graves",
+    "name": "Stephen Graves",
+    "site": "decrypt",
+    "linkedin": "https://uk.linkedin.com/in/stephengraves1"
+  },
+  {
+    "id": "jason-peterson",
+    "name": "Jason Peterson",
+    "site": "cashbackforex",
+    "linkedin": "https://www.linkedin.com/in/grateful-jason/"
+  },
+  {
+    "id": "beverly-harzog",
+    "name": "Beverly Harzog",
+    "site": "bankrate",
+    "linkedin": "https://www.linkedin.com/in/beverlyharzog/"
+  },
+  {
+    "id": "tony-kent",
+    "name": "Tony Kent (Anthony Kent)",
+    "site": "daytrading",
+    "linkedin": "https://www.linkedin.com/in/anthony-kent-522924/"
+  },
+  {
+    "id": "anton-kharitonov",
+    "name": "Anton Kharitonov",
+    "site": "tradersunion",
+    "linkedin": "https://www.linkedin.com/in/anton-kharytonov-b418b856/"
+  },
+  {
+    "id": "benjamin-schiller",
+    "name": "Benjamin Schiller",
+    "site": "coindesk",
+    "linkedin": "https://www.linkedin.com/in/benschiller"
+  },
+  {
+    "id": "yousra-anwar-ahmed",
+    "name": "Yousra Anwar Ahmed",
+    "site": "coinmarketcap",
+    "linkedin": "https://www.linkedin.com/in/yousra-anwar"
+  },
+  {
+    "id": "ivan-makedonski",
+    "name": "Ivan Makedonski",
+    "site": "bitcoinmagazine",
+    "linkedin": "https://www.linkedin.com/in/ivan-makedonski-3730ba44/"
+  },
+  {
+    "id": "felipe-erazo",
+    "name": "Felipe Erazo",
+    "site": "fxempire",
+    "linkedin": "https://pk.linkedin.com/in/felipe-erazo-20635241"
+  },
+  {
+    "id": "david-sekera",
+    "name": "David Sekera",
+    "site": "morningstar",
+    "linkedin": "https://www.linkedin.com/in/davesekera/"
+  },
+  {
+    "id": "jay-hawk",
+    "name": "Jay Hawk",
+    "site": "benzinga",
+    "linkedin": "https://www.linkedin.com/in/jayhawkforex/"
+  },
+  {
+    "id": "jay-mawji",
+    "name": "Jay Mawji",
+    "site": "fxnewsgroup",
+    "linkedin": "https://uk.linkedin.com/in/jay-k-mawji-06531138"
+  },
+  {
+    "id": "nivedita-hazra",
+    "name": "Nivedita Hazra",
+    "site": "benzinga",
+    "linkedin": "https://in.linkedin.com/in/nivedita-hazra-36a479156"
+  },
+  {
+    "id": "evelina-laurinaityte",
+    "name": "Evelina Laurinaityte",
+    "site": "cashbackforex",
+    "linkedin": "https://www.linkedin.com/in/evelinalaurin/"
+  },
+  {
+    "id": "crispus-nyaga",
+    "name": "Crispus Nyaga",
+    "site": "55brokers",
+    "linkedin": "https://www.linkedin.com/in/chris-ayden/"
+  },
+  {
+    "id": "jason-nelson",
+    "name": "Jason Nelson",
+    "site": "decrypt",
+    "linkedin": "https://www.linkedin.com/in/jasoncnelson/"
+  },
+  {
+    "id": "chris-beauchamp",
+    "name": "Chris Beauchamp",
+    "site": "daytrading",
+    "linkedin": "https://uk.linkedin.com/in/chris-beauchamp-3b353aa"
+  },
+  {
+    "id": "leo-jakobson",
+    "name": "Leo Jakobson",
+    "site": "coinmarketcap",
+    "linkedin": "https://www.linkedin.com/in/leo-jakobson-402b043/"
+  },
+  {
+    "id": "beth-pinsker",
+    "name": "Beth Pinsker",
+    "site": "marketwatch",
+    "linkedin": "https://www.linkedin.com/in/bpinsker/"
+  },
+  {
+    "id": "dean-fankhauser",
+    "name": "Dean Fankhauser",
+    "site": "bitcompare",
+    "linkedin": "https://www.linkedin.com/in/deanfankhauser/"
+  },
+  {
+    "id": "adam-levy-fool",
+    "name": "Adam Levy",
+    "site": "fool",
+    "linkedin": "https://www.linkedin.com/in/admlvy"
+  },
+  {
+    "id": "ross-cameron",
+    "name": "Ross Cameron",
+    "site": "modestmoney",
+    "linkedin": "https://www.linkedin.com/in/ross-cameron-70ba7998/"
+  },
+  {
+    "id": "greg-iacurci",
+    "name": "Greg Iacurci",
+    "site": "cnbc",
+    "linkedin": "https://www.linkedin.com/in/gregory-iacurci-bb736331/"
+  },
+  {
+    "id": "jamie-crawley",
+    "name": "Jamie Crawley",
+    "site": "coindesk",
+    "linkedin": "https://uk.linkedin.com/in/jamie-crawley-08ab95107"
+  },
+  {
+    "id": "robyn-a-friedman",
+    "name": "Robyn A. Friedman",
+    "site": "kiplinger",
+    "linkedin": "https://www.linkedin.com/in/robynafriedman/"
+  },
+  {
+    "id": "molly-moorhead",
+    "name": "Molly Moorhead",
+    "site": "yahoofinance",
+    "linkedin": "https://www.linkedin.com/in/molly-moorhead/"
+  },
+  {
+    "id": "susan-warfel",
+    "name": "Susan Warfel",
+    "site": "investors_com",
+    "linkedin": "https://www.linkedin.com/in/susan-warfel-2b46984/"
+  },
+  {
+    "id": "emmanuel-ifeanyi-ekwomadu",
+    "name": "Emmanuel Ifeanyi Ekwomadu",
+    "site": "bestbrokers",
+    "linkedin": "https://www.linkedin.com/in/emmanuel-ifeanyi-e-309512182/"
+  },
+  {
+    "id": "elaine-king",
+    "name": "Elaine King",
+    "site": "investopedia",
+    "linkedin": "https://www.linkedin.com/in/elainekingcfp/"
+  },
+  {
+    "id": "adonis-adoni",
+    "name": "Adonis Adoni",
+    "site": "financemagnates",
+    "linkedin": "https://www.linkedin.com/in/adonisadoni/"
+  },
+  {
+    "id": "suzanne-woolley",
+    "name": "Suzanne Woolley",
+    "site": "bloomberg",
+    "linkedin": "https://www.linkedin.com/in/suzwoolley/"
+  },
+  {
+    "id": "lisa-thompson-zacks",
+    "name": "Lisa Thompson",
+    "site": "zacks",
+    "linkedin": "https://www.linkedin.com/in/lisa-thompson-4879081"
+  },
+  {
+    "id": "krisztian-sandor",
+    "name": "Krisztian Sandor",
+    "site": "coindesk",
+    "linkedin": "https://www.linkedin.com/in/sandorkrisztian/"
+  },
+  {
+    "id": "stephen-culp",
+    "name": "Stephen Culp",
+    "site": "reuters",
+    "linkedin": "https://www.linkedin.com/in/stephen-culp-08144014/"
+  },
+  {
+    "id": "john-kicklighter",
+    "name": "John Kicklighter",
+    "site": "dailyfx",
+    "linkedin": "https://www.linkedin.com/in/john-kicklighter-2436134/"
+  },
+  {
+    "id": "colin-lambert",
+    "name": "Colin Lambert",
+    "site": "thefullfx",
+    "linkedin": "https://www.linkedin.com/in/colin-lambert-662b977/"
+  },
+  {
+    "id": "james-royal",
+    "name": "James Royal",
+    "site": "bankrate",
+    "linkedin": "https://www.linkedin.com/in/james-royal-phd/"
+  },
+  {
+    "id": "dan-buckley",
+    "name": "Dan Buckley",
+    "site": "daytrading",
+    "linkedin": "https://www.linkedin.com/in/zdbuckley/"
+  },
+  {
+    "id": "ken-clark",
+    "name": "Ken Clark",
+    "site": "thebalancemoney",
+    "linkedin": "https://www.linkedin.com/in/kensclark/"
+  },
+  {
+    "id": "kasun-wickramasinghe",
+    "name": "Kasun Wickramasinghe",
+    "site": "brokersview",
+    "linkedin": "https://www.linkedin.com/in/kasun-wickramasinghe-448268291/"
+  },
+  {
+    "id": "patrick-sanders",
+    "name": "Patrick Sanders",
+    "site": "usnews_money",
+    "linkedin": "https://www.linkedin.com/in/patrick-sanders-edits"
+  },
+  {
+    "id": "patton-hunnicutt",
+    "name": "Patton Hunnicutt",
+    "site": "benzinga",
+    "linkedin": "https://www.linkedin.com/in/patton-hunnicutt-5927886/"
+  },
+  {
+    "id": "christina-comben",
+    "name": "Christina Comben",
+    "site": "cryptoslate",
+    "linkedin": "https://www.linkedin.com/in/christinacomben/"
+  },
+  {
+    "id": "susannah-snider",
+    "name": "Susannah Snider",
+    "site": "usnews_money",
+    "linkedin": "https://www.linkedin.com/in/susannah-snider-cfp%C2%AE-53699817/"
+  },
+  {
+    "id": "andres-nicolini",
+    "name": "Andres Nicolini",
+    "site": "cashbackforex",
+    "linkedin": "https://www.linkedin.com/in/andres-nicolini-6b3b46b6/"
+  },
+  {
+    "id": "damilola-esebame",
+    "name": "Damilola Esebame",
+    "site": "financefeeds",
+    "linkedin": "https://www.linkedin.com/in/damilolaesebame/"
+  },
+  {
+    "id": "eva-szalay",
+    "name": "Eva Szalay",
+    "site": "thefullfx",
+    "linkedin": "https://www.linkedin.com/in/eva-szalay-14a22234/"
+  },
+  {
+    "id": "andy-sharp-nikkei",
+    "name": "Andy Sharp",
+    "site": "nikkei_asia",
+    "linkedin": "https://www.linkedin.com/in/andrew-sharp-96361bb/"
+  },
+  {
+    "id": "julia-zhu-brokersview",
+    "name": "Julia Zhu",
+    "site": "brokersview",
+    "linkedin": "https://www.linkedin.com/in/wuxiyear/"
+  },
+  {
+    "id": "george-budwell",
+    "name": "George Budwell",
+    "site": "fool",
+    "linkedin": "https://www.linkedin.com/in/george-budwell-ph-d-3000bb106/"
+  },
+  {
+    "id": "brooks-lockett",
+    "name": "Brooks Lockett",
+    "site": "bitcoinmagazine",
+    "linkedin": "https://www.linkedin.com/in/brookslockett"
+  },
+  {
+    "id": "thomas-drury",
+    "name": "Thomas Drury",
+    "site": "theinvestorscentre",
+    "linkedin": "https://uk.linkedin.com/in/thomas-drury-acii-7701a810a"
+  },
+  {
+    "id": "luke-jacobi",
+    "name": "Luke Jacobi",
+    "site": "benzinga",
+    "linkedin": "https://www.linkedin.com/in/luke-jacobi-08721646/"
+  },
+  {
+    "id": "andrew-thurman",
+    "name": "Andrew Thurman",
+    "site": "coinmarketcap",
+    "linkedin": "https://www.linkedin.com/in/andrew-thurman-578b41162/"
+  },
+  {
+    "id": "matthew-levy",
+    "name": "Matthew Levy",
+    "site": "bestbrokers",
+    "linkedin": "https://ca.linkedin.com/in/matthewlevycfa"
+  },
+  {
+    "id": "drew-limsky",
+    "name": "Drew Limsky",
+    "site": "kiplinger",
+    "linkedin": "https://www.linkedin.com/in/drdrewlimsky/"
+  },
+  {
+    "id": "naylyan-nazifova",
+    "name": "Naylyan Nazifova",
+    "site": "bestbrokers",
+    "linkedin": "https://www.linkedin.com/in/naylian-nazifova-58562a272/"
+  },
+  {
+    "id": "sydney-maki",
+    "name": "Sydney Maki",
+    "site": "bloomberg",
+    "linkedin": "https://www.linkedin.com/in/sydneymaki/"
+  },
+  {
+    "id": "ian-allison",
+    "name": "Ian Allison",
+    "site": "coindesk",
+    "linkedin": "https://uk.linkedin.com/in/ian-allison-438a4aaa"
+  },
+  {
+    "id": "charles-lewis-sizemore",
+    "name": "Charles Lewis Sizemore",
+    "site": "kiplinger",
+    "linkedin": "https://www.linkedin.com/in/charles-sizemore/"
+  },
+  {
+    "id": "steve-gelsi",
+    "name": "Steve Gelsi",
+    "site": "marketwatch",
+    "linkedin": "https://www.linkedin.com/in/steve-gelsi/"
+  },
+  {
+    "id": "preston-fore",
+    "name": "Preston Fore",
+    "site": "fortune",
+    "linkedin": "https://www.linkedin.com/in/forepreston/"
+  },
+  {
+    "id": "antonio-fernandes-sousa",
+    "name": "Antonio J. Fernandes Sousa",
+    "site": "tradingeconomics",
+    "linkedin": "https://pt.linkedin.com/in/antonio-j-sousa-713b85302/pt"
+  },
+  {
+    "id": "john-bringans",
+    "name": "John Bringans",
+    "site": "stockbrokers",
+    "linkedin": "https://www.linkedin.com/in/johnbringans/"
+  },
+  {
+    "id": "natalie-campisi",
+    "name": "Natalie Campisi",
+    "site": "forbes",
+    "linkedin": "https://www.linkedin.com/in/nataliecampisi/"
+  },
+  {
+    "id": "maria-nikolova",
+    "name": "Maria Nikolova",
+    "site": "fxnewsgroup",
+    "linkedin": "https://bg.linkedin.com/in/maria-nikolova-16200896"
+  },
+  {
+    "id": "naga-avan-nomayo",
+    "name": "Naga Avan-Nomayo",
+    "site": "theblock",
+    "linkedin": "https://ng.linkedin.com/in/naganomayo"
+  },
+  {
+    "id": "emmanuel-nyame",
+    "name": "Emmanuel Nyame",
+    "site": "bankrate",
+    "linkedin": "https://www.linkedin.com/in/emmanuelnyame/"
+  },
+  {
+    "id": "hannah-smith",
+    "name": "Hannah Smith",
+    "site": "stockbrokers",
+    "linkedin": "https://www.linkedin.com/in/hannah-smith-b5b6b5136/"
+  },
+  {
+    "id": "john-divine",
+    "name": "John Divine",
+    "site": "usnews_money",
+    "linkedin": "https://www.linkedin.com/in/johndivine"
+  },
+  {
+    "id": "margaret-yang",
+    "name": "Margaret Yang Yan, CFA",
+    "site": "dailyfx",
+    "linkedin": "https://sg.linkedin.com/in/margaretyangyan"
+  },
+  {
+    "id": "kathy-lien",
+    "name": "Kathy Lien",
+    "site": "wikifx",
+    "linkedin": "https://www.linkedin.com/in/kathylien/"
+  },
+  {
+    "id": "adrian-lowery",
+    "name": "Adrian Lowery",
+    "site": "thisismoney",
+    "linkedin": "https://www.linkedin.com/in/adrian-lowery-1107a713/"
+  },
+  {
+    "id": "kelly-anne-smith",
+    "name": "Kelly Anne Smith",
+    "site": "forbes",
+    "linkedin": "https://www.linkedin.com/in/kelly-anne-smith/"
+  },
+  {
+    "id": "kai-wang-morningstar",
+    "name": "Kai Wang, CFA",
+    "site": "morningstar",
+    "linkedin": "https://www.linkedin.com/in/kaiwang1/"
+  },
+  {
+    "id": "antoine-gara",
+    "name": "Antoine Gara",
+    "site": "forbes",
+    "linkedin": "https://www.linkedin.com/in/antoine-gara-7544892"
+  },
+  {
+    "id": "ryan-weeks",
+    "name": "Ryan Weeks",
+    "site": "theblock",
+    "linkedin": "https://my.linkedin.com/in/ryan-weeks-75744187"
+  },
+  {
+    "id": "larry-cheung-cfa",
+    "name": "Larry Cheung, CFA",
+    "site": "seekingalpha",
+    "linkedin": "https://www.linkedin.com/in/larrycheung/"
+  },
+  {
+    "id": "sharon-epperson",
+    "name": "Sharon Epperson",
+    "site": "cnbc",
+    "linkedin": "https://www.linkedin.com/in/sharoneppersoncnbc"
+  },
+  {
+    "id": "danny-nelson",
+    "name": "Danny Nelson",
+    "site": "coindesk",
+    "linkedin": "https://www.linkedin.com/in/daniel-nelson/"
+  },
+  {
+    "id": "farran-powell",
+    "name": "Farran Powell",
+    "site": "usnews_money",
+    "linkedin": "https://www.linkedin.com/in/farranpowell/"
+  },
+  {
+    "id": "elisabeth-buchwald",
+    "name": "Elisabeth Buchwald",
+    "site": "cnn_business",
+    "linkedin": "https://www.linkedin.com/in/elisabeth-buchwald/"
+  },
+  {
+    "id": "anastasiia-chabaniuk",
+    "name": "Anastasiia Chabaniuk",
+    "site": "tradersunion",
+    "linkedin": "https://www.linkedin.com/in/anastasiia-chabaniuk-961823284/"
+  },
+  {
+    "id": "molly-rossow",
+    "name": "Molly Rossow",
+    "site": "forexbrokers",
+    "linkedin": "https://www.linkedin.com/in/mollyrossow/"
+  },
+  {
+    "id": "james-stanley",
+    "name": "James Stanley",
+    "site": "dailyfx",
+    "linkedin": "https://www.linkedin.com/in/james-stanley-480b4b7"
+  },
+  {
+    "id": "bruno-perinelli",
+    "name": "Bruno Perinelli",
+    "site": "luxtradingfirm",
+    "linkedin": "https://www.linkedin.com/in/bruno-perinelli-9a3a7919b/"
+  },
+  {
+    "id": "vitaliy-katsenelson",
+    "name": "Vitaliy Katsenelson, CFA",
+    "site": "seekingalpha",
+    "linkedin": "https://www.linkedin.com/in/katsenelson"
+  },
+  {
+    "id": "ross-collins-cfb",
+    "name": "Ross Collins",
+    "site": "compareforexbrokers",
+    "linkedin": "https://www.linkedin.com/in/rossfcollins/"
+  },
+  {
+    "id": "andrew-van-sickle",
+    "name": "Andrew Van Sickle",
+    "site": "moneyweek",
+    "linkedin": "https://www.linkedin.com/in/andrew-van-sickle-821a408b/"
+  },
+  {
+    "id": "jeremy-nation",
+    "name": "Jeremy Nation",
+    "site": "theblock",
+    "linkedin": "https://www.linkedin.com/in/jeremy-nation-9a217b58/"
+  },
+  {
+    "id": "kate-leaman",
+    "name": "Kate Leaman",
+    "site": "asktraders",
+    "linkedin": "https://www.linkedin.com/in/kate-leaman-08803612/"
+  },
+  {
+    "id": "rosie-carr",
+    "name": "Rosie Carr",
+    "site": "investorschronicle",
+    "linkedin": "https://www.linkedin.com/in/rosie-carr-a9865b8/"
+  },
+  {
+    "id": "dhanusha-gokulan",
+    "name": "Dhanusha Gokulan",
+    "site": "gulfnews",
+    "linkedin": "https://www.linkedin.com/in/dhanusha-gokulan-587631a/"
+  },
+  {
+    "id": "greg-bartalos",
+    "name": "Greg Bartalos",
+    "site": "barrons",
+    "linkedin": "https://www.linkedin.com/in/gregbartalos/"
+  },
+  {
+    "id": "kerry-hannon",
+    "name": "Kerry Hannon",
+    "site": "yahoofinance",
+    "linkedin": "https://www.linkedin.com/in/kerryhannon"
+  },
+  {
+    "id": "aaron-khoo-cmc",
+    "name": "Aaron Khoo",
+    "site": "coinmarketcap",
+    "linkedin": "https://www.linkedin.com/in/aaronksw/"
+  },
+  {
+    "id": "adam-levine-weinberg",
+    "name": "Adam Levine-Weinberg, CFA",
+    "site": "seekingalpha",
+    "linkedin": "https://www.linkedin.com/in/adam-levine-weinberg-b7a312163/"
+  },
+  {
+    "id": "michael-kim-zacks",
+    "name": "Michael Kim",
+    "site": "zacks",
+    "linkedin": "https://www.linkedin.com/in/michael-kim-21990a3"
+  },
+  {
+    "id": "bob-mason-fxempire",
+    "name": "Bob Mason",
+    "site": "fxempire",
+    "linkedin": "https://www.linkedin.com/in/bob-mason-6677192/"
+  },
+  {
+    "id": "chris-cammack-fxscouts",
+    "name": "Chris Cammack",
+    "site": "fxscouts",
+    "linkedin": "https://www.linkedin.com/in/chris-cammack-9325048/"
+  },
+  {
+    "id": "sasha-rogelberg",
+    "name": "Sasha Rogelberg",
+    "site": "fortune",
+    "linkedin": "https://www.linkedin.com/in/sasha-rogelberg-88007612b/"
+  },
+  {
+    "id": "john-vandermosten",
+    "name": "John Vandermosten, CFA",
+    "site": "zacks",
+    "linkedin": "https://www.linkedin.com/in/john-vandermosten-8659b72/"
+  },
+  {
+    "id": "alan-brochstein",
+    "name": "Alan Brochstein, CFA",
+    "site": "seekingalpha",
+    "linkedin": "https://www.linkedin.com/in/alanbrochstein/"
+  },
+  {
+    "id": "assad-jafri",
+    "name": "Assad Jafri",
+    "site": "cryptoslate",
+    "linkedin": "https://pk.linkedin.com/in/asad-jafri-76b97015a"
+  },
+  {
+    "id": "alison-heyerdahl",
+    "name": "Alison Heyerdahl",
+    "site": "fxscouts",
+    "linkedin": "https://www.linkedin.com/in/alison-heyerdahl-b296931ba/"
+  },
+  {
+    "id": "jeremy-biberdorf",
+    "name": "Jeremy Biberdorf",
+    "site": "modestmoney",
+    "linkedin": "https://www.linkedin.com/in/jeremybiberdorf/"
+  },
+  {
+    "id": "stephanie-steinberg",
+    "name": "Stephanie Steinberg",
+    "site": "usnews_money",
+    "linkedin": "https://www.linkedin.com/in/stephsteinberg"
+  },
+  {
+    "id": "victoria-lemm",
+    "name": "Victoria Lemm",
+    "site": "thisismoney",
+    "linkedin": "https://www.linkedin.com/in/victoria-lemm-19566994/"
+  },
+  {
+    "id": "ken-shreve",
+    "name": "Ken Shreve",
+    "site": "investors_com",
+    "linkedin": "https://www.linkedin.com/in/ken-shreve-b6b4a753/"
+  },
+  {
+    "id": "tom-cleveland",
+    "name": "Tom Cleveland",
+    "site": "asktraders",
+    "linkedin": "https://www.linkedin.com/in/tocleveland/"
+  },
+  {
+    "id": "tim-backshall",
+    "name": "Tim Backshall",
+    "site": "zerohedge",
+    "linkedin": "https://www.linkedin.com/in/tim-backshall-6a30881/"
+  },
+  {
+    "id": "peter-conley",
+    "name": "Peter Conley",
+    "site": "bitcoinmagazine",
+    "linkedin": "https://www.linkedin.com/in/peter-conley/"
+  },
+  {
+    "id": "holly-mackay",
+    "name": "Holly Mackay",
+    "site": "boringmoney",
+    "linkedin": "https://uk.linkedin.com/in/holly-mackay-9044524"
+  },
+  {
+    "id": "adam-hardy-money",
+    "name": "Adam Hardy",
+    "site": "money_com",
+    "linkedin": "https://www.linkedin.com/in/hardyjournalism/"
+  },
+  {
+    "id": "jesse-hamilton-coindesk",
+    "name": "Jesse Hamilton",
+    "site": "coindesk",
+    "linkedin": "https://www.linkedin.com/in/jessehamilton/"
+  },
+  {
+    "id": "sam-boughedda",
+    "name": "Sam Boughedda",
+    "site": "benzinga",
+    "linkedin": "https://www.linkedin.com/in/sam-boughedda-ab3a7660/"
+  },
+  {
+    "id": "alice-liu-cmc",
+    "name": "Alice Liu",
+    "site": "coinmarketcap",
+    "linkedin": "https://www.linkedin.com/in/alicejingliu/"
+  },
+  {
+    "id": "david-levy-cfb",
+    "name": "David Levy",
+    "site": "compareforexbrokers",
+    "linkedin": "https://www.linkedin.com/in/david-levy1/"
+  },
+  {
+    "id": "nikolai-isayev",
+    "name": "Nikolai Isayev",
+    "site": "financefeeds",
+    "linkedin": "https://cy.linkedin.com/in/nikolaiisayev"
+  },
+  {
+    "id": "daniel-welbers",
+    "name": "Daniel Welbers",
+    "site": "cryptocompare",
+    "linkedin": "https://www.linkedin.com/in/daniel-welbers/"
+  },
+  {
+    "id": "yam-yehoshua",
+    "name": "Yam Yehoshua",
+    "site": "financemagnates",
+    "linkedin": "https://www.linkedin.com/in/yamyehoshua/"
+  },
+  {
+    "id": "sam-kessler-coindesk",
+    "name": "Sam Kessler",
+    "site": "coindesk",
+    "linkedin": "https://www.linkedin.com/in/sam-kessler-746089b0/"
+  },
+  {
+    "id": "aoyon-ashraf",
+    "name": "Aoyon Ashraf",
+    "site": "coindesk",
+    "linkedin": "https://www.linkedin.com/in/aoyon-ashraf-54857319/"
+  },
+  {
+    "id": "will-daniel",
+    "name": "Will Daniel",
+    "site": "fortune",
+    "linkedin": "https://www.linkedin.com/in/willbdaniel/"
+  },
+  {
+    "id": "katie-williams-moneyweek",
+    "name": "Katie Williams",
+    "site": "moneyweek",
+    "linkedin": "https://uk.linkedin.com/in/katie-williams-34b3a1141"
+  },
+  {
+    "id": "blain-reinkensmeyer",
+    "name": "Blain Reinkensmeyer",
+    "site": "stockbrokers",
+    "linkedin": "https://www.linkedin.com/in/blainreinkensmeyer/"
+  },
+  {
+    "id": "michael-cohen-benzinga",
+    "name": "Michael Cohen",
+    "site": "benzinga",
+    "linkedin": "https://www.linkedin.com/in/michael-cohen-74418b133/"
+  },
+  {
+    "id": "mattie-brignal",
+    "name": "Mattie Brignal",
+    "site": "telegraph",
+    "linkedin": "https://www.linkedin.com/in/mattie-brignal-3b9864163/"
+  },
+  {
+    "id": "jackson-wong-phd",
+    "name": "Jackson Wong, PhD",
+    "site": "goodmoneyguide",
+    "linkedin": "https://uk.linkedin.com/in/jackson-wong-2b47034b"
+  },
+  {
+    "id": "hina-navin",
+    "name": "Hina Navin",
+    "site": "gulfnews",
+    "linkedin": "https://www.linkedin.com/in/hinanavin/"
+  },
+  {
+    "id": "adam-woodhead-tic",
+    "name": "Adam Woodhead",
+    "site": "theinvestorscentre",
+    "linkedin": "https://uk.linkedin.com/in/adam-woodhead-81472565"
+  },
+  {
+    "id": "aditi-shrikant",
+    "name": "Aditi Shrikant",
+    "site": "marketwatch",
+    "linkedin": "https://www.linkedin.com/in/aditi-shrikant-980418ab/"
+  },
+  {
+    "id": "lauren-rublin-barrons",
+    "name": "Lauren R. Rublin",
+    "site": "barrons",
+    "linkedin": "https://www.linkedin.com/in/lauren-rublin-4853b76"
+  },
+  {
+    "id": "medha-singh-reuters",
+    "name": "Medha Singh",
+    "site": "reuters",
+    "linkedin": "https://www.linkedin.com/in/medha-singh-0811/"
+  },
+  {
+    "id": "gerald-segal-leaprate",
+    "name": "Gerald Segal",
+    "site": "leaprate",
+    "linkedin": "https://il.linkedin.com/in/gerald-segal-5a94095"
+  },
+  {
+    "id": "gino-matos-cryptoslate",
+    "name": "Gino Matos",
+    "site": "cryptoslate",
+    "linkedin": "https://www.linkedin.com/in/ginomatos/"
+  },
+  {
+    "id": "gary-silverman-nikkei",
+    "name": "Gary Silverman",
+    "site": "nikkei_asia",
+    "linkedin": "https://www.linkedin.com/in/gary-silverman-825519/"
+  },
+  {
+    "id": "zhong-yang-chan-coingecko",
+    "name": "Zhong Yang Chan",
+    "site": "coingecko",
+    "linkedin": "https://www.linkedin.com/in/zychan1/"
+  },
+  {
+    "id": "sam-reynolds-coindesk",
+    "name": "Sam Reynolds",
+    "site": "coindesk",
+    "linkedin": "https://hk.linkedin.com/in/sam-reynolds-996483208"
+  },
+  {
+    "id": "sankrit-k-coingecko",
+    "name": "Sankrit K",
+    "site": "coingecko",
+    "linkedin": "https://www.linkedin.com/in/sankritk/"
+  },
+  {
+    "id": "sebastian-matthes-handelsblatt",
+    "name": "Sebastian Matthes",
+    "site": "handelsblatt",
+    "linkedin": "https://de.linkedin.com/in/sebastianmatthes"
+  },
+  {
+    "id": "emma-burleigh-fortune",
+    "name": "Emma Burleigh",
+    "site": "fortune",
+    "linkedin": "https://www.linkedin.com/in/emma-burleigh-67312819b/"
+  },
+  {
+    "id": "anjana-kumar-gulfnews",
+    "name": "Anjana Kumar",
+    "site": "gulfnews",
+    "linkedin": "https://www.linkedin.com/in/anjanakumarsr/"
+  },
+  {
+    "id": "kimberly-palmer-usnews",
+    "name": "Kimberly Palmer",
+    "site": "usnews_money",
+    "linkedin": "https://www.linkedin.com/in/kimberlyspalmer"
+  },
+  {
+    "id": "karthik-subramanian",
+    "name": "Karthik Subramanian",
+    "site": "financefeeds",
+    "linkedin": "https://www.linkedin.com/in/karthiktradala/"
+  },
+  {
+    "id": "james-barra",
+    "name": "James Barra",
+    "site": "daytrading",
+    "linkedin": "https://www.linkedin.com/in/james-barra-80a14512b/"
+  },
+  {
+    "id": "dan-caplinger",
+    "name": "Dan Caplinger",
+    "site": "fool",
+    "linkedin": "https://www.linkedin.com/in/dan-caplinger-235b7258/"
+  },
+  {
+    "id": "riley-adams",
+    "name": "Riley Adams",
+    "site": "compareforexbrokers",
+    "linkedin": "https://www.linkedin.com/in/riley-adams-cpa"
+  },
+  {
+    "id": "will-canny",
+    "name": "Will Canny",
+    "site": "coindesk",
+    "linkedin": "https://www.linkedin.com/in/will-canny-b787587/"
+  },
+  {
+    "id": "cherry-reynard",
+    "name": "Cherry Reynard",
+    "site": "boringmoney",
+    "linkedin": "https://www.linkedin.com/in/cherry-reynard-b8b59211/"
+  },
+  {
+    "id": "dan-blystone",
+    "name": "Dan Blystone",
+    "site": "fxempire",
+    "linkedin": "https://www.linkedin.com/in/danblystone"
+  },
+  {
+    "id": "alexandreas-kourris",
+    "name": "Alexandreas Kourris",
+    "site": "cashbackforex",
+    "linkedin": "https://www.linkedin.com/in/alexandreas/"
+  },
+  {
+    "id": "jennifer-streaks",
+    "name": "Jennifer Streaks",
+    "site": "businessinsider",
+    "linkedin": "https://www.linkedin.com/in/jstreaks/"
+  },
+  {
+    "id": "jessica-inskip",
+    "name": "Jessica Inskip",
+    "site": "stockbrokers",
+    "linkedin": "https://www.linkedin.com/in/jessica-inskip-5301a065/"
+  },
+  {
+    "id": "samuel-junghenn",
+    "name": "Samuel Junghenn",
+    "site": "traderswithedge",
+    "linkedin": "https://au.linkedin.com/in/samueljunghenn"
+  },
+  {
+    "id": "bibhu-pattnaik",
+    "name": "Bibhu Pattnaik",
+    "site": "benzinga",
+    "linkedin": "https://in.linkedin.com/in/bibhupattnaik"
+  },
+  {
+    "id": "megan-thomas-which",
+    "name": "Megan Thomas",
+    "site": "which",
+    "linkedin": "https://www.linkedin.com/in/megan-thomas-a0b385175/"
+  },
+  {
+    "id": "jack-caporal",
+    "name": "Jack Caporal",
+    "site": "fool",
+    "linkedin": "https://www.linkedin.com/in/jack-caporal/"
+  },
+  {
+    "id": "matt-frankel",
+    "name": "Matt Frankel",
+    "site": "fool",
+    "linkedin": "https://www.linkedin.com/in/mattfrankeltmf/"
+  },
+  {
+    "id": "raghee-horner",
+    "name": "Raghee Horner",
+    "site": "babypips",
+    "linkedin": "https://www.linkedin.com/in/raghee-horner-9a795a157/"
+  },
+  {
+    "id": "jefreda-r-brown",
+    "name": "JeFreda R. Brown",
+    "site": "investopedia",
+    "linkedin": "https://www.linkedin.com/in/jefredabrown"
+  },
+  {
+    "id": "nick-ranga",
+    "name": "Nick Ranga",
+    "site": "asktraders",
+    "linkedin": "https://www.linkedin.com/in/nick-ranga-84614979/"
+  },
+  {
+    "id": "michelle-fox",
+    "name": "Michelle Fox",
+    "site": "cnbc",
+    "linkedin": "https://www.linkedin.com/in/michelle-fox-producer"
+  },
+  {
+    "id": "greg-michalowski",
+    "name": "Greg Michalowski",
+    "site": "forexlive",
+    "linkedin": "https://www.linkedin.com/in/greg-michalowski-5201ba9"
+  },
+  {
+    "id": "mike-ayers-money",
+    "name": "Mike Ayers",
+    "site": "money_com",
+    "linkedin": "https://www.linkedin.com/in/ayersmike/"
+  },
+  {
+    "id": "lorie-konish",
+    "name": "Lorie Konish",
+    "site": "cnbc",
+    "linkedin": "https://www.linkedin.com/in/loriekonish/"
+  },
+  {
+    "id": "prashant-mahesh",
+    "name": "Prashant Mahesh",
+    "site": "economictimes",
+    "linkedin": "https://www.linkedin.com/in/prashant-mahesh-2125335/"
+  },
+  {
+    "id": "josh-lipton",
+    "name": "Josh Lipton",
+    "site": "yahoofinance",
+    "linkedin": "https://www.linkedin.com/in/josh-lipton-9a513112a"
+  },
+  {
+    "id": "stuart-langridge",
+    "name": "Stuart Langridge",
+    "site": "coinmarketcap",
+    "linkedin": "https://mt.linkedin.com/in/stuart-langridge-04043b"
+  },
+  {
+    "id": "alex-eule",
+    "name": "Alex Eule",
+    "site": "barrons",
+    "linkedin": "https://www.linkedin.com/in/alex-eule-4b875514/"
+  },
+  {
+    "id": "akanksha-bakshi-benzinga",
+    "name": "Akanksha Bakshi",
+    "site": "benzinga",
+    "linkedin": "https://in.linkedin.com/in/akanksha-bakshi-56508b27"
+  },
+  {
+    "id": "tareq-sikder-financemagnates",
+    "name": "Tareq Sikder",
+    "site": "financemagnates",
+    "linkedin": "https://www.linkedin.com/in/tareq-sikder-a2165b70/"
+  },
+  {
+    "id": "liam-wright-cryptoslate",
+    "name": "Liam Wright",
+    "site": "cryptoslate",
+    "linkedin": "https://www.linkedin.com/in/liamandrewwright/"
+  },
+  {
+    "id": "lewis-krauskopf-reuters",
+    "name": "Lewis Krauskopf",
+    "site": "reuters",
+    "linkedin": "https://www.linkedin.com/in/lewiskrauskopf/"
+  },
+  {
+    "id": "marc-chandler-investing",
+    "name": "Marc Chandler",
+    "site": "investing",
+    "linkedin": "https://www.linkedin.com/in/chandlermarc"
+  },
+  {
+    "id": "anna-gauto-handelsblatt",
+    "name": "Anna Gauto",
+    "site": "handelsblatt",
+    "linkedin": "https://www.linkedin.com/in/anna-gauto-b934a347/"
+  },
+  {
+    "id": "kyrsten-greenfield-forexbrokers",
+    "name": "Kyrsten Greenfield",
+    "site": "forexbrokers",
+    "linkedin": "https://www.linkedin.com/in/kgreenfield3/"
+  },
+  {
+    "id": "daniel-phillips-coinmarketcap",
+    "name": "Daniel Phillips",
+    "site": "coinmarketcap",
+    "linkedin": "https://www.linkedin.com/in/danielcrypto/"
+  },
+  {
+    "id": "andrew-keshner-marketwatch",
+    "name": "Andrew Keshner",
+    "site": "marketwatch",
+    "linkedin": "https://www.linkedin.com/in/andrew-keshner/"
+  },
+  {
+    "id": "madeleine-ross-telegraph",
+    "name": "Madeleine Ross",
+    "site": "telegraph",
+    "linkedin": "https://uk.linkedin.com/in/madeleine-ross-9ab9041"
+  },
+  {
+    "id": "dan-kemp-morningstar",
+    "name": "Dan Kemp",
+    "site": "morningstar",
+    "linkedin": "https://uk.linkedin.com/in/dan-kemp-b6779437"
+  },
+  {
+    "id": "preston-caldwell-morningstar",
+    "name": "Preston Caldwell",
+    "site": "morningstar",
+    "linkedin": "https://www.linkedin.com/in/prestondavidcaldwell"
+  },
+  {
+    "id": "martin-jensen-propfirmmatch",
+    "name": "Martin Jensen",
+    "site": "propfirmmatch",
+    "linkedin": "https://www.linkedin.com/in/martin-jensen-pfm/"
+  },
+  {
+    "id": "jenny-ross-which",
+    "name": "Jenny Ross",
+    "site": "which",
+    "linkedin": "https://www.linkedin.com/in/jenny-ross-62b089179/"
+  },
+  {
+    "id": "elizabeth-leary-kiplinger",
+    "name": "Elizabeth Leary",
+    "site": "kiplinger",
+    "linkedin": "https://www.linkedin.com/in/elizabethodyleary/"
+  },
+  {
+    "id": "tm-lee-coingecko",
+    "name": "TM Lee",
+    "site": "coingecko",
+    "linkedin": "https://my.linkedin.com/in/leetm"
+  },
+  {
+    "id": "paul-kim-businessinsider",
+    "name": "Paul Kim",
+    "site": "businessinsider",
+    "linkedin": "https://www.linkedin.com/in/paulkimjournalist/"
+  },
+  {
+    "id": "joshua-unseth-bitcoinmagazine",
+    "name": "Joshua Unseth",
+    "site": "bitcoinmagazine",
+    "linkedin": "https://www.linkedin.com/in/junseth/"
+  },
+  {
+    "id": "justin-low-forexlive",
+    "name": "Justin Low",
+    "site": "forexlive",
+    "linkedin": "https://www.linkedin.com/in/justin-low-59652b93/"
+  },
+  {
+    "id": "scott-murdoch-reuters",
+    "name": "Scott Murdoch",
+    "site": "reuters",
+    "linkedin": "https://au.linkedin.com/in/scott-murdoch-882b20146"
+  },
+  {
+    "id": "mark-goodwin-bitcoinmagazine",
+    "name": "Mark Goodwin",
+    "site": "bitcoinmagazine",
+    "linkedin": "https://www.linkedin.com/in/mark-goodwin-000ab622a/"
+  },
+  {
+    "id": "leslie-truex-thebalance",
+    "name": "Leslie Truex",
+    "site": "thebalancemoney",
+    "linkedin": "https://www.linkedin.com/in/leslietruex/"
+  },
+  {
+    "id": "jeff-john-roberts-decrypt",
+    "name": "Jeff John Roberts",
+    "site": "decrypt",
+    "linkedin": "https://www.linkedin.com/in/jeffjohnroberts"
+  },
+  {
+    "id": "andrea-coombes-bankrate",
+    "name": "Andrea Coombes",
+    "site": "bankrate",
+    "linkedin": "https://www.linkedin.com/in/acoombes/"
+  },
+  {
+    "id": "steven-ralston-zacks",
+    "name": "Steven Ralston",
+    "site": "zacks",
+    "linkedin": "https://www.linkedin.com/in/stevenralston/"
+  },
+  {
+    "id": "kalpana-fitzpatrick-moneyweek",
+    "name": "Kalpana Fitzpatrick",
+    "site": "moneyweek",
+    "linkedin": "https://www.linkedin.com/in/kalpanafitzpatrick/"
+  },
+  {
+    "id": "simon-lambert-thisismoney",
+    "name": "Simon Lambert",
+    "site": "thisismoney",
+    "linkedin": "https://uk.linkedin.com/in/simon-lambert-26013233"
+  },
+  {
+    "id": "samuel-potter-bloomberg",
+    "name": "Samuel Potter",
+    "site": "bloomberg",
+    "linkedin": "https://www.linkedin.com/in/samjpotter/"
+  },
+  {
+    "id": "terry-chrisomalis-modestmoney",
+    "name": "Terry Chrisomalis",
+    "site": "modestmoney",
+    "linkedin": "https://www.linkedin.com/in/terry-chrisomalis-72084395/"
+  },
+  {
+    "id": "charles-hayter",
+    "name": "Charles Hayter",
+    "site": "cryptocompare",
+    "linkedin": "https://uk.linkedin.com/in/charles-hayter-ab785425"
+  },
+  {
+    "id": "zoe-yuqing-han",
+    "name": "Zoe Yuqing Han",
+    "site": "marketwatch",
+    "linkedin": "https://www.linkedin.com/in/zoe-yuqing-han/"
+  },
+  {
+    "id": "tanya-chepkova",
+    "name": "Tanya Chepkova",
+    "site": "financemagnates",
+    "linkedin": "https://www.linkedin.com/in/tanya-chepkova-26805035/"
+  },
+  {
+    "id": "eden-alemayehu",
+    "name": "Eden Alemayehu",
+    "site": "morningstar",
+    "linkedin": "https://www.linkedin.com/in/e-alemayehu/"
+  },
+  {
+    "id": "abdelaziz-fathi",
+    "name": "Abdelaziz Fathi",
+    "site": "financefeeds",
+    "linkedin": "https://www.linkedin.com/in/aziz-q-5a8288106/"
+  },
+  {
+    "id": "helene-braun",
+    "name": "Helene Braun",
+    "site": "coindesk",
+    "linkedin": "https://www.linkedin.com/in/helenebraunn/"
+  },
+  {
+    "id": "tracy-wang",
+    "name": "Tracy Wang",
+    "site": "coindesk",
+    "linkedin": "https://www.linkedin.com/in/tracycwang/"
+  },
+  {
+    "id": "molly-jane-zuckerman",
+    "name": "Molly Jane Zuckerman",
+    "site": "coinmarketcap",
+    "linkedin": "https://ru.linkedin.com/in/molly-jane-zuckerman-6b824a72"
+  },
+  {
+    "id": "bhaskar-dutta",
+    "name": "Bhaskar Dutta",
+    "site": "economictimes",
+    "linkedin": "https://www.linkedin.com/in/bhaskar-dutta-596a287b/"
+  },
+  {
+    "id": "lee-boyce",
+    "name": "Lee Boyce",
+    "site": "thisismoney",
+    "linkedin": "https://www.linkedin.com/in/lee-boyce-0037175a/"
+  },
+  {
+    "id": "yurii-kitikari",
+    "name": "Yurii Kitikari",
+    "site": "asktraders",
+    "linkedin": "https://www.linkedin.com/in/yurii-kitikari-b3b73283/"
+  },
+  {
+    "id": "noam-korbl-compareforexbrokers",
+    "name": "Noam Korbl",
+    "site": "compareforexbrokers",
+    "linkedin": "https://au.linkedin.com/in/noam-korbl-201a3266"
+  },
+  {
+    "id": "thomas-kerr-zacks",
+    "name": "Thomas Kerr",
+    "site": "zacks",
+    "linkedin": "https://www.linkedin.com/in/tomkerrcfa/"
+  },
+  {
+    "id": "vandana-singh-benzinga",
+    "name": "Vandana Singh",
+    "site": "benzinga",
+    "linkedin": "https://www.linkedin.com/in/vandanas1904/"
+  },
+  {
+    "id": "daniel-howley-yahoofinance",
+    "name": "Daniel Howley",
+    "site": "yahoofinance",
+    "linkedin": "https://www.linkedin.com/in/daniel-howley-0b117712"
+  },
+  {
+    "id": "eugene-lee-bestbrokers",
+    "name": "Eugene Lee",
+    "site": "bestbrokers",
+    "linkedin": "https://www.linkedin.com/in/etlpro"
+  },
+  {
+    "id": "hilary-osborne-theguardian",
+    "name": "Hilary Osborne",
+    "site": "theguardian_money",
+    "linkedin": "https://uk.linkedin.com/in/hilary-osborne-58a36019"
+  },
+  {
+    "id": "edward-sheldon-goodmoneyguide",
+    "name": "Edward Sheldon",
+    "site": "goodmoneyguide",
+    "linkedin": "https://www.linkedin.com/in/edward-sheldon-cfa-a6a36359/"
+  },
+  {
+    "id": "nathaniel-meyersohn-cnn",
+    "name": "Nathaniel Meyersohn",
+    "site": "cnn_business",
+    "linkedin": "https://www.linkedin.com/in/nathaniel-meyersohn-8b297592"
+  },
+  {
+    "id": "anna-bahney-cnn",
+    "name": "Anna Bahney",
+    "site": "cnn_business",
+    "linkedin": "https://www.linkedin.com/in/annabahney/"
+  },
+  {
+    "id": "caroline-mignon-lesechos",
+    "name": "Caroline Mignon",
+    "site": "lesechos",
+    "linkedin": "https://www.linkedin.com/in/caroline-mignon-4abb7a53/"
+  },
+  {
+    "id": "namrata-sen-benzinga",
+    "name": "Namrata Sen",
+    "site": "benzinga",
+    "linkedin": "https://in.linkedin.com/in/namratasen"
+  },
+  {
+    "id": "patrick-seitz-investors",
+    "name": "Patrick Seitz",
+    "site": "investors_com",
+    "linkedin": "https://www.linkedin.com/in/patrickseitz/"
+  },
+  {
+    "id": "michael-dempster-moneyunder30",
+    "name": "Michael Dempster",
+    "site": "moneyunder30",
+    "linkedin": "https://www.linkedin.com/in/michael-dempster-a08322b3/"
+  },
+  {
+    "id": "werner-vermaak-coinmarketcap",
+    "name": "Werner Vermaak",
+    "site": "coinmarketcap",
+    "linkedin": "https://tw.linkedin.com/in/werner-vermaak-36293424"
+  },
+  {
+    "id": "jared-kirui-financemagnates",
+    "name": "Jared Kirui",
+    "site": "financemagnates",
+    "linkedin": "https://www.linkedin.com/in/jaredkirui"
+  },
+  {
+    "id": "lawrence-lewitinn-coindesk",
+    "name": "Lawrence Lewitinn",
+    "site": "coindesk",
+    "linkedin": "https://www.linkedin.com/in/lvlewitinn/"
+  },
+  {
+    "id": "george-rossi-55brokers",
+    "name": "George Rossi",
+    "site": "55brokers",
+    "linkedin": "https://www.linkedin.com/in/george-r-a275891b2/"
+  },
+  {
+    "id": "quentin-fottrell-marketwatch",
+    "name": "Quentin Fottrell",
+    "site": "marketwatch",
+    "linkedin": "https://www.linkedin.com/in/quantanamo"
+  },
+  {
+    "id": "samuel-pearton-cryptoslate",
+    "name": "Samuel Pearton",
+    "site": "cryptoslate",
+    "linkedin": "https://www.linkedin.com/in/samuelpearton/"
+  },
+  {
+    "id": "bob-haegele-modestmoney",
+    "name": "Bob Haegele",
+    "site": "modestmoney",
+    "linkedin": "https://www.linkedin.com/in/rwhaegele/"
+  },
+  {
+    "id": "daniel-sparks-fool",
+    "name": "Daniel Sparks",
+    "site": "fool",
+    "linkedin": "https://www.linkedin.com/in/danielssparks/"
+  },
+  {
+    "id": "colin-harper-bitcoinmagazine",
+    "name": "Colin Harper",
+    "site": "bitcoinmagazine",
+    "linkedin": "https://www.linkedin.com/in/colin-harper-405042142/"
+  },
+  {
+    "id": "daniel-mccarthy-dailyfx",
+    "name": "Daniel McCarthy",
+    "site": "dailyfx",
+    "linkedin": "https://au.linkedin.com/in/dan-mccarthy-20b4346"
+  },
+  {
+    "id": "sean-ahearn-compareforexbrokers",
+    "name": "Sean A'Hearn",
+    "site": "compareforexbrokers",
+    "linkedin": "https://www.linkedin.com/in/seanahearn88/"
+  },
+  {
+    "id": "nigel-frith-leaprate",
+    "name": "Nigel Frith",
+    "site": "leaprate",
+    "linkedin": "https://www.linkedin.com/in/nigelfrith/"
+  },
+  {
+    "id": "ed-carson-investors",
+    "name": "Ed Carson",
+    "site": "investors_com",
+    "linkedin": "https://www.linkedin.com/in/ed-carson-a2933420"
+  },
+  {
+    "id": "daniel-kuhn-theblock",
+    "name": "Daniel Kuhn",
+    "site": "theblock",
+    "linkedin": "https://www.linkedin.com/in/daniel-kuhn-a65a7816b"
+  },
+  {
+    "id": "michelle-hemstedt-thefullfx",
+    "name": "Michelle Hemstedt",
+    "site": "thefullfx",
+    "linkedin": "https://www.linkedin.com/in/michelle-hemstedt-45512b7/"
+  },
+  {
+    "id": "casey-fleming-bankrate",
+    "name": "Casey Fleming",
+    "site": "bankrate",
+    "linkedin": "https://www.linkedin.com/in/casey-fleming-the-loan-guide/"
+  },
+  {
+    "id": "caleb-silver-investopedia",
+    "name": "Caleb Silver",
+    "site": "investopedia",
+    "linkedin": "https://www.linkedin.com/in/caleb-silver-9639585/"
+  },
+  {
+    "id": "ashlyn-brooks-bankrate",
+    "name": "Ashlyn Brooks",
+    "site": "bankrate",
+    "linkedin": "https://www.linkedin.com/in/ashlyn-brooks-99196a12a/"
+  },
+  {
+    "id": "moritz-koch-handelsblatt",
+    "name": "Moritz Koch",
+    "site": "handelsblatt",
+    "linkedin": "https://be.linkedin.com/in/moritz-koch-420b0a114"
+  },
+  {
+    "id": "arnab-shome-financemagnates",
+    "name": "Arnab Shome",
+    "site": "financemagnates",
+    "linkedin": "https://www.linkedin.com/in/shomearnab/"
+  },
+  {
+    "id": "brett-arends-marketwatch",
+    "name": "Brett Arends",
+    "site": "marketwatch",
+    "linkedin": "https://www.linkedin.com/in/brettarends/"
+  },
+  {
+    "id": "larry-swedroe-morningstar",
+    "name": "Larry Swedroe",
+    "site": "morningstar",
+    "linkedin": "https://www.linkedin.com/in/larry-swedroe-18778267/"
+  },
+  {
+    "id": "vlad-cealicu-cryptocompare",
+    "name": "Vlad Cealicu",
+    "site": "cryptocompare",
+    "linkedin": "https://uk.linkedin.com/in/vcealicu"
+  },
+  {
+    "id": "venessa-wong-marketwatch",
+    "name": "Venessa Wong",
+    "site": "marketwatch",
+    "linkedin": "https://www.linkedin.com/in/venessawwong/"
+  },
+  {
+    "id": "michael-mackenzie-daytrading",
+    "name": "Michael MacKenzie",
+    "site": "daytrading",
+    "linkedin": "https://www.linkedin.com/in/michael-mackenzie-0b94b6136/"
+  },
+  {
+    "id": "kunal-kapoor-morningstar",
+    "name": "Kunal Kapoor",
+    "site": "morningstar",
+    "linkedin": "https://www.linkedin.com/in/kunal-kapoor-morningstar"
+  },
+  {
+    "id": "anna-fedec-tradingeconomics",
+    "name": "Anna Fedec",
+    "site": "tradingeconomics",
+    "linkedin": "https://www.linkedin.com/in/anna-fedec-16a7664/"
+  },
+  {
+    "id": "jeffrey-dastin-reuters",
+    "name": "Jeffrey Dastin",
+    "site": "reuters",
+    "linkedin": "https://www.linkedin.com/in/jeffreydastin"
+  },
+  {
+    "id": "lyn-alden-modestmoney",
+    "name": "Lyn Alden Schwartzer",
+    "site": "modestmoney",
+    "linkedin": "https://www.linkedin.com/in/lynalden/"
+  },
+  {
+    "id": "carrie-kirby-coindesk",
+    "name": "Carrie Kirby",
+    "site": "coindesk",
+    "linkedin": "https://www.linkedin.com/in/carrie-kirby-2732775/"
+  },
+  {
+    "id": "asit-sharma-fool",
+    "name": "Asit Sharma",
+    "site": "fool",
+    "linkedin": "https://www.linkedin.com/in/asit-sharma-832613a/"
+  },
+  {
+    "id": "alissa-coram-investors",
+    "name": "Alissa Coram",
+    "site": "investors_com",
+    "linkedin": "https://www.linkedin.com/in/alissacoram/"
+  },
+  {
+    "id": "terry-flanagan-tradersmag",
+    "name": "Terry Flanagan",
+    "site": "tradersmagazine",
+    "linkedin": "https://www.linkedin.com/in/terflanagan/"
+  },
+  {
+    "id": "kate-dore-cnbc",
+    "name": "Kate Dore, CFP, EA",
+    "site": "cnbc",
+    "linkedin": "https://www.linkedin.com/in/katedore"
+  },
+  {
+    "id": "david-becker-asktraders",
+    "name": "David Becker",
+    "site": "asktraders",
+    "linkedin": "https://www.linkedin.com/in/david-b-37301717/"
+  },
+  {
+    "id": "gerald-segal-fxnewsgroup",
+    "name": "Gerald Segal",
+    "site": "fxnewsgroup",
+    "linkedin": "https://www.linkedin.com/in/gerald-segal-5a94095/"
+  },
+  {
+    "id": "bob-rose-barrons",
+    "name": "Bob Rose",
+    "site": "barrons",
+    "linkedin": "https://www.linkedin.com/in/bob-rose-05752313/"
+  },
+  {
+    "id": "joel-agbo-coingecko",
+    "name": "Joel Agbo",
+    "site": "coingecko",
+    "linkedin": "https://www.linkedin.com/in/agbo-joel-080189124/"
+  },
+  {
+    "id": "david-saito-chung-investors",
+    "name": "David Saito-Chung",
+    "site": "investors_com",
+    "linkedin": "https://www.linkedin.com/in/david-saito-chung-44b15820/"
+  },
+  {
+    "id": "john-ramos-propfirmmatch",
+    "name": "John Ramos",
+    "site": "propfirmmatch",
+    "linkedin": "https://www.linkedin.com/in/john-ramos-264522288/"
+  },
+  {
+    "id": "sue-strachan-benzinga",
+    "name": "Sue Strachan",
+    "site": "benzinga",
+    "linkedin": "https://www.linkedin.com/in/sue-strachan-new-orleans/"
+  },
+  {
+    "id": "lance-cothern",
+    "name": "Lance Cothern",
+    "site": "moneyunder30",
+    "linkedin": "https://www.linkedin.com/in/lancecothern/"
+  },
+  {
+    "id": "sandali-handagama",
+    "name": "Sandali Handagama",
+    "site": "coindesk",
+    "linkedin": "https://www.linkedin.com/in/sandalihandagama/"
+  },
+  {
+    "id": "teresa-rivas",
+    "name": "Teresa Rivas",
+    "site": "barrons",
+    "linkedin": "https://www.linkedin.com/in/teresamrivas/"
+  },
+  {
+    "id": "solveig-godeluck",
+    "name": "Solveig Godeluck",
+    "site": "lesechos",
+    "linkedin": "https://www.linkedin.com/in/solveig-godeluck-8069165/"
+  },
+  {
+    "id": "gabriel-alpert",
+    "name": "Gabriel Alpert",
+    "site": "morningstar",
+    "linkedin": "https://www.linkedin.com/in/gabe-alpert-b209555a/"
+  },
+  {
+    "id": "chris-yates-fxempire",
+    "name": "Chris Yates",
+    "site": "fxempire",
+    "linkedin": "https://www.linkedin.com/in/chris-yates-cfa-72a03b125/"
+  },
+  {
+    "id": "camille-dash",
+    "name": "Camille J. Dash",
+    "site": "marketwatch",
+    "linkedin": "https://www.linkedin.com/in/camillejdash/"
+  },
+  {
+    "id": "ben-levisohn",
+    "name": "Ben Levisohn",
+    "site": "barrons",
+    "linkedin": "https://www.linkedin.com/in/ben-levisohn-5586972/"
+  },
+  {
+    "id": "steve-miley",
+    "name": "Steve Miley",
+    "site": "asktraders",
+    "linkedin": "https://www.linkedin.com/in/stevemileymarketchartist/"
+  },
+  {
+    "id": "justin-grossbard",
+    "name": "Justin Grossbard",
+    "site": "compareforexbrokers",
+    "linkedin": "https://www.linkedin.com/in/justingrossbard/"
+  },
+  {
+    "id": "zaheer-anwari-asktraders",
+    "name": "Zaheer Anwari",
+    "site": "asktraders",
+    "linkedin": "https://www.linkedin.com/in/zaheeranwari/"
+  },
+  {
+    "id": "charles-gakiba-55brokers",
+    "name": "Charles Gakiba",
+    "site": "55brokers",
+    "linkedin": "https://www.linkedin.com/in/charlie-smart-3739751aa/"
+  },
+  {
+    "id": "camille-bas-wohlert-barrons",
+    "name": "Camille Bas-Wohlert",
+    "site": "barrons",
+    "linkedin": "https://www.linkedin.com/in/cbaswohlert/"
+  },
+  {
+    "id": "david-weliver-moneyunder30",
+    "name": "David Weliver",
+    "site": "moneyunder30",
+    "linkedin": "https://www.linkedin.com/in/weliver"
+  },
+  {
+    "id": "ola-alder-fxempire",
+    "name": "Ola Alder",
+    "site": "fxempire",
+    "linkedin": "https://www.linkedin.com/in/ola-alder-42645358/"
+  },
+  {
+    "id": "richard-berry-goodmoneyguide",
+    "name": "Richard Berry",
+    "site": "goodmoneyguide",
+    "linkedin": "https://www.linkedin.com/in/richardberryuk/"
+  }
+]

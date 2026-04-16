@@ -172,6 +172,7 @@ export default function AuthorsResearchPage() {
       score: (a, b) => b.score - a.score,
       auth: (a, b) => b.authoritativeness - a.authoritativeness,
       dr: (a, b) => b.outletDR - a.outletDR,
+      followers: (a, b) => (b.mediaSignals?.linkedinFollowers || 0) - (a.mediaSignals?.linkedinFollowers || 0),
       name: (a, b) => a.name.localeCompare(b.name),
       outlet: (a, b) => a.outletName.localeCompare(b.outletName) || b.finalScore - a.finalScore,
     };
@@ -326,7 +327,7 @@ export default function AuthorsResearchPage() {
           <FilterSelect label="E-E-A-T" value={filterEEAT} onChange={setFilterEEAT}
             options={[["all", "All E-E-A-T"], ["S", "S · Google-ideal"], ["A", "A · Verifiable"], ["B", "B · Exp. low verify"], ["C", "C · Generic"]]} />
           <FilterSelect label="Sort" value={sortBy} onChange={setSortBy}
-            options={[["final", "Sort: final ↓"], ["score", "Sort: base score ↓"], ["auth", "Sort: E-E-A-T ↓"], ["dr", "Sort: DR ↓"], ["name", "Name A→Z"], ["outlet", "Outlet"]]} />
+            options={[["final", "Sort: final ↓"], ["score", "Sort: base score ↓"], ["auth", "Sort: E-E-A-T ↓"], ["dr", "Sort: DR ↓"], ["followers", "Sort: LI followers ↓"], ["name", "Name A→Z"], ["outlet", "Outlet"]]} />
           <MinScoreSlider value={minScore} onChange={setMinScore} />
           <Toggle label="Has LinkedIn" icon={<Linkedin size={12} />} on={filterLinkedIn} onChange={setFilterLinkedIn} />
           <Toggle label="Has email" icon={<Mail size={12} />} on={filterEmail} onChange={setFilterEmail} />
@@ -733,6 +734,20 @@ function AuthorCard({ author, mob }) {
               📚 {author.mediaSignals.authoredBooks.length}
             </span>
           )}
+          {author.mediaSignals?.linkedinFollowers != null && (
+            <span title={`${author.mediaSignals.linkedinFollowers.toLocaleString()} LinkedIn followers (fetched ${author.mediaSignals.linkedinFetchedAt?.split("T")[0] || "—"})`}
+              style={{ padding: "2px 6px", background: "#e0f2fe", color: "#075985", borderRadius: 4, fontWeight: 700 }}>
+              📣 {author.mediaSignals.linkedinFollowers >= 1000
+                ? (author.mediaSignals.linkedinFollowers / 1000).toFixed(author.mediaSignals.linkedinFollowers >= 10000 ? 0 : 1) + "K"
+                : author.mediaSignals.linkedinFollowers.toLocaleString()}
+            </span>
+          )}
+          {author.mediaSignals?.linkedinFollowers == null && author.mediaSignals?.linkedinConnections && (
+            <span title={`${author.mediaSignals.linkedinConnections} LinkedIn connections (followers not exposed)`}
+              style={{ padding: "2px 6px", background: "#f1f5f9", color: "#475569", borderRadius: 4, fontWeight: 600 }}>
+              👥 {author.mediaSignals.linkedinConnections}
+            </span>
+          )}
           {author.needsManualReview && (
             <span title="Needs manual review — socials not surfaced via Layer 5.5 or Rule A"
               style={{ padding: "2px 6px", background: "#fee2e2", color: "#b91c1c", borderRadius: 4, fontWeight: 700 }}>
@@ -863,6 +878,7 @@ function AuthorsTable({ rows, mob }) {
               <Th style={{ width: 50 }}>Badge</Th>
               <Th>Beat</Th>
               <Th style={{ width: 50 }}>Yrs</Th>
+              <Th style={{ width: 80, textAlign: "right" }}>LI ⓕ</Th>
               <Th style={{ width: 140 }}>Contacts</Th>
               <Th style={{ width: 70 }}>Page</Th>
             </tr>
@@ -932,6 +948,15 @@ function AuthorsTable({ rows, mob }) {
                   </div>
                 </Td>
                 <Td style={{ color: palette.text, textAlign: "center" }}>{a.yearsInIndustry || "—"}</Td>
+                <Td style={{ textAlign: "right", fontFamily: "Outfit, sans-serif", fontWeight: 700, color: palette.navy }}>
+                  {a.mediaSignals?.linkedinFollowers != null
+                    ? a.mediaSignals.linkedinFollowers >= 1000
+                      ? (a.mediaSignals.linkedinFollowers / 1000).toFixed(a.mediaSignals.linkedinFollowers >= 10000 ? 0 : 1) + "K"
+                      : a.mediaSignals.linkedinFollowers.toLocaleString()
+                    : a.mediaSignals?.linkedinConnections
+                      ? <span style={{ color: palette.muted, fontWeight: 500, fontSize: 11 }}>{a.mediaSignals.linkedinConnections} conn</span>
+                      : <span style={{ color: palette.muted, fontWeight: 400 }}>—</span>}
+                </Td>
                 <Td>
                   <div style={{ display: "flex", gap: 3 }}>
                     <IconLink url={a.linkedin} title="LinkedIn"><Linkedin size={13} /></IconLink>

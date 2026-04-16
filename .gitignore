@@ -50,3 +50,6 @@ uk-snapshot.md
 
 # Keyword research data (may be regenerated)
 data/
+
+# S7 LinkedIn session (login state, never commit)
+scripts/.li-session/

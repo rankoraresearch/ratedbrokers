@@ -13,6 +13,7 @@ Personal Finance Editor at Yahoo Finance; oversees insurance and tax coverage an
 
 - Role: Personal Finance Editor — Yahoo Finance (editor)
 - LinkedIn: [https://www.linkedin.com/in/molly-moorhead/](https://www.linkedin.com/in/molly-moorhead/)
+  - 500+ LinkedIn connections (followers not exposed)
 - Twitter/X: [https://x.com/mollymoorhead](https://x.com/mollymoorhead)
 - Muck Rack: [https://muckrack.com/mollymoorhead](https://muckrack.com/mollymoorhead)
 - Personal site: —
@@ -60,6 +61,7 @@ Financial journalist with over 20 years of reporting experience. Host of 'Asking
 - Role: Host & Co-Anchor — Yahoo Finance ('Asking for a Trend', 'Closing Bell') (editor)
 - Years in industry: **20**
 - LinkedIn: [https://www.linkedin.com/in/josh-lipton-9a513112a](https://www.linkedin.com/in/josh-lipton-9a513112a)
+  - 500+ LinkedIn connections (followers not exposed)
 - Twitter/X: [https://x.com/joshuahlipton](https://x.com/joshuahlipton)
 - Muck Rack: [https://muckrack.com/joshuahlipton](https://muckrack.com/joshuahlipton)
 - Personal site: —
@@ -99,6 +101,7 @@ Money's lead data journalist, joined full-time in 2021. Covering personal financ
 - Role: Lead Data Journalist — Money (Money.com) (senior)
 - Years in industry: **8**
 - LinkedIn: [https://www.linkedin.com/in/hardyjournalism/](https://www.linkedin.com/in/hardyjournalism/)
+  - **976 followers** on LinkedIn (fetched 2026-04-16)
 - Twitter/X: —
 - Muck Rack: [https://muckrack.com/hardyjournalism](https://muckrack.com/hardyjournalism)
 - Personal site: —
@@ -140,6 +143,7 @@ American journalist covering finance and investing. Columnist for MarketWatch an
 - Location: Boston, Massachusetts, United States
 - Years in industry: **25**
 - LinkedIn: [https://www.linkedin.com/in/brettarends/](https://www.linkedin.com/in/brettarends/)
+  - **8,755 followers** on LinkedIn (fetched 2026-04-16)
 - Twitter/X: [https://x.com/brettarends](https://x.com/brettarends)
 - Muck Rack: [https://muckrack.com/brettarends](https://muckrack.com/brettarends)
 - Personal site: —
@@ -324,6 +328,7 @@ Bitcoin-mining and cryptocurrency journalist covering the space since 2017. Head
 - Location: Nashville, Tennessee, United States
 - Years in industry: **9**
 - LinkedIn: [https://www.linkedin.com/in/colin-harper-405042142/](https://www.linkedin.com/in/colin-harper-405042142/)
+  - 500+ LinkedIn connections (followers not exposed)
 - Twitter/X: [https://x.com/AsILayHodling](https://x.com/AsILayHodling)
 - Muck Rack: [https://muckrack.com/colin-harper](https://muckrack.com/colin-harper)
 - Personal site: —
@@ -545,6 +550,7 @@ Principal writer and editor at Bankrate (Red Ventures) covering investing, finan
 - Role: Principal Writer, Investing & Wealth — Bankrate (Red Ventures); author (senior)
 - Years in industry: **20**
 - LinkedIn: [https://www.linkedin.com/in/james-royal-phd/](https://www.linkedin.com/in/james-royal-phd/)
+  - **750 followers** on LinkedIn (fetched 2026-04-16)
 - Twitter/X: —
 - Muck Rack: [https://muckrack.com/james-royal](https://muckrack.com/james-royal)
 - Personal site: —
@@ -591,6 +597,7 @@ Senior Reporter at Forbes Advisor covering personal finance, mortgages, consumer
 - Location: Los Angeles, California, USA
 - Years in industry: **15**
 - LinkedIn: [https://www.linkedin.com/in/nataliecampisi/](https://www.linkedin.com/in/nataliecampisi/)
+  - **2,368 followers** on LinkedIn (fetched 2026-04-16)
 - Twitter/X: [https://x.com/nataliemcampisi](https://x.com/nataliemcampisi)
 - Muck Rack: [https://muckrack.com/natalie-campisi](https://muckrack.com/natalie-campisi)
 - Personal site: —
@@ -630,6 +637,7 @@ Editor-in-Chief of Investopedia (Dotdash Meredith brand) since 2016. Award-winni
 - Location: New York, United States
 - Years in industry: **28**
 - LinkedIn: [https://www.linkedin.com/in/caleb-silver-9639585/](https://www.linkedin.com/in/caleb-silver-9639585/)
+  - **8,369 followers** on LinkedIn (fetched 2026-04-16)
 - Twitter/X: —
 - Muck Rack: [https://muckrack.com/calebsilver](https://muckrack.com/calebsilver)
 - Personal site: —
@@ -806,6 +814,7 @@ Strategist at DailyFX (IG Group's partner site for FX news and analysis). 9+ yea
 - Location: Singapore
 - Years in industry: **9**
 - LinkedIn: [https://sg.linkedin.com/in/margaretyangyan](https://sg.linkedin.com/in/margaretyangyan)
+  - 500+ LinkedIn connections (followers not exposed)
 - Twitter/X: [https://twitter.com/margaretyjy](https://twitter.com/margaretyjy)
 - Muck Rack: [https://muckrack.com/margaret-yang](https://muckrack.com/margaret-yang)
 - Personal site: —
@@ -852,6 +861,7 @@ Editor in Chief of Barron's (appointed 2025). 15-year veteran of Dow Jones. Most
 - Location: New York, New York, USA
 - Years in industry: **20**
 - LinkedIn: [https://www.linkedin.com/in/ben-levisohn-5586972/](https://www.linkedin.com/in/ben-levisohn-5586972/)
+  - 500+ LinkedIn connections (followers not exposed)
 - Twitter/X: —
 - Muck Rack: [https://muckrack.com/ben_levisohn](https://muckrack.com/ben_levisohn)
 - Personal site: —
@@ -897,6 +907,7 @@ Associate Editor and Consumer Editor at Financial Times. Presents weekly Money C
 - Location: London, UK
 - Years in industry: **15**
 - LinkedIn: [https://uk.linkedin.com/in/claer-barrett-74088414](https://uk.linkedin.com/in/claer-barrett-74088414)
+  - **3,486 followers** on LinkedIn (fetched 2026-04-16)
 - Twitter/X: [https://x.com/claerb](https://x.com/claerb)
 - Muck Rack: [https://muckrack.com/claerb](https://muckrack.com/claerb)
 - Personal site: [https://www.claerbarrett.com/](https://www.claerbarrett.com/)
@@ -941,6 +952,7 @@ Principal and Director of Research at Buckingham Strategic Wealth / Buckingham S
 - Location: St. Louis, Missouri, United States
 - Years in industry: **40**
 - LinkedIn: [https://www.linkedin.com/in/larry-swedroe-18778267/](https://www.linkedin.com/in/larry-swedroe-18778267/)
+  - **280,836 followers** on LinkedIn (fetched 2026-04-16)
 - Twitter/X: [https://x.com/larryswedroe](https://x.com/larryswedroe)
 - Muck Rack: [https://muckrack.com/larryswedroe](https://muckrack.com/larryswedroe)
 - Personal site: —
@@ -1026,6 +1038,7 @@ London-based market analyst and equities trader with over 20 years in financial 
 - Location: London, United Kingdom
 - Years in industry: **20**
 - LinkedIn: [https://www.linkedin.com/in/richard-perry-5918921b/](https://www.linkedin.com/in/richard-perry-5918921b/)
+  - 500+ LinkedIn connections (followers not exposed)
 - Twitter/X: —
 - Muck Rack: —
 - Personal site: [https://www.perrymarketanalysis.com/](https://www.perrymarketanalysis.com/)
@@ -1124,6 +1137,7 @@ Deputy Managing Editor on CoinDesk's Global Policy and Regulation team, based in
 - Location: Washington, D.C., USA
 - Years in industry: **20**
 - LinkedIn: [https://www.linkedin.com/in/jessehamilton/](https://www.linkedin.com/in/jessehamilton/)
+  - **5,298 followers** on LinkedIn (fetched 2026-04-16)
 - Twitter/X: —
 - Muck Rack: [https://muckrack.com/jesse-hamilton](https://muckrack.com/jesse-hamilton)
 - Personal site: —
@@ -1254,6 +1268,7 @@ Senior reporter covering markets and the economy. At Fortune magazine since Marc
 - Role: Writer & Housing Market Analyst (senior)
 - Years in industry: **20**
 - LinkedIn: [https://www.linkedin.com/in/jeff-ostrowski-920b582/](https://www.linkedin.com/in/jeff-ostrowski-920b582/)
+  - **3,537 followers** on LinkedIn (fetched 2026-04-16)
 - Twitter/X: [https://twitter.com/bio561](https://twitter.com/bio561)
 - Muck Rack: —
 - Personal site: —
@@ -1352,6 +1367,7 @@ Personal finance writer on Bloomberg's Wealth team in New York, covering saving,
 - Location: New York, NY, USA
 - Years in industry: **20**
 - LinkedIn: [https://www.linkedin.com/in/suzwoolley/](https://www.linkedin.com/in/suzwoolley/)
+  - **1,971 followers** on LinkedIn (fetched 2026-04-16)
 - Twitter/X: —
 - Muck Rack: [https://muckrack.com/suzanne-woolley](https://muckrack.com/suzanne-woolley)
 - Personal site: —
@@ -1391,6 +1407,7 @@ CNBC's Senior Personal Finance Correspondent and creator/editor of the 'Money 10
 - Location: USA
 - Years in industry: **30**
 - LinkedIn: [https://www.linkedin.com/in/sharoneppersoncnbc](https://www.linkedin.com/in/sharoneppersoncnbc)
+  - 500+ LinkedIn connections (followers not exposed)
 - Twitter/X: [https://x.com/sharon_epperson](https://x.com/sharon_epperson)
 - Muck Rack: [https://muckrack.com/sharon_epperson](https://muckrack.com/sharon_epperson)
 - Personal site: —
@@ -1520,6 +1537,7 @@ Lead Writer for Asia Finance & Markets at Reuters (formerly Asia Capital Markets
 - Location: Sydney, NSW, Australia
 - Years in industry: **22**
 - LinkedIn: [https://au.linkedin.com/in/scott-murdoch-882b20146](https://au.linkedin.com/in/scott-murdoch-882b20146)
+  - **2,669 followers** on LinkedIn (fetched 2026-04-16)
 - Twitter/X: [https://twitter.com/murdochsj](https://twitter.com/murdochsj)
 - Muck Rack: [https://muckrack.com/scott-murdoch](https://muckrack.com/scott-murdoch)
 - Personal site: —
@@ -1701,6 +1719,7 @@ Finance & Crypto Editor at Fortune and host of the Fortune Crypto Playbook vodca
 - Role: Finance & Crypto Editor, Fortune (former Executive Editor at Decrypt) (editor)
 - Years in industry: **13**
 - LinkedIn: [https://www.linkedin.com/in/jeffjohnroberts](https://www.linkedin.com/in/jeffjohnroberts)
+  - 500+ LinkedIn connections (followers not exposed)
 - Twitter/X: —
 - Muck Rack: —
 - Personal site: [https://jeffjohnroberts.com/](https://jeffjohnroberts.com/)
@@ -1754,6 +1773,7 @@ Value investor researching and writing about stocks for Seeking Alpha and The Mo
 - Role: Contributor — value investor (contributor)
 - Years in industry: **14**
 - LinkedIn: [https://www.linkedin.com/in/adam-levine-weinberg-b7a312163/](https://www.linkedin.com/in/adam-levine-weinberg-b7a312163/)
+  - 140 LinkedIn connections (followers not exposed)
 - Twitter/X: —
 - Muck Rack: [https://muckrack.com/adam-levine-weinberg-cfa](https://muckrack.com/adam-levine-weinberg-cfa)
 - Personal site: —
@@ -1849,6 +1869,7 @@ Chief Executive Officer of Morningstar since 2017. Joined Morningstar in 1997 as
 - Location: Chicago, Illinois, United States
 - Years in industry: **28**
 - LinkedIn: [https://www.linkedin.com/in/kunal-kapoor-morningstar](https://www.linkedin.com/in/kunal-kapoor-morningstar)
+  - 500+ LinkedIn connections (followers not exposed)
 - Twitter/X: —
 - Muck Rack: —
 - Personal site: —
@@ -1984,6 +2005,7 @@ Senior writer / Associate Editor at Barron's (since 2018). 17 years on Wall Stre
 - Role: Senior Writer / Associate Editor — Barron's (senior)
 - Years in industry: **25**
 - LinkedIn: [https://www.linkedin.com/in/allen-root-b0030313/](https://www.linkedin.com/in/allen-root-b0030313/)
+  - **138,586 followers** on LinkedIn (fetched 2026-04-16)
 - Twitter/X: [https://x.com/DowJonesAl](https://x.com/DowJonesAl)
 - Muck Rack: [https://muckrack.com/dowjonesal](https://muckrack.com/dowjonesal)
 - Personal site: [https://www.alrootwriting.com/](https://www.alrootwriting.com/)
@@ -2333,6 +2355,7 @@ Founder of Simply Safe Dividends (2015) — online tools and research to help in
 - Location: Greater Indianapolis, IN, USA
 - Years in industry: **10**
 - LinkedIn: [https://www.linkedin.com/in/brian-bollinger-b6111a11/](https://www.linkedin.com/in/brian-bollinger-b6111a11/)
+  - **2,000 followers** on LinkedIn (fetched 2026-04-16)
 - Twitter/X: —
 - Muck Rack: —
 - Personal site: [https://www.simplysafedividends.com/](https://www.simplysafedividends.com/)
@@ -2378,6 +2401,7 @@ Freelance columnist since 2010. Former investment portfolio manager and CFO for 
 - Location: San Jose, CA, USA
 - Years in industry: **25**
 - LinkedIn: [https://www.linkedin.com/in/barbarafriedberg/](https://www.linkedin.com/in/barbarafriedberg/)
+  - 500+ LinkedIn connections (followers not exposed)
 - Twitter/X: —
 - Muck Rack: —
 - Personal site: [https://barbarafriedbergpersonalfinance.com](https://barbarafriedbergpersonalfinance.com)
@@ -2514,6 +2538,7 @@ Multi-award-winning financial journalist since 2000 with 25+ years of experience
 - Location: UK
 - Years in industry: **25**
 - LinkedIn: [https://www.linkedin.com/in/cherry-reynard-b8b59211/](https://www.linkedin.com/in/cherry-reynard-b8b59211/)
+  - 500+ LinkedIn connections (followers not exposed)
 - Twitter/X: [https://x.com/creynard0654](https://x.com/creynard0654)
 - Muck Rack: [https://muckrack.com/cherry-reynard](https://muckrack.com/cherry-reynard)
 - Personal site: —
@@ -2665,6 +2690,7 @@ Chief Market Analyst at AvaTrade and Lead Stock Analyst at AskTraders. Won the S
 - Location: London, United Kingdom
 - Years in industry: **15**
 - LinkedIn: [https://www.linkedin.com/in/kate-leaman-08803612/](https://www.linkedin.com/in/kate-leaman-08803612/)
+  - 500+ LinkedIn connections (followers not exposed)
 - Twitter/X: —
 - Muck Rack: —
 - Personal site: —
@@ -2710,6 +2736,7 @@ Certified Public Accountant (CPA) licensed in Indiana (also holds CPA in Commonw
 - Role: Contributor / Founder Money Manifesto (contributor)
 - Location: Indiana, USA
 - LinkedIn: [https://www.linkedin.com/in/lancecothern/](https://www.linkedin.com/in/lancecothern/)
+  - 484 LinkedIn connections (followers not exposed)
 - Twitter/X: [https://twitter.com/money_manifesto](https://twitter.com/money_manifesto)
 - Muck Rack: —
 - Personal site: [https://www.moneymanifesto.com/](https://www.moneymanifesto.com/)
@@ -2805,6 +2832,7 @@ Professional trader and market analyst with 17+ years trading pan-European and U
 - Location: United Kingdom
 - Years in industry: **29**
 - LinkedIn: [https://www.linkedin.com/in/stevemileymarketchartist/](https://www.linkedin.com/in/stevemileymarketchartist/)
+  - **6,330 followers** on LinkedIn (fetched 2026-04-16)
 - Twitter/X: —
 - Muck Rack: —
 - Personal site: [https://marketchartist.com/](https://marketchartist.com/)
@@ -3213,6 +3241,7 @@ London-based investment writer with 15+ years of experience in private wealth ma
 - Location: London, United Kingdom
 - Years in industry: **15**
 - LinkedIn: [https://www.linkedin.com/in/edward-sheldon-cfa-a6a36359/](https://www.linkedin.com/in/edward-sheldon-cfa-a6a36359/)
+  - 500+ LinkedIn connections (followers not exposed)
 - Twitter/X: [https://twitter.com/edwardsheldon7](https://twitter.com/edwardsheldon7)
 - Muck Rack: —
 - Personal site: —
@@ -3305,6 +3334,7 @@ Founder and Managing Director of Good Money Guide (established 2015, originally 
 - Location: Mayfair, London, United Kingdom
 - Years in industry: **24**
 - LinkedIn: [https://www.linkedin.com/in/richardberryuk/](https://www.linkedin.com/in/richardberryuk/)
+  - 500+ LinkedIn connections (followers not exposed)
 - Twitter/X: [https://twitter.com/GoodMoneyGuide](https://twitter.com/GoodMoneyGuide)
 - Muck Rack: —
 - Personal site: [https://goodmoneyguide.com](https://goodmoneyguide.com)
@@ -3688,6 +3718,7 @@ Online entrepreneur, author and speaker. Started WorkAtHomeSuccess.com in 1998. 
 - Role: Home Business Expert (former About.com / The Balance Small Business) (contributor)
 - Years in industry: **25**
 - LinkedIn: [https://www.linkedin.com/in/leslietruex/](https://www.linkedin.com/in/leslietruex/)
+  - 500+ LinkedIn connections (followers not exposed)
 - Twitter/X: —
 - Muck Rack: —
 - Personal site: [https://leslietruex.com/](https://leslietruex.com/)
