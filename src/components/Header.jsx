@@ -205,55 +205,64 @@ export default function Header() {
     padding: 24, zIndex: 1001,
   };
 
-  const hov = (e) => { e.currentTarget.style.background = "#f0fdf4"; };
-  const unhov = (e) => { e.currentTarget.style.background = "transparent"; };
+  /* D1 Rail bottom — hover для dd-links (card items в Reviews dropdown) */
+  const hov = (e) => { e.currentTarget.style.background = "#f1f5f9"; e.currentTarget.style.color = "#047857"; };
+  const unhov = (e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#111827"; };
 
   /* compact link style (no icons, no descriptions) */
   const compactLink = {
-    display: "block", padding: "5px 8px", borderRadius: 6,
+    display: "block", padding: "6px 10px", borderRadius: 0,
     textDecoration: "none", color: "#1f2937",
     fontSize: 14, fontWeight: 500, transition: "all 0.15s",
     lineHeight: 1.4,
   };
-  const hovCompact = (e) => { e.currentTarget.style.background = "#f0fdf4"; e.currentTarget.style.color = "#059669"; };
+  /* D1 Rail bottom — compact hover: slate bg + darker green text */
+  const hovCompact = (e) => { e.currentTarget.style.background = "#f1f5f9"; e.currentTarget.style.color = "#047857"; };
   const unhovCompact = (e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#1f2937"; };
 
-  /* ── helper: nav button (desktop) ── */
-  const NavBtn = ({ id, label }) => (
-    <button
-      style={{
-        fontSize: 15, fontWeight: 500,
-        color: activeDropdown === id ? "#059669" : "#111827",
-        background: activeDropdown === id ? "#f0fdf4" : "transparent",
-        border: "none", padding: "8px 10px", borderRadius: 8,
-        cursor: "pointer", display: "flex", alignItems: "center", gap: 3,
-        transition: "all 0.2s", fontFamily: "inherit", whiteSpace: "nowrap",
-      }}
-      onMouseEnter={(e) => { if (activeDropdown !== id) { e.currentTarget.style.color = "#059669"; e.currentTarget.style.background = "#f0fdf4"; } }}
-      onMouseLeave={(e) => { if (activeDropdown !== id) { e.currentTarget.style.color = "#111827"; e.currentTarget.style.background = "transparent"; } }}
-    >
-      {label}
-      <span style={{
-        color: "#64748b",
-        transition: "transform 0.2s",
-        transform: activeDropdown === id ? "rotate(180deg)" : "none",
-        display: "inline-flex",
-      }}><ChevronDown size={12} /></span>
-    </button>
-  );
+  /* ── helper: nav button (desktop) — D1 Rail bottom ── */
+  const NavBtn = ({ id, label }) => {
+    const isActive = activeDropdown === id;
+    return (
+      <button
+        style={{
+          fontSize: 15, fontWeight: 500,
+          color: isActive ? "#047857" : "#111827",
+          background: "transparent",
+          border: "none",
+          borderBottom: `3px solid ${isActive ? "#059669" : "transparent"}`,
+          padding: "8px 10px 5px",
+          cursor: "pointer", display: "flex", alignItems: "center", gap: 3,
+          transition: "color 160ms, border-color 160ms", fontFamily: "inherit", whiteSpace: "nowrap",
+        }}
+        onMouseEnter={(e) => { if (!isActive) { e.currentTarget.style.color = "#047857"; e.currentTarget.style.borderBottomColor = "#059669"; } }}
+        onMouseLeave={(e) => { if (!isActive) { e.currentTarget.style.color = "#111827"; e.currentTarget.style.borderBottomColor = "transparent"; } }}
+      >
+        {label}
+        <span style={{
+          color: "#64748b",
+          transition: "transform 0.2s",
+          transform: isActive ? "rotate(180deg)" : "none",
+          display: "inline-flex",
+        }}><ChevronDown size={12} /></span>
+      </button>
+    );
+  };
 
-  /* ── helper: simple link (desktop) ── */
+  /* ── helper: simple link (desktop) — D1 Rail bottom ── */
   const NavLink = ({ to, label, match }) => (
     <Link
       to={to}
       style={{
         fontSize: 15, fontWeight: match ? 700 : 500,
-        color: match ? "#0f172a" : "#111827",
-        textDecoration: "none", padding: "8px 10px", borderRadius: 8,
-        transition: "all 0.2s", whiteSpace: "nowrap",
+        color: match ? "#047857" : "#111827",
+        textDecoration: "none",
+        padding: "8px 10px 5px",
+        borderBottom: `3px solid ${match ? "#059669" : "transparent"}`,
+        transition: "color 160ms, border-color 160ms", whiteSpace: "nowrap",
       }}
-      onMouseEnter={(e) => { e.currentTarget.style.color = "#059669"; e.currentTarget.style.background = "#f0fdf4"; }}
-      onMouseLeave={(e) => { e.currentTarget.style.color = match ? "#059669" : "#1f2937"; e.currentTarget.style.background = "transparent"; }}
+      onMouseEnter={(e) => { e.currentTarget.style.color = "#047857"; e.currentTarget.style.borderBottomColor = "#059669"; }}
+      onMouseLeave={(e) => { e.currentTarget.style.color = match ? "#047857" : "#1f2937"; e.currentTarget.style.borderBottomColor = match ? "#059669" : "transparent"; }}
     >
       {label}
     </Link>
@@ -392,18 +401,20 @@ export default function Header() {
           ) : (
             <nav style={{ display: "flex", gap: 2, alignItems: "center" }}>
 
-              {/* ─── 1. Forex Brokers ▾ ─── */}
+              {/* ─── 1. Forex Brokers ▾ — D1 Rail bottom ─── */}
               <div style={{ position: "relative" }} onMouseEnter={() => enter("forex")} onMouseLeave={leave}>
                 <Link to={lp("/best-forex-brokers")} style={{
                   fontSize: 15, fontWeight: 500,
-                  color: activeDropdown === "forex" ? "#059669" : "#1f2937",
-                  background: activeDropdown === "forex" ? "#f0fdf4" : "transparent",
-                  border: "none", padding: "8px 10px", borderRadius: 8,
+                  color: activeDropdown === "forex" ? "#047857" : "#1f2937",
+                  background: "transparent",
+                  border: "none",
+                  borderBottom: `3px solid ${activeDropdown === "forex" ? "#059669" : "transparent"}`,
+                  padding: "8px 10px 5px",
                   display: "flex", alignItems: "center", gap: 3,
-                  transition: "all 0.2s", whiteSpace: "nowrap", textDecoration: "none",
+                  transition: "color 160ms, border-color 160ms", whiteSpace: "nowrap", textDecoration: "none",
                 }}
-                  onMouseEnter={(e) => { e.currentTarget.style.color = "#059669"; e.currentTarget.style.background = "#f0fdf4"; }}
-                  onMouseLeave={(e) => { if (activeDropdown !== "forex") { e.currentTarget.style.color = "#111827"; e.currentTarget.style.background = "transparent"; } }}
+                  onMouseEnter={(e) => { if (activeDropdown !== "forex") { e.currentTarget.style.color = "#047857"; e.currentTarget.style.borderBottomColor = "#059669"; } }}
+                  onMouseLeave={(e) => { if (activeDropdown !== "forex") { e.currentTarget.style.color = "#1f2937"; e.currentTarget.style.borderBottomColor = "transparent"; } }}
                 >
                   {t("nav.forexBrokers")}
                   <span style={{
@@ -460,8 +471,9 @@ export default function Header() {
                     </div>
                     <Link to={lp("/best-forex-brokers")} style={{
                       display: "block", marginTop: 16, padding: "10px 14px", borderRadius: 8,
-                      background: "#f0fdf4", color: "#059669", fontSize: 14, fontWeight: 700,
-                      textDecoration: "none", textAlign: "center", border: "1px solid #a7f3d0",
+                      background: "#f8fafc", color: "#047857", fontSize: 14, fontWeight: 700,
+                      textDecoration: "none", textAlign: "left",
+                      borderTop: "1px solid #e2e8f0", borderLeft: "3px solid #059669", borderRadius: 0,
                     }}>Best Forex Brokers 2026 — Full Rankings &amp; Comparison <ArrowRight size={14} style={{ verticalAlign: "middle" }} /></Link>
                     <Link to={lp("/rankings")} style={{
                       display: "block", marginTop: 6, padding: "8px 14px", borderRadius: 8,
@@ -475,18 +487,20 @@ export default function Header() {
                 )}
               </div>
 
-              {/* ─── 2. Crypto Brokers ▾ ─── */}
+              {/* ─── 2. Crypto Brokers ▾ — D1 Rail bottom ─── */}
               <div style={{ position: "relative" }} onMouseEnter={() => enter("crypto")} onMouseLeave={leave}>
                 <Link to={lp("/best-crypto-brokers")} style={{
                   fontSize: 15, fontWeight: 500,
-                  color: activeDropdown === "crypto" ? "#059669" : "#1f2937",
-                  background: activeDropdown === "crypto" ? "#f0fdf4" : "transparent",
-                  border: "none", padding: "8px 10px", borderRadius: 8,
+                  color: activeDropdown === "crypto" ? "#047857" : "#1f2937",
+                  background: "transparent",
+                  border: "none",
+                  borderBottom: `3px solid ${activeDropdown === "crypto" ? "#059669" : "transparent"}`,
+                  padding: "8px 10px 5px",
                   display: "flex", alignItems: "center", gap: 3,
-                  transition: "all 0.2s", whiteSpace: "nowrap", textDecoration: "none",
+                  transition: "color 160ms, border-color 160ms", whiteSpace: "nowrap", textDecoration: "none",
                 }}
-                  onMouseEnter={(e) => { e.currentTarget.style.color = "#059669"; e.currentTarget.style.background = "#f0fdf4"; }}
-                  onMouseLeave={(e) => { if (activeDropdown !== "crypto") { e.currentTarget.style.color = "#111827"; e.currentTarget.style.background = "transparent"; } }}
+                  onMouseEnter={(e) => { if (activeDropdown !== "crypto") { e.currentTarget.style.color = "#047857"; e.currentTarget.style.borderBottomColor = "#059669"; } }}
+                  onMouseLeave={(e) => { if (activeDropdown !== "crypto") { e.currentTarget.style.color = "#1f2937"; e.currentTarget.style.borderBottomColor = "transparent"; } }}
                 >
                   {t("nav.cryptoBrokers")}
                   <span style={{
@@ -528,8 +542,9 @@ export default function Header() {
                     </div>
                     <Link to={lp("/best-crypto-brokers")} style={{
                       display: "block", marginTop: 16, padding: "10px 14px", borderRadius: 8,
-                      background: "#f0fdf4", color: "#059669", fontSize: 14, fontWeight: 700,
-                      textDecoration: "none", textAlign: "center", border: "1px solid #a7f3d0",
+                      background: "#f8fafc", color: "#047857", fontSize: 14, fontWeight: 700,
+                      textDecoration: "none", textAlign: "left",
+                      borderTop: "1px solid #e2e8f0", borderLeft: "3px solid #059669", borderRadius: 0,
                     }}>Best Crypto Brokers 2026 — Full Rankings &amp; Comparison <ArrowRight size={14} style={{ verticalAlign: "middle" }} /></Link>
                   </div>
                 )}
@@ -563,8 +578,7 @@ export default function Header() {
                               </div>
                               <span style={{
                                 fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: 13,
-                                color: b.score >= 9.5 ? "#059669" : "#2563eb",
-                                background: b.score >= 9.5 ? "#ecfdf5" : "#eff6ff",
+                                color: "#0f172a", background: "#f1f5f9",
                                 padding: "2px 6px", borderRadius: 4,
                               }}>{b.score}</span>
                             </Link>
@@ -589,9 +603,10 @@ export default function Header() {
                           ))}
                         </div>
                         <Link to={lp("/best-forex-brokers")} style={{
-                          display: "block", marginTop: 12, padding: "10px 14px", borderRadius: 8,
-                          background: "#f0fdf4", color: "#059669", fontSize: 14, fontWeight: 700,
-                          textDecoration: "none", textAlign: "center",
+                          display: "block", marginTop: 12, padding: "10px 14px", borderRadius: 0,
+                          background: "#f8fafc", color: "#047857", fontSize: 14, fontWeight: 700,
+                          textDecoration: "none", textAlign: "left",
+                          borderTop: "1px solid #e2e8f0", borderLeft: "3px solid #059669",
                         }}>Best Forex Brokers 2026 — Full Rankings</Link>
                       </div>
                     </div>
@@ -633,12 +648,14 @@ export default function Header() {
                       </div>
                     </div>
                     <Link to={lp("/guides")} style={{
-                      display: "block", marginTop: 16, padding: "10px 14px", borderRadius: 8,
-                      background: "#f0fdf4", color: "#059669", fontSize: 14, fontWeight: 700,
-                      textDecoration: "none", textAlign: "center",
+                      display: "block", marginTop: 16, padding: "12px 16px", borderRadius: 0,
+                      background: "#f8fafc", color: "#047857", fontSize: 14, fontWeight: 700,
+                      textDecoration: "none", textAlign: "left",
+                      borderTop: "1px solid #e2e8f0", borderLeft: "3px solid #059669",
+                      transition: "background 160ms",
                     }}
-                      onMouseEnter={(e) => { e.currentTarget.style.background = "#dcfce7"; }}
-                      onMouseLeave={(e) => { e.currentTarget.style.background = "#f0fdf4"; }}
+                      onMouseEnter={(e) => { e.currentTarget.style.background = "#f1f5f9"; }}
+                      onMouseLeave={(e) => { e.currentTarget.style.background = "#f8fafc"; }}
                     >{t("mega.viewAllGuides")} <ArrowRight size={14} style={{ verticalAlign: "middle" }} /></Link>
                   </div>
                 )}
@@ -687,12 +704,14 @@ export default function Header() {
                       </div>
                     </div>
                     <Link to={lp("/best-forex-brokers-by-country")} style={{
-                      display: "block", marginTop: 16, padding: "10px 14px", borderRadius: 8,
-                      background: "#f0fdf4", color: "#059669", fontSize: 14, fontWeight: 700,
-                      textDecoration: "none", textAlign: "center",
+                      display: "block", marginTop: 16, padding: "12px 16px", borderRadius: 0,
+                      background: "#f8fafc", color: "#047857", fontSize: 14, fontWeight: 700,
+                      textDecoration: "none", textAlign: "left",
+                      borderTop: "1px solid #e2e8f0", borderLeft: "3px solid #059669",
+                      transition: "background 160ms",
                     }}
-                      onMouseEnter={(e) => { e.currentTarget.style.background = "#dcfce7"; }}
-                      onMouseLeave={(e) => { e.currentTarget.style.background = "#f0fdf4"; }}
+                      onMouseEnter={(e) => { e.currentTarget.style.background = "#f1f5f9"; }}
+                      onMouseLeave={(e) => { e.currentTarget.style.background = "#f8fafc"; }}
                     >{t("mega.viewAllCountries")} <ArrowRight size={14} style={{ verticalAlign: "middle" }} /></Link>
                   </div>
                 )}
@@ -708,7 +727,7 @@ export default function Header() {
                   cursor: "pointer", display: "inline-flex", alignItems: "center",
                   transition: "all 0.2s",
                 }}
-                onMouseEnter={(e) => { e.currentTarget.style.color = "#059669"; e.currentTarget.style.background = "#f0fdf4"; }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = "#047857"; e.currentTarget.style.background = "#e2e8f0"; }}
                 onMouseLeave={(e) => { e.currentTarget.style.color = "#1f2937"; e.currentTarget.style.background = "#f1f5f9"; }}
               ><SearchIcon size={16} /></button>
 
@@ -722,7 +741,7 @@ export default function Header() {
                   fontSize: 13, fontWeight: 600, color: "#1f2937",
                   fontFamily: "inherit", transition: "all 0.2s",
                 }}
-                onMouseEnter={(e) => { e.currentTarget.style.background = "#f0fdf4"; e.currentTarget.style.color = "#059669"; }}
+                onMouseEnter={(e) => { e.currentTarget.style.background = "#e2e8f0"; e.currentTarget.style.color = "#047857"; }}
                 onMouseLeave={(e) => { e.currentTarget.style.background = "#f1f5f9"; e.currentTarget.style.color = "#111827"; }}
               >
                 <CountryFlag code="GB" size={16} />
