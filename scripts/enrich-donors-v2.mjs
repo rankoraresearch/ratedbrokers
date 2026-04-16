@@ -261,48 +261,127 @@ function selectPrimary(collected, dr, donorDomain) {
   return sorted;
 }
 
-async function fetchPage(url, timeoutMs = 12000) {
-  try {
-    const res = await fetch(url, {
-      headers: { 'User-Agent': UA, 'Accept': 'text/html,application/xhtml+xml' },
-      signal: AbortSignal.timeout(timeoutMs),
-      redirect: 'follow',
-    });
-    return { status: res.status, html: await res.text(), url: res.url };
-  } catch (e) { return { status: 0, error: e.message, url }; }
+const ERR_LOG_FILE = process.env.ERR_LOG_FILE || `logs/enrich/v2-errors-${new Date().toISOString().replace(/[:.]/g,'-')}.ndjson`;
+fs.mkdirSync('logs/enrich', { recursive: true });
+function logErr(rec) {
+  try { fs.appendFileSync(ERR_LOG_FILE, JSON.stringify({ t: new Date().toISOString(), ...rec }) + '\n'); } catch {}
 }
 
+const MAX_BODY_BYTES = 3_000_000;       // 3 MB cap per page (H2/M2)
+const RETRYABLE_STATUS = new Set([408, 425, 429, 500, 502, 503, 504, 521, 522, 523, 524]);
+
+async function sleep(ms) { return new Promise(r => setTimeout(r, ms + Math.random() * ms * 0.3)); }
+
+// Fetch with retry, bounded body size, content-type guard.
+async function fetchPage(url, { timeoutMs = 12000, retries = 2 } = {}) {
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    try {
+      const res = await fetch(url, {
+        headers: { 'User-Agent': UA, 'Accept': 'text/html,application/xhtml+xml' },
+        signal: AbortSignal.timeout(timeoutMs),
+        redirect: 'follow',
+      });
+      const ct = (res.headers.get('content-type') || '').toLowerCase();
+      if (!/html|xml|text/.test(ct) && res.status === 200) {
+        return { status: res.status, html: '', url: res.url, skipped: 'non-html' };
+      }
+      if (RETRYABLE_STATUS.has(res.status) && attempt < retries) {
+        await sleep(1000 * Math.pow(2, attempt));
+        continue;
+      }
+      // Read bounded body (stream cap) — fallback to truncated text if too big
+      let html = '';
+      try {
+        const reader = res.body?.getReader?.();
+        if (reader) {
+          const chunks = []; let total = 0;
+          while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+            total += value.length;
+            if (total > MAX_BODY_BYTES) { try { reader.cancel(); } catch {} break; }
+            chunks.push(value);
+          }
+          html = Buffer.concat(chunks).toString('utf8');
+        } else {
+          html = await res.text();
+          if (html.length > MAX_BODY_BYTES) html = html.slice(0, MAX_BODY_BYTES);
+        }
+      } catch {}
+      return { status: res.status, html, url: res.url };
+    } catch (e) {
+      const retryable = /timeout|abort|reset|ECONN|EAI_AGAIN|ENOTFOUND|ETIMEDOUT|socket hang|network/i.test(e.message || '');
+      if (retryable && attempt < retries) {
+        await sleep(1500 * Math.pow(2, attempt));
+        continue;
+      }
+      return { status: 0, error: e.message || String(e), errorCode: e.code, url };
+    }
+  }
+  return { status: 0, error: 'retries exhausted', url };
+}
+
+// Returns {collected, pagesHit, anySuccess} — anySuccess distinguishes "failed crawl" from "no emails".
 async function crawlDomain(domain, dr) {
   const allCollected = [];
   const pagesHit = [];
+  let anySuccess = false;
+  let transientFails = 0;
   for (const p of PATHS) {
     const url = 'https://' + domain + p;
     const res = await fetchPage(url);
-    pagesHit.push(p + '→' + (res.status || 'ERR'));
+    pagesHit.push(p + '→' + (res.status || (res.errorCode || 'ERR')));
     if (res.status === 200 && res.html) {
+      anySuccess = true;
       const depth = p.includes('contact') ? 'contact' : p.includes('about') ? 'about' : 'other';
       const emails = extractEmails(res.html, res.url || url);
       for (const e of emails) allCollected.push({ ...e, url: res.url || url, pageDepth: depth });
+    } else if (res.status >= 200 && res.status < 400) {
+      anySuccess = true; // page reached but no html (e.g. redirect target non-html)
+    } else if (res.status === 0 || res.status >= 500) {
+      transientFails++;
     }
-    await new Promise(r => setTimeout(r, 300)); // rate limit per-domain
+    await sleep(300);
   }
-  return { collected: allCollected, pagesHit };
+  return { collected: allCollected, pagesHit, anySuccess, transientFails };
+}
+
+async function fetchWithRetry(url, opts = {}, { retries = 3, label = 'http' } = {}) {
+  let lastErr;
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    try {
+      const res = await fetch(url, { ...opts, signal: AbortSignal.timeout(20000) });
+      if (res.ok) return res;
+      if (RETRYABLE_STATUS.has(res.status) && attempt < retries) {
+        await sleep(1000 * Math.pow(2, attempt));
+        continue;
+      }
+      let body = '';
+      try { body = (await res.text()).slice(0, 200); } catch {}
+      lastErr = new Error(`${label} → ${res.status} ${body}`);
+      if (attempt >= retries) throw lastErr;
+    } catch (e) {
+      lastErr = e;
+      if (attempt >= retries) throw e;
+      await sleep(1500 * Math.pow(2, attempt));
+    }
+  }
+  throw lastErr;
 }
 
 async function updateDonor(domain, data) {
-  const res = await fetch(`${API}/api/admin/donors/${encodeURIComponent(domain)}`, {
+  const res = await fetchWithRetry(`${API}/api/admin/donors/${encodeURIComponent(domain)}`, {
     method: 'PUT',
     headers: { 'x-api-key': KEY, 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
-  });
-  if (!res.ok) throw new Error(`PUT ${domain} → ${res.status}`);
+  }, { label: `PUT ${domain}`, retries: 3 });
   return res.json();
 }
 
 async function listDonors(params) {
   const qs = new URLSearchParams({ limit: '10000', ...params });
-  const res = await fetch(`${API}/api/admin/donors/list?${qs}`, { headers: { 'x-api-key': KEY } });
-  if (!res.ok) throw new Error(`list → ${res.status}`);
+  const res = await fetchWithRetry(`${API}/api/admin/donors/list?${qs}`,
+    { headers: { 'x-api-key': KEY } }, { label: 'list', retries: 3 });
   const j = await res.json();
   return j.rows;
 }
@@ -318,19 +397,37 @@ async function main() {
     rows = [{ domain: oneDomain, max_dr: parseFloat(args.dr || '50') }];
   } else {
     rows = await listDonors({ status: statusFilter });
+    // Only domains that don't yet have v2 data (and we have their email/contact).
+    if (args['pending-only'] === 'true' || args['pending-only'] === '1' || args.pendingOnly === 'true') {
+      const before = rows.length;
+      rows = rows.filter(r => !r.enriched_v2_at);
+      console.log(`[v2] pending-only: ${rows.length} / ${before} rows need v2 enrichment`);
+    }
     if (sample) {
       rows = [...rows].sort(() => Math.random() - 0.5).slice(0, sample);
     }
   }
 
   const concurrency = parseInt(args.concurrency || '6', 10);
-  console.log(`\n[v2] processing ${rows.length} donors (status=${statusFilter}${sample ? ', sample=' + sample : ''}) concurrency=${concurrency}\n`);
-  let ok = 0, primaryChanged = 0, errors = 0, done = 0;
+  console.log(`\n[v2] processing ${rows.length} donors (status=${statusFilter}${sample ? ', sample=' + sample : ''}) concurrency=${concurrency}`);
+  console.log(`[v2] error log: ${ERR_LOG_FILE}\n`);
+  let ok = 0, primaryChanged = 0, errors = 0, crawlFailed = 0, done = 0;
 
   async function processOne(r) {
     const dr = r.max_dr || 50;
+    let phase = 'init';
     try {
-      const { collected } = await crawlDomain(r.domain, dr);
+      phase = 'crawl';
+      const { collected, pagesHit, anySuccess, transientFails } = await crawlDomain(r.domain, dr);
+
+      // H1 fix: do NOT overwrite existing data if the crawl couldn't reach any page.
+      // We distinguish "no emails found" (anySuccess=true, empty collected) from "failed crawl" (anySuccess=false).
+      if (!anySuccess) {
+        logErr({ domain: r.domain, phase: 'crawl_all_failed', pagesHit, transientFails });
+        crawlFailed++;
+        return; // no D1 write — domain stays as it was, next run will retry
+      }
+
       const sorted = selectPrimary(collected, dr, r.domain);
       const primary = sorted[0];
       const fallback1 = sorted[1];
@@ -338,6 +435,7 @@ async function main() {
 
       const all_emails_compact = sorted.map(s => ({ email: s.email, cat: s.category, w: s.weight, m: s.method, host: s.hostClass, score: s.score }));
 
+      phase = 'update';
       await updateDonor(r.domain, {
         all_emails: JSON.stringify(all_emails_compact),
         primary_email: primary?.email || null,
@@ -353,11 +451,12 @@ async function main() {
       if (changed) primaryChanged++;
     } catch (e) {
       errors++;
+      logErr({ domain: r.domain, phase, error: e.message, code: e.code, name: e.name });
     } finally {
       done++;
       if (done % 25 === 0 || done === rows.length) {
         const pct = (done / rows.length * 100).toFixed(1);
-        console.log(`[${done.toString().padStart(5)}/${rows.length}] ${pct.padStart(5)}% | ok=${ok} changed=${primaryChanged} errors=${errors}`);
+        console.log(`[${done.toString().padStart(5)}/${rows.length}] ${pct.padStart(5)}% | ok=${ok} changed=${primaryChanged} crawl_fail=${crawlFailed} errors=${errors}`);
       }
     }
   }
