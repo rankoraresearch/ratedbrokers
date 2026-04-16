@@ -7,6 +7,7 @@ import { handlePublishDashboard, handlePublishPages, handlePublishUpdate, handle
 import { handleMessagesDashboard, handleMessageDelete } from './routes/messages.js';
 import { handleLinkHealthDashboard, handleLinkRecheck } from './routes/linkhealth.js';
 import { handleDonorsDashboard, handleDonorsList, handleDonorsBulk, handleDonorUpdate } from './routes/donors.js';
+import { handleAdminAuthorsDashboard } from './routes/admin-authors.js';
 import { handleReviewsDashboard, handleReviewContent, handleReviewContentUpdate, handleReviewContentDelete, handleReviewOverridesPublic, handleReviewLog, handleTokensList, handleTokenCreate, handleTokenDelete, handleBrokerContent } from './routes/reviews.js';
 import { handleExpertDashboard, handleExpertReviewContent, handleExpertReviewUpdate, handleExpertReviewDelete } from './routes/expert.js';
 import { handleOptions } from './utils/cors.js';
@@ -248,6 +249,11 @@ export default {
     const recheckMatch = path.match(/^\/api\/admin\/linkhealth\/recheck\/([a-z0-9-]+)$/);
     if (recheckMatch && request.method === 'POST') {
       return handleLinkRecheck(request, env, recheckMatch[1]);
+    }
+
+    // ─── Authors (S7 outreach map — moved from public /research/authors) ───
+    if (path === '/api/admin/authors/dashboard' && request.method === 'GET') {
+      return handleAdminAuthorsDashboard(request, env);
     }
 
     // ─── Donors (outreach) ───

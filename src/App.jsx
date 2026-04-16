@@ -33,7 +33,6 @@ const TermsPage = lazy(() => import("./pages/TermsPage"));
 
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 const CompetitorsResearchPage = lazy(() => import("./pages/CompetitorsResearchPage"));
-const AuthorsResearchPage = lazy(() => import("./pages/AuthorsResearchPage"));
 
 // ─── Prototypes (lazy, dev-only — excluded from production bundle) ───
 const PrototypesPage = import.meta.env.DEV ? lazy(() => import("./pages/prototypes/PrototypesPage")) : null;
@@ -168,7 +167,6 @@ function AppRoutes() {
         <Route path="warnings/:slug" element={<WarningPage />} />
         <Route path="find-your-broker" element={<FindYourBrokerPage />} />
         <Route path="research/competitors" element={<CompetitorsResearchPage />} />
-        <Route path="research/authors" element={<AuthorsResearchPage />} />
         <Route path="privacy" element={<PrivacyPage />} />
         <Route path="terms" element={<TermsPage />} />
         {/* Redirects: old hub pages → ranking pages (URL migration) */}
