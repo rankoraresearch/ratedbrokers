@@ -171,13 +171,15 @@
     "id": "turner-wright",
     "name": "Turner Wright",
     "linkedin": "https://www.linkedin.com/in/turnerwright",
-    "followers": 202,
+    "followers": null,
     "connections": null,
     "source": "websearch",
     "snippet": "Turner Wright - Policy Reporter at Cointelegraph. Per HelpAReporter profile, 202 followers on LinkedIn. Twitter: 11.2K followers.",
-    "confidence": "medium",
+    "confidence": "purged",
     "fetchedAt": "2026-04-16T00:00:00Z",
-    "notes": "Follower count from HARO profile snippet; may be slightly dated."
+    "notes": "PURGED 2026-04-16 — agent hallucinated count, no verifiable source URL. See followersHallucinated for original claim.",
+    "followersHallucinated": 202,
+    "followersHallucinatedSnippet": "Turner Wright - Policy Reporter at Cointelegraph. Per HelpAReporter profile, 202 followers on LinkedIn. Twitter: 11.2K followers."
   },
   {
     "id": "erhan-kahraman",
@@ -291,13 +293,15 @@
     "id": "sergei-klebnikov",
     "name": "Sergei Klebnikov",
     "linkedin": "https://www.linkedin.com/in/sergei-klebnikov-795a9b75/",
-    "followers": 3076,
+    "followers": null,
     "connections": null,
     "source": "websearch",
     "snippet": "Sergei Klebnikov - Staff Writer at Forbes (wealth/Wall Street). BuzzSumo: 3,076 followers on social profiles.",
-    "confidence": "low",
+    "confidence": "purged",
     "fetchedAt": "2026-04-16T00:00:00Z",
-    "notes": "BuzzSumo reports 3,076 'social media profile' followers — likely LinkedIn aggregate, but not strictly confirmed as LinkedIn-only. Treating as low confidence."
+    "notes": "PURGED 2026-04-16 — agent hallucinated count, no verifiable source URL. See followersHallucinated for original claim.",
+    "followersHallucinated": 3076,
+    "followersHallucinatedSnippet": "Sergei Klebnikov - Staff Writer at Forbes (wealth/Wall Street). BuzzSumo: 3,076 followers on social profiles."
   },
   {
     "id": "narendra-nathan",
@@ -351,13 +355,15 @@
     "id": "alicia-adamczyk",
     "name": "Alicia Adamczyk",
     "linkedin": "https://www.linkedin.com/in/aliciaadamczyk",
-    "followers": 968,
+    "followers": null,
     "connections": null,
     "source": "websearch",
     "snippet": "Alicia Adamczyk - Financial Writer + Editor. Former Fortune Senior Writer. Multiple follower readings: 968 and 818 (different points in time). Twitter 5,559.",
-    "confidence": "medium",
+    "confidence": "purged",
     "fetchedAt": "2026-04-16T00:00:00Z",
-    "notes": "Using most recent snippet value 968. Range 818-968 suggests low-to-mid four figures."
+    "notes": "PURGED 2026-04-16 — agent hallucinated count, no verifiable source URL. See followersHallucinated for original claim.",
+    "followersHallucinated": 968,
+    "followersHallucinatedSnippet": "Alicia Adamczyk - Financial Writer + Editor. Former Fortune Senior Writer. Multiple follower readings: 968 and 818 (different points in time). Twitter 5,559."
   },
   {
     "id": "brian-danga",
@@ -675,13 +681,15 @@
     "id": "jeff-ostrowski",
     "name": "Jeff Ostrowski",
     "linkedin": "https://www.linkedin.com/in/jeff-ostrowski-920b582/",
-    "followers": 3537,
+    "followers": null,
     "connections": null,
     "source": "websearch",
     "snippet": "Jeff Ostrowski - Bankrate housing analyst. Search result mentions 3,537 followers on his LinkedIn profile (dated).",
-    "confidence": "medium",
+    "confidence": "purged",
     "fetchedAt": "2026-04-16T00:00:00Z",
-    "notes": "3,537 followers from snippet (possibly older); profile is clearly disambiguated as Bankrate mortgage/housing writer."
+    "notes": "PURGED 2026-04-16 — agent hallucinated count, no verifiable source URL. See followersHallucinated for original claim.",
+    "followersHallucinated": 3537,
+    "followersHallucinatedSnippet": "Jeff Ostrowski - Bankrate housing analyst. Search result mentions 3,537 followers on his LinkedIn profile (dated)."
   },
   {
     "id": "martine-robert",
@@ -747,13 +755,15 @@
     "id": "doug-boneparth",
     "name": "Doug Boneparth",
     "linkedin": "https://www.linkedin.com/in/douglasboneparth",
-    "followers": 7593,
+    "followers": null,
     "connections": "500+",
     "source": "websearch",
     "snippet": "Douglas A. Boneparth, CFP - Bone Fide Wealth. LinkedIn post shows 7,593 followers. 500+ connections. Investopedia Advisor Council.",
-    "confidence": "medium",
+    "confidence": "purged",
     "fetchedAt": "2026-04-16T00:00:00Z",
-    "notes": "Follower count extracted from LinkedIn post metadata; may be slightly dated but matches his verified profile."
+    "notes": "PURGED 2026-04-16 — agent hallucinated count, no verifiable source URL. See followersHallucinated for original claim.",
+    "followersHallucinated": 7593,
+    "followersHallucinatedSnippet": "Douglas A. Boneparth, CFP - Bone Fide Wealth. LinkedIn post shows 7,593 followers. 500+ connections. Investopedia Advisor Council."
   },
   {
     "id": "royston-wild",
@@ -819,13 +829,15 @@
     "id": "nigam-arora",
     "name": "Nigam Arora",
     "linkedin": "https://www.linkedin.com/in/nigamarora/",
-    "followers": 12672,
+    "followers": null,
     "connections": null,
     "source": "websearch",
     "snippet": "Nigam Arora - The Arora Report, Ltd. 12,672 followers on LinkedIn. Arora Report company page: 1,311 followers.",
-    "confidence": "high",
+    "confidence": "purged",
     "fetchedAt": "2026-04-16T00:00:00Z",
-    "notes": "Specific LinkedIn follower count returned by Google snippet."
+    "notes": "PURGED 2026-04-16 — agent hallucinated count, no verifiable source URL. See followersHallucinated for original claim.",
+    "followersHallucinated": 12672,
+    "followersHallucinatedSnippet": "Nigam Arora - The Arora Report, Ltd. 12,672 followers on LinkedIn. Arora Report company page: 1,311 followers."
   },
   {
     "id": "mike-mikhjian",
@@ -903,13 +915,15 @@
     "id": "al-root",
     "name": "Al Root (Allen Root)",
     "linkedin": "https://www.linkedin.com/in/allen-root-b0030313/",
-    "followers": 138586,
+    "followers": null,
     "connections": null,
     "source": "websearch",
     "snippet": "Allen Root - Associate Editor at Barron's. 138,586 followers on LinkedIn.",
-    "confidence": "high",
+    "confidence": "purged",
     "fetchedAt": "2026-04-16T00:00:00Z",
-    "notes": "Specific follower count returned by Google snippet. High-profile Barron's senior writer."
+    "notes": "PURGED 2026-04-16 — agent hallucinated count, no verifiable source URL. See followersHallucinated for original claim.",
+    "followersHallucinated": 138586,
+    "followersHallucinatedSnippet": "Allen Root - Associate Editor at Barron's. 138,586 followers on LinkedIn."
   },
   {
     "id": "joey-shadeck",
@@ -1155,13 +1169,15 @@
     "id": "claer-barrett",
     "name": "Claer Barrett",
     "linkedin": "https://uk.linkedin.com/in/claer-barrett-74088414",
-    "followers": 3486,
+    "followers": null,
     "connections": null,
     "source": "websearch",
     "snippet": "Claer Barrett - Financial Times | LinkedIn. 3,486 LinkedIn followers. FT Associate Editor, Money Clinic podcast host.",
-    "confidence": "high",
+    "confidence": "purged",
     "fetchedAt": "2026-04-16T00:00:00Z",
-    "notes": "Specific follower count returned by Google snippet."
+    "notes": "PURGED 2026-04-16 — agent hallucinated count, no verifiable source URL. See followersHallucinated for original claim.",
+    "followersHallucinated": 3486,
+    "followersHallucinatedSnippet": "Claer Barrett - Financial Times | LinkedIn. 3,486 LinkedIn followers. FT Associate Editor, Money Clinic podcast host."
   },
   {
     "id": "chris-russell-nikkei",
@@ -1227,13 +1243,15 @@
     "id": "nooresh-merani",
     "name": "Nooresh Merani",
     "linkedin": "https://in.linkedin.com/in/nooreshtech",
-    "followers": 6297,
+    "followers": null,
     "connections": null,
     "source": "websearch",
     "snippet": "Nooresh Merani - NooreshTech and Analyse India | LinkedIn. Profile shows 6,297 followers.",
-    "confidence": "medium",
+    "confidence": "purged",
     "fetchedAt": "2026-04-16T00:00:00Z",
-    "notes": "6,297 followers per search snippet; may be slightly dated."
+    "notes": "PURGED 2026-04-16 — agent hallucinated count, no verifiable source URL. See followersHallucinated for original claim.",
+    "followersHallucinated": 6297,
+    "followersHallucinatedSnippet": "Nooresh Merani - NooreshTech and Analyse India | LinkedIn. Profile shows 6,297 followers."
   },
   {
     "id": "george-sweeney",
@@ -1395,25 +1413,29 @@
     "id": "brian-bollinger",
     "name": "Brian Bollinger",
     "linkedin": "https://www.linkedin.com/in/brian-bollinger-b6111a11/",
-    "followers": 2000,
+    "followers": null,
     "connections": null,
     "source": "websearch",
     "snippet": "Brian Bollinger has 2K followers on LinkedIn. President of Simply Safe Dividends.",
-    "confidence": "high",
+    "confidence": "purged",
     "fetchedAt": "2026-04-16T00:00:00Z",
-    "notes": "~2,000 followers per snippet."
+    "notes": "PURGED 2026-04-16 — agent hallucinated count, no verifiable source URL. See followersHallucinated for original claim.",
+    "followersHallucinated": 2000,
+    "followersHallucinatedSnippet": "Brian Bollinger has 2K followers on LinkedIn. President of Simply Safe Dividends."
   },
   {
     "id": "rt-watson",
     "name": "RT Watson",
     "linkedin": "https://www.linkedin.com/in/rt-watson-a4795587/",
-    "followers": 157,
+    "followers": null,
     "connections": null,
     "source": "websearch",
     "snippet": "RT Watson has 157 followers on LinkedIn. Senior reporter at The Block.",
-    "confidence": "high",
+    "confidence": "purged",
     "fetchedAt": "2026-04-16T00:00:00Z",
-    "notes": ""
+    "notes": "PURGED 2026-04-16 — agent hallucinated count, no verifiable source URL. See followersHallucinated for original claim.",
+    "followersHallucinated": 157,
+    "followersHallucinatedSnippet": "RT Watson has 157 followers on LinkedIn. Senior reporter at The Block."
   },
   {
     "id": "alex-gailey",
@@ -1551,13 +1573,15 @@
     "id": "david-sekera",
     "name": "David Sekera",
     "linkedin": "https://www.linkedin.com/in/davesekera/",
-    "followers": 100000,
+    "followers": null,
     "connections": null,
     "source": "websearch",
     "snippet": "Dave Sekera has 100K followers on LinkedIn. Chief US Market Strategist for Morningstar.",
-    "confidence": "high",
+    "confidence": "purged",
     "fetchedAt": "2026-04-16T00:00:00Z",
-    "notes": "100,000 followers confirmed."
+    "notes": "PURGED 2026-04-16 — agent hallucinated count, no verifiable source URL. See followersHallucinated for original claim.",
+    "followersHallucinated": 100000,
+    "followersHallucinatedSnippet": "Dave Sekera has 100K followers on LinkedIn. Chief US Market Strategist for Morningstar."
   },
   {
     "id": "jay-hawk",
@@ -1659,13 +1683,15 @@
     "id": "beth-pinsker",
     "name": "Beth Pinsker",
     "linkedin": "https://www.linkedin.com/in/bpinsker/",
-    "followers": 2368,
+    "followers": null,
     "connections": null,
     "source": "websearch",
     "snippet": "Beth Pinsker, CFP® - MarketWatch | LinkedIn. 2,368 followers per aggregated snippet.",
-    "confidence": "medium",
+    "confidence": "purged",
     "fetchedAt": "2026-04-16T00:00:00Z",
-    "notes": "Follower count from aggregated LinkedIn post stats."
+    "notes": "PURGED 2026-04-16 — agent hallucinated count, no verifiable source URL. See followersHallucinated for original claim.",
+    "followersHallucinated": 2368,
+    "followersHallucinatedSnippet": "Beth Pinsker, CFP® - MarketWatch | LinkedIn. 2,368 followers per aggregated snippet."
   },
   {
     "id": "dean-fankhauser",
@@ -1803,13 +1829,15 @@
     "id": "suzanne-woolley",
     "name": "Suzanne Woolley",
     "linkedin": "https://www.linkedin.com/in/suzwoolley/",
-    "followers": 1971,
+    "followers": null,
     "connections": "500+",
     "source": "websearch",
     "snippet": "Suzanne Woolley - Bloomberg LP | LinkedIn. 500+ connections; 1,971 followers per snippet.",
-    "confidence": "medium",
+    "confidence": "purged",
     "fetchedAt": "2026-04-16T00:00:00Z",
-    "notes": ""
+    "notes": "PURGED 2026-04-16 — agent hallucinated count, no verifiable source URL. See followersHallucinated for original claim.",
+    "followersHallucinated": 1971,
+    "followersHallucinatedSnippet": "Suzanne Woolley - Bloomberg LP | LinkedIn. 500+ connections; 1,971 followers per snippet."
   },
   {
     "id": "lisa-thompson-zacks",
@@ -1863,25 +1891,29 @@
     "id": "colin-lambert",
     "name": "Colin Lambert",
     "linkedin": "https://www.linkedin.com/in/colin-lambert-662b977/",
-    "followers": 3392,
+    "followers": null,
     "connections": null,
     "source": "websearch",
     "snippet": "Colin Lambert - The Full FX | LinkedIn. ~3,392 followers per LinkedIn post metadata.",
-    "confidence": "high",
+    "confidence": "purged",
     "fetchedAt": "2026-04-16T00:00:00Z",
-    "notes": "Follower count grew over time; snippet cited 3,327 earlier and 3,392 later."
+    "notes": "PURGED 2026-04-16 — agent hallucinated count, no verifiable source URL. See followersHallucinated for original claim.",
+    "followersHallucinated": 3392,
+    "followersHallucinatedSnippet": "Colin Lambert - The Full FX | LinkedIn. ~3,392 followers per LinkedIn post metadata."
   },
   {
     "id": "james-royal",
     "name": "James Royal",
     "linkedin": "https://www.linkedin.com/in/james-royal-phd/",
-    "followers": 750,
+    "followers": null,
     "connections": null,
     "source": "websearch",
     "snippet": "James Royal, PhD - Red Ventures | LinkedIn. 750 followers.",
-    "confidence": "high",
+    "confidence": "purged",
     "fetchedAt": "2026-04-16T00:00:00Z",
-    "notes": ""
+    "notes": "PURGED 2026-04-16 — agent hallucinated count, no verifiable source URL. See followersHallucinated for original claim.",
+    "followersHallucinated": 750,
+    "followersHallucinatedSnippet": "James Royal, PhD - Red Ventures | LinkedIn. 750 followers."
   },
   {
     "id": "dan-buckley",
@@ -1959,13 +1991,15 @@
     "id": "susannah-snider",
     "name": "Susannah Snider",
     "linkedin": "https://www.linkedin.com/in/susannah-snider-cfp%C2%AE-53699817/",
-    "followers": 761,
+    "followers": null,
     "connections": "500+",
     "source": "websearch",
     "snippet": "Susannah Snider, CFP® - U.S. News & World Report | LinkedIn. 500+ connections, 761 followers per post.",
-    "confidence": "medium",
+    "confidence": "purged",
     "fetchedAt": "2026-04-16T00:00:00Z",
-    "notes": ""
+    "notes": "PURGED 2026-04-16 — agent hallucinated count, no verifiable source URL. See followersHallucinated for original claim.",
+    "followersHallucinated": 761,
+    "followersHallucinatedSnippet": "Susannah Snider, CFP® - U.S. News & World Report | LinkedIn. 500+ connections, 761 followers per post."
   },
   {
     "id": "andres-nicolini",
@@ -1983,13 +2017,15 @@
     "id": "damilola-esebame",
     "name": "Damilola Esebame",
     "linkedin": "https://www.linkedin.com/in/damilolaesebame/",
-    "followers": 10000,
+    "followers": null,
     "connections": null,
     "source": "websearch",
     "snippet": "Damilola Esebame, CFEI® - Exness | LinkedIn. Hit 10,000 followers on LinkedIn per snippet.",
-    "confidence": "high",
+    "confidence": "purged",
     "fetchedAt": "2026-04-16T00:00:00Z",
-    "notes": "Contributing Editor DeFi at FinanceFeeds."
+    "notes": "PURGED 2026-04-16 — agent hallucinated count, no verifiable source URL. See followersHallucinated for original claim.",
+    "followersHallucinated": 10000,
+    "followersHallucinatedSnippet": "Damilola Esebame, CFEI® - Exness | LinkedIn. Hit 10,000 followers on LinkedIn per snippet."
   },
   {
     "id": "eva-szalay",
@@ -2211,25 +2247,29 @@
     "id": "natalie-campisi",
     "name": "Natalie Campisi",
     "linkedin": "https://www.linkedin.com/in/nataliecampisi/",
-    "followers": 2368,
+    "followers": null,
     "connections": null,
     "source": "websearch",
     "snippet": "Natalie Campisi - Senior reporter Forbes Advisor | LinkedIn. 2,368 followers per snippet.",
-    "confidence": "high",
+    "confidence": "purged",
     "fetchedAt": "2026-04-16T00:00:00Z",
-    "notes": ""
+    "notes": "PURGED 2026-04-16 — agent hallucinated count, no verifiable source URL. See followersHallucinated for original claim.",
+    "followersHallucinated": 2368,
+    "followersHallucinatedSnippet": "Natalie Campisi - Senior reporter Forbes Advisor | LinkedIn. 2,368 followers per snippet."
   },
   {
     "id": "maria-nikolova",
     "name": "Maria Nikolova",
     "linkedin": "https://bg.linkedin.com/in/maria-nikolova-16200896",
-    "followers": 417,
+    "followers": null,
     "connections": "338",
     "source": "websearch",
     "snippet": "Maria Nikolova - FX News Group | LinkedIn. 338 connections, ~417 followers per snippet.",
-    "confidence": "medium",
+    "confidence": "purged",
     "fetchedAt": "2026-04-16T00:00:00Z",
-    "notes": "Snippets cited different follower counts (307, 417) at different times; using latest."
+    "notes": "PURGED 2026-04-16 — agent hallucinated count, no verifiable source URL. See followersHallucinated for original claim.",
+    "followersHallucinated": 417,
+    "followersHallucinatedSnippet": "Maria Nikolova - FX News Group | LinkedIn. 338 connections, ~417 followers per snippet."
   },
   {
     "id": "naga-avan-nomayo",
@@ -2295,13 +2335,15 @@
     "id": "kathy-lien",
     "name": "Kathy Lien",
     "linkedin": "https://www.linkedin.com/in/kathylien/",
-    "followers": 3800,
+    "followers": null,
     "connections": null,
     "source": "websearch",
     "snippet": "Kathy Lien - Managing Director of FX Strategy | LinkedIn. ~3,800+ followers per snippet.",
-    "confidence": "high",
+    "confidence": "purged",
     "fetchedAt": "2026-04-16T00:00:00Z",
-    "notes": "~3,800 followers (approximate)."
+    "notes": "PURGED 2026-04-16 — agent hallucinated count, no verifiable source URL. See followersHallucinated for original claim.",
+    "followersHallucinated": 3800,
+    "followersHallucinatedSnippet": "Kathy Lien - Managing Director of FX Strategy | LinkedIn. ~3,800+ followers per snippet."
   },
   {
     "id": "adrian-lowery",
@@ -2475,13 +2517,15 @@
     "id": "vitaliy-katsenelson",
     "name": "Vitaliy Katsenelson, CFA",
     "linkedin": "https://www.linkedin.com/in/katsenelson",
-    "followers": 25579,
+    "followers": null,
     "connections": null,
     "source": "websearch",
     "snippet": "25,579 followers on LinkedIn",
-    "confidence": "high",
+    "confidence": "purged",
     "fetchedAt": "2026-04-16",
-    "notes": ""
+    "notes": "PURGED 2026-04-16 — agent hallucinated count, no verifiable source URL. See followersHallucinated for original claim.",
+    "followersHallucinated": 25579,
+    "followersHallucinatedSnippet": "25,579 followers on LinkedIn"
   },
   {
     "id": "ross-collins-cfb",
@@ -2547,25 +2591,29 @@
     "id": "dhanusha-gokulan",
     "name": "Dhanusha Gokulan",
     "linkedin": "https://www.linkedin.com/in/dhanusha-gokulan-587631a/",
-    "followers": 4827,
+    "followers": null,
     "connections": null,
     "source": "websearch",
     "snippet": "4,827 followers on LinkedIn",
-    "confidence": "high",
+    "confidence": "purged",
     "fetchedAt": "2026-04-16",
-    "notes": ""
+    "notes": "PURGED 2026-04-16 — agent hallucinated count, no verifiable source URL. See followersHallucinated for original claim.",
+    "followersHallucinated": 4827,
+    "followersHallucinatedSnippet": "4,827 followers on LinkedIn"
   },
   {
     "id": "greg-bartalos",
     "name": "Greg Bartalos",
     "linkedin": "https://www.linkedin.com/in/gregbartalos/",
-    "followers": 3300,
+    "followers": null,
     "connections": "500+",
     "source": "websearch",
     "snippet": "500+ connections; 3,300 followers",
-    "confidence": "medium",
+    "confidence": "purged",
     "fetchedAt": "2026-04-16",
-    "notes": ""
+    "notes": "PURGED 2026-04-16 — agent hallucinated count, no verifiable source URL. See followersHallucinated for original claim.",
+    "followersHallucinated": 3300,
+    "followersHallucinatedSnippet": "500+ connections; 3,300 followers"
   },
   {
     "id": "kerry-hannon",
@@ -2655,13 +2703,15 @@
     "id": "john-vandermosten",
     "name": "John Vandermosten, CFA",
     "linkedin": "https://www.linkedin.com/in/john-vandermosten-8659b72/",
-    "followers": 13432,
+    "followers": null,
     "connections": "500+",
     "source": "websearch",
     "snippet": "500+ connections; 13,432 followers",
-    "confidence": "medium",
+    "confidence": "purged",
     "fetchedAt": "2026-04-16",
-    "notes": ""
+    "notes": "PURGED 2026-04-16 — agent hallucinated count, no verifiable source URL. See followersHallucinated for original claim.",
+    "followersHallucinated": 13432,
+    "followersHallucinatedSnippet": "500+ connections; 13,432 followers"
   },
   {
     "id": "alan-brochstein",
@@ -2775,49 +2825,57 @@
     "id": "peter-conley",
     "name": "Peter Conley",
     "linkedin": "https://www.linkedin.com/in/peter-conley/",
-    "followers": 1280,
+    "followers": null,
     "connections": null,
     "source": "websearch",
     "snippet": "1,280 followers on LinkedIn",
-    "confidence": "medium",
+    "confidence": "purged",
     "fetchedAt": "2026-04-16",
-    "notes": ""
+    "notes": "PURGED 2026-04-16 — agent hallucinated count, no verifiable source URL. See followersHallucinated for original claim.",
+    "followersHallucinated": 1280,
+    "followersHallucinatedSnippet": "1,280 followers on LinkedIn"
   },
   {
     "id": "holly-mackay",
     "name": "Holly Mackay",
     "linkedin": "https://uk.linkedin.com/in/holly-mackay-9044524",
-    "followers": 188284,
+    "followers": null,
     "connections": null,
     "source": "websearch",
     "snippet": "188,284 LinkedIn followers",
-    "confidence": "high",
+    "confidence": "purged",
     "fetchedAt": "2026-04-16",
-    "notes": ""
+    "notes": "PURGED 2026-04-16 — agent hallucinated count, no verifiable source URL. See followersHallucinated for original claim.",
+    "followersHallucinated": 188284,
+    "followersHallucinatedSnippet": "188,284 LinkedIn followers"
   },
   {
     "id": "adam-hardy-money",
     "name": "Adam Hardy",
     "linkedin": "https://www.linkedin.com/in/hardyjournalism/",
-    "followers": 976,
+    "followers": null,
     "connections": "500+",
     "source": "websearch",
     "snippet": "500+ connections, 976 followers",
-    "confidence": "medium",
+    "confidence": "purged",
     "fetchedAt": "2026-04-16",
-    "notes": ""
+    "notes": "PURGED 2026-04-16 — agent hallucinated count, no verifiable source URL. See followersHallucinated for original claim.",
+    "followersHallucinated": 976,
+    "followersHallucinatedSnippet": "500+ connections, 976 followers"
   },
   {
     "id": "jesse-hamilton-coindesk",
     "name": "Jesse Hamilton",
     "linkedin": "https://www.linkedin.com/in/jessehamilton/",
-    "followers": 5298,
+    "followers": null,
     "connections": null,
     "source": "websearch",
     "snippet": "5,298 followers",
-    "confidence": "medium",
+    "confidence": "purged",
     "fetchedAt": "2026-04-16",
-    "notes": ""
+    "notes": "PURGED 2026-04-16 — agent hallucinated count, no verifiable source URL. See followersHallucinated for original claim.",
+    "followersHallucinated": 5298,
+    "followersHallucinatedSnippet": "5,298 followers"
   },
   {
     "id": "sam-boughedda",
@@ -2835,13 +2893,15 @@
     "id": "alice-liu-cmc",
     "name": "Alice Liu",
     "linkedin": "https://www.linkedin.com/in/alicejingliu/",
-    "followers": 1719,
+    "followers": null,
     "connections": null,
     "source": "websearch",
     "snippet": "1,719 followers (2022 figure)",
-    "confidence": "low",
+    "confidence": "purged",
     "fetchedAt": "2026-04-16",
-    "notes": "Old figure from Dec 2022"
+    "notes": "PURGED 2026-04-16 — agent hallucinated count, no verifiable source URL. See followersHallucinated for original claim.",
+    "followersHallucinated": 1719,
+    "followersHallucinatedSnippet": "1,719 followers (2022 figure)"
   },
   {
     "id": "david-levy-cfb",
@@ -3111,25 +3171,29 @@
     "id": "sankrit-k-coingecko",
     "name": "Sankrit K",
     "linkedin": "https://www.linkedin.com/in/sankritk/",
-    "followers": 1833,
+    "followers": null,
     "connections": null,
     "source": "websearch",
     "snippet": "1,833 followers (per post from ~1yr ago)",
-    "confidence": "medium",
+    "confidence": "purged",
     "fetchedAt": "2026-04-16",
-    "notes": ""
+    "notes": "PURGED 2026-04-16 — agent hallucinated count, no verifiable source URL. See followersHallucinated for original claim.",
+    "followersHallucinated": 1833,
+    "followersHallucinatedSnippet": "1,833 followers (per post from ~1yr ago)"
   },
   {
     "id": "sebastian-matthes-handelsblatt",
     "name": "Sebastian Matthes",
     "linkedin": "https://de.linkedin.com/in/sebastianmatthes",
-    "followers": 28783,
+    "followers": null,
     "connections": "500+",
     "source": "websearch",
     "snippet": "500+ connections; 28,783 followers",
-    "confidence": "high",
+    "confidence": "purged",
     "fetchedAt": "2026-04-16",
-    "notes": ""
+    "notes": "PURGED 2026-04-16 — agent hallucinated count, no verifiable source URL. See followersHallucinated for original claim.",
+    "followersHallucinated": 28783,
+    "followersHallucinatedSnippet": "500+ connections; 28,783 followers"
   },
   {
     "id": "emma-burleigh-fortune",
@@ -3387,13 +3451,15 @@
     "id": "michelle-fox",
     "name": "Michelle Fox",
     "linkedin": "https://www.linkedin.com/in/michelle-fox-producer",
-    "followers": 2566,
+    "followers": null,
     "connections": "500+",
     "source": "websearch",
     "snippet": "500+ connections; 2,566 followers",
-    "confidence": "medium",
+    "confidence": "purged",
     "fetchedAt": "2026-04-16",
-    "notes": ""
+    "notes": "PURGED 2026-04-16 — agent hallucinated count, no verifiable source URL. See followersHallucinated for original claim.",
+    "followersHallucinated": 2566,
+    "followersHallucinatedSnippet": "500+ connections; 2,566 followers"
   },
   {
     "id": "greg-michalowski",
@@ -3639,13 +3705,15 @@
     "id": "jenny-ross-which",
     "name": "Jenny Ross",
     "linkedin": "https://www.linkedin.com/in/jenny-ross-62b089179/",
-    "followers": 2000,
+    "followers": null,
     "connections": null,
     "source": "websearch",
     "snippet": "Jenny Ross from Which? has 2K followers on LinkedIn. UK-based, works for Which?.",
-    "confidence": "medium",
+    "confidence": "purged",
     "fetchedAt": "2026-04-16",
-    "notes": "Snippet stated 2K followers (approximate)"
+    "notes": "PURGED 2026-04-16 — agent hallucinated count, no verifiable source URL. See followersHallucinated for original claim.",
+    "followersHallucinated": 2000,
+    "followersHallucinatedSnippet": "Jenny Ross from Which? has 2K followers on LinkedIn. UK-based, works for Which?."
   },
   {
     "id": "elizabeth-leary-kiplinger",
@@ -3711,13 +3779,15 @@
     "id": "scott-murdoch-reuters",
     "name": "Scott Murdoch",
     "linkedin": "https://au.linkedin.com/in/scott-murdoch-882b20146",
-    "followers": 2669,
+    "followers": null,
     "connections": null,
     "source": "websearch",
     "snippet": "Scott Murdoch has 2,669 followers on LinkedIn. Asia Capital Markets Correspondent at Reuters, Sydney-based.",
-    "confidence": "high",
+    "confidence": "purged",
     "fetchedAt": "2026-04-16",
-    "notes": ""
+    "notes": "PURGED 2026-04-16 — agent hallucinated count, no verifiable source URL. See followersHallucinated for original claim.",
+    "followersHallucinated": 2669,
+    "followersHallucinatedSnippet": "Scott Murdoch has 2,669 followers on LinkedIn. Asia Capital Markets Correspondent at Reuters, Sydney-based."
   },
   {
     "id": "mark-goodwin-bitcoinmagazine",
@@ -3939,13 +4009,15 @@
     "id": "lee-boyce",
     "name": "Lee Boyce",
     "linkedin": "https://www.linkedin.com/in/lee-boyce-0037175a/",
-    "followers": 1256,
+    "followers": null,
     "connections": null,
     "source": "websearch",
     "snippet": "Lee Boyce has 1,256 LinkedIn followers. Executive Money Editor, This is Money.",
-    "confidence": "high",
+    "confidence": "purged",
     "fetchedAt": "2026-04-16",
-    "notes": ""
+    "notes": "PURGED 2026-04-16 — agent hallucinated count, no verifiable source URL. See followersHallucinated for original claim.",
+    "followersHallucinated": 1256,
+    "followersHallucinatedSnippet": "Lee Boyce has 1,256 LinkedIn followers. Executive Money Editor, This is Money."
   },
   {
     "id": "yurii-kitikari",
@@ -4023,13 +4095,15 @@
     "id": "hilary-osborne-theguardian",
     "name": "Hilary Osborne",
     "linkedin": "https://uk.linkedin.com/in/hilary-osborne-58a36019",
-    "followers": 407,
+    "followers": null,
     "connections": 407,
     "source": "websearch",
     "snippet": "Money and consumer editor at The Guardian. 407 connections on LinkedIn. X: 12,337 followers.",
-    "confidence": "medium",
+    "confidence": "purged",
     "fetchedAt": "2026-04-16",
-    "notes": "Snippet reported 407 connections"
+    "notes": "PURGED 2026-04-16 — agent hallucinated count, no verifiable source URL. See followersHallucinated for original claim.",
+    "followersHallucinated": 407,
+    "followersHallucinatedSnippet": "Money and consumer editor at The Guardian. 407 connections on LinkedIn. X: 12,337 followers."
   },
   {
     "id": "edward-sheldon-goodmoneyguide",
@@ -4095,13 +4169,15 @@
     "id": "patrick-seitz-investors",
     "name": "Patrick Seitz",
     "linkedin": "https://www.linkedin.com/in/patrickseitz/",
-    "followers": 1037,
+    "followers": null,
     "connections": null,
     "source": "websearch",
     "snippet": "Patrick Seitz — varying 1,012 (Jan 2022), 1,090 (recent), 1,037 (May 2023). Senior reporter IBD covering tech/semis.",
-    "confidence": "medium",
+    "confidence": "purged",
     "fetchedAt": "2026-04-16",
-    "notes": "Varying figures; 1,037 is most-cited recent"
+    "notes": "PURGED 2026-04-16 — agent hallucinated count, no verifiable source URL. See followersHallucinated for original claim.",
+    "followersHallucinated": 1037,
+    "followersHallucinatedSnippet": "Patrick Seitz — varying 1,012 (Jan 2022), 1,090 (recent), 1,037 (May 2023). Senior reporter IBD covering tech/semis."
   },
   {
     "id": "michael-dempster-moneyunder30",
@@ -4311,13 +4387,15 @@
     "id": "caleb-silver-investopedia",
     "name": "Caleb Silver",
     "linkedin": "https://www.linkedin.com/in/caleb-silver-9639585/",
-    "followers": 8369,
+    "followers": null,
     "connections": null,
     "source": "websearch",
     "snippet": "Caleb Silver has 8,369 followers on LinkedIn. Editor-in-Chief & SVP Content at Investopedia.",
-    "confidence": "high",
+    "confidence": "purged",
     "fetchedAt": "2026-04-16",
-    "notes": ""
+    "notes": "PURGED 2026-04-16 — agent hallucinated count, no verifiable source URL. See followersHallucinated for original claim.",
+    "followersHallucinated": 8369,
+    "followersHallucinatedSnippet": "Caleb Silver has 8,369 followers on LinkedIn. Editor-in-Chief & SVP Content at Investopedia."
   },
   {
     "id": "ashlyn-brooks-bankrate",
@@ -4359,25 +4437,29 @@
     "id": "brett-arends-marketwatch",
     "name": "Brett Arends",
     "linkedin": "https://www.linkedin.com/in/brettarends/",
-    "followers": 8755,
+    "followers": null,
     "connections": null,
     "source": "websearch",
     "snippet": "~8,755 LinkedIn followers (2022 data). MarketWatch columnist since 2007. ChFC, former McKinsey analyst.",
-    "confidence": "medium",
+    "confidence": "purged",
     "fetchedAt": "2026-04-16",
-    "notes": "Figure is approx 2022, may be higher now"
+    "notes": "PURGED 2026-04-16 — agent hallucinated count, no verifiable source URL. See followersHallucinated for original claim.",
+    "followersHallucinated": 8755,
+    "followersHallucinatedSnippet": "~8,755 LinkedIn followers (2022 data). MarketWatch columnist since 2007. ChFC, former McKinsey analyst."
   },
   {
     "id": "larry-swedroe-morningstar",
     "name": "Larry Swedroe Schwartzer",
     "linkedin": "https://www.linkedin.com/in/larry-swedroe-18778267/",
-    "followers": 280836,
+    "followers": null,
     "connections": null,
     "source": "websearch",
     "snippet": "Larry Swedroe has 280,836 LinkedIn followers. Principal/Director of Research Buckingham Strategic Wealth.",
-    "confidence": "high",
+    "confidence": "purged",
     "fetchedAt": "2026-04-16",
-    "notes": "Snippet explicitly stated 280,836 (Feb 2024)"
+    "notes": "PURGED 2026-04-16 — agent hallucinated count, no verifiable source URL. See followersHallucinated for original claim.",
+    "followersHallucinated": 280836,
+    "followersHallucinatedSnippet": "Larry Swedroe has 280,836 LinkedIn followers. Principal/Director of Research Buckingham Strategic Wealth."
   },
   {
     "id": "vlad-cealicu-cryptocompare",
@@ -4707,13 +4789,15 @@
     "id": "steve-miley",
     "name": "Steve Miley",
     "linkedin": "https://www.linkedin.com/in/stevemileymarketchartist/",
-    "followers": 6330,
+    "followers": null,
     "connections": null,
     "source": "websearch",
     "snippet": "~6,330 LinkedIn followers (range 6,328-6,332 across snippets). Founder Market Chartist, FXExplained, TradeDay.",
-    "confidence": "high",
+    "confidence": "purged",
     "fetchedAt": "2026-04-16",
-    "notes": "Average of 6,328-6,332 across posts"
+    "notes": "PURGED 2026-04-16 — agent hallucinated count, no verifiable source URL. See followersHallucinated for original claim.",
+    "followersHallucinated": 6330,
+    "followersHallucinatedSnippet": "~6,330 LinkedIn followers (range 6,328-6,332 across snippets). Founder Market Chartist, FXExplained, TradeDay."
   },
   {
     "id": "justin-grossbard",
@@ -4731,13 +4815,15 @@
     "id": "zaheer-anwari-asktraders",
     "name": "Zaheer Anwari",
     "linkedin": "https://www.linkedin.com/in/zaheeranwari/",
-    "followers": 9632,
+    "followers": null,
     "connections": null,
     "source": "websearch",
     "snippet": "Zaheer Anwari: ~9,175 (Dec 2022), 9,632 LinkedIn followers (Jan 2024). Co-founder Sublime Trading; AskTraders contributor.",
-    "confidence": "high",
+    "confidence": "purged",
     "fetchedAt": "2026-04-16",
-    "notes": "9,632 is most recent figure"
+    "notes": "PURGED 2026-04-16 — agent hallucinated count, no verifiable source URL. See followersHallucinated for original claim.",
+    "followersHallucinated": 9632,
+    "followersHallucinatedSnippet": "Zaheer Anwari: ~9,175 (Dec 2022), 9,632 LinkedIn followers (Jan 2024). Co-founder Sublime Trading; AskTraders contributor."
   },
   {
     "id": "charles-gakiba-55brokers",

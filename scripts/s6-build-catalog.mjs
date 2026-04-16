@@ -305,20 +305,30 @@ enriched.slice(0, 30).forEach((a, i) => {
 });
 main.push(``);
 
-// Top-30 by LinkedIn reach (independent of finalScore)
-main.push(``);
-main.push(`## Top 30 by LinkedIn reach`);
-main.push(``);
-main.push(`Sorted by absolute follower count. The "wow factor" lever — these are the authors whose endorsement carries the most distribution if they share our work.`);
-main.push(``);
-main.push(`| # | Name | Outlet | Tier | Score | LI Followers | Role |`);
-main.push(`|---|---|---|---|---|---|---|`);
+// Top-30 by LinkedIn reach (only renders when we have verified data)
 const byFollowers = enriched.filter((a) => a.mediaSignals?.linkedinFollowers != null)
   .sort((a, b) => b.mediaSignals.linkedinFollowers - a.mediaSignals.linkedinFollowers);
-byFollowers.slice(0, 30).forEach((a, i) => {
-  main.push(`| ${i + 1} | **${esc(a.name)}** | ${esc(a.outletName)} | ${a.eeatTier} | ${a.finalScore} | **${a.mediaSignals.linkedinFollowers.toLocaleString()}** | ${esc(a.role).slice(0, 50)} |`);
-});
-main.push(``);
+if (byFollowers.length > 0) {
+  main.push(``);
+  main.push(`## Top 30 by LinkedIn reach`);
+  main.push(``);
+  main.push(`Sorted by absolute follower count. The "wow factor" lever — these are the authors whose endorsement carries the most distribution if they share our work.`);
+  main.push(``);
+  main.push(`| # | Name | Outlet | Tier | Score | LI Followers | Role |`);
+  main.push(`|---|---|---|---|---|---|---|`);
+  byFollowers.slice(0, 30).forEach((a, i) => {
+    main.push(`| ${i + 1} | **${esc(a.name)}** | ${esc(a.outletName)} | ${a.eeatTier} | ${a.finalScore} | **${a.mediaSignals.linkedinFollowers.toLocaleString()}** | ${esc(a.role).slice(0, 50)} |`);
+  });
+  main.push(``);
+} else {
+  main.push(``);
+  main.push(`## LinkedIn reach`);
+  main.push(``);
+  main.push(`> ⚠ **No verified follower counts available.** S7 WebSearch agents hallucinated counts (verified by Larry Swedroe spot-check: claimed 280,836 / actual 9,229). Purged 2026-04-16. Variant A (Playwright with proper throttle) pending — retry after LinkedIn cool-down (~48-72h from the original block).`);
+  main.push(``);
+  main.push(`The 111 "500+ connections" bucket entries are kept (those were literal Google snippet quotes, not invented).`);
+  main.push(``);
+}
 
 // Tier-S full blocks
 main.push(`---`);

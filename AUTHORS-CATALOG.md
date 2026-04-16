@@ -36,8 +36,8 @@ Single-source-of-truth catalog of all **579 authors** harvested across **96 outl
 - Quoted in tier-1 press: 185 / 579 (32%)
 - TV appearances: 75 / 579 (13%)
 - Multi-outlet (cross-writers): 258 / 579 (45%)
-- LinkedIn followers captured (S7): 41 / 579 (7%)
-- LinkedIn connections fallback (500+): 101 / 579 (17%)
+- LinkedIn followers captured (S7): 0 / 579 (0%)
+- LinkedIn connections fallback (500+): 111 / 579 (19%)
 - Still flagged needsManualReview: 67 / 579 (12%)
 
 ## Score formula
@@ -55,7 +55,7 @@ Snapshot ranked by finalScore. Full detail blocks below.
 | # | Name | Outlet | Tier | Score | LI ⓕ | Cert / Book hook |
 |---|---|---|---|---|---|---|
 | 1 | **Steven Hatzakis** | StockBrokers.com | S | 150 | 500+c | CTA (Commodity Trading Advisor) / Series III, Series 3 ( |
-| 2 | **Beth Pinsker** | MarketWatch | S | 144 | 2.4K | CFP · 📚 1 books |
+| 2 | **Beth Pinsker** | MarketWatch | S | 144 | — | CFP · 📚 1 books |
 | 3 | **Vitaliy Katsenelson, CFA** | Seeking Alpha | S | 144 | — | CFA · 📚 2 books |
 | 4 | **Marc Chandler** | Investing.com | S | 142 | — | CMT · 📺 5 |
 | 5 | **Beverly Harzog** | Bankrate | S | 141 | — | CPA (former) · 📚 1 books · 📺 6 |
@@ -72,10 +72,10 @@ Snapshot ranked by finalScore. Full detail blocks below.
 | 16 | **Martin Lewis** | MoneySavingExpert | S | 128 | — | CBE, OBE · 📚 1 books · 📺 4 |
 | 17 | **Andrew Thurman** | CoinMarketCap | S | 128 | — | — |
 | 18 | **Charles Lewis Sizemore** | Kiplinger | S | 128 | 500+c | CFA · 📺 4 |
-| 19 | **Kathy Lien** | WikiFX | S | 125 | 3.8K | 📚 3 books · 📺 1 |
+| 19 | **Kathy Lien** | WikiFX | S | 125 | — | 📚 3 books · 📺 1 |
 | 20 | **Dan Blystone** | FXEmpire | S | 125 | — | Series 3 (NFA — futures, options, forex) |
 | 21 | **Blain Reinkensmeyer** | StockBrokers.com | S | 123 | — | 📚 1 books · 📺 1 |
-| 22 | **Doug Boneparth** | Investopedia | S | 118 | 7.6K | CFP, AIF · 📺 5 |
+| 22 | **Doug Boneparth** | Investopedia | S | 118 | 500+c | CFP, AIF · 📺 5 |
 | 23 | **Riley Adams** | CompareForexBrokers | S | 118 | — | Certified Public Accountant (CPA) |
 | 24 | **Michael Hewson** | Good Money Guide | S | 117 | — | MSTA, CFTe · 📺 5 |
 | 25 | **Emma Lunn** | MoneyWeek | S | 111 | — | — |
@@ -86,42 +86,11 @@ Snapshot ranked by finalScore. Full detail blocks below.
 | 30 | **Jack Crooks (a.k.a. Jack the Pipper)** | BabyPips | S | 90 | — | 📺 3 |
 
 
-## Top 30 by LinkedIn reach
+## LinkedIn reach
 
-Sorted by absolute follower count. The "wow factor" lever — these are the authors whose endorsement carries the most distribution if they share our work.
+> ⚠ **No verified follower counts available.** S7 WebSearch agents hallucinated counts (verified by Larry Swedroe spot-check: claimed 280,836 / actual 9,229). Purged 2026-04-16. Variant A (Playwright with proper throttle) pending — retry after LinkedIn cool-down (~48-72h from the original block).
 
-| # | Name | Outlet | Tier | Score | LI Followers | Role |
-|---|---|---|---|---|---|---|
-| 1 | **Larry Swedroe** | Morningstar | A | 120 | **280,836** | Contributor — Director of Research, Buckingham Str |
-| 2 | **Holly Mackay** | Boring Money | B | 76 | **188,284** | Founder & CEO — Boring Money |
-| 3 | **Al Root (Allen Root)** | Barron's | A | 108 | **138,586** | Senior Writer / Associate Editor — Barron's |
-| 4 | **David Sekera** | Morningstar | B | 109 | **100,000** | Chief US Market Strategist — Morningstar |
-| 5 | **Sebastian Matthes** | Handelsblatt | B | 97 | **28,783** | Editor-in-Chief — Handelsblatt |
-| 6 | **John Vandermosten, CFA** | Zacks | B | 97 | **13,432** | Senior Analyst — Zacks Small Cap Research (Biotech |
-| 7 | **Nigam Arora** | Benzinga | C | 68 | **12,672** | Founder — The Arora Report (Benzinga Contributor) |
-| 8 | **Damilola Esebame** | FinanceFeeds | C | 81 | **10,000** | Contributing Editor, DeFi — FinanceFeeds |
-| 9 | **Zaheer Anwari** | AskTraders | B | 52 | **9,632** | Equities Trader / Contributor |
-| 10 | **Brett Arends** | MarketWatch | A | 129 | **8,755** | Columnist — MarketWatch / Wall Street Journal |
-| 11 | **Caleb Silver** | Investopedia | A | 123 | **8,369** | Editor-in-Chief & SVP Content — Investopedia |
-| 12 | **Doug Boneparth** | Investopedia | S | 118 | **7,593** | CFP — Investopedia Advisor Council; CFP Board Amba |
-| 13 | **Steve Miley** | AskTraders | A | 94 | **6,330** | Contributor / Founder Market Chartist |
-| 14 | **Nooresh Merani** | AskTraders | B | 77 | **6,297** | Contributor (technical analyst) — AskTraders; Foun |
-| 15 | **Jesse Hamilton** | CoinDesk | A | 118 | **5,298** | Deputy Managing Editor, Global Policy & Regulation |
-| 16 | **Dhanusha Gokulan** | Gulf News | C | 105 | **4,827** | Chief Reporter — Business |
-| 17 | **Kathy Lien** | WikiFX | S | 125 | **3,800** | Managing Director of FX Strategy — BK Asset Manage |
-| 18 | **Jeff Ostrowski** | Bankrate | A | 116 | **3,537** | Writer & Housing Market Analyst |
-| 19 | **Claer Barrett** | Financial Times | A | 120 | **3,486** | Consumer Editor / Associate Editor — Financial Tim |
-| 20 | **Colin Lambert** | The Full FX | B | 87 | **3,392** | Co-Founder & Publisher — The Full FX |
-| 21 | **Greg Bartalos** | Barron's | B | 120 | **3,300** | Editor-in-Chief, Barron's Wealth & Asset Managemen |
-| 22 | **Sergei Klebnikov** | Forbes | B | 106 | **3,076** | Staff Writer — Wealth Management & Wall Street |
-| 23 | **Scott Murdoch** | Reuters | A | 114 | **2,669** | Lead Writer, Asia Finance & Markets — Reuters |
-| 24 | **Michelle Fox** | CNBC | B | 95 | **2,566** | Reporter — Investing / Markets (CNBC Pro) |
-| 25 | **Beth Pinsker** | MarketWatch | S | 144 | **2,368** | Financial-planning columnist — MarketWatch |
-| 26 | **Natalie Campisi** | Forbes | A | 123 | **2,368** | Senior Reporter — Personal Finance & Mortgages (Fo |
-| 27 | **Brian Bollinger** | Seeking Alpha | A | 105 | **2,000** | Founder, Owner, President & Analyst — Simply Safe  |
-| 28 | **Jenny Ross** | Which? | B | 109 | **2,000** | Editor, Which? Money |
-| 29 | **Suzanne Woolley** | Bloomberg | A | 116 | **1,971** | Personal Finance Writer — Bloomberg Wealth team |
-| 30 | **Sankrit K** | CoinGecko | C | 70 | **1,833** | Web3 SEO Researcher & Writer — CoinGecko |
+The 111 "500+ connections" bucket entries are kept (those were literal Google snippet quotes, not invented).
 
 ---
 
@@ -199,7 +168,6 @@ Financial-planning columnist at MarketWatch. Certified Financial Planner (CFP®)
 - Role: Financial-planning columnist — MarketWatch (senior)
 - Years in industry: **20**
 - LinkedIn: [https://www.linkedin.com/in/bpinsker/](https://www.linkedin.com/in/bpinsker/)
-  - **2,368 followers** on LinkedIn (fetched 2026-04-16)
 - Twitter/X: —
 - Muck Rack: [https://muckrack.com/beth-pinsker](https://muckrack.com/beth-pinsker)
 - Personal site: [https://bethpinsker.com/](https://bethpinsker.com/)
@@ -1055,7 +1023,6 @@ Managing Director of FX Strategy for BK Asset Management and Co-Founder of BKFor
 - Location: New York, USA
 - Years in industry: **20**
 - LinkedIn: [https://www.linkedin.com/in/kathylien/](https://www.linkedin.com/in/kathylien/)
-  - **3,800 followers** on LinkedIn (fetched 2026-04-16)
 - Twitter/X: —
 - Muck Rack: —
 - Personal site: [http://www.bkassetmanagement.com/kathy](http://www.bkassetmanagement.com/kathy)
@@ -1211,7 +1178,7 @@ President and founder of Bone Fide Wealth, LLC. Became one of the youngest CERTI
 - Location: New York, NY, USA
 - Years in industry: **15**
 - LinkedIn: [https://www.linkedin.com/in/douglasboneparth](https://www.linkedin.com/in/douglasboneparth)
-  - **7,593 followers** on LinkedIn (fetched 2026-04-16)
+  - 500+ LinkedIn connections (followers not exposed)
 - Twitter/X: —
 - Muck Rack: —
 - Personal site: [bonefidewealth.com](bonefidewealth.com)

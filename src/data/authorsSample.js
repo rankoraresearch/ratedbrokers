@@ -3378,9 +3378,7 @@ export const AUTHORS = [
     "hasKnowledgePanel": null,
     "awards": [
       "SABEW 2020 Best in Business (Investing/Markets — Medium, Robinhood investigation)"
-    ],
-      "linkedinFollowers": 3076,
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+    ]
   },
   "trustSignals": {
     "ownedDomain": true,
@@ -3808,9 +3806,7 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null,
-      "linkedinFollowers": 968,
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+    "hasKnowledgePanel": null
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -4457,8 +4453,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": "bobbyong.com",
@@ -4693,8 +4688,7 @@ export const AUTHORS = [
     ],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": "barbarafriedbergpersonalfinance.com",
@@ -5491,8 +5485,7 @@ export const AUTHORS = [
     ],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -5734,8 +5727,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -5971,8 +5963,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -6223,9 +6214,7 @@ export const AUTHORS = [
       "How to Buy a Home in a Miserable Market"
     ],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null,
-      "linkedinFollowers": 3537,
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+    "hasKnowledgePanel": null
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -6655,8 +6644,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -7006,8 +6994,7 @@ export const AUTHORS = [
     ],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -7104,9 +7091,7 @@ export const AUTHORS = [
     "awards": [
       "Investopedia 100 Top Financial Advisors"
     ],
-      "linkedinFollowers": 7593,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": "bonefidewealth.com",
@@ -7549,9 +7534,7 @@ export const AUTHORS = [
     ],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null,
-      "linkedinFollowers": 12672,
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+    "hasKnowledgePanel": null
   },
   "trustSignals": {
     "ownedDomain": "thearorareport.com",
@@ -7726,8 +7709,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -8416,9 +8398,7 @@ export const AUTHORS = [
     ],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null,
-      "linkedinFollowers": 138586,
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+    "hasKnowledgePanel": null
   },
   "trustSignals": {
     "ownedDomain": "alrootwriting.com",
@@ -9379,8 +9359,7 @@ export const AUTHORS = [
       "EPPY 2018 best business reporting",
       "SABEW + SPJ honors (Wells Fargo)"
     ],
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -10792,9 +10771,7 @@ export const AUTHORS = [
       "What They Don't Teach You About Money"
     ],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null,
-      "linkedinFollowers": 3486,
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+    "hasKnowledgePanel": null
   },
   "trustSignals": {
     "ownedDomain": "claerbarrett.com",
@@ -11277,8 +11254,7 @@ export const AUTHORS = [
     "hasKnowledgePanel": null,
     "socialFollowers": 350000,
     "studentsTaught": 100000,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -11413,9 +11389,7 @@ export const AUTHORS = [
     ],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null,
-      "linkedinFollowers": 6297,
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+    "hasKnowledgePanel": null
   },
   "trustSignals": {
     "ownedDomain": "nooreshtech.co.in",
@@ -11741,8 +11715,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": "perrymarketanalysis.com",
@@ -11814,8 +11787,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "60",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "60"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -11887,8 +11859,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -12227,8 +12198,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -12346,8 +12316,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": "stevenhatzakis.com",
@@ -12428,8 +12397,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": "yifanyunews.com",
@@ -12492,8 +12460,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -12739,9 +12706,7 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null,
-      "linkedinFollowers": 2000,
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+    "hasKnowledgePanel": null
   },
   "trustSignals": {
     "ownedDomain": "simplysafedividends.com",
@@ -12824,9 +12789,7 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null,
-      "linkedinFollowers": 157,
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+    "hasKnowledgePanel": null
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -12910,8 +12873,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -12985,8 +12947,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -13417,8 +13378,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -13484,8 +13444,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": "antonkharitonov.journoportfolio.com",
@@ -13568,8 +13527,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -14001,9 +13959,7 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null,
-      "linkedinFollowers": 100000,
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+    "hasKnowledgePanel": null
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -14312,8 +14268,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -14384,8 +14339,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -14539,8 +14493,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "183",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "183"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -14596,8 +14549,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": 25,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -14920,9 +14872,7 @@ export const AUTHORS = [
       "My Mother's Money: A Guide to Financial Caregiving"
     ],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null,
-      "linkedinFollowers": 2368,
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+    "hasKnowledgePanel": null
   },
   "trustSignals": {
     "ownedDomain": true,
@@ -15179,8 +15129,7 @@ export const AUTHORS = [
     ],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": true,
@@ -15629,8 +15578,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -15853,8 +15801,7 @@ export const AUTHORS = [
     ],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": "elaineking.com",
@@ -16123,9 +16070,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinFollowers": 1971,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -16265,8 +16210,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -16337,8 +16281,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "303",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "303"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -16456,9 +16399,7 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null,
-      "linkedinFollowers": 3392,
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+    "hasKnowledgePanel": null
   },
   "trustSignals": {
     "ownedDomain": "thefullfx.com",
@@ -16615,9 +16556,7 @@ export const AUTHORS = [
       "Options Trading 101"
     ],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null,
-      "linkedinFollowers": 750,
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+    "hasKnowledgePanel": null
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -17300,9 +17239,7 @@ export const AUTHORS = [
     "awards": [
       "RTDNA/NEFE Excellence in Personal Finance Reporting Award (Digital), 2018"
     ],
-      "linkedinFollowers": 761,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -17408,9 +17345,7 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null,
-      "linkedinFollowers": 10000,
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+    "hasKnowledgePanel": null
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -17754,8 +17689,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "253",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "253"
   },
   "trustSignals": {
     "ownedDomain": "georgebudwell.com",
@@ -18436,8 +18370,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -18892,8 +18825,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": "charlessizemore.com",
@@ -19023,8 +18955,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -19360,9 +19291,7 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null,
-      "linkedinFollowers": 2368,
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+    "hasKnowledgePanel": null
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -19447,9 +19376,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinFollowers": 417,
-      "linkedinConnections": "338",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "338"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -19741,8 +19668,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "269",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "269"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -20057,8 +19983,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -20142,9 +20067,7 @@ export const AUTHORS = [
       "Millionaire Traders: How Everyday People Beat Wall Street at its Own Game"
     ],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null,
-      "linkedinFollowers": 3800,
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+    "hasKnowledgePanel": null
   },
   "trustSignals": {
     "ownedDomain": "bkassetmanagement.com",
@@ -20423,8 +20346,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -20639,8 +20561,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -20717,8 +20638,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": "tigerway",
@@ -20792,8 +20712,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": true,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -20862,8 +20781,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "379",
-      "linkedinFetchedAt": "2026-04-16T00:00:00Z"
+      "linkedinConnections": "379"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -21365,8 +21283,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -21631,9 +21548,7 @@ export const AUTHORS = [
     "authoredBooks": [
       {
         "title": "Active Value Investing",
-        "year": null,
-      "linkedinFollowers": 25579,
-      "linkedinFetchedAt": "2026-04-16"
+        "year": null
       },
       {
         "title": "Soul in the Game: The Art of a Meaningful Life",
@@ -21863,8 +21778,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -22096,8 +22010,7 @@ export const AUTHORS = [
     "awards": [
       "Sky News journalism award"
     ],
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -22171,8 +22084,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "424",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "424"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -22235,9 +22147,7 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null,
-      "linkedinFollowers": 4827,
-      "linkedinFetchedAt": "2026-04-16"
+    "hasKnowledgePanel": null
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -22306,9 +22216,7 @@ export const AUTHORS = [
     "podcasts": [
       "The Way Forward (Barron's Advisor)"
     ],
-      "linkedinFollowers": 3300,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -22738,8 +22646,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "140",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "140"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -22986,8 +22893,7 @@ export const AUTHORS = [
     "podcasts": [
       "Let's Talk Forex (co-host with Alison Heyerdahl)"
     ],
-      "linkedinConnections": "196",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "196"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -23104,8 +23010,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "301",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "301"
   },
   "trustSignals": {
     "ownedDomain": "sasharogelberg.com",
@@ -23191,9 +23096,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinFollowers": 13432,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -24033,8 +23936,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -24337,9 +24239,7 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null,
-      "linkedinFollowers": 1280,
-      "linkedinFetchedAt": "2026-04-16"
+    "hasKnowledgePanel": null
   },
   "trustSignals": {
     "ownedDomain": "peterdavidconley.com",
@@ -24416,9 +24316,7 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null,
-      "linkedinFollowers": 188284,
-      "linkedinFetchedAt": "2026-04-16"
+    "hasKnowledgePanel": null
   },
   "trustSignals": {
     "ownedDomain": "hollymackay.com",
@@ -24497,9 +24395,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinFollowers": 976,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -24565,9 +24461,7 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": true,
-      "linkedinFollowers": 5298,
-      "linkedinFetchedAt": "2026-04-16"
+    "hasKnowledgePanel": true
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -24706,9 +24600,7 @@ export const AUTHORS = [
     ],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null,
-      "linkedinFollowers": 1719,
-      "linkedinFetchedAt": "2026-04-16"
+    "hasKnowledgePanel": null
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -24926,8 +24818,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -25207,8 +25098,7 @@ export const AUTHORS = [
     "awards": [
       "2023 Gerald Loeb Award — Beat Reporting (FTX collapse coverage)"
     ],
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": "sam-kessler.com",
@@ -25717,8 +25607,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "86",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "86"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -26086,8 +25975,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -26155,8 +26043,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": "leaprate.com (former)",
@@ -26214,8 +26101,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": 1515,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -26455,8 +26341,7 @@ export const AUTHORS = [
     "awards": [
       "Gerald Loeb Award 2023 (team, breaking news — FTX)"
     ],
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -26517,9 +26402,7 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null,
-      "linkedinFollowers": 1833,
-      "linkedinFetchedAt": "2026-04-16"
+    "hasKnowledgePanel": null
   },
   "trustSignals": {
     "ownedDomain": "sankrit.com",
@@ -26575,9 +26458,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinFollowers": 28783,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -26704,8 +26585,7 @@ export const AUTHORS = [
     "fellowships": [
       "NYU GloJo 2023"
     ],
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -27663,8 +27543,7 @@ export const AUTHORS = [
     ],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -27941,8 +27820,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -28097,8 +27975,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -28954,9 +28831,7 @@ export const AUTHORS = [
     "awards": [
       "Emmy (breaking news — CBS local)"
     ],
-      "linkedinFollowers": 2566,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -29295,8 +29170,7 @@ export const AUTHORS = [
     ],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": "mike-ayers.com",
@@ -29707,8 +29581,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -29844,8 +29717,7 @@ export const AUTHORS = [
     "awards": [
       "European Search Awards 2022 — Best SEO Campaign (Large)"
     ],
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -29903,8 +29775,7 @@ export const AUTHORS = [
       "The Readback (host)",
       "Barron's Live (regular guest)"
     ],
-      "linkedinConnections": "310",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "310"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -30095,8 +29966,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": 2248,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -30236,8 +30106,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -30728,8 +30597,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "460",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "460"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -31284,8 +31152,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": "propfirmmatch.com",
@@ -31350,9 +31217,7 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null,
-      "linkedinFollowers": 2000,
-      "linkedinFetchedAt": "2026-04-16"
+    "hasKnowledgePanel": null
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -31567,8 +31432,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": "paulkimwrites.com",
@@ -31632,8 +31496,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": "junseth.com, alarmgrid.com",
@@ -31946,9 +31809,7 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null,
-      "linkedinFollowers": 2669,
-      "linkedinFetchedAt": "2026-04-16"
+    "hasKnowledgePanel": null
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -32097,8 +31958,7 @@ export const AUTHORS = [
     ],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": "leslietruex.com",
@@ -32316,8 +32176,7 @@ export const AUTHORS = [
     ],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": "jeffjohnroberts.com",
@@ -33030,8 +32889,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -33323,8 +33181,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -33907,8 +33764,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -33978,9 +33834,7 @@ export const AUTHORS = [
     ],
     "podcasts": [
       "Share Radio weekly show"
-    ],
-      "linkedinFollowers": 1256,
-      "linkedinFetchedAt": "2026-04-16"
+    ]
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -34179,8 +34033,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -34314,8 +34167,7 @@ export const AUTHORS = [
       "Eddie Award",
       "Ozzie Award"
     ],
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -34387,8 +34239,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -34451,9 +34302,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinFollowers": 407,
-      "linkedinConnections": 407,
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": 407
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -34539,8 +34388,7 @@ export const AUTHORS = [
       "eToro",
       "CMC Markets"
     ],
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -34665,8 +34513,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -34930,9 +34777,7 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null,
-      "linkedinFollowers": 1037,
-      "linkedinFetchedAt": "2026-04-16"
+    "hasKnowledgePanel": null
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -35552,8 +35397,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -35884,8 +35728,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": 165,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -35949,8 +35792,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -36387,8 +36229,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": true,
@@ -36610,9 +36451,7 @@ export const AUTHORS = [
     ],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": true,
-      "linkedinFollowers": 8369,
-      "linkedinFetchedAt": "2026-04-16"
+    "hasKnowledgePanel": true
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -36834,8 +36673,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -36896,8 +36734,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": 7328,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -36982,9 +36819,7 @@ export const AUTHORS = [
       "Spread Betting: The Football Fan's Guide to Spread Betting"
     ],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": true,
-      "linkedinFollowers": 8755,
-      "linkedinFetchedAt": "2026-04-16"
+    "hasKnowledgePanel": true
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -37130,9 +36965,7 @@ export const AUTHORS = [
       "Think, Act, and Invest Like Warren Buffett"
     ],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null,
-      "linkedinFollowers": 280836,
-      "linkedinFetchedAt": "2026-04-16"
+    "hasKnowledgePanel": null
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -37723,8 +37556,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -37786,8 +37618,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "57",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "57"
   },
   "trustSignals": {
     "ownedDomain": "tradingeconomics.com",
@@ -37968,8 +37799,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -38292,8 +38122,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -38788,8 +38617,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -38868,8 +38696,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -39106,8 +38933,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "111",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "111"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -39177,8 +39003,7 @@ export const AUTHORS = [
     ],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": "suestrachan.com",
@@ -39260,8 +39085,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "484",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "484"
   },
   "trustSignals": {
     "ownedDomain": "moneymanifesto.com",
@@ -39458,8 +39282,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -39616,8 +39439,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "241",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "241"
   },
   "trustSignals": {
     "ownedDomain": "acheroninsights.com",
@@ -39826,8 +39648,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -39910,9 +39731,7 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null,
-      "linkedinFollowers": 6330,
-      "linkedinFetchedAt": "2026-04-16"
+    "hasKnowledgePanel": null
   },
   "trustSignals": {
     "ownedDomain": "marketchartist.com",
@@ -40177,9 +39996,7 @@ export const AUTHORS = [
     "tvAppearances": [],
     "authoredBooks": [],
     "muckrackArticleCount": null,
-    "hasKnowledgePanel": null,
-      "linkedinFollowers": 9632,
-      "linkedinFetchedAt": "2026-04-16"
+    "hasKnowledgePanel": null
   },
   "trustSignals": {
     "ownedDomain": "sublimetrading.io",
@@ -40287,8 +40104,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": null,
@@ -40638,8 +40454,7 @@ export const AUTHORS = [
     "authoredBooks": [],
     "muckrackArticleCount": null,
     "hasKnowledgePanel": null,
-      "linkedinConnections": "500+",
-      "linkedinFetchedAt": "2026-04-16"
+      "linkedinConnections": "500+"
   },
   "trustSignals": {
     "ownedDomain": "goodmoneyguide.com",
