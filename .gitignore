@@ -53,3 +53,4 @@ data/
 
 # S7 LinkedIn session (login state, never commit)
 scripts/.li-session/
+scripts/.li-cdp-output.json
