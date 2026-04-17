@@ -1,6 +1,21 @@
 # Status — текущее состояние проекта
 
-Last updated: 2026-04-17 01:47 (About page Round 2: Plate B + Barbara/Bill fixes)
+Last updated: 2026-04-18 (S11 Expert Shortlist + admin Top Picks tab)
+
+---
+
+## Последнее (Backend)
+
+**S11 Expert Shortlist — коммит `1bd40a9` (18.04.2026)**
+- Проход через все 579 авторов с новой realism-метрикой (credentials 25% + on-topic 25% + reach-capped 15% + byline 15% + approachability 20%, минус penalties за Tier-1 staff / celebrity / no contact / badge C)
+- 50 top picks + longlist 51-150 в `EXPERT-CANDIDATES-REALISTIC-TOP50.md`
+- Admin dashboard `/authors/dashboard`: новый tab **Top Picks (50)**, колонка **Realism** с цветным tier-badge (A/B/C/D/E) + tooltip с breakdown, sort option **"Claude's pick ⭐"** (realism × tier-weight 1.00/0.98/0.95/0.90/0.85)
+- Top 10 по Claude's pick: James Chen CMT✓ (100), Charles Sizemore CFA✓ (91.3), Matthew Levy CFA✓ (90.3), Doug Boneparth CFP✓ (87), Terry Flanagan CFA✓ (82), Danielle Park CFA (79.6), Eugene Lee CFA✓ (79), Justin Freeman (78.4), Alan Brochstein CFA (74.6), Eno Eteng (73.4)
+- Tier-распределение top-50: A=5, B=1, C=25, D=12, E=7
+- **2 прохода Codex-review**: первый нашёл 3 HIGH + 1 MEDIUM; все HIGH RESOLVED (CFA-ICFAI false-positive / classifyCandidate core-cert gate / mixed cert schema); MEDIUM PARTIAL через tier-weighted sort
+- Файлы: `src/data/realismScore.js` (force-added), `scripts/s11-expert-shortlist.mjs`, `scripts/s11-generate-md.mjs`, `scripts/s11-shortlist-output.json`, `EXPERT-CANDIDATES-REALISTIC-TOP50.md`
+
+---
 
 ---
 
@@ -75,6 +90,7 @@ Last updated: 2026-04-17 01:47 (About page Round 2: Plate B + Barbara/Bill fixes
 - **S8** ✅ — admin authors dashboard added (public also kept)
 - **S9** ✅ — Twitter fetch complete (199/227), verification 118 authors, Codex fixes applied
 - **S10** 🟡 pending-continue — 65/400 LI followers. Chrome CDP approach works but user kept Ctrl+C'ing the script terminal. Resumable anytime.
+- **S11** ✅ — Realistic expert shortlist + admin Top Picks tab (18.04.2026, commit `1bd40a9`). 2-pass Codex review, 3 HIGH + 1 MEDIUM all addressed.
 
 ---
 
