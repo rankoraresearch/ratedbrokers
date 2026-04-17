@@ -718,8 +718,8 @@ export default function BrokerComparison() {
                     return (
                       <tr key={i} style={{ background: i % 2 === 0 ? "#fff" : "#f8f9fb" }}>
                         <td style={{ padding: "12px 20px", fontWeight: 700, fontSize: 15 }}>{sp.pair}</td>
-                        <td style={{ padding: "12px 20px", textAlign: "center", fontFamily: "'JetBrains Mono',monospace", fontWeight: 700, fontSize: 15, color: w === "a" ? "#059669" : "#374151", background: w === "a" ? "#f0fdf4" : "transparent" }}>{valA.toFixed(2)} pips</td>
-                        <td style={{ padding: "12px 20px", textAlign: "center", fontFamily: "'JetBrains Mono',monospace", fontWeight: 700, fontSize: 15, color: w === "b" ? "#d97706" : "#374151", background: w === "b" ? "#fef3c7" : "transparent" }}>{valB.toFixed(2)} pips</td>
+                        <td style={{ padding: "12px 20px", textAlign: "center", fontFamily: "'JetBrains Mono',monospace", fontWeight: w === "a" ? 800 : 600, fontSize: 15, color: w === "a" ? "#059669" : "#94a3b8" }}>{valA.toFixed(2)} pips</td>
+                        <td style={{ padding: "12px 20px", textAlign: "center", fontFamily: "'JetBrains Mono',monospace", fontWeight: w === "b" ? 800 : 600, fontSize: 15, color: w === "b" ? "#d97706" : "#94a3b8" }}>{valB.toFixed(2)} pips</td>
                         <td style={{ padding: "12px 20px", textAlign: "center", fontSize: 14, fontWeight: 600 }}>
                           {w === "a" ? <span style={{ color: "#059669", display: "inline-flex", alignItems: "center", gap: 3 }}><Check size={14} /> {A.name}</span> : w === "b" ? <span style={{ color: "#d97706", display: "inline-flex", alignItems: "center", gap: 3 }}><Check size={14} /> {B.name}</span> : <span style={{ color: "#6b7280" }}>{t("comp.tie")}</span>}
                         </td>
