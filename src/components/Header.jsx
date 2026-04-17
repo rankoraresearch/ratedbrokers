@@ -374,12 +374,14 @@ export default function Header() {
               <button
                 aria-label="Language"
                 style={{
-                  background: "none", border: "none", cursor: "pointer",
-                  display: "inline-flex", alignItems: "center", gap: 4,
-                  padding: "4px 6px", borderRadius: 6,
+                  background: "#f1f5f9", border: "none", cursor: "pointer",
+                  display: "inline-flex", alignItems: "center",
+                  padding: "6px 10px", borderRadius: 8,
+                  fontSize: 12, fontWeight: 700, color: "#1f2937",
+                  fontFamily: "inherit", letterSpacing: 0.5,
                 }}
               >
-                <CountryFlag code="GB" size={16} />
+                EN
               </button>
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
@@ -729,20 +731,20 @@ export default function Header() {
                 onMouseLeave={(e) => { e.currentTarget.style.color = "#1f2937"; e.currentTarget.style.background = "#f1f5f9"; }}
               ><SearchIcon size={16} /></button>
 
-              {/* ─── Language ─── */}
+              {/* ─── Language (monogram L3, no flag) ─── */}
               <button
                 aria-label="Language"
                 style={{
                   background: "#f1f5f9", border: "none", cursor: "pointer",
                   display: "inline-flex", alignItems: "center", gap: 5,
                   padding: "5px 10px", borderRadius: 8,
-                  fontSize: 13, fontWeight: 600, color: "#1f2937",
+                  fontSize: 13, fontWeight: 700, color: "#1f2937",
                   fontFamily: "inherit", transition: "all 0.2s",
+                  letterSpacing: 0.5,
                 }}
                 onMouseEnter={(e) => { e.currentTarget.style.background = "#e2e8f0"; e.currentTarget.style.color = "#047857"; }}
                 onMouseLeave={(e) => { e.currentTarget.style.background = "#f1f5f9"; e.currentTarget.style.color = "#111827"; }}
               >
-                <CountryFlag code="GB" size={16} />
                 EN
                 <ChevronDown size={11} style={{ color: "#64748b" }} />
               </button>

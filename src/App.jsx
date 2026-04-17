@@ -35,7 +35,6 @@ const CompetitorsResearchPage = lazy(() => import("./pages/CompetitorsResearchPa
 const AuthorsResearchPage = lazy(() => import("./pages/AuthorsResearchPage"));
 
 // ─── Prototypes (lazy, dev-only — excluded from production bundle) ───
-const PrototypesPage = import.meta.env.DEV ? lazy(() => import("./pages/prototypes/PrototypesPage")) : null;
 const LogoLab = import.meta.env.DEV ? lazy(() => import("./pages/LogoLabDotCom")) : null;
 const RankingProto = import.meta.env.DEV ? lazy(() => import("./pages/RankingProto")) : null;
 const RankingProtoB = import.meta.env.DEV ? lazy(() => import("./pages/RankingProtoB")) : null;
@@ -62,6 +61,7 @@ const AccentColorRealProto = import.meta.env.DEV ? lazy(() => import("./pages/Ac
 const AuthorProto = import.meta.env.DEV ? lazy(() => import("./pages/AuthorProto")) : null;
 const ProtoMenu = import.meta.env.DEV ? lazy(() => import("./pages/ProtoMenu")) : null;
 const ProtoLinks = import.meta.env.DEV ? lazy(() => import("./pages/ProtoLinks")) : null;
+const FlagsProto = import.meta.env.DEV ? lazy(() => import("./pages/FlagsProto")) : null;
 
 function PageLoader() {
   return (
@@ -97,7 +97,6 @@ function AppRoutes() {
     <Routes>
       {/* ─── Prototypes (dev-only, gated by import.meta.env.DEV) ─── */}
       {import.meta.env.DEV && <>
-        <Route path="prototypes" element={<Suspense fallback={<PageLoader />}><PrototypesPage /></Suspense>} />
         <Route path="logo-lab" element={<Suspense fallback={<PageLoader />}><LogoLab /></Suspense>} />
         <Route path="proto/ranking" element={<Layout />}><Route index element={<RankingProto />} /></Route>
         <Route path="proto/ranking-b" element={<Layout />}><Route index element={<RankingProtoB />} /></Route>
@@ -124,6 +123,7 @@ function AppRoutes() {
         <Route path="proto/author" element={<Layout />}><Route index element={<AuthorProto />} /></Route>
         <Route path="proto/menu" element={<LanguageProvider><Suspense fallback={<PageLoader />}><ProtoMenu /></Suspense></LanguageProvider>} />
         <Route path="proto/links" element={<Suspense fallback={<PageLoader />}><ProtoLinks /></Suspense>} />
+        <Route path="proto/flags" element={<Layout />}><Route index element={<FlagsProto />} /></Route>
       </>}
       <Route element={<Layout />}>
         <Route index element={<Home />} />
