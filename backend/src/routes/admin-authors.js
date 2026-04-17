@@ -14,6 +14,7 @@ import {
   AUTHORS, SITES, CATEGORIES, BEATS, EEAT_TIERS,
   calcAuthorScore, calcAuthoritativeness, calcFinalScore, deriveEEATTier,
 } from '../../../src/data/authorsSample.js';
+import { calcRealismScore, classifyCandidate } from '../../../src/data/realismScore.js';
 
 function esc(str) {
   if (str == null) return '';
@@ -38,9 +39,10 @@ function compactAuthor(a) {
     badge: a.badge,
     beat: a.beat || [],
     credentials: a.credentials || [],
-    certifications: (a.certifications || []).map(c => ({
-      name: c.name, issuer: c.issuer, verified: !!c.verified, verifyUrl: c.verifyUrl || null,
-    })),
+    certifications: (a.certifications || []).map(c => {
+      if (typeof c === 'string') return { name: c, issuer: null, verified: false, verifyUrl: null };
+      return { name: c?.name || '', issuer: c?.issuer || null, verified: !!c?.verified, verifyUrl: c?.verifyUrl || null };
+    }),
     education: (a.education || []).map(e => ({ degree: e.degree, school: e.school, year: e.year || null })),
     yearsInIndustry: a.yearsInIndustry || null,
     location: a.location || null,
@@ -70,6 +72,15 @@ function compactAuthor(a) {
     auth: calcAuthoritativeness(a),
     finalScore: calcFinalScore(a),
     eeatTier: deriveEEATTier(calcAuthoritativeness(a)),
+    realism: (() => {
+      const r = calcRealismScore(a);
+      return {
+        total: r.total,
+        sub: r.sub,
+        penalty: r.penalty,
+        tier: classifyCandidate(a, r.sub),
+      };
+    })(),
   };
 }
 
@@ -155,6 +166,23 @@ export async function handleAdminAuthorsDashboard(request, env) {
   .beat-pill { display: inline-block; padding: 1px 5px; border-radius: 3px; font-size: 10px; margin-right: 3px; }
   .empty { text-align: center; padding: 60px 20px; color: var(--text-secondary); }
   .score-pill { display: inline-block; min-width: 32px; padding: 3px 8px; border-radius: 999px; font-weight: 700; color: #fff; font-size: 11px; text-align: center; font-feature-settings: 'tnum'; }
+
+  .view-tabs { display: flex; gap: 2px; margin-bottom: 18px; border-bottom: 1px solid var(--border); }
+  .view-tab { padding: 10px 18px; cursor: pointer; color: var(--text-secondary); font-size: 14px; font-weight: 500; border-bottom: 2px solid transparent; user-select: none; transition: color 0.15s, border-color 0.15s; }
+  .view-tab:hover { color: var(--text-primary); }
+  .view-tab.active { color: #34d399; border-bottom-color: #10b981; }
+  .view-tab .sub { font-size: 11px; color: var(--text-muted); margin-left: 4px; font-weight: 400; }
+  .view-note { background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.25); border-radius: 8px; padding: 12px 16px; margin-bottom: 16px; font-size: 13px; color: #a7f3d0; line-height: 1.5; display: none; }
+  .view-note.active { display: block; }
+  .view-note strong { color: #34d399; }
+  .realism-cell { font-feature-settings: 'tnum'; text-align: center; }
+  .realism-cell .val { font-weight: 700; color: #f59e0b; }
+  .cand-tier { display: inline-block; padding: 1px 6px; border-radius: 4px; font-size: 10px; font-weight: 700; margin-left: 4px; }
+  .cand-A { background: rgba(16,185,129,0.25); color: #6ee7b7; }
+  .cand-B { background: rgba(59,130,246,0.25); color: #93c5fd; }
+  .cand-C { background: rgba(245,158,11,0.22); color: #fcd34d; }
+  .cand-D { background: rgba(156,163,175,0.2); color: #d1d5db; }
+  .cand-E { background: rgba(168,85,247,0.22); color: #c4b5fd; }
 </style>
 </head>
 <body>
@@ -163,6 +191,15 @@ ${adminHeaderHTML('authors', encodedKey)}
 <main class="container">
   <h1 class="page-title">Authors Outreach Map</h1>
   <p class="page-sub">580 authors harvested across 96 outlets. Twitter/X follower counts fetched directly from x.com (S9). LinkedIn followers blocked by anti-bot — not displayed.</p>
+
+  <div class="view-tabs">
+    <div class="view-tab active" data-view="all">All Authors <span class="sub">(${total})</span></div>
+    <div class="view-tab" data-view="picks">Top Picks <span class="sub">(50, realism-scored)</span></div>
+  </div>
+
+  <div class="view-note" id="note-picks">
+    <strong>Realism-scored shortlist.</strong> Default sort: <strong>Claude's pick ⭐</strong> = realism × candidate-tier weight (A 1.00, B 0.98, C 0.95, D 0.90, E 0.85) — softly demotes high-realism authors with conflict-of-interest (competitor staff, TV anchors). Use sort dropdown to switch to raw Realism or other metrics. Realism = credentials 25% + on-topic 25% + reach (capped) 15% + byline 15% + approachability 20%; penalties −20/−15/−15/−10 per anti-pattern. Tiers: <span class="cand-tier cand-A">A</span> perfect fit · <span class="cand-tier cand-B">B</span> strong · <span class="cand-tier cand-C">C</span> upside bet · <span class="cand-tier cand-D">D</span> secondary · <span class="cand-tier cand-E">E</span> stretch. Full methodology in <code>EXPERT-CANDIDATES-REALISTIC-TOP50.md</code>.
+  </div>
 
   <div class="summary-grid">
     <div class="summary-card"><div class="v">${total}</div><div class="k">Authors</div></div>
@@ -187,8 +224,10 @@ ${adminHeaderHTML('authors', encodedKey)}
     </select>
     <input id="f-minScore" type="number" placeholder="min score" min="0" max="200">
     <input id="f-minFollowers" type="number" placeholder="min followers" min="0">
-    <select id="f-sort">
+    <select id="f-sort" title="Claude's pick = realism × candidate-tier weight (A 1.00, B 0.98, C 0.95, D 0.90, E 0.85)">
       <option value="finalScore">Sort: Final score ↓</option>
+      <option value="claudePick">Sort: Claude's pick ↓ ⭐</option>
+      <option value="realism">Sort: Realism ↓</option>
       <option value="followers">Sort: X followers ↓</option>
       <option value="score">Sort: Base score ↓</option>
       <option value="auth">Sort: E-E-A-T (auth) ↓</option>
@@ -224,6 +263,7 @@ ${adminHeaderHTML('authors', encodedKey)}
         <th>Beat</th>
         <th class="sortable" data-sort="yearsInIndustry" title="Years of professional experience in financial journalism / advisory / trading">Yrs exp.</th>
         <th class="sortable" data-sort="followers" style="text-align:right" title="Twitter/X followers (verified from x.com, S9). LinkedIn followers are blocked — not displayed.">X Ⓕ</th>
+        <th class="sortable" data-sort="realism" style="text-align:center" title="Realism score — how likely we are to onboard this author. See Top Picks tab for methodology.">Realism</th>
         <th>Contacts</th>
       </tr>
     </thead>
@@ -256,9 +296,21 @@ ${adminHeaderHTML('authors', encodedKey)}
     a.tv = a.ms.tv || 0;
     a.certCount = (a.certifications || []).length;
     a.outletCount = (a.writesFor || [a.site]).length;
+    const r = a.realism || {};
+    a.candTier = r.tier || null;
+    a.realismBreakdown = r.sub || null;
+    a.realismPenalty = r.penalty || 0;
+    a.realism = r.total ?? 0;
+    // Claude's recommended ranking: realism * candidate-tier weight. Softly
+    // pushes E-stretch (competitor staff, TV anchors) below same-score A/B/C
+    // without hiding them. Explained via tooltip on the sort option.
+    const tierWeight = { A: 1.00, B: 0.98, C: 0.95, D: 0.90, E: 0.85 };
+    const w = a.candTier && tierWeight[a.candTier] != null ? tierWeight[a.candTier] : 0.90;
+    a.claudePick = Math.round((a.realism || 0) * w * 10) / 10;
   });
 
   const state = {
+    view: 'all',
     search: '', tier: 'all', outletTier: 'all', minScore: 0, minFollowers: 0,
     hasLinkedIn: false, hasEmail: false, hasCerts: false, hasBook: false,
     hasTier1: false, multiOutlet: false, hideReview: true,
@@ -282,9 +334,14 @@ ${adminHeaderHTML('authors', encodedKey)}
     return '#6b7280';
   }
 
+  // Precompute the top-50 pool by Claude's pick (tier-weighted realism).
+  const TOP_PICKS = AUTHORS.slice().sort((a, b) => b.claudePick - a.claudePick).slice(0, 50);
+  const TOP_PICKS_SET = new Set(TOP_PICKS.map(a => a.id));
+
   function filtered() {
     const q = state.search.toLowerCase();
-    let res = AUTHORS.filter(a => {
+    const pool = state.view === 'picks' ? TOP_PICKS : AUTHORS;
+    let res = pool.filter(a => {
       if (state.tier !== 'all' && a.eeatTier !== state.tier) return false;
       if (state.outletTier !== 'all' && a.outletTier !== state.outletTier) return false;
       if (state.minScore && a.finalScore < state.minScore) return false;
@@ -303,8 +360,10 @@ ${adminHeaderHTML('authors', encodedKey)}
       return true;
     });
     const dir = state.sortDir === 'asc' ? 1 : -1;
+    // Top Picks view defaults to Claude's pick sort, unless user overrode
+    const effectiveKey = (state.view === 'picks' && state.sortKey === 'finalScore') ? 'claudePick' : state.sortKey;
     res.sort((a, b) => {
-      const k = state.sortKey;
+      const k = effectiveKey;
       if (k === 'name' || k === 'outletName') return (a[k] || '').localeCompare(b[k] || '') * dir;
       if (k === 'eeatTier') return (a.eeatTier || '').localeCompare(b.eeatTier || '') * dir;
       const av = a[k] != null ? a[k] : -Infinity;
@@ -343,16 +402,31 @@ ${adminHeaderHTML('authors', encodedKey)}
       '<td>' + beats + '</td>' +
       '<td>' + (a.yearsInIndustry || '<span class="li-conn">—</span>') + '</td>' +
       '<td style="text-align:right" title="' + escHtml(followersTitle) + '"><span class="li-followers">' + fmtFollowers(a.followers, a.ms.lc) + '</span></td>' +
+      '<td class="realism-cell" title="' + escHtml(realismTooltip(a)) + '"><span class="val">' + (a.realism || 0) + '</span>' +
+        (a.candTier ? '<span class="cand-tier cand-' + a.candTier + '">' + a.candTier + '</span>' : '') + '</td>' +
       '<td><div class="links">' + (links || '<span class="li-conn">—</span>') + '</div></td>' +
       '</tr>';
   }
 
+  function realismTooltip(a) {
+    const b = a.realismBreakdown || {};
+    const parts = [
+      'cred ' + (b.credentials ?? '—'),
+      'topic ' + (b.onTopic ?? '—'),
+      'reach ' + (b.reach ?? '—'),
+      'byline ' + (b.byline ?? '—'),
+      'approach ' + (b.approachability ?? '—'),
+    ];
+    return parts.join(' / ') + (a.realismPenalty ? ' · penalty −' + a.realismPenalty : '');
+  }
+
   function render() {
     const rows = filtered();
-    document.getElementById('result-count').textContent = rows.length + ' / ${total} authors';
+    const denominator = state.view === 'picks' ? TOP_PICKS.length : AUTHORS.length;
+    document.getElementById('result-count').textContent = rows.length + ' / ' + denominator + ' authors';
     const tbody = document.getElementById('tbody');
     if (rows.length === 0) {
-      tbody.innerHTML = '<tr><td colspan="10" class="empty">No authors match the current filters.</td></tr>';
+      tbody.innerHTML = '<tr><td colspan="11" class="empty">No authors match the current filters.</td></tr>';
       return;
     }
     tbody.innerHTML = rows.map(renderRow).join('');
@@ -394,6 +468,23 @@ ${adminHeaderHTML('authors', encodedKey)}
       const k = th.dataset.sort;
       if (state.sortKey === k) state.sortDir = state.sortDir === 'desc' ? 'asc' : 'desc';
       else { state.sortKey = k; state.sortDir = (k === 'name' || k === 'outletName') ? 'asc' : 'desc'; }
+      updateHeaderArrows();
+      render();
+    });
+  });
+
+  // Tab switcher
+  document.querySelectorAll('.view-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const view = tab.dataset.view;
+      if (view === state.view) return;
+      state.view = view;
+      document.querySelectorAll('.view-tab').forEach(t => t.classList.toggle('active', t.dataset.view === view));
+      document.getElementById('note-picks').classList.toggle('active', view === 'picks');
+      // Default sort for Top Picks is Claude's pick; for All it's finalScore
+      state.sortKey = view === 'picks' ? 'claudePick' : 'finalScore';
+      state.sortDir = 'desc';
+      document.getElementById('f-sort').value = state.sortKey;
       updateHeaderArrows();
       render();
     });
