@@ -350,8 +350,7 @@ function RegulatoryWarnings({ warnings, mob }) {
                 {w.action} ({w.date})
               </p>
               {w.url && (
-                <a href={w.url} target="_blank" rel="noopener noreferrer" style={{
-                  fontSize: 13, color: "#2563eb", textDecoration: "underline",
+                <a href={w.url} target="_blank" rel="noopener noreferrer" className="rb-link-meta" style={{
                   display: "inline-flex", alignItems: "center", gap: 4,
                 }}>View source <ExternalLink size={12} /></a>
               )}
