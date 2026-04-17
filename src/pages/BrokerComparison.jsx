@@ -485,8 +485,6 @@ export default function BrokerComparison() {
   const ctaA = getCTAText(A.name, vertical);
   const ctaB = getCTAText(B.name, vertical);
   const ctaShort = getCTATextShort(vertical);
-  const bothZeroComm = isStock && parseFee(A.commissionPerTrade || A.commission) === 0 && parseFee(B.commissionPerTrade || B.commission) === 0;
-  const midCTA = isForex ? "Both brokers offer demo accounts — test risk-free." : isStock ? (bothZeroComm ? "Both brokers offer $0 commission trading — open an account in minutes." : "Compare commissions, platforms, and features — open an account in minutes.") : "Compare both platforms — open demo accounts to test.";
 
   /* =================== RENDER =================== */
   return (
