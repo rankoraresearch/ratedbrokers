@@ -148,26 +148,29 @@ export default function AllRankingsPage() {
           <div style={{
             display: "flex", gap: 8, justifyContent: "center", flexWrap: "wrap",
           }}>
-            {CATEGORY_TABS.map((t) => (
-              <button
-                key={t.key}
-                onClick={() => setActiveTab(t.key)}
-                style={{
-                  padding: "8px 18px", borderRadius: 100,
-                  border: "1px solid",
-                  borderColor: activeTab === t.key ? "#34d399" : "rgba(255,255,255,0.15)",
-                  background: activeTab === t.key ? "rgba(52,211,153,0.15)" : "rgba(255,255,255,0.05)",
-                  color: activeTab === t.key ? "#34d399" : "rgba(255,255,255,0.7)",
-                  fontSize: 14, fontWeight: 600, cursor: "pointer",
-                  fontFamily: "inherit", transition: "all 0.2s",
-                }}
-              >
-                {t.label}
-                <span style={{ marginLeft: 4, opacity: 0.6, fontSize: 12 }}>
-                  ({t.key === "all" ? ALL_RANKINGS.length : ALL_RANKINGS.filter(r => r.category === t.key).length})
-                </span>
-              </button>
-            ))}
+            {CATEGORY_TABS.map((t) => {
+              const isActive = activeTab === t.key;
+              return (
+                <button
+                  key={t.key}
+                  onClick={() => setActiveTab(t.key)}
+                  style={{
+                    padding: "8px 18px", borderRadius: 100,
+                    border: "1px solid",
+                    borderColor: isActive ? "#fff" : "rgba(255,255,255,0.15)",
+                    background: isActive ? "#fff" : "transparent",
+                    color: isActive ? "#0f172a" : "rgba(255,255,255,0.7)",
+                    fontSize: 14, fontWeight: isActive ? 700 : 600, cursor: "pointer",
+                    fontFamily: "inherit", transition: "all 0.2s",
+                  }}
+                >
+                  {t.label}
+                  <span style={{ marginLeft: 4, opacity: 0.6, fontSize: 12, fontWeight: 500 }}>
+                    ({t.key === "all" ? ALL_RANKINGS.length : ALL_RANKINGS.filter(r => r.category === t.key).length})
+                  </span>
+                </button>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -213,8 +216,8 @@ export default function AllRankingsPage() {
                         transition: "all 0.2s",
                       }}
                       onMouseEnter={(e) => {
-                        e.currentTarget.style.borderColor = "#059669";
-                        e.currentTarget.style.boxShadow = "0 2px 8px rgba(5,150,105,0.08)";
+                        e.currentTarget.style.borderColor = "#cbd5e1";
+                        e.currentTarget.style.boxShadow = "0 2px 10px rgba(15,23,42,0.06)";
                       }}
                       onMouseLeave={(e) => {
                         e.currentTarget.style.borderColor = "#e2e8f0";
@@ -233,9 +236,10 @@ export default function AllRankingsPage() {
                       </div>
                       {r.priority === 1 && (
                         <span style={{
-                          padding: "2px 6px", borderRadius: 4,
-                          background: "#ecfdf5", color: "#059669",
-                          fontSize: 11, fontWeight: 700, flexShrink: 0,
+                          fontFamily: "'JetBrains Mono',monospace",
+                          color: "#f59e0b",
+                          fontSize: 10, fontWeight: 700, letterSpacing: "0.12em",
+                          flexShrink: 0,
                         }}>TOP</span>
                       )}
                       <ArrowRight size={14} color="#374151" style={{ flexShrink: 0 }} />
