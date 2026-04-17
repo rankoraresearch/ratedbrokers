@@ -7,7 +7,7 @@ import { getAllBrokers } from "../data/brokers/index";
 import { FAQ_HWMM } from "../data/methodologyData";
 import Icon from "../components/Icon";
 import Breadcrumb from "../components/Breadcrumb";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, X } from "lucide-react";
 
 export default function HowWeMakeMoneyPage() {
   const { t } = useTranslation();
@@ -65,10 +65,10 @@ export default function HowWeMakeMoneyPage() {
   const cn = { maxWidth: 1200, margin: "0 auto", padding: mob ? "0 16px" : "0 24px" };
 
   const protectionCards = [
-    { icon: "eye-off", title: t("hwmm.protectBlind"), desc: t("hwmm.protectBlindDesc"), color: "#7c3aed" },
-    { icon: "users", title: t("hwmm.protectTeams"), desc: t("hwmm.protectTeamsDesc"), color: "#2563eb" },
-    { icon: "book-open", title: t("hwmm.protectPublished"), desc: t("hwmm.protectPublishedDesc"), color: "#059669" },
-    { icon: "calendar", title: t("hwmm.protectAudits"), desc: t("hwmm.protectAuditsDesc"), color: "#f59e0b" },
+    { icon: "eye-off",   title: t("hwmm.protectBlind"),     desc: t("hwmm.protectBlindDesc") },
+    { icon: "users",     title: t("hwmm.protectTeams"),     desc: t("hwmm.protectTeamsDesc") },
+    { icon: "book-open", title: t("hwmm.protectPublished"), desc: t("hwmm.protectPublishedDesc") },
+    { icon: "calendar",  title: t("hwmm.protectAudits"),    desc: t("hwmm.protectAuditsDesc") },
   ];
 
   const dontDoList = [
@@ -94,10 +94,9 @@ export default function HowWeMakeMoneyPage() {
       <section style={{ ...cn, marginBottom: 40 }}>
         <div style={{ maxWidth: 780 }}>
           <div style={{
-            display: "inline-block", padding: "4px 12px", borderRadius: 6,
-            background: "#ecfdf5", color: "#059669",
-            fontSize: 12, fontWeight: 800, letterSpacing: 1, marginBottom: 14,
-            textTransform: "uppercase",
+            fontFamily: "'JetBrains Mono',monospace", fontSize: 11, fontWeight: 700,
+            color: "#f59e0b", letterSpacing: "0.18em", textTransform: "uppercase",
+            marginBottom: 12,
           }}>{t("hwmm.badge")}</div>
           <h1 style={{ fontFamily: "Outfit", fontWeight: 900, fontSize: mob ? 26 : 42, lineHeight: 1.15, color: "#0f172a", margin: "0 0 14px" }}>
             {t("hwmm.title")}
@@ -138,29 +137,36 @@ export default function HowWeMakeMoneyPage() {
           display: "grid", gridTemplateColumns: mob ? "1fr" : "1fr 1fr 1fr", gap: 16,
         }}>
           {[
-            { step: "1", icon: "mouse-pointer", title: t("hwmm.step1Title"), desc: t("hwmm.step1Desc"), color: "#2563eb" },
-            { step: "2", icon: "user-plus", title: t("hwmm.step2Title"), desc: t("hwmm.step2Desc"), color: "#7c3aed" },
-            { step: "3", icon: "dollar-sign", title: t("hwmm.step3Title"), desc: t("hwmm.step3Desc"), color: "#059669" },
+            { step: "1", icon: "mouse-pointer", title: t("hwmm.step1Title"), desc: t("hwmm.step1Desc") },
+            { step: "2", icon: "user-plus",     title: t("hwmm.step2Title"), desc: t("hwmm.step2Desc") },
+            { step: "3", icon: "dollar-sign",   title: t("hwmm.step3Title"), desc: t("hwmm.step3Desc") },
           ].map((s, i) => (
             <div key={i} style={{
-              padding: "24px 20px", borderRadius: 14,
-              background: "#fff", border: "1px solid #e2e8f0",
-              textAlign: "center", position: "relative",
+              position: "relative", overflow: "hidden",
+              padding: "28px 20px 24px", borderRadius: 14,
+              background: "#fff", border: "1px solid #e8ecf1",
+              boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)",
+              textAlign: "center",
             }}>
               <div style={{
-                width: 48, height: 48, borderRadius: "50%",
-                background: s.color + "14", display: "flex", alignItems: "center", justifyContent: "center",
-                margin: "0 auto 12px",
-              }}>
-                <Icon name={s.icon} size={24} color={s.color} />
-              </div>
+                position: "absolute", top: 0, left: 0, right: 0, height: 3,
+                background: "linear-gradient(90deg, #047857 0%, #10b981 50%, #047857 100%)",
+              }} />
               <div style={{
                 position: "absolute", top: 12, left: 16,
-                fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 24,
-                color: s.color + "20",
+                fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 20,
+                color: "#cbd5e1",
               }}>{s.step}</div>
-              <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 17, marginBottom: 6 }}>{s.title}</div>
-              <div style={{ fontSize: 15, color: "#1f2937", lineHeight: 1.7 }}>{s.desc}</div>
+              <div style={{
+                width: 48, height: 48, borderRadius: 12,
+                background: "#0f172a", color: "#fff",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                margin: "0 auto 12px",
+              }}>
+                <Icon name={s.icon} size={22} color="#fff" />
+              </div>
+              <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 17, color: "#0f172a", marginBottom: 6 }}>{s.title}</div>
+              <div style={{ fontSize: 15, color: "#475569", lineHeight: 1.7 }}>{s.desc}</div>
             </div>
           ))}
         </div>
@@ -169,16 +175,22 @@ export default function HowWeMakeMoneyPage() {
       {/* =================== WHAT YOU PAY VS WHAT WE EARN =================== */}
       <section style={{ ...cn, marginBottom: 48 }}>
         <div style={{
+          position: "relative", overflow: "hidden",
           padding: "24px 28px", borderRadius: 14,
-          background: "#ecfdf5", border: "1px solid #a7f3d0",
+          background: "#fff", border: "1px solid #e8ecf1",
+          boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)",
         }}>
-          <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 24, color: "#065f46", margin: "0 0 10px" }}>
+          <div style={{
+            position: "absolute", top: 0, left: 0, right: 0, height: 3,
+            background: "linear-gradient(90deg, #047857 0%, #10b981 50%, #047857 100%)",
+          }} />
+          <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 24, color: "#0f172a", margin: "0 0 10px" }}>
             {t("hwmm.payTitle")}
           </h2>
-          <p style={{ fontSize: 16, lineHeight: 1.8, color: "#064e3b", margin: "0 0 8px" }}>
+          <p style={{ fontSize: 16, lineHeight: 1.8, color: "#374151", margin: "0 0 8px" }}>
             {t("hwmm.payText1")}
           </p>
-          <p style={{ fontSize: 16, lineHeight: 1.8, color: "#064e3b", margin: 0 }}>
+          <p style={{ fontSize: 16, lineHeight: 1.8, color: "#374151", margin: 0 }}>
             {t("hwmm.payText2")}
           </p>
         </div>
@@ -246,29 +258,35 @@ export default function HowWeMakeMoneyPage() {
         }}>
           {protectionCards.map((card, i) => (
             <div key={i} style={{
+              position: "relative", overflow: "hidden",
               padding: "24px 20px", borderRadius: 14,
-              background: "#fff", border: "1px solid #e2e8f0",
-              borderTop: `3px solid ${card.color}`,
+              background: "#fff", border: "1px solid #e8ecf1",
+              boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)",
             }}>
               <div style={{
+                position: "absolute", top: 0, left: 0, right: 0, height: 3,
+                background: "linear-gradient(90deg, #047857 0%, #10b981 50%, #047857 100%)",
+              }} />
+              <div style={{
                 width: 44, height: 44, borderRadius: 12,
-                background: card.color + "14", display: "flex", alignItems: "center", justifyContent: "center",
-                marginBottom: 12,
+                background: "#0f172a", color: "#fff",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                marginTop: 4, marginBottom: 12,
               }}>
-                <Icon name={card.icon} size={22} color={card.color} />
+                <Icon name={card.icon} size={22} color="#fff" />
               </div>
-              <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 17, marginBottom: 6 }}>{card.title}</div>
-              <div style={{ fontSize: 15, color: "#1f2937", lineHeight: 1.7 }}>{card.desc}</div>
+              <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 17, color: "#0f172a", marginBottom: 6 }}>{card.title}</div>
+              <div style={{ fontSize: 15, color: "#475569", lineHeight: 1.7 }}>{card.desc}</div>
             </div>
           ))}
         </div>
         <div style={{ marginTop: 16, display: "flex", gap: 20, flexWrap: "wrap" }}>
-          <Link to={lp("/methodology")} style={{
-            color: "#059669", fontWeight: 600, textDecoration: "none", fontSize: 15,
-          }}>{t("hwmm.readMethodology")}</Link>
-          <Link to={lp("/trust-score")} style={{
-            color: "#059669", fontWeight: 600, textDecoration: "none", fontSize: 15,
-          }}>Understand our Trust Score →</Link>
+          <Link to={lp("/methodology")} className="rb-link-standalone">
+            {t("hwmm.readMethodology")}
+          </Link>
+          <Link to={lp("/trust-score")} className="rb-link-standalone">
+            Understand our Trust Score <span className="rb-arrow">→</span>
+          </Link>
         </div>
       </section>
 
@@ -289,9 +307,12 @@ export default function HowWeMakeMoneyPage() {
             }}>
               <span style={{
                 width: 24, height: 24, borderRadius: "50%",
-                background: "#fef2f2", display: "flex", alignItems: "center", justifyContent: "center",
-                flexShrink: 0, fontSize: 14,
-              }}>✗</span>
+                background: "#f1f5f9", color: "#64748b",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                flexShrink: 0,
+              }}>
+                <X size={14} strokeWidth={2.5} />
+              </span>
               <span style={{ fontSize: 16, color: "#1f2937" }}>{item}</span>
             </div>
           ))}
@@ -333,18 +354,18 @@ export default function HowWeMakeMoneyPage() {
           <div style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 28, color: "#fff", marginBottom: 8 }}>
             {t("hwmm.ctaTitle")}
           </div>
-          <div style={{ fontSize: 16, color: "#64748b", marginBottom: 24, maxWidth: 500, margin: "0 auto 24px" }}>
+          <div style={{ fontSize: 16, color: "#cbd5e1", marginBottom: 24, maxWidth: 500, margin: "0 auto 24px" }}>
             {t("hwmm.ctaDesc")}
           </div>
           <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-            <Link to={lp("/methodology")} style={{
+            <Link to={lp("/methodology")} className="rb-cta-affiliate" style={{
               padding: "14px 32px", borderRadius: 10,
-              background: "linear-gradient(135deg,#059669,#34d399)",
-              color: "#fff", fontWeight: 800, fontSize: 16, textDecoration: "none",
+              background: "linear-gradient(135deg,#f59e0b,#fbbf24)",
+              color: "#0f172a", fontWeight: 800, fontSize: 16, textDecoration: "none",
             }}>{t("hwmm.ctaMethodology")}</Link>
-            <Link to={lp("/")} style={{
+            <Link to={lp("/")} className="rb-cta-ghost--dark" style={{
               padding: "14px 32px", borderRadius: 10,
-              background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.2)",
+              background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.2)",
               color: "#fff", fontWeight: 600, fontSize: 16, textDecoration: "none",
             }}>{t("hwmm.ctaRankings")}</Link>
           </div>
