@@ -956,20 +956,13 @@ export default function Home() {
 
         <div style={{
           marginTop: mob ? 24 : 32,
-          display: "flex", alignItems: "center", gap: 16, flexWrap: "wrap",
-          fontSize: 13,
+          display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap",
         }}>
-          <Link to={lp("/trust-score")} className="link-green">
-            Editorial standards <ArrowRight size={12} className="link-arrow" />
-          </Link>
-          <span style={{ color: "#cbd5e1" }}>·</span>
-          <Link to={lp("/methodology")} className="link-green">
-            Scoring methodology <ArrowRight size={12} className="link-arrow" />
-          </Link>
-          <span style={{ color: "#cbd5e1" }}>·</span>
-          <Link to={lp("/how-we-make-money")} className="link-green">
-            How we make money <ArrowRight size={12} className="link-arrow" />
-          </Link>
+          <Link to={lp("/trust-score")} className="rb-link-meta">Editorial standards</Link>
+          <span style={{ color: "#cbd5e1", fontSize: 13 }}>·</span>
+          <Link to={lp("/methodology")} className="rb-link-meta">Scoring methodology</Link>
+          <span style={{ color: "#cbd5e1", fontSize: 13 }}>·</span>
+          <Link to={lp("/how-we-make-money")} className="rb-link-meta">How we make money</Link>
         </div>
       </section>
 
