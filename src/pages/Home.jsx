@@ -566,34 +566,51 @@ export default function Home() {
       </section>
 
 
-      {/* ===== ALL BROKER REVIEWS ===== */}
+      {/* ===== ALL BROKER REVIEWS — D2k shell, light rail rows (P6 migrated) ===== */}
       <section style={{ ...cn, padding: mob ? "40px 16px" : "60px 24px" }}>
-        <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 30, textAlign: "center", marginBottom: 8 }}>{t("home.allTitle")}</h2>
-        <p style={{ textAlign: "center", fontSize: 16, color: "#1f2937", marginBottom: mob ? 24 : 36, maxWidth: 500, margin: "0 auto" }}>{t("home.allDesc", { count: allBrokersData.length })}</p>
-        <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : tab ? "1fr 1fr" : "repeat(3, 1fr)", gap: mob ? 6 : 8 }}>
-          {allBrokersData.map((b) => (
-            <Link key={b.slug} to={lp(`/reviews/${b.slug}`)} style={{
-              display: "flex", alignItems: "center", gap: mob ? 10 : 14,
-              padding: mob ? "8px 10px" : "10px 16px", borderRadius: 10,
-              background: "#0f172a", textDecoration: "none",
-              transition: "all 0.2s ease",
-              border: "1px solid #1e293b",
-            }}
-              onMouseEnter={e => { e.currentTarget.style.background = "#1e293b"; e.currentTarget.style.borderColor = "#34d399"; e.currentTarget.style.transform = "translateX(3px)"; }}
-              onMouseLeave={e => { e.currentTarget.style.background = "#0f172a"; e.currentTarget.style.borderColor = "#1e293b"; e.currentTarget.style.transform = "translateX(0)"; }}
-            >
-              <div style={{ width: mob ? 56 : 72, height: mob ? 28 : 32, flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <img src={`${import.meta.env.BASE_URL}logos-wide-dark/${b.slug}.svg`} alt={b.B.name} loading="lazy" onError={e => { e.target.style.display = "none"; }} style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }} />
-              </div>
-              <div style={{ flex: 1, minWidth: 0 }}>
-                <span style={{ fontFamily: "'DM Sans'", fontWeight: 600, fontSize: mob ? 13 : 14, color: "#f1f5f9", display: "block", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{b.B.name}</span>
-              </div>
-              <div style={{
-                width: 1, height: 20, background: "rgba(255,255,255,0.08)", flexShrink: 0,
-              }} />
-              <span style={{ fontFamily: "'JetBrains Mono'", fontSize: mob ? 12 : 13, fontWeight: 800, color: scoreColor(b.B.score), flexShrink: 0, minWidth: 32, textAlign: "right" }}>{b.B.score}</span>
-            </Link>
-          ))}
+        <div style={{
+          background: "#fff", borderRadius: 14, overflow: "hidden",
+          boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.06), 0 4px 24px rgba(0,0,0,0.05)",
+        }}>
+          <header style={{
+            padding: mob ? "16px 16px 12px" : "20px 24px 14px",
+            borderBottom: "1px solid rgba(0,0,0,0.04)",
+            display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 16, flexWrap: "wrap",
+          }}>
+            <h2 style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: mob ? 18 : 22, color: "#0f172a", letterSpacing: "-0.02em", margin: 0, lineHeight: 1.2 }}>
+              {t("home.allTitle")}
+            </h2>
+            <span style={{ fontSize: 12, color: "#94a3b8", fontWeight: 500 }}>
+              {allBrokersData.length} brokers · sorted by score
+            </span>
+          </header>
+          <div style={{ padding: mob ? "6px 8px 10px" : "8px 10px 14px" }}>
+            <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : tab ? "1fr 1fr" : "repeat(3, 1fr)", gap: 0 }}>
+              {allBrokersData.map((b) => (
+                <Link key={b.slug} to={lp(`/reviews/${b.slug}`)} className="d2k-row" style={{
+                  display: "flex", alignItems: "center", gap: mob ? 10 : 12,
+                  padding: mob ? "9px 10px" : "10px 14px",
+                  background: "transparent", border: "1px solid transparent",
+                  borderRadius: 8, textDecoration: "none", color: "#0f172a",
+                  transition: "box-shadow 160ms, border-color 160ms",
+                }}>
+                  <div style={{
+                    width: mob ? 60 : 72, height: mob ? 28 : 32, flexShrink: 0,
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    background: "#f8f9fb", borderRadius: 6, padding: "4px 8px",
+                  }}>
+                    <img src={`${import.meta.env.BASE_URL}logos-wide/${b.slug}.svg`} alt={b.B.name} loading="lazy"
+                      onError={e => { e.target.outerHTML = `<span style="font-family:'Outfit',sans-serif;font-weight:800;font-size:11px;color:#475569">${b.B.name}</span>`; }}
+                      style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }} />
+                  </div>
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <span style={{ fontFamily: "'DM Sans'", fontWeight: 600, fontSize: mob ? 13 : 14, color: "#0f172a", display: "block", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{b.B.name}</span>
+                  </div>
+                  <span style={{ fontFamily: "'JetBrains Mono'", fontSize: mob ? 12 : 13, fontWeight: 800, color: scoreColor(b.B.score), flexShrink: 0, minWidth: 32, textAlign: "right" }}>{b.B.score}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
