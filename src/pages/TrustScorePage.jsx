@@ -148,50 +148,60 @@ function HeroSection({ cn, mob, tab, t }) {
 
   return (
     <section style={{
-      ...cn, paddingTop: mob ? 32 : 48, paddingBottom: mob ? 32 : 48, marginBottom: 0,
-      textAlign: "center",
+      background: "linear-gradient(135deg, #0f172a 0%, #0a1e2e 100%)",
+      position: "relative", overflow: "hidden",
+      paddingTop: mob ? 40 : 64, paddingBottom: mob ? 40 : 64,
+      marginBottom: 0, textAlign: "center",
     }}>
+      {/* Pinstripe texture (matches About hero + Methodology formula band) */}
       <div style={{
-        display: "inline-flex", alignItems: "center", gap: 8,
-        marginBottom: 16,
-      }}>
-        <Shield size={14} color="#f59e0b" strokeWidth={2} />
-        <span style={{
-          fontFamily: "'JetBrains Mono',monospace", fontSize: 11, fontWeight: 700,
-          color: "#f59e0b", letterSpacing: "0.18em", textTransform: "uppercase",
-        }}>{t("ts.badge")}</span>
-      </div>
+        position: "absolute", inset: 0, pointerEvents: "none",
+        backgroundImage: "repeating-linear-gradient(135deg, transparent 0, transparent 11px, rgba(255,255,255,0.02) 11px, rgba(255,255,255,0.02) 12px)",
+      }} />
+      <div style={{ ...cn, position: "relative" }}>
+        <div style={{
+          display: "inline-flex", alignItems: "center", gap: 8,
+          marginBottom: 16,
+        }}>
+          <Shield size={14} color="#fbbf24" strokeWidth={2} />
+          <span style={{
+            fontFamily: "'JetBrains Mono',monospace", fontSize: 11, fontWeight: 700,
+            color: "#fbbf24", letterSpacing: "0.18em", textTransform: "uppercase",
+          }}>{t("ts.badge")}</span>
+        </div>
 
-      <h1 style={{
-        fontFamily: "Outfit", fontWeight: 900, fontSize: mob ? 28 : 44, lineHeight: 1.12,
-        color: "#0f172a", marginBottom: 14,
-      }}>
-        {t("ts.title")}
-      </h1>
-      <p style={{
-        fontSize: mob ? 15 : 18, color: "#1f2937", lineHeight: 1.7,
-        maxWidth: 680, margin: "0 auto 32px",
-      }}>
-        {t("ts.subtitle")}
-      </p>
+        <h1 style={{
+          fontFamily: "Outfit", fontWeight: 900, fontSize: mob ? 28 : 44, lineHeight: 1.12,
+          color: "#fff", marginBottom: 14, letterSpacing: "-0.02em",
+        }}>
+          {t("ts.title")}
+        </h1>
+        <p style={{
+          fontSize: mob ? 15 : 18, color: "#cbd5e1", lineHeight: 1.7,
+          maxWidth: 680, margin: "0 auto 32px",
+        }}>
+          {t("ts.subtitle")}
+        </p>
 
-      <div style={{
-        display: "grid",
-        gridTemplateColumns: mob ? "1fr 1fr" : "repeat(4, 1fr)",
-        gap: mob ? 12 : 16,
-        maxWidth: 700, margin: "0 auto",
-      }}>
-        {stats.map((s, i) => (
-          <div key={i} style={{
-            padding: "16px 12px", borderRadius: 12,
-            background: "#fff", border: "1px solid #e2e8f0",
-          }}>
-            <div style={{ fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 22, color: "#059669" }}>
-              {s.val}
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: mob ? "1fr 1fr" : "repeat(4, 1fr)",
+          gap: mob ? 12 : 16,
+          maxWidth: 700, margin: "0 auto",
+        }}>
+          {stats.map((s, i) => (
+            <div key={i} style={{
+              padding: "16px 12px", borderRadius: 12,
+              background: "rgba(255,255,255,0.04)",
+              border: "1px solid rgba(255,255,255,0.08)",
+            }}>
+              <div style={{ fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 22, color: "#fbbf24" }}>
+                {s.val}
+              </div>
+              <div style={{ fontSize: 13, color: "#cbd5e1", marginTop: 2 }}>{s.label}</div>
             </div>
-            <div style={{ fontSize: 13, color: "#1f2937", marginTop: 2 }}>{s.label}</div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
