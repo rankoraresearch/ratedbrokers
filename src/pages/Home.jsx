@@ -520,25 +520,16 @@ export default function Home() {
             <div key={i} style={{
               display: "flex", flexDirection: "column",
               minHeight: mob ? "auto" : 140,
-              borderRadius: 14, overflow: "visible",
-              background: "#fff", border: c.featured ? "2px solid #059669" : "1px solid #e2e8f0",
-              boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)",
-              transition: "all 0.2s", position: "relative",
+              borderRadius: 14, overflow: "hidden",
+              background: "#fff", border: "1px solid #e8ecf1",
+              boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.02), 0 4px 16px rgba(0,0,0,0.04)",
+              transition: "border-color 0.2s, box-shadow 0.2s, transform 0.2s", position: "relative",
               ...(mob ? { minWidth: 270, maxWidth: 290, flexShrink: 0, scrollSnapAlign: "start" } : {}),
             }}
-              onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.12)"; e.currentTarget.style.borderColor = "#059669"; }}
-              onMouseLeave={e => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)"; e.currentTarget.style.borderColor = c.featured ? "#059669" : "#e2e8f0"; }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = "#cbd5e1"; e.currentTarget.style.boxShadow = "0 6px 20px rgba(0,0,0,0.08)"; }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = "#e8ecf1"; e.currentTarget.style.boxShadow = "inset 0 0 0 1px rgba(0,0,0,0.02), 0 4px 16px rgba(0,0,0,0.04)"; }}
             >
-              {c.featured && (
-                <span style={{
-                  position: "absolute", top: -10, right: 14,
-                  padding: "3px 10px", borderRadius: 8,
-                  background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: "#0f172a",
-                  fontSize: 10, fontWeight: 700, boxShadow: "0 2px 6px rgba(245,158,11,0.3)",
-                  lineHeight: 1, whiteSpace: "nowrap", zIndex: 2,
-                }}>★ Most Popular</span>
-              )}
-              <div style={{ display: "flex", alignItems: "center", gap: 12, padding: mob ? "16px 16px 0" : "20px 20px 0" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 12, padding: mob ? "16px 16px 0" : "18px 18px 0" }}>
                 <CountryFlag code={c.code} size={mob ? 32 : 36} />
                 <div style={{ flex: 1 }}>
                   <div style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 700, fontSize: mob ? 15 : 16 }}>{c.name}</div>
@@ -554,20 +545,12 @@ export default function Home() {
                 </div>
                 <ArrowRight size={16} color="#cbd5e1" style={{ flexShrink: 0, transition: "color 0.2s" }} />
               </div>
-              <div style={{ height: 1, background: "#f0f4f8", margin: mob ? "10px 16px 0" : "12px 20px 0" }} />
-              <div style={{ display: "flex", gap: mob ? 8 : 10, flexWrap: "wrap", alignItems: "center", padding: mob ? "10px 16px 14px" : "12px 20px 16px", marginTop: "auto" }}>
+              <div style={{ height: 1, background: "#f0f4f8", margin: mob ? "10px 16px 0" : "12px 18px 0" }} />
+              <div style={{ display: "flex", gap: 4, flexWrap: "wrap", alignItems: "center", padding: mob ? "10px 12px 14px" : "10px 14px 14px", marginTop: "auto" }}>
                 {c.verticals.map((v, vi) => (
-                  <Link key={vi} to={lp(v.path)} style={{
-                    display: "inline-flex", alignItems: "center", gap: 5,
-                    textDecoration: "none", padding: "2px 0", lineHeight: 1.3,
-                  }}
-                    onMouseEnter={e => { const t = e.currentTarget.querySelector(".country-vl"); if (t) { t.style.color = "#047857"; t.style.borderBottomColor = "#047857"; } }}
-                    onMouseLeave={e => { const t = e.currentTarget.querySelector(".country-vl"); if (t) { t.style.color = "#059669"; t.style.borderBottomColor = "transparent"; } }}
-                  >
-                    <span style={{ width: 6, height: 6, borderRadius: "50%", background: v.color, flexShrink: 0, transition: "transform 0.15s" }} />
-                    <span className="country-vl" style={{ fontSize: 11.5, fontWeight: 500, color: "#059669", letterSpacing: "0.01em", borderBottom: "1px solid transparent", transition: "all 0.15s" }}>
-                      {v.label} {v.word} {c.geo}
-                    </span>
+                  <Link key={vi} to={lp(v.path)} className="rb-link-rail">
+                    <span className="rb-dot" />
+                    {v.label} {v.word} {c.geo}
                   </Link>
                 ))}
               </div>
