@@ -7,7 +7,7 @@ const GRAY_TEXT = "#374151";
 export default function ProsCons({ pros, cons, mob }) {
   return (
     <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "1fr 1fr", gap: 14, marginBottom: 20 }}>
-      <div style={{ background: "#f0fdf4", border: "1px solid #bbf7d0", borderRadius: 10, padding: 18 }}>
+      <div style={{ background: "#fff", border: "1px solid #e2e8f0", borderRadius: 10, padding: 18 }}>
         <div style={{ fontSize: 13, fontWeight: 700, color: GREEN, marginBottom: 10, display: "flex", alignItems: "center", gap: 6 }}><Check size={14} /> PROS</div>
         {pros.map((p, i) => (
           <div key={i} style={{ fontSize: 14, color: GRAY_TEXT, lineHeight: 1.6, marginBottom: 6, paddingLeft: 22, position: "relative" }}>
@@ -15,7 +15,7 @@ export default function ProsCons({ pros, cons, mob }) {
           </div>
         ))}
       </div>
-      <div style={{ background: "#fef2f2", border: "1px solid #fecaca", borderRadius: 10, padding: 18 }}>
+      <div style={{ background: "#fff", border: "1px solid #e2e8f0", borderRadius: 10, padding: 18 }}>
         <div style={{ fontSize: 13, fontWeight: 700, color: RED, marginBottom: 10, display: "flex", alignItems: "center", gap: 6 }}><XIcon size={14} /> CONS</div>
         {cons.map((c, i) => (
           <div key={i} style={{ fontSize: 14, color: GRAY_TEXT, lineHeight: 1.6, marginBottom: 6, paddingLeft: 22, position: "relative" }}>

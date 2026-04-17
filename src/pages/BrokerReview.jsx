@@ -455,7 +455,7 @@ export default function BrokerReview() {
           <H2 id="pros-&-cons">{t("toc.proscons")}</H2>
           <div style={{display:"grid",gridTemplateColumns:mob?"1fr":"1fr 1fr",gap:16,marginBottom:16}}>
             <div style={{background:"#fff",borderRadius:14,border:"1px solid #e2e8f0",overflow:"hidden"}}>
-              <div style={{padding:"14px 20px",background:"#ecfdf5",borderBottom:"1px solid #e2e8f0"}}>
+              <div style={{padding:"14px 20px",background:"#f8fafc",borderBottom:"1px solid #e2e8f0"}}>
                 <div style={{fontSize:12,fontWeight:700,color:"#059669",textTransform:"uppercase",letterSpacing:"0.05em",display:"flex",alignItems:"center",gap:6}}>
                   <CircleCheck size={14} /> {t("review.pros")}
                 </div>
@@ -465,7 +465,7 @@ export default function BrokerReview() {
               </div>
             </div>
             <div style={{background:"#fff",borderRadius:14,border:"1px solid #e2e8f0",overflow:"hidden"}}>
-              <div style={{padding:"14px 20px",background:"#fef2f2",borderBottom:"1px solid #e2e8f0"}}>
+              <div style={{padding:"14px 20px",background:"#f8fafc",borderBottom:"1px solid #e2e8f0"}}>
                 <div style={{fontSize:12,fontWeight:700,color:"#dc2626",textTransform:"uppercase",letterSpacing:"0.05em",display:"flex",alignItems:"center",gap:6}}>
                   <CircleX size={14} /> {t("review.cons")}
                 </div>
