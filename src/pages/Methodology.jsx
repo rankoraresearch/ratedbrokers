@@ -282,51 +282,85 @@ export default function MethodologyPage() {
         </div>
       </section>
 
-      {/* =================== SCORING FORMULA =================== */}
-      <section id="scoring-formula" style={{ ...cn, marginBottom: 48 }}>
-        <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 28, marginBottom: 6 }}>
-          {t("meth.formulaTitle")}
-        </h2>
-        <p style={{ fontSize: 16, color: "#1f2937", marginBottom: 10, maxWidth: 700 }}>
-          {t("meth.formulaDesc")}
-        </p>
-
-        {/* Formula visualization */}
+      {/* =================== SCORING FORMULA — Premium Dark band =================== */}
+      <section id="scoring-formula" style={{
+        background: "linear-gradient(135deg, #0f172a 0%, #0a1e2e 100%)",
+        position: "relative", overflow: "hidden",
+        padding: mob ? "48px 0" : "64px 0",
+        marginBottom: 48,
+      }}>
+        {/* Subtle pinstripe texture (matches About hero) */}
         <div style={{
-          padding: "20px 24px", borderRadius: 14, background: "#fff",
-          border: "1px solid #e2e8f0", marginBottom: 24,
-        }}>
+          position: "absolute", inset: 0, pointerEvents: "none",
+          backgroundImage: "repeating-linear-gradient(135deg, transparent 0, transparent 11px, rgba(255,255,255,0.02) 11px, rgba(255,255,255,0.02) 12px)",
+        }} />
+        <div style={{ ...cn, position: "relative" }}>
           <div style={{
-            fontFamily: "'JetBrains Mono',monospace", fontSize: 15, color: "#1f2937",
-            padding: "14px 20px", borderRadius: 10, background: "#f8f9fb",
-            textAlign: "center", lineHeight: 2,
-          }}>
-            <span style={{ fontWeight: 800, color: "#0f172a", fontSize: 16 }}>{t("meth.overallScore")}</span> =<br/>
-            (<span style={{ color: "#059669", fontWeight: 700 }}>{t("criteria.regulation")} × 0.30</span>) +
-            (<span style={{ color: "#2563eb", fontWeight: 700 }}>{t("criteria.costs")} × 0.20</span>) +
-            (<span style={{ color: "#00B67A", fontWeight: 700 }}>{t("criteria.reputation")} × 0.15</span>) +
-            (<span style={{ color: "#7c3aed", fontWeight: 700 }}>{t("criteria.transparency")} × 0.15</span>) +
-            (<span style={{ color: "#0ea5e9", fontWeight: 700 }}>{t("criteria.platform")} × 0.15</span>) +
-            (<span style={{ color: "#f59e0b", fontWeight: 700 }}>{t("criteria.execution")} × 0.05</span>)
-          </div>
-        </div>
+            fontFamily: "'JetBrains Mono',monospace", fontSize: 11, fontWeight: 700,
+            color: "#f59e0b", letterSpacing: "0.18em", textTransform: "uppercase",
+            marginBottom: 10,
+          }}>The Formula</div>
+          <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 26 : 30, color: "#fff", margin: "0 0 8px", letterSpacing: "-0.02em" }}>
+            {t("meth.formulaTitle")}
+          </h2>
+          <p style={{ fontSize: 16, color: "#cbd5e1", marginBottom: 22, maxWidth: 700, lineHeight: 1.65 }}>
+            {t("meth.formulaDesc")}
+          </p>
 
-        {/* Weight bars overview */}
-        <div style={{
-          display: "grid", gridTemplateColumns: mob ? "1fr" : "1fr 1fr", gap: 12, marginBottom: 32,
-        }}>
-          {CRITERIA_V2.map((c, i) => (
-            <div key={i} style={{
-              padding: "16px 20px", borderRadius: 12,
-              background: "#fff", border: "1px solid #e2e8f0",
+          {/* Formula — glass card */}
+          <div style={{
+            padding: mob ? "18px 18px" : "24px 28px", borderRadius: 14,
+            background: "rgba(255,255,255,0.04)",
+            border: "1px solid rgba(255,255,255,0.1)",
+            backdropFilter: "blur(6px)",
+            marginBottom: 24,
+          }}>
+            <div style={{
+              fontFamily: "'JetBrains Mono',monospace", fontSize: mob ? 13 : 15, color: "#e2e8f0",
+              padding: mob ? "14px 12px" : "18px 24px", borderRadius: 10,
+              background: "rgba(0,0,0,0.2)",
+              textAlign: "center", lineHeight: 2.1,
             }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
-                <Icon name={c.icon} size={20} color={c.color} />
-                <span style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 16 }}>{t("criteria." + c.key)}</span>
-              </div>
-              <WeightBar weight={c.weight} color={c.color} />
+              <span style={{ fontWeight: 800, color: "#fff", fontSize: mob ? 14 : 16 }}>{t("meth.overallScore")}</span> =<br/>
+              (<span style={{ color: "#34d399", fontWeight: 700 }}>{t("criteria.regulation")} × 0.30</span>) +
+              (<span style={{ color: "#60a5fa", fontWeight: 700 }}>{t("criteria.costs")} × 0.20</span>) +
+              (<span style={{ color: "#34d399", fontWeight: 700 }}>{t("criteria.reputation")} × 0.15</span>) +
+              (<span style={{ color: "#c4b5fd", fontWeight: 700 }}>{t("criteria.transparency")} × 0.15</span>) +
+              (<span style={{ color: "#7dd3fc", fontWeight: 700 }}>{t("criteria.platform")} × 0.15</span>) +
+              (<span style={{ color: "#fbbf24", fontWeight: 700 }}>{t("criteria.execution")} × 0.05</span>)
             </div>
-          ))}
+          </div>
+
+          {/* Weight bars — glass tiles */}
+          <div style={{
+            display: "grid", gridTemplateColumns: mob ? "1fr" : "1fr 1fr", gap: 12,
+          }}>
+            {CRITERIA_V2.map((c, i) => (
+              <div key={i} style={{
+                padding: "16px 20px", borderRadius: 12,
+                background: "rgba(255,255,255,0.04)",
+                border: "1px solid rgba(255,255,255,0.08)",
+              }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 10 }}>
+                  <Icon name={c.icon} size={20} color="#fbbf24" />
+                  <span style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 16, color: "#fff" }}>{t("criteria." + c.key)}</span>
+                </div>
+                <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                  <div style={{ flex: 1, height: 8, borderRadius: 4, background: "rgba(255,255,255,0.08)", overflow: "hidden" }}>
+                    <div style={{
+                      width: c.weight + "%", height: "100%", borderRadius: 4,
+                      background: "linear-gradient(90deg, #f59e0b, #fbbf24)",
+                      transition: "width 0.5s",
+                    }} />
+                  </div>
+                  <span style={{
+                    fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 15,
+                    color: "#fbbf24", minWidth: 40, textAlign: "right",
+                  }}>{c.weight}%</span>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
