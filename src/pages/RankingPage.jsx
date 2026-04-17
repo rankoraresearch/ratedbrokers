@@ -869,6 +869,46 @@ export default function RankingPage() {
         </div>
       </section>
 
+      {/* ═══ Methodology Strip — dark anchor between Comparison Table and Education ═══ */}
+      <section style={{ ...cn, paddingBottom: T.sectionGap(mob) }}>
+        <div style={{
+          padding: mob ? "16px 18px" : "18px 22px",
+          borderRadius: 12,
+          background: "linear-gradient(135deg, #0f172a 0%, #0f2e24 50%, #047857 100%)",
+          display: "flex", flexDirection: mob ? "column" : "row",
+          alignItems: mob ? "flex-start" : "center", gap: mob ? 14 : 16,
+          color: "#fff",
+        }}>
+          <div style={{
+            width: 40, height: 40, borderRadius: 10,
+            background: "rgba(245,158,11,0.15)",
+            border: "1px solid rgba(245,158,11,0.3)",
+            display: "inline-flex", alignItems: "center", justifyContent: "center",
+            flexShrink: 0,
+          }}>
+            <Target size={20} color="#f59e0b" strokeWidth={1.75} />
+          </div>
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div style={{
+              fontFamily: "'JetBrains Mono',monospace", fontSize: 11, fontWeight: 700,
+              letterSpacing: "0.14em", textTransform: "uppercase",
+              color: "#f59e0b", marginBottom: 4,
+            }}>Our Methodology</div>
+            <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: mob ? 15 : 16, color: "#fff" }}>
+              6-factor scoring · 130+ data points per broker
+            </div>
+          </div>
+          <Link to={lp("/methodology")} className="cta-primary" style={{
+            padding: "9px 16px", borderRadius: 10,
+            background: "linear-gradient(135deg, #f59e0b, #fbbf24)",
+            color: "#0f172a", textDecoration: "none",
+            fontFamily: "Outfit", fontWeight: 700, fontSize: 13,
+            display: "inline-flex", alignItems: "center", gap: 6, flexShrink: 0,
+            whiteSpace: "nowrap",
+          }}>See methodology <ArrowRight size={14} /></Link>
+        </div>
+      </section>
+
       {/* ═══ БЛОК 8: Education (thematic or fallback) ═══ */}
       {educationData ? (
         <section id="education" style={{ ...cn, paddingBottom: T.sectionGap(mob) }}>
