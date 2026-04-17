@@ -667,30 +667,6 @@ export default function BrokerComparison() {
         </section>
       </div>
 
-      {/* ── MID-PAGE CTA ── */}
-      <section style={{ ...cn, marginTop: 48, marginBottom: 48 }}>
-        <div style={{
-          padding: mob ? "24px" : "28px 32px", borderRadius: 16,
-          background: "linear-gradient(135deg,#0f172a 0%,#0f2e24 40%,#047857 100%)",
-          display: "flex", flexDirection: mob ? "column" : "row", alignItems: "center", justifyContent: "space-between", gap: 16,
-        }}>
-          <div style={{ color: "#fff" }}>
-            <div style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 20, marginBottom: 4 }}>Compare Both Platforms Side by Side</div>
-            <div style={{ fontSize: 15, color: "rgba(255,255,255,0.7)" }}>{midCTA}</div>
-          </div>
-          <div style={{ display: "flex", gap: 12, flexShrink: 0 }}>
-            <a href={getVisitUrl(slugA, A.url)} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{
-              padding: "10px 22px", borderRadius: 10, background: "linear-gradient(135deg,#f59e0b,#fbbf24)", color: "#0f172a",
-              fontWeight: 800, fontSize: 15, textDecoration: "none", whiteSpace: "nowrap",
-            }}><span style={{ display: "inline-flex", alignItems: "center", gap: 5 }}>{A.name} <ArrowRight size={14} /></span></a>
-            <a href={getVisitUrl(slugB, B.url)} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{
-              padding: "10px 22px", borderRadius: 10, background: "linear-gradient(135deg,#f59e0b,#fbbf24)", color: "#0f172a",
-              fontWeight: 800, fontSize: 15, textDecoration: "none", whiteSpace: "nowrap",
-            }}><span style={{ display: "inline-flex", alignItems: "center", gap: 5 }}>{B.name} <ArrowRight size={14} /></span></a>
-          </div>
-        </div>
-      </section>
-
       {/* ── SPREAD / COST COMPARISON ── */}
       {isForex && dataA.SPREADS.length > 0 && (
         <section style={{ ...cn, marginBottom: 48 }}>
