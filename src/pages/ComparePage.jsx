@@ -17,7 +17,7 @@ import Breadcrumb from "../components/Breadcrumb";
 import HeroBand from "../components/HeroBand";
 import AuthorCredits from "../components/AuthorCredits";
 import Icon, { ArrowRight } from "../components/Icon";
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { ChevronDown, ChevronUp, TrendingUp, BarChart3, Bitcoin, Layers, Hourglass, Copy, Scale } from "lucide-react";
 
 const VERT_LABELS = {
   forex: "Forex",
@@ -29,15 +29,15 @@ const VERT_LABELS = {
   "spread-betting": "Spread Bet",
 };
 
-/* Muted dots for variant "dot" */
-const VERT_DOT = {
-  forex: "#6ee7b7",
-  stocks: "#93c5fd",
-  options: "#c4b5fd",
-  futures: "#fcd34d",
-  "copy-trading": "#67e8f9",
-  crypto: "#fde68a",
-  "spread-betting": "#fca5a5",
+/* Lucide icon per vertical (monochrome — differentiation by shape, not hue) */
+const VERT_ICON = {
+  forex: TrendingUp,
+  stocks: BarChart3,
+  options: Layers,
+  futures: Hourglass,
+  "copy-trading": Copy,
+  crypto: Bitcoin,
+  "spread-betting": Scale,
 };
 
 
@@ -346,12 +346,15 @@ export default function ComparePage() {
                         {" vs "}
                         <span style={{ fontFamily: "'JetBrains Mono',monospace", fontWeight: 700, color: "#2563eb" }}>{dB.B.score}</span>
                       </span>
-                      {activeVertical === "all" && vert && vert !== "all" && (
-                        <span style={{ display: "inline-flex", alignItems: "center", gap: 4 }}>
-                          <span style={{ width: 6, height: 6, borderRadius: "50%", background: VERT_DOT[vert] || "#94a3b8", flexShrink: 0 }} />
-                          <span style={{ fontSize: 10, fontWeight: 600, color: "#94a3b8", textTransform: "uppercase", letterSpacing: "0.04em" }}>{VERT_LABELS[vert] || vert}</span>
-                        </span>
-                      )}
+                      {activeVertical === "all" && vert && vert !== "all" && (() => {
+                        const IconComp = VERT_ICON[vert];
+                        return (
+                          <span style={{ display: "inline-flex", alignItems: "center", gap: 4, color: "#64748b" }}>
+                            {IconComp && <IconComp size={12} strokeWidth={1.75} />}
+                            <span style={{ fontSize: 10, fontWeight: 600, color: "#64748b", textTransform: "uppercase", letterSpacing: "0.04em" }}>{VERT_LABELS[vert] || vert}</span>
+                          </span>
+                        );
+                      })()}
                     </div>
                   </div>
                 </div>
