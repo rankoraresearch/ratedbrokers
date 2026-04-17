@@ -69,7 +69,7 @@ export default function TermsPage() {
         <p style={p}>These Terms shall be governed by and construed in accordance with the laws of England and Wales, without regard to its conflict of law provisions.</p>
 
         <h2 style={h2}>12. Contact</h2>
-        <p style={p}>For questions about these Terms, please use our <a href="/contact" style={{ color: "#059669", fontWeight: 600, textDecoration: "none" }}>contact form</a>.</p>
+        <p style={p}>For questions about these Terms, please use our <a href="/contact" className="rb-link-inline">contact form</a>.</p>
       </div>
     </div>
   );

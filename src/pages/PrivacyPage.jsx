@@ -64,7 +64,7 @@ export default function PrivacyPage() {
         <p style={p}>We may update this policy from time to time. Changes will be posted on this page with an updated "Last updated" date. Continued use of the site after changes constitutes acceptance.</p>
 
         <h2 style={h2}>10. Contact</h2>
-        <p style={p}>For privacy-related inquiries, please use our <a href="/contact" style={{ color: "#059669", fontWeight: 600, textDecoration: "none" }}>contact form</a>.</p>
+        <p style={p}>For privacy-related inquiries, please use our <a href="/contact" className="rb-link-inline">contact form</a>.</p>
       </div>
     </div>
   );
