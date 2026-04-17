@@ -785,39 +785,64 @@ export default function MethodologyPage() {
         <p style={{ fontSize: 16, color: "#1f2937", marginBottom: 20 }}>
           {t("meth.teamDesc")}
         </p>
-        <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr 1fr" : tab ? "1fr 1fr" : "repeat(4, 1fr)", gap: 16 }}>
+        <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr 1fr" : tab ? "1fr 1fr" : "repeat(4, 1fr)", gap: mob ? 10 : 14 }}>
           {TEAM.map((member, i) => (
             <div key={i} style={{
-              padding: "24px 20px", borderRadius: 14,
-              background: "#fff", border: "1px solid #e2e8f0",
+              position: "relative", overflow: "hidden",
+              padding: "28px 20px 20px", borderRadius: 12,
+              background: "#fff", border: "1px solid #e8ecf1",
+              boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)",
               textAlign: "center",
             }}>
+              {/* Plate B — 3px green top strip */}
+              <div style={{
+                position: "absolute", top: 0, left: 0, right: 0, height: 3,
+                background: "linear-gradient(90deg, #047857 0%, #10b981 50%, #047857 100%)",
+                pointerEvents: "none",
+              }} />
               {member.image ? (
-                <img src={member.image} alt={member.name} style={{
-                  width: 64, height: 64, borderRadius: "50%",
-                  objectFit: "cover", margin: "0 auto 12px",
-                }} />
+                <div style={{
+                  width: 76, height: 76, borderRadius: "50%", overflow: "hidden",
+                  margin: "0 auto 14px",
+                  background: "linear-gradient(180deg, #f8f9fb, #e8ecf1)",
+                  boxShadow: [
+                    "0 0 0 1px #fff",
+                    "0 0 0 2px #e8ecf1",
+                    "0 8px 16px rgba(15,23,42,0.08)",
+                    "0 2px 4px rgba(15,23,42,0.06)",
+                  ].join(", "),
+                }}>
+                  <img src={member.image} alt={member.name} style={{
+                    width: "100%", height: "100%", objectFit: "cover", display: "block",
+                  }} />
+                </div>
               ) : (
                 <div style={{
-                  width: 64, height: 64, borderRadius: "50%", background: "#1e3a5f",
+                  width: 76, height: 76, borderRadius: "50%", background: "#0f172a",
                   display: "flex", alignItems: "center", justifyContent: "center",
-                  color: "#fff", fontWeight: 800, fontSize: 22, fontFamily: "Outfit",
-                  margin: "0 auto 12px",
+                  color: "#fff", fontWeight: 800, fontSize: 24, fontFamily: "Outfit",
+                  margin: "0 auto 14px",
+                  boxShadow: [
+                    "0 0 0 1px #fff",
+                    "0 0 0 2px #e8ecf1",
+                    "0 8px 16px rgba(15,23,42,0.08)",
+                    "0 2px 4px rgba(15,23,42,0.06)",
+                  ].join(", "),
                 }}>{member.initials}</div>
               )}
-              <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 17 }}>{member.name}</div>
-              <div style={{ fontSize: 13, color: "#1f2937", marginBottom: 10 }}>{member.role}</div>
+              <div style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 16.5, color: "#0f172a", letterSpacing: "-0.015em", lineHeight: 1.25, marginBottom: 4 }}>{member.name}</div>
+              <div style={{ fontSize: 12.5, color: "#64748b", fontWeight: 500, marginBottom: 12, lineHeight: 1.4 }}>{member.role}</div>
               <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "1fr 1fr", gap: 6, marginBottom: 12 }}>
-                <div style={{ padding: "6px", borderRadius: 6, background: "#f8f9fb" }}>
-                  <div style={{ fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 16, color: "#059669" }}>{member.reviews}</div>
-                  <div style={{ fontSize: 11, color: "#1f2937" }}>{t("meth.teamReviews")}</div>
+                <div style={{ padding: "6px", borderRadius: 6, background: "#f8fafc", border: "1px solid #eef2f6" }}>
+                  <div style={{ fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 16, color: "#0f172a" }}>{member.reviews}</div>
+                  <div style={{ fontSize: 11, color: "#64748b" }}>{t("meth.teamReviews")}</div>
                 </div>
-                <div style={{ padding: "6px", borderRadius: 6, background: "#f8f9fb" }}>
-                  <div style={{ fontWeight: 700, fontSize: 14, color: "#111827" }}>{member.exp}</div>
-                  <div style={{ fontSize: 11, color: "#1f2937" }}>{t("meth.teamExperience")}</div>
+                <div style={{ padding: "6px", borderRadius: 6, background: "#f8fafc", border: "1px solid #eef2f6" }}>
+                  <div style={{ fontFamily: "'JetBrains Mono',monospace", fontWeight: 700, fontSize: 14, color: "#0f172a" }}>{member.exp}</div>
+                  <div style={{ fontSize: 11, color: "#64748b" }}>{t("meth.teamExperience")}</div>
                 </div>
               </div>
-              <div style={{ fontSize: 12, color: "#1f2937", marginBottom: 10 }}>{t("meth.teamSpecialty")}: {member.specialty}</div>
+              <div style={{ fontSize: 12, color: "#475569", marginBottom: 12, lineHeight: 1.5 }}>{t("meth.teamSpecialty")}: {member.specialty}</div>
               <a href={member.linkedin} target="_blank" rel="noopener noreferrer" style={{
                 display: "block", padding: "8px", borderRadius: 6,
                 background: "#f1f5f9", color: "#0f172a", fontSize: 13, fontWeight: 600,
