@@ -82,6 +82,228 @@ img { max-width: 100%; height: auto; }
   text-decoration-color: #059669;
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   Link & Button System — rb-* tokens (phase 1, 2026-04-17)
+   Reference: LINK-BUTTON-SYSTEM.md, /proto/link-system
+   Deprecates: .link-green .link-inline .cta-primary .cta-secondary .cta-orange
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── B1 · Primary affiliate CTA (orange gradient) ── */
+.rb-cta-affiliate {
+  transition: box-shadow 0.25s cubic-bezier(0.4,0,0.2,1), transform 0.25s cubic-bezier(0.4,0,0.2,1), background 0.25s cubic-bezier(0.4,0,0.2,1);
+}
+.rb-cta-affiliate:hover {
+  background: linear-gradient(135deg, #d97706, #f59e0b) !important;
+  box-shadow: 0 8px 24px rgba(245,158,11,0.4) !important;
+  transform: translateY(-1px);
+}
+.rb-cta-affiliate .rb-arrow {
+  transition: transform 0.25s cubic-bezier(0.4,0,0.2,1);
+}
+.rb-cta-affiliate:hover .rb-arrow {
+  transform: translate(2px, -2px);
+}
+
+/* ── B2 · Primary internal CTA (navy fill) ── */
+.rb-cta-internal {
+  transition: background 0.25s cubic-bezier(0.4,0,0.2,1), box-shadow 0.25s cubic-bezier(0.4,0,0.2,1), transform 0.25s cubic-bezier(0.4,0,0.2,1);
+}
+.rb-cta-internal:hover {
+  background: #1e293b !important;
+  box-shadow: 0 6px 20px rgba(15,23,42,0.2) !important;
+  transform: translateY(-1px);
+}
+.rb-cta-internal:hover .rb-arrow {
+  transform: translateX(3px);
+  color: #34d399;
+}
+.rb-cta-internal .rb-arrow {
+  transition: transform 0.25s cubic-bezier(0.4,0,0.2,1), color 0.25s;
+}
+
+/* ── B3 · Secondary ghost (outline green for light, glass for dark) ── */
+.rb-cta-ghost {
+  transition: background 0.25s cubic-bezier(0.4,0,0.2,1), color 0.25s, border-color 0.25s;
+}
+.rb-cta-ghost:hover {
+  background: #059669 !important;
+  color: #fff !important;
+  border-color: #059669 !important;
+}
+.rb-cta-ghost--dark {
+  transition: background 0.25s cubic-bezier(0.4,0,0.2,1), border-color 0.25s, color 0.25s;
+}
+.rb-cta-ghost--dark:hover {
+  background: rgba(52,211,153,0.12) !important;
+  border-color: #34d399 !important;
+  color: #fff !important;
+}
+
+/* ── L1 · Inline link in body text (постоянный underline) ── */
+.rb-link-inline {
+  color: #047857;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(4,120,87,0.4);
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+.rb-link-inline:hover {
+  color: #059669;
+  text-decoration-color: #059669;
+}
+
+/* ── L2 · Standalone action link ("See all →") ── */
+.rb-link-standalone {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: #059669;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.rb-link-standalone:hover {
+  color: #f59e0b;
+}
+.rb-link-standalone .rb-arrow {
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+.rb-link-standalone:hover .rb-arrow {
+  transform: translateX(3px);
+  color: #f59e0b;
+}
+
+/* ── L3 · Rail link (rankings/countries/menus) ── */
+.rb-link-rail {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #0f172a;
+  text-decoration: none;
+  background: transparent;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.rb-link-rail:hover {
+  background: #f1f5f9;
+  color: #047857;
+}
+.rb-link-rail .rb-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #059669;
+  flex-shrink: 0;
+  transition: transform 0.15s ease;
+}
+.rb-link-rail:hover .rb-dot {
+  transform: scale(1.25);
+}
+/* Dark variant (footer, dark menus) */
+.rb-link-rail--dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 8px;
+  border-radius: 6px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: #e2e8f0;
+  text-decoration: none;
+  background: transparent;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.rb-link-rail--dark:hover {
+  background: rgba(255,255,255,0.06);
+  color: #34d399;
+}
+.rb-link-rail--dark .rb-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #34d399;
+  flex-shrink: 0;
+  transition: transform 0.15s ease;
+}
+.rb-link-rail--dark:hover .rb-dot {
+  transform: scale(1.25);
+}
+
+/* ── L4 · Meta link (footer legal, editorial) ── */
+.rb-link-meta {
+  color: #64748b;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.rb-link-meta:hover {
+  color: #0f172a;
+}
+.rb-link-meta--dark {
+  color: #94a3b8;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.rb-link-meta--dark:hover {
+  color: #e2e8f0;
+}
+
+/* ── Accessibility baseline ── */
+.rb-cta-affiliate:focus-visible,
+.rb-cta-internal:focus-visible,
+.rb-cta-ghost:focus-visible,
+.rb-cta-ghost--dark:focus-visible,
+.rb-link-standalone:focus-visible,
+.rb-link-inline:focus-visible,
+.rb-link-rail:focus-visible,
+.rb-link-rail--dark:focus-visible,
+.rb-link-meta:focus-visible,
+.rb-link-meta--dark:focus-visible {
+  outline: 2px solid #f59e0b;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+.rb-cta-affiliate:focus-visible,
+.rb-cta-internal:focus-visible,
+.rb-cta-ghost:focus-visible,
+.rb-cta-ghost--dark:focus-visible {
+  border-radius: 10px;
+}
+
+/* ── Respect reduced-motion preference ── */
+@media (prefers-reduced-motion: reduce) {
+  .rb-cta-affiliate,
+  .rb-cta-affiliate:hover,
+  .rb-cta-internal,
+  .rb-cta-internal:hover,
+  .rb-cta-ghost,
+  .rb-cta-ghost--dark,
+  .rb-link-standalone .rb-arrow,
+  .rb-link-rail .rb-dot,
+  .rb-link-rail--dark .rb-dot,
+  .rb-cta-affiliate .rb-arrow,
+  .rb-cta-internal .rb-arrow {
+    transform: none !important;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease !important;
+  }
+}
+
 /* ── D2k broker row — border + shadow on hover, BrokerChooser-style ── */
 .d2k-row {
   border: 1.5px solid transparent;
