@@ -8,7 +8,7 @@ import { getBrokerData } from "../data/brokers/index";
 import { TRUST_SCORE_TIERS, CRITERIA_V2, CHANGELOG, FAQ_METHODOLOGY } from "../data/methodologyData";
 import Icon from "../components/Icon";
 import RegulatorLogo from "../components/RegulatorLogo";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Clock } from "lucide-react";
 import Breadcrumb from "../components/Breadcrumb";
 
 // ============================
@@ -186,12 +186,13 @@ export default function MethodologyPage() {
           <span>{t("meth.factChecked")} <strong style={{ color: "#111827" }}>David Kowalski, CAMS</strong></span>
           <span style={{ color: "#e2e8f0" }}>|</span>
           <span style={{
-            padding: "2px 8px", borderRadius: 4,
-            background: "#ecfdf5", color: "#059669", fontSize: 12, fontWeight: 600,
+            fontFamily: "'JetBrains Mono',monospace", fontSize: 11, fontWeight: 700,
+            color: "#475569", letterSpacing: "0.1em", textTransform: "uppercase",
           }}>{t("meth.lastUpdated")}: March 2026</span>
+          <span style={{ color: "#e2e8f0" }}>·</span>
           <span style={{
-            padding: "2px 8px", borderRadius: 4,
-            background: "#eff6ff", color: "#2563eb", fontSize: 12, fontWeight: 600,
+            fontFamily: "'JetBrains Mono',monospace", fontSize: 11, fontWeight: 700,
+            color: "#94a3b8", letterSpacing: "0.1em", textTransform: "uppercase",
           }}>{t("meth.nextReview")}: June 2026</span>
         </div>
       </section>
@@ -211,14 +212,14 @@ export default function MethodologyPage() {
             {TOC_ITEMS.map((item, i) => (
               <a key={i} href={`#${item.id}`} style={{
                 display: "flex", alignItems: "center", gap: 8,
-                padding: "6px 0", fontSize: 15, color: "#2563eb",
-                textDecoration: "none", fontWeight: 500,
+                padding: "6px 0", fontSize: 15, color: "#047857",
+                textDecoration: "none", fontWeight: 600,
                 transition: "color 0.15s",
               }}
-                onMouseEnter={e => e.currentTarget.style.color = "#059669"}
-                onMouseLeave={e => e.currentTarget.style.color = "#2563eb"}
+                onMouseEnter={e => e.currentTarget.style.color = "#f59e0b"}
+                onMouseLeave={e => e.currentTarget.style.color = "#047857"}
               >
-                <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 13, color: "#1f2937", minWidth: 20 }}>{i + 1}.</span>
+                <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 13, color: "#94a3b8", minWidth: 20 }}>{i + 1}.</span>
                 {item.label}
               </a>
             ))}
@@ -238,7 +239,7 @@ export default function MethodologyPage() {
             <div style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 22, color: "#fff", marginBottom: 6 }}>
               {t("meth.coreTitle")}
             </div>
-            <div style={{ fontSize: 16, color: "#64748b", lineHeight: 1.7 }}>
+            <div style={{ fontSize: 16, color: "#cbd5e1", lineHeight: 1.7 }}>
               {t("meth.coreDesc")}
             </div>
           </div>
@@ -275,10 +276,9 @@ export default function MethodologyPage() {
         </div>
 
         <div style={{ marginTop: 16 }}>
-          <Link to={lp("/trust-score")} style={{
-            color: "#059669", fontWeight: 600, fontSize: 15, textDecoration: "none",
-            display: "inline-flex", alignItems: "center", gap: 4,
-          }}>Learn how to interpret scores & search any broker →</Link>
+          <Link to={lp("/trust-score")} className="rb-link-standalone">
+            Learn how to interpret scores & search any broker <span className="rb-arrow">→</span>
+          </Link>
         </div>
       </section>
 
@@ -448,7 +448,7 @@ export default function MethodologyPage() {
                               return (
                                 <div key={ri} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 13, color: "#1f2937", padding: "3px 0" }}>
                                   {regData && <RegulatorLogo slug={regData.slug} name={regData.name} size={18} shape="icon" tier={ti + 1} />}
-                                  {regData ? <Link to={lp(`/regulator/${regData.slug}`)} style={{ color: "#2563eb", textDecoration: "none", fontWeight: 600 }}>{r}</Link> : r}
+                                  {regData ? <Link to={lp(`/regulator/${regData.slug}`)} className="rb-link-inline">{r}</Link> : r}
                                 </div>
                               );
                             })}
@@ -486,7 +486,7 @@ export default function MethodologyPage() {
                 <div style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 20, color: "#fff" }}>
                   {icData.B.name}
                 </div>
-                <div style={{ fontSize: 14, color: "#64748b" }}>{t("meth.scoringExampleSubtitle")}</div>
+                <div style={{ fontSize: 14, color: "#cbd5e1" }}>{t("meth.scoringExampleSubtitle")}</div>
               </div>
               <div style={{
                 fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 28,
@@ -535,24 +535,25 @@ export default function MethodologyPage() {
             {/* Total */}
             <div style={{
               display: "grid", gridTemplateColumns: mob ? "1fr 60px 60px 70px" : "2fr 80px 80px 100px",
-              padding: "14px 24px", borderTop: "2px solid #e2e8f0",
-              background: "#ecfdf5",
+              padding: "14px 24px",
+              borderTop: "2px solid #0f172a",
+              background: "#f8fafc",
             }}>
-              <div style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 16 }}>{t("meth.total")}</div>
+              <div style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 16, color: "#0f172a" }}>{t("meth.total")}</div>
               <div></div>
               <div></div>
               <div style={{
                 textAlign: "center", fontFamily: "'JetBrains Mono',monospace",
-                fontWeight: 800, fontSize: 18, color: "#059669",
+                fontWeight: 800, fontSize: 18, color: "#0f172a",
               }}>{icData.B.score}</div>
             </div>
           </div>
         )}
 
         <div style={{ marginTop: 12 }}>
-          <Link to={lp("/reviews/ic-markets")} style={{
-            color: "#2563eb", fontWeight: 600, textDecoration: "none", fontSize: 15,
-          }}>{t("meth.readFullReview")} →</Link>
+          <Link to={lp("/reviews/ic-markets")} className="rb-link-standalone">
+            {t("meth.readFullReview")} <span className="rb-arrow">→</span>
+          </Link>
         </div>
       </section>
 
@@ -569,7 +570,7 @@ export default function MethodologyPage() {
           {/* Vertical line */}
           <div style={{
             position: "absolute", left: 27, top: 0, bottom: 0, width: 2,
-            background: "linear-gradient(to bottom, #059669, #2563eb, #7c3aed)",
+            background: "linear-gradient(to bottom, #059669, #34d399)",
           }}/>
 
           {PROCESS_STEPS.map((s, i) => (
@@ -588,10 +589,16 @@ export default function MethodologyPage() {
               }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
                   <span style={{
-                    fontFamily: "'JetBrains Mono',monospace", fontSize: 12, fontWeight: 800,
-                    color: "#059669", background: "#ecfdf5", padding: "2px 8px", borderRadius: 4,
+                    fontFamily: "'JetBrains Mono',monospace", fontSize: 11, fontWeight: 700,
+                    color: "#475569", letterSpacing: "0.12em", textTransform: "uppercase",
                   }}>{t("meth.step")} {s.step}</span>
-                  <span style={{ fontSize: 13, color: "#1f2937" }}>⏱ {s.duration}</span>
+                  <span style={{ color: "#e2e8f0" }}>·</span>
+                  <span style={{
+                    display: "inline-flex", alignItems: "center", gap: 4,
+                    fontSize: 13, color: "#64748b",
+                  }}>
+                    <Clock size={13} strokeWidth={2} /> {s.duration}
+                  </span>
                 </div>
                 <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 17, marginBottom: 4 }}>{s.title}</div>
                 <div style={{ fontSize: 15, color: "#1f2937", lineHeight: 1.7 }}>{s.desc}</div>
@@ -640,9 +647,9 @@ export default function MethodologyPage() {
             </p>
           </div>
           <div style={{ marginTop: 16 }}>
-            <Link to={lp("/how-we-make-money")} style={{
-              color: "#059669", fontWeight: 600, textDecoration: "none", fontSize: 15,
-            }}>{t("meth.editorialLink")} →</Link>
+            <Link to={lp("/how-we-make-money")} className="rb-link-standalone">
+              {t("meth.editorialLink")} <span className="rb-arrow">→</span>
+            </Link>
           </div>
         </div>
       </section>
@@ -691,13 +698,14 @@ export default function MethodologyPage() {
           {t("meth.changelogDesc")}
         </p>
 
-        {/* Update triggers */}
+        {/* Update triggers — amber Pro Tip style */}
         <div style={{
           padding: "16px 20px", borderRadius: 10,
-          background: "#eff6ff", border: "1px solid #bfdbfe", marginBottom: 20,
+          background: "#fffbeb", border: "1px solid #fde68a",
+          borderLeft: "4px solid #d97706", marginBottom: 20,
         }}>
-          <div style={{ fontWeight: 700, fontSize: 15, color: "#1e40af", marginBottom: 8 }}>{t("meth.triggerTitle")}</div>
-          <div style={{ fontSize: 14, color: "#1e3a8a", lineHeight: 1.7 }}>
+          <div style={{ fontWeight: 800, fontSize: 15, color: "#92400e", marginBottom: 8 }}>{t("meth.triggerTitle")}</div>
+          <div style={{ fontSize: 14, color: "#78350f", lineHeight: 1.7 }}>
             {t("meth.triggerList")}
           </div>
         </div>
@@ -776,11 +784,21 @@ export default function MethodologyPage() {
                 </div>
               </div>
               <div style={{ fontSize: 12, color: "#1f2937", marginBottom: 10 }}>{t("meth.teamSpecialty")}: {member.specialty}</div>
-              <a href={member.linkedin} style={{
+              <a href={member.linkedin} target="_blank" rel="noopener noreferrer" style={{
                 display: "block", padding: "8px", borderRadius: 6,
-                background: "#eff6ff", color: "#2563eb", fontSize: 13, fontWeight: 600,
-                textDecoration: "none", border: "1px solid #bfdbfe",
-              }}>{t("meth.verifyLinkedin")}</a>
+                background: "#f1f5f9", color: "#0f172a", fontSize: 13, fontWeight: 600,
+                textDecoration: "none", border: "1px solid #e2e8f0",
+                transition: "background 0.2s, border-color 0.2s",
+              }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.background = "#e2e8f0";
+                  e.currentTarget.style.borderColor = "#cbd5e1";
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.background = "#f1f5f9";
+                  e.currentTarget.style.borderColor = "#e2e8f0";
+                }}
+              >{t("meth.verifyLinkedin")}</a>
             </div>
           ))}
         </div>
@@ -838,25 +856,25 @@ export default function MethodologyPage() {
       {/* =================== CTA =================== */}
       <section style={{ ...cn, marginBottom: 48 }}>
         <div style={{
-          padding: "40px", borderRadius: 16,
+          padding: mob ? "32px 24px" : "40px", borderRadius: 16,
           background: "linear-gradient(135deg,#0f172a 0%,#1e3a5f 100%)",
           textAlign: "center",
         }}>
-          <div style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 28, color: "#fff", marginBottom: 8 }}>
+          <div style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 28, color: "#fff", marginBottom: 8 }}>
             {t("meth.ctaTitle")}
           </div>
-          <div style={{ fontSize: 16, color: "#64748b", marginBottom: 24, maxWidth: 500, margin: "0 auto 24px" }}>
+          <div style={{ fontSize: 16, color: "#cbd5e1", marginBottom: 24, maxWidth: 500, margin: "0 auto 24px" }}>
             {t("meth.ctaDesc")}
           </div>
           <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-            <Link to={lp("/")} style={{
+            <Link to={lp("/")} className="rb-cta-affiliate" style={{
               padding: "14px 32px", borderRadius: 10,
-              background: "linear-gradient(135deg,#059669,#34d399)",
-              color: "#fff", fontWeight: 800, fontSize: 16, textDecoration: "none",
+              background: "linear-gradient(135deg,#f59e0b,#fbbf24)",
+              color: "#0f172a", fontWeight: 800, fontSize: 16, textDecoration: "none",
             }}>{t("meth.viewRankings")}</Link>
-            <Link to={lp("/best-ecn-forex-brokers")} style={{
+            <Link to={lp("/best-ecn-forex-brokers")} className="rb-cta-ghost--dark" style={{
               padding: "14px 32px", borderRadius: 10,
-              background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.2)",
+              background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.2)",
               color: "#fff", fontWeight: 600, fontSize: 16, textDecoration: "none",
             }}>{t("meth.bestECN")}</Link>
           </div>
