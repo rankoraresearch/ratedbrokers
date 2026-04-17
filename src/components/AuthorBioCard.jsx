@@ -9,34 +9,29 @@ export default function AuthorBioCard({ author }) {
 
   const expNum = parseInt(author.exp) || 0;
   const stats = [
-    { value: expNum, label: "yrs exp", color: "#059669", bg: "#ecfdf5", border: "#a7f3d0" },
-    { value: `${author.reviews}+`, label: "reviews", color: "#2563eb", bg: "#eff6ff", border: "#bfdbfe" },
+    { value: expNum, label: "yrs exp" },
+    { value: `${author.reviews}+`, label: "reviews" },
   ];
   if (author.credentials?.length) {
-    stats.push({
-      value: author.credentials[0],
-      label: "cert",
-      color: "#7c3aed",
-      bg: "#f5f3ff",
-      border: "#ddd6fe",
-    });
+    stats.push({ value: author.credentials[0], label: "cert" });
   }
 
   return (
     <div style={{
       background: "#fff", border: "1px solid #e2e8f0", borderRadius: 16,
+      borderTop: "3px solid #059669",
       overflow: "hidden",
     }}>
-      {/* Header bar */}
+      {/* Header bar — Plate B */}
       <div style={{
         display: "flex", alignItems: "center", gap: 8,
         padding: "10px 24px",
-        background: "linear-gradient(135deg,#ecfdf5,#d1fae5)",
-        borderBottom: "1px solid #a7f3d0",
+        background: "#fff",
+        borderBottom: "1px solid #e2e8f0",
       }}>
         <Shield size={14} color="#059669" />
         <span style={{
-          fontSize: 12, fontWeight: 700, color: "#065f46",
+          fontSize: 12, fontWeight: 700, color: "#0f172a",
           textTransform: "uppercase", letterSpacing: "0.06em",
         }}>Verified Expert Author</span>
       </div>
@@ -53,20 +48,20 @@ export default function AuthorBioCard({ author }) {
           </div>
         </div>
 
-        {/* Stat boxes */}
+        {/* Stat boxes — unified monochrome (no rainbow) */}
         <div style={{ display: "grid", gridTemplateColumns: `repeat(${stats.length}, 1fr)`, gap: 12, marginBottom: 20 }}>
           {stats.map((s) => (
             <div key={s.label} style={{
               textAlign: "center", padding: "14px 8px",
-              borderRadius: 10, background: s.bg,
-              border: `1px solid ${s.border}`,
+              borderRadius: 10, background: "#f8fafc",
+              border: "1px solid #e2e8f0",
             }}>
               <div style={{
                 fontFamily: "'JetBrains Mono',monospace", fontWeight: 800,
-                fontSize: 20, color: s.color, lineHeight: 1,
+                fontSize: 20, color: "#0f172a", lineHeight: 1,
               }}>{s.value}</div>
               <div style={{
-                fontSize: 12, color: s.color, fontWeight: 600,
+                fontSize: 12, color: "#64748b", fontWeight: 600,
                 textTransform: "uppercase", marginTop: 4,
               }}>{s.label}</div>
             </div>
