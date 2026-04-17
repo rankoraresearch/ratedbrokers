@@ -639,7 +639,7 @@ export default function BrokerComparison() {
                 <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 10, flexWrap: "wrap" }}>
                   <div style={{
                     width: 36, height: 36, borderRadius: 8,
-                    background: cat.winner === "a" ? "#ecfdf5" : cat.winner === "b" ? "#fef3c7" : "#f1f5f9",
+                    background: "rgba(15,23,42,0.04)",
                     display: "flex", alignItems: "center", justifyContent: "center",
                   }}>
                     <Icon name={cat.icon} size={18} color={cat.winner === "a" ? "#059669" : cat.winner === "b" ? "#d97706" : "#64748b"} />
