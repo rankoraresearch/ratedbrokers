@@ -335,45 +335,45 @@ export default function Home() {
                 ))}
               </div>
             )}
-            {/* V3: Top Actions */}
+            {/* V3: Top Actions — rb-cta-affiliate (1) + rb-cta-ghost--dark (3) */}
             <div style={{ display: "flex", gap: mob ? 8 : 10, flexDirection: mob ? "column" : "row" }}>
-              <Link to="/find-your-broker" className="cta-orange" style={{
+              <Link to="/find-your-broker" className="rb-cta-affiliate" style={{
                 padding: "10px 20px", borderRadius: 10, fontSize: 13, fontWeight: 700,
+                fontFamily: "'Outfit',sans-serif", letterSpacing: "-0.01em",
                 background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: "#0f172a",
                 textDecoration: "none", display: "flex", alignItems: "center", justifyContent: "center",
-                gap: 6, whiteSpace: "nowrap", cursor: "pointer",
+                gap: 6, whiteSpace: "nowrap",
                 boxShadow: "0 2px 8px rgba(245,158,11,0.3)",
               }}>
                 <Target size={14} /> Find Your Broker
               </Link>
-              {!mob && <Link to="/compare" style={{
+              {!mob && <Link to="/compare" className="rb-cta-ghost--dark" style={{
                 padding: "10px 18px", borderRadius: 10, fontSize: 13, fontWeight: 600,
-                background: "rgba(30,41,59,0.8)", backdropFilter: "blur(8px)",
-                border: "1px solid rgba(255,255,255,0.15)", color: "#e2e8f0",
+                fontFamily: "'Outfit',sans-serif",
+                background: "rgba(255,255,255,0.08)", backdropFilter: "blur(8px)",
+                border: "1px solid rgba(255,255,255,0.2)", color: "#e2e8f0",
                 textDecoration: "none", display: "flex", alignItems: "center", justifyContent: "center",
-                gap: 6, whiteSpace: "nowrap", cursor: "pointer", transition: "all 0.15s",
-              }}
-                onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.12)"; e.currentTarget.style.color = "#fff"; }}
-                onMouseLeave={e => { e.currentTarget.style.background = "rgba(30,41,59,0.8)"; e.currentTarget.style.color = "#e2e8f0"; }}
-              >
+                gap: 6, whiteSpace: "nowrap",
+              }}>
                 <BarChart3 size={14} /> Compare Brokers
               </Link>}
-              {!mob && <Link to="/methodology" style={{
+              {!mob && <Link to="/methodology" className="rb-cta-ghost--dark" style={{
                 padding: "10px 18px", borderRadius: 10, fontSize: 13, fontWeight: 600,
-                background: "rgba(30,41,59,0.8)", backdropFilter: "blur(8px)",
-                border: "1px solid rgba(255,255,255,0.15)", color: "#e2e8f0",
+                fontFamily: "'Outfit',sans-serif",
+                background: "rgba(255,255,255,0.08)", backdropFilter: "blur(8px)",
+                border: "1px solid rgba(255,255,255,0.2)", color: "#e2e8f0",
                 textDecoration: "none", display: "flex", alignItems: "center", justifyContent: "center",
-                gap: 6, whiteSpace: "nowrap", cursor: "pointer", transition: "all 0.15s",
-              }}
-                onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.12)"; e.currentTarget.style.color = "#fff"; }}
-                onMouseLeave={e => { e.currentTarget.style.background = "rgba(30,41,59,0.8)"; e.currentTarget.style.color = "#e2e8f0"; }}
-              >
+                gap: 6, whiteSpace: "nowrap",
+              }}>
                 <BookOpen size={14} /> Our Methodology
               </Link>}
-              <Link to="/rankings" className="cta-orange" style={{
-                padding: "10px 24px", borderRadius: 10, fontSize: 13, fontWeight: 700,
-                background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: "#0f172a", textDecoration: "none",
-                display: "flex", alignItems: "center", justifyContent: "center", gap: 6, whiteSpace: "nowrap",
+              <Link to="/rankings" className="rb-cta-ghost--dark" style={{
+                padding: "10px 22px", borderRadius: 10, fontSize: 13, fontWeight: 600,
+                fontFamily: "'Outfit',sans-serif",
+                background: "rgba(255,255,255,0.08)", backdropFilter: "blur(8px)",
+                border: "1px solid rgba(255,255,255,0.2)", color: "#e2e8f0",
+                textDecoration: "none", display: "flex", alignItems: "center", justifyContent: "center",
+                gap: 6, whiteSpace: "nowrap",
               }}>
                 Browse All Rankings <ArrowRight size={13} />
               </Link>
