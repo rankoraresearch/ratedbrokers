@@ -338,26 +338,29 @@ export default function AboutPage() {
         <p style={{ fontSize: 17, lineHeight: 1.8, color: "#1f2937", margin: "0 0 18px" }}>{t("about.missionP1")}</p>
         <p style={{ fontSize: 17, lineHeight: 1.8, color: "#1f2937", margin: "0 0 24px" }}>{t("about.missionP2")}</p>
 
-        {/* Commitments — green checkmark block */}
+        {/* Commitments — Plate B card (white + green top strip) */}
         <div style={{
-          padding: mob ? "20px 22px" : "22px 26px", borderRadius: 12,
-          background: "#f0fdf4", border: "1px solid #bbf7d0",
+          position: "relative", overflow: "hidden",
+          padding: mob ? "22px 22px" : "24px 26px", borderRadius: 12,
+          background: "#fff", border: "1px solid #e8ecf1",
+          boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)",
         }}>
-          <div style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11, fontWeight: 700, color: "#047857", letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: 12 }}>
+          <div style={greenStrip} />
+          <div style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11, fontWeight: 700, color: "#047857", letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: 14 }}>
             Our Commitments
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
             {MISSION_COMMITMENTS.map((c, i) => (
-              <div key={i} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+              <div key={i} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
                 <div style={{
-                  flexShrink: 0, width: 20, height: 20, borderRadius: "50%",
+                  flexShrink: 0, width: 22, height: 22, borderRadius: "50%",
                   background: "#059669", color: "#fff",
                   display: "flex", alignItems: "center", justifyContent: "center",
-                  marginTop: 2,
+                  marginTop: 1,
                 }}>
-                  <Check size={13} strokeWidth={3} />
+                  <Check size={14} strokeWidth={3} />
                 </div>
-                <div style={{ fontSize: 15, lineHeight: 1.55, color: "#064e3b", fontWeight: 500 }}>{c}</div>
+                <div style={{ fontSize: 15, lineHeight: 1.6, color: "#1f2937", fontWeight: 500 }}>{c}</div>
               </div>
             ))}
           </div>
