@@ -209,17 +209,6 @@ export default function Header() {
   const hov = (e) => { e.currentTarget.style.background = "#f1f5f9"; e.currentTarget.style.color = "#047857"; };
   const unhov = (e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#111827"; };
 
-  /* compact link style (no icons, no descriptions) */
-  const compactLink = {
-    display: "block", padding: "6px 10px", borderRadius: 0,
-    textDecoration: "none", color: "#1f2937",
-    fontSize: 14, fontWeight: 500, transition: "all 0.15s",
-    lineHeight: 1.4,
-  };
-  /* D1 Rail bottom — compact hover: slate bg + darker green text */
-  const hovCompact = (e) => { e.currentTarget.style.background = "#f1f5f9"; e.currentTarget.style.color = "#047857"; };
-  const unhovCompact = (e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#1f2937"; };
-
   /* ── helper: nav button (desktop) — D1 Rail bottom ── */
   const NavBtn = ({ id, label }) => {
     const isActive = activeDropdown === id;
@@ -433,7 +422,7 @@ export default function Header() {
                       <div>
                         <div style={secHead}>By Trading Style</div>
                         {FOREX_CATEGORIES.map((item) => (
-                          <Link key={item.key} to={lp(item.path)} style={compactLink} onMouseEnter={hovCompact} onMouseLeave={unhovCompact}>
+                          <Link key={item.key} to={lp(item.path)} className="rb-link-rail">
                             {t(`mega.${item.key}`)}
                           </Link>
                         ))}
@@ -442,19 +431,19 @@ export default function Header() {
                       <div>
                         <div style={secHead}>By Cost</div>
                         {FOREX_COSTS.map((item) => (
-                          <Link key={item.key} to={lp(item.path)} style={compactLink} onMouseEnter={hovCompact} onMouseLeave={unhovCompact}>
+                          <Link key={item.key} to={lp(item.path)} className="rb-link-rail">
                             {t(`mega.${item.key}`)}
                           </Link>
                         ))}
                         <div style={{ ...secHead, marginTop: 14 }}>By Platform</div>
                         {FOREX_PLATFORMS.map((p) => (
-                          <Link key={p.name} to={lp(p.path)} style={compactLink} onMouseEnter={hovCompact} onMouseLeave={unhovCompact}>
+                          <Link key={p.name} to={lp(p.path)} className="rb-link-rail">
                             Best {p.name} Brokers
                           </Link>
                         ))}
                         <div style={{ ...secHead, marginTop: 14 }}>Platform Guides</div>
                         {FOREX_PLATFORMS.map((p) => (
-                          <Link key={`guide-${p.name}`} to={lp(`/platform/${p.name.toLowerCase().replace(/\s+/g, "-")}`)} style={compactLink} onMouseEnter={hovCompact} onMouseLeave={unhovCompact}>
+                          <Link key={`guide-${p.name}`} to={lp(`/platform/${p.name.toLowerCase().replace(/\s+/g, "-")}`)} className="rb-link-rail">
                             {p.name} Guide
                           </Link>
                         ))}
@@ -463,7 +452,7 @@ export default function Header() {
                       <div>
                         <div style={secHead}>By Account Type</div>
                         {FOREX_ACCOUNTS.map((item) => (
-                          <Link key={item.key} to={lp(item.path)} style={compactLink} onMouseEnter={hovCompact} onMouseLeave={unhovCompact}>
+                          <Link key={item.key} to={lp(item.path)} className="rb-link-rail">
                             {t(`mega.${item.key}`)}
                           </Link>
                         ))}
@@ -522,7 +511,7 @@ export default function Header() {
                       <div>
                         <div style={secHead}>By Cryptocurrency</div>
                         {CRYPTO_BY_COIN.map((item) => (
-                          <Link key={item.key} to={lp(item.path)} style={compactLink} onMouseEnter={hovCompact} onMouseLeave={unhovCompact}>
+                          <Link key={item.key} to={lp(item.path)} className="rb-link-rail">
                             {t(`mega.${item.key}`)}
                           </Link>
                         ))}
@@ -530,7 +519,7 @@ export default function Header() {
                       <div>
                         <div style={secHead}>By Feature</div>
                         {CRYPTO_BY_FEATURE.map((item) => (
-                          <Link key={item.key} to={lp(item.path)} style={compactLink} onMouseEnter={hovCompact} onMouseLeave={unhovCompact}>
+                          <Link key={item.key} to={lp(item.path)} className="rb-link-rail">
                             {t(`mega.${item.key}`)}
                           </Link>
                         ))}
@@ -538,7 +527,7 @@ export default function Header() {
                       <div>
                         <div style={secHead}>By Country</div>
                         {CRYPTO_BY_COUNTRY.map((item) => (
-                          <Link key={item.key} to={lp(item.path)} style={compactLink} onMouseEnter={hovCompact} onMouseLeave={unhovCompact}>
+                          <Link key={item.key} to={lp(item.path)} className="rb-link-rail">
                             {t(`mega.${item.key}`)}
                           </Link>
                         ))}
@@ -637,7 +626,7 @@ export default function Header() {
                       <div>
                         <div style={secHead}>{t("mega.guideGettingStarted")}</div>
                         {GUIDE_GETTING_STARTED.map((item) => (
-                          <Link key={item.key} to={lp(item.path)} style={compactLink} onMouseEnter={hovCompact} onMouseLeave={unhovCompact}>
+                          <Link key={item.key} to={lp(item.path)} className="rb-link-rail">
                             {t(`mega.${item.key}`)}
                           </Link>
                         ))}
@@ -645,7 +634,7 @@ export default function Header() {
                       <div>
                         <div style={secHead}>{t("mega.guideStrategiesHead")}</div>
                         {GUIDE_STRATEGIES.map((item) => (
-                          <Link key={item.key} to={lp(item.path)} style={compactLink} onMouseEnter={hovCompact} onMouseLeave={unhovCompact}>
+                          <Link key={item.key} to={lp(item.path)} className="rb-link-rail">
                             {t(`mega.${item.key}`)}
                           </Link>
                         ))}
@@ -653,7 +642,7 @@ export default function Header() {
                       <div>
                         <div style={secHead}>{t("mega.guideConceptsHead")}</div>
                         {GUIDE_CONCEPTS.map((item) => (
-                          <Link key={item.key} to={lp(item.path)} style={compactLink} onMouseEnter={hovCompact} onMouseLeave={unhovCompact}>
+                          <Link key={item.key} to={lp(item.path)} className="rb-link-rail">
                             {t(`mega.${item.key}`)}
                           </Link>
                         ))}
@@ -684,8 +673,7 @@ export default function Header() {
                       <div>
                         <div style={secHead}>{t("mega.countryEurope")}</div>
                         {COUNTRIES_EUROPE.map((c) => (
-                          <Link key={c.code} to={lp(c.path)} style={{ ...compactLink, display: "flex", alignItems: "center", gap: 8 }}
-                            onMouseEnter={hovCompact} onMouseLeave={unhovCompact}
+                          <Link key={c.code} to={lp(c.path)} className="rb-link-rail"
                           >
                             <CountryFlag code={c.code} size={14} />
                             {c.name}
@@ -695,8 +683,7 @@ export default function Header() {
                       <div>
                         <div style={secHead}>{t("mega.countryAsiaPacific")}</div>
                         {COUNTRIES_ASIA_PACIFIC.map((c) => (
-                          <Link key={c.code} to={lp(c.path)} style={{ ...compactLink, display: "flex", alignItems: "center", gap: 8 }}
-                            onMouseEnter={hovCompact} onMouseLeave={unhovCompact}
+                          <Link key={c.code} to={lp(c.path)} className="rb-link-rail"
                           >
                             <CountryFlag code={c.code} size={14} />
                             {c.name}
@@ -706,8 +693,7 @@ export default function Header() {
                       <div>
                         <div style={secHead}>{t("mega.countryAmericasMena")}</div>
                         {COUNTRIES_AMERICAS_MENA.map((c) => (
-                          <Link key={c.code} to={lp(c.path)} style={{ ...compactLink, display: "flex", alignItems: "center", gap: 8 }}
-                            onMouseEnter={hovCompact} onMouseLeave={unhovCompact}
+                          <Link key={c.code} to={lp(c.path)} className="rb-link-rail"
                           >
                             <CountryFlag code={c.code} size={14} />
                             {c.name}
