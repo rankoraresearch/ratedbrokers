@@ -227,19 +227,29 @@ export default function MethodologyPage() {
         </div>
       </section>
 
-      {/* =================== CORE PRINCIPLE =================== */}
-      <section style={{ ...cn, marginBottom: 40 }}>
+      {/* =================== CORE PRINCIPLE — Premium Dark band =================== */}
+      <section style={{
+        background: "linear-gradient(135deg, #0f172a 0%, #0a1e2e 100%)",
+        position: "relative", overflow: "hidden",
+        padding: mob ? "36px 0" : "48px 0",
+        marginBottom: 40,
+      }}>
         <div style={{
-          padding: "24px 28px", borderRadius: 14,
-          background: "linear-gradient(135deg,#0f172a,#1e3a5f)",
-          display: "flex", gap: 20, alignItems: "center",
-        }}>
-          <span style={{ flexShrink: 0, display: "flex" }}><Icon name="crosshair" size={48} color="#34d399" /></span>
+          position: "absolute", inset: 0, pointerEvents: "none",
+          backgroundImage: "repeating-linear-gradient(135deg, transparent 0, transparent 11px, rgba(255,255,255,0.02) 11px, rgba(255,255,255,0.02) 12px)",
+        }} />
+        <div style={{ ...cn, position: "relative", display: "flex", gap: mob ? 16 : 24, alignItems: "center", flexDirection: mob ? "column" : "row", textAlign: mob ? "center" : "left" }}>
+          <span style={{ flexShrink: 0, display: "flex" }}><Icon name="crosshair" size={56} color="#fbbf24" /></span>
           <div>
-            <div style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 22, color: "#fff", marginBottom: 6 }}>
+            <div style={{
+              fontFamily: "'JetBrains Mono',monospace", fontSize: 11, fontWeight: 700,
+              color: "#fbbf24", letterSpacing: "0.18em", textTransform: "uppercase",
+              marginBottom: 8,
+            }}>Core Principle</div>
+            <div style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 26, color: "#fff", marginBottom: 8, letterSpacing: "-0.02em" }}>
               {t("meth.coreTitle")}
             </div>
-            <div style={{ fontSize: 16, color: "#cbd5e1", lineHeight: 1.7 }}>
+            <div style={{ fontSize: 16, color: "#cbd5e1", lineHeight: 1.7, maxWidth: 780 }}>
               {t("meth.coreDesc")}
             </div>
           </div>
