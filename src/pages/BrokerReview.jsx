@@ -94,7 +94,7 @@ function CTA({ B, visitUrl, label, sub, compact, mob }) {
   const useMobileCompact = compact && mob;
   return <div style={{background:"#0f172a",border:"1px solid rgba(255,255,255,0.08)",borderRadius:useMobileCompact?10:compact?10:14,padding:useMobileCompact?"10px 16px":compact?"14px 18px":"20px 24px",display:"flex",alignItems:"center",justifyContent:"space-between",gap:useMobileCompact?10:16,margin:useMobileCompact?"14px 0":"20px 0"}}>
     <div>{sub&&<div style={{fontSize:useMobileCompact?12:13,color:"rgba(255,255,255,0.7)",fontWeight:600}}>{sub}</div>}{!compact&&B.promo&&<div style={{fontSize:14,color:"#34d399",fontWeight:600,marginTop:2,display:"flex",alignItems:"center",gap:4}}><Icon name="lightbulb" size={14} color="#f59e0b" /> {B.promo}</div>}</div>
-    <a href={href} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{background:"linear-gradient(135deg, #f59e0b, #fbbf24)",color:"#0f172a",fontSize:useMobileCompact?12:compact?13:14,fontWeight:700,textDecoration:"none",padding:useMobileCompact?"8px 16px":compact?"10px 20px":"12px 28px",minHeight:44,borderRadius:8,boxShadow:"0 2px 8px rgba(245,158,11,0.3)",display:"inline-flex",alignItems:"center",gap:6,whiteSpace:"nowrap",flexShrink:0}}>{label||`Visit ${B.name}`}<svg width="14" height="14" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="#0f172a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></a>
+    <a href={href} target="_blank" rel="noopener nofollow sponsored" className="rb-cta-affiliate" style={{background:"linear-gradient(135deg, #f59e0b, #fbbf24)",color:"#0f172a",fontFamily:"'Outfit',sans-serif",fontSize:useMobileCompact?12:compact?13:14,fontWeight:700,letterSpacing:"-0.01em",textDecoration:"none",padding:useMobileCompact?"8px 16px":compact?"10px 20px":"12px 28px",minHeight:44,borderRadius:8,boxShadow:"0 2px 8px rgba(245,158,11,0.3)",display:"inline-flex",alignItems:"center",gap:6,whiteSpace:"nowrap",flexShrink:0}}>{label||`Visit ${B.name}`}<ArrowUpRight size={14} className="rb-arrow" /></a>
   </div>;
 }
 
@@ -666,7 +666,7 @@ export default function BrokerReview() {
               <div><span style={{fontWeight:700,fontSize:15,color:"#fff"}}>{AUTHOR.name}</span><div style={{fontSize:13,color:"rgba(255,255,255,0.6)"}}>{AUTHOR.role}</div></div>
             </div>
             {htmlOverrides.verdict ? <div style={{color:"rgba(255,255,255,0.85)"}} dangerouslySetInnerHTML={{__html:htmlOverrides.verdict}}/> : (content.verdict || []).map((p,i)=><p key={i} style={{fontSize:16,color:"rgba(255,255,255,0.85)",lineHeight:1.8,marginBottom:14}}>{p}</p>)}
-            <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{display:"flex",alignItems:"center",justifyContent:"center",gap:8,background:"linear-gradient(135deg, #f59e0b, #fbbf24)",color:"#0f172a",fontSize:15,fontWeight:700,textDecoration:"none",padding:"14px 28px",borderRadius:10,marginTop:8,width:"100%",boxShadow:"0 4px 12px rgba(245,158,11,0.3)"}}>{t("review.openAccountWith", { name: B.name })} <svg width="14" height="14" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="#0f172a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></a>
+            <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" className="rb-cta-affiliate" style={{display:"flex",alignItems:"center",justifyContent:"center",gap:8,background:"linear-gradient(135deg, #f59e0b, #fbbf24)",color:"#0f172a",fontFamily:"'Outfit',sans-serif",fontSize:15,fontWeight:700,letterSpacing:"-0.01em",textDecoration:"none",padding:"14px 28px",borderRadius:10,marginTop:8,width:"100%",boxShadow:"0 4px 12px rgba(245,158,11,0.3)"}}>{t("review.openAccountWith", { name: B.name })} <ArrowUpRight size={14} className="rb-arrow" /></a>
             <div style={{fontSize:12,color:"rgba(255,255,255,0.4)",textAlign:"center",marginTop:8}}>{B.type} {"\u00b7"} {t("review.regulated")}</div>
           </Card>
 
@@ -778,13 +778,13 @@ export default function BrokerReview() {
             fontFamily: "'JetBrains Mono',monospace", fontWeight: 800,
             fontSize: mob ? 14 : 16, color: "#34d399",
           }}>{B.score}</span>
-          <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{
+          <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" className="rb-cta-affiliate" style={{
             padding: mob ? "8px 16px" : "10px 24px", borderRadius: 8,
             background: "linear-gradient(135deg, #f59e0b, #fbbf24)",
-            color: "#0f172a", fontWeight: 700, fontSize: mob ? 13 : 14,
-            textDecoration: "none", whiteSpace: "nowrap",
+            color: "#0f172a", fontFamily: "'Outfit',sans-serif", fontWeight: 700, letterSpacing: "-0.01em", fontSize: mob ? 13 : 14,
+            textDecoration: "none", whiteSpace: "nowrap", display: "inline-flex", alignItems: "center", gap: 6,
             boxShadow: "0 2px 8px rgba(245,158,11,0.3)",
-          }}>{t("review.visit", { name: B.name })} <span style={{ marginLeft: 4 }}>&rarr;</span></a>
+          }}>{t("review.visit", { name: B.name })} <ArrowUpRight size={14} className="rb-arrow" /></a>
         </div>
         {/* H5b: Risk warning in sticky bar */}
         <div style={{fontSize:9,color:"rgba(255,255,255,0.35)",textAlign:"center",padding:"0 16px 6px",lineHeight:1.3}}>

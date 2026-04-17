@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import CountryFlag from "./CountryFlag";
 import { useMedia } from "../hooks/useMedia";
@@ -108,29 +107,17 @@ const sectionHeadingStyle = {
   letterSpacing: 1,
 };
 
-/* ── Footer link wrapper — rb-link-rail--dark + accent passthrough ──
-   Plain rail style comes from CSS class. When callsites pass an inline
-   `color`, we override the class default so accent links (#34d399 /
-   #fbbf24) keep their custom tint without extra state plumbing. */
+/* ── Footer link wrapper — always rb-link-rail--dark + accent passthrough ──
+   Every link (including #34d399 / #fbbf24 accents) wears the rb-link-rail--dark
+   class so it inherits the token hover bg, dot-scale motion, and the site-wide
+   :focus-visible outline. Inline `color` from callsites wins over the class-
+   hover color via inline-style specificity, so accent tints stay intact. */
 function HoverLink({ to, href, children, style, ...rest }) {
-  const hasAccent = style && style.color;
-  const className = hasAccent ? undefined : "rb-link-rail--dark";
-  const accentStyle = hasAccent ? {
-    fontSize: style.fontSize || 14,
-    fontFamily: "'DM Sans',sans-serif",
-    fontWeight: style.fontWeight || 500,
-    textDecoration: "none",
-    display: style.display || "block",
-    padding: style.padding !== undefined ? style.padding : "5px 8px",
-    borderRadius: 6,
-    transition: "color 0.15s ease, background 0.15s ease",
-    ...style,
-  } : undefined;
-
+  const className = "rb-link-rail--dark";
   if (href) {
-    return <a href={href} className={className} style={accentStyle} {...rest}>{children}</a>;
+    return <a href={href} className={className} style={style} {...rest}>{children}</a>;
   }
-  return <Link to={to} className={className} style={accentStyle} {...rest}>{children}</Link>;
+  return <Link to={to} className={className} style={style} {...rest}>{children}</Link>;
 }
 
 /* ── Footer Component ── */
