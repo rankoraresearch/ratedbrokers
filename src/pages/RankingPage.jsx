@@ -855,9 +855,9 @@ export default function RankingPage() {
                       );
                     })}
                     <td style={{ padding: "10px 8px", textAlign: "center" }}>
-                      <a href={makeVisitUrl(broker.slug, broker.B.url)} target="_blank" rel="noopener nofollow sponsored" style={{
-                        padding: "6px 14px", borderRadius: 6,
-                        background: "#059669", color: "#fff",
+                      <a href={makeVisitUrl(broker.slug, broker.B.url)} target="_blank" rel="noopener nofollow sponsored" className="cta-primary" style={{
+                        padding: "6px 14px", borderRadius: 10,
+                        background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: "#0f172a",
                         fontWeight: 700, fontSize: 12, textDecoration: "none", whiteSpace: "nowrap",
                       }}>Visit →</a>
                     </td>
