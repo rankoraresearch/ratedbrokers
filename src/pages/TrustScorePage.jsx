@@ -153,11 +153,13 @@ function HeroSection({ cn, mob, tab, t }) {
     }}>
       <div style={{
         display: "inline-flex", alignItems: "center", gap: 8,
-        background: "#ecfdf5", border: "1px solid #a7f3d0", borderRadius: 999,
-        padding: "6px 16px", marginBottom: 16,
+        marginBottom: 16,
       }}>
-        <Shield size={14} color="#059669" />
-        <span style={{ fontSize: 13, fontWeight: 700, color: "#065f46", letterSpacing: 1 }}>{t("ts.badge")}</span>
+        <Shield size={14} color="#f59e0b" strokeWidth={2} />
+        <span style={{
+          fontFamily: "'JetBrains Mono',monospace", fontSize: 11, fontWeight: 700,
+          color: "#f59e0b", letterSpacing: "0.18em", textTransform: "uppercase",
+        }}>{t("ts.badge")}</span>
       </div>
 
       <h1 style={{
@@ -283,9 +285,15 @@ function LookupSection({ cn, mob, tab, t, lp, allBrokers }) {
       {/* Selected broker detail */}
       {selectedData && (
         <div style={{
-          background: "#fff", border: "2px solid #a7f3d0", borderRadius: 16,
+          position: "relative", overflow: "hidden",
+          background: "#fff", border: "1px solid #e8ecf1", borderRadius: 16,
+          boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)",
           padding: mob ? 20 : 28, maxWidth: 700,
         }}>
+          <div style={{
+            position: "absolute", top: 0, left: 0, right: 0, height: 3,
+            background: "linear-gradient(90deg, #047857 0%, #10b981 50%, #047857 100%)",
+          }} />
           <div style={{
             display: "flex", alignItems: mob ? "flex-start" : "center",
             flexDirection: mob ? "column" : "row", gap: mob ? 12 : 20, marginBottom: 20,
@@ -350,11 +358,8 @@ function LookupSection({ cn, mob, tab, t, lp, allBrokers }) {
           </div>
 
           <div style={{ marginTop: 16 }}>
-            <Link to={lp(`/reviews/${selectedSlug}`)} style={{
-              color: "#059669", fontWeight: 600, fontSize: 15, textDecoration: "none",
-              display: "inline-flex", alignItems: "center", gap: 4,
-            }}>
-              {t("ts.lookupReadReview")} <ArrowRight size={14} />
+            <Link to={lp(`/reviews/${selectedSlug}`)} className="rb-link-standalone">
+              {t("ts.lookupReadReview")} <ArrowRight size={14} className="rb-arrow" />
             </Link>
           </div>
         </div>
@@ -378,11 +383,8 @@ function WhatIsSection({ cn, mob, t, lp }) {
         <p style={{ marginBottom: 14 }}>{t("ts.whatIsP2")}</p>
         <p style={{ marginBottom: 14 }}>{t("ts.whatIsP3")}</p>
       </div>
-      <Link to={lp("/methodology")} style={{
-        color: "#059669", fontWeight: 600, fontSize: 15, textDecoration: "none",
-        display: "inline-flex", alignItems: "center", gap: 4,
-      }}>
-        {t("ts.whatIsLink")} <ArrowRight size={14} />
+      <Link to={lp("/methodology")} className="rb-link-standalone">
+        {t("ts.whatIsLink")} <ArrowRight size={14} className="rb-arrow" />
       </Link>
     </section>
   );
@@ -636,8 +638,8 @@ function DistributionSection({ cn, mob, t, allBrokers }) {
   const summaryStats = [
     { label: t("ts.distHighest"), value: highest, color: "#059669" },
     { label: t("ts.distLowest"), value: lowest, color: "#ef4444" },
-    { label: t("ts.distMedian"), value: median, color: "#2563eb" },
-    { label: t("ts.distAverage"), value: average, color: "#7c3aed" },
+    { label: t("ts.distMedian"), value: median, color: "#0f172a" },
+    { label: t("ts.distAverage"), value: average, color: "#475569" },
   ];
 
   return (
@@ -694,7 +696,7 @@ function DistributionSection({ cn, mob, t, allBrokers }) {
                 <div style={{
                   position: "absolute", top: -2, bottom: -2,
                   left: `${(parseFloat(median) / 10) * 100}%`,
-                  width: 2, background: "#2563eb40",
+                  width: 2, background: "#0f172a66",
                 }} />
               </div>
               <div style={{
@@ -782,7 +784,7 @@ function LeaderboardSection({ cn, mob, tab, t, lp, allBrokers }) {
               gridTemplateColumns: tab ? "40px 1fr 70px 80px 90px" : "50px 1fr 80px 100px 140px 90px",
               padding: "12px 20px", alignItems: "center",
               borderTop: i > 0 ? "1px solid #f1f5f9" : "none",
-              background: i === 0 ? "#fafff8" : "transparent",
+              background: "transparent",
             }}>
               <span style={{
                 fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 15,
@@ -818,10 +820,17 @@ function LeaderboardSection({ cn, mob, tab, t, lp, allBrokers }) {
           style={{
             background: "none", border: "1px solid #e2e8f0", borderRadius: 10,
             padding: "10px 24px", cursor: "pointer", fontFamily: "inherit",
-            fontSize: 15, fontWeight: 600, color: "#059669",
+            fontSize: 15, fontWeight: 600, color: "#047857",
+            transition: "background 0.15s, border-color 0.15s",
           }}
-          onMouseEnter={(e) => { e.currentTarget.style.background = "#f0fdf4"; }}
-          onMouseLeave={(e) => { e.currentTarget.style.background = "none"; }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background = "#f8fafc";
+            e.currentTarget.style.borderColor = "#cbd5e1";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = "none";
+            e.currentTarget.style.borderColor = "#e2e8f0";
+          }}
         >
           {showAll
             ? t("ts.leaderShowTop")
@@ -885,9 +894,9 @@ function HowToReadSection({ cn, mob, t, lp }) {
                 {step.desc}
               </p>
               <div style={{
-                fontSize: 14, color: "#059669", fontFamily: "'JetBrains Mono',monospace",
-                fontWeight: 600, background: "#f0fdf4", padding: "8px 14px", borderRadius: 8,
-                border: "1px solid #a7f3d040",
+                fontSize: 14, color: "#78350f", fontFamily: "'JetBrains Mono',monospace",
+                fontWeight: 600, background: "#fffbeb", padding: "8px 14px", borderRadius: 8,
+                border: "1px solid #fde68a", borderLeft: "3px solid #d97706",
               }}>
                 {step.example}
               </div>
@@ -942,48 +951,51 @@ function CompareSection({ cn, mob, t }) {
             display: "grid",
             gridTemplateColumns: mob ? "120px repeat(4, 90px)" : "180px repeat(4, 1fr)",
             padding: "14px 20px", alignItems: "center",
-            borderTop: "1px solid #f1f5f9",
-            background: sys.highlight ? "#f0fdf4" : "transparent",
-            border: sys.highlight ? "2px solid #34d399" : "none",
-            borderTop: sys.highlight ? "2px solid #34d399" : (i > 0 ? "1px solid #f1f5f9" : "none"),
-            borderRadius: sys.highlight ? 10 : 0,
+            borderTop: sys.highlight ? "2px solid #0f172a" : (i > 0 ? "1px solid #f1f5f9" : "none"),
+            background: sys.highlight ? "#f8fafc" : "transparent",
             minWidth: mob ? 480 : "auto",
           }}>
             <span style={{
               fontWeight: sys.highlight ? 800 : 600,
-              fontSize: 15, color: sys.highlight ? "#059669" : "#0f172a",
+              fontSize: 15, color: sys.highlight ? "#0f172a" : "#0f172a",
             }}>{sys.name}</span>
             <span style={{
               fontFamily: "'JetBrains Mono',monospace", fontSize: 14,
               fontWeight: sys.highlight ? 700 : 400,
-              color: sys.highlight ? "#059669" : "#1f2937",
+              color: sys.highlight ? "#0f172a" : "#1f2937",
             }}>{sys.scale}</span>
             <span style={{
-              fontSize: 14, color: sys.highlight ? "#059669" : "#1f2937",
+              fontSize: 14, color: sys.highlight ? "#0f172a" : "#1f2937",
               fontWeight: sys.highlight ? 700 : 400,
             }}>{sys.variables}</span>
             <span style={{
               fontSize: 14,
-              color: sys.formula === "Fully Published" ? "#059669" : sys.formula === "Proprietary" ? "#ef4444" : "#f59e0b",
+              color: sys.formula === "Fully Published" ? "#047857" : sys.formula === "Proprietary" ? "#ef4444" : "#d97706",
               fontWeight: 600,
             }}>{sys.formula}</span>
             <span style={{
               fontSize: 14,
-              color: sys.highlight ? "#059669" : "#374151",
+              color: sys.highlight ? "#0f172a" : "#374151",
               fontWeight: sys.highlight ? 700 : 400,
             }}>{sys.testing}</span>
           </div>
         ))}
       </div>
 
-      {/* Callout */}
+      {/* Callout — Plate B card */}
       <div style={{
+        position: "relative", overflow: "hidden",
         marginTop: 16, padding: "16px 20px", borderRadius: 12,
-        background: "#f0fdf4", border: "1px solid #a7f3d0",
+        background: "#fff", border: "1px solid #e8ecf1",
+        boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)",
         display: "flex", alignItems: "center", gap: 10,
       }}>
-        <Award size={20} color="#059669" style={{ flexShrink: 0 }} />
-        <span style={{ fontSize: 15, color: "#065f46", fontWeight: 500, lineHeight: 1.5 }}>
+        <div style={{
+          position: "absolute", top: 0, left: 0, right: 0, height: 3,
+          background: "linear-gradient(90deg, #047857 0%, #10b981 50%, #047857 100%)",
+        }} />
+        <Award size={20} color="#047857" style={{ flexShrink: 0 }} />
+        <span style={{ fontSize: 15, color: "#1f2937", fontWeight: 500, lineHeight: 1.5 }}>
           {t("ts.compareCallout")}
         </span>
       </div>
@@ -1063,7 +1075,7 @@ function CtaSection({ cn, mob, t, lp }) {
           {t("ts.ctaTitle")}
         </h2>
         <p style={{
-          fontSize: mob ? 15 : 17, color: "#64748b", marginBottom: 28,
+          fontSize: mob ? 15 : 17, color: "#cbd5e1", marginBottom: 28,
           maxWidth: 500, margin: "0 auto 28px",
         }}>
           {t("ts.ctaDesc")}
@@ -1073,26 +1085,25 @@ function CtaSection({ cn, mob, t, lp }) {
           display: "flex", gap: 12, justifyContent: "center",
           flexWrap: "wrap",
         }}>
-          <Link to={lp("/")} style={{
+          <Link to={lp("/")} className="rb-cta-affiliate" style={{
             display: "inline-flex", alignItems: "center", gap: 6,
-            background: "linear-gradient(135deg, #059669, #047857)",
-            color: "#fff", fontSize: 16, fontWeight: 700, textDecoration: "none",
+            background: "linear-gradient(135deg, #f59e0b, #fbbf24)",
+            color: "#0f172a", fontSize: 16, fontWeight: 800, textDecoration: "none",
             padding: "14px 28px", borderRadius: 12,
-            boxShadow: "0 4px 14px rgba(5,150,105,0.3)",
           }}>
-            {t("ts.ctaRankings")} <ArrowRight size={16} />
+            {t("ts.ctaRankings")} <ArrowRight size={16} className="rb-arrow" />
           </Link>
-          <Link to={lp("/methodology")} style={{
+          <Link to={lp("/methodology")} className="rb-cta-ghost--dark" style={{
             display: "inline-flex", alignItems: "center", gap: 6,
-            background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.2)",
+            background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.2)",
             color: "#fff", fontSize: 16, fontWeight: 600, textDecoration: "none",
             padding: "14px 28px", borderRadius: 12,
           }}>
             {t("ts.ctaMethodology")}
           </Link>
-          <Link to={lp("/compare")} style={{
+          <Link to={lp("/compare")} className="rb-cta-ghost--dark" style={{
             display: "inline-flex", alignItems: "center", gap: 6,
-            background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.2)",
+            background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.2)",
             color: "#fff", fontSize: 16, fontWeight: 600, textDecoration: "none",
             padding: "14px 28px", borderRadius: 12,
           }}>
