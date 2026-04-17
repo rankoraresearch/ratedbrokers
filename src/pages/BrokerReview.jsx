@@ -316,7 +316,7 @@ export default function BrokerReview() {
             {/* H4: Show promo on mobile (before CTA per Bill) */}
             {mob&&promo&&<div style={{fontSize:12,color:"#34d399",fontWeight:600,marginBottom:8,display:"flex",alignItems:"center",justifyContent:"center",gap:4,textAlign:"center"}}>{promo}</div>}
             {/* H1: CTA above stats on mobile */}
-            {mob&&<a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,background:"linear-gradient(135deg, #f59e0b, #fbbf24)",color:"#0f172a",fontSize:15,fontWeight:700,textDecoration:"none",padding:"12px",borderRadius:10,boxShadow:"0 4px 12px rgba(245,158,11,0.3)"}}>{t("review.visit", { name: B.name })} <ArrowRight size={14} /></a>}
+            {mob&&<a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" className="rb-cta-affiliate" style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,background:"linear-gradient(135deg, #f59e0b, #fbbf24)",color:"#0f172a",fontFamily:"'Outfit',sans-serif",fontSize:15,fontWeight:700,letterSpacing:"-0.01em",textDecoration:"none",padding:"12px",borderRadius:10,boxShadow:"0 4px 12px rgba(245,158,11,0.3)"}}>{t("review.visit", { name: B.name })} <ArrowUpRight size={14} className="rb-arrow" /></a>}
             {/* H5: Risk warning on mobile */}
             {mob&&<div style={{fontSize:10,color:"rgba(255,255,255,0.4)",textAlign:"center",marginTop:6,lineHeight:1.4}}>{B.riskWarning || t("review.retailLose")}</div>}
             {/* Stats grid */}
@@ -346,7 +346,7 @@ export default function BrokerReview() {
             <div style={{fontFamily:"'JetBrains Mono'",fontSize:40,fontWeight:800,color:"#34d399",lineHeight:1}}>{B.score}</div>
             <div style={{fontSize:13,color:"#34d399",fontWeight:600,marginBottom:10}}>{verdict}</div>
             {promo&&<div style={{fontSize:12,color:"rgba(255,255,255,0.7)",background:"rgba(255,255,255,0.08)",borderRadius:6,padding:"5px 8px",marginBottom:12,display:"flex",alignItems:"center",gap:4}}><Icon name="lightbulb" size={13} color="#f59e0b" /> {promo}</div>}
-            <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,background:"linear-gradient(135deg, #f59e0b, #fbbf24)",color:"#0f172a",fontSize:16,fontWeight:700,textDecoration:"none",padding:"13px 24px",borderRadius:10,width:"100%",boxShadow:"0 4px 12px rgba(245,158,11,0.3)"}}>{t("review.visit", { name: B.name })} <svg width="14" height="14" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="#0f172a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></a>
+            <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" className="rb-cta-affiliate" style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,background:"linear-gradient(135deg, #f59e0b, #fbbf24)",color:"#0f172a",fontFamily:"'Outfit',sans-serif",fontSize:16,fontWeight:700,letterSpacing:"-0.01em",textDecoration:"none",padding:"13px 24px",borderRadius:10,width:"100%",boxShadow:"0 4px 12px rgba(245,158,11,0.3)"}}>{t("review.visit", { name: B.name })} <ArrowUpRight size={14} className="rb-arrow" /></a>
             <div style={{fontSize:11,color:"rgba(255,255,255,0.4)",marginTop:8}}>{B.riskWarning || t("review.retailLose")}</div>
           </div>}
         </div>
@@ -719,7 +719,7 @@ export default function BrokerReview() {
             <div style={{background:"#0f172a",border:"1px solid rgba(255,255,255,0.1)",borderRadius:14,padding:"20px",textAlign:"center"}}>
               <div style={{fontFamily:"'JetBrains Mono'",fontSize:36,fontWeight:800,color:"#34d399",lineHeight:1}}>{B.score}</div>
               <div style={{fontSize:13,color:"#34d399",fontWeight:600,marginBottom:10}}>{verdict}</div>
-              <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,background:"linear-gradient(135deg, #f59e0b, #fbbf24)",color:"#0f172a",fontSize:15,fontWeight:700,textDecoration:"none",padding:"12px 20px",borderRadius:9,width:"100%",boxShadow:"0 4px 12px rgba(245,158,11,0.3)",marginBottom:6}}>{t("review.visit", { name: B.name })} {"\u2197"}</a>
+              <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" className="rb-cta-affiliate" style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,background:"linear-gradient(135deg, #f59e0b, #fbbf24)",color:"#0f172a",fontFamily:"'Outfit',sans-serif",fontSize:15,fontWeight:700,letterSpacing:"-0.01em",textDecoration:"none",padding:"12px 20px",borderRadius:9,width:"100%",boxShadow:"0 4px 12px rgba(245,158,11,0.3)",marginBottom:6}}>{t("review.visit", { name: B.name })} <ArrowUpRight size={14} className="rb-arrow" /></a>
               <div style={{fontSize:11,color:"rgba(255,255,255,0.4)"}}>{B.riskWarning || t("review.retailLose")}</div>
             </div>
             <Card style={{padding:"16px"}}>
