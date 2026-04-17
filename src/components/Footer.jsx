@@ -108,46 +108,29 @@ const sectionHeadingStyle = {
   letterSpacing: 1,
 };
 
-const baseLinkStyle = {
-  fontSize: 15,
-  color: "#cbd5e1",
-  textDecoration: "none",
-  display: "block",
-  padding: "4px 0",
-  transition: "color 0.2s",
-};
-
-/* ── Hoverable link wrapper ── */
-
+/* ── Footer link wrapper — rb-link-rail--dark + accent passthrough ──
+   Plain rail style comes from CSS class. When callsites pass an inline
+   `color`, we override the class default so accent links (#34d399 /
+   #fbbf24) keep their custom tint without extra state plumbing. */
 function HoverLink({ to, href, children, style, ...rest }) {
-  const [hovered, setHovered] = useState(false);
-  const merged = { ...baseLinkStyle, ...style, color: hovered ? "#34d399" : (style?.color || baseLinkStyle.color) };
+  const hasAccent = style && style.color;
+  const className = hasAccent ? undefined : "rb-link-rail--dark";
+  const accentStyle = hasAccent ? {
+    fontSize: style.fontSize || 14,
+    fontFamily: "'DM Sans',sans-serif",
+    fontWeight: style.fontWeight || 500,
+    textDecoration: "none",
+    display: style.display || "block",
+    padding: style.padding !== undefined ? style.padding : "5px 8px",
+    borderRadius: 6,
+    transition: "color 0.15s ease, background 0.15s ease",
+    ...style,
+  } : undefined;
 
   if (href) {
-    return (
-      <a
-        href={href}
-        style={merged}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-        {...rest}
-      >
-        {children}
-      </a>
-    );
+    return <a href={href} className={className} style={accentStyle} {...rest}>{children}</a>;
   }
-
-  return (
-    <Link
-      to={to}
-      style={merged}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      {...rest}
-    >
-      {children}
-    </Link>
-  );
+  return <Link to={to} className={className} style={accentStyle} {...rest}>{children}</Link>;
 }
 
 /* ── Footer Component ── */
