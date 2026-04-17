@@ -389,9 +389,9 @@ export default function Home() {
       <section style={{ ...cn, padding: mob ? "28px 16px 0" : "36px 24px 0" }}>
         <p style={{ fontSize: mob ? 14 : 15, lineHeight: 1.7, color: "#475569", maxWidth: 800 }}>
           {HOMEPAGE_SEO.intro.text}{" "}
-          <Link to={lp(HOMEPAGE_SEO.intro.links[0].path)} className="link-inline">{HOMEPAGE_SEO.intro.links[0].text}</Link>
+          <Link to={lp(HOMEPAGE_SEO.intro.links[0].path)} className="rb-link-inline">{HOMEPAGE_SEO.intro.links[0].text}</Link>
           {" "}explains our scoring formula.{" "}
-          Learn <Link to={lp(HOMEPAGE_SEO.intro.links[1].path)} className="link-inline">{HOMEPAGE_SEO.intro.links[1].text}</Link>.
+          Learn <Link to={lp(HOMEPAGE_SEO.intro.links[1].path)} className="rb-link-inline">{HOMEPAGE_SEO.intro.links[1].text}</Link>.
         </p>
       </section>
 
