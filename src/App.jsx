@@ -56,7 +56,6 @@ const HowWeRateDarkProto = import.meta.env.DEV ? lazy(() => import("./pages/HowW
 const BrokerTypesProto = import.meta.env.DEV ? lazy(() => import("./pages/BrokerTypesProto")) : null;
 const CountryDarkProto = import.meta.env.DEV ? lazy(() => import("./pages/CountryDarkProto")) : null;
 const AllBrokersProto = import.meta.env.DEV ? lazy(() => import("./pages/AllBrokersProto")) : null;
-const HomeV2Proto = import.meta.env.DEV ? lazy(() => import("./pages/HomeV2Proto")) : null;
 const LinkSystemProto = import.meta.env.DEV ? lazy(() => import("./pages/LinkSystemProto")) : null;
 const AccentColorProto = import.meta.env.DEV ? lazy(() => import("./pages/AccentColorProto")) : null;
 const AccentColorRealProto = import.meta.env.DEV ? lazy(() => import("./pages/AccentColorRealProto")) : null;
@@ -119,7 +118,6 @@ function AppRoutes() {
         <Route path="proto/broker-types" element={<Layout />}><Route index element={<BrokerTypesProto />} /></Route>
         <Route path="proto/country-dark" element={<Layout />}><Route index element={<CountryDarkProto />} /></Route>
         <Route path="proto/all-brokers" element={<Layout />}><Route index element={<AllBrokersProto />} /></Route>
-        <Route path="proto/home-v2" element={<Layout />}><Route index element={<HomeV2Proto />} /></Route>
         <Route path="proto/link-system" element={<Layout />}><Route index element={<LinkSystemProto />} /></Route>
         <Route path="proto/accent-color" element={<Layout />}><Route index element={<AccentColorProto />} /></Route>
         <Route path="proto/accent-color-real" element={<Layout />}><Route index element={<AccentColorRealProto />} /></Route>

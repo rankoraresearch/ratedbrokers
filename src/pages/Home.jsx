@@ -214,6 +214,70 @@ function BrokerPowerCards({ mob, tab, lp, brokers }) {
 
 
 // ══════════════════════════════════════════════════════
+// V2 — Verification Snapshot navy band (S1.8, replaces Trust Strip)
+// ══════════════════════════════════════════════════════
+function VerificationSnapshotV2({ mob, allBrokersData }) {
+  return (
+    <section style={{
+      position: "relative", overflow: "hidden",
+      background: "linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #0f2e24 100%)",
+      padding: mob ? "40px 16px" : "56px 24px",
+      color: "#fff",
+    }}>
+      <div style={{
+        position: "absolute", inset: 0, pointerEvents: "none",
+        background: "repeating-linear-gradient(135deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 12px)",
+      }} />
+      <div style={{ position: "relative", maxWidth: 1200, margin: "0 auto" }}>
+        <div style={{ maxWidth: 760, marginBottom: mob ? 24 : 32 }}>
+          <div style={{
+            fontFamily: "'JetBrains Mono',monospace", fontSize: 11, fontWeight: 700,
+            letterSpacing: "0.18em", textTransform: "uppercase",
+            color: "#fbbf24", marginBottom: 12,
+          }}>Verification Snapshot · Q1 2026</div>
+          <h2 style={{
+            fontFamily: "'Outfit',sans-serif", fontWeight: 800,
+            fontSize: mob ? 24 : 32, lineHeight: 1.15, color: "#fff",
+            letterSpacing: "-0.03em", margin: 0,
+          }}>Every broker re-verified against regulators this quarter</h2>
+          <p style={{
+            fontSize: mob ? 14 : 15, lineHeight: 1.65,
+            color: "rgba(255,255,255,0.72)", margin: "12px 0 0", maxWidth: 620,
+          }}>
+            License numbers pulled directly from FCA, ASIC, SEC, NFA, CySEC registers. Platform fees
+            re-tested on demo accounts. User reviews aggregated from Trustpilot.
+          </p>
+        </div>
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: mob ? "repeat(2, 1fr)" : "repeat(4, 1fr)",
+          gap: mob ? 16 : 24,
+        }}>
+          {[
+            { n: allBrokersData.length + "+", l: "Brokers re-verified" },
+            { n: RANKINGS.length + "+", l: "Rankings live" },
+            { n: "130+", l: "Data points each" },
+            { n: "Apr 2026", l: "Latest audit" },
+          ].map((s, i) => (
+            <div key={i}>
+              <div style={{
+                fontFamily: "'JetBrains Mono',monospace", fontWeight: 900,
+                fontSize: mob ? 22 : 32, color: "#34d399", lineHeight: 1,
+              }}>{s.n}</div>
+              <div style={{
+                fontFamily: "'DM Sans',sans-serif", fontSize: mob ? 11.5 : 12,
+                fontWeight: 500, color: "#94a3b8", letterSpacing: "0.04em",
+                textTransform: "uppercase", marginTop: 6,
+              }}>{s.l}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ══════════════════════════════════════════════════════
 // FAQ Accordion Item
 // ══════════════════════════════════════════════════════
 function FaqItem({ question, answer, defaultOpen = false }) {
@@ -395,7 +459,7 @@ export default function Home() {
         </p>
       </section>
 
-      {/* ===== BROKER SHOWCASE — Power Cards ===== */}
+      {/* ===== BROKER SHOWCASE — Power Cards (kept in both v1 and v2 per Egor feedback) ===== */}
       <BrokerPowerCards mob={mob} tab={tab} lp={lp} brokers={allBrokersData} />
 
       {/* ===== HOW WE RATE BROKERS — Premium Dark (Orange Tiles) ===== */}
@@ -566,6 +630,9 @@ export default function Home() {
       </section>
 
 
+      {/* ===== Verification Snapshot navy band — mid-page dark anchor ===== */}
+      <VerificationSnapshotV2 mob={mob} allBrokersData={allBrokersData} />
+
       {/* ===== ALL BROKER REVIEWS — D2k shell, light rail rows (P6 migrated) ===== */}
       <section style={{ ...cn, padding: mob ? "40px 16px" : "60px 24px" }}>
         <div style={{
@@ -615,38 +682,19 @@ export default function Home() {
       </section>
 
 
-      {/* ===== SIDE-BY-SIDE BROKER COMPARISONS ===== */}
+      {/* ===== SIDE-BY-SIDE BROKER COMPARISONS — 3×2 compact grid, monochrome category tag ===== */}
       <section style={{ ...cn, padding: mob ? "40px 16px" : "60px 24px" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
           <h2 style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: mob ? 22 : 30, color: "#0f172a", letterSpacing: "-0.03em" }}>
             Side-by-Side Comparisons
           </h2>
-          <Link to={lp("/compare")} className="link-green" style={{ display: "flex", alignItems: "center", gap: 4 }}>
-            Compare any two <ArrowRight size={12} className="link-arrow" />
+          <Link to={lp("/compare")} className="rb-link-standalone">
+            Compare any two <ArrowRight size={12} />
           </Link>
         </div>
-        <p style={{ fontSize: 15, color: "#64748b", marginBottom: 24, maxWidth: 600 }}>
-          Compare brokers head-to-head across forex, stocks, crypto, and more — scores, fees, and regulation side by side.
+        <p style={{ fontSize: 15, color: "#64748b", marginBottom: mob ? 20 : 28, maxWidth: 620 }}>
+          Head-to-head reviews across forex, stocks and crypto — scores, fees and regulation side by side.
         </p>
-
-        {/* Vertical category labels — icons + labels from VERTICALS, colors from VERTICAL_MAP */}
-        <div style={{ display: "flex", gap: 8, marginBottom: 20, flexWrap: "wrap" }}>
-          {["forex", "stocks", "crypto"].map(key => {
-            const vert = VERTICALS.find(v => v.key === key);
-            const color = VERTICAL_MAP[key]?.color || "#64748b";
-            return (
-              <span key={key} style={{
-                padding: "4px 12px", borderRadius: 6,
-                background: `${color}12`, border: `1px solid ${color}30`,
-                color, fontSize: 12, fontWeight: 700,
-                display: "inline-flex", alignItems: "center", gap: 5,
-              }}>
-                {vert && <Icon name={vert.icon} size={13} />}
-                {vert ? vert.label : key}
-              </span>
-            );
-          })}
-        </div>
 
         <div style={{
           display: "grid",
@@ -654,9 +702,9 @@ export default function Home() {
           gap: 14,
         }}>
           {[
-            ...(POPULAR_PAIRS_BY_VERTICAL.forex || []).slice(0, 2).map(p => ({ ...p, cat: "Forex", catColor: "#059669" })),
-            ...(POPULAR_PAIRS_BY_VERTICAL.stocks || []).slice(0, 2).map(p => ({ ...p, cat: "Stocks", catColor: "#2563eb" })),
-            ...(POPULAR_PAIRS_BY_VERTICAL.crypto || []).slice(0, 2).map(p => ({ ...p, cat: "Crypto", catColor: "#f59e0b" })),
+            ...(POPULAR_PAIRS_BY_VERTICAL.forex || []).slice(0, 2).map(p => ({ ...p, cat: "Forex" })),
+            ...(POPULAR_PAIRS_BY_VERTICAL.stocks || []).slice(0, 2).map(p => ({ ...p, cat: "Stocks" })),
+            ...(POPULAR_PAIRS_BY_VERTICAL.crypto || []).slice(0, 2).map(p => ({ ...p, cat: "Crypto" })),
           ].map((pair, i) => {
             const brokerA = allBrokersData.find(b => b.slug === pair.slugA);
             const brokerB = allBrokersData.find(b => b.slug === pair.slugB);
@@ -665,20 +713,28 @@ export default function Home() {
             return (
               <Link key={i} to={lp(`/compare/${pairSlug}`)} style={{
                 display: "flex", flexDirection: "column", gap: 0,
-                borderRadius: 14, background: "#fff", border: "1px solid #e2e8f0",
-                overflow: "hidden", textDecoration: "none", color: "#111827",
-                boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)",
-                transition: "all 0.2s",
+                borderRadius: 14, background: "#fff", border: "1px solid #e8ecf1",
+                overflow: "hidden", textDecoration: "none", color: "#0f172a",
+                boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.02), 0 4px 16px rgba(0,0,0,0.04)",
+                transition: "border-color 0.2s, box-shadow 0.2s, transform 0.2s",
+                position: "relative",
               }}
-                onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.12)"; e.currentTarget.style.borderColor = "#059669"; }}
-                onMouseLeave={e => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)"; e.currentTarget.style.borderColor = "#e2e8f0"; }}
+                onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 6px 20px rgba(0,0,0,0.08)"; e.currentTarget.style.borderColor = "#cbd5e1"; }}
+                onMouseLeave={e => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "inset 0 0 0 1px rgba(0,0,0,0.02), 0 4px 16px rgba(0,0,0,0.04)"; e.currentTarget.style.borderColor = "#e8ecf1"; }}
               >
-                {/* Broker logos side by side */}
+                {/* Premium Dark header with logos + VS */}
                 <div style={{
                   display: "flex", alignItems: "center", justifyContent: "center", gap: 0,
-                  background: "linear-gradient(135deg, #0a2018, #0f172a)",
-                  padding: "16px 12px", position: "relative",
+                  background: "linear-gradient(135deg, #0f172a 0%, #0f2e24 50%, #047857 100%)",
+                  padding: "18px 12px", position: "relative",
                 }}>
+                  {/* Monochrome category mark in top-right corner */}
+                  <span style={{
+                    position: "absolute", top: 8, right: 10,
+                    fontFamily: "'JetBrains Mono',monospace", fontSize: 9, fontWeight: 700,
+                    letterSpacing: "0.12em", textTransform: "uppercase",
+                    color: "rgba(255,255,255,0.5)",
+                  }}>{pair.cat}</span>
                   <div style={{ flex: 1, display: "flex", justifyContent: "center" }}>
                     <img src={`${import.meta.env.BASE_URL}logos-wide-dark/${pair.slugA}.svg`} alt={brokerA.B.name}
                       style={{ maxWidth: "80%", height: 28, objectFit: "contain" }}
@@ -696,23 +752,24 @@ export default function Home() {
                       onError={e => { e.target.style.display = "none"; }} />
                   </div>
                 </div>
-                {/* Info */}
-                <div style={{ padding: "14px 16px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                  <div>
-                    <div style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 700, fontSize: 14 }}>
+                {/* Info — name + scores, no chips */}
+                <div style={{ padding: "14px 16px", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10 }}>
+                  <div style={{ minWidth: 0, flex: 1 }}>
+                    <div style={{
+                      fontFamily: "'Outfit',sans-serif", fontWeight: 700, fontSize: 14,
+                      color: "#0f172a", letterSpacing: "-0.01em",
+                      whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis",
+                    }}>
                       {brokerA.B.name} vs {brokerB.B.name}
                     </div>
-                    <span style={{
-                      display: "inline-block", marginTop: 4,
-                      padding: "2px 7px", borderRadius: 4,
-                      background: `${pair.catColor}12`, color: pair.catColor,
-                      fontSize: 11, fontWeight: 700,
-                    }}>{pair.cat}</span>
+                    <div style={{ fontSize: 11.5, color: "#94a3b8", fontWeight: 500, marginTop: 3 }}>
+                      Fees · Regulation · Platforms
+                    </div>
                   </div>
-                  <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
-                    <span style={{ fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 14, color: "#059669" }}>{brokerA.B.score}</span>
-                    <span style={{ fontSize: 11, color: "#94a3b8" }}>vs</span>
-                    <span style={{ fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 14, color: "#059669" }}>{brokerB.B.score}</span>
+                  <div style={{ display: "flex", gap: 6, alignItems: "center", flexShrink: 0 }}>
+                    <span style={{ fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 14, color: "#0f172a" }}>{brokerA.B.score}</span>
+                    <span style={{ fontSize: 10, color: "#94a3b8", fontWeight: 600 }}>vs</span>
+                    <span style={{ fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 14, color: "#0f172a" }}>{brokerB.B.score}</span>
                   </div>
                 </div>
               </Link>
@@ -761,9 +818,9 @@ export default function Home() {
             gap: mob ? 16 : 24, marginBottom: mob ? 32 : 48,
           }}>
             {[
-              { n: "51+", l: "Brokers Tested" },
-              { n: "288+", l: "Rankings" },
-              { n: "924+", l: "Pages" },
+              { n: allBrokersData.length + "+", l: "Brokers Tested" },
+              { n: RANKINGS.length + "+", l: "Rankings" },
+              { n: (allBrokersData.length * 9 + RANKINGS.length + 50) + "+", l: "Pages" },
               { n: "130+", l: "Data Points" },
             ].map((s, i) => (
               <div key={i} style={{ textAlign: "center", borderRight: (!mob && i < 3) ? "1px solid rgba(255,255,255,0.08)" : "none" }}>

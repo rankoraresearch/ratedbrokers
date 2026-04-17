@@ -1154,7 +1154,7 @@ export default function LinkSystemProto() {
               }}>После твоего аппрува — сразу в фазу 1</h2>
               <p style={{ fontSize: 14.5, lineHeight: 1.7, color: "rgba(255,255,255,0.82)", margin: 0, maxWidth: 760 }}>
                 Если концепция по 10 реальным кускам подходит — начинаю с <code style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 12, background: "rgba(255,255,255,0.12)", padding: "1px 6px", borderRadius: 4, color: "#fbbf24" }}>src/index.css</code> (9 токенов, ~2ч) и потом P1+P4+P5 (~3ч).
-                После этого возвращаемся к главной — перерабатываем <code style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 12, background: "rgba(255,255,255,0.12)", padding: "1px 6px", borderRadius: 4, color: "#fbbf24" }}>/proto/home-v2</code> с новыми токенами —
+                После этого возвращаемся к главной — дорабатываем живой Home через <code style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 12, background: "rgba(255,255,255,0.12)", padding: "1px 6px", borderRadius: 4, color: "#fbbf24" }}>?redesign=v2</code> с новыми токенами —
                 и уже всё будет визуально сцеплено. Если хочешь поменять какой-то токен до миграции — скажи сейчас, правлю в этом плейграунде.
               </p>
             </div>
