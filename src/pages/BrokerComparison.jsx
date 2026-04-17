@@ -86,11 +86,10 @@ const CATEGORY_ICONS = {
 };
 
 function WinnerBadge({ winner, nameA, nameB, t }) {
-  if (winner === "tie") return <span style={{ padding: "3px 10px", borderRadius: 6, background: "#f1f5f9", color: "#64748b", fontSize: 13, fontWeight: 700, display: "inline-flex", alignItems: "center", gap: 4 }}><Handshake size={14} /> {t("comp.tie")}</span>;
+  if (winner === "tie") return <span style={{ padding: "3px 0", color: "#94a3b8", fontSize: 13, fontWeight: 700, display: "inline-flex", alignItems: "center", gap: 5 }}><Handshake size={14} strokeWidth={1.75} /> {t("comp.tie")}</span>;
   const name = winner === "a" ? nameA : nameB;
-  const bg = winner === "a" ? "#ecfdf5" : "#fef3c7";
   const color = winner === "a" ? "#059669" : "#d97706";
-  return <span style={{ padding: "3px 10px", borderRadius: 6, background: bg, color, fontSize: 13, fontWeight: 700, display: "inline-flex", alignItems: "center", gap: 4 }}><Trophy size={14} /> {name}</span>;
+  return <span style={{ padding: "3px 0", color, fontSize: 13, fontWeight: 700, display: "inline-flex", alignItems: "center", gap: 5 }}><Trophy size={14} strokeWidth={1.75} /> {name}</span>;
 }
 
 function parseCommission(s) {
