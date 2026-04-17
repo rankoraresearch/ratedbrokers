@@ -912,10 +912,11 @@ export default function RankingPage() {
                 {sec.tip && (
                   <div style={{
                     marginTop: 16, padding: mob ? "16px" : "20px 24px", borderRadius: 12,
-                    background: "linear-gradient(135deg, #eff6ff, #dbeafe)", border: "1px solid #93c5fd",
+                    background: "linear-gradient(135deg, #fffbeb, #fef3c7)",
+                    border: "1px solid #fcd34d", borderLeft: "3px solid #f59e0b",
                   }}>
-                    <div style={{ fontWeight: 700, fontSize: 14, color: "#1e40af", marginBottom: 6 }}>Pro Tip</div>
-                    <p style={{ fontSize: 14, lineHeight: 1.7, color: "#1e3a5f", margin: 0 }}>{sec.tip}</p>
+                    <div style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 700, fontSize: 11, letterSpacing: "0.08em", textTransform: "uppercase", color: "#d97706", marginBottom: 6 }}>Pro Tip</div>
+                    <p style={{ fontSize: 14, lineHeight: 1.7, color: "#78350f", margin: 0 }}>{sec.tip}</p>
                   </div>
                 )}
               </div>
