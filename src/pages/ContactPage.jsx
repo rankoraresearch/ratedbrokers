@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "../i18n/LanguageContext";
 import { useLocalePath } from "../i18n/useLocalePath";
 import Breadcrumb, { breadcrumbSchema } from "../components/Breadcrumb";
-import Icon, { IconBox } from "../components/Icon";
+import Icon from "../components/Icon";
 
 // ============================
 // DATA
 // ============================
 const CONTACT_CARDS = [
-  { icon: "mail", color: "#059669", title: "General Inquiries", desc: "Questions about our reviews, methodology, or anything else — we're happy to help.", email: "info@ratedbrokers.com" },
-  { icon: "handshake", color: "#2563eb", title: "Partnerships", desc: "Interested in advertising, affiliate programs, or business collaboration? Let's talk.", email: "partners@ratedbrokers.com" },
+  { icon: "mail", title: "General Inquiries", desc: "Questions about our reviews, methodology, or anything else — we're happy to help.", email: "info@ratedbrokers.com" },
+  { icon: "handshake", title: "Partnerships", desc: "Interested in advertising, affiliate programs, or business collaboration? Let's talk.", email: "partners@ratedbrokers.com" },
 ];
 
 
@@ -115,10 +115,27 @@ function ContactForm({ mob }) {
   if (status === "success") {
     return (
       <section style={{ ...cn, marginBottom: 48 }}>
-        <div style={{ padding: "32px 28px", borderRadius: 16, background: "#ecfdf5", border: "1px solid #a7f3d0", textAlign: "center" }}>
-          <div style={{ fontSize: 32, marginBottom: 8 }}>&#10003;</div>
-          <div style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 22, color: "#059669", marginBottom: 8 }}>Message Sent</div>
-          <div style={{ fontSize: 15, color: "#374151" }}>Thank you! We'll get back to you within 24-48 business hours.</div>
+        <div style={{
+          position: "relative", overflow: "hidden",
+          padding: "32px 28px", borderRadius: 16,
+          background: "#fff", border: "1px solid #e8ecf1",
+          boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)",
+          textAlign: "center",
+        }}>
+          <div style={{
+            position: "absolute", top: 0, left: 0, right: 0, height: 3,
+            background: "linear-gradient(90deg, #047857 0%, #10b981 50%, #047857 100%)",
+          }} />
+          <div style={{
+            width: 44, height: 44, borderRadius: "50%",
+            background: "#0f172a", color: "#fff",
+            display: "inline-flex", alignItems: "center", justifyContent: "center",
+            marginBottom: 10, marginTop: 4,
+          }}>
+            <Icon name="check" size={22} color="#34d399" />
+          </div>
+          <div style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 22, color: "#0f172a", marginBottom: 6 }}>Message Sent</div>
+          <div style={{ fontSize: 15, color: "#475569" }}>Thank you! We'll get back to you within 24–48 business hours.</div>
         </div>
       </section>
     );
@@ -157,10 +174,10 @@ function ContactForm({ mob }) {
               {errorMsg}
             </div>
           )}
-          <button type="submit" disabled={status === "sending"} style={{
+          <button type="submit" disabled={status === "sending"} className={status === "sending" ? undefined : "rb-cta-affiliate"} style={{
             padding: "14px 32px", borderRadius: 10, border: "none", cursor: status === "sending" ? "not-allowed" : "pointer",
-            background: status === "sending" ? "#94a3b8" : "linear-gradient(135deg,#059669,#34d399)",
-            color: "#fff", fontWeight: 800, fontSize: 16, fontFamily: "Outfit",
+            background: status === "sending" ? "#94a3b8" : "linear-gradient(135deg,#f59e0b,#fbbf24)",
+            color: "#0f172a", fontWeight: 800, fontSize: 16, fontFamily: "Outfit",
             alignSelf: mob ? "stretch" : "flex-start",
           }}>
             {status === "sending" ? "Sending..." : "Send Message"}
@@ -235,12 +252,11 @@ export default function ContactPage() {
       {/* =================== HERO =================== */}
       <section style={{ ...cn, marginBottom: 40 }}>
         <div style={{ maxWidth: 780 }}>
-          <span style={{
-            display: "inline-block", padding: "5px 14px", borderRadius: 6,
-            background: "#ecfdf5", color: "#059669",
-            fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 13,
-            letterSpacing: 1, marginBottom: 14,
-          }}>{t("contact.badge")}</span>
+          <div style={{
+            fontFamily: "'JetBrains Mono',monospace", fontSize: 11, fontWeight: 700,
+            color: "#f59e0b", letterSpacing: "0.18em", textTransform: "uppercase",
+            marginBottom: 12,
+          }}>{t("contact.badge")}</div>
           <h1 style={{
             fontFamily: "Outfit", fontWeight: 900, fontSize: mob ? 26 : 42,
             lineHeight: 1.15, color: "#0f172a", margin: "0 0 14px",
@@ -262,15 +278,28 @@ export default function ContactPage() {
         }}>
           {CONTACT_CARDS.map((card, i) => (
               <div key={i} style={{
+                position: "relative", overflow: "hidden",
                 padding: "28px 24px", borderRadius: 16,
-                background: "#fff", border: "1px solid #e2e8f0",
+                background: "#fff", border: "1px solid #e8ecf1",
+                boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.03)",
                 display: "flex", flexDirection: "column", gap: 12,
               }}>
-                <IconBox name={card.icon} color={card.color} size={44} iconSize={22} />
+                <div style={{
+                  position: "absolute", top: 0, left: 0, right: 0, height: 3,
+                  background: "linear-gradient(90deg, #047857 0%, #10b981 50%, #047857 100%)",
+                }} />
+                <div style={{
+                  width: 44, height: 44, borderRadius: 10,
+                  background: "#0f172a", color: "#fff",
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  marginTop: 4,
+                }}>
+                  <Icon name={card.icon} size={22} color="#fff" />
+                </div>
                 <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 19, color: "#0f172a" }}>
                   {card.title}
                 </div>
-                <div style={{ fontSize: 15, color: "#1f2937", lineHeight: 1.7, flex: 1 }}>
+                <div style={{ fontSize: 15, color: "#475569", lineHeight: 1.7, flex: 1 }}>
                   {card.desc}
                 </div>
                 <a
@@ -278,14 +307,22 @@ export default function ContactPage() {
                   style={{
                     display: "inline-flex", alignItems: "center", gap: 8,
                     padding: "10px 18px", borderRadius: 8,
-                    background: `${card.color}10`, color: card.color,
+                    background: "#f1f5f9", color: "#0f172a",
                     fontSize: 15, fontWeight: 700,
                     fontFamily: "'JetBrains Mono',monospace",
-                    textDecoration: "none", border: `1px solid ${card.color}30`,
-                    transition: "background 0.2s",
+                    textDecoration: "none", border: "1px solid #e2e8f0",
+                    transition: "background 0.2s, border-color 0.2s",
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.background = "#e2e8f0";
+                    e.currentTarget.style.borderColor = "#cbd5e1";
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.background = "#f1f5f9";
+                    e.currentTarget.style.borderColor = "#e2e8f0";
                   }}
                 >
-                  <Icon name="mail" size={15} color={card.color} />
+                  <Icon name="mail" size={15} color="#0f172a" />
                   {card.email}
                 </a>
               </div>
@@ -322,18 +359,18 @@ export default function ContactPage() {
           <div style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 28, color: "#fff", marginBottom: 8 }}>
             {t("contact.ctaTitle")}
           </div>
-          <div style={{ fontSize: 16, color: "#64748b", marginBottom: 24, maxWidth: 500, margin: "0 auto 24px" }}>
+          <div style={{ fontSize: 16, color: "#cbd5e1", marginBottom: 24, maxWidth: 500, margin: "0 auto 24px" }}>
             {t("contact.ctaDesc")}
           </div>
           <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-            <Link to={lp("/methodology")} style={{
+            <Link to={lp("/methodology")} className="rb-cta-affiliate" style={{
               padding: "14px 32px", borderRadius: 10,
-              background: "linear-gradient(135deg,#059669,#34d399)",
-              color: "#fff", fontWeight: 800, fontSize: 16, textDecoration: "none",
+              background: "linear-gradient(135deg,#f59e0b,#fbbf24)",
+              color: "#0f172a", fontWeight: 800, fontSize: 16, textDecoration: "none",
             }}>{t("contact.ctaMethodology")}</Link>
-            <Link to={lp("/about")} style={{
+            <Link to={lp("/about")} className="rb-cta-ghost--dark" style={{
               padding: "14px 32px", borderRadius: 10,
-              background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.2)",
+              background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.2)",
               color: "#fff", fontWeight: 600, fontSize: 16, textDecoration: "none",
             }}>{t("contact.ctaAbout")}</Link>
           </div>
