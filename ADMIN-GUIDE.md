@@ -167,7 +167,23 @@
 
 **`processed` или `published` →** POST `/revert` — emergency unpublish, clear live-slot. Draft preserved, можно re-publish.
 
-### Invite автора (обязательно admin key)
+### Invite автора (UI — рекомендуемый путь)
+Прямо в дашборде Submissions раскрывается блок **"👤 Invite a new author"**. Поля:
+- **Name** (обязательно) · **Email** (опционально — для связи)
+- **Reviews scope** — comma-separated slugs (`ic-markets,etoro`) или `*` для всех
+- **Rankings scope** — аналогично (`forex-overall,best-forex-brokers-uk`) или `*`
+- **Cards scope** — формат `ranking:broker` (`forex-overall:ic-markets`), per-ranking wildcard `forex-overall:*`, или глобальный `*`
+- **Languages** — `en` (или несколько через запятую)
+- **Expires** — дни до истечения (дефолт 90, макс 3650)
+- **Role** — `Author` (дефолт — submits через portal) / `Expert` (legacy) / `Admin`
+
+Пустое поле scope = запрещено. После submit появляется кнопка **"Copy invite URL"** — отправь её автору. Raw token виден ОДИН раз; он не хранится в базе (только SHA-256 хэш).
+
+Ниже формы — таблица **Existing authors** с кнопками:
+- **Rotate** — генерит новый токен (старый сразу 401). Используй если старую ссылку потеряли или компрометация
+- **Revoke / Activate** — гасит/включает доступ мгновенно
+
+### Invite автора (curl — для скриптов)
 ```bash
 curl -X POST https://api.ratedbrokers.com/api/admin/authors/invite \
   -H "Authorization: Bearer $API_KEY" -H "Content-Type: application/json" \

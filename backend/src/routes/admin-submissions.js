@@ -293,6 +293,63 @@ export async function handleAdminSubmissionsDashboard(request, env) {
   .status-published     { background: rgba(52,211,153,0.3); color: #10b981; }
   .status-reverted      { background: rgba(167,139,250,0.15); color: #a78bfa; }
 
+  /* ─── Invite block ─── */
+  .invite-box {
+    background: var(--glass-bg); backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border); border-radius: 14px;
+    padding: 18px 22px; margin-bottom: 20px;
+  }
+  .invite-box summary {
+    cursor: pointer; list-style: none; display: flex; align-items: center;
+    justify-content: space-between; color: var(--text-primary); font-weight: 700; font-size: 14px;
+  }
+  .invite-box summary::-webkit-details-marker { display: none; }
+  .invite-box summary .chev { color: var(--text-muted); transition: transform 0.2s; }
+  .invite-box[open] summary .chev { transform: rotate(90deg); }
+  .invite-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px 16px; margin-top: 16px;
+  }
+  .invite-grid label {
+    font-size: 11px; color: var(--text-muted); text-transform: uppercase;
+    letter-spacing: 0.05em; font-weight: 700; margin-bottom: 4px; display: block;
+  }
+  .invite-grid input, .invite-grid select, .invite-grid textarea {
+    width: 100%; background: rgba(255,255,255,0.04); color: var(--text-primary);
+    border: 1px solid var(--border); padding: 8px 12px; border-radius: 8px;
+    font-size: 13px; outline: none; font-family: inherit; box-sizing: border-box;
+  }
+  .invite-grid textarea { font-family: 'SF Mono', Menlo, monospace; font-size: 12px; min-height: 64px; resize: vertical; }
+  .invite-grid .full { grid-column: span 2; }
+  .invite-actions { display: flex; gap: 10px; margin-top: 14px; align-items: center; flex-wrap: wrap; }
+  .invite-result {
+    background: rgba(74,222,128,0.08); border: 1px solid rgba(74,222,128,0.2);
+    border-radius: 8px; padding: 12px 14px; margin-top: 12px; font-size: 12px;
+  }
+  .invite-result code {
+    display: block; word-break: break-all; margin-top: 6px;
+    background: rgba(0,0,0,0.3); padding: 8px; border-radius: 6px;
+    font-family: 'SF Mono', Menlo, monospace; color: var(--green);
+  }
+  .invite-scope-hint {
+    font-size: 11px; color: var(--text-muted); line-height: 1.6; margin-top: 6px;
+  }
+  .invite-scope-hint code {
+    background: rgba(255,255,255,0.06); padding: 1px 5px; border-radius: 3px;
+    font-size: 10px; color: var(--amber);
+  }
+  .existing-authors {
+    margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border);
+  }
+  .existing-authors table { width: 100%; font-size: 12px; }
+  .existing-authors th { text-align: left; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; font-size: 10px; padding: 6px 8px; }
+  .existing-authors td { padding: 6px 8px; color: var(--text-secondary); border-top: 1px solid rgba(255,255,255,0.04); }
+  .existing-authors .mini-btn {
+    background: transparent; color: var(--text-muted); border: 1px solid var(--border);
+    padding: 3px 8px; border-radius: 5px; font-size: 11px; cursor: pointer;
+  }
+  .existing-authors .mini-btn:hover { color: var(--amber); border-color: rgba(251,191,36,0.3); }
+  .existing-authors .mini-btn.danger:hover { color: var(--red); border-color: rgba(248,113,113,0.3); }
+
   .detail-drawer {
     position: fixed; top: 0; right: 0; bottom: 0; width: min(640px, 96vw);
     background: #0a0c10; border-left: 1px solid var(--border);
@@ -341,6 +398,83 @@ export async function handleAdminSubmissionsDashboard(request, env) {
       <div class="glass-card c-green"><div class="card-label">Total submissions</div><div class="card-value">${total.c}</div></div>
       <div class="glass-card c-cyan"><div class="card-label">Avg turnaround (h)</div><div class="card-value">${avgTurnaround.hours != null ? Number(avgTurnaround.hours).toFixed(1) : '—'}</div></div>
     </div>
+
+    <!-- ─── Invite new author (expandable) ─── -->
+    <details class="invite-box">
+      <summary>
+        <span>👤 Invite a new author &middot; <span style="color:var(--text-muted);font-weight:400">create access token &amp; get invite link</span></span>
+        <span class="chev">›</span>
+      </summary>
+
+      <div class="invite-grid">
+        <div>
+          <label>Name *</label>
+          <input type="text" id="inv-name" placeholder="Jane Writer" maxlength="200">
+        </div>
+        <div>
+          <label>Email (optional)</label>
+          <input type="email" id="inv-email" placeholder="jane@example.com">
+        </div>
+
+        <div>
+          <label>Reviews scope <span style="text-transform:none;letter-spacing:0;color:var(--text-muted);font-weight:400">(comma-separated)</span></label>
+          <input type="text" id="inv-reviews" placeholder="* OR ic-markets,etoro,xm">
+        </div>
+        <div>
+          <label>Rankings scope</label>
+          <input type="text" id="inv-rankings" placeholder="* OR forex-overall,best-forex-brokers-uk">
+        </div>
+
+        <div>
+          <label>Cards scope <span style="text-transform:none;letter-spacing:0;color:var(--text-muted);font-weight:400">(format: ranking:broker)</span></label>
+          <input type="text" id="inv-cards" placeholder="* OR forex-overall:* OR best-forex-brokers-uk:ic-markets">
+        </div>
+        <div>
+          <label>Languages</label>
+          <input type="text" id="inv-langs" placeholder="en" value="en">
+        </div>
+
+        <div>
+          <label>Expires (days)</label>
+          <input type="number" id="inv-expires" placeholder="90" min="1" max="3650" value="90">
+        </div>
+        <div>
+          <label>Role</label>
+          <select id="inv-role">
+            <option value="author" selected>Author (submits content via portal)</option>
+            <option value="expert">Expert (legacy review editor)</option>
+            <option value="admin">Admin</option>
+          </select>
+        </div>
+
+        <div class="full invite-scope-hint">
+          <strong style="color:var(--text-primary)">Scope shortcuts:</strong><br>
+          <code>*</code> — wildcard (any broker / ranking / card).
+          Leave a scope field <strong>empty</strong> to deny that category.
+          Card wildcard forms: <code>*</code> (all), <code>forex-overall:*</code> (any broker in one ranking), <code>forex-overall:ic-markets</code> (specific pair).
+          Reviews/rankings: comma-separated slugs or <code>*</code>.
+        </div>
+      </div>
+
+      <div class="invite-actions">
+        <button class="btn-primary" onclick="createInvite()">Create invite</button>
+        <button class="btn-secondary" onclick="document.querySelector('.invite-box').open = false">Cancel</button>
+      </div>
+
+      <div id="inv-result"></div>
+
+      <div class="existing-authors">
+        <div style="color:var(--text-muted);font-size:11px;text-transform:uppercase;letter-spacing:0.05em;font-weight:700;margin-bottom:8px">
+          Existing authors &middot; <span id="authors-count">…</span>
+        </div>
+        <table>
+          <thead>
+            <tr><th>Name</th><th>Email</th><th>Role</th><th>Scopes</th><th>Status</th><th>Expires</th><th>Subs</th><th></th></tr>
+          </thead>
+          <tbody id="authors-body"><tr><td colspan="8" style="color:var(--text-muted);padding:10px 8px">Loading…</td></tr></tbody>
+        </table>
+      </div>
+    </details>
 
     <div class="filters">
       <select id="f-status">
@@ -592,12 +726,154 @@ function escapeHtml(s) {
   return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
 
+// ─── Invite author flow ───
+function parseCsv(val) {
+  return val.split(',').map(s => s.trim()).filter(Boolean);
+}
+
+async function createInvite() {
+  const name = document.getElementById('inv-name').value.trim();
+  const email = document.getElementById('inv-email').value.trim();
+  const reviews = parseCsv(document.getElementById('inv-reviews').value);
+  const rankings = parseCsv(document.getElementById('inv-rankings').value);
+  const cards = parseCsv(document.getElementById('inv-cards').value);
+  const langs = parseCsv(document.getElementById('inv-langs').value);
+  const expiresDays = parseInt(document.getElementById('inv-expires').value, 10);
+  const role = document.getElementById('inv-role').value;
+
+  const resultBox = document.getElementById('inv-result');
+  if (!name) {
+    resultBox.innerHTML = '<div class="invite-result" style="background:rgba(248,113,113,0.08);border-color:rgba(248,113,113,0.3);color:#f87171">Name is required.</div>';
+    return;
+  }
+
+  const scopes = {};
+  if (reviews.length) scopes.reviews = reviews;
+  if (rankings.length) scopes.rankings = rankings;
+  if (cards.length) scopes.cards = cards;
+  if (langs.length) scopes.langs = langs;
+
+  const body = { name, role };
+  if (email) body.email = email;
+  if (Object.keys(scopes).length) body.scopes = scopes;
+  if (Number.isFinite(expiresDays) && expiresDays > 0) body.expires_days = expiresDays;
+
+  resultBox.innerHTML = '<div class="invite-result" style="color:var(--text-muted)">Creating invite…</div>';
+  const res = await fetch(API('/api/admin/authors/invite'), {
+    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body),
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) {
+    resultBox.innerHTML = '<div class="invite-result" style="background:rgba(248,113,113,0.08);border-color:rgba(248,113,113,0.3);color:#f87171">Error: ' + escapeHtml(data.error || res.statusText) + '</div>';
+    return;
+  }
+
+  resultBox.innerHTML =
+    '<div class="invite-result">' +
+      '<strong>✓ Invite created for ' + escapeHtml(data.name) + '.</strong> ' +
+      'Send this link to the author (token will not be recoverable after you leave this screen):' +
+      '<code id="inv-url">' + escapeHtml(data.invite_url) + '</code>' +
+      '<button class="btn-secondary" style="margin-top:8px;padding:5px 12px;font-size:11px" onclick="copyInviteUrl()">Copy invite URL</button>' +
+      (data.expires_at ? '<div style="margin-top:6px;color:var(--text-muted);font-size:11px">Expires at: ' + escapeHtml(data.expires_at) + '</div>' : '<div style="margin-top:6px;color:var(--text-muted);font-size:11px">No expiry set.</div>') +
+    '</div>';
+
+  // Clear form for next invite.
+  document.getElementById('inv-name').value = '';
+  document.getElementById('inv-email').value = '';
+  loadAuthors();
+}
+
+function copyInviteUrl() {
+  const el = document.getElementById('inv-url');
+  if (!el) return;
+  navigator.clipboard.writeText(el.textContent).then(
+    () => { el.style.outline = '2px solid var(--green)'; setTimeout(() => el.style.outline = 'none', 800); },
+    () => { alert('Copy failed — select text manually'); },
+  );
+}
+
+function fmtScopes(s) {
+  if (!s) return '<span style="color:var(--text-muted)">—</span>';
+  const parts = [];
+  if (s.reviews?.length) parts.push('r:' + s.reviews.length);
+  if (s.rankings?.length) parts.push('rk:' + s.rankings.length);
+  if (s.cards?.length) parts.push('c:' + s.cards.length);
+  if (s.langs?.length) parts.push(s.langs.join(','));
+  return parts.length ? parts.join(' · ') : '<span style="color:var(--text-muted)">—</span>';
+}
+
+async function loadAuthors() {
+  const tbody = document.getElementById('authors-body');
+  let res, rows;
+  try { res = await fetch(API('/api/admin/authors')); }
+  catch (e) { tbody.innerHTML = '<tr><td colspan="8" style="color:#f87171">Network error: ' + escapeHtml(e.message) + '</td></tr>'; return; }
+  if (!res.ok) { tbody.innerHTML = '<tr><td colspan="8" style="color:#f87171">Failed to load authors.</td></tr>'; return; }
+  rows = await res.json();
+  document.getElementById('authors-count').textContent = rows.length + ' total';
+  if (!rows.length) {
+    tbody.innerHTML = '<tr><td colspan="8" style="color:var(--text-muted);padding:10px 8px">No authors yet. Create one above.</td></tr>';
+    return;
+  }
+  tbody.innerHTML = rows.map(r => \`
+    <tr>
+      <td style="color:var(--text-primary);font-weight:600">\${escapeHtml(r.name)}</td>
+      <td style="color:var(--text-secondary);font-size:11px">\${escapeHtml(r.email || '')}</td>
+      <td>\${escapeHtml(r.role || 'expert')}</td>
+      <td style="font-family:'SF Mono',monospace;font-size:11px">\${fmtScopes(r.scopes)}</td>
+      <td>\${r.active ? '<span style="color:var(--green)">● active</span>' : '<span style="color:var(--text-muted)">○ revoked</span>'}</td>
+      <td style="font-size:11px;color:var(--text-muted);font-family:'SF Mono',monospace">\${escapeHtml(r.expires_at || '—')}</td>
+      <td style="text-align:right;font-variant-numeric:tabular-nums">\${r.submission_count}</td>
+      <td style="text-align:right;white-space:nowrap">
+        <button class="mini-btn" onclick="rotateAuthor(\${r.id}, '\${escapeHtml(r.name)}')">Rotate</button>
+        \${r.active
+          ? '<button class="mini-btn danger" onclick="revokeAuthor(' + r.id + ', \\'' + escapeHtml(r.name) + '\\')">Revoke</button>'
+          : '<button class="mini-btn" onclick="reactivateAuthor(' + r.id + ')">Activate</button>'}
+      </td>
+    </tr>
+  \`).join('');
+}
+
+async function rotateAuthor(id, name) {
+  if (!confirm('Rotate token for ' + name + '?\\nOld invite link will stop working. You\\'ll need to send the new link.')) return;
+  const res = await fetch(API('/api/admin/authors/' + id + '/rotate'), { method: 'POST' });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) { alert('Error: ' + (data.error || res.status)); return; }
+  document.getElementById('inv-result').innerHTML =
+    '<div class="invite-result">' +
+      '<strong>✓ Token rotated for ' + escapeHtml(data.name) + '.</strong> New invite URL:' +
+      '<code id="inv-url">' + escapeHtml(data.invite_url) + '</code>' +
+      '<button class="btn-secondary" style="margin-top:8px;padding:5px 12px;font-size:11px" onclick="copyInviteUrl()">Copy invite URL</button>' +
+    '</div>';
+  document.querySelector('.invite-box').open = true;
+  loadAuthors();
+}
+
+async function revokeAuthor(id, name) {
+  if (!confirm('Revoke access for ' + name + '?\\nTheir token will stop working immediately.')) return;
+  const res = await fetch(API('/api/admin/authors/' + id), {
+    method: 'PATCH', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ active: false }),
+  });
+  if (!res.ok) { const d = await res.json().catch(()=>({})); alert('Error: ' + (d.error || res.status)); return; }
+  loadAuthors();
+}
+
+async function reactivateAuthor(id) {
+  const res = await fetch(API('/api/admin/authors/' + id), {
+    method: 'PATCH', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ active: true }),
+  });
+  if (!res.ok) { const d = await res.json().catch(()=>({})); alert('Error: ' + (d.error || res.status)); return; }
+  loadAuthors();
+}
+
 // Initial + filter wiring
 ['f-status','f-type','f-author','f-lang'].forEach(id => {
   document.getElementById(id).addEventListener('input', () => loadList());
   document.getElementById(id).addEventListener('change', () => loadList());
 });
 loadList();
+loadAuthors();
 </script>
 </body>
 </html>`;
