@@ -20,6 +20,13 @@ import {
   handleSubmissionPatch,
   handleSubmissionDelete,
 } from './routes/author-submissions.js';
+import {
+  handleAdminSubmissionsDashboard,
+  handleAdminSubmissionsList,
+  handleAdminSubmissionGet,
+  handleAdminSubmissionStatus,
+  handleAdminSubmissionsExport,
+} from './routes/admin-submissions.js';
 import { handleOptions } from './utils/cors.js';
 
 export default {
@@ -306,6 +313,25 @@ export default {
     }
     if (authorSubMatch && request.method === 'DELETE') {
       return handleSubmissionDelete(request, env, authorSubMatch[1]);
+    }
+
+    // ─── Author Submissions — admin review panel (10th tab) ───
+    if (path === '/api/admin/submissions/dashboard' && request.method === 'GET') {
+      return handleAdminSubmissionsDashboard(request, env);
+    }
+    if (path === '/api/admin/submissions/export.csv' && request.method === 'GET') {
+      return handleAdminSubmissionsExport(request, env);
+    }
+    if (path === '/api/admin/submissions' && request.method === 'GET') {
+      return handleAdminSubmissionsList(request, env);
+    }
+    const adminSubMatch = path.match(/^\/api\/admin\/submissions\/(\d+)$/);
+    if (adminSubMatch && request.method === 'GET') {
+      return handleAdminSubmissionGet(request, env, adminSubMatch[1]);
+    }
+    const adminSubStatusMatch = path.match(/^\/api\/admin\/submissions\/(\d+)\/status$/);
+    if (adminSubStatusMatch && request.method === 'PATCH') {
+      return handleAdminSubmissionStatus(request, env, adminSubStatusMatch[1]);
     }
 
     // ─── Donors (outreach) ───

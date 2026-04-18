@@ -211,7 +211,13 @@ Commit: `16cfac1 feat(submissions): S1+S2 — author submissions spec + D1 migra
 Полная UI в AuthorPortal.jsx: list/new/detail/edit views под routing через `?view=`. Frontend build clean (3.74s). Auth flow end-to-end: login via invite → /author/portal видит name + scope → New submission form с dropdown брокера/рейтинга + textarea → Save Draft / Save & Submit. Detail view с Timeline событий. Edit view для draft/needs_changes.
 
 ### Codex review Sprint 5
-**(запуск сейчас)**
+- Round 1: 6.9/10 NEEDS_CHANGES — 1 HIGH (card scope bug) + 3 MEDIUM (MD render / save&submit orphan / no unmount guards) + 2 LOW
+- Round 2: 8.0/10 — Round-1 все fixed; 1 MEDIUM (stale dependent fields) + 1 LOW (flash disappears on redirect)
+- Round 3: 9.0/10 — MEDIUM fixed, 1 LOW (flash персистит после успешного retry)
+- Round 4 FINAL: **10/10 APPROVED** ✅ (no findings)
+- Путь: 6.9 → 8.0 → 9.0 → 10 за 4 раунда, 3 итерации правок
+- Commits: `ba5f70c` (base), `32bc6bf` (R1), `9f0bb99` (R2), `813a88f` (R3)
+- Deps: +react-markdown, +rehype-sanitize
 
 ---
 
@@ -220,30 +226,23 @@ Commit: `16cfac1 feat(submissions): S1+S2 — author submissions spec + D1 migra
 Цель: админ в едином месте видит все сабмиты, фильтрует, принимает/отклоняет, оставляет notes.
 
 ### Подспринты
-- **6.1** Добавить 10-й таб `Submissions` в `adminHeaderHTML` NAV_ITEMS (adminLayout.js). Не путать с existing `Authors` (9-й таб, outreach-карта конкурентов). Место — после `Reviews`
-- **6.2** `backend/src/routes/admin-submissions.js` — dashboard HTML + JSON API
-- **6.3** `GET /api/admin/submissions/dashboard?key=...` — HTML: топ-бар stats (pending / this week / turnaround), фильтры (status, author, target_type, lang), таблица сабмитов
-- **6.4** Detail view: `?id=123` — полный body_md с syntax highlight, метаданные автора, timeline статусов, форма «admin_notes»
-- **6.5** Actions (review-decision через `PATCH /:id/status`):
-  - Accept → status=accepted
-  - Request changes → status=needs_changes, required admin_notes
-  - Reject → status=rejected, required admin_notes
-
-  Actions (side-effect через dedicated endpoints — каждый атомарно меняет и submission, и destination):
-  - Import to Review/Ranking/Card → `POST /:id/import-to-{review,ranking,card}` → status=processed, INSERT в `submission_imports`
-  - Publish → `POST /:id/publish` → status=published + flip destination draft→live
-  - Revert → `POST /:id/revert` → status=reverted + clear destination live-slot
-
-  Прямой PATCH status в processed/published/reverted запрещён (400) — см. SPEC §6.2 инвариант.
-- **6.6** Audit timeline в submission_events
-- **6.7** Bulk select + bulk accept/reject (чекбоксы)
-- **6.8** Экспорт CSV (все сабмиты с фильтрами) — удобно для бухгалтерии оплаты авторам
+- **6.1** ✅ Edit `adminLayout.js` NAV_ITEMS — 10-й таб `Submissions` с document-icon SVG, после `Authors`
+- **6.2** ✅ Write `backend/src/routes/admin-submissions.js` — HTML dashboard + 4 JSON endpoints
+- **6.3** ✅ Dashboard `/api/admin/submissions/dashboard?key=...` — 4 KPI cards (pending / last 7 days / total / avg turnaround hours), filters (status/type/author name/lang), table с clickable rows
+- **6.4** ✅ Slide-over drawer на клик — full detail (body_md в `<pre>`, author block, admin_notes banner, imports list, events timeline, decision panel если status='submitted')
+- **6.5** ✅ PATCH `/api/admin/submissions/:id/status` с body `{decision, admin_notes}`:
+  - accept (notes optional) · request_changes + reject (notes REQUIRED)
+  - CAS guard `WHERE status='submitted'`; 409 иначе
+  - Side-effect endpoints (import-to-*, publish, revert) остались за Sprint 7
+- **6.6** ✅ events + imports рендерятся в drawer как отдельные секции
+- **6.7** Bulk select — отложено до S8 polish (не критично для MVP)
+- **6.8** ✅ CSV export `/api/admin/submissions/export.csv?status=&from=&to=` — proper CSV escaping, Content-Disposition attachment
 
 ### Deliverable
-Полный цикл доступен админу через UI.
+10-й таб Submissions доступен в админке. End-to-end smoke test (10 сценариев) все зелёные: list с фильтрами, detail drawer, accept без notes, reject без notes → 400, reject с notes → 200, CAS 409 на повторный decision, CSV export, HTML dashboard 200. Backend deployed version `609dae6f`.
 
-### Codex review
-`— ждёт выполнения —`
+### Codex review Sprint 6
+**(запуск сейчас)**
 
 ---
 
