@@ -320,6 +320,26 @@ Feature полностью в проде, security audited, documented. Real aut
 
 ---
 
+## Post-S8 polish — Inline Invite UI (2026-04-19)
+
+По запросу Егора: управление доступами авторов вынесено прямо в Submissions dashboard, чтобы не требовались curl-команды.
+
+**Что добавлено в `/api/admin/submissions/dashboard`:**
+- Раскрывающийся блок **"👤 Invite a new author"** в верхней части дашборда
+- Форма с 8 полями: Name, Email, Reviews/Rankings/Cards/Langs scopes (comma-separated), Expires days (1–3650), Role dropdown (author/expert/admin)
+- Inline scope hints (`*` wildcard, `ranking:broker` card format, empty=deny)
+- Кнопка **Create invite** → POST `/api/admin/authors/invite` → рендер invite URL в зелёном блоке + **Copy invite URL** clipboard button
+- Ниже формы — таблица **Existing authors**: имя, email, role, scope summary (`r:N rk:N c:N en`), статус (active/revoked), expires, submission count, inline actions **Rotate / Revoke / Activate** (reuses `/api/admin/authors/:id/rotate` и PATCH `active` shipped in Sprint 3)
+
+**Без backend-изменений** — чисто frontend-расширение уже задеплоенных API.
+
+**Docs updated:** `ADMIN-GUIDE.md §10` (UI first, curl как fallback), `AUTHOR-ONBOARDING.md` Step 1 (UI recommended, curl для scripts).
+
+**Commit:** `aa53160` на main (cherry-picked из `auto-polish-v2` branch, куда случайно попал первый commit).
+**Backend version:** `54f4e442` на `api.ratedbrokers.com`.
+
+---
+
 ## Оценки
 
 Codex 10/10 шкала: каждая после сдачи спринта. Принцип — запускаю `/codex-review` после коммита спринта, фиксирую оценку + top-3 замечания в этом же файле под «Codex review» конкретного спринта.

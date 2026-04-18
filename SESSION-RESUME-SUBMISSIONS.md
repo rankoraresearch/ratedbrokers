@@ -8,17 +8,22 @@
 **Final Codex scores:** S1 — 10/10 ✅ · S2 — 10/10 ✅ · S3 — 10/10 ✅ · S4 — 10/10 ✅ · S5 — 10/10 ✅ · S6 — 10/10 ✅ · S7 — 10/10 ✅ · S8 — 10/10 ✅
 
 **Production status:**
-- Backend: `api.ratedbrokers.com`, version `dbfb2171`, 18 new endpoints
-- Frontend: deployed via Cloudflare Pages (latest: commit `735e743`)
+- Backend: `api.ratedbrokers.com`, version `54f4e442` (post-invite-UI), 18 new endpoints
+- Frontend: deployed via Cloudflare Pages (latest: commit `aa53160` on main)
 - D1: migrations 001+002 applied local+remote, 5 new tables + extended expert_tokens/ranking_overrides
 - Deps: react-markdown + rehype-sanitize added
 
-**How to invite first real author:**
+**How to invite a real author (2 пути):**
+
+1. **UI (рекомендуется):** открой `https://api.ratedbrokers.com/api/admin/submissions/dashboard?key=$API_KEY` → раскрой блок **"👤 Invite a new author"** → заполни форму → **Create invite** → **Copy invite URL** → отправь автору. Таблица Existing authors под формой позволяет Rotate / Revoke / Activate inline.
+
+2. **curl (для скриптов):**
 ```bash
 curl -X POST https://api.ratedbrokers.com/api/admin/authors/invite \
   -H "Authorization: Bearer $API_KEY" -H "Content-Type: application/json" \
   -d '{"name":"Jane","email":"jane@x.com","role":"author","scopes":{"reviews":["ic-markets"],"langs":["en"]},"expires_days":90}'
 ```
+
 Full guide: `AUTHOR-ONBOARDING.md`.
 
 **Sprint 3 итог (code done):**
