@@ -23,8 +23,6 @@ const ALLOWED_TAGS = new Set([
   'code', 'pre', 'blockquote', 'table', 'thead', 'tbody', 'tr', 'th', 'td',
 ]);
 
-const ALLOWED_TAG_CLOSE = new Set(Array.from(ALLOWED_TAGS).map(t => '/' + t));
-
 /**
  * Remove a single attribute from a tag opening if it is not allowlisted
  * or if its value is unsafe. Only <a> gets attributes; everything else
@@ -68,12 +66,10 @@ export function sanitizeMarkdownBody(input) {
     return `<${name}${sanitizeAttributes(name, rawAttrs)}>`;
   });
 
-  // Step 3: strip any residual event-handler syntax fragments (defense-in-depth).
-  // If someone tries `<strong onclick="...">`, the attribute string was discarded
-  // in step 2; this catches stray `onclick=` text in the body that isn't in a tag.
-  // We do NOT rewrite URLs in Markdown `[text](url)` — that stays user-controlled
-  // but gets sanitized at render time by rehype-sanitize on the frontend.
-
+  // URLs inside Markdown `[text](url)` are intentionally left untouched here;
+  // the frontend renders through react-markdown + rehype-sanitize, which strips
+  // `javascript:` and other unsafe protocols at display time. Server-side stripping
+  // would also break legitimate links in the author's draft.
   return out;
 }
 

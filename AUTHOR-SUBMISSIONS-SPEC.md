@@ -170,7 +170,7 @@ Public endpoint `GET /api/rankings/:id/content` возвращает ТОЛЬК�
 ```sql
 ALTER TABLE ranking_overrides ADD COLUMN description_md_draft TEXT;    -- автор сабмитит сюда
 ALTER TABLE ranking_overrides ADD COLUMN description_md TEXT;           -- live на сайте
-ALTER TABLE ranking_overrides ADD COLUMN description_lang TEXT DEFAULT 'en';
+ALTER TABLE ranking_overrides ADD COLUMN description_lang TEXT NOT NULL DEFAULT 'en';
 ALTER TABLE ranking_overrides ADD COLUMN description_published_at TEXT; -- NULL = draft only
 ```
 Frontend в `BrokerRankCard.jsx` рендерит `description_md` только если `description_published_at IS NOT NULL`.
@@ -270,7 +270,7 @@ Scopes хранятся как `JSON` в `expert_tokens.scopes_json`. Card-scope
 | Method | Path | Описание |
 |--------|------|----------|
 | GET | `/api/author/me` | Профиль + scopes |
-| GET | `/api/author/targets` | Развёрнутый список доступных целей (из scopes → список брокеров/рейтингов) |
+| GET | `/api/author/targets` | Доступные цели из scopes. **Reviews** раскрываются server-side до `[{slug,name}]` из D1 brokers. **Rankings/cards** возвращаются как scope entries (`{id,wildcard}` / `{ranking_id,broker_slug,wildcard}`) — frontend hydrates display names из bundled `src/data/rankings.js`. Также возвращает `sections`, `target_types`, `langs` |
 | GET | `/api/author/submissions?status=&type=` | Список своих |
 | POST | `/api/author/submissions` | Создать draft |
 | GET | `/api/author/submissions/:id` | Один + timeline |
@@ -388,16 +388,20 @@ Scopes хранятся как `JSON` в `expert_tokens.scopes_json`. Card-scope
 
 ## 9. Миграция и откат
 
-- Миграция файл: `backend/migrations/001-author-submissions.sql` — **one-shot versioned** (НЕ идемпотентна; SQLite/D1 `ALTER TABLE ADD COLUMN` падает на повторе, т.к. колонка уже есть)
-- `CREATE TABLE IF NOT EXISTS` — безопасно
-- `ALTER TABLE ... ADD COLUMN` — применяется РОВНО ОДИН РАЗ; добавляем версионирование через таблицу `schema_migrations (version TEXT PRIMARY KEY, applied_at TEXT)`
-- Скрипт миграции:
-  1. Проверяет `SELECT 1 FROM schema_migrations WHERE version='001-author-submissions'`
-  2. Если уже применено → exit 0 с сообщением
-  3. Иначе — применяет CREATE + ALTER в транзакции, INSERT в schema_migrations
+- Миграция файл: `backend/migrations/001-author-submissions.sql` — **one-shot fail-hard** (НЕ идемпотентна; не SELECT-probe, не транзакция — wrangler exec SQL-файлы без условной логики).
+- Поведение:
+  - `CREATE TABLE IF NOT EXISTS schema_migrations` — первая строка файла. Безопасно при повторе.
+  - Далее `ALTER TABLE ... ADD COLUMN` и `CREATE TABLE IF NOT EXISTS` новые таблиц. ALTER не IF NOT EXISTS — при повторе падает на первом `duplicate column name` и останавливается. Это **и есть** guard: оператор видит ошибку → идёт проверять `SELECT version FROM schema_migrations`.
+  - В конце `INSERT OR IGNORE INTO schema_migrations (version) VALUES ('001-author-submissions')` — фиксирует успешное применение. `OR IGNORE` — на случай если оператор вручную вставил версию ранее.
+- Pre-check (рекомендуется оператору перед apply):
+  ```bash
+  wrangler d1 execute ratedbrokers --remote --command="SELECT version FROM schema_migrations WHERE version='001-author-submissions'"
+  # Если вернуло строку → уже применено, не запускай миграцию.
+  ```
+- Partial-failure recovery: если миграция упала в середине (напр. wrangler timeout между ALTER и CREATE), состояние частично применено. Восстановление вручную: проверить `.schema`, докатить недостающие ALTER/CREATE поштучно, вручную `INSERT INTO schema_migrations`.
 - Откат:
   - `DROP TABLE content_submissions; DROP TABLE submission_events; DROP TABLE submission_imports; DROP TABLE ranking_content;` + `DELETE FROM schema_migrations WHERE version='001-author-submissions'`
-  - ALTER-колонки (`role`, `scopes_json`, `description_md_draft`, `description_md`, `description_lang`, `description_published_at`) нельзя дропнуть на D1 → остаются NULL-овыми, не мешают
+  - ALTER-колонки (`role`, `scopes_json`, `description_md_draft`, `description_md`, `description_lang`, `description_published_at`) нельзя дропнуть на D1 → остаются NULL-овыми (legacy data сохраняется), не мешают дальнейшей работе.
 
 ---
 

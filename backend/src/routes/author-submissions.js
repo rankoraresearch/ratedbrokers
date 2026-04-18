@@ -39,6 +39,7 @@ function nowSql() {
 
 /**
  * Read and validate JSON body with a hard byte cap. Returns [data, errorResponse].
+ * Rejects non-object payloads (null, arrays, primitives) with 400.
  */
 async function readJsonBody(request, headers) {
   const contentLength = Number(request.headers.get('Content-Length') || 0);
@@ -51,14 +52,22 @@ async function readJsonBody(request, headers) {
   } catch {
     return [null, err(headers, 400, 'Invalid body')];
   }
-  if (text.length > MAX_REQUEST_BYTES) {
+  // Byte-accurate check — Content-Length may be missing and text.length counts
+  // UTF-16 code units, not bytes (multibyte payloads would otherwise slip through).
+  const bytes = new TextEncoder().encode(text).length;
+  if (bytes > MAX_REQUEST_BYTES) {
     return [null, err(headers, 413, 'Request body too large')];
   }
+  let parsed;
   try {
-    return [JSON.parse(text), null];
+    parsed = JSON.parse(text);
   } catch {
     return [null, err(headers, 400, 'Invalid JSON')];
   }
+  if (parsed === null || typeof parsed !== 'object' || Array.isArray(parsed)) {
+    return [null, err(headers, 400, 'Request body must be a JSON object')];
+  }
+  return [parsed, null];
 }
 
 /**
@@ -99,6 +108,9 @@ function validateBodyMd(body_md) {
   return null;
 }
 
+// Strict lowercase lang tag check (mirrors admin-author-mgmt.js LANG_RE, no /i).
+const LANG_RE = /^[a-z]{2}(-[a-z0-9]{2,8})?$/;
+
 function validateTargetShape(body) {
   const { target_type, target_slug, target_section, target_ranking_broker } = body;
   if (!VALID_TARGET_TYPES.has(target_type)) {
@@ -107,8 +119,11 @@ function validateTargetShape(body) {
   if (typeof target_slug !== 'string' || !/^[a-z0-9-]+$/.test(target_slug)) {
     return 'target_slug must be a lowercase slug';
   }
-  if (target_type === 'review') {
-    if (target_section != null && !VALID_REVIEW_SECTIONS.has(target_section)) {
+  if (target_section != null) {
+    if (target_type !== 'review') {
+      return `target_section is only valid for target_type='review'`;
+    }
+    if (!VALID_REVIEW_SECTIONS.has(target_section)) {
       return `invalid target_section '${target_section}'`;
     }
   }
@@ -116,6 +131,16 @@ function validateTargetShape(body) {
     if (!target_ranking_broker || !/^[a-z0-9-]+$/.test(target_ranking_broker)) {
       return 'target_ranking_broker is required for card type (lowercase slug)';
     }
+  } else if (target_ranking_broker != null) {
+    return `target_ranking_broker only valid for target_type='card'`;
+  }
+  return null;
+}
+
+function validateLangTag(lang) {
+  if (lang == null) return null;
+  if (typeof lang !== 'string' || !LANG_RE.test(lang)) {
+    return `invalid lang '${lang}' — expected 'en', 'ru', 'es-mx', etc.`;
   }
   return null;
 }
@@ -174,16 +199,26 @@ export async function handleAuthorTargets(request, env) {
     reviewBrokers = rows.results;
   }
 
+  // Rankings / cards: the ranking catalog lives in src/data/rankings.js bundled
+  // with the frontend; the Worker doesn't have that catalog. We return scope
+  // entries as canonical shapes, and the client hydrates display names from the
+  // bundle. This is documented in SPEC §6.1.
+  const rankings = author.scopes.rankings.map(id => ({ id, wildcard: id === '*' }));
+  const cards = author.scopes.cards.map(entry => {
+    if (entry === '*') return { wildcard: true };
+    const [ranking_id, broker_slug] = entry.split(':', 2);
+    return { ranking_id, broker_slug, wildcard: broker_slug === '*' };
+  });
+
   return Response.json({
     role: author.role,
     scopes: author.scopes,
     sections: Array.from(VALID_REVIEW_SECTIONS),
     target_types: Array.from(VALID_TARGET_TYPES),
     reviews: reviewBrokers,
-    // Rankings/cards — client should hydrate from bundled rankings.js using
-    // scopes.rankings and scopes.cards. We return the scope-allowed shape.
-    rankings: author.scopes.rankings,
-    cards: author.scopes.cards,
+    rankings,
+    cards,
+    langs: author.scopes.langs,
   }, { headers });
 }
 
@@ -206,6 +241,9 @@ export async function handleSubmissionCreate(request, env) {
   if (shapeErr) return err(headers, 400, shapeErr);
 
   const { target_type, target_slug, target_section, target_ranking_broker, lang, title, body_md } = body;
+
+  const langErr = validateLangTag(lang);
+  if (langErr) return err(headers, 400, langErr);
 
   const bodyValidationErr = validateBodyMd(body_md);
   if (bodyValidationErr) return err(headers, 400, bodyValidationErr);
@@ -376,6 +414,8 @@ export async function handleSubmissionPatch(request, env, id) {
   }
 
   if (body.lang !== undefined) {
+    const langErr = validateLangTag(body.lang);
+    if (langErr) return err(headers, 400, langErr);
     const newLang = body.lang || 'en';
     const authz = authorizeTarget(author, {
       target_type: existing.target_type,
