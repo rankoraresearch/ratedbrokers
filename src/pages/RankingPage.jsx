@@ -581,23 +581,34 @@ export default function RankingPage() {
       }
       scriptEl.textContent = JSON.stringify(jsonLd);
     }
-    window.scrollTo(0, 0);
-    setActiveFilter("all");
     return () => {
       const el = document.querySelector('script[data-jsonld="ranking"]');
       if (el) el.remove();
     };
-    // Depends on ranking, seoContent (content override), and overrides
-    // (per-card featured_label / hidden / description_md) — all async
-    // sources whose changes must re-emit JSON-LD + title + meta.
+    // Depends on ranking, seoContent (content override), and overrides —
+    // all async sources whose changes must re-emit JSON-LD + title + meta.
   }, [ranking, seoContent, overrides]);
+
+  // Navigation-only side effects: scroll-to-top and filter reset must fire
+  // ONLY on real ranking change, not on late async SEO/override arrival.
+  useEffect(() => {
+    if (ranking) {
+      window.scrollTo(0, 0);
+      setActiveFilter("all");
+    }
+  }, [ranking?.id]);
 
   // Fetch admin overrides (per-broker featured_label, card descriptions).
   // Scoped by lang so card descriptions only surface for the current locale.
+  // Reset state + abort-guard against out-of-order responses on ranking switch.
   useEffect(() => {
-    if (ranking) {
-      fetchRankingOverrides(ranking.id, currentLang).then(setOverrides);
-    }
+    if (!ranking) return;
+    setOverrides(null);
+    let alive = true;
+    fetchRankingOverrides(ranking.id, currentLang).then(data => {
+      if (alive) setOverrides(data);
+    });
+    return () => { alive = false; };
   }, [ranking?.id, currentLang]);
 
   if (!ranking) return <NotFoundPage />;

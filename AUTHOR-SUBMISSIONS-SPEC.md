@@ -407,6 +407,13 @@ Scopes хранятся как `JSON` в `expert_tokens.scopes_json`. Card-scope
 
 ## 10. Out of scope (future)
 
+### Multi-submission revert provenance
+When two submissions A and B publish to the same ranking_content row (different fields), the system guarantees draft preservation but NOT provenance-accurate revert. If A publishes `intro_md=X`, then B republishes `intro_md=Y`, reverting A clears `intro_md` even though Y was the live content. Drafts are preserved, so re-running B's publish restores Y. A stronger solution (`prior_live_value` snapshot column in `submission_imports`) is deferred to a future migration.
+
+Per-card descriptions (ranking_overrides.description_md) are less prone to contention (single broker × ranking × lang row), but the same limitation applies.
+
+### Other deferred items
+
 - Автоматическая рассылка email с invite (CF Email Workers / Resend)
 - Автоматическое Claude-split по H2 — MVP ручной, админ разбирает сложные кейсы
 - Rich-text editor (TipTap / ProseMirror) — MVP текстарея + MD preview
