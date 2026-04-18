@@ -917,7 +917,7 @@ export default function Header() {
                     padding: "8px 0", fontSize: 14, fontWeight: 500, color: "#1f2937", textDecoration: "none",
                   }}>
                     <span>{b.name}</span>
-                    <span style={{ fontFamily: "'JetBrains Mono'", fontSize: 12, fontWeight: 700, color: b.score >= 9.5 ? "#059669" : "#2563eb" }}>{b.score}</span>
+                    <span style={{ fontFamily: "'JetBrains Mono'", fontSize: 12, fontWeight: 700, color: b.score >= 9.0 ? "#059669" : "#64748b" }}>{b.score}</span>
                   </Link>
                 ))}
                 <div style={{ fontSize: 11, fontWeight: 700, color: "#1f2937", textTransform: "uppercase", letterSpacing: 1, marginTop: 12, marginBottom: 8 }}>

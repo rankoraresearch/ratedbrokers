@@ -2,12 +2,11 @@ import { useTranslation } from "../i18n/LanguageContext";
 
 export default function ScoreBadge({ score, size = "md" }) {
   const { t } = useTranslation();
-  const color = score >= 9.0 ? "#059669" : score >= 8.0 ? "#2563eb" : "#d97706";
-  const grad = score >= 9.0
-    ? "linear-gradient(135deg, #059669, #047857)"
-    : score >= 8.0
-    ? "linear-gradient(135deg, #2563eb, #1d4ed8)"
-    : "linear-gradient(135deg, #d97706, #b45309)";
+  const isExcellent = score >= 9.0;
+  const color = isExcellent ? "#059669" : "#64748b";
+  const grad = isExcellent
+    ? "linear-gradient(135deg, #047857, #065f46)"
+    : "linear-gradient(135deg, #475569, #334155)";
   const label =
     score >= 9.5
       ? t("score.excellent")
