@@ -49,9 +49,16 @@ export default function AuthorPortalLogin() {
   }
 
   // On mount: prefer URL token, fall back to stored, else ask.
+  // Strip ?token= from the URL immediately — regardless of verification outcome —
+  // so failed invites don't linger in the address bar (copy, share, browser history).
   useEffect(() => {
     const urlToken = params.get("token");
     if (urlToken) {
+      // Clean the URL first so the token is gone from history/back-button navigation.
+      try {
+        const cleanUrl = window.location.pathname + window.location.hash;
+        window.history.replaceState({}, "", cleanUrl);
+      } catch { /* non-browser env, ignore */ }
       setState("verifying");
       verifyToken(urlToken);
       return;

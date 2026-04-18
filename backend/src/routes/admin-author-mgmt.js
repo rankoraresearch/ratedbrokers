@@ -12,21 +12,62 @@ function jsonHeaders(request) {
   return { ...corsHeaders(request), 'Content-Type': 'application/json' };
 }
 
+// Slug format shared across reviews/rankings/cards (matches existing validation in admin.js)
+const SLUG_RE = /^[a-z0-9-]+$/;
+// Language code: lowercase ISO 639-1 (2-letter) or BCP-47 tag allowlist we maintain
+const LANG_RE = /^[a-z]{2}(-[a-z0-9]{2,8})?$/i;
+const CARD_ENTRY_RE = /^[a-z0-9-]+:([a-z0-9-]+|\*)$/;
+
 function validateScopes(scopes) {
   if (!scopes || typeof scopes !== 'object') return 'scopes must be an object';
+
   for (const key of ['reviews', 'rankings', 'cards', 'langs']) {
     if (scopes[key] !== undefined && !Array.isArray(scopes[key])) {
       return `scopes.${key} must be an array`;
     }
   }
-  if (scopes.cards) {
+
+  for (const key of ['reviews', 'rankings']) {
+    if (!Array.isArray(scopes[key])) continue;
+    for (const entry of scopes[key]) {
+      if (typeof entry !== 'string') return `scopes.${key} entries must be strings`;
+      if (entry === '*') continue;
+      if (!SLUG_RE.test(entry)) {
+        return `invalid ${key} scope entry '${entry}' — expected lowercase alphanumeric slug or '*'`;
+      }
+    }
+  }
+
+  if (Array.isArray(scopes.cards)) {
     for (const entry of scopes.cards) {
-      if (entry !== '*' && !/^[a-z0-9-]+:([a-z0-9-]+|\*)$/.test(entry)) {
+      if (typeof entry !== 'string') return 'scopes.cards entries must be strings';
+      if (entry === '*') continue;
+      if (!CARD_ENTRY_RE.test(entry)) {
         return `invalid card scope entry '${entry}' — expected '<ranking>:<broker>' or '<ranking>:*' or '*'`;
       }
     }
   }
+
+  if (Array.isArray(scopes.langs)) {
+    for (const entry of scopes.langs) {
+      if (typeof entry !== 'string' || !LANG_RE.test(entry)) {
+        return `invalid lang '${entry}' — expected 'en', 'ru', 'es-mx', etc.`;
+      }
+    }
+  }
+
   return null;
+}
+
+// Validate expires_days: null allowed (= no expiry), else positive integer ≤ 3650 (10 years).
+// Returns { ok, value } or { ok: false, error }.
+function validateExpiresDays(raw) {
+  if (raw === null || raw === undefined) return { ok: true, value: null };
+  const n = Number(raw);
+  if (!Number.isFinite(n) || !Number.isInteger(n) || n <= 0 || n > 3650) {
+    return { ok: false, error: 'expires_days must be a positive integer ≤ 3650 (or null for no expiry)' };
+  }
+  return { ok: true, value: n };
 }
 
 function resolveFrontendBase(env, request) {
@@ -73,9 +114,12 @@ export async function handleAuthorInvite(request, env) {
     }
   }
 
+  const expCheck = validateExpiresDays(expires_days);
+  if (!expCheck.ok) return Response.json({ error: expCheck.error }, { status: 400, headers });
+
   const token = generateToken();
-  const expiresAt = expires_days
-    ? new Date(Date.now() + Number(expires_days) * 86400000)
+  const expiresAt = expCheck.value
+    ? new Date(Date.now() + expCheck.value * 86400000)
         .toISOString().slice(0, 19).replace('T', ' ')
     : null;
 
@@ -217,10 +261,12 @@ export async function handleAuthorPatch(request, env, id) {
     binds.push(body.active ? 1 : 0);
   }
   if (body.expires_days !== undefined) {
-    const expiresAt = body.expires_days === null
-      ? null
-      : new Date(Date.now() + Number(body.expires_days) * 86400000)
-          .toISOString().slice(0, 19).replace('T', ' ');
+    const expCheck = validateExpiresDays(body.expires_days);
+    if (!expCheck.ok) return Response.json({ error: expCheck.error }, { status: 400, headers });
+    const expiresAt = expCheck.value
+      ? new Date(Date.now() + expCheck.value * 86400000)
+          .toISOString().slice(0, 19).replace('T', ' ')
+      : null;
     updates.push('expires_at = ?');
     binds.push(expiresAt);
   }

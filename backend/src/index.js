@@ -262,7 +262,9 @@ export default {
     if (path === '/api/admin/authors/invite' && request.method === 'POST') {
       return handleAuthorInvite(request, env);
     }
-    if (path === '/api/admin/authors/list' && request.method === 'GET') {
+    // Canonical list path per SPEC §6.2; /list retained as back-compat alias.
+    if ((path === '/api/admin/authors' || path === '/api/admin/authors/list')
+        && request.method === 'GET') {
       return handleAuthorList(request, env);
     }
     const adminAuthorPatchMatch = path.match(/^\/api\/admin\/authors\/(\d+)$/);

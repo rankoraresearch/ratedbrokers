@@ -26,6 +26,14 @@ const AllRankingsPage = lazy(() => import("./pages/AllRankingsPage"));
 const AuthorPage = lazy(() => import("./pages/AuthorPage"));
 const AuthorPortalLogin = lazy(() => import("./pages/AuthorPortalLogin"));
 const AuthorPortal = lazy(() => import("./pages/AuthorPortal"));
+
+// Inline route-level guard. Kept out of the lazy-loaded login chunk so it
+// does not pull AuthorPortalLogin.jsx into the main bundle.
+function RequireAuthorToken({ children }) {
+  const token = typeof window !== "undefined" ? localStorage.getItem("rb_author_token") : null;
+  if (!token) return <Navigate to="/author" replace />;
+  return children;
+}
 const BrokerSubPage = lazy(() => import("./pages/BrokerSubPage"));
 const WarningPage = lazy(() => import("./pages/WarningPage"));
 const FindYourBrokerPage = lazy(() => import("./pages/FindYourBrokerPage"));
@@ -151,7 +159,7 @@ function AppRoutes() {
         <Route path="guide/:slug" element={<GuidePage />} />
         {/* Author submissions portal — static routes ranked above dynamic /author/:slug */}
         <Route path="author" element={<AuthorPortalLogin />} />
-        <Route path="author/portal" element={<AuthorPortal />} />
+        <Route path="author/portal" element={<RequireAuthorToken><AuthorPortal /></RequireAuthorToken>} />
         <Route path="author/:slug" element={<AuthorPage />} />
         <Route path="platform/:slug" element={<PlatformPage />} />
         <Route path="warnings/:slug" element={<WarningPage />} />
