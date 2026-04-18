@@ -2,8 +2,6 @@ import { QuickAnswerBox, ProsCons, DataTable, CTAInline, FaqSection, VerdictBox,
 
 const NAVY = "#0f172a";
 const GREEN = "#059669";
-const GREEN_LIGHT = "#ecfdf5";
-const GREEN_BORDER = "#a7f3d0";
 const BORDER = "#e8ecf1";
 
 export default function MinDepositTab({ data, slug, mob }) {
