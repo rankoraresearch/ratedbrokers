@@ -16,11 +16,11 @@ export default function RegulatorLogo({ slug, name, fullName, size = 36, shape =
   const r = Math.round(size / 4);
   const src = `${import.meta.env.BASE_URL}regulators/${slug}.svg`;
 
-  // Tier color mapping
+  // Tier color mapping — Plate B neutral with coloured text signal
   const tierColors = {
-    1: { bg: "#ecfdf5", border: "#a7f3d0", text: "#059669" },
-    2: { bg: "#fffbeb", border: "#fde68a", text: "#d97706" },
-    3: { bg: "#fef2f2", border: "#fecaca", text: "#dc2626" },
+    1: { bg: "#f8fafc", border: "#e2e8f0", text: "#047857" },
+    2: { bg: "#f8fafc", border: "#e2e8f0", text: "#b45309" },
+    3: { bg: "#f8fafc", border: "#e2e8f0", text: "#dc2626" },
   };
   const tc = tierColors[tier] || tierColors[1];
 
