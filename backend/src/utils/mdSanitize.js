@@ -1,15 +1,20 @@
 /**
  * Server-side Markdown sanitization.
  *
- * Strategy: the body_md is stored as-is (still Markdown text), but we strip
- * any raw HTML tags that aren't in the allowlist. This gives:
- *  1. Defense in depth — the frontend also runs rehype-sanitize.
- *  2. Storage safety — nothing dangerous reaches D1.
- *  3. Low complexity — one regex pass per submission, no extra runtime deps.
+ * This is the ONLY sanitization boundary for submitted body_md in the current
+ * build — no MD-renderer sanitizer exists on the frontend yet. When Sprint 7
+ * ports content into destination tables for public rendering, a frontend
+ * allowlist renderer will be introduced; until then, this module is the only
+ * defense against stored XSS. The regex strategy gives:
+ *   1. Storage safety — nothing dangerous reaches D1.
+ *   2. Low complexity — one regex pass per submission, no extra runtime deps.
  *
  * Allowlist (SPEC §8):
  *   <p>, <strong>, <em>, <ul>, <ol>, <li>, <a href="https://...">, <h2>, <h3>,
  *   <h4>, <code>, <pre>, <blockquote>, <table>, <thead>, <tbody>, <tr>, <th>, <td>
+ *
+ * Only `https://` URLs are accepted on <a> href per spec. `mailto:`, `javascript:`,
+ * `data:`, protocol-relative, and control characters are all stripped.
  *
  * Everything else — raw HTML, <script>, <iframe>, <object>, <embed>,
  * event-handler attrs (onclick, onload, onerror, etc.) — is stripped.
@@ -31,11 +36,12 @@ const ALLOWED_TAGS = new Set([
 function sanitizeAttributes(tagName, rawAttrs) {
   if (tagName !== 'a') return '';
   if (!rawAttrs) return '';
-  // Allow only href starting with https:// or mailto: (no javascript:, no data:, no //)
+  // Per SPEC §8: only https:// URLs are accepted on <a href>. No mailto:,
+  // no javascript:, no data:, no protocol-relative //.
   const hrefMatch = rawAttrs.match(/\bhref\s*=\s*(['"])([^'"]+)\1/i);
   if (!hrefMatch) return '';
   const href = hrefMatch[2].trim();
-  if (!/^(https:\/\/|mailto:)/i.test(href)) return '';
+  if (!/^https:\/\//i.test(href)) return '';
   // No control chars or quotes that could break out of attribute.
   if (/[\x00-\x1f"'<>]/.test(href)) return '';
   return ` href="${href}" rel="nofollow noopener"`;
