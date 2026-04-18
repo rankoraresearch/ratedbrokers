@@ -3,6 +3,8 @@ import { Clock } from "lucide-react";
 
 const NAVY = "#0f172a";
 const GREEN = "#059669";
+const GREEN_LIGHT = "#ecfdf5";
+const GREEN_BORDER = "#a7f3d0";
 const GRAY_MUTED = "#64748b";
 const BORDER = "#e8ecf1";
 
@@ -47,7 +49,7 @@ export default function DepositTab({ data, slug, mob }) {
           { step: 4, title: "Enter amount and confirm", desc: `Minimum $${B.minDep}. Select your trading account to fund` },
         ].map((s, i) => (
           <div key={i} style={{ display: "flex", gap: 14, padding: "14px 0", borderBottom: i < 3 ? `1px solid ${BORDER}` : "none" }}>
-            <div style={{ width: 32, height: 32, borderRadius: 16, background: "linear-gradient(135deg,#047857,#065f46)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 14, color: "#fff" }}>{s.step}</div>
+            <div style={{ width: 32, height: 32, borderRadius: 16, background: GREEN_LIGHT, border: `1px solid ${GREEN_BORDER}`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, fontFamily: "'JetBrains Mono',monospace", fontWeight: 700, fontSize: 14, color: GREEN }}>{s.step}</div>
             <div>
               <div style={{ fontSize: 15, fontWeight: 600, color: NAVY, marginBottom: 2 }}>{s.title}</div>
               <div style={{ fontSize: 13, color: GRAY_MUTED }}>{s.desc}</div>

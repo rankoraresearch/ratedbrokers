@@ -5,6 +5,8 @@ import { ExternalLink } from "lucide-react";
 
 const NAVY = "#0f172a";
 const GREEN = "#059669";
+const GREEN_LIGHT = "#ecfdf5";
+const GREEN_BORDER = "#a7f3d0";
 const ORANGE = "#f59e0b";
 const GRAY_MUTED = "#64748b";
 const GRAY_TEXT = "#374151";
