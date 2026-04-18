@@ -665,6 +665,9 @@ function SubmissionDetail({ api, id, onBack, onEdit, flashMessage, onClearFlash 
   async function submit() {
     try {
       await api(`/api/author/submissions/${id}`, { method: "PATCH", body: { action: "submit" } });
+      // If we got here from a failed create→submit flow, the stale flash
+      // message is now misleading. Clear it before reload.
+      if (flashMessage && onClearFlash) onClearFlash();
       load();
     } catch (e) { setErr(e.message); }
   }
