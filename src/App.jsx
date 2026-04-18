@@ -24,6 +24,8 @@ const ContactPage = lazy(() => import("./pages/ContactPage"));
 const AllGuidesPage = lazy(() => import("./pages/AllGuidesPage"));
 const AllRankingsPage = lazy(() => import("./pages/AllRankingsPage"));
 const AuthorPage = lazy(() => import("./pages/AuthorPage"));
+const AuthorPortalLogin = lazy(() => import("./pages/AuthorPortalLogin"));
+const AuthorPortal = lazy(() => import("./pages/AuthorPortal"));
 const BrokerSubPage = lazy(() => import("./pages/BrokerSubPage"));
 const WarningPage = lazy(() => import("./pages/WarningPage"));
 const FindYourBrokerPage = lazy(() => import("./pages/FindYourBrokerPage"));
@@ -147,6 +149,9 @@ function AppRoutes() {
         <Route path="regulator/:slug" element={<RegulatorPage />} />
         <Route path="guides" element={<AllGuidesPage />} />
         <Route path="guide/:slug" element={<GuidePage />} />
+        {/* Author submissions portal — static routes ranked above dynamic /author/:slug */}
+        <Route path="author" element={<AuthorPortalLogin />} />
+        <Route path="author/portal" element={<AuthorPortal />} />
         <Route path="author/:slug" element={<AuthorPage />} />
         <Route path="platform/:slug" element={<PlatformPage />} />
         <Route path="warnings/:slug" element={<WarningPage />} />

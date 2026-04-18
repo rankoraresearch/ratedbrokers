@@ -3,19 +3,27 @@
 **Если контекст потерян, читай этот файл ПЕРВЫМ.** Он восстановит ход работы.
 
 **Last updated:** 2026-04-18 (актуализировать каждый спринт)
-**Current sprint:** Sprint 2 — D1 Schema & Migration (**paused at 2.6 — ждёт approve Егора на remote apply**)
-**Last Codex score:** Sprint 1 — 10.0/10 APPROVED ✅
+**Current sprint:** Sprint 3 — Auth & Magic Link Invite (code done, codex review pending)
+**Mode:** автономный до конца Sprint 8 (approve Егора).
+**Last Codex scores:** S1 — 10/10 ✅ · S2 — 10/10 ✅ · S3 — pending
 
-**Что сделано в Sprint 2 (local):**
-- `backend/schema.sql` обновлён (только schema_migrations bookkeeping)
-- `backend/migrations/001-author-submissions.sql` написан и **применён локально**
-- Все 7 таблиц созданы, ALTER выполнены, `schema_migrations` версия зафиксирована
-- Re-run guard проверен: повторный apply → `ERROR duplicate column name: role`
-- `backend/README.md` обновлён (Author Submissions + Migrations section)
+**Sprint 3 итог (code done):**
+- `backend/src/utils/authorAuth.js` — token parse, scope/card enforcement, authorizeTarget, generateToken
+- `backend/src/routes/admin-author-mgmt.js` — invite/list/patch/rotate endpoints
+- `backend/src/routes/author-me.js` — `/api/author/me` профиль
+- `backend/src/index.js` — роуты добавлены (5 новых путей)
+- `src/pages/AuthorPortalLogin.jsx` — login gate (?token= or manual paste)
+- `src/pages/AuthorPortal.jsx` — dashboard placeholder
+- `src/App.jsx` — routes `/author` и `/author/portal` перед `/author/:slug`
+- Backend deployed к `api.ratedbrokers.com` (version 0d4acea6)
+- Frontend build ✅; end-to-end smoke test ✅
 
-**Что не сделано:**
-- ⏸ 2.6-2.7: `wrangler d1 execute --remote --file=migrations/001-author-submissions.sql` — ЖДЁТ APPROVE ЕГОРА
-- ⏸ Codex review Sprint 2 — запустится после remote apply + git commit
+**Sprint 2 итог:**
+- `backend/migrations/001-author-submissions.sql` применён на **local + remote** D1
+- Все 4 новых таблицы + ALTER колонки (expert_tokens, ranking_overrides) на месте
+- `schema_migrations.version='001-author-submissions'` в обеих базах
+- Fail-hard re-run guard проверен (ERROR duplicate column name)
+- Commit `16cfac1` на main, pushed
 
 ---
 
@@ -94,4 +102,4 @@ Local-операции (`--local` wrangler, редактирование фай�
 
 ## Последняя отметка
 
-**2026-04-18 ~02:15** — Sprint 2 подспринты 2.1-2.5 + 2.8 закрыты. Local D1 мигрирована. Жду approve Егора на `wrangler d1 execute --remote --file=backend/migrations/001-author-submissions.sql`. Следующее действие после approve: remote apply → verify schema_migrations на prod → `/codex-review` → git commit → переход в Sprint 3.
+**2026-04-18 ~03:55** — Sprint 1+2 закрыты оба 10/10. Commit `16cfac1`, pushed to main. Remote D1 мигрирована (19 queries, 27 rows). Заход в Sprint 3: author auth + magic-link invite. Детали подспринтов 3.1-3.8 — см. SPRINT-AUTHOR-SUBMISSIONS.md.

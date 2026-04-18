@@ -62,7 +62,7 @@
 - **[HIGH] card scopes don't authorize broker** — `scopes.cards` проверял только ranking_id. **Fix:** scope-entry теперь `"<ranking_id>:<broker_slug>"` с поддержкой wildcards per-ranking. Enforcement check обновлён в §5
 - **[HIGH] ALTER not idempotent on D1** — `ALTER TABLE ADD COLUMN` падает на повторе. **Fix:** убран claim "idempotent", введён `schema_migrations` version table, миграция теперь one-shot versioned
 - **[HIGH] GET/DELETE :id need ownership + CAS on transitions** — небыло явного требования. **Fix:** SPEC §5 добавлен раздел "Ownership enforcement" (WHERE author_id=?), §4 переработан со SQL CAS-guard'ами для всех transitions
-- **[MEDIUM] `reverted` missing from enum, no published_at** — **Fix:** расширен enum до 9 состояний, добавлены `accepted_at`, `published_at`, `rejected_at`, `reverted_at`
+- **[MEDIUM] `reverted` missing from enum, no published_at** — **Fix:** расширен enum до 8 persistent состояний (draft/submitted/needs_changes/accepted/rejected/processed/published/reverted), добавлены `accepted_at`, `published_at`, `rejected_at`, `reverted_at`
 - **[MEDIUM] processed_ref cannot hold multi-row** — **Fix:** удалён `processed_ref` из `content_submissions`; введена child-таблица `submission_imports` с UNIQUE(submission_id, destination_type, destination_ref) — заодно idempotent import
 - **[LOW] tab count inconsistency** — **Fix:** везде "10-й таб Submissions", existing "Authors" явно назван outreach-картой
 
@@ -114,12 +114,26 @@
 - **2.8** ⏸ `backend/README.md` обновление зарезервировано (файл был откачен — оставляем как есть, канонической документацией выступают SPEC + SPRINT docs)
 
 ### Deliverable
-Local D1 имеет все новые таблицы + ALTER-колонки; re-run guard проверен; `backend/README.md` обновлён с migration docs.
+Local D1 + Remote D1 имеют все новые таблицы + ALTER-колонки; re-run guard проверен (fail-hard duplicate column); `schema_migrations` содержит версию 001 в обеих базах. SPEC + SPRINT canonical docs — `backend/README.md` не обновлён (оставлен как был).
 
-**Статус:** 2.1-2.5 + 2.8 закрыты локально. **2.6 + 2.7 ждут approve Егора** перед remote D1 apply.
+**Статус:** 2.1-2.7 закрыты (local + remote applied). 2.8 (README) — deferred, оставлен в исходном виде интенционально.
 
-### Codex review — Round 1 Sprint 2
-**(запускается после approve Егора и remote apply, перед git commit)**
+Commit: `16cfac1 feat(submissions): S1+S2 — author submissions spec + D1 migration` + push to main.
+
+### Codex review — Round 1 Sprint 2 (8.2/10 APPROVED_WITH_NITS)
+- [MEDIUM] Re-run guard docs overpromised — **fixed**: migration header + SPEC §9 переписаны с точным описанием fail-hard behavior, pre-check, partial-failure recovery
+- [LOW] `description_lang` NOT NULL drift — **fixed**: SPEC §3.5 синхронизирован с SQL
+- [LOW] Status enum "9 состояний" неточно + SQL не документировал enum — **fixed**: inline comment в миграции с перечислением 8 persistent states, SPRINT исправлен на "8 persistent состояний"
+
+### Codex review — Round 2 Sprint 2 (9.7/10 APPROVED_WITH_NITS)
+- Все Round-1 findings FIXED
+- [LOW] Self-contradiction в 2.8 и deliverable — **fixed Round 3**: приведено в соответствие (README не обновлялся)
+
+### Codex review — Round 3 Sprint 2 FINAL (10.0/10 APPROVED) ✅
+- Findings: none
+- Все 5 измерений: 2/2
+- Residual risk note: read-only review, migration выполнена отдельно с успехом (remote apply + verify)
+- Путь Sprint 2: 8.2 → 9.7 → **10.0** за 3 раунда
 
 ---
 
@@ -128,20 +142,19 @@ Local D1 имеет все новые таблицы + ALTER-колонки; re-
 Цель: автор может залогиниться в личную зону через persistent token из invite-письма (генерим в админке, копипастим в письмо автору — отдельный email-воркер пока не ставим).
 
 ### Подспринты
-- **3.1** `backend/src/utils/authorAuth.js` — экспортит `getAuthorByToken(request, env)` и `requireAuthor(request, env)`. Проверка: `token` в query или `Authorization: Bearer`, поиск в `expert_tokens WHERE active=1 AND role IN ('author','admin')`, возвращает `{id, name, email, role, scopes, lang}`
-- **3.2** `backend/src/routes/admin-authors-invite.js` — POST `/api/admin/authors/invite` (admin key): body `{name, email, scopes, role, lang}` → генерит 32-байт токен, INSERT в expert_tokens, возвращает `{invite_url: "https://ratedbrokers.com/author?token=..."}`
-- **3.3** GET `/api/admin/authors` — список всех авторов/экспертов + статус
-- **3.4** PATCH `/api/admin/authors/:id` — deactivate / rotate token / update scopes
-- **3.5** Frontend: `src/pages/AuthorPortalLogin.jsx` — простая страница, читает `?token=` из query, сохраняет в localStorage (`rb_author_token`), редирект на `/author/portal`
-- **3.6** Гард: если нет токена → экран «enter your invite link»
-- **3.7** Unit-тесты в `backend/src/tests/` (если есть фреймворк — посмотреть), или минимум manual curl test
-- **3.8** Обновить `AUTHOR-SUBMISSIONS-SPEC.md` → actual auth flow
+- **3.1** ✅ Write `backend/src/utils/authorAuth.js` — `extractToken`, `getAuthor`, `requireAuthor`, `scopeAllows`, `cardScopeAllows`, `authorizeTarget`, `generateToken`. Parses scopes_json, falls back for legacy expert rows (broker_slugs → scopes.reviews)
+- **3.2** ✅ Write `backend/src/routes/admin-author-mgmt.js` — `POST /api/admin/authors/invite` с generateToken + scopes validation (card entries format `<ranking>:<broker>` regex) + invite_url assembly
+- **3.3** ✅ `GET /api/admin/authors/list` — возвращает авторов с parsed scopes + submission_count
+- **3.4** ✅ `PATCH /api/admin/authors/:id` — partial update (name/email/role/lang/scopes/active/expires_days). `POST /api/admin/authors/:id/rotate` — regenerate token, reactivate
+- **3.5** ✅ Write `src/pages/AuthorPortalLogin.jsx` — URL `?token=` + localStorage + manual paste fallback + verify via `/api/author/me`. Export `RequireAuthorToken` guard + STORAGE_KEY константа
+- **3.6** ✅ `src/pages/AuthorPortal.jsx` — placeholder для S5 (header с именем, scope summary, sign-out, «coming soon» для submissions table). Edit `src/App.jsx` — добавлены routes `/author` (login) и `/author/portal` (dashboard) ПЕРЕД `/author/:slug` (public profile). Static ranking в React Router v7 гарантирует правильное разрешение
+- **3.7** ✅ End-to-end smoke test: invite → /me → list → patch scope → rotate (old=401, new=200) → revoke (active=0, 401). Frontend build: ✅ 3.60s, новые chunks AuthorPortal/AuthorPortalLogin присутствуют. Backend deploy: ✅ `wrangler deploy` → prod endpoints отвечают 401 без auth
+- **3.8** ✅ `backend/src/routes/author-me.js` создан как отдельный модуль, роутинг в `index.js` добавлен для 5 новых путей (invite/list/:id/:id/rotate/me). Авто-документация — через spec §6
 
 ### Deliverable
-Админ создаёт автора → выдаёт magic-link → автор заходит → видит «hello, <name>».
+Админ создаёт автора через `POST /api/admin/authors/invite` → получает invite_url → автор открывает `/author?token=...` → token проверяется через `/api/author/me` → сохраняется в localStorage → редирект на `/author/portal` → видит «Hi, <name>» и scope summary. Backend deployed, frontend build clean.
 
-### Codex review
-`— ждёт выполнения —`
+### Codex review — Sprint 3 (запуск сейчас)
 
 ---
 

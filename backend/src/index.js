@@ -10,6 +10,8 @@ import { handleDonorsDashboard, handleDonorsList, handleDonorsBulk, handleDonorU
 import { handleAdminAuthorsDashboard } from './routes/admin-authors.js';
 import { handleReviewsDashboard, handleReviewContent, handleReviewContentUpdate, handleReviewContentDelete, handleReviewOverridesPublic, handleReviewLog, handleTokensList, handleTokenCreate, handleTokenDelete, handleBrokerContent } from './routes/reviews.js';
 import { handleExpertDashboard, handleExpertReviewContent, handleExpertReviewUpdate, handleExpertReviewDelete } from './routes/expert.js';
+import { handleAuthorInvite, handleAuthorList, handleAuthorPatch, handleAuthorRotate } from './routes/admin-author-mgmt.js';
+import { handleAuthorMe } from './routes/author-me.js';
 import { handleOptions } from './utils/cors.js';
 
 export default {
@@ -254,6 +256,27 @@ export default {
     // ─── Authors (S7 outreach map — moved from public /research/authors) ───
     if (path === '/api/admin/authors/dashboard' && request.method === 'GET') {
       return handleAdminAuthorsDashboard(request, env);
+    }
+
+    // ─── Author Submissions — token management (admin) ───
+    if (path === '/api/admin/authors/invite' && request.method === 'POST') {
+      return handleAuthorInvite(request, env);
+    }
+    if (path === '/api/admin/authors/list' && request.method === 'GET') {
+      return handleAuthorList(request, env);
+    }
+    const adminAuthorPatchMatch = path.match(/^\/api\/admin\/authors\/(\d+)$/);
+    if (adminAuthorPatchMatch && request.method === 'PATCH') {
+      return handleAuthorPatch(request, env, adminAuthorPatchMatch[1]);
+    }
+    const adminAuthorRotateMatch = path.match(/^\/api\/admin\/authors\/(\d+)\/rotate$/);
+    if (adminAuthorRotateMatch && request.method === 'POST') {
+      return handleAuthorRotate(request, env, adminAuthorRotateMatch[1]);
+    }
+
+    // ─── Author Submissions — author self-service (token auth) ───
+    if (path === '/api/author/me' && request.method === 'GET') {
+      return handleAuthorMe(request, env);
     }
 
     // ─── Donors (outreach) ───
