@@ -15,24 +15,24 @@ function CreditItem({ label, author, onDark, isFactChecker, showAvatar }) {
 
   return (
     <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-      {showAvatar && <AuthorAvatar author={author} size={28} />}
-      <div style={{ display: "flex", flexDirection: "column", gap: 1 }}>
+      {showAvatar && <AuthorAvatar author={author} size={32} />}
+      <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
         {/* Role label */}
         <span style={{
-          fontSize: 10, fontWeight: 600, textTransform: "uppercase",
-          letterSpacing: "0.06em", color: labelColor, lineHeight: 1,
+          fontSize: 11, fontWeight: 700, textTransform: "uppercase",
+          letterSpacing: "0.06em", color: labelColor, lineHeight: 1.2,
           display: "flex", alignItems: "center", gap: 3,
         }}>
-          {isFactChecker && <Shield size={10} color={shieldColor} />}
+          {isFactChecker && <Shield size={11} color={shieldColor} />}
           {label}
         </span>
         {/* Name + LinkedIn */}
-        <span style={{ display: "flex", alignItems: "center", gap: 4 }}>
+        <span style={{ display: "flex", alignItems: "center", gap: 5 }}>
           <AuthorHoverCard author={author}>
             <Link
               to={lp(`/author/${author.id}`)}
               style={{
-                fontSize: 13, fontWeight: 700, color: nameColor,
+                fontSize: 14, fontWeight: 700, color: nameColor,
                 textDecoration: "none",
                 borderBottom: `1px dotted ${underlineColor}`,
                 paddingBottom: 1,

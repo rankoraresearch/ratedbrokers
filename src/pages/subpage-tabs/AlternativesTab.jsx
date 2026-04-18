@@ -9,8 +9,6 @@ import RegBadge from "../../components/RegBadge";
 
 const NAVY = "#0f172a";
 const GREEN = "#059669";
-const GREEN_LIGHT = "#ecfdf5";
-const GREEN_BORDER = "#a7f3d0";
 const ORANGE = "#f59e0b";
 const GRAY_TEXT = "#374151";
 const GRAY_MUTED = "#64748b";
@@ -54,9 +52,9 @@ function ScoreCompare({ altScore, currentScore, mob }) {
   const isSame = Math.abs(altScore - currentScore) < 0.05;
   return (
     <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-      <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: mob ? 20 : 24, fontWeight: 800, color: GREEN, lineHeight: 1 }}>{altScore}</span>
+      <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: mob ? 20 : 24, fontWeight: 800, color: altScore >= 9.0 ? GREEN : "#64748b", lineHeight: 1 }}>{altScore}</span>
       {!isSame && (
-        <span style={{ fontSize: 11, fontWeight: 700, color: isHigher ? GREEN : ORANGE, background: isHigher ? GREEN_LIGHT : "#fffbeb", padding: "2px 6px", borderRadius: 4 }}>
+        <span style={{ fontSize: 11, fontWeight: 700, color: isHigher ? "#047857" : "#b45309", background: "#f8fafc", border: "1px solid #e2e8f0", padding: "2px 6px", borderRadius: 4 }}>
           {isHigher ? "+" : ""}{diff}
         </span>
       )}
@@ -133,7 +131,7 @@ function FeaturedCard({ alt, rank, currentScore, mob, why }) {
           <div style={{ fontSize: 11, fontWeight: 600, color: isWinner ? "rgba(255,255,255,0.6)" : GRAY_MUTED, textTransform: "uppercase" }}>Score</div>
           <ScoreCompare altScore={alt.score} currentScore={currentScore} mob={mob} />
           {alt.badge && (
-            <div style={{ fontSize: 10, fontWeight: 600, color: isWinner ? "#34d399" : GREEN, background: isWinner ? "rgba(52,211,153,0.15)" : GREEN_LIGHT, padding: "3px 8px", borderRadius: 4, textAlign: "center", display: "flex", alignItems: "center", gap: 3 }}>
+            <div style={{ fontSize: 10, fontWeight: 700, color: isWinner ? "#fbbf24" : "#b45309", background: isWinner ? "rgba(245,158,11,0.15)" : "#fff", border: isWinner ? "1px solid rgba(251,191,36,0.3)" : "1px solid #e2e8f0", padding: "3px 8px", borderRadius: 4, textAlign: "center", display: "flex", alignItems: "center", gap: 3 }}>
               <Star size={10} /> {alt.badge}
             </div>
           )}
@@ -179,7 +177,7 @@ function CompactRow({ alt, i, mob, tab }) {
             <div style={{ fontSize: 14, fontWeight: 700, color: NAVY, fontFamily: "Outfit" }}>{alt.name}</div>
             <div style={{ fontSize: 11, color: GRAY_MUTED }}>{alt.spread} pips · ${alt.minDep} min</div>
           </div>
-          <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 15, fontWeight: 700, color: GREEN, flexShrink: 0 }}>{alt.score}</span>
+          <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 15, fontWeight: 700, color: alt.score >= 9.0 ? GREEN : "#64748b", flexShrink: 0 }}>{alt.score}</span>
         </div>
         {/* Row 2: CTA */}
         <div style={{ paddingLeft: 40, marginTop: 10 }}>
@@ -217,7 +215,7 @@ function CompactRow({ alt, i, mob, tab }) {
       </div>
       {/* Score */}
       <div style={{ textAlign: "center" }}>
-        <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 13, fontWeight: 700, color: GREEN }}>{alt.score}</span>
+        <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 13, fontWeight: 700, color: alt.score >= 9.0 ? GREEN : "#64748b" }}>{alt.score}</span>
       </div>
       {/* Spread */}
       <div style={{ textAlign: "center" }}>
@@ -356,7 +354,7 @@ export default function AlternativesTab({ data, slug, mob, tab }) {
                     {i === 0 && <span style={{ fontSize: 10, color: "#fff", fontWeight: 700, background: GREEN, padding: "1px 6px", borderRadius: 3, display: "inline-flex", alignItems: "center", gap: 2 }}><Trophy size={9} /> #1</span>}
                   </div>
                 </td>
-                <td style={{ padding: "10px 6px", textAlign: "center", fontFamily: "'JetBrains Mono',monospace", fontWeight: 700, color: GREEN }}>{alt.score}</td>
+                <td style={{ padding: "10px 6px", textAlign: "center", fontFamily: "'JetBrains Mono',monospace", fontWeight: 700, color: alt.score >= 9.0 ? GREEN : "#64748b" }}>{alt.score}</td>
                 <td style={{ padding: "10px 6px", textAlign: "center" }}>{alt.spread} pips</td>
                 <td style={{ padding: "10px 6px", textAlign: "center" }}>${alt.minDep}</td>
                 <td style={{ padding: "10px 6px" }}>
@@ -429,11 +427,14 @@ export default function AlternativesTab({ data, slug, mob, tab }) {
         {!showAll && remaining.length > 7 && (
           <button onClick={() => setShowAll(true)} style={{
             display: "flex", alignItems: "center", justifyContent: "center", gap: 6,
-            width: "100%", padding: "12px", marginTop: 8,
-            background: GREEN_LIGHT, border: `1px solid ${GREEN_BORDER}`, borderRadius: 8,
-            color: GREEN, fontSize: 13, fontWeight: 700, cursor: "pointer",
-            fontFamily: "DM Sans",
-          }}>
+            width: "100%", padding: "13px", marginTop: 8,
+            background: "#fff", border: "1px solid #e2e8f0", borderRadius: 10,
+            color: "#0f172a", fontSize: 14, fontWeight: 700, cursor: "pointer",
+            fontFamily: "DM Sans", transition: "all 0.2s",
+          }}
+            onMouseEnter={e => { e.currentTarget.style.borderColor = "#0f172a"; e.currentTarget.style.background = "#f8fafc"; }}
+            onMouseLeave={e => { e.currentTarget.style.borderColor = "#e2e8f0"; e.currentTarget.style.background = "#fff"; }}
+          >
             Show All {remaining.length} Alternatives <ChevronDown size={14} />
           </button>
         )}
@@ -459,7 +460,7 @@ export default function AlternativesTab({ data, slug, mob, tab }) {
           </a>
           {featured[1] && (
             <a href={getVisitUrl(featured[1].slug)} target="_blank" rel="noopener nofollow sponsored" className="cta-secondary" style={{
-              background: "transparent", color: "#34d399", border: "2px solid #34d399",
+              background: "transparent", color: "#fff", border: "1px solid rgba(255,255,255,0.3)",
               fontSize: mob ? 13 : 14, fontWeight: 700, textDecoration: "none",
               padding: mob ? "10px 20px" : "12px 24px", borderRadius: 10, display: "inline-flex",
               alignItems: "center", justifyContent: "center", gap: 6,
