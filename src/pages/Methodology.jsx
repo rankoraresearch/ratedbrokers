@@ -8,7 +8,7 @@ import { getBrokerData } from "../data/brokers/index";
 import { TRUST_SCORE_TIERS, CRITERIA_V2, CHANGELOG, FAQ_METHODOLOGY } from "../data/methodologyData";
 import Icon from "../components/Icon";
 import RegulatorLogo from "../components/RegulatorLogo";
-import { ChevronDown, Clock } from "lucide-react";
+import { ChevronDown, Clock, Linkedin, Info } from "lucide-react";
 import Breadcrumb from "../components/Breadcrumb";
 
 // ============================
@@ -867,7 +867,7 @@ export default function MethodologyPage() {
                   e.currentTarget.style.background = "#f1f5f9";
                   e.currentTarget.style.borderColor = "#e2e8f0";
                 }}
-              >{t("meth.verifyLinkedin")}</a>
+              ><Linkedin size={12} strokeWidth={0} fill="currentColor" style={{ marginRight: 5, verticalAlign: "-1px" }} />{t("meth.verifyLinkedin")}</a>
             </div>
           ))}
         </div>
@@ -879,8 +879,8 @@ export default function MethodologyPage() {
           padding: "24px 28px", borderRadius: 14,
           background: "#fffbeb", border: "1px solid #fde68a", borderLeft: "4px solid #d97706",
         }}>
-          <h3 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 20, color: "#92400e", margin: "0 0 10px" }}>
-            {t("meth.affTitle")}
+          <h3 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 20, color: "#92400e", margin: "0 0 10px", display: "flex", alignItems: "center", gap: 8 }}>
+            <Info size={18} /> {t("meth.affTitle")}
           </h3>
           <p style={{ fontSize: 15, lineHeight: 1.8, color: "#78350f", margin: "0 0 12px" }}>
             {t("meth.affDesc1")}

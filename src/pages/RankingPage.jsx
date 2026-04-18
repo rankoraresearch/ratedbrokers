@@ -195,7 +195,7 @@ function SpreadChart({ brokers, mob }) {
               <div style={{
                 height: "100%", borderRadius: 6,
                 width: `${Math.max(pct, 8)}%`,
-                background: i === 0 ? "linear-gradient(90deg, #059669, #34d399)" : i < 3 ? "#60a5fa" : "#94a3b8",
+                background: i === 0 ? "linear-gradient(90deg, #047857, #065f46)" : "#94a3b8",
                 transition: "width 0.5s ease",
               }} />
               <span style={{

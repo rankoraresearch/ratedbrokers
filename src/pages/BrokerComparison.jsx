@@ -537,7 +537,7 @@ export default function BrokerComparison() {
               <div style={{ display: "flex", gap: 4, justifyContent: "center", flexWrap: "wrap", marginBottom: 16 }}>
                 {sortedRegs(A.regs).slice(0, MAX_HERO_REGS).map(r => <RegBadge key={r.name} reg={r.name} />)}
                 {A.regs.length > MAX_HERO_REGS && (
-                  <Link to={lp(`/reviews/${slugA}/regulation`)} style={{ fontSize: 12, fontWeight: 700, color: "#059669", background: "#ecfdf5", padding: "3px 10px", borderRadius: 20, textDecoration: "none", display: "inline-flex", alignItems: "center" }}>+{A.regs.length - MAX_HERO_REGS} more</Link>
+                  <Link to={lp(`/reviews/${slugA}/regulation`)} style={{ fontSize: 12, fontWeight: 700, color: "#6ee7b7", background: "rgba(52,211,153,0.15)", padding: "3px 10px", borderRadius: 20, textDecoration: "none", display: "inline-flex", alignItems: "center", border: "1px solid rgba(110,231,183,0.3)" }}>+{A.regs.length - MAX_HERO_REGS} more</Link>
                 )}
               </div>
               <div style={{ flex: 1 }} />
@@ -573,7 +573,7 @@ export default function BrokerComparison() {
               <div style={{ display: "flex", gap: 4, justifyContent: "center", flexWrap: "wrap", marginBottom: 16 }}>
                 {sortedRegs(B.regs).slice(0, MAX_HERO_REGS).map(r => <RegBadge key={r.name} reg={r.name} />)}
                 {B.regs.length > MAX_HERO_REGS && (
-                  <Link to={lp(`/reviews/${slugB}/regulation`)} style={{ fontSize: 12, fontWeight: 700, color: "#059669", background: "#ecfdf5", padding: "3px 10px", borderRadius: 20, textDecoration: "none", display: "inline-flex", alignItems: "center" }}>+{B.regs.length - MAX_HERO_REGS} more</Link>
+                  <Link to={lp(`/reviews/${slugB}/regulation`)} style={{ fontSize: 12, fontWeight: 700, color: "#6ee7b7", background: "rgba(52,211,153,0.15)", padding: "3px 10px", borderRadius: 20, textDecoration: "none", display: "inline-flex", alignItems: "center", border: "1px solid rgba(110,231,183,0.3)" }}>+{B.regs.length - MAX_HERO_REGS} more</Link>
                 )}
               </div>
               <div style={{ flex: 1 }} />
@@ -841,9 +841,9 @@ export default function BrokerComparison() {
           <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 26, marginBottom: 8 }}>{t("comp.prosConsTitle")}</h2>
           <p style={{ fontSize: 15, lineHeight: 1.7, color: "#6b7280", marginBottom: 20 }}>Key strengths and weaknesses identified during our independent analysis.</p>
           <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "1fr 1fr", gap: 20 }}>
-            {[{ b: A, data: dataA, accent: "#059669", accentBg: "#ecfdf5" }, { b: B, data: dataB, accent: "#d97706", accentBg: "#fef3c7" }].map((item, bi) => (
-              <div key={bi} style={{ background: "#fff", borderRadius: 14, border: "1px solid #e2e8f0", overflow: "hidden" }}>
-                <div style={{ padding: "16px 20px", fontFamily: "Outfit", fontWeight: 700, fontSize: 16, background: item.accentBg, color: item.accent, borderBottom: "1px solid #e2e8f0", display: "flex", alignItems: "center", gap: 10 }}>
+            {[{ b: A, data: dataA, accent: "#047857" }, { b: B, data: dataB, accent: "#b45309" }].map((item, bi) => (
+              <div key={bi} style={{ background: "#fff", borderRadius: 14, border: "1px solid #e2e8f0", borderTop: `3px solid ${item.accent}`, overflow: "hidden" }}>
+                <div style={{ padding: "16px 20px", fontFamily: "Outfit", fontWeight: 700, fontSize: 16, background: "#fff", color: "#0f172a", borderBottom: "1px solid #e2e8f0", display: "flex", alignItems: "center", gap: 10 }}>
                   <BrokerLogo slug={bi === 0 ? slugA : slugB} name={item.b.name} fallback={item.b.logo} size={28} shape="icon" variant="gray" />
                   {item.b.name}
                 </div>
@@ -882,10 +882,10 @@ export default function BrokerComparison() {
       <section style={{ ...cn, marginTop: 48, marginBottom: 48 }}>
         <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: mob ? 22 : 26, marginBottom: 20 }}>{t("comp.verdictTitle")}</h2>
         <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "1fr 1fr", gap: 20 }}>
-          {[{ b: A, slug: slugA, verdict: verdictA, bg: "#f0fdf4", border: "#bbf7d0", color: "#059669" },
-            { b: B, slug: slugB, verdict: verdictB, bg: "#fffbeb", border: "#fde68a", color: "#d97706" }].map((item, bi) => (
-            <div key={bi} style={{ padding: "24px", borderRadius: 14, background: item.bg, border: `2px solid ${item.border}` }}>
-              <div style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 18, color: item.color, marginBottom: 6 }}>
+          {[{ b: A, slug: slugA, verdict: verdictA, accent: "#047857" },
+            { b: B, slug: slugB, verdict: verdictB, accent: "#b45309" }].map((item, bi) => (
+            <div key={bi} style={{ padding: "24px", borderRadius: 14, background: "#fff", border: "1px solid #e2e8f0", borderTop: `3px solid ${item.accent}` }}>
+              <div style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 18, color: item.accent, marginBottom: 6 }}>
                 {t("comp.chooseIf", { name: item.b.name })}
               </div>
               <p style={{ fontSize: 15, lineHeight: 1.8, color: "#111827", margin: 0 }}>{item.verdict}</p>

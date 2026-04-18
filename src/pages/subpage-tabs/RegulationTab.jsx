@@ -37,16 +37,14 @@ export default function RegulationTab({ data, slug, mob }) {
       <H2>{B.name} Regulatory Licenses</H2>
       <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : regs.length >= 3 ? "1fr 1fr 1fr" : `repeat(${regs.length}, 1fr)`, gap: 14, marginBottom: 20 }}>
         {regs.map((r, i) => {
-          const color = r.tier === 1 ? GREEN : r.tier === 2 ? ORANGE : GRAY_MUTED;
-          const bg = r.tier === 1 ? GREEN_LIGHT : r.tier === 2 ? "#fffbeb" : "#f8f9fb";
-          const borderColor = r.tier === 1 ? GREEN_BORDER : r.tier === 2 ? "#fde68a" : BORDER;
+          const accent = r.tier === 1 ? "#047857" : r.tier === 2 ? "#b45309" : GRAY_MUTED;
           return (
-            <Card key={i} style={{ background: bg, border: `1px solid ${borderColor}`, textAlign: "center", padding: 20 }}>
-              <div style={{ fontSize: 11, fontWeight: 700, color, textTransform: "uppercase", letterSpacing: 1, marginBottom: 8 }}>Tier {r.tier}</div>
+            <Card key={i} style={{ background: "#fff", border: `1px solid ${BORDER}`, borderTop: `3px solid ${accent}`, textAlign: "center", padding: 20 }}>
+              <div style={{ fontSize: 11, fontWeight: 700, color: accent, textTransform: "uppercase", letterSpacing: 1, marginBottom: 8 }}>Tier {r.tier}</div>
               <RegBadge reg={r.name} />
               <div style={{ fontSize: 18, fontWeight: 800, color: NAVY, marginTop: 8, fontFamily: "Outfit" }}>{r.name}</div>
               <div style={{ fontSize: 13, color: GRAY_TEXT, marginTop: 4 }}>{r.country}</div>
-              {(() => { const regData = getRegulatorByName(r.name); const licenseUrl = regData?.licenseCheck; return licenseUrl ? <a href={licenseUrl} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 4, fontSize: 12, color: r.tier === 1 ? GREEN : GRAY_MUTED, marginTop: 8, fontFamily: "'JetBrains Mono',monospace", textDecoration: "none", padding: "3px 10px", borderRadius: 6, background: r.tier === 1 ? "#f0fdf4" : "#f8f9fb", border: `1px solid ${r.tier === 1 ? GREEN_BORDER : BORDER}`, transition: "all 0.15s" }} onMouseEnter={e => { e.currentTarget.style.background = r.tier === 1 ? "#dcfce7" : "#f1f5f9"; e.currentTarget.style.borderColor = r.tier === 1 ? GREEN : "#94a3b8"; }} onMouseLeave={e => { e.currentTarget.style.background = r.tier === 1 ? "#f0fdf4" : "#f8f9fb"; e.currentTarget.style.borderColor = r.tier === 1 ? GREEN_BORDER : BORDER; }}>License: {r.num} <ExternalLink size={11} style={{ opacity: 0.7 }} /></a> : <div style={{ fontSize: 12, color: GRAY_MUTED, marginTop: 8, fontFamily: "'JetBrains Mono',monospace" }}>License: {r.num}</div>; })()}
+              {(() => { const regData = getRegulatorByName(r.name); const licenseUrl = regData?.licenseCheck; return licenseUrl ? <a href={licenseUrl} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 4, fontSize: 12, color: accent, marginTop: 8, fontFamily: "'JetBrains Mono',monospace", textDecoration: "none", padding: "3px 10px", borderRadius: 6, background: "#f8fafc", border: `1px solid ${BORDER}`, transition: "all 0.15s" }} onMouseEnter={e => { e.currentTarget.style.background = "#f1f5f9"; e.currentTarget.style.borderColor = "#94a3b8"; }} onMouseLeave={e => { e.currentTarget.style.background = "#f8fafc"; e.currentTarget.style.borderColor = BORDER; }}>License: {r.num} <ExternalLink size={11} style={{ opacity: 0.7 }} /></a> : <div style={{ fontSize: 12, color: GRAY_MUTED, marginTop: 8, fontFamily: "'JetBrains Mono',monospace" }}>License: {r.num}</div>; })()}
             </Card>
           );
         })}

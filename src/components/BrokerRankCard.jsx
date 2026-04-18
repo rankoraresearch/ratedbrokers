@@ -7,7 +7,7 @@ import RegBadge from "./RegBadge";
 import BrokerLogo from "./BrokerLogo";
 import { getTrustpilotUrl } from "../data/trustpilot-links";
 import { getVisitUrl } from "../utils/visitUrl";
-import { ChevronDown, Check, X as XIcon, ExternalLink } from "lucide-react";
+import { ChevronDown, Check, X as XIcon, ExternalLink, Search } from "lucide-react";
 
 /* ── Wide logo maps — dark variant (white text on navy) ── */
 const WIDE_EXT = {}; /* override for brokers without vector SVG */
@@ -152,7 +152,8 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug, fe
           fontSize: 13, fontWeight: 600, color: "#059669", fontFamily: "inherit",
         }}
       >
-        {analysisOpen ? "Hide full analysis" : "\uD83D\uDD0E Read our full analysis"}
+        {!analysisOpen && <Search size={13} />}
+        {analysisOpen ? "Hide full analysis" : "Read our full analysis"}
         <span style={{
           transition: "transform 0.2s",
           transform: analysisOpen ? "rotate(180deg)" : "none",

@@ -32,9 +32,9 @@ export default function RegBadge({ reg, onDark = false }) {
     fontSize: 11,
     fontWeight: 700,
     letterSpacing: 0.5,
-    background: isTier1 ? "#ecfdf5" : "#f1f5f9",
-    color: isTier1 ? "#059669" : "#1f2937",
-    border: `1px solid ${isTier1 ? "#a7f3d0" : "#e2e8f0"}`,
+    background: "#f8fafc",
+    color: isTier1 ? "#047857" : "#475569",
+    border: "1px solid #e2e8f0",
     textDecoration: "none",
   };
 
