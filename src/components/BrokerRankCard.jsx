@@ -266,7 +266,7 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug, fe
         }}>
           <div style={{
             width: 32, height: 32, borderRadius: 8,
-            background: isTop3 ? "linear-gradient(135deg,#059669,#047857)" : "#f1f5f9",
+            background: isTop3 ? "linear-gradient(135deg,#047857,#065f46)" : "#f1f5f9",
             border: isTop3 ? "none" : "1px solid #e2e8f0",
             display: "flex", alignItems: "center", justifyContent: "center",
             fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 14,
@@ -436,7 +436,7 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug, fe
         {/* Rank badge */}
         <div style={{
           width: 44, height: 44, borderRadius: 10, flexShrink: 0,
-          background: isTop3 ? "linear-gradient(135deg,#059669,#047857)" : "#f1f5f9",
+          background: isTop3 ? "linear-gradient(135deg,#047857,#065f46)" : "#f1f5f9",
           border: isTop3 ? "none" : "1px solid #e2e8f0",
           display: "flex", alignItems: "center", justifyContent: "center",
           fontFamily: "'JetBrains Mono',monospace", fontWeight: 800,
