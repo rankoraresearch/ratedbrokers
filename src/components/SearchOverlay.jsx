@@ -209,7 +209,7 @@ export default function SearchOverlay({ onClose }) {
                     fontSize: 15, fontWeight: 500, color: "#111827", cursor: "pointer",
                     fontFamily: "inherit", transition: "background 0.1s",
                   }}
-                  onMouseEnter={(e) => { e.currentTarget.style.background = "#f0fdf4"; }}
+                  onMouseEnter={(e) => { e.currentTarget.style.background = "#f1f5f9"; }}
                   onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; }}
                 >
                   <span style={{ color: "#1f2937", marginRight: 8 }}>{"\u2192"}</span>
@@ -246,13 +246,13 @@ export default function SearchOverlay({ onClose }) {
                         width: "100%", textAlign: "left", gap: 10,
                         padding: "10px 20px", border: "none", cursor: "pointer",
                         fontFamily: "inherit", transition: "all 0.1s",
-                        background: isActive ? "#f0fdf4" : "transparent",
+                        background: isActive ? "#f1f5f9" : "transparent",
                         borderLeft: isActive ? "3px solid #059669" : "3px solid transparent",
                         fontSize: 15, fontWeight: 500, color: "#111827",
                       }}
                       onMouseEnter={(e) => {
                         setActiveIdx(idx);
-                        e.currentTarget.style.background = "#f0fdf4";
+                        e.currentTarget.style.background = "#f1f5f9";
                       }}
                       onMouseLeave={(e) => {
                         if (idx !== activeIdx) e.currentTarget.style.background = "transparent";

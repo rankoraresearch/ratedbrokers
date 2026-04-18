@@ -4,8 +4,6 @@ import { Zap, BookOpen, MonitorSmartphone, Shield, FileText, Globe, Smartphone, 
 
 const NAVY = "#0f172a";
 const GREEN = "#059669";
-const GREEN_LIGHT = "#ecfdf5";
-const GREEN_BORDER = "#a7f3d0";
 const ORANGE = "#f59e0b";
 const GRAY_TEXT = "#374151";
 const GRAY_MUTED = "#64748b";
@@ -120,7 +118,7 @@ export default function AccountTab({ data, slug, mob }) {
             { icon: Clock, label: "15 minutes", desc: "Total time to complete registration" },
           ].map((r, i) => (
             <div key={i} style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
-              <div style={{ width: 36, height: 36, borderRadius: 8, background: GREEN_LIGHT, border: `1px solid ${GREEN_BORDER}`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}><r.icon size={18} color={GREEN} /></div>
+              <div style={{ width: 36, height: 36, borderRadius: 8, background: "#f1f5f9", border: "1px solid #e2e8f0", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}><r.icon size={18} color={GREEN} /></div>
               <div>
                 <div style={{ fontSize: 14, fontWeight: 600, color: NAVY }}>{r.label}</div>
                 <div style={{ fontSize: 13, color: GRAY_MUTED }}>{r.desc}</div>

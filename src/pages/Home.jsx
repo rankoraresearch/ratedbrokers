@@ -148,36 +148,36 @@ function BrokerPowerCards({ mob, tab, lp, brokers }) {
                   {/* Info */}
                   <div style={{ flex: 1, minWidth: 0 }}>
                     <Link to={lp(`/reviews/${broker.slug}`)} style={{
-                      fontFamily: "'Outfit',sans-serif", fontWeight: 700, fontSize: 15,
+                      fontFamily: "'Outfit',sans-serif", fontWeight: 700, fontSize: mob ? 16 : 15,
                       letterSpacing: "-0.01em", color: "#0f172a", textDecoration: "none",
                       display: "block",
                     }}>{b.name}</Link>
-                    <div style={{ fontSize: 12, color: "#64748b", marginTop: 2 }}>{b.type}</div>
-                    <div style={{ display: "flex", gap: 4, marginTop: 4 }}>
+                    <div style={{ fontSize: mob ? 13 : 12, color: "#64748b", marginTop: 2 }}>{b.type}</div>
+                    <div style={{ display: "flex", gap: 6, marginTop: 5, flexWrap: "wrap" }}>
                       {(b.verticals || []).slice(0, 3).map(v => {
                         const vm = VERTICAL_MAP[v];
-                        return vm ? <span key={v} style={{ display: "inline-flex", alignItems: "center", gap: 3, fontSize: 10, color: "#64748b" }}>
+                        return vm ? <span key={v} style={{ display: "inline-flex", alignItems: "center", gap: 3, fontSize: mob ? 11 : 10, color: "#64748b" }}>
                           <span style={{ width: 5, height: 5, borderRadius: "50%", background: vm.color }} />{vm.label}
                         </span> : null;
                       })}
                     </div>
                   </div>
                   {/* Score + Visit */}
-                  <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, flexShrink: 0 }}>
+                  <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8, flexShrink: 0 }}>
                     <div style={{
-                      width: 44, height: 34, borderRadius: 10,
+                      width: mob ? 48 : 44, height: mob ? 36 : 34, borderRadius: 10,
                       display: "flex", alignItems: "center", justifyContent: "center",
                       background: b.score >= 9.0
                         ? "linear-gradient(135deg, #047857, #065f46)"
                         : "linear-gradient(135deg, #475569, #334155)",
-                      fontFamily: "'JetBrains Mono'", fontSize: 14, fontWeight: 800,
+                      fontFamily: "'JetBrains Mono'", fontSize: mob ? 15 : 14, fontWeight: 800,
                       color: "#fff",
                       boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
                     }}>{b.score}</div>
                     <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{
-                      padding: "6px 14px", borderRadius: 8, fontSize: 11, fontWeight: 700,
+                      padding: mob ? "12px 20px" : "6px 14px", borderRadius: 8, fontSize: mob ? 13 : 11, fontWeight: 800,
                       background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: "#0f172a",
-                      textDecoration: "none",
+                      textDecoration: "none", minHeight: mob ? 44 : "auto", display: "inline-flex", alignItems: "center",
                     }}>Visit</a>
                   </div>
                 </div>
@@ -200,8 +200,8 @@ function BrokerPowerCards({ mob, tab, lp, brokers }) {
             { n: "Q1 2026", l: "Last Updated" },
           ].map((s, i) => (
             <div key={i} style={{ textAlign: "center" }}>
-              <div style={{ fontFamily: "'JetBrains Mono'", fontSize: mob ? 18 : 22, fontWeight: 700, color: "#34d399", letterSpacing: "-0.02em" }}>{s.n}</div>
-              <div style={{ fontSize: 10, color: "rgba(255,255,255,0.35)", fontWeight: 500, textTransform: "uppercase", letterSpacing: 1.5, marginTop: 4 }}>{s.l}</div>
+              <div style={{ fontFamily: "'JetBrains Mono'", fontSize: mob ? 20 : 24, fontWeight: 700, color: "#34d399", letterSpacing: "-0.02em" }}>{s.n}</div>
+              <div style={{ fontSize: mob ? 12 : 11, color: "rgba(255,255,255,0.55)", fontWeight: 600, textTransform: "uppercase", letterSpacing: 1.2, marginTop: 4 }}>{s.l}</div>
             </div>
           ))}
         </div>
