@@ -673,22 +673,30 @@ export default function BrokerReview() {
           {/* ALTERNATIVES */}
           <H2 id="alternatives">{t("review.alternativesTitle", { name: B.name })}</H2>
           <P>{t("review.alternativesDesc", { name: B.name })}</P>
-          {SIMILAR.map((b,i)=>{const altData=getBrokerData(b.slug);const altUrl=getVisitUrl(b.slug,altData?.B?.url);return <Card key={i} style={{display:"flex",flexDirection:mob?"column":"row",alignItems:mob?"stretch":"center",justifyContent:"space-between",gap:mob?10:0}}>
-            <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-              <div>
+          {SIMILAR.map((b,i)=>{const altData=getBrokerData(b.slug);const altUrl=getVisitUrl(b.slug,altData?.B?.url);return <Card key={i} style={{display:"flex",flexDirection:mob?"column":"row",alignItems:mob?"stretch":"center",gap:mob?12:16}}>
+            {/* LEFT: Identity + description (flex 1, can wrap) */}
+            <div style={{flex:mob?"none":1,minWidth:0,display:"flex",alignItems:"center",justifyContent:"space-between",gap:12}}>
+              <div style={{minWidth:0,flex:1}}>
                 <Link to={lp(`/reviews/${b.slug}`)} style={{fontWeight:700,fontSize:16,color:"inherit",textDecoration:"none"}}
                   onMouseEnter={e=>e.currentTarget.style.textDecoration="underline"}
                   onMouseLeave={e=>e.currentTarget.style.textDecoration="none"}
                 >{b.name}</Link>
-                <div style={{fontSize:mob?13:14,color:"#374151"}}>{b.type} {"\u00b7"} {b.spread && b.spread !== "N/A" && !b.spread.includes("$") && !b.spread.includes("\u20ac") ? `${t("home.from")} ${b.spread} ${t("home.pips")}` : b.spread && b.spread !== "N/A" ? b.spread : ""} {"\u00b7"} {b.why}</div>
+                <div style={{fontSize:mob?13:14,color:"#374151",lineHeight:1.5}}>{b.type} {"\u00b7"} {b.spread && b.spread !== "N/A" && !b.spread.includes("$") && !b.spread.includes("\u20ac") ? `${t("home.from")} ${b.spread} ${t("home.pips")}` : b.spread && b.spread !== "N/A" ? b.spread : ""} {"\u00b7"} {b.why}</div>
               </div>
-              {mob&&<span style={{fontFamily:"'JetBrains Mono'",fontSize:18,fontWeight:800,color:b.score>=9.0?"#059669":"#64748b",flexShrink:0}}>{b.score}</span>}
+              {/* Score — mobile inline right of text */}
+              {mob&&<span style={{fontFamily:"'JetBrains Mono'",fontSize:20,fontWeight:800,color:b.score>=9.0?"#059669":"#64748b",flexShrink:0}}>{b.score}</span>}
             </div>
-            <div style={{display:"flex",alignItems:"center",gap:mob?8:10,...(mob?{}:{})}}>
-              {!mob&&<span style={{fontFamily:"'JetBrains Mono'",fontSize:16,fontWeight:800,color:b.score>=9.0?"#059669":"#64748b"}}>{b.score}</span>}
-              <a href={altUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{fontSize:13,color:"#0f172a",fontWeight:800,textDecoration:"none",padding:mob?"10px 14px":"8px 16px",borderRadius:8,background:"linear-gradient(135deg,#f59e0b,#fbbf24)",display:"inline-flex",alignItems:"center",justifyContent:"center",gap:5,flex:mob?1:"none",boxShadow:"0 2px 8px rgba(245,158,11,0.2)"}}>{t("review.visit", { name: b.name })} <ArrowUpRight size={13} /></a>
-              <Link to={lp(`/reviews/${b.slug}`)} style={{fontSize:13,color:"#0f172a",fontWeight:600,textDecoration:"none",padding:mob?"10px 14px":"8px 16px",border:"1px solid #cbd5e1",borderRadius:8,display:"inline-flex",alignItems:"center",justifyContent:"center",gap:4,flex:mob?1:"none",background:"#fff"}}>{t("home.review")} <ArrowRight size={14} /></Link>
-            </div>
+            {/* RIGHT (desktop): score fixed col + CTAs */}
+            {!mob && <div style={{display:"flex",alignItems:"center",gap:12,flexShrink:0}}>
+              <span style={{fontFamily:"'JetBrains Mono'",fontSize:18,fontWeight:800,color:b.score>=9.0?"#059669":"#64748b",width:40,textAlign:"center"}}>{b.score}</span>
+              <a href={altUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{fontSize:13,color:"#0f172a",fontWeight:800,textDecoration:"none",padding:"10px 16px",borderRadius:8,background:"linear-gradient(135deg,#f59e0b,#fbbf24)",display:"inline-flex",alignItems:"center",justifyContent:"center",gap:5,boxShadow:"0 2px 8px rgba(245,158,11,0.2)",minWidth:110,whiteSpace:"nowrap"}}>{t("review.visit", { name: b.name })} <ArrowUpRight size={13} /></a>
+              <Link to={lp(`/reviews/${b.slug}`)} style={{fontSize:13,color:"#0f172a",fontWeight:600,textDecoration:"none",padding:"10px 16px",border:"1px solid #cbd5e1",borderRadius:8,display:"inline-flex",alignItems:"center",justifyContent:"center",gap:4,background:"#fff",minWidth:100,whiteSpace:"nowrap"}}>{t("home.review")} <ArrowRight size={14} /></Link>
+            </div>}
+            {/* RIGHT (mobile): CTAs full-width */}
+            {mob && <div style={{display:"flex",alignItems:"center",gap:8}}>
+              <a href={altUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{fontSize:13,color:"#0f172a",fontWeight:800,textDecoration:"none",padding:"12px 14px",borderRadius:8,background:"linear-gradient(135deg,#f59e0b,#fbbf24)",display:"inline-flex",alignItems:"center",justifyContent:"center",gap:5,flex:1,minHeight:44,boxShadow:"0 2px 8px rgba(245,158,11,0.2)"}}>{t("review.visit", { name: b.name })} <ArrowUpRight size={13} /></a>
+              <Link to={lp(`/reviews/${b.slug}`)} style={{fontSize:13,color:"#0f172a",fontWeight:600,textDecoration:"none",padding:"12px 14px",border:"1px solid #cbd5e1",borderRadius:8,display:"inline-flex",alignItems:"center",justifyContent:"center",gap:4,background:"#fff",flex:1,minHeight:44}}>{t("home.review")} <ArrowRight size={14} /></Link>
+            </div>}
           </Card>})}
           <Link to={lp(`/reviews/${slug}/alternatives`)} style={{display:"flex",alignItems:"center",justifyContent:"center",gap:6,fontSize:14,fontWeight:700,color:"#0f172a",textDecoration:"none",padding:"13px 20px",border:"1px solid #e2e8f0",borderRadius:10,marginTop:8,marginBottom:8,background:"#fff",transition:"all 0.2s"}} onMouseEnter={e=>{e.currentTarget.style.borderColor="#0f172a";e.currentTarget.style.background="#f8fafc"}} onMouseLeave={e=>{e.currentTarget.style.borderColor="#e2e8f0";e.currentTarget.style.background="#fff"}}>See All Best {B.name} Alternatives <ArrowRight size={14} /></Link>
 
