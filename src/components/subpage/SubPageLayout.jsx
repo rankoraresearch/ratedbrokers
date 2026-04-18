@@ -19,8 +19,6 @@ import { getVisitUrl } from "../../utils/visitUrl";
 
 const NAVY = "#0f172a";
 const GREEN = "#059669";
-const GREEN_LIGHT = "#ecfdf5";
-const GREEN_BORDER = "#a7f3d0";
 const ORANGE = "#f59e0b";
 const GRAY_MUTED = "#64748b";
 const BORDER = "#e8ecf1";
@@ -275,7 +273,7 @@ export default function SubPageLayout({ data, slug, activeTab, children }) {
                 ))}
               </Card>
 
-              <Card style={{ background: GREEN_LIGHT, border: `1px solid ${GREEN_BORDER}` }}>
+              <Card style={{ borderTop: `3px solid ${GREEN}` }}>
                 <div style={{ fontSize: 12, fontWeight: 700, color: GREEN, textTransform: "uppercase", letterSpacing: 1, marginBottom: 10 }}>Deep Dive</div>
                 {TABS.map((t, i) => {
                   const TabIcon = t.icon;

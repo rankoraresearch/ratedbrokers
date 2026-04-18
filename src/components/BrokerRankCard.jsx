@@ -124,8 +124,8 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug, fe
       {thematic.pros.map((p, i) => (
         <span key={`p${i}`} style={{
           display: "inline-flex", alignItems: "center", gap: 4,
-          padding: "2px 8px", borderRadius: 16, fontSize: 12, fontWeight: 500,
-          background: "#ecfdf5", color: "#047857",
+          padding: "2px 8px", borderRadius: 16, fontSize: 12, fontWeight: 600,
+          background: "#f1f5f9", color: "#047857", border: "1px solid #e2e8f0",
         }}>
           <Check size={10} /> {p}
         </span>
@@ -133,8 +133,8 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug, fe
       {thematic.cons.map((c, i) => (
         <span key={`c${i}`} style={{
           display: "inline-flex", alignItems: "center", gap: 4,
-          padding: "2px 8px", borderRadius: 16, fontSize: 12, fontWeight: 500,
-          background: "#fef2f2", color: "#b91c1c",
+          padding: "2px 8px", borderRadius: 16, fontSize: 12, fontWeight: 600,
+          background: "#f1f5f9", color: "#b91c1c", border: "1px solid #e2e8f0",
         }}>
           <XIcon size={10} /> {c}
         </span>
@@ -149,7 +149,7 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug, fe
         style={{
           display: "flex", alignItems: "center", gap: 6, padding: "8px 0",
           border: "none", background: "none", cursor: "pointer",
-          fontSize: 13, fontWeight: 600, color: "#2563eb", fontFamily: "inherit",
+          fontSize: 13, fontWeight: 600, color: "#059669", fontFamily: "inherit",
         }}
       >
         {analysisOpen ? "Hide full analysis" : "\uD83D\uDD0E Read our full analysis"}
@@ -251,12 +251,13 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug, fe
   // MOBILE
   // ═══════════════════════════════════════════
   if (mob) {
+    const isTop3 = rank <= 3;
     return (
       <div style={{
         background: "#fff", borderRadius: 16,
-        border: rank === 1 ? "2px solid #059669" : "1px solid #d1d5db",
+        border: "1px solid #d1d5db",
         overflow: "hidden",
-        boxShadow: rank === 1 ? "0 4px 16px rgba(5,150,105,0.08)" : "0 2px 8px rgba(15,23,42,0.06)",
+        boxShadow: "0 2px 8px rgba(15,23,42,0.06)",
       }}>
         {/* Header: rank left, score right */}
         <div style={{
@@ -265,10 +266,11 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug, fe
         }}>
           <div style={{
             width: 32, height: 32, borderRadius: 8,
-            background: "#ecfdf5", border: "1px solid #a7f3d0",
+            background: isTop3 ? "linear-gradient(135deg,#047857,#065f46)" : "#f1f5f9",
+            border: isTop3 ? "none" : "1px solid #e2e8f0",
             display: "flex", alignItems: "center", justifyContent: "center",
             fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 14,
-            color: "#059669",
+            color: isTop3 ? "#fff" : "#64748b",
           }}>#{rank}</div>
           <ScoreBadge score={B.score} size="lg" />
         </div>
@@ -292,15 +294,15 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug, fe
             {B.badge && (
               <span style={{
                 display: "inline-block", marginTop: 5, padding: "2px 10px", borderRadius: 6,
-                fontSize: 11, fontWeight: 700, background: "#ecfdf5", color: "#047857",
-                border: "1px solid #a7f3d0",
+                fontSize: 11, fontWeight: 700, background: "#fff", color: "#047857",
+                border: "1px solid #e2e8f0",
               }}>{B.badge}</span>
             )}
             {_featuredLabel && (
               <span style={{
                 display: "inline-block", marginTop: 5, padding: "2px 10px", borderRadius: 6,
-                fontSize: 11, fontWeight: 700, background: "#fef3c7", color: "#92400e",
-                border: "1px solid #fcd34d",
+                fontSize: 11, fontWeight: 700, background: "#fff", color: "#b45309",
+                border: "1px solid #e2e8f0",
               }}>{_featuredLabel}</span>
             )}
           </div>
@@ -399,7 +401,8 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug, fe
                 {B.verdict && (
                   <div style={{
                     marginTop: 8, padding: "8px 12px", borderRadius: 8,
-                    background: "#f0fdf4", fontSize: 13, color: "#059669", fontWeight: 600,
+                    background: "#f8fafc", border: "1px solid #e2e8f0",
+                    fontSize: 13, color: "#059669", fontWeight: 600,
                   }}>Verdict: {B.verdict}</div>
                 )}
               </div>
@@ -413,16 +416,17 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug, fe
   // ═══════════════════════════════════════════
   // DESKTOP / TABLET
   // ═══════════════════════════════════════════
+  const isTop3 = rank <= 3;
   return (
     <div style={{
       background: "#fff", borderRadius: 16,
-      border: rank === 1 ? "2px solid #059669" : "1px solid #d1d5db",
-      boxShadow: rank === 1 ? "0 4px 16px rgba(5,150,105,0.08)" : "0 2px 8px rgba(15,23,42,0.06)",
+      border: "1px solid #d1d5db",
+      boxShadow: "0 2px 8px rgba(15,23,42,0.06)",
       transition: "all 0.25s cubic-bezier(0.4,0,0.2,1)",
       overflow: "hidden",
     }}
-      onMouseEnter={(e) => { e.currentTarget.style.boxShadow = rank === 1 ? "0 8px 32px rgba(5,150,105,0.12)" : "0 8px 32px rgba(0,0,0,0.08)"; }}
-      onMouseLeave={(e) => { e.currentTarget.style.boxShadow = rank === 1 ? "0 4px 16px rgba(5,150,105,0.08)" : "0 2px 8px rgba(15,23,42,0.06)"; }}
+      onMouseEnter={(e) => { e.currentTarget.style.boxShadow = "0 8px 32px rgba(0,0,0,0.08)"; }}
+      onMouseLeave={(e) => { e.currentTarget.style.boxShadow = "0 2px 8px rgba(15,23,42,0.06)"; }}
     >
       {/* ── Top row: horizontal summary ── */}
       <div style={{
@@ -432,10 +436,11 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug, fe
         {/* Rank badge */}
         <div style={{
           width: 44, height: 44, borderRadius: 10, flexShrink: 0,
-          background: "#ecfdf5", border: "1px solid #a7f3d0",
+          background: isTop3 ? "linear-gradient(135deg,#047857,#065f46)" : "#f1f5f9",
+          border: isTop3 ? "none" : "1px solid #e2e8f0",
           display: "flex", alignItems: "center", justifyContent: "center",
           fontFamily: "'JetBrains Mono',monospace", fontWeight: 800,
-          fontSize: 16, color: "#059669",
+          fontSize: 16, color: isTop3 ? "#fff" : "#64748b",
         }}>#{rank}</div>
 
         {/* Col 1: Identity (wide logo + name + badge + type) */}
@@ -452,15 +457,15 @@ export default function BrokerRankCard({ broker, rank, thematic, rankingSlug, fe
               {B.badge && (
                 <span style={{
                   padding: "1px 8px", borderRadius: 4, fontSize: 10, fontWeight: 700,
-                  background: "#ecfdf5", color: "#047857", whiteSpace: "nowrap",
-                  border: "1px solid #a7f3d0",
+                  background: "#fff", color: "#047857", whiteSpace: "nowrap",
+                  border: "1px solid #e2e8f0",
                 }}>{B.badge}</span>
               )}
               {_featuredLabel && (
                 <span style={{
                   padding: "1px 8px", borderRadius: 4, fontSize: 10, fontWeight: 700,
-                  background: "#fef3c7", color: "#92400e", whiteSpace: "nowrap",
-                  border: "1px solid #fcd34d",
+                  background: "#fff", color: "#b45309", whiteSpace: "nowrap",
+                  border: "1px solid #e2e8f0",
                 }}>{_featuredLabel}</span>
               )}
             </h3>
