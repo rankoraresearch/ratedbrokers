@@ -27,6 +27,14 @@ import {
   handleAdminSubmissionStatus,
   handleAdminSubmissionsExport,
 } from './routes/admin-submissions.js';
+import {
+  handleImportToReview,
+  handleImportToRanking,
+  handleImportToCard,
+  handlePublishSubmission,
+  handleRevertSubmission,
+  handleRankingContentPublic,
+} from './routes/admin-submissions-processing.js';
 import { handleOptions } from './utils/cors.js';
 
 export default {
@@ -332,6 +340,34 @@ export default {
     const adminSubStatusMatch = path.match(/^\/api\/admin\/submissions\/(\d+)\/status$/);
     if (adminSubStatusMatch && request.method === 'PATCH') {
       return handleAdminSubmissionStatus(request, env, adminSubStatusMatch[1]);
+    }
+
+    // ─── Submissions side-effect endpoints (Sprint 7) ───
+    const importReviewMatch = path.match(/^\/api\/admin\/submissions\/(\d+)\/import-to-review$/);
+    if (importReviewMatch && request.method === 'POST') {
+      return handleImportToReview(request, env, importReviewMatch[1]);
+    }
+    const importRankingMatch = path.match(/^\/api\/admin\/submissions\/(\d+)\/import-to-ranking$/);
+    if (importRankingMatch && request.method === 'POST') {
+      return handleImportToRanking(request, env, importRankingMatch[1]);
+    }
+    const importCardMatch = path.match(/^\/api\/admin\/submissions\/(\d+)\/import-to-card$/);
+    if (importCardMatch && request.method === 'POST') {
+      return handleImportToCard(request, env, importCardMatch[1]);
+    }
+    const publishSubMatch = path.match(/^\/api\/admin\/submissions\/(\d+)\/publish$/);
+    if (publishSubMatch && request.method === 'POST') {
+      return handlePublishSubmission(request, env, publishSubMatch[1]);
+    }
+    const revertSubMatch = path.match(/^\/api\/admin\/submissions\/(\d+)\/revert$/);
+    if (revertSubMatch && request.method === 'POST') {
+      return handleRevertSubmission(request, env, revertSubMatch[1]);
+    }
+
+    // ─── Public ranking content (Sprint 7 destination for ranking authors) ───
+    const rankingContentMatch = path.match(/^\/api\/rankings\/([a-z0-9-]+)\/content$/);
+    if (rankingContentMatch && request.method === 'GET') {
+      return handleRankingContentPublic(request, env, rankingContentMatch[1]);
     }
 
     // ─── Donors (outreach) ───

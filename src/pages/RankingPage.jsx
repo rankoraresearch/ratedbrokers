@@ -12,7 +12,7 @@
  * Блок 8: Education (thematic or fallback)
  * + In-Depth Reviews (country only), Related Rankings, FAQ, JSON-LD
  */
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { useMedia } from "../hooks/useMedia";
 import { useSEO } from "../hooks/useSEO";
@@ -419,8 +419,41 @@ export default function RankingPage() {
   const fullSlug = "/" + slug;
   const ranking = getRankingBySlug(fullSlug);
 
-  // SEO: canonical, OG, Twitter Card
-  const seoContent = ranking ? SEO_CONTENT[ranking.id] : null;
+  // Live ranking_content override from /api/rankings/:id/content (Sprint 7).
+  // Falls back to bundled SEO_CONTENT when published fields are absent.
+  const [contentOverride, setContentOverride] = useState(null);
+  useEffect(() => {
+    if (!ranking) return;
+    let alive = true;
+    const apiBase = import.meta.env.VITE_API_URL || "";
+    if (!apiBase) return;
+    fetch(`${apiBase}/api/rankings/${ranking.id}/content?lang=en`)
+      .then(r => r.ok ? r.json() : null)
+      .then(data => { if (alive && data && data.available) setContentOverride(data); })
+      .catch(() => {});
+    return () => { alive = false; };
+  }, [ranking?.id]);
+
+  // SEO: canonical, OG, Twitter Card. Live override wins over bundled fallback
+  // for each field individually (non-NULL override replaces).
+  const bundledSeo = ranking ? SEO_CONTENT[ranking.id] : null;
+  const seoContent = useMemo(() => {
+    if (!bundledSeo && !contentOverride) return null;
+    const merged = { ...(bundledSeo || {}) };
+    if (contentOverride) {
+      if (contentOverride.meta_title) merged.metaTitle = contentOverride.meta_title;
+      if (contentOverride.meta_desc) merged.metaDesc = contentOverride.meta_desc;
+      if (contentOverride.intro_md) {
+        // Split MD by double-newline into paragraph array (the shape the UI expects).
+        merged.intro = contentOverride.intro_md.split(/\n\n+/).map(s => s.trim()).filter(Boolean);
+      }
+      if (contentOverride.key_finding) merged.keyFinding = contentOverride.key_finding;
+      if (contentOverride.how_we_ranked) merged.howWeRanked = contentOverride.how_we_ranked;
+      if (contentOverride.outro_md) merged.outro = contentOverride.outro_md;
+      if (contentOverride.faq && Array.isArray(contentOverride.faq)) merged.faq = contentOverride.faq;
+    }
+    return merged;
+  }, [bundledSeo, contentOverride]);
   useSEO({
     title: seoContent?.metaTitle || (ranking ? `${ranking.title} ${YEAR} | RatedBrokers` : "Not Found"),
     description: seoContent?.metaDesc || "",

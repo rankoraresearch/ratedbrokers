@@ -580,7 +580,11 @@ export function applyOverrides(brokers, overrides) {
   result = result.map((b) => {
     const o = overrideMap[b.slug];
     if (!o) return b;
-    const copy = { ...b, _featuredLabel: o.featured_label || null };
+    const copy = {
+      ...b,
+      _featuredLabel: o.featured_label || null,
+      _cardDescription: o.description_md || null,
+    };
     if (o.position > 0) copy._overridePos = o.position;
     return copy;
   });

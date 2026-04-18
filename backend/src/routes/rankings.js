@@ -398,20 +398,28 @@ export async function handleRankingOrderReset(request, env, rankingId) {
 // ─── GET /api/rankings/:id/order (public) ───
 export async function handleRankingOrderPublic(request, env, rankingId) {
   const headers = { ...corsHeaders(request), 'Content-Type': 'application/json', 'Cache-Control': 'public, max-age=300' };
+  const url = new URL(request.url);
+  const lang = url.searchParams.get('lang') || 'en';
 
   const result = await env.DB.prepare(`
-    SELECT broker_slug, position, featured_label, hidden
+    SELECT broker_slug, position, featured_label, hidden,
+           description_md, description_published_at, description_lang
     FROM ranking_overrides WHERE ranking_id = ? ORDER BY position ASC
   `).bind(rankingId).all();
 
   return Response.json({
     ranking_id: rankingId,
-    brokers: result.results.map(r => ({
-      slug: r.broker_slug,
-      position: r.position,
-      featured_label: r.featured_label,
-      hidden: r.hidden === 1,
-    })),
+    brokers: result.results.map(r => {
+      const descLive = r.description_published_at && r.description_md
+        && (r.description_lang === lang);
+      return {
+        slug: r.broker_slug,
+        position: r.position,
+        featured_label: r.featured_label,
+        hidden: r.hidden === 1,
+        description_md: descLive ? r.description_md : null,
+      };
+    }),
   }, { headers });
 }
 

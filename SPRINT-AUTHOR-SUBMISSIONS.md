@@ -242,7 +242,13 @@ Commit: `16cfac1 feat(submissions): S1+S2 — author submissions spec + D1 migra
 10-й таб Submissions доступен в админке. End-to-end smoke test (10 сценариев) все зелёные: list с фильтрами, detail drawer, accept без notes, reject без notes → 400, reject с notes → 200, CAS 409 на повторный decision, CSV export, HTML dashboard 200. Backend deployed version `609dae6f`.
 
 ### Codex review Sprint 6
-**(запуск сейчас)**
+- Round 1: 8.0/10 APPROVED_WITH_NITS — 2 MEDIUM (limit clamp / CSV end-date) + 2 LOW (body guard / fetch error UI)
+- Round 2: 9.3/10 — Round-1 fixed, new MEDIUM (malformed date params crash) + LOW (from validation)
+- Round 3: 9.5/10 — date validation FIX, 1 MEDIUM (CSV formula injection) + LOW (CORS on error paths)
+- Round 4: 9.5/10 — formula + CORS fixed, 1 LOW (env not passed to corsHeaders)
+- Round 5 FINAL: **10/10 APPROVED** ✅ (no findings)
+- Путь: 8.0 → 9.3 → 9.5 → 9.5 → 10.0 за 5 раундов, 4 итерации правок
+- Commits: `419957b` (base), `ca81659` (R1), `35c251d` (R2), `a54e49b` (R3), `e6b91ff` (R4)
 
 ---
 
@@ -251,19 +257,25 @@ Commit: `16cfac1 feat(submissions): S1+S2 — author submissions spec + D1 migra
 Цель: от «submission accepted» до «живой контент на сайте» одним кликом (или парой).
 
 ### Подспринты
-- **7.1** Для `target_type=review`: import-helper пишет в `review_overrides` с `status='draft'` (уже существующая колонка). Публикация отдельным шагом — «Mark Published» флипает `status='published'`. Автоматическая разметка секций: если body содержит H2 `## Section: Costs`, разрезаем по ним и раскидываем по нескольким секциям. Multi-row → несколько INSERT в `submission_imports`.
-- **7.2** Новая таблица `ranking_content` — **полная shape из SPEC §3.4** (draft + published slots для meta_title, meta_desc, intro_md, key_finding, how_we_ranked, outro_md, faq_json). Не position-based, а slot-based (все 7 полей на одной строке `(ranking_id, lang)`).
-- **7.3** ALTER `ranking_overrides`: добавить `description_md_draft`, `description_md`, `description_lang`, `description_published_at` — publish-gating для per-card описаний. Author правит draft, admin публикует.
-- **7.4** Frontend `src/pages/RankingPage.jsx` — fetch `/api/rankings/:id/content` (CORS public, cache 5min) → возвращает ТОЛЬКО published-поля. Cascade: если поле NULL → fallback на `rankingSeoContent.js`.
-- **7.5** Frontend `src/components/BrokerRankCard.jsx` — рендерит `description_md` только если `description_published_at IS NOT NULL` (draft невидим). Public endpoint уже возвращает только published.
-- **7.6** Admin endpoints:
-  - `POST /api/admin/submissions/:id/import-to-review` — Claude-cut в `review_overrides.status='draft'`, INSERT в `submission_imports`, submission → status=`processed`
-  - `POST /api/admin/submissions/:id/import-to-ranking` — в `ranking_content.*_draft`, submission → `processed`
-  - `POST /api/admin/submissions/:id/import-to-card` — в `ranking_overrides.description_md_draft`, submission → `processed`
-  - `POST /api/admin/submissions/:id/publish` — flip destination draft-slot → live-slot (CAS guard), submission → `published`, save `published_at`
-  - `POST /api/admin/submissions/:id/revert` — clear live-slot (emergency unpublish), submission → `reverted`
-- **7.7** UI в submission detail: кнопки соответствуют target_type, after successful import показывается список записей из `submission_imports` (где лежит обработанный контент)
-- **7.8** Manual Claude-driven split: если submission = всё ревью одним блоком без H2-маркеров — я разбираю body на секции **в preprocess-шаге перед вызовом endpoint**, затем делаю ОДИН `POST /import-to-review` с already-chunked body (endpoint принимает body как массив `{section, content}` или plain body + server-side split). CAS `status='accepted'→'processed'` срабатывает один раз; все N строк в `review_overrides` и `submission_imports` — в одной D1 batch-транзакции. Повторный вызов upload'а НЕ возможен (status уже processed → 409). Если после processing нужно дослать ещё секцию — отдельный submission от автора (не append к processed).
+- **7.1** ✅ `POST /import-to-review` (admin-submissions-processing.js) — `splitReviewBody()` парсит `## Section: <key>` H2 markers, fallback на target_section. Batch: CAS → processed + N INSERT в review_overrides с status='draft' + INSERT в submission_imports (UNIQUE dedup) + review_edit_log audit
+- **7.2** ✅ ranking_content использована из Sprint 2 schema (уже созданная). `splitRankingBody()` парсит `## Intro / Key Finding / How We Ranked / Outro / FAQ` headers + `Q:/A:` пары для FAQ; INSERT через ON CONFLICT UPDATE с COALESCE (сохраняет существующие draft-slots, если парсер не увидел секцию)
+- **7.3** ✅ `ranking_overrides` уже с ALTER из Sprint 2. `POST /import-to-card` — INSERT с position=999 + ON CONFLICT UPDATE description_md_draft
+- **7.4** ✅ `RankingPage.jsx` — новый useEffect fetches `/api/rankings/:id/content?lang=en`, useMemo мержит override поверх bundled SEO_CONTENT (non-NULL override wins per field)
+- **7.5** ✅ Расширил `handleRankingOrderPublic`: добавил `description_md` в response (только если published + lang match); `applyOverrides` пробрасывает `_cardDescription` в broker object
+- **7.6** ✅ 5 new endpoints: `/import-to-review`, `/import-to-ranking`, `/import-to-card`, `/publish`, `/revert`, plus public `GET /api/rankings/:id/content`
+- **7.7** ✅ Admin dashboard drawer расширен: кнопки Import/Publish/Revert появляются по статусу (accepted / processed / processed|published). `sideEffect()` helper на клиенте
+- **7.8** ✅ Single-shot import with section split in one batch (CAS guard выполняется один раз, 409 при повторе). `splitReviewBody` чисто server-side, нет manual preprocess
+
+### Deliverable
+Полный pipeline end-to-end работает на local и deployed. Smoke test 3 pipelines (review multi-section / ranking / card) все зелёные:
+- `review`: split по H2 → 2 строки в review_overrides draft → publish → public endpoint видит обе → revert → draft опять
+- `ranking`: parse 5 секций + FAQ с 2 вопросами → draft slots → publish → public `/content?lang=en` возвращает все поля
+- `card`: body_md в description_md_draft → publish → public `/order?lang=en` возвращает description_md
+
+Backend deployed `376befac`. Frontend build clean (3.73s).
+
+### Codex review Sprint 7
+**(запуск сейчас)**
 
 ### Deliverable
 Обработанный сабмит реально виден на проде.

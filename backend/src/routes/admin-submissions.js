@@ -474,6 +474,14 @@ function closeDrawer() {
 
 function renderDetail(s) {
   const canDecide = s.status === 'submitted';
+  const canImport = s.status === 'accepted';
+  const canPublish = s.status === 'processed';
+  const canRevert = s.status === 'processed' || s.status === 'published';
+  const importLabel = s.target_type === 'review' ? 'Import to Review'
+                    : s.target_type === 'ranking' ? 'Import to Ranking'
+                    : s.target_type === 'card' ? 'Import to Card'
+                    : 'Import';
+  const importEndpoint = 'import-to-' + s.target_type;
   const eventsHtml = (s.events || []).map(e => \`
     <li><strong>\${escapeHtml(e.event)}</strong> · \${escapeHtml(e.actor_type)} \${e.notes ? '· <em>' + escapeHtml(e.notes) + '</em>' : ''}
     <span style="float:right;color:var(--text-muted);font-family:'SF Mono',monospace">\${escapeHtml(e.created_at)}</span></li>
@@ -509,7 +517,29 @@ function renderDetail(s) {
         <button class="btn-secondary" onclick="decide(\${s.id},'request_changes')">Request changes</button>
         <button class="btn-danger" onclick="decide(\${s.id},'reject')">Reject</button>
       </div>
-    \` : '<div style="font-size:12px;color:var(--text-muted)">No review decision available in current status.</div>'}
+    \` : ''}
+    \${canImport ? \`
+      <div style="font-weight:700;font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;margin:16px 0 6px">Import</div>
+      <div style="font-size:12px;color:var(--text-muted);margin-bottom:8px">Writes to draft slot(s) in the destination table. The content is not visible on the public site until you click Publish.</div>
+      <div class="action-row">
+        <button class="btn-primary" onclick="sideEffect(\${s.id},'\${importEndpoint}')">\${importLabel}</button>
+      </div>
+    \` : ''}
+    \${canPublish ? \`
+      <div style="font-weight:700;font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;margin:16px 0 6px">Publish</div>
+      <div style="font-size:12px;color:var(--text-muted);margin-bottom:8px">Flips each destination row from draft to live. Content becomes visible on the public site.</div>
+      <div class="action-row">
+        <button class="btn-primary" onclick="sideEffect(\${s.id},'publish')">Publish to live site</button>
+      </div>
+    \` : ''}
+    \${canRevert ? \`
+      <div style="font-weight:700;font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;margin:16px 0 6px">Revert</div>
+      <div style="font-size:12px;color:var(--text-muted);margin-bottom:8px">Emergency unpublish. Clears LIVE slots; DRAFTS are preserved for forensics / re-publish.</div>
+      <div class="action-row">
+        <button class="btn-danger" onclick="if(confirm('Clear live slots for this submission?')) sideEffect(\${s.id},'revert')">Revert from live</button>
+      </div>
+    \` : ''}
+    \${!canDecide && !canImport && !canPublish && !canRevert ? '<div style="font-size:12px;color:var(--text-muted)">No action available in status \\'' + s.status + '\\'.</div>' : ''}
 
     <div style="font-weight:700;font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;margin:16px 0 6px">Imports (destinations)</div>
     <ul class="timeline">\${importsHtml}</ul>
@@ -540,6 +570,20 @@ async function decide(id, decision) {
     return;
   }
   closeDrawer();
+  loadList();
+}
+
+async function sideEffect(id, action) {
+  const res = await fetch(API('/api/admin/submissions/' + id + '/' + action), {
+    method: 'POST',
+  });
+  const body = await res.json().catch(()=>({}));
+  if (!res.ok) {
+    alert('Error: ' + (body.error || res.status));
+    return;
+  }
+  // Re-fetch the submission so the drawer reflects the new status + imports.
+  openDrawer(id);
   loadList();
 }
 
