@@ -460,13 +460,15 @@ export default function RankingPage() {
     path: ranking ? ranking.slug : null,
   });
 
-  // JSON-LD + meta
+  // JSON-LD + meta. Uses the merged `seoContent` so live ranking_content
+  // overrides (meta_title / meta_desc / key_finding / how_we_ranked / faq)
+  // make it into document title + meta + schema.org markup, not just the UI.
   useEffect(() => {
     if (ranking) {
-      const seo = SEO_CONTENT[ranking.id];
-      document.title = seo?.metaTitle || `${ranking.title} ${YEAR}`;
+      const seo = seoContent || {};
+      document.title = seo.metaTitle || `${ranking.title} ${YEAR}`;
       const metaDesc = document.querySelector('meta[name="description"]');
-      if (metaDesc && seo?.metaDesc) metaDesc.setAttribute("content", seo.metaDesc);
+      if (metaDesc && seo.metaDesc) metaDesc.setAttribute("content", seo.metaDesc);
 
       const a = getAuthorForRanking(ranking.category);
       const brokersForSchema = getBrokersForRanking(ranking.id);
@@ -587,7 +589,9 @@ export default function RankingPage() {
 
   const baseBrokers = getBrokersForRanking(ranking.id);
   const brokers = applyOverrides(baseBrokers, overrides);
-  const seo = SEO_CONTENT[ranking.id] || {};
+  // Render from merged seoContent (live override > bundled fallback), so author
+  // edits to intro / key_finding / how_we_ranked / outro / FAQ actually surface.
+  const seo = seoContent || {};
   const topBroker = brokers[0]?.B?.name || "IC Markets";
   const author = getAuthorForRanking(ranking.category);
   const editor = getEditor();

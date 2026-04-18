@@ -33,44 +33,57 @@ const REVIEW_SECTIONS = new Set([
 // Section splitter — detects `## Section: <key>` headers in body_md and splits
 // the body into per-section chunks. Used by import-to-review.
 // ═══════════════════════════════════════════════════════════════════════════
+// Case-insensitive lookup: map lowercase label → canonical section key.
+// Accepts both camelCase keys ("accountIntro") and their lowercase prefixes
+// ("account intro" normalized to "accountintro" → matched).
+const SECTION_LOOKUP = (() => {
+  const m = new Map();
+  for (const key of REVIEW_SECTIONS) {
+    m.set(key.toLowerCase(), key);
+  }
+  return m;
+})();
+
 export function splitReviewBody(bodyMd, fallbackSection) {
   const sections = [];
-  // Normalize line endings, then walk lines to find `## Section: <key>` markers.
   const lines = String(bodyMd || '').replace(/\r\n/g, '\n').split('\n');
   let currentKey = null;
   let currentBuf = [];
   let preludeBuf = [];
 
-  const headerRe = /^##\s+Section:\s*([a-zA-Z]+)\s*$/;
+  // Tolerant: allow any alnum label (letters, spaces, digits); normalize case.
+  const headerRe = /^##\s+Section:\s*([a-zA-Z0-9 ]+?)\s*$/;
 
   for (const line of lines) {
     const m = line.match(headerRe);
     if (m) {
-      const key = m[1];
+      const rawKey = m[1];
+      const normalized = rawKey.replace(/\s+/g, '').toLowerCase();
+      const canonical = SECTION_LOOKUP.get(normalized);
       // Flush previous section if any.
       if (currentKey) {
         sections.push({ section: currentKey, content: currentBuf.join('\n').trim() });
       } else if (preludeBuf.length && preludeBuf.some(l => l.trim())) {
-        // Non-empty content before the first header — treat as fallback section's content.
         sections.push({ section: fallbackSection || 'overview', content: preludeBuf.join('\n').trim() });
       }
-      currentKey = REVIEW_SECTIONS.has(key) ? key : null;
+      // Unknown section key → skip content until the next known header
+      // (avoids accidentally misrouting into the fallback).
+      currentKey = canonical || null;
       currentBuf = [];
       preludeBuf = [];
     } else {
       if (currentKey) currentBuf.push(line);
-      else preludeBuf.push(line);
+      else if (currentKey === null && sections.length === 0) preludeBuf.push(line);
+      // If we're inside an unknown section (currentKey===null after a header)
+      // — just drop the lines.
     }
   }
-  // Flush last buffer.
   if (currentKey) {
     sections.push({ section: currentKey, content: currentBuf.join('\n').trim() });
-  } else if (preludeBuf.length) {
+  } else if (preludeBuf.length && sections.length === 0) {
     const content = preludeBuf.join('\n').trim();
     if (content) sections.push({ section: fallbackSection || 'overview', content });
   }
-
-  // Drop empty-content sections.
   return sections.filter(s => s.content);
 }
 
@@ -99,20 +112,35 @@ export function splitRankingBody(bodyMd) {
     const text = buf.join('\n').trim();
     if (!text) return;
     if (current === '__faq__') {
-      // Parse Q:/A: pairs.
+      // Parse Q:/A: pairs. Answers may span multiple lines until the next
+      // Q: marker (or end of FAQ section).
       const faq = [];
       let q = null;
+      let aLines = [];
+      const flushPair = () => {
+        if (q) {
+          faq.push({ q, a: aLines.join('\n').trim() });
+          q = null;
+          aLines = [];
+        }
+      };
       for (const ln of buf) {
         const qm = ln.match(/^Q:\s*(.+)$/i);
-        const am = ln.match(/^A:\s*(.+)$/i);
-        if (qm) { if (q) faq.push({ q, a: '' }); q = qm[1].trim(); }
-        else if (am && q) { faq.push({ q, a: am[1].trim() }); q = null; }
-        else if (q && ln.trim()) {
-          // Continuation of previous A:
-          if (faq.length && !faq[faq.length - 1].a) faq[faq.length - 1].a = ln.trim();
+        const am = ln.match(/^A:\s*(.*)$/i); // allow empty A: on first line
+        if (qm) {
+          flushPair();
+          q = qm[1].trim();
+          aLines = [];
+        } else if (am) {
+          if (q) aLines.push(am[1]);
+          // else: stray A: before any Q: — ignore
+        } else if (q && aLines.length > 0) {
+          // Continuation line of the current answer.
+          aLines.push(ln);
         }
+        // other lines outside Q/A context are skipped
       }
-      if (q && !faq.find(f => f.q === q)) faq.push({ q, a: '' });
+      flushPair();
       if (faq.length) out.faq_json = JSON.stringify(faq);
     } else {
       out[current] = text;
@@ -269,13 +297,18 @@ export async function handleImportToRanking(request, env, id) {
     editor, now,
   ));
 
-  const ref = `${sub.target_slug}:${sub.lang}`;
-  statements.push(env.DB.prepare(
-    `INSERT OR IGNORE INTO submission_imports (submission_id, destination_type, destination_ref, imported_by)
-     VALUES (?, 'ranking_content', ?, 'admin')`
-  ).bind(submissionId, ref));
-
+  // Record ONE submission_imports row PER field actually imported. This lets
+  // publish/revert operate per-field so two submissions editing different
+  // fields on the same ranking_content row don't step on each other.
   const imported = Object.keys(parts).filter(k => parts[k] != null);
+  for (const field of imported) {
+    const ref = `${sub.target_slug}:${sub.lang}:${field}`;
+    statements.push(env.DB.prepare(
+      `INSERT OR IGNORE INTO submission_imports (submission_id, destination_type, destination_ref, imported_by)
+       VALUES (?, 'ranking_content', ?, 'admin')`
+    ).bind(submissionId, ref));
+  }
+
   statements.push(env.DB.prepare(
     `INSERT INTO submission_events (submission_id, actor_type, actor_id, event, notes)
      VALUES (?, 'admin', NULL, 'processed', ?)`
@@ -379,38 +412,46 @@ export async function handlePublishSubmission(request, env, id) {
      WHERE id = ? AND status = 'processed'`
   ).bind(now, now, submissionId));
 
+  // Whitelist of ranking_content columns we allow to be flipped draft→live.
+  // Prevents SQL injection via a malformed destination_ref.
+  const RANKING_FIELDS = new Set([
+    'meta_title', 'meta_desc', 'intro_md', 'key_finding',
+    'how_we_ranked', 'outro_md', 'faq_json',
+  ]);
+
   // Per destination: flip draft-slot → live-slot.
+  // Each UPDATE is tracked so we can detect no-op matches (deleted/missing rows).
   for (const imp of imports.results) {
     if (imp.destination_type === 'review_override') {
       const [broker_slug, section, lang] = imp.destination_ref.split(':');
       statements.push(env.DB.prepare(
         `UPDATE review_overrides SET status = 'published', updated_at = ?
-         WHERE broker_slug = ? AND section = ? AND lang = ?`
+         WHERE broker_slug = ? AND section = ? AND lang = ? AND status = 'draft'`
       ).bind(now, broker_slug, section, lang));
     } else if (imp.destination_type === 'ranking_content') {
-      const [ranking_id, lang] = imp.destination_ref.split(':');
+      // New ref shape: "<ranking_id>:<lang>:<field>". Flip only this field.
+      const [ranking_id, lang, field] = imp.destination_ref.split(':');
+      if (!RANKING_FIELDS.has(field)) {
+        // Legacy or malformed ref — skip rather than risk bad SQL.
+        continue;
+      }
       statements.push(env.DB.prepare(
         `UPDATE ranking_content SET
-           meta_title = COALESCE(meta_title_draft, meta_title),
-           meta_desc = COALESCE(meta_desc_draft, meta_desc),
-           intro_md = COALESCE(intro_md_draft, intro_md),
-           key_finding = COALESCE(key_finding_draft, key_finding),
-           how_we_ranked = COALESCE(how_we_ranked_draft, how_we_ranked),
-           outro_md = COALESCE(outro_md_draft, outro_md),
-           faq_json = COALESCE(faq_json_draft, faq_json),
+           ${field} = COALESCE(${field}_draft, ${field}),
            published_at = ?
          WHERE ranking_id = ? AND lang = ?`
       ).bind(now, ranking_id, lang));
     } else if (imp.destination_type === 'ranking_card') {
-      const parts = imp.destination_ref.split(':');
-      const ranking_id = parts[0], broker_slug = parts[1];
+      // Ref: "<ranking_id>:<broker_slug>:<lang>". Include lang in scoping.
+      const [ranking_id, broker_slug, lang] = imp.destination_ref.split(':');
       statements.push(env.DB.prepare(
         `UPDATE ranking_overrides SET
            description_md = description_md_draft,
            description_published_at = ?,
+           description_lang = ?,
            updated_at = ?
-         WHERE ranking_id = ? AND broker_slug = ?`
-      ).bind(now, now, ranking_id, broker_slug));
+         WHERE ranking_id = ? AND broker_slug = ? AND description_md_draft IS NOT NULL`
+      ).bind(now, lang, now, ranking_id, broker_slug));
     }
   }
 
@@ -459,32 +500,56 @@ export async function handleRevertSubmission(request, env, id) {
      WHERE id = ? AND status IN ('processed', 'published')`
   ).bind(now, now, submissionId));
 
+  const RANKING_FIELDS = new Set([
+    'meta_title', 'meta_desc', 'intro_md', 'key_finding',
+    'how_we_ranked', 'outro_md', 'faq_json',
+  ]);
+
+  // Track per-ranking row whether any live field remains; only clear
+  // `published_at` when all fields we're reverting are zeroed. (Other
+  // submissions' fields on the same ranking row must stay live.)
+  // We approximate this here: after clearing our specific fields, check
+  // whether the row still has any live content; if nothing left, clear
+  // published_at. Executed as separate UPDATE after per-field clears.
+  const rankingKeysTouched = new Set();
+
   for (const imp of (imports.results || [])) {
     if (imp.destination_type === 'review_override') {
       const [broker_slug, section, lang] = imp.destination_ref.split(':');
       statements.push(env.DB.prepare(
         `UPDATE review_overrides SET status = 'draft', updated_at = ?
-         WHERE broker_slug = ? AND section = ? AND lang = ?`
+         WHERE broker_slug = ? AND section = ? AND lang = ? AND status = 'published'`
       ).bind(now, broker_slug, section, lang));
     } else if (imp.destination_type === 'ranking_content') {
-      const [ranking_id, lang] = imp.destination_ref.split(':');
-      // Clear LIVE fields only. Drafts are preserved for forensics / re-publish.
+      const [ranking_id, lang, field] = imp.destination_ref.split(':');
+      if (!RANKING_FIELDS.has(field)) continue;
       statements.push(env.DB.prepare(
-        `UPDATE ranking_content SET
-           meta_title = NULL, meta_desc = NULL, intro_md = NULL,
-           key_finding = NULL, how_we_ranked = NULL, outro_md = NULL, faq_json = NULL,
-           published_at = NULL
+        `UPDATE ranking_content SET ${field} = NULL
          WHERE ranking_id = ? AND lang = ?`
       ).bind(ranking_id, lang));
+      rankingKeysTouched.add(`${ranking_id}:${lang}`);
     } else if (imp.destination_type === 'ranking_card') {
-      const parts = imp.destination_ref.split(':');
-      const ranking_id = parts[0], broker_slug = parts[1];
+      const [ranking_id, broker_slug, lang] = imp.destination_ref.split(':');
       statements.push(env.DB.prepare(
         `UPDATE ranking_overrides SET
            description_md = NULL, description_published_at = NULL, updated_at = ?
-         WHERE ranking_id = ? AND broker_slug = ?`
-      ).bind(now, ranking_id, broker_slug));
+         WHERE ranking_id = ? AND broker_slug = ? AND description_lang = ?`
+      ).bind(now, ranking_id, broker_slug, lang));
     }
+  }
+
+  // Only clear ranking_content.published_at when ALL live fields on that
+  // row are now NULL — i.e. this submission's revert didn't leave other
+  // published content behind.
+  for (const ref of rankingKeysTouched) {
+    const [ranking_id, lang] = ref.split(':');
+    statements.push(env.DB.prepare(
+      `UPDATE ranking_content SET published_at = NULL
+       WHERE ranking_id = ? AND lang = ?
+         AND meta_title IS NULL AND meta_desc IS NULL AND intro_md IS NULL
+         AND key_finding IS NULL AND how_we_ranked IS NULL AND outro_md IS NULL
+         AND faq_json IS NULL`
+    ).bind(ranking_id, lang));
   }
 
   statements.push(env.DB.prepare(
@@ -528,6 +593,12 @@ export async function handleRankingContentPublic(request, env, rankingId) {
     return Response.json({ available: false }, { status: 200, headers });
   }
 
+  let faq = null;
+  if (row.faq_json) {
+    try { faq = JSON.parse(row.faq_json); }
+    catch { faq = null; }
+  }
+
   return Response.json({
     available: true,
     meta_title: row.meta_title,
@@ -536,7 +607,7 @@ export async function handleRankingContentPublic(request, env, rankingId) {
     key_finding: row.key_finding,
     how_we_ranked: row.how_we_ranked,
     outro_md: row.outro_md,
-    faq: row.faq_json ? JSON.parse(row.faq_json) : null,
+    faq,
     published_at: row.published_at,
   }, { headers });
 }
