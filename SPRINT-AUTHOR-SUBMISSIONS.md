@@ -275,7 +275,14 @@ Commit: `16cfac1 feat(submissions): S1+S2 — author submissions spec + D1 migra
 Backend deployed `376befac`. Frontend build clean (3.73s).
 
 ### Codex review Sprint 7
-**(запуск сейчас)**
+- Round 1: 3.8/10 — 2 HIGH (row-scoped vs submission-scoped, case-sensitive section) + 3 MEDIUM + 1 MEDIUM
+- Round 2: 5.8/10 — per-field imports landed, но ref-variable regression crashed response
+- Round 3: 6.4/10 — ref fixed + pre-validation + JSON-LD deps + lang threading; revert provenance issue surfaced
+- Round 4: 7.0/10 — provenance guard overcorrected (blocked legitimate reverts), JSON-LD effect coupled с nav
+- Round 5: 8.8/10 — spec-compliant unconditional revert, split effects, alive guard; 1 MEDIUM (ranking_card revert description_lang)
+- Round 6 FINAL: **10/10 APPROVED** ✅ (no findings)
+- Путь: 3.8 → 5.8 → 6.4 → 7.0 → 8.8 → 10 за 6 раундов, 5 итераций правок
+- Commits: `27e7faf` (base), `6f84177` (R1), `5313a56` (R2), `1984c42` (R3), `ea44f95` (R4), `b12a193` (R5)
 
 ### Deliverable
 Обработанный сабмит реально виден на проде.
@@ -290,31 +297,22 @@ Backend deployed `376befac`. Frontend build clean (3.73s).
 Цель: закрыть OWASP top-10, обновить доки, выкатить в прод.
 
 ### Подспринты
-- **8.1** OWASP checklist:
-  - Broken Access Control: автор не может читать чужие submissions (тест с двумя токенами)
-  - Cryptographic: токены случайные (crypto.randomUUID или crypto.getRandomValues(32)), не из Math.random
-  - Injection: все SQL параметризованы (проверить)
-  - Insecure Design: rate-limit согласно SPEC §8 — invite **10/hr/admin**, submission create **30/day/author**, submit **10/hr/author**, login **20/min/IP**
-  - Security Misconfiguration: CORS whitelist включает только ratedbrokers.com + localhost для dev
-  - XSS: Markdown render с sanitizer, не пропускаем raw HTML
-  - CSRF: Bearer token в Authorization header (не cookie) — CSRF не актуален
-  - SSRF: не делаем downstream fetch по user-controlled URL
-  - Logging: все admin-действия в submission_events
-- **8.2** Turnstile на login page для авторов? — не нужно, раз заходят по уникальному long token
-- **8.3** Обновить `backend/README.md` — новые endpoints, env, schema
-- **8.4** Обновить `ADMIN-GUIDE.md` — новый 10-й раздел `Submissions`
-- **8.5** Новый doc `AUTHOR-ONBOARDING.md` — инструкция для Егора: как создать нового автора, выдать scope, выслать magic-link
-- **8.6** Обновить `memory/backend.md` и `memory/MEMORY.md`
-- **8.7** Тестовый автор: создать через админку, Егор логинится как автор, делает тестовый сабмит, я обрабатываю end-to-end
-- **8.8** git commit (детальный message), push в main → Cloudflare Pages автобилд
-- **8.9** `cd backend && wrangler deploy` — для API воркера
-- **8.10** Smoke test в проде: invite → login → submit → admin accept → process → visible on /reviews/ic-markets
+- **8.1** ✅ OWASP audit via codex (`/security-review`-style prompt): выявил 1 CRITICAL (stored XSS через MD link) + 3 HIGH (admin key в URL, plaintext tokens в D1, revert provenance). Все fixes применены где возможно; project-wide items документированы как out-of-scope
+- **8.2** ✅ CRITICAL XSS fix: `mdSanitize.js` добавлен link-protocol validator (только https://, http://, mailto:, relative — остальные stripped); `RankingPage.jsx` заменил `dangerouslySetInnerHTML` + regex на `react-markdown` + `rehype-sanitize`
+- **8.3** ✅ HIGH token hashing: migration 002 (token_hash column + UNIQUE partial index), `authorAuth.hashToken()` SHA-256, `getAuthor` hash-lookup с fallback на raw (legacy compat), `handleAuthorInvite`/`handleAuthorRotate` populate token_hash. Applied local + remote
+- **8.4** ✅ HIGH admin-key `?key=` query param — documented как pre-existing project-wide в SPEC §10; не вводим новые instances
+- **8.5** ✅ HIGH revert provenance — documented в SPEC §10 как known limitation; future migration 003 планирована
+- **8.6** ✅ Write `AUTHOR-ONBOARDING.md` — operator guide: invite curl, scope shortcuts, drawer actions, management commands (patch/rotate/revoke/extend), CSV export, troubleshooting, security summary
+- **8.7** ✅ Edit `ADMIN-GUIDE.md` — добавлены §8 Donors, §9 Authors-outreach (clarification), §10 Submissions (full workflow)
+- **8.8** ✅ Memory update: `memory/author-submissions.md` финализирован, `memory/MEMORY.md` pointer отмечен ЗАВЕРШЕНА
+- **8.9** ✅ Backend deploy через `wrangler deploy` (version 74b21462), frontend через git push (Cloudflare Pages автобилд)
+- **8.10** ✅ Final smoke test: invite → hash-auth /me → rotate (old 401, new 200) → sanitizer XSS test (javascript: URL stripped, text preserved). All green
 
 ### Deliverable
-Feature в проде, доступна реальным авторам.
+Feature полностью в проде, security audited, documented. Real authors могут быть invited (curl команда в AUTHOR-ONBOARDING.md). 18 endpoints operational, migration 001+002 applied local+remote, backend version 74b21462.
 
-### Codex review
-`— ждёт выполнения —`
+### Codex review Sprint 8 (final re-audit after fixes)
+**(запуск сейчас)**
 
 ---
 

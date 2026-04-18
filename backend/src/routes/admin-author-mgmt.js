@@ -6,7 +6,7 @@
  */
 import { corsHeaders } from '../utils/cors.js';
 import { checkAuth } from '../utils/auth.js';
-import { generateToken } from '../utils/authorAuth.js';
+import { generateToken, hashToken } from '../utils/authorAuth.js';
 
 function jsonHeaders(request) {
   return { ...corsHeaders(request), 'Content-Type': 'application/json' };
@@ -119,16 +119,24 @@ export async function handleAuthorInvite(request, env) {
   if (!expCheck.ok) return Response.json({ error: expCheck.error }, { status: 400, headers });
 
   const token = generateToken();
+  const tokenDigest = await hashToken(token);
   const expiresAt = expCheck.value
     ? new Date(Date.now() + expCheck.value * 86400000)
         .toISOString().slice(0, 19).replace('T', ' ')
     : null;
 
+  // Store SHA-256 hash of the token, not the token itself. The raw token
+  // is only returned once in the invite_url response below. A DB leak
+  // exposes hashes, not usable credentials.
+  // We still populate the legacy `token` column so handleTokensList and
+  // the /api/expert/* pre-authorBearer flow keep working; once expert.js
+  // is migrated to hash-lookup we can drop the raw column.
   const res = await env.DB.prepare(`
-    INSERT INTO expert_tokens (token, name, email, lang, broker_slugs, expires_at, role, scopes_json)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+    INSERT INTO expert_tokens (token, token_hash, name, email, lang, broker_slugs, expires_at, role, scopes_json)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
   `).bind(
     token,
+    tokenDigest,
     name,
     email || null,
     lang || 'en',
@@ -305,9 +313,10 @@ export async function handleAuthorRotate(request, env, id) {
   }
 
   const newToken = generateToken();
+  const newTokenHash = await hashToken(newToken);
   await env.DB.prepare(
-    'UPDATE expert_tokens SET token = ?, active = 1 WHERE id = ?'
-  ).bind(newToken, authorId).run();
+    'UPDATE expert_tokens SET token = ?, token_hash = ?, active = 1 WHERE id = ?'
+  ).bind(newToken, newTokenHash, authorId).run();
 
   const base = resolveFrontendBase(env, request);
   const inviteUrl = `${base}/author?token=${encodeURIComponent(newToken)}`;

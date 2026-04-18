@@ -13,6 +13,8 @@
  * + In-Depth Reviews (country only), Related Rankings, FAQ, JSON-LD
  */
 import { useState, useEffect, useRef, useMemo } from "react";
+import ReactMarkdown from "react-markdown";
+import rehypeSanitize from "rehype-sanitize";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { useMedia } from "../hooks/useMedia";
 import { useSEO } from "../hooks/useSEO";
@@ -753,15 +755,23 @@ export default function RankingPage() {
       {seo.intro && (
         <section style={{ ...cn, paddingTop: mob ? 14 : 18, paddingBottom: mob ? 14 : 18 }}>
           {seo.intro.map((p, i) => (
-            <p key={i} style={{
+            <div key={i} style={{
               fontSize: 15, lineHeight: 1.7, color: "#374151",
               marginBottom: i < seo.intro.length - 1 ? 12 : 0,
-            }}
-              dangerouslySetInnerHTML={{ __html: fillVars(p)
-                .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
-                .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" style="color:#059669;text-decoration:none;font-weight:500">$1</a>')
-              }}
-            />
+            }}>
+              <ReactMarkdown
+                rehypePlugins={[rehypeSanitize]}
+                components={{
+                  a: ({ href, children }) => (
+                    <a href={href} style={{ color: "#059669", textDecoration: "none", fontWeight: 500 }}>
+                      {children}
+                    </a>
+                  ),
+                }}
+              >
+                {fillVars(p)}
+              </ReactMarkdown>
+            </div>
           ))}
         </section>
       )}

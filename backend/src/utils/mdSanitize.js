@@ -72,11 +72,20 @@ export function sanitizeMarkdownBody(input) {
     return `<${name}${sanitizeAttributes(name, rawAttrs)}>`;
   });
 
-  // URLs inside Markdown `[text](url)` are intentionally left untouched here.
-  // body_md is stored as Markdown text; it is never rendered publicly until an
-  // admin runs the Sprint 7 import flow, which will copy content into destination
-  // tables (review_overrides / ranking_content) that have their own rendering
-  // pipeline. A frontend MD sanitizer will be introduced alongside that pipeline.
+  // Neutralize dangerous Markdown link protocols at storage time.
+  // [text](javascript:...) / [text](data:...) / [text](vbscript:...) are
+  // replaced with a harmless placeholder URL. https://, http://, mailto:,
+  // and relative paths pass through. This is a defense-in-depth layer on
+  // top of the frontend allowlist renderer — because some legacy render
+  // paths may still regex-replace links into raw <a href="...">.
+  out = out.replace(/\[([^\]\n]+)\]\(\s*([^)\s]+)\s*\)/g, (match, text, url) => {
+    const lower = url.toLowerCase();
+    if (/^(https?:\/\/|mailto:|\/|#)/.test(lower)) return `[${text}](${url})`;
+    // Anything else (javascript:, data:, vbscript:, tel:, file:, etc.) —
+    // strip the link entirely, keep the text.
+    return text;
+  });
+
   return out;
 }
 

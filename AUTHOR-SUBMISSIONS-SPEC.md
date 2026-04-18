@@ -407,6 +407,9 @@ Scopes хранятся как `JSON` в `expert_tokens.scopes_json`. Card-scope
 
 ## 10. Out of scope (future)
 
+### Admin dashboard auth via query param (pre-existing, project-wide)
+All 10 admin dashboards (including the new Submissions tab) accept admin auth via `?key=` query parameter, matching the pattern established by earlier sprints (stats.js, admin.js, rankings.js, etc.). This leaks the admin key into browser history, server logs, and Referer headers. `auth.js` has a TODO to migrate to HttpOnly session cookies. Treating this as a project-wide infra task scheduled separately — not introducing new instances beyond what the existing pattern requires, and fixing it once should cover all dashboards atomically.
+
 ### Multi-submission revert provenance
 When two submissions A and B publish to the same ranking_content row (different fields), the system guarantees draft preservation but NOT provenance-accurate revert. If A publishes `intro_md=X`, then B republishes `intro_md=Y`, reverting A clears `intro_md` even though Y was the live content. Drafts are preserved, so re-running B's publish restores Y. A stronger solution (`prior_live_value` snapshot column in `submission_imports`) is deferred to a future migration.
 

@@ -127,9 +127,71 @@
 
 ---
 
+## 8. Donors *(outreach backlinks)*
+Адрес: `/api/admin/donors/dashboard`
+
+Карта ~2,070 refdomains-донаторов для linkbuilding. Фильтры по DR/tier/status. Per-row details с emails + forms.
+
+---
+
+## 9. Authors *(outreach research)*
+Адрес: `/api/admin/authors/dashboard`
+
+Карта 579 авторов-конкурентов (не путать с Submissions!). Top Picks tab с realistic scoring. Не для управления нашими авторами — для research.
+
+---
+
+## 10. Submissions *(Author Submissions Pipeline)*
+Адрес: `/api/admin/submissions/dashboard`
+
+Приём сырых MD-текстов от живых авторов. Full pipeline: draft → submitted → accepted → processed → published (+ rejected, needs_changes, reverted).
+
+### Что видит админ
+- 4 KPI: Pending / Last 7 days / Total / Avg turnaround (hours)
+- Фильтры: status, type (review/ranking/card), author name, lang
+- Таблица сабмитов, click → slide-over drawer
+
+### Drawer действия (по статусу)
+
+**`submitted` →** PATCH `/status` review-decision:
+- **Accept** → `accepted`
+- **Request changes** → `needs_changes` (admin_notes обязательны, видны автору)
+- **Reject** → `rejected` (admin_notes обязательны, terminal)
+
+**`accepted` →** POST side-effect endpoints (атомарно с destination mutation):
+- **Import to Review** (`target_type=review`) — body_md разрезается по `## Section: <key>` markers → N строк в `review_overrides` со `status='draft'`
+- **Import to Ranking** (`target_type=ranking`) — body_md парсится по `## Intro / ## Key Finding / ## How We Ranked / ## Outro / ## FAQ` (с `Q:/A:` парами) → draft-slots в `ranking_content`
+- **Import to Card** (`target_type=card`) — body_md → `ranking_overrides.description_md_draft`
+
+**`processed` →** POST `/publish` — flip destination draft-slot → live-slot (контент становится виден публично).
+
+**`processed` или `published` →** POST `/revert` — emergency unpublish, clear live-slot. Draft preserved, можно re-publish.
+
+### Invite автора (обязательно admin key)
+```bash
+curl -X POST https://api.ratedbrokers.com/api/admin/authors/invite \
+  -H "Authorization: Bearer $API_KEY" -H "Content-Type: application/json" \
+  -d '{"name":"Jane Writer","email":"jane@example.com","role":"author",
+       "scopes":{"reviews":["ic-markets","etoro"],"rankings":["best-forex-brokers-uk"],"cards":["best-forex-brokers-uk:etoro"],"langs":["en"]},
+       "expires_days":90}'
+```
+Response содержит `invite_url` — копипастни автору. Токен хэшируется в D1 (SHA-256), raw видим только в invite response.
+
+### Управление авторами
+- `GET /api/admin/authors` — список
+- `PATCH /api/admin/authors/:id` — update scopes / active / expires
+- `POST /api/admin/authors/:id/rotate` — regenerate token (старый токен сразу 401)
+
+### Export
+- `GET /api/admin/submissions/export.csv?status=&from=&to=` — CSV для оплаты авторам (с formula-injection guard)
+
+Подробнее: `AUTHOR-SUBMISSIONS-SPEC.md` (full architecture), `AUTHOR-ONBOARDING.md` (operator how-to).
+
+---
+
 ## Навигация
 
-Все 7 разделов доступны через верхнюю панель навигации (sticky topbar). Логотип "Rated.Admin" ведёт на Click Dashboard.
+Все 10 разделов доступны через верхнюю панель навигации (sticky topbar). Логотип "Rated.Admin" ведёт на Click Dashboard.
 
 Общий дизайн: dark theme, glass-card summary, premium-table, green accent (#4ade80).
 

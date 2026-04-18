@@ -45,20 +45,45 @@ function parseScopes(raw) {
 }
 
 /**
+ * SHA-256 hex digest of an input string. Uses Web Crypto (Workers runtime).
+ */
+export async function hashToken(raw) {
+  const data = new TextEncoder().encode(raw);
+  const digest = await crypto.subtle.digest('SHA-256', data);
+  const bytes = new Uint8Array(digest);
+  return Array.from(bytes, b => b.toString(16).padStart(2, '0')).join('');
+}
+
+/**
  * Look up the caller by token in expert_tokens. Returns a full author object
  * or null if: no token, token not found, inactive, or expired.
  *
- * Legacy `expert` role rows (no scopes_json) are returned too; their `scopes`
- * object is derived from broker_slugs for backward compatibility with /expert.
+ * Two lookup paths:
+ *   1. Modern (post-migration-002): compute SHA-256 of incoming raw token,
+ *      look up by `token_hash`. Used for all author invites + rotations.
+ *   2. Legacy: fall back to raw `token` column for pre-migration-002 rows
+ *      (notably legacy expert rows created via reviews.js handleTokenCreate
+ *      before hashing existed, still used by /api/expert/*).
+ *
+ * Legacy `expert` role rows derive scopes from broker_slugs for back-compat.
  */
 export async function getAuthor(request, env) {
   const token = extractToken(request);
   if (!token) return null;
 
-  const row = await env.DB.prepare(
+  const tokenHash = await hashToken(token);
+  let row = await env.DB.prepare(
     `SELECT id, token, name, email, lang, broker_slugs, active, expires_at, role, scopes_json
-     FROM expert_tokens WHERE token = ? AND active = 1`
-  ).bind(token).first();
+     FROM expert_tokens WHERE token_hash = ? AND active = 1`
+  ).bind(tokenHash).first();
+
+  if (!row) {
+    // Legacy path: raw token comparison (pre-migration-002 rows).
+    row = await env.DB.prepare(
+      `SELECT id, token, name, email, lang, broker_slugs, active, expires_at, role, scopes_json
+       FROM expert_tokens WHERE token = ? AND token_hash IS NULL AND active = 1`
+    ).bind(token).first();
+  }
   if (!row) return null;
   if (row.expires_at && new Date(row.expires_at) < new Date()) return null;
 
