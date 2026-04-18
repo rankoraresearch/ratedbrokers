@@ -175,9 +175,9 @@ function BrokerPowerCards({ mob, tab, lp, brokers }) {
                       boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
                     }}>{b.score}</div>
                     <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-orange" style={{
-                      padding: mob ? "10px 18px" : "6px 14px", borderRadius: 8, fontSize: mob ? 13 : 11, fontWeight: 800,
+                      padding: mob ? "12px 20px" : "6px 14px", borderRadius: 8, fontSize: mob ? 13 : 11, fontWeight: 800,
                       background: "linear-gradient(135deg, #f59e0b, #fbbf24)", color: "#0f172a",
-                      textDecoration: "none", minHeight: mob ? 40 : "auto", display: "inline-flex", alignItems: "center",
+                      textDecoration: "none", minHeight: mob ? 44 : "auto", display: "inline-flex", alignItems: "center",
                     }}>Visit</a>
                   </div>
                 </div>
