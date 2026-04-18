@@ -125,17 +125,20 @@ export async function handleAuthorInvite(request, env) {
         .toISOString().slice(0, 19).replace('T', ' ')
     : null;
 
-  // Store SHA-256 hash of the token, not the token itself. The raw token
-  // is only returned once in the invite_url response below. A DB leak
-  // exposes hashes, not usable credentials.
-  // We still populate the legacy `token` column so handleTokensList and
-  // the /api/expert/* pre-authorBearer flow keep working; once expert.js
-  // is migrated to hash-lookup we can drop the raw column.
+  // Store only the SHA-256 hash. The raw token is returned ONCE in the
+  // invite_url response below and never persisted. A DB leak exposes
+  // hashes, not usable credentials.
+  //
+  // `token` column has a NOT NULL UNIQUE constraint (legacy), so we write
+  // a non-sensitive synthetic value (`hash:` + digest) that is unique per
+  // row but cannot be used as a bearer token — getAuthor() rejects it via
+  // the raw fallback path because its `token_hash IS NOT NULL` guard.
+  const tokenPlaceholder = `hash:${tokenDigest}`;
   const res = await env.DB.prepare(`
     INSERT INTO expert_tokens (token, token_hash, name, email, lang, broker_slugs, expires_at, role, scopes_json)
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
   `).bind(
-    token,
+    tokenPlaceholder,
     tokenDigest,
     name,
     email || null,
@@ -314,9 +317,12 @@ export async function handleAuthorRotate(request, env, id) {
 
   const newToken = generateToken();
   const newTokenHash = await hashToken(newToken);
+  // Same as invite: synthetic placeholder in `token` column, real hash in
+  // `token_hash`. Raw token only in the response.
+  const tokenPlaceholder = `hash:${newTokenHash}`;
   await env.DB.prepare(
     'UPDATE expert_tokens SET token = ?, token_hash = ?, active = 1 WHERE id = ?'
-  ).bind(newToken, newTokenHash, authorId).run();
+  ).bind(tokenPlaceholder, newTokenHash, authorId).run();
 
   const base = resolveFrontendBase(env, request);
   const inviteUrl = `${base}/author?token=${encodeURIComponent(newToken)}`;
