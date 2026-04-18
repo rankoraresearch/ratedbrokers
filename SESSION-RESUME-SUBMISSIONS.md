@@ -3,9 +3,23 @@
 **Если контекст потерян, читай этот файл ПЕРВЫМ.** Он восстановит ход работы.
 
 **Last updated:** 2026-04-18 (актуализировать каждый спринт)
-**Current sprint:** Sprint 5 — Author Portal UI (**in progress**)
-**Mode:** автономный до конца Sprint 8 (approve Егора).
-**Last Codex scores:** S1 — 10/10 ✅ · S2 — 10/10 ✅ · S3 — 10/10 ✅ · S4 — 10/10 ✅
+**FEATURE COMPLETE — ВСЕ 8 СПРИНТОВ ЗАКРЫТЫ 10/10** ✅
+**Mode:** Автономный завершён — ждём следующих задач от Егора.
+**Final Codex scores:** S1 — 10/10 ✅ · S2 — 10/10 ✅ · S3 — 10/10 ✅ · S4 — 10/10 ✅ · S5 — 10/10 ✅ · S6 — 10/10 ✅ · S7 — 10/10 ✅ · S8 — 10/10 ✅
+
+**Production status:**
+- Backend: `api.ratedbrokers.com`, version `dbfb2171`, 18 new endpoints
+- Frontend: deployed via Cloudflare Pages (latest: commit `735e743`)
+- D1: migrations 001+002 applied local+remote, 5 new tables + extended expert_tokens/ranking_overrides
+- Deps: react-markdown + rehype-sanitize added
+
+**How to invite first real author:**
+```bash
+curl -X POST https://api.ratedbrokers.com/api/admin/authors/invite \
+  -H "Authorization: Bearer $API_KEY" -H "Content-Type: application/json" \
+  -d '{"name":"Jane","email":"jane@x.com","role":"author","scopes":{"reviews":["ic-markets"],"langs":["en"]},"expires_days":90}'
+```
+Full guide: `AUTHOR-ONBOARDING.md`.
 
 **Sprint 3 итог (code done):**
 - `backend/src/utils/authorAuth.js` — token parse, scope/card enforcement, authorizeTarget, generateToken

@@ -311,8 +311,12 @@ Backend deployed `376befac`. Frontend build clean (3.73s).
 ### Deliverable
 Feature полностью в проде, security audited, documented. Real authors могут быть invited (curl команда в AUTHOR-ONBOARDING.md). 18 endpoints operational, migration 001+002 applied local+remote, backend version 74b21462.
 
-### Codex review Sprint 8 (final re-audit after fixes)
-**(запуск сейчас)**
+### Codex review Sprint 8 (security audit)
+- Round 1: 5.0/10 NEEDS_CHANGES — **1 CRITICAL stored XSS** + 3 HIGH (admin ?key=, plaintext tokens, revert provenance)
+- Round 2: 6.8/10 — CRITICAL fixed (MD sanitizer + react-markdown), admin ?key= и revert provenance documented в §10; осталась 1 HIGH — raw token still persisted в token column
+- Round 3 FINAL: **10/10 APPROVED** ✅ (no findings) — placeholder `hash:<digest>` в token column, real bearer только в invite response
+- Путь: 5.0 → 6.8 → 10.0 за 3 раунда, 2 итерации правок
+- Commits: (S7 base), `0eafd0d` (R1 security), `735e743` (R2 final)
 
 ---
 
