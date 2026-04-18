@@ -19,13 +19,13 @@ function esc(str) {
   return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 function fmt(d) { return d ? String(d).replace('T', ' ').slice(0, 19) : '—'; }
-function jsonHeaders(request) { return { ...corsHeaders(request), 'Content-Type': 'application/json' }; }
+function jsonHeaders(request, env) { return { ...corsHeaders(request, env), 'Content-Type': 'application/json' }; }
 function err(headers, status, error) { return Response.json({ error }, { status, headers }); }
 function nowSql() { return new Date().toISOString().slice(0, 19).replace('T', ' '); }
 
 // ─── JSON: list submissions with filters ───────────────────────────────────
 export async function handleAdminSubmissionsList(request, env) {
-  const headers = jsonHeaders(request);
+  const headers = jsonHeaders(request, env);
   if (!checkAuth(request, env)) return err(headers, 401, 'Unauthorized');
 
   const url = new URL(request.url);
@@ -63,7 +63,7 @@ export async function handleAdminSubmissionsList(request, env) {
 
 // ─── JSON: single submission + events + imports ────────────────────────────
 export async function handleAdminSubmissionGet(request, env, id) {
-  const headers = jsonHeaders(request);
+  const headers = jsonHeaders(request, env);
   if (!checkAuth(request, env)) return err(headers, 401, 'Unauthorized');
 
   const submissionId = parseInt(id, 10);
@@ -97,7 +97,7 @@ export async function handleAdminSubmissionGet(request, env, id) {
 // ─── PATCH status: review-decision ONLY (accepted/rejected/needs_changes) ──
 // Body: { decision: 'accept'|'reject'|'request_changes', admin_notes? }
 export async function handleAdminSubmissionStatus(request, env, id) {
-  const headers = jsonHeaders(request);
+  const headers = jsonHeaders(request, env);
   if (!checkAuth(request, env)) return err(headers, 401, 'Unauthorized');
 
   const submissionId = parseInt(id, 10);
@@ -158,7 +158,7 @@ export async function handleAdminSubmissionStatus(request, env, id) {
 
 // ─── CSV export (with filters) ─────────────────────────────────────────────
 export async function handleAdminSubmissionsExport(request, env) {
-  const corsH = corsHeaders(request);
+  const corsH = corsHeaders(request, env);
   if (!checkAuth(request, env)) {
     return new Response('Unauthorized', { status: 401, headers: { 'Content-Type': 'text/plain', ...corsH } });
   }
