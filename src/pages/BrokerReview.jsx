@@ -336,7 +336,7 @@ export default function BrokerReview() {
                   stats = [{l:"Commission",v:B.commissionPerTrade||B.commission},{l:t("review.minDeposit"),v:B.minDep===0?"$0":`$${B.minDep}`},...(!mob?[{l:"Regulation",v:regs},{l:t("review.instruments"),v:B.instruments}]:[])];
                 }
                 return stats.map((x,i)=><div key={i} style={mob?{textAlign:"center",padding:"6px",background:"rgba(255,255,255,0.06)",borderRadius:6}:{}}>
-                <div style={{fontSize:mob?11:12,color:mob?"rgba(255,255,255,0.65)":"rgba(255,255,255,0.5)",fontWeight:600,textTransform:"uppercase",letterSpacing:"0.05em",marginBottom:2}}>{x.l}</div>
+                <div style={{fontSize:mob?12:12,color:mob?"rgba(255,255,255,0.75)":"rgba(255,255,255,0.5)",fontWeight:600,textTransform:"uppercase",letterSpacing:"0.05em",marginBottom:2}}>{x.l}</div>
                 <div style={{fontSize:mob?14:15,color:"#fff",fontWeight:700}}>{x.v}</div></div>);
               })()}
             </div>
