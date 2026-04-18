@@ -58,19 +58,11 @@ const SafetyProto = import.meta.env.DEV ? lazy(() => import("./pages/SafetyProto
 const RankingHeroProtos = import.meta.env.DEV ? lazy(() => import("./pages/RankingHeroProtos")) : null;
 const HeroButtonsProto = import.meta.env.DEV ? lazy(() => import("./pages/HeroButtonsProto")) : null;
 const ScoreBadgeProto = import.meta.env.DEV ? lazy(() => import("./pages/ScoreBadgeProto")) : null;
-const MobileHomeProto = import.meta.env.DEV ? lazy(() => import("./pages/MobileHomeProto")) : null;
 const QuizPreviewProto = import.meta.env.DEV ? lazy(() => import("./pages/QuizPreviewProto")) : null;
 const HowWeRateProto = import.meta.env.DEV ? lazy(() => import("./pages/HowWeRateProto")) : null;
 const HowWeRateDarkProto = import.meta.env.DEV ? lazy(() => import("./pages/HowWeRateDarkProto")) : null;
-const BrokerTypesProto = import.meta.env.DEV ? lazy(() => import("./pages/BrokerTypesProto")) : null;
-const CountryDarkProto = import.meta.env.DEV ? lazy(() => import("./pages/CountryDarkProto")) : null;
-const AllBrokersProto = import.meta.env.DEV ? lazy(() => import("./pages/AllBrokersProto")) : null;
 const LinkSystemProto = import.meta.env.DEV ? lazy(() => import("./pages/LinkSystemProto")) : null;
-const AccentColorProto = import.meta.env.DEV ? lazy(() => import("./pages/AccentColorProto")) : null;
-const AccentColorRealProto = import.meta.env.DEV ? lazy(() => import("./pages/AccentColorRealProto")) : null;
 const AuthorProto = import.meta.env.DEV ? lazy(() => import("./pages/AuthorProto")) : null;
-const ProtoMenu = import.meta.env.DEV ? lazy(() => import("./pages/ProtoMenu")) : null;
-const ProtoLinks = import.meta.env.DEV ? lazy(() => import("./pages/ProtoLinks")) : null;
 const FlagsProto = import.meta.env.DEV ? lazy(() => import("./pages/FlagsProto")) : null;
 
 function PageLoader() {
@@ -120,19 +112,11 @@ function AppRoutes() {
         <Route path="proto/hero-buttons" element={<Layout />}><Route index element={<HeroButtonsProto />} /></Route>
         <Route path="proto/score-badge" element={<Layout />}><Route index element={<ScoreBadgeProto />} /></Route>
         <Route path="proto/safety" element={<Layout />}><Route index element={<SafetyProto />} /></Route>
-        <Route path="proto/mobile-home" element={<Suspense fallback={<PageLoader />}><MobileHomeProto /></Suspense>} />
         <Route path="proto/quiz-preview" element={<Suspense fallback={<PageLoader />}><QuizPreviewProto /></Suspense>} />
         <Route path="proto/how-we-rate" element={<Suspense fallback={<PageLoader />}><HowWeRateProto /></Suspense>} />
         <Route path="proto/how-we-rate-dark" element={<Layout />}><Route index element={<HowWeRateDarkProto />} /></Route>
-        <Route path="proto/broker-types" element={<Layout />}><Route index element={<BrokerTypesProto />} /></Route>
-        <Route path="proto/country-dark" element={<Layout />}><Route index element={<CountryDarkProto />} /></Route>
-        <Route path="proto/all-brokers" element={<Layout />}><Route index element={<AllBrokersProto />} /></Route>
         <Route path="proto/link-system" element={<Layout />}><Route index element={<LinkSystemProto />} /></Route>
-        <Route path="proto/accent-color" element={<Layout />}><Route index element={<AccentColorProto />} /></Route>
-        <Route path="proto/accent-color-real" element={<Layout />}><Route index element={<AccentColorRealProto />} /></Route>
         <Route path="proto/author" element={<Layout />}><Route index element={<AuthorProto />} /></Route>
-        <Route path="proto/menu" element={<LanguageProvider><Suspense fallback={<PageLoader />}><ProtoMenu /></Suspense></LanguageProvider>} />
-        <Route path="proto/links" element={<Suspense fallback={<PageLoader />}><ProtoLinks /></Suspense>} />
         <Route path="proto/flags" element={<Layout />}><Route index element={<FlagsProto />} /></Route>
       </>}
       <Route element={<Layout />}>
