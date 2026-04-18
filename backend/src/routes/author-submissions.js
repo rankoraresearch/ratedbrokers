@@ -186,17 +186,19 @@ export async function handleAuthorTargets(request, env) {
   const { author, response } = await requireAuthor(request, env, cors);
   if (response) return response;
 
-  // Reviews: list brokers in scope.
-  let reviewBrokers = [];
+  // Full broker catalog — used to hydrate card pickers regardless of review scope.
+  const allBrokersRows = await env.DB.prepare('SELECT slug, name FROM brokers ORDER BY name').all();
+  const allBrokers = allBrokersRows.results || [];
+
+  // Reviews: list brokers in scope (subset of allBrokers).
+  let reviewBrokers;
   if (author.scopes.reviews.includes('*')) {
-    const rows = await env.DB.prepare('SELECT slug, name FROM brokers ORDER BY name').all();
-    reviewBrokers = rows.results;
+    reviewBrokers = allBrokers;
   } else if (author.scopes.reviews.length) {
-    const placeholders = author.scopes.reviews.map(() => '?').join(',');
-    const rows = await env.DB.prepare(
-      `SELECT slug, name FROM brokers WHERE slug IN (${placeholders}) ORDER BY name`
-    ).bind(...author.scopes.reviews).all();
-    reviewBrokers = rows.results;
+    const allow = new Set(author.scopes.reviews);
+    reviewBrokers = allBrokers.filter(b => allow.has(b.slug));
+  } else {
+    reviewBrokers = [];
   }
 
   // Rankings / cards: the ranking catalog lives in src/data/rankings.js bundled
@@ -210,12 +212,21 @@ export async function handleAuthorTargets(request, env) {
     return { ranking_id, broker_slug, wildcard: broker_slug === '*' };
   });
 
+  // Derive the list of target_types the author can actually use, so the UI
+  // can hide empty categories.
+  const availableTargetTypes = [];
+  if (reviewBrokers.length) availableTargetTypes.push('review');
+  if (author.scopes.rankings.length) availableTargetTypes.push('ranking');
+  if (author.scopes.cards.length) availableTargetTypes.push('card');
+
   return Response.json({
     role: author.role,
     scopes: author.scopes,
     sections: Array.from(VALID_REVIEW_SECTIONS),
     target_types: Array.from(VALID_TARGET_TYPES),
+    available_target_types: availableTargetTypes,
     reviews: reviewBrokers,
+    brokers_all: allBrokers, // for card pickers (independent of review scope)
     rankings,
     cards,
     langs: author.scopes.langs,

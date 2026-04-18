@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
+import ReactMarkdown from "react-markdown";
+import rehypeSanitize from "rehype-sanitize";
 import {
   LogOut, User, Plus, ArrowLeft, FileText, Send, Trash2, Clock, CheckCircle,
   AlertCircle, XCircle, Pencil, RefreshCw,
@@ -154,20 +156,23 @@ export default function AuthorPortal() {
   const [targets, setTargets] = useState(null);
   const [loadErr, setLoadErr] = useState("");
 
-  // Bootstrap: profile + targets
+  // Bootstrap: profile + targets. `alive` guard avoids setState after unmount.
   useEffect(() => {
+    let alive = true;
     (async () => {
       try {
         const [me, t] = await Promise.all([
           api("/api/author/me"),
           api("/api/author/targets"),
         ]);
+        if (!alive) return;
         setAuthor(me);
         setTargets(t);
       } catch (e) {
-        setLoadErr(e.message);
+        if (alive) setLoadErr(e.message);
       }
     })();
+    return () => { alive = false; };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -268,15 +273,20 @@ function SubmissionList({ api, onOpen, onNew }) {
   const [statusFilter, setStatusFilter] = useState("");
   const [err, setErr] = useState("");
 
-  const load = async () => {
-    try {
-      const q = statusFilter ? `?status=${statusFilter}` : "";
-      setRows(await api(`/api/author/submissions${q}`));
-      setErr("");
-    } catch (e) { setErr(e.message); }
-  };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(() => { load(); }, [statusFilter]);
+  useEffect(() => {
+    let alive = true;
+    (async () => {
+      try {
+        const q = statusFilter ? `?status=${statusFilter}` : "";
+        const data = await api(`/api/author/submissions${q}`);
+        if (!alive) return;
+        setRows(data);
+        setErr("");
+      } catch (e) { if (alive) setErr(e.message); }
+    })();
+    return () => { alive = false; };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [statusFilter]);
 
   return (
     <div style={card}>
@@ -345,17 +355,71 @@ function FormFields({ targets, values, onChange, defaultLang, lockTarget = false
   const targetType = values.target_type;
   const slug = values.target_slug;
 
-  const availableBrokers = targets?.reviews || [];
+  // Broker catalogs:
+  //   - reviewBrokers: restricted to scope.reviews (used ONLY in review picker)
+  //   - allBrokers: full catalog from /targets.brokers_all (used for card brokers)
+  const reviewBrokers = targets?.reviews || [];
+  const allBrokers = targets?.brokers_all || reviewBrokers;
+
   const availableRankings = useMemo(() => {
     const scope = targets?.rankings || [];
     if (scope.some(r => r.wildcard && r.id === "*")) return RANKINGS.map(r => ({ id: r.id, title: r.title }));
     return scope.filter(r => !r.wildcard).map(r => ({ id: r.id, title: rankingTitle(r.id) }));
   }, [targets]);
-  const availableCards = useMemo(() => {
+
+  // Card scope model (see SPEC §5):
+  //   entry "*"                     → {wildcard: true, ranking_id: undefined}
+  //   entry "<ranking>:*"           → {wildcard: true, ranking_id: <r>, broker_slug: "*"}
+  //   entry "<ranking>:<broker>"    → {wildcard: false, ranking_id: <r>, broker_slug: <b>}
+  const cardScopeAnalysis = useMemo(() => {
     const scope = targets?.cards || [];
-    if (scope.some(c => c.wildcard && !c.ranking_id)) return null; // fully wildcarded — ranking+broker free-form
-    return scope;
+    const global = scope.some(c => c.wildcard && !c.ranking_id);
+    const perRanking = new Set(); // ranking ids that have "<r>:*"
+    const specific = new Map();   // ranking_id → Set(broker slugs)
+    for (const c of scope) {
+      if (!c.ranking_id) continue;
+      if (c.wildcard) perRanking.add(c.ranking_id);
+      else {
+        if (!specific.has(c.ranking_id)) specific.set(c.ranking_id, new Set());
+        specific.get(c.ranking_id).add(c.broker_slug);
+      }
+    }
+    return { global, perRanking, specific };
   }, [targets]);
+
+  // Rankings available for card target (union of all scope entries).
+  const cardRankings = useMemo(() => {
+    if (cardScopeAnalysis.global) return RANKINGS.map(r => ({ id: r.id, title: r.title }));
+    const ids = new Set([
+      ...cardScopeAnalysis.perRanking,
+      ...Array.from(cardScopeAnalysis.specific.keys()),
+    ]);
+    return Array.from(ids).map(id => ({ id, title: rankingTitle(id) }));
+  }, [cardScopeAnalysis]);
+
+  // Brokers available for the currently selected card ranking.
+  const cardBrokersForSelectedRanking = useMemo(() => {
+    if (!slug || targetType !== 'card') return [];
+    if (cardScopeAnalysis.global) return allBrokers;
+    if (cardScopeAnalysis.perRanking.has(slug)) return allBrokers;
+    const specific = cardScopeAnalysis.specific.get(slug);
+    if (!specific) return [];
+    const set = new Set(specific);
+    return allBrokers.filter(b => set.has(b.slug));
+  }, [slug, targetType, allBrokers, cardScopeAnalysis]);
+
+  // Target-type picker only offers categories the author actually has scope for.
+  const availableTargetTypes = targets?.available_target_types
+    || (["review", "ranking", "card"].filter(t =>
+         t === "review" ? reviewBrokers.length :
+         t === "ranking" ? (targets?.rankings?.length || 0) :
+         (targets?.cards?.length || 0)));
+
+  const TARGET_TYPE_LABEL = {
+    review: "Broker review (one section)",
+    ranking: "Ranking content (intro / key finding / outro / FAQ)",
+    card: "Broker card inside a ranking",
+  };
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
@@ -363,10 +427,15 @@ function FormFields({ targets, values, onChange, defaultLang, lockTarget = false
         <label style={label}>Target type</label>
         <select value={targetType || ""} onChange={(e) => set("target_type", e.target.value)} style={select} disabled={lockTarget}>
           <option value="">Select…</option>
-          <option value="review">Broker review (one section)</option>
-          <option value="ranking">Ranking content (intro / key finding / outro / FAQ)</option>
-          <option value="card">Broker card inside a ranking</option>
+          {availableTargetTypes.map(t => (
+            <option key={t} value={t}>{TARGET_TYPE_LABEL[t]}</option>
+          ))}
         </select>
+        {availableTargetTypes.length === 0 && (
+          <div style={{ fontSize: 12, color: "#dc2626", marginTop: 6 }}>
+            You have no scopes assigned. Ask the editorial team to grant access.
+          </div>
+        )}
       </div>
 
       {targetType === "review" && (
@@ -375,7 +444,7 @@ function FormFields({ targets, values, onChange, defaultLang, lockTarget = false
             <label style={label}>Broker</label>
             <select value={slug || ""} onChange={(e) => set("target_slug", e.target.value)} style={select} disabled={lockTarget}>
               <option value="">Select broker…</option>
-              {availableBrokers.map(b => <option key={b.slug} value={b.slug}>{b.name}</option>)}
+              {reviewBrokers.map(b => <option key={b.slug} value={b.slug}>{b.name}</option>)}
             </select>
           </div>
           <div>
@@ -404,26 +473,23 @@ function FormFields({ targets, values, onChange, defaultLang, lockTarget = false
             <label style={label}>Ranking</label>
             <select value={slug || ""} onChange={(e) => set("target_slug", e.target.value)} style={select} disabled={lockTarget}>
               <option value="">Select ranking…</option>
-              {(availableCards === null
-                ? RANKINGS.map(r => ({ id: r.id, title: r.title }))
-                : [...new Set(availableCards.map(c => c.ranking_id))].map(id => ({ id, title: rankingTitle(id) }))
-              ).map(r => <option key={r.id} value={r.id}>{r.title}</option>)}
+              {cardRankings.map(r => <option key={r.id} value={r.id}>{r.title}</option>)}
             </select>
           </div>
           <div>
             <label style={label}>Broker in ranking</label>
-            <select value={values.target_ranking_broker || ""} onChange={(e) => set("target_ranking_broker", e.target.value)} style={select} disabled={lockTarget}>
+            <select value={values.target_ranking_broker || ""}
+              onChange={(e) => set("target_ranking_broker", e.target.value)} style={select} disabled={lockTarget}>
               <option value="">Select broker…</option>
-              {(availableCards === null
-                ? availableBrokers.map(b => ({ slug: b.slug, name: b.name }))
-                : availableCards
-                    .filter(c => c.ranking_id === slug || c.wildcard)
-                    .map(c => c.wildcard
-                      ? availableBrokers
-                      : [{ slug: c.broker_slug, name: c.broker_slug }])
-                    .flat()
-              ).map((b, i) => <option key={`${b.slug}-${i}`} value={b.slug}>{b.name}</option>)}
+              {cardBrokersForSelectedRanking.map(b => (
+                <option key={b.slug} value={b.slug}>{b.name}</option>
+              ))}
             </select>
+            {slug && cardBrokersForSelectedRanking.length === 0 && (
+              <div style={{ fontSize: 12, color: "#94a3b8", marginTop: 6 }}>
+                No brokers in scope for this ranking.
+              </div>
+            )}
           </div>
         </>
       )}
@@ -488,6 +554,7 @@ function SubmissionForm({ api, targets, defaultLang, onBack, onSaved }) {
     if (problem) { setErr(problem); return; }
     setBusy(true);
     setErr("");
+    let createdId = null;
     try {
       const created = await api("/api/author/submissions", {
         method: "POST",
@@ -501,13 +568,22 @@ function SubmissionForm({ api, targets, defaultLang, onBack, onSaved }) {
           body_md: values.body_md,
         },
       });
+      createdId = created.id;
       if (action === "submit") {
-        await api(`/api/author/submissions/${created.id}`, {
-          method: "PATCH",
-          body: { action: "submit" },
-        });
+        try {
+          await api(`/api/author/submissions/${createdId}`, {
+            method: "PATCH",
+            body: { action: "submit" },
+          });
+        } catch (submitErr) {
+          // Draft already exists — route to detail view so user can retry submit
+          // from there instead of re-creating a duplicate.
+          setErr(`Draft saved, but submit failed: ${submitErr.message}. Open the draft to retry.`);
+          onSaved(createdId);
+          return;
+        }
       }
-      onSaved(created.id);
+      onSaved(createdId);
     } catch (e) {
       setErr(e.message);
     } finally {
@@ -543,13 +619,22 @@ function SubmissionForm({ api, targets, defaultLang, onBack, onSaved }) {
 function SubmissionDetail({ api, id, onBack, onEdit }) {
   const [sub, setSub] = useState(null);
   const [err, setErr] = useState("");
+  const [reloadKey, setReloadKey] = useState(0);
 
-  const load = async () => {
-    try { setSub(await api(`/api/author/submissions/${id}`)); setErr(""); }
-    catch (e) { setErr(e.message); }
-  };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(() => { load(); }, [id]);
+  useEffect(() => {
+    let alive = true;
+    (async () => {
+      try {
+        const data = await api(`/api/author/submissions/${id}`);
+        if (!alive) return;
+        setSub(data);
+        setErr("");
+      } catch (e) { if (alive) setErr(e.message); }
+    })();
+    return () => { alive = false; };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id, reloadKey]);
+  const load = () => setReloadKey(k => k + 1);
 
   async function submit() {
     try {
@@ -608,12 +693,14 @@ function SubmissionDetail({ api, id, onBack, onEdit }) {
       )}
 
       <div style={{
-        background: "#f8fafc", padding: 16, borderRadius: 10,
-        fontFamily: "SF Mono, Menlo, monospace", fontSize: 13, lineHeight: 1.6,
-        whiteSpace: "pre-wrap", color: "#0f172a", marginBottom: 14,
+        background: "#f8fafc", padding: "14px 20px", borderRadius: 10,
+        fontSize: 14, lineHeight: 1.7,
+        color: "#0f172a", marginBottom: 14,
         border: "1px solid #e2e8f0", maxHeight: 500, overflowY: "auto",
       }}>
-        {sub.body_md}
+        <div className="md-render">
+          <ReactMarkdown rehypePlugins={[rehypeSanitize]}>{sub.body_md}</ReactMarkdown>
+        </div>
       </div>
 
       <div style={{ display: "flex", gap: 10, marginBottom: 20 }}>
@@ -653,9 +740,11 @@ function SubmissionEdit({ api, id, targets, onBack, onSaved }) {
   const [busy, setBusy] = useState(false);
 
   useEffect(() => {
+    let alive = true;
     (async () => {
       try {
         const sub = await api(`/api/author/submissions/${id}`);
+        if (!alive) return;
         setValues({
           target_type: sub.target_type,
           target_slug: sub.target_slug,
@@ -665,8 +754,9 @@ function SubmissionEdit({ api, id, targets, onBack, onSaved }) {
           title: sub.title || "",
           body_md: sub.body_md,
         });
-      } catch (e) { setErr(e.message); }
+      } catch (e) { if (alive) setErr(e.message); }
     })();
+    return () => { alive = false; };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
@@ -699,6 +789,11 @@ function SubmissionEdit({ api, id, targets, onBack, onSaved }) {
       <div style={card}>
         <button onClick={onBack} style={btnSecondary}><ArrowLeft size={14} /> Back</button>
         <ErrorBanner message={err} />
+        {!err && (
+          <div style={{ color: "#64748b", fontSize: 13, padding: "14px 0" }}>
+            Loading submission…
+          </div>
+        )}
       </div>
     );
   }
