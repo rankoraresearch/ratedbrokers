@@ -262,15 +262,16 @@ export default function CryptoBrokersPage() {
           {CONTENT.cfdVsSpot.intro}
         </p>
         <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "1fr 1fr", gap: 16 }}>
-          {[CONTENT.cfdVsSpot.cfd, CONTENT.cfdVsSpot.spot].map((side, idx) => (
+          {[CONTENT.cfdVsSpot.cfd, CONTENT.cfdVsSpot.spot].map((side) => (
             <div key={side.label} style={{
               ...cardBg, padding: mob ? "20px" : "24px",
-              border: idx === 0 ? "1px solid #bfdbfe" : "1px solid #a7f3d0",
+              border: "1px solid #e2e8f0",
+              borderTop: "3px solid #059669",
             }}>
               <div style={{
                 display: "inline-block", padding: "4px 12px", borderRadius: 6,
-                background: idx === 0 ? "#eff6ff" : "#ecfdf5",
-                color: idx === 0 ? "#2563eb" : "#059669",
+                background: "#f1f5f9", border: "1px solid #e2e8f0",
+                color: "#0f172a",
                 fontFamily: "Outfit", fontWeight: 700, fontSize: 15, marginBottom: 14,
               }}>{side.label}</div>
               <ul style={{ padding: "0 0 0 16px", margin: "0 0 14px" }}>
@@ -280,8 +281,8 @@ export default function CryptoBrokersPage() {
               </ul>
               <div style={{
                 padding: "10px 14px", borderRadius: 8,
-                background: idx === 0 ? "#eff6ff" : "#ecfdf5",
-                fontSize: 13, color: idx === 0 ? "#1e40af" : "#065f46", fontWeight: 600,
+                background: "#f8fafc", border: "1px solid #e2e8f0",
+                fontSize: 13, color: "#0f172a", fontWeight: 600,
               }}>Best for: {side.bestFor}</div>
             </div>
           ))}
@@ -331,25 +332,20 @@ export default function CryptoBrokersPage() {
                     </td>
                     <td style={{ padding: "12px 14px" }}>
                       <span style={{
-                        fontFamily: "'JetBrains Mono'", fontWeight: 800,
+                        fontFamily: "'JetBrains Mono'", fontWeight: isBestScore ? 800 : 700,
                         color: isBestScore ? "#059669" : "#111827",
-                        background: isBestScore ? "#ecfdf5" : "transparent",
-                        padding: isBestScore ? "2px 6px" : 0, borderRadius: 4,
                       }}>{b.B.score}</span>
                     </td>
                     <td style={{ padding: "12px 14px" }}>
                       <span style={{
-                        fontFamily: "'JetBrains Mono'", fontWeight: 700,
+                        fontFamily: "'JetBrains Mono'", fontWeight: isBestSpread ? 800 : 700,
                         color: isBestSpread ? "#059669" : "#111827",
-                        background: isBestSpread ? "#ecfdf5" : "transparent",
-                        padding: isBestSpread ? "2px 6px" : 0, borderRadius: 4,
                       }}>{b.B.spread} pips</span>
                     </td>
-                    <td style={{ padding: "12px 14px", fontFamily: "'JetBrains Mono'", fontWeight: 700 }}>
+                    <td style={{ padding: "12px 14px", fontFamily: "'JetBrains Mono'" }}>
                       <span style={{
+                        fontWeight: isBestDep ? 800 : 700,
                         color: isBestDep ? "#059669" : "#111827",
-                        background: isBestDep ? "#ecfdf5" : "transparent",
-                        padding: isBestDep ? "2px 6px" : 0, borderRadius: 4,
                       }}>{b.B.minDep === 0 ? "$0" : `$${b.B.minDep}`}</span>
                     </td>
                     <td style={{ padding: "12px 14px", fontFamily: "'JetBrains Mono'", fontWeight: 700 }}>{b.B.leverage}</td>
