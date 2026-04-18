@@ -77,6 +77,7 @@ HH:MM — действие — результат
 | `DESIGN-ANTIPATTERNS.md` | **ОБЯЗАТЕЛЬНО** сверяться перед любым редизайном/новой секцией — что Егор НЕ принимает (pale greens, радужные chips, разноцветные категории, шаблонные badges) |
 | `EDITORIAL-ACTIVITY-LOG.md` | Спека гибридной архитектуры editorial-журнала (MD frontmatter bindings + D1 `editorial_actions` events). Питает Recent Activity блок на `/author/:slug` и byline на review/ranking страницах |
 | `backend/README.md` | API reference, D1 schema, все 40+ endpoints |
+| `DEPLOY-RUNBOOK.md` | **ОБЯЗАТЕЛЬНО** читать перед любым `git push origin main` — золотые правила, rollback по 3 уровням риска, известные режимы отказа (stale-tab, revert-of-merge, Vite overlay) |
 
 ## Стек и правила кода
 
@@ -97,6 +98,13 @@ API: `https://ratedbrokers-api.ratedbrokers.workers.dev` (Cloudflare Workers + D
 
 **Деплой автоматический:** push в `main` → Cloudflare Pages автобилд → live.
 Build command в Cloudflare Pages: `npm run build` (внутри вызывает `brokers:build`).
+
+**Deploy golden rules** (полностью в `DEPLOY-RUNBOOK.md`):
+1. **Никогда `git revert -m 1 <merge>` на main** если потом нужно ре-мерджить ту же работу. Revert оставляет merge в DAG → повторный merge вернёт «Already up-to-date» без контента. Использовать forward-fix commit или revert-the-revert.
+2. **Stale-tab handler в `src/main.jsx`** (`vite:preloadError` → reload) — не удалять. Без него каждый deploy = белый экран у открытых вкладок (MIME error на удалённых chunks).
+3. **При удалении файла** — сразу `grep -rn "./pages/<name>" src/` и чистить imports. Prod tree-shake'ит через `import.meta.env.DEV`, dev ломается (Vite import-analysis резолвит URL даже внутри conditional).
+4. **Safepoint tag** перед merge в main: `git tag safepoint-YYYY-MM-DD-HHMM main && git push origin --tags`.
+5. **После `git checkout` между ветками с разным App.jsx** — Ctrl+C в Vite terminal + `lsof -i :5173 -i :5174` → убить zombie процессы → `npm run dev` заново.
 
 **BASE_URL:** Vite `base: '/'`. React Router `basename={import.meta.env.BASE_URL}`. Все пути к статике из `public/` используют `import.meta.env.BASE_URL`:
 ```jsx
