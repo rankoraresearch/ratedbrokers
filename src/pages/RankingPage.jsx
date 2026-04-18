@@ -421,18 +421,21 @@ export default function RankingPage() {
 
   // Live ranking_content override from /api/rankings/:id/content (Sprint 7).
   // Falls back to bundled SEO_CONTENT when published fields are absent.
+  // NOTE: site is currently English-only (useLocalePath is identity-only).
+  // When i18n lands, thread the current locale in place of the 'en' literal.
+  const currentLang = 'en';
   const [contentOverride, setContentOverride] = useState(null);
   useEffect(() => {
     if (!ranking) return;
     let alive = true;
     const apiBase = import.meta.env.VITE_API_URL || "";
     if (!apiBase) return;
-    fetch(`${apiBase}/api/rankings/${ranking.id}/content?lang=en`)
+    fetch(`${apiBase}/api/rankings/${ranking.id}/content?lang=${currentLang}`)
       .then(r => r.ok ? r.json() : null)
       .then(data => { if (alive && data && data.available) setContentOverride(data); })
       .catch(() => {});
     return () => { alive = false; };
-  }, [ranking?.id]);
+  }, [ranking?.id, currentLang]);
 
   // SEO: canonical, OG, Twitter Card. Live override wins over bundled fallback
   // for each field individually (non-NULL override replaces).
@@ -576,14 +579,17 @@ export default function RankingPage() {
       const el = document.querySelector('script[data-jsonld="ranking"]');
       if (el) el.remove();
     };
-  }, [ranking]);
+    // Depend on seoContent too — when the async /content override lands,
+    // re-emit JSON-LD + title + meta so schema.org reflects live fields.
+  }, [ranking, seoContent]);
 
-  // Fetch admin overrides
+  // Fetch admin overrides (per-broker featured_label, card descriptions).
+  // Scoped by lang so card descriptions only surface for the current locale.
   useEffect(() => {
     if (ranking) {
-      fetchRankingOverrides(ranking.id).then(setOverrides);
+      fetchRankingOverrides(ranking.id, currentLang).then(setOverrides);
     }
-  }, [ranking?.id]);
+  }, [ranking?.id, currentLang]);
 
   if (!ranking) return <NotFoundPage />;
 

@@ -319,7 +319,11 @@ export async function handleImportToRanking(request, env, id) {
     return err(headers, 409, 'Submission status changed concurrently');
   }
 
-  return Response.json({ ok: true, id: submissionId, status: 'processed', ref, imported }, { headers });
+  return Response.json({
+    ok: true, id: submissionId, status: 'processed',
+    imported,
+    refs: imported.map(f => `${sub.target_slug}:${sub.lang}:${f}`),
+  }, { headers });
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -404,6 +408,45 @@ export async function handlePublishSubmission(request, env, id) {
     return err(headers, 400, 'No imports to publish — run /import-to-{review,ranking,card} first');
   }
 
+  const RANKING_FIELDS = new Set([
+    'meta_title', 'meta_desc', 'intro_md', 'key_finding',
+    'how_we_ranked', 'outro_md', 'faq_json',
+  ]);
+
+  // ─── PRE-VALIDATE DESTINATIONS ───
+  // Every import row must still have a valid destination draft slot. This
+  // guarantees the atomicity spec §6.2 requires: if we can't actually
+  // promote every draft to live, we don't change submission state at all.
+  const missing = [];
+  for (const imp of imports.results) {
+    if (imp.destination_type === 'review_override') {
+      const [broker_slug, section, lang] = imp.destination_ref.split(':');
+      const row = await env.DB.prepare(
+        `SELECT 1 FROM review_overrides
+         WHERE broker_slug = ? AND section = ? AND lang = ? AND status = 'draft' LIMIT 1`
+      ).bind(broker_slug, section, lang).first();
+      if (!row) missing.push(imp.destination_ref);
+    } else if (imp.destination_type === 'ranking_content') {
+      const [ranking_id, lang, field] = imp.destination_ref.split(':');
+      if (!RANKING_FIELDS.has(field)) { missing.push(imp.destination_ref + ' (bad field)'); continue; }
+      const row = await env.DB.prepare(
+        `SELECT 1 FROM ranking_content WHERE ranking_id = ? AND lang = ? LIMIT 1`
+      ).bind(ranking_id, lang).first();
+      if (!row) missing.push(imp.destination_ref);
+    } else if (imp.destination_type === 'ranking_card') {
+      const [ranking_id, broker_slug] = imp.destination_ref.split(':');
+      const row = await env.DB.prepare(
+        `SELECT 1 FROM ranking_overrides
+         WHERE ranking_id = ? AND broker_slug = ? AND description_md_draft IS NOT NULL LIMIT 1`
+      ).bind(ranking_id, broker_slug).first();
+      if (!row) missing.push(imp.destination_ref);
+    }
+  }
+  if (missing.length) {
+    return err(headers, 409,
+      `destination(s) missing or already published: ${missing.join(', ')}`);
+  }
+
   const now = nowSql();
   const statements = [];
 
@@ -411,13 +454,6 @@ export async function handlePublishSubmission(request, env, id) {
     `UPDATE content_submissions SET status = 'published', published_at = ?, updated_at = ?
      WHERE id = ? AND status = 'processed'`
   ).bind(now, now, submissionId));
-
-  // Whitelist of ranking_content columns we allow to be flipped draft→live.
-  // Prevents SQL injection via a malformed destination_ref.
-  const RANKING_FIELDS = new Set([
-    'meta_title', 'meta_desc', 'intro_md', 'key_finding',
-    'how_we_ranked', 'outro_md', 'faq_json',
-  ]);
 
   // Per destination: flip draft-slot → live-slot.
   // Each UPDATE is tracked so we can detect no-op matches (deleted/missing rows).

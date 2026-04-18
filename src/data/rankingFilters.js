@@ -554,11 +554,11 @@ export function getBrokerCountForRanking(rankingId) {
 
 // ── Admin override integration ─────────────────────────
 
-export async function fetchRankingOverrides(rankingId) {
+export async function fetchRankingOverrides(rankingId, lang = 'en') {
   const apiBase = import.meta.env.VITE_API_URL || '';
   if (!apiBase) return null;
   try {
-    const res = await fetch(`${apiBase}/api/rankings/${rankingId}/order`);
+    const res = await fetch(`${apiBase}/api/rankings/${rankingId}/order?lang=${encodeURIComponent(lang)}`);
     if (!res.ok) return null;
     const data = await res.json();
     return data.brokers || null;
