@@ -177,7 +177,7 @@ function CompactRow({ alt, i, mob, tab }) {
             <div style={{ fontSize: 14, fontWeight: 700, color: NAVY, fontFamily: "Outfit" }}>{alt.name}</div>
             <div style={{ fontSize: 11, color: GRAY_MUTED }}>{alt.spread} pips · ${alt.minDep} min</div>
           </div>
-          <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 15, fontWeight: 700, color: GREEN, flexShrink: 0 }}>{alt.score}</span>
+          <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 15, fontWeight: 700, color: alt.score >= 9.0 ? GREEN : "#64748b", flexShrink: 0 }}>{alt.score}</span>
         </div>
         {/* Row 2: CTA */}
         <div style={{ paddingLeft: 40, marginTop: 10 }}>
@@ -215,7 +215,7 @@ function CompactRow({ alt, i, mob, tab }) {
       </div>
       {/* Score */}
       <div style={{ textAlign: "center" }}>
-        <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 13, fontWeight: 700, color: GREEN }}>{alt.score}</span>
+        <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 13, fontWeight: 700, color: alt.score >= 9.0 ? GREEN : "#64748b" }}>{alt.score}</span>
       </div>
       {/* Spread */}
       <div style={{ textAlign: "center" }}>
@@ -354,7 +354,7 @@ export default function AlternativesTab({ data, slug, mob, tab }) {
                     {i === 0 && <span style={{ fontSize: 10, color: "#fff", fontWeight: 700, background: GREEN, padding: "1px 6px", borderRadius: 3, display: "inline-flex", alignItems: "center", gap: 2 }}><Trophy size={9} /> #1</span>}
                   </div>
                 </td>
-                <td style={{ padding: "10px 6px", textAlign: "center", fontFamily: "'JetBrains Mono',monospace", fontWeight: 700, color: GREEN }}>{alt.score}</td>
+                <td style={{ padding: "10px 6px", textAlign: "center", fontFamily: "'JetBrains Mono',monospace", fontWeight: 700, color: alt.score >= 9.0 ? GREEN : "#64748b" }}>{alt.score}</td>
                 <td style={{ padding: "10px 6px", textAlign: "center" }}>{alt.spread} pips</td>
                 <td style={{ padding: "10px 6px", textAlign: "center" }}>${alt.minDep}</td>
                 <td style={{ padding: "10px 6px" }}>
@@ -460,7 +460,7 @@ export default function AlternativesTab({ data, slug, mob, tab }) {
           </a>
           {featured[1] && (
             <a href={getVisitUrl(featured[1].slug)} target="_blank" rel="noopener nofollow sponsored" className="cta-secondary" style={{
-              background: "transparent", color: "#34d399", border: "2px solid #34d399",
+              background: "transparent", color: "#fff", border: "1px solid rgba(255,255,255,0.3)",
               fontSize: mob ? 13 : 14, fontWeight: 700, textDecoration: "none",
               padding: mob ? "10px 20px" : "12px 24px", borderRadius: 10, display: "inline-flex",
               alignItems: "center", justifyContent: "center", gap: 6,
