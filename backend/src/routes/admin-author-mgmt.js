@@ -15,7 +15,8 @@ function jsonHeaders(request) {
 // Slug format shared across reviews/rankings/cards (matches existing validation in admin.js)
 const SLUG_RE = /^[a-z0-9-]+$/;
 // Language code: lowercase ISO 639-1 (2-letter) or BCP-47 tag allowlist we maintain
-const LANG_RE = /^[a-z]{2}(-[a-z0-9]{2,8})?$/i;
+// Strict lowercase — uppercase tags like 'EN' or 'EN-us' are rejected (no /i flag).
+const LANG_RE = /^[a-z]{2}(-[a-z0-9]{2,8})?$/;
 const CARD_ENTRY_RE = /^[a-z0-9-]+:([a-z0-9-]+|\*)$/;
 
 function validateScopes(scopes) {
