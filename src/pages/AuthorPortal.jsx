@@ -181,10 +181,15 @@ export default function AuthorPortal() {
     navigate("/author", { replace: true });
   }
 
-  function gotoView(view, id) {
+  function gotoView(view, id, extraParams) {
     const next = new URLSearchParams();
     next.set("view", view);
     if (id) next.set("id", String(id));
+    if (extraParams) {
+      for (const [k, v] of Object.entries(extraParams)) {
+        if (v != null && v !== "") next.set(k, String(v));
+      }
+    }
     setParams(next, { replace: false });
   }
 
@@ -250,10 +255,17 @@ export default function AuthorPortal() {
         )}
         {view === "new" && (
           <SubmissionForm api={api} targets={targets} defaultLang={author.defaultLang}
-            onBack={() => gotoView("list")} onSaved={(id) => gotoView("detail", id)} />
+            onBack={() => gotoView("list")}
+            onSaved={(id, flash) => gotoView("detail", id, flash ? { flash } : null)} />
         )}
         {view === "detail" && selectedId && (
           <SubmissionDetail api={api} id={selectedId}
+            flashMessage={params.get("flash")}
+            onClearFlash={() => {
+              const next = new URLSearchParams(params);
+              next.delete("flash");
+              setParams(next, { replace: true });
+            }}
             onBack={() => gotoView("list")} onEdit={() => gotoView("edit", selectedId)} />
         )}
         {view === "edit" && selectedId && (
@@ -351,7 +363,22 @@ function SubmissionList({ api, onOpen, onNew }) {
 // Create form (shared form logic with edit view)
 // ═══════════════════════════════════════════════════════════════════════════
 function FormFields({ targets, values, onChange, defaultLang, lockTarget = false }) {
-  const set = (k, v) => onChange({ ...values, [k]: v });
+  // Dependent fields must clear when their parent changes — otherwise a stale
+  // target_slug from a previous target_type, or a stale target_ranking_broker
+  // from a previous ranking, can pass client validation and hit backend 403.
+  const set = (k, v) => {
+    const next = { ...values, [k]: v };
+    if (k === "target_type") {
+      next.target_slug = "";
+      next.target_section = "";
+      next.target_ranking_broker = "";
+    } else if (k === "target_slug") {
+      // Only card needs a broker-per-ranking; ranking changes invalidate previous broker.
+      if (values.target_type === "card") next.target_ranking_broker = "";
+      // section is review-only and validated separately; keep.
+    }
+    onChange(next);
+  };
   const targetType = values.target_type;
   const slug = values.target_slug;
 
@@ -576,10 +603,9 @@ function SubmissionForm({ api, targets, defaultLang, onBack, onSaved }) {
             body: { action: "submit" },
           });
         } catch (submitErr) {
-          // Draft already exists — route to detail view so user can retry submit
-          // from there instead of re-creating a duplicate.
-          setErr(`Draft saved, but submit failed: ${submitErr.message}. Open the draft to retry.`);
-          onSaved(createdId);
+          // Draft already exists — route to detail view with flash-message
+          // query param so the user sees why submit failed and can retry.
+          onSaved(createdId, `Draft saved, but submit failed: ${submitErr.message}. Use "Submit for review" below to retry.`);
           return;
         }
       }
@@ -616,7 +642,7 @@ function SubmissionForm({ api, targets, defaultLang, onBack, onSaved }) {
 // ═══════════════════════════════════════════════════════════════════════════
 // Detail view
 // ═══════════════════════════════════════════════════════════════════════════
-function SubmissionDetail({ api, id, onBack, onEdit }) {
+function SubmissionDetail({ api, id, onBack, onEdit, flashMessage, onClearFlash }) {
   const [sub, setSub] = useState(null);
   const [err, setErr] = useState("");
   const [reloadKey, setReloadKey] = useState(0);
@@ -672,6 +698,24 @@ function SubmissionDetail({ api, id, onBack, onEdit }) {
         <StatusBadge status={sub.status} />
       </div>
       <ErrorBanner message={err} />
+      {flashMessage && (
+        <div style={{
+          background: "#fef3c7", color: "#92400e", padding: "10px 14px",
+          borderRadius: 8, marginBottom: 12, fontSize: 13,
+          display: "flex", alignItems: "flex-start", gap: 8, justifyContent: "space-between",
+        }}>
+          <div style={{ display: "flex", gap: 8 }}>
+            <AlertCircle size={16} style={{ flexShrink: 0, marginTop: 2 }} />
+            <span>{flashMessage}</span>
+          </div>
+          {onClearFlash && (
+            <button onClick={onClearFlash} style={{
+              background: "transparent", border: "none", color: "#92400e",
+              cursor: "pointer", padding: 0, marginLeft: 8,
+            }} aria-label="Dismiss">×</button>
+          )}
+        </div>
+      )}
 
       <h2 style={{ fontFamily: "Outfit, sans-serif", fontWeight: 700, fontSize: 20, color: "#0f172a", margin: "0 0 4px" }}>
         {sub.title || <span style={{ color: "#94a3b8" }}>(untitled)</span>}
