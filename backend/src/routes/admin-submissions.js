@@ -158,8 +158,9 @@ export async function handleAdminSubmissionStatus(request, env, id) {
 
 // ─── CSV export (with filters) ─────────────────────────────────────────────
 export async function handleAdminSubmissionsExport(request, env) {
+  const corsH = corsHeaders(request);
   if (!checkAuth(request, env)) {
-    return new Response('Unauthorized', { status: 401, headers: { 'Content-Type': 'text/plain' } });
+    return new Response('Unauthorized', { status: 401, headers: { 'Content-Type': 'text/plain', ...corsH } });
   }
   const url = new URL(request.url);
   const status = url.searchParams.get('status');
@@ -178,11 +179,11 @@ export async function handleAdminSubmissionsExport(request, env) {
     return d;
   }
   if (from && !parseYmd(from)) {
-    return new Response('from must be YYYY-MM-DD', { status: 400, headers: { 'Content-Type': 'text/plain' } });
+    return new Response('from must be YYYY-MM-DD', { status: 400, headers: { 'Content-Type': 'text/plain', ...corsH } });
   }
   const toDate = to ? parseYmd(to) : null;
   if (to && !toDate) {
-    return new Response('to must be YYYY-MM-DD', { status: 400, headers: { 'Content-Type': 'text/plain' } });
+    return new Response('to must be YYYY-MM-DD', { status: 400, headers: { 'Content-Type': 'text/plain', ...corsH } });
   }
 
   const where = [];
@@ -213,7 +214,11 @@ export async function handleAdminSubmissionsExport(request, env) {
     'created_at','submitted_at','accepted_at','processed_at','published_at'];
   const csvEscape = (v) => {
     if (v == null) return '';
-    const s = String(v);
+    let s = String(v);
+    // Prevent spreadsheet formula injection: prefix any cell starting with
+    // =, +, -, @, tab, or CR with a single quote so Excel/Sheets treat it
+    // as text. Applies to user-controlled fields (title, author_name, ...).
+    if (s.length > 0 && /^[=+\-@\t\r]/.test(s)) s = "'" + s;
     if (/[",\n\r]/.test(s)) return '"' + s.replace(/"/g, '""') + '"';
     return s;
   };
@@ -228,7 +233,7 @@ export async function handleAdminSubmissionsExport(request, env) {
     headers: {
       'Content-Type': 'text/csv; charset=utf-8',
       'Content-Disposition': 'attachment; filename="submissions.csv"',
-      ...corsHeaders(request),
+      ...corsH,
     },
   });
 }
