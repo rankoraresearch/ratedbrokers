@@ -147,8 +147,8 @@ export default function SearchOverlay({ onClose }) {
         <div style={{ display: "flex", alignItems: "center", gap: 6, flexShrink: 0 }}>
           <span style={{
             fontFamily: "'JetBrains Mono'", fontWeight: 800, fontSize: 13,
-            color: item.meta.score >= 9.5 ? "#059669" : "#2563eb",
-            background: item.meta.score >= 9.5 ? "#ecfdf5" : "#eff6ff",
+            color: "#0f172a",
+            background: "#f1f5f9", border: "1px solid #e2e8f0",
             padding: "2px 6px", borderRadius: 4,
           }}>{item.meta.score}</span>
           {item.meta.badge && (
