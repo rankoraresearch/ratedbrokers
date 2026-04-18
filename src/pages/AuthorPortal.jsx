@@ -1,150 +1,725 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { LogOut, User, ShieldCheck } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import {
+  LogOut, User, Plus, ArrowLeft, FileText, Send, Trash2, Clock, CheckCircle,
+  AlertCircle, XCircle, Pencil, RefreshCw,
+} from "lucide-react";
 import { AUTHOR_TOKEN_STORAGE_KEY } from "./AuthorPortalLogin";
+import RANKINGS from "../data/rankings";
 
 /**
- * Author portal dashboard — placeholder for Sprint 3.
+ * Author Portal — full dashboard.
  *
- * Sprint 5 will extend this with "My Submissions" table and "New Submission" form.
- * For now: shows author profile + sign-out, confirming auth flow works end-to-end.
+ * Views (URL state via ?view=):
+ *   - list     — My Submissions table (default)
+ *   - new      — New Submission form
+ *   - detail   — View a single submission (also sets ?id=)
+ *   - edit     — Edit an existing draft (also sets ?id=)
+ *
+ * Auth: token from localStorage (seeded by AuthorPortalLogin.jsx). On any
+ * 401 response → clear and redirect to /author.
  *
  * See AUTHOR-SUBMISSIONS-SPEC.md §7.2.
  */
+
+const STATUS_META = {
+  draft:         { label: "Draft",         color: "#64748b", bg: "#f1f5f9",  icon: FileText },
+  submitted:     { label: "Submitted",     color: "#2563eb", bg: "#dbeafe",  icon: Clock },
+  needs_changes: { label: "Needs changes", color: "#d97706", bg: "#fef3c7",  icon: AlertCircle },
+  accepted:      { label: "Accepted",      color: "#059669", bg: "#d1fae5",  icon: CheckCircle },
+  processed:     { label: "Processed",     color: "#047857", bg: "#a7f3d0",  icon: CheckCircle },
+  published:     { label: "Published",     color: "#065f46", bg: "#34d399",  icon: CheckCircle },
+  rejected:      { label: "Rejected",      color: "#dc2626", bg: "#fee2e2",  icon: XCircle },
+  reverted:      { label: "Reverted",      color: "#7c3aed", bg: "#ede9fe",  icon: RefreshCw },
+};
+
+const TARGET_LABEL = {
+  review:  "Broker Review",
+  ranking: "Ranking Content",
+  card:    "Broker Card",
+};
+
+// ═══════════════════════════════════════════════════════════════════════════
+// API helper — single place to handle auth + 401 recovery
+// ═══════════════════════════════════════════════════════════════════════════
+function useApi(navigate) {
+  const apiBase = import.meta.env.VITE_API_URL || "";
+  return async function call(path, { method = "GET", body } = {}) {
+    const token = localStorage.getItem(AUTHOR_TOKEN_STORAGE_KEY);
+    if (!token) { navigate("/author", { replace: true }); throw new Error("no token"); }
+    const res = await fetch(`${apiBase}${path}`, {
+      method,
+      headers: {
+        Authorization: `Bearer ${token}`,
+        ...(body ? { "Content-Type": "application/json" } : {}),
+      },
+      body: body ? JSON.stringify(body) : undefined,
+    });
+    if (res.status === 401) {
+      localStorage.removeItem(AUTHOR_TOKEN_STORAGE_KEY);
+      navigate("/author", { replace: true });
+      throw new Error("token invalidated");
+    }
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
+    return data;
+  };
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// Ranking catalog lookups — enrich scope entries with display names
+// ═══════════════════════════════════════════════════════════════════════════
+const RANKING_BY_ID = Object.fromEntries(RANKINGS.map(r => [r.id, r]));
+
+function rankingTitle(id) {
+  return RANKING_BY_ID[id]?.title || id;
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// Styling shortcuts (inline CSS per project convention)
+// ═══════════════════════════════════════════════════════════════════════════
+const shell = {
+  minHeight: "calc(100vh - 120px)",
+  background: "#f8fafc",
+  padding: "24px 16px",
+};
+const container = { maxWidth: 960, margin: "0 auto" };
+const card = {
+  background: "#fff", borderRadius: 14, padding: "20px 24px",
+  boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.06), 0 4px 24px rgba(0,0,0,0.05)",
+  marginBottom: 16,
+};
+const label = { fontSize: 12, fontWeight: 700, color: "#334155", textTransform: "uppercase", letterSpacing: "0.04em", marginBottom: 6, display: "block" };
+const input = {
+  padding: "10px 12px", fontSize: 14, border: "1px solid #cbd5e1",
+  borderRadius: 8, outline: "none", width: "100%", boxSizing: "border-box",
+  fontFamily: "inherit",
+};
+const select = { ...input, background: "#fff" };
+const btnPrimary = {
+  background: "linear-gradient(135deg, #f59e0b, #fbbf24)",
+  color: "#fff", border: "none", padding: "10px 18px", borderRadius: 10,
+  fontWeight: 700, fontSize: 14, cursor: "pointer",
+  display: "inline-flex", alignItems: "center", gap: 6,
+};
+const btnSecondary = {
+  background: "transparent", color: "#334155",
+  border: "1px solid #cbd5e1", padding: "10px 16px", borderRadius: 10,
+  fontWeight: 600, fontSize: 13, cursor: "pointer",
+  display: "inline-flex", alignItems: "center", gap: 6,
+};
+const btnDanger = {
+  background: "transparent", color: "#dc2626",
+  border: "1px solid #fecaca", padding: "10px 16px", borderRadius: 10,
+  fontWeight: 600, fontSize: 13, cursor: "pointer",
+  display: "inline-flex", alignItems: "center", gap: 6,
+};
+
+function StatusBadge({ status }) {
+  const meta = STATUS_META[status] || { label: status, color: "#64748b", bg: "#f1f5f9", icon: FileText };
+  const Icon = meta.icon;
+  return (
+    <span style={{
+      display: "inline-flex", alignItems: "center", gap: 4,
+      padding: "4px 10px", borderRadius: 8,
+      background: meta.bg, color: meta.color,
+      fontSize: 12, fontWeight: 700,
+    }}>
+      <Icon size={12} /> {meta.label}
+    </span>
+  );
+}
+
+function ErrorBanner({ message }) {
+  if (!message) return null;
+  return (
+    <div style={{
+      background: "#fee2e2", color: "#991b1b",
+      padding: "10px 14px", borderRadius: 8, marginBottom: 12,
+      fontSize: 13, display: "flex", alignItems: "center", gap: 8,
+    }}>
+      <AlertCircle size={16} /> {message}
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// Main component
+// ═══════════════════════════════════════════════════════════════════════════
 export default function AuthorPortal() {
   const navigate = useNavigate();
+  const [params, setParams] = useSearchParams();
+  const api = useApi(navigate);
   const [author, setAuthor] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
+  const [targets, setTargets] = useState(null);
+  const [loadErr, setLoadErr] = useState("");
 
+  // Bootstrap: profile + targets
   useEffect(() => {
-    const token = localStorage.getItem(AUTHOR_TOKEN_STORAGE_KEY);
-    if (!token) {
-      navigate("/author", { replace: true });
-      return;
-    }
-    const apiBase = import.meta.env.VITE_API_URL || "";
-    fetch(`${apiBase}/api/author/me`, {
-      headers: { Authorization: `Bearer ${token}` },
-    })
-      .then(async (res) => {
-        if (res.ok) {
-          const data = await res.json();
-          setAuthor(data);
-          setLoading(false);
-        } else {
-          // stale token — clear and redirect to login
-          localStorage.removeItem(AUTHOR_TOKEN_STORAGE_KEY);
-          navigate("/author", { replace: true });
-        }
-      })
-      .catch((err) => {
-        setError(err.message || "Network error");
-        setLoading(false);
-      });
-  }, [navigate]);
+    (async () => {
+      try {
+        const [me, t] = await Promise.all([
+          api("/api/author/me"),
+          api("/api/author/targets"),
+        ]);
+        setAuthor(me);
+        setTargets(t);
+      } catch (e) {
+        setLoadErr(e.message);
+      }
+    })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   function signOut() {
     localStorage.removeItem(AUTHOR_TOKEN_STORAGE_KEY);
     navigate("/author", { replace: true });
   }
 
-  const shellStyle = {
-    minHeight: "calc(100vh - 120px)",
-    background: "#f8fafc",
-    padding: "32px 16px",
-  };
-  const containerStyle = {
-    maxWidth: 960, margin: "0 auto",
-  };
-  const cardStyle = {
-    background: "#fff", borderRadius: 14, padding: "24px 28px",
-    boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.06), 0 4px 24px rgba(0,0,0,0.05)",
-    marginBottom: 20,
-  };
+  function gotoView(view, id) {
+    const next = new URLSearchParams();
+    next.set("view", view);
+    if (id) next.set("id", String(id));
+    setParams(next, { replace: false });
+  }
 
-  if (loading) {
+  const view = params.get("view") || "list";
+  const selectedId = params.get("id");
+
+  if (loadErr) {
     return (
-      <div style={shellStyle}>
-        <div style={containerStyle}>
-          <div style={cardStyle}>
-            <div style={{ color: "#059669", display: "flex", alignItems: "center", gap: 10 }}>
-              <ShieldCheck size={18} /> Loading your profile…
-            </div>
+      <div style={shell}>
+        <div style={container}>
+          <div style={card}>
+            <ErrorBanner message={loadErr} />
+            <button onClick={signOut} style={btnSecondary}><LogOut size={14} /> Sign out</button>
           </div>
         </div>
       </div>
     );
   }
-
-  if (error) {
+  if (!author) {
     return (
-      <div style={shellStyle}>
-        <div style={containerStyle}>
-          <div style={cardStyle}>
-            <div style={{ color: "#dc2626", fontWeight: 700 }}>Error: {error}</div>
-          </div>
+      <div style={shell}>
+        <div style={container}>
+          <div style={card}>Loading…</div>
         </div>
       </div>
     );
   }
 
-  const scopes = author?.scopes || {};
   const scopeSummary = [
-    scopes.reviews?.length ? `${scopes.reviews.length} review scope${scopes.reviews.length > 1 ? "s" : ""}` : null,
-    scopes.rankings?.length ? `${scopes.rankings.length} ranking scope${scopes.rankings.length > 1 ? "s" : ""}` : null,
-    scopes.cards?.length ? `${scopes.cards.length} card scope${scopes.cards.length > 1 ? "s" : ""}` : null,
-  ].filter(Boolean).join(" · ") || "no scopes assigned";
+    targets?.reviews?.length ? `${targets.reviews.length} broker${targets.reviews.length > 1 ? "s" : ""}` : null,
+    targets?.rankings?.length ? `${targets.rankings.length} ranking${targets.rankings.length > 1 ? "s" : ""}` : null,
+    targets?.cards?.length ? `${targets.cards.length} card${targets.cards.length > 1 ? "s" : ""}` : null,
+  ].filter(Boolean).join(" · ") || "no scopes";
 
   return (
-    <div style={shellStyle}>
-      <div style={containerStyle}>
-        {/* Header */}
-        <div style={{
-          ...cardStyle,
-          display: "flex", alignItems: "center", gap: 14, justifyContent: "space-between",
-        }}>
+    <div style={shell}>
+      <div style={container}>
+        {/* ─── Header ─── */}
+        <div style={{ ...card, display: "flex", alignItems: "center", gap: 14, justifyContent: "space-between" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
             <div style={{
-              width: 48, height: 48, borderRadius: 12,
+              width: 44, height: 44, borderRadius: 12,
               background: "linear-gradient(135deg, #059669, #047857)",
               display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
             }}>
-              <User size={22} color="#fff" />
+              <User size={20} color="#fff" />
             </div>
             <div>
               <div style={{ fontFamily: "Outfit, sans-serif", fontWeight: 700, fontSize: 18, color: "#0f172a" }}>
-                Hi, {author?.name || "author"}
+                Hi, {author.name}
               </div>
               <div style={{ fontSize: 12, color: "#64748b", marginTop: 2 }}>
-                {author?.role} · {scopeSummary} · default lang {author?.defaultLang}
+                {author.role} · {scopeSummary} · {author.defaultLang}
               </div>
             </div>
           </div>
-          <button
-            onClick={signOut}
-            style={{
-              background: "transparent", color: "#64748b",
-              border: "1px solid #cbd5e1", padding: "8px 14px", borderRadius: 10,
-              fontSize: 13, fontWeight: 600, cursor: "pointer",
-              display: "flex", alignItems: "center", gap: 6,
-            }}
-          >
-            <LogOut size={14} /> Sign out
-          </button>
+          <button onClick={signOut} style={btnSecondary}><LogOut size={14} /> Sign out</button>
         </div>
 
-        {/* Sprint-3 placeholder — full UI lands in Sprint 5 */}
-        <div style={cardStyle}>
-          <div style={{ fontFamily: "Outfit, sans-serif", fontWeight: 700, fontSize: 16, color: "#0f172a", marginBottom: 8 }}>
-            Author portal
-          </div>
-          <p style={{ color: "#475569", fontSize: 14, lineHeight: 1.6, margin: 0 }}>
-            Your access is verified. The submissions dashboard (my submissions list and new-submission form)
-            will appear here once Sprint 5 is shipped. Check back shortly — you'll be able to draft, save,
-            and submit content for review directly from this page.
-          </p>
+        {/* ─── Views ─── */}
+        {view === "list" && (
+          <SubmissionList api={api} onOpen={(id) => gotoView("detail", id)} onNew={() => gotoView("new")} />
+        )}
+        {view === "new" && (
+          <SubmissionForm api={api} targets={targets} defaultLang={author.defaultLang}
+            onBack={() => gotoView("list")} onSaved={(id) => gotoView("detail", id)} />
+        )}
+        {view === "detail" && selectedId && (
+          <SubmissionDetail api={api} id={selectedId}
+            onBack={() => gotoView("list")} onEdit={() => gotoView("edit", selectedId)} />
+        )}
+        {view === "edit" && selectedId && (
+          <SubmissionEdit api={api} id={selectedId} targets={targets}
+            onBack={() => gotoView("detail", selectedId)} onSaved={() => gotoView("detail", selectedId)} />
+        )}
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// List view
+// ═══════════════════════════════════════════════════════════════════════════
+function SubmissionList({ api, onOpen, onNew }) {
+  const [rows, setRows] = useState(null);
+  const [statusFilter, setStatusFilter] = useState("");
+  const [err, setErr] = useState("");
+
+  const load = async () => {
+    try {
+      const q = statusFilter ? `?status=${statusFilter}` : "";
+      setRows(await api(`/api/author/submissions${q}`));
+      setErr("");
+    } catch (e) { setErr(e.message); }
+  };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => { load(); }, [statusFilter]);
+
+  return (
+    <div style={card}>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14 }}>
+        <div style={{ fontFamily: "Outfit, sans-serif", fontWeight: 700, fontSize: 16, color: "#0f172a" }}>
+          My submissions
         </div>
+        <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+          <select value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)}
+            style={{ ...select, width: "auto", padding: "7px 10px", fontSize: 12 }}>
+            <option value="">All statuses</option>
+            {Object.entries(STATUS_META).map(([k, m]) => (
+              <option key={k} value={k}>{m.label}</option>
+            ))}
+          </select>
+          <button onClick={onNew} style={btnPrimary}><Plus size={14} /> New submission</button>
+        </div>
+      </div>
+      <ErrorBanner message={err} />
+      {rows === null && <div style={{ color: "#64748b", fontSize: 13 }}>Loading…</div>}
+      {rows !== null && rows.length === 0 && (
+        <div style={{ color: "#64748b", fontSize: 13, padding: "24px 0", textAlign: "center" }}>
+          {statusFilter ? "No submissions with this status." : "No submissions yet. Click 'New submission' to start."}
+        </div>
+      )}
+      {rows !== null && rows.length > 0 && (
+        <table style={{ width: "100%", borderCollapse: "collapse" }}>
+          <thead>
+            <tr style={{ borderBottom: "1px solid #e2e8f0" }}>
+              <th style={{ textAlign: "left", fontSize: 11, color: "#64748b", textTransform: "uppercase", letterSpacing: "0.05em", padding: "8px 10px" }}>Title / Target</th>
+              <th style={{ textAlign: "left", fontSize: 11, color: "#64748b", textTransform: "uppercase", letterSpacing: "0.05em", padding: "8px 10px" }}>Type</th>
+              <th style={{ textAlign: "left", fontSize: 11, color: "#64748b", textTransform: "uppercase", letterSpacing: "0.05em", padding: "8px 10px" }}>Status</th>
+              <th style={{ textAlign: "right", fontSize: 11, color: "#64748b", textTransform: "uppercase", letterSpacing: "0.05em", padding: "8px 10px" }}>Updated</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map(r => (
+              <tr key={r.id} onClick={() => onOpen(r.id)} style={{ cursor: "pointer", borderBottom: "1px solid #f1f5f9" }}>
+                <td style={{ padding: "10px" }}>
+                  <div style={{ fontWeight: 600, color: "#0f172a", fontSize: 14 }}>
+                    {r.title || <span style={{ color: "#94a3b8" }}>(untitled)</span>}
+                  </div>
+                  <div style={{ color: "#64748b", fontSize: 12, marginTop: 2 }}>
+                    {r.target_slug}{r.target_section ? ` · ${r.target_section}` : ""}{r.target_ranking_broker ? ` · ${r.target_ranking_broker}` : ""} · {r.lang}
+                  </div>
+                </td>
+                <td style={{ padding: "10px", fontSize: 13, color: "#334155" }}>{TARGET_LABEL[r.target_type]}</td>
+                <td style={{ padding: "10px" }}><StatusBadge status={r.status} /></td>
+                <td style={{ padding: "10px", textAlign: "right", fontSize: 12, color: "#64748b", fontFamily: "SF Mono, Menlo, monospace" }}>
+                  {r.updated_at}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// Create form (shared form logic with edit view)
+// ═══════════════════════════════════════════════════════════════════════════
+function FormFields({ targets, values, onChange, defaultLang, lockTarget = false }) {
+  const set = (k, v) => onChange({ ...values, [k]: v });
+  const targetType = values.target_type;
+  const slug = values.target_slug;
+
+  const availableBrokers = targets?.reviews || [];
+  const availableRankings = useMemo(() => {
+    const scope = targets?.rankings || [];
+    if (scope.some(r => r.wildcard && r.id === "*")) return RANKINGS.map(r => ({ id: r.id, title: r.title }));
+    return scope.filter(r => !r.wildcard).map(r => ({ id: r.id, title: rankingTitle(r.id) }));
+  }, [targets]);
+  const availableCards = useMemo(() => {
+    const scope = targets?.cards || [];
+    if (scope.some(c => c.wildcard && !c.ranking_id)) return null; // fully wildcarded — ranking+broker free-form
+    return scope;
+  }, [targets]);
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+      <div>
+        <label style={label}>Target type</label>
+        <select value={targetType || ""} onChange={(e) => set("target_type", e.target.value)} style={select} disabled={lockTarget}>
+          <option value="">Select…</option>
+          <option value="review">Broker review (one section)</option>
+          <option value="ranking">Ranking content (intro / key finding / outro / FAQ)</option>
+          <option value="card">Broker card inside a ranking</option>
+        </select>
+      </div>
+
+      {targetType === "review" && (
+        <>
+          <div>
+            <label style={label}>Broker</label>
+            <select value={slug || ""} onChange={(e) => set("target_slug", e.target.value)} style={select} disabled={lockTarget}>
+              <option value="">Select broker…</option>
+              {availableBrokers.map(b => <option key={b.slug} value={b.slug}>{b.name}</option>)}
+            </select>
+          </div>
+          <div>
+            <label style={label}>Section (optional — leave empty for full review)</label>
+            <select value={values.target_section || ""} onChange={(e) => set("target_section", e.target.value)} style={select}>
+              <option value="">(Full review)</option>
+              {(targets?.sections || []).map(s => <option key={s} value={s}>{s}</option>)}
+            </select>
+          </div>
+        </>
+      )}
+
+      {targetType === "ranking" && (
+        <div>
+          <label style={label}>Ranking</label>
+          <select value={slug || ""} onChange={(e) => set("target_slug", e.target.value)} style={select} disabled={lockTarget}>
+            <option value="">Select ranking…</option>
+            {availableRankings.map(r => <option key={r.id} value={r.id}>{r.title}</option>)}
+          </select>
+        </div>
+      )}
+
+      {targetType === "card" && (
+        <>
+          <div>
+            <label style={label}>Ranking</label>
+            <select value={slug || ""} onChange={(e) => set("target_slug", e.target.value)} style={select} disabled={lockTarget}>
+              <option value="">Select ranking…</option>
+              {(availableCards === null
+                ? RANKINGS.map(r => ({ id: r.id, title: r.title }))
+                : [...new Set(availableCards.map(c => c.ranking_id))].map(id => ({ id, title: rankingTitle(id) }))
+              ).map(r => <option key={r.id} value={r.id}>{r.title}</option>)}
+            </select>
+          </div>
+          <div>
+            <label style={label}>Broker in ranking</label>
+            <select value={values.target_ranking_broker || ""} onChange={(e) => set("target_ranking_broker", e.target.value)} style={select} disabled={lockTarget}>
+              <option value="">Select broker…</option>
+              {(availableCards === null
+                ? availableBrokers.map(b => ({ slug: b.slug, name: b.name }))
+                : availableCards
+                    .filter(c => c.ranking_id === slug || c.wildcard)
+                    .map(c => c.wildcard
+                      ? availableBrokers
+                      : [{ slug: c.broker_slug, name: c.broker_slug }])
+                    .flat()
+              ).map((b, i) => <option key={`${b.slug}-${i}`} value={b.slug}>{b.name}</option>)}
+            </select>
+          </div>
+        </>
+      )}
+
+      <div>
+        <label style={label}>Language</label>
+        <select value={values.lang || defaultLang || "en"} onChange={(e) => set("lang", e.target.value)} style={select}>
+          {(targets?.langs || ["en"]).map(l => <option key={l} value={l}>{l}</option>)}
+        </select>
+      </div>
+
+      <div>
+        <label style={label}>Title <span style={{ fontWeight: 400, color: "#94a3b8" }}>(optional, max 200)</span></label>
+        <input type="text" value={values.title || ""} maxLength={200}
+          onChange={(e) => set("title", e.target.value)} style={input} />
+      </div>
+
+      <div>
+        <label style={label}>
+          Body (Markdown){" "}
+          <span style={{ fontWeight: 400, color: "#94a3b8" }}>
+            {values.body_md ? `${values.body_md.length.toLocaleString()} chars · ~${countWords(values.body_md)} words` : "max 100 KB"}
+          </span>
+        </label>
+        <textarea rows={22} value={values.body_md || ""}
+          onChange={(e) => set("body_md", e.target.value)}
+          style={{ ...input, fontFamily: "SF Mono, Menlo, monospace", fontSize: 13, lineHeight: 1.6, resize: "vertical" }}
+          placeholder={values.target_type === "review"
+            ? "Use `## Section: Costs` markers to split into multiple review sections, or stay within one section."
+            : values.target_type === "ranking"
+            ? "Structure: ## Intro, ## Key Finding, ## How We Ranked, ## Outro, ## FAQ (Q:/A: pairs)."
+            : "Short description of this broker inside the ranking."}
+        />
+      </div>
+    </div>
+  );
+}
+
+function countWords(s) {
+  if (!s) return 0;
+  const stripped = String(s).replace(/[#*_`~\[\]()>]+/g, " ").replace(/\s+/g, " ").trim();
+  return stripped ? stripped.split(" ").length : 0;
+}
+
+function validateBeforeSend(v) {
+  if (!v.target_type) return "target type required";
+  if (!v.target_slug) return "target required";
+  if (v.target_type === "card" && !v.target_ranking_broker) return "broker required for card";
+  if (!v.body_md || !v.body_md.trim()) return "body is required";
+  if (new TextEncoder().encode(v.body_md).length > 100 * 1024) return "body exceeds 100 KB";
+  if (v.title && v.title.length > 200) return "title too long";
+  return null;
+}
+
+function SubmissionForm({ api, targets, defaultLang, onBack, onSaved }) {
+  const [values, setValues] = useState({ lang: defaultLang || "en" });
+  const [err, setErr] = useState("");
+  const [busy, setBusy] = useState(false);
+
+  async function save(action) {
+    const problem = validateBeforeSend(values);
+    if (problem) { setErr(problem); return; }
+    setBusy(true);
+    setErr("");
+    try {
+      const created = await api("/api/author/submissions", {
+        method: "POST",
+        body: {
+          target_type: values.target_type,
+          target_slug: values.target_slug,
+          target_section: values.target_type === "review" ? values.target_section || null : null,
+          target_ranking_broker: values.target_type === "card" ? values.target_ranking_broker : null,
+          lang: values.lang || defaultLang || "en",
+          title: values.title || null,
+          body_md: values.body_md,
+        },
+      });
+      if (action === "submit") {
+        await api(`/api/author/submissions/${created.id}`, {
+          method: "PATCH",
+          body: { action: "submit" },
+        });
+      }
+      onSaved(created.id);
+    } catch (e) {
+      setErr(e.message);
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  return (
+    <div style={card}>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14 }}>
+        <button onClick={onBack} style={btnSecondary}><ArrowLeft size={14} /> Back</button>
+        <div style={{ fontFamily: "Outfit, sans-serif", fontWeight: 700, fontSize: 16, color: "#0f172a" }}>
+          New submission
+        </div>
+      </div>
+      <ErrorBanner message={err} />
+      <FormFields targets={targets} values={values} onChange={setValues} defaultLang={defaultLang} />
+      <div style={{ display: "flex", gap: 10, marginTop: 18, justifyContent: "flex-end" }}>
+        <button onClick={() => save("draft")} disabled={busy} style={btnSecondary}>
+          <FileText size={14} /> Save draft
+        </button>
+        <button onClick={() => save("submit")} disabled={busy} style={btnPrimary}>
+          <Send size={14} /> Save & submit for review
+        </button>
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// Detail view
+// ═══════════════════════════════════════════════════════════════════════════
+function SubmissionDetail({ api, id, onBack, onEdit }) {
+  const [sub, setSub] = useState(null);
+  const [err, setErr] = useState("");
+
+  const load = async () => {
+    try { setSub(await api(`/api/author/submissions/${id}`)); setErr(""); }
+    catch (e) { setErr(e.message); }
+  };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => { load(); }, [id]);
+
+  async function submit() {
+    try {
+      await api(`/api/author/submissions/${id}`, { method: "PATCH", body: { action: "submit" } });
+      load();
+    } catch (e) { setErr(e.message); }
+  }
+
+  async function remove() {
+    if (!confirm("Delete this draft? This cannot be undone.")) return;
+    try {
+      await api(`/api/author/submissions/${id}`, { method: "DELETE" });
+      onBack();
+    } catch (e) { setErr(e.message); }
+  }
+
+  if (!sub) {
+    return (
+      <div style={card}>
+        <button onClick={onBack} style={btnSecondary}><ArrowLeft size={14} /> Back</button>
+        <ErrorBanner message={err} />
+        {!err && <div style={{ color: "#64748b", marginTop: 12 }}>Loading…</div>}
+      </div>
+    );
+  }
+
+  const editable = sub.status === "draft" || sub.status === "needs_changes";
+  const submittable = sub.status === "draft" || sub.status === "needs_changes";
+  const deletable = sub.status === "draft";
+
+  return (
+    <div style={card}>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14 }}>
+        <button onClick={onBack} style={btnSecondary}><ArrowLeft size={14} /> Back</button>
+        <StatusBadge status={sub.status} />
+      </div>
+      <ErrorBanner message={err} />
+
+      <h2 style={{ fontFamily: "Outfit, sans-serif", fontWeight: 700, fontSize: 20, color: "#0f172a", margin: "0 0 4px" }}>
+        {sub.title || <span style={{ color: "#94a3b8" }}>(untitled)</span>}
+      </h2>
+      <div style={{ color: "#64748b", fontSize: 13, marginBottom: 14 }}>
+        {TARGET_LABEL[sub.target_type]} · {sub.target_slug}
+        {sub.target_section ? ` · ${sub.target_section}` : ""}
+        {sub.target_ranking_broker ? ` · ${sub.target_ranking_broker}` : ""}
+        {" · "}{sub.lang} · {sub.word_count} words
+      </div>
+
+      {sub.admin_notes && (
+        <div style={{
+          background: "#fef3c7", color: "#92400e",
+          padding: 12, borderRadius: 8, marginBottom: 14, fontSize: 13,
+        }}>
+          <strong>Admin notes:</strong> {sub.admin_notes}
+        </div>
+      )}
+
+      <div style={{
+        background: "#f8fafc", padding: 16, borderRadius: 10,
+        fontFamily: "SF Mono, Menlo, monospace", fontSize: 13, lineHeight: 1.6,
+        whiteSpace: "pre-wrap", color: "#0f172a", marginBottom: 14,
+        border: "1px solid #e2e8f0", maxHeight: 500, overflowY: "auto",
+      }}>
+        {sub.body_md}
+      </div>
+
+      <div style={{ display: "flex", gap: 10, marginBottom: 20 }}>
+        {editable && <button onClick={onEdit} style={btnSecondary}><Pencil size={14} /> Edit</button>}
+        {submittable && <button onClick={submit} style={btnPrimary}><Send size={14} /> Submit for review</button>}
+        {deletable && <button onClick={remove} style={btnDanger}><Trash2 size={14} /> Delete draft</button>}
+      </div>
+
+      <div style={{ borderTop: "1px solid #e2e8f0", paddingTop: 14 }}>
+        <div style={{ ...label, marginBottom: 10 }}>Timeline</div>
+        {sub.events?.length ? (
+          <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+            {sub.events.map(e => (
+              <li key={e.id} style={{ fontSize: 13, color: "#475569", padding: "6px 0", borderBottom: "1px dashed #e2e8f0" }}>
+                <span style={{ color: "#059669", fontWeight: 600 }}>{e.event}</span>
+                {" · "}
+                <span style={{ color: "#64748b" }}>{e.actor_type}</span>
+                {e.notes ? <> · <em>{e.notes}</em></> : null}
+                <span style={{ float: "right", color: "#94a3b8", fontFamily: "SF Mono, Menlo, monospace", fontSize: 12 }}>
+                  {e.created_at}
+                </span>
+              </li>
+            ))}
+          </ul>
+        ) : <div style={{ color: "#94a3b8", fontSize: 13 }}>No events.</div>}
+      </div>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// Edit view — patch an existing draft / needs_changes submission
+// ═══════════════════════════════════════════════════════════════════════════
+function SubmissionEdit({ api, id, targets, onBack, onSaved }) {
+  const [values, setValues] = useState(null);
+  const [err, setErr] = useState("");
+  const [busy, setBusy] = useState(false);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const sub = await api(`/api/author/submissions/${id}`);
+        setValues({
+          target_type: sub.target_type,
+          target_slug: sub.target_slug,
+          target_section: sub.target_section || "",
+          target_ranking_broker: sub.target_ranking_broker || "",
+          lang: sub.lang,
+          title: sub.title || "",
+          body_md: sub.body_md,
+        });
+      } catch (e) { setErr(e.message); }
+    })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]);
+
+  async function save(action) {
+    const problem = validateBeforeSend(values);
+    if (problem) { setErr(problem); return; }
+    setBusy(true); setErr("");
+    try {
+      // Only body_md/title/target_section/lang are mutable per spec.
+      await api(`/api/author/submissions/${id}`, {
+        method: "PATCH",
+        body: {
+          title: values.title || null,
+          body_md: values.body_md,
+          target_section: values.target_type === "review" ? values.target_section || null : undefined,
+          lang: values.lang,
+          ...(action === "submit" ? { action: "submit" } : {}),
+        },
+      });
+      onSaved();
+    } catch (e) {
+      setErr(e.message);
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  if (!values) {
+    return (
+      <div style={card}>
+        <button onClick={onBack} style={btnSecondary}><ArrowLeft size={14} /> Back</button>
+        <ErrorBanner message={err} />
+      </div>
+    );
+  }
+
+  return (
+    <div style={card}>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14 }}>
+        <button onClick={onBack} style={btnSecondary}><ArrowLeft size={14} /> Back</button>
+        <div style={{ fontFamily: "Outfit, sans-serif", fontWeight: 700, fontSize: 16, color: "#0f172a" }}>
+          Edit submission
+        </div>
+      </div>
+      <ErrorBanner message={err} />
+      <FormFields targets={targets} values={values} onChange={setValues} defaultLang={values.lang} lockTarget />
+      <div style={{ display: "flex", gap: 10, marginTop: 18, justifyContent: "flex-end" }}>
+        <button onClick={() => save("draft")} disabled={busy} style={btnSecondary}>
+          <FileText size={14} /> Save changes
+        </button>
+        <button onClick={() => save("submit")} disabled={busy} style={btnPrimary}>
+          <Send size={14} /> Save & submit
+        </button>
       </div>
     </div>
   );

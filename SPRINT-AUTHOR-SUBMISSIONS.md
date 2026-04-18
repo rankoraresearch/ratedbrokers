@@ -185,7 +185,12 @@ Commit: `16cfac1 feat(submissions): S1+S2 — author submissions spec + D1 migra
 7-endpoint REST API работает. Все тесты зелёные (создание, апдейт, сабмит, удаление, списки, detail, scope, sanitization, ownership isolation, rate limits). Backend deployed на `api.ratedbrokers.com`.
 
 ### Codex review Sprint 4
-**(запуск сейчас)**
+- Round 1: 7.7/10 — 1 HIGH (null JSON 500) + 2 MEDIUM (byte cap, /targets) + 2 LOW (target_section/ranking_broker cross-type, dead code)
+- Round 2: 9.2/10 — Round-1 все fixed; новая LOW (sanitizer comment + mailto)
+- Round 3: 9.8/10 — mailto removed; осталась comment drift
+- Round 4 FINAL: **10/10 territory, no findings** ✅
+- Путь: 7.7 → 9.2 → 9.8 → 10 за 4 раунда, 3 итерации правок
+- Commits: `4a913f4` (base), `0b66398` (R1 fixes), `f8010a7` (R2 nit), `016b3e6` (R3 nit)
 
 ---
 
@@ -194,25 +199,19 @@ Commit: `16cfac1 feat(submissions): S1+S2 — author submissions spec + D1 migra
 Цель: автор видит свои сабмиты и форму. Минимум красоты, максимум ясности.
 
 ### Подспринты
-- **5.1** Маршрут в React: `/author/portal` (новый в `src/App.jsx`, lazy-loaded). Gate: нет токена → login. Есть → dashboard
-- **5.2** `src/pages/AuthorPortal.jsx` — три секции: header (имя автора + «sign out»), «My Submissions» table, «New Submission» button
-- **5.3** `src/pages/AuthorSubmissionForm.jsx` — форма:
-  - Target Type (radio: **Review Tab** / **Ranking Content** / **Broker Card in Ranking**) — Ranking-тип охватывает все SEO-поля одного рейтинга (intro + key finding + how we ranked + outro + FAQ + meta)
-  - В зависимости: picker брокера + picker секции ИЛИ picker рейтинга (+ picker брокера для card type — обязателен)
-  - Language (en default; dropdown если scope позволяет)
-  - Title (одна строка)
-  - Body (textarea ~40 rows, Markdown, live char/word counter + target range hint). Для Ranking-типа — структурная подсказка: H2-маркеры `## Intro`, `## Key Finding`, `## How We Ranked`, `## Outro`, `## FAQ` (пары Q:/A:). Для Review-типа — `## Section: <name>`
-  - «Save Draft» / «Submit for Review» buttons
-- **5.4** Список статусов — badges цветов (draft серый, submitted синий, accepted зелёный, processed ярко-зелёный, rejected красный, needs_changes жёлтый)
-- **5.5** View submission page: показывает body_md rendered (react-markdown + hardened), admin notes если есть, история
-- **5.6** Десктоп и мобила, тёмная тема как в админке, lucide иконки
-- **5.7** Все fetch'и — через helper `authorApi.js` с `Authorization: Bearer <token>`
+- **5.1** ✅ Маршрут `/author/portal` уже в App.jsx (Sprint 3), обёрнут в `RequireAuthorToken` — уже есть
+- **5.2** ✅ Rewrite `src/pages/AuthorPortal.jsx` — 4 views управляются `?view=` query: list / new / detail / edit. Header с name + scope summary + sign-out. 767 строк (от placeholder)
+- **5.3** ✅ `SubmissionForm` + `FormFields` внутри AuthorPortal.jsx — три target_type, brokers/rankings/cards pickers гидрируются из `/api/author/targets` + bundled RANKINGS (хелпер `rankingTitle(id)`). Card — два-уровневый picker (ranking → broker внутри). Language select из scope.langs. Title + Body textarea с live char+word counter и контекстными placeholder'ами (H2 markers hints)
+- **5.4** ✅ `StatusBadge` — 8 статусов, color+bg+icon mapping (STATUS_META). Фильтр по status в списке
+- **5.5** ✅ `SubmissionDetail` — title, target metadata, admin_notes banner, body_md в mono `<pre>` (render без MD parser — чтобы автор видел raw), Timeline событий, action buttons Edit/Submit/Delete в зависимости от статуса
+- **5.6** ✅ Светлая тема (match production palette), inline CSS, lucide-react icons, адаптивный `max-width: 960` контейнер
+- **5.7** ✅ `useApi` hook — central fetch helper: читает token из localStorage, 401 → clear + redirect to /author, JSON serialization, structured error propagation
 
 ### Deliverable
-Работающий autoportal на живом сайте.
+Полная UI в AuthorPortal.jsx: list/new/detail/edit views под routing через `?view=`. Frontend build clean (3.74s). Auth flow end-to-end: login via invite → /author/portal видит name + scope → New submission form с dropdown брокера/рейтинга + textarea → Save Draft / Save & Submit. Detail view с Timeline событий. Edit view для draft/needs_changes.
 
-### Codex review
-`— ждёт выполнения —`
+### Codex review Sprint 5
+**(запуск сейчас)**
 
 ---
 

@@ -3,9 +3,9 @@
 **Если контекст потерян, читай этот файл ПЕРВЫМ.** Он восстановит ход работы.
 
 **Last updated:** 2026-04-18 (актуализировать каждый спринт)
-**Current sprint:** Sprint 3 — Auth & Magic Link Invite (code done, codex review pending)
+**Current sprint:** Sprint 5 — Author Portal UI (**in progress**)
 **Mode:** автономный до конца Sprint 8 (approve Егора).
-**Last Codex scores:** S1 — 10/10 ✅ · S2 — 10/10 ✅ · S3 — pending
+**Last Codex scores:** S1 — 10/10 ✅ · S2 — 10/10 ✅ · S3 — 10/10 ✅ · S4 — 10/10 ✅
 
 **Sprint 3 итог (code done):**
 - `backend/src/utils/authorAuth.js` — token parse, scope/card enforcement, authorizeTarget, generateToken

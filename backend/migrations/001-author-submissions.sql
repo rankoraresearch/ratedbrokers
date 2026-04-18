@@ -3,19 +3,32 @@
 -- Created: 2026-04-18
 -- Spec: AUTHOR-SUBMISSIONS-SPEC.md (Codex-approved 10/10)
 --
--- ⚠️  ONE-SHOT VERSIONED MIGRATION — NOT IDEMPOTENT.
---     D1 (SQLite) has no "ADD COLUMN IF NOT EXISTS" — re-running after
---     success will fail on ALTER TABLE. The schema_migrations table guards
---     against accidental re-runs via a SELECT probe + INSERT at the end.
+-- BEHAVIOR: one-shot, fail-hard on re-run.
+--   - CREATE TABLE IF NOT EXISTS is safe to re-run.
+--   - ALTER TABLE ADD COLUMN is NOT protected — D1/SQLite has no
+--     "ADD COLUMN IF NOT EXISTS", so re-running after success fails
+--     on the first duplicate column with SQLITE_ERROR: duplicate column name.
+--     THAT FAILURE IS THE GUARD. It forces the operator to stop and
+--     check schema_migrations before proceeding.
+--   - This file does NOT implement a SELECT-probe-then-skip pattern
+--     (wrangler executes the file as raw SQL with no conditional branching).
+--   - Not wrapped in a transaction (D1 also does not support BEGIN/COMMIT
+--     for DDL via wrangler exec). A mid-file failure leaves partial state.
+--     Recovery: check `.schema`, apply remaining statements one-by-one,
+--     then INSERT INTO schema_migrations manually.
 --
--- To apply:
---   cd backend && wrangler d1 execute ratedbrokers --local --file=migrations/001-author-submissions.sql
---   cd backend && wrangler d1 execute ratedbrokers --remote --file=migrations/001-author-submissions.sql  (Egor approve only)
+-- PRE-CHECK before apply (recommended):
+--   wrangler d1 execute ratedbrokers --remote --command="SELECT version FROM schema_migrations WHERE version='001-author-submissions'"
+--   If it returns a row, the migration is already applied — do not run.
 --
--- To verify:
+-- APPLY:
+--   cd backend && npx wrangler d1 execute ratedbrokers --local  --file=migrations/001-author-submissions.sql
+--   cd backend && npx wrangler d1 execute ratedbrokers --remote --file=migrations/001-author-submissions.sql
+--
+-- VERIFY:
 --   wrangler d1 execute ratedbrokers --local --command="SELECT version, applied_at FROM schema_migrations"
 --
--- To roll back (partial — ALTER cols cannot be dropped on D1):
+-- ROLLBACK (partial — ALTER columns cannot be dropped on D1):
 --   DROP TABLE content_submissions;
 --   DROP TABLE submission_events;
 --   DROP TABLE submission_imports;
@@ -23,17 +36,11 @@
 --   DELETE FROM schema_migrations WHERE version='001-author-submissions';
 -- ════════════════════════════════════════════════════════════════════════
 
--- ─── Step 0: Migration versioning table + re-run guard ───
--- schema_migrations must exist first. CREATE IF NOT EXISTS is safe.
+-- ─── Step 0: Migration versioning table ───
 CREATE TABLE IF NOT EXISTS schema_migrations (
   version TEXT PRIMARY KEY,
   applied_at TEXT DEFAULT (datetime('now'))
 );
-
--- Probe: if migration already applied, the INSERT OR IGNORE at the end
--- becomes a no-op but the ALTER statements above will fail hard. That's
--- the desired behavior — the operator sees the failure and knows to skip.
--- (D1 CLI does not support conditional PL/SQL blocks.)
 
 -- ─── Step 1: Extend expert_tokens with role + scopes ───
 -- role: 'expert' (legacy — only broker_slugs), 'author' (new — scopes_json), 'admin' (future)
@@ -64,6 +71,8 @@ CREATE TABLE IF NOT EXISTS content_submissions (
   body_md TEXT NOT NULL,
   word_count INTEGER,
   status TEXT NOT NULL DEFAULT 'draft',
+  -- status ∈ ('draft','submitted','needs_changes','accepted','rejected','processed','published','reverted')
+  -- 8 persistent states. Transitions gated by SQL CAS guards — see AUTHOR-SUBMISSIONS-SPEC.md §4.
   admin_notes TEXT,
   created_at TEXT DEFAULT (datetime('now')),
   updated_at TEXT DEFAULT (datetime('now')),
