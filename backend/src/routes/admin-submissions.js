@@ -164,16 +164,34 @@ export async function handleAdminSubmissionsExport(request, env) {
   const url = new URL(request.url);
   const status = url.searchParams.get('status');
   const from = url.searchParams.get('from'); // YYYY-MM-DD
-  const to = url.searchParams.get('to');
+  const to = url.searchParams.get('to');     // YYYY-MM-DD
+
+  // Validate date params — reject malformed values with 400 rather than crash
+  // on Date arithmetic / produce meaningless string comparisons.
+  const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+  function parseYmd(s) {
+    if (!DATE_RE.test(s)) return null;
+    const d = new Date(s + 'T00:00:00Z');
+    if (Number.isNaN(d.getTime())) return null;
+    // Round-trip check rejects values like 2026-13-40 that Date silently rolls over.
+    if (d.toISOString().slice(0, 10) !== s) return null;
+    return d;
+  }
+  if (from && !parseYmd(from)) {
+    return new Response('from must be YYYY-MM-DD', { status: 400, headers: { 'Content-Type': 'text/plain' } });
+  }
+  const toDate = to ? parseYmd(to) : null;
+  if (to && !toDate) {
+    return new Response('to must be YYYY-MM-DD', { status: 400, headers: { 'Content-Type': 'text/plain' } });
+  }
 
   const where = [];
   const binds = [];
   if (status) { where.push('cs.status = ?'); binds.push(status); }
   if (from) { where.push('cs.created_at >= ?'); binds.push(from + ' 00:00:00'); }
-  if (to) {
-    // Include the entire end-date day by advancing one calendar day and
-    // using strict <. Robust across month/year boundaries.
-    const nextDay = new Date(to + 'T00:00:00Z');
+  if (toDate) {
+    // Include the entire end-date day by advancing one calendar day and using strict <.
+    const nextDay = new Date(toDate);
     nextDay.setUTCDate(nextDay.getUTCDate() + 1);
     const nextStr = nextDay.toISOString().slice(0, 10) + ' 00:00:00';
     where.push('cs.created_at < ?'); binds.push(nextStr);
