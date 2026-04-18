@@ -833,7 +833,7 @@ export default function RankingPage() {
                     <td style={{ padding: "10px 12px" }}>
                       <span style={{
                         fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 14,
-                        color: broker.B.score >= 9.0 ? "#059669" : broker.B.score >= 8.5 ? "#2563eb" : "#d97706",
+                        color: broker.B.score >= 9.0 ? "#059669" : "#64748b",
                       }}>{broker.B.score}</span>
                     </td>
                     {compCols.map((col) => {
@@ -1026,11 +1026,11 @@ export default function RankingPage() {
                       </div>
                       <div style={{
                         width: 52, height: 52, borderRadius: 12,
-                        background: b.B.score >= 9.0 ? "#ecfdf5" : b.B.score >= 8.0 ? "#eff6ff" : "#fffbeb",
-                        border: `2px solid ${b.B.score >= 9.0 ? "#059669" : b.B.score >= 8.0 ? "#2563eb" : "#d97706"}`,
+                        background: b.B.score >= 9.0 ? "#ecfdf5" : "#f1f5f9",
+                        border: `2px solid ${b.B.score >= 9.0 ? "#059669" : "#cbd5e1"}`,
                         display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
                       }}>
-                        <span style={{ fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 18, lineHeight: 1, color: b.B.score >= 9.0 ? "#059669" : b.B.score >= 8.0 ? "#2563eb" : "#d97706" }}>{b.B.score}</span>
+                        <span style={{ fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 18, lineHeight: 1, color: b.B.score >= 9.0 ? "#059669" : "#64748b" }}>{b.B.score}</span>
                         <span style={{ fontSize: 8, fontWeight: 700, color: "#1f2937", textTransform: "uppercase" }}>{b.B.score >= 9.5 ? "Excellent" : b.B.score >= 9.0 ? "Great" : b.B.score >= 8.5 ? "Very Good" : "Good"}</span>
                       </div>
                     </div>

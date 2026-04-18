@@ -307,15 +307,15 @@ export default function Footer() {
           {/* Affiliate Disclosure */}
           <div
             style={{
-              borderLeft: "3px solid #3b82f6",
-              background: "rgba(59,130,246,0.03)",
+              borderLeft: "3px solid #f59e0b",
+              background: "rgba(245,158,11,0.04)",
               padding: "16px 20px",
               borderRadius: "0 8px 8px 0",
             }}
           >
             <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
-              <Info size={14} color="#3b82f6" />
-              <span style={{ fontSize: 13, fontWeight: 700, color: "#3b82f6", textTransform: "uppercase", letterSpacing: 0.5 }}>
+              <Info size={14} color="#f59e0b" />
+              <span style={{ fontSize: 13, fontWeight: 700, color: "#f59e0b", textTransform: "uppercase", letterSpacing: 0.5 }}>
                 {t("footer.affTitle")}
               </span>
             </div>

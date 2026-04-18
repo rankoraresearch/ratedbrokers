@@ -86,7 +86,7 @@ const COUNTRIES = [
 ];
 
 // ── Helpers ──
-const scoreColor = (s) => s >= 9.0 ? "#059669" : s >= 8.0 ? "#2563eb" : "#d97706";
+const scoreColor = (s) => s >= 9.0 ? "#059669" : "#64748b";
 import { getVisitUrl } from "../utils/visitUrl";
 
 // ══════════════════════════════════════════════════════
@@ -168,10 +168,8 @@ function BrokerPowerCards({ mob, tab, lp, brokers }) {
                       width: 44, height: 34, borderRadius: 10,
                       display: "flex", alignItems: "center", justifyContent: "center",
                       background: b.score >= 9.0
-                        ? "linear-gradient(135deg, #059669, #047857)"
-                        : b.score >= 8.0
-                        ? "linear-gradient(135deg, #2563eb, #1d4ed8)"
-                        : "linear-gradient(135deg, #d97706, #b45309)",
+                        ? "linear-gradient(135deg, #047857, #065f46)"
+                        : "linear-gradient(135deg, #475569, #334155)",
                       fontFamily: "'JetBrains Mono'", fontSize: 14, fontWeight: 800,
                       color: "#fff",
                       boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
