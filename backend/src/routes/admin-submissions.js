@@ -33,7 +33,10 @@ export async function handleAdminSubmissionsList(request, env) {
   const type = url.searchParams.get('type');
   const authorId = url.searchParams.get('author_id');
   const lang = url.searchParams.get('lang');
-  const limit = Math.min(parseInt(url.searchParams.get('limit') || '200', 10) || 200, 500);
+  // Clamp limit to [1, 500]. SQLite treats negative LIMIT as "no limit",
+  // so guard against it even though only admins reach this endpoint.
+  const rawLimit = parseInt(url.searchParams.get('limit') || '500', 10);
+  const limit = Math.max(1, Math.min(Number.isFinite(rawLimit) ? rawLimit : 500, 500));
 
   const where = [];
   const binds = [];
@@ -102,7 +105,9 @@ export async function handleAdminSubmissionStatus(request, env, id) {
 
   let body;
   try { body = await request.json(); } catch { return err(headers, 400, 'Invalid JSON'); }
-  if (!body || typeof body !== 'object') return err(headers, 400, 'Body must be an object');
+  if (body === null || typeof body !== 'object' || Array.isArray(body)) {
+    return err(headers, 400, 'Body must be a JSON object');
+  }
 
   const { decision, admin_notes } = body;
   const decisionMap = {
@@ -121,12 +126,10 @@ export async function handleAdminSubmissionStatus(request, env, id) {
   }
 
   const now = nowSql();
-  const notesSql = admin_notes ? 'admin_notes = ?, ' : '';
-  const tsSql = spec.tsCol ? `${spec.tsCol} = ?, ` : '';
   const sqlSets = [];
   const binds = [];
-  if (notesSql) { sqlSets.push('admin_notes = ?'); binds.push(admin_notes); }
-  if (tsSql)    { sqlSets.push(`${spec.tsCol} = ?`); binds.push(now); }
+  if (admin_notes) { sqlSets.push('admin_notes = ?'); binds.push(admin_notes); }
+  if (spec.tsCol)  { sqlSets.push(`${spec.tsCol} = ?`); binds.push(now); }
   sqlSets.push('status = ?'); binds.push(spec.status);
   sqlSets.push('updated_at = ?'); binds.push(now);
   binds.push(submissionId);
@@ -167,7 +170,14 @@ export async function handleAdminSubmissionsExport(request, env) {
   const binds = [];
   if (status) { where.push('cs.status = ?'); binds.push(status); }
   if (from) { where.push('cs.created_at >= ?'); binds.push(from + ' 00:00:00'); }
-  if (to) { where.push('cs.created_at < ?'); binds.push(to + ' 23:59:59'); }
+  if (to) {
+    // Include the entire end-date day by advancing one calendar day and
+    // using strict <. Robust across month/year boundaries.
+    const nextDay = new Date(to + 'T00:00:00Z');
+    nextDay.setUTCDate(nextDay.getUTCDate() + 1);
+    const nextStr = nextDay.toISOString().slice(0, 10) + ' 00:00:00';
+    where.push('cs.created_at < ?'); binds.push(nextStr);
+  }
 
   const rows = await env.DB.prepare(
     `SELECT cs.id, et.name AS author_name, et.email AS author_email,
@@ -373,13 +383,24 @@ async function loadList() {
   if (type) params.set('type', type);
   if (lang) params.set('lang', lang);
 
-  const res = await fetch(API('/api/admin/submissions?' + params.toString()));
-  const rows = await res.json();
+  const tbody = document.getElementById('rows');
+  let res, rows;
+  try {
+    res = await fetch(API('/api/admin/submissions?' + params.toString()));
+  } catch (e) {
+    tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:20px;color:#f87171">Network error: ' + escapeHtml(e.message) + '</td></tr>';
+    return;
+  }
+  if (!res.ok) {
+    const errBody = await res.json().catch(() => ({}));
+    tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:20px;color:#f87171">Failed to load: ' + escapeHtml(errBody.error || res.statusText) + '</td></tr>';
+    return;
+  }
+  rows = await res.json();
   const nameFilter = document.getElementById('f-author').value.trim().toLowerCase();
   const filtered = nameFilter
     ? rows.filter(r => (r.author_name || '').toLowerCase().includes(nameFilter))
     : rows;
-  const tbody = document.getElementById('rows');
   if (!filtered.length) {
     tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:20px;color:var(--text-muted)">No submissions match filters.</td></tr>';
     return;
@@ -403,11 +424,24 @@ async function loadList() {
 }
 
 async function openDrawer(id) {
-  const res = await fetch(API('/api/admin/submissions/' + id));
-  const s = await res.json();
-  document.getElementById('drawer-body').innerHTML = renderDetail(s);
+  const body = document.getElementById('drawer-body');
+  body.innerHTML = '<div style="color:var(--text-muted)">Loading…</div>';
   document.getElementById('drawer').classList.add('open');
   document.getElementById('overlay').classList.add('visible');
+  let res, s;
+  try {
+    res = await fetch(API('/api/admin/submissions/' + id));
+  } catch (e) {
+    body.innerHTML = '<div style="color:#f87171">Network error: ' + escapeHtml(e.message) + '</div>';
+    return;
+  }
+  if (!res.ok) {
+    const errBody = await res.json().catch(() => ({}));
+    body.innerHTML = '<div style="color:#f87171">Failed to load: ' + escapeHtml(errBody.error || res.statusText) + '</div>';
+    return;
+  }
+  s = await res.json();
+  body.innerHTML = renderDetail(s);
 }
 
 function closeDrawer() {
