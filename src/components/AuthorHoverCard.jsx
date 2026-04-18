@@ -192,27 +192,27 @@ export default function AuthorHoverCard({ author, children }) {
         </div>
       </div>
 
-      {/* Trust pills */}
+      {/* Trust pills — unified monochrome (no rainbow per-category) */}
       <div style={{ display: "flex", gap: 5, flexWrap: "wrap" }}>
         {author.exp && (
           <span style={{
             display: "inline-flex", alignItems: "center",
             padding: "2px 8px", borderRadius: 10, fontSize: 11, fontWeight: 600,
-            background: "#ecfdf5", color: "#059669", border: "1px solid #a7f3d0",
+            background: "#f8fafc", color: "#0f172a", border: "1px solid #e2e8f0",
           }}>{author.exp}</span>
         )}
         {author.reviews && (
           <span style={{
             display: "inline-flex", alignItems: "center",
             padding: "2px 8px", borderRadius: 10, fontSize: 11, fontWeight: 600,
-            background: "#eff6ff", color: "#2563eb", border: "1px solid #bfdbfe",
+            background: "#f8fafc", color: "#0f172a", border: "1px solid #e2e8f0",
           }}>{author.reviews} reviews</span>
         )}
         {(author.credentials || []).map((c) => (
           <span key={c} style={{
             display: "inline-flex", alignItems: "center",
             padding: "2px 8px", borderRadius: 10, fontSize: 11, fontWeight: 600,
-            background: "#f5f3ff", color: "#7c3aed", border: "1px solid #ddd6fe",
+            background: "#f8fafc", color: "#0f172a", border: "1px solid #e2e8f0",
           }}>{c}</span>
         ))}
       </div>
