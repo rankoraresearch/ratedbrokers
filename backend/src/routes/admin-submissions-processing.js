@@ -573,13 +573,16 @@ export async function handleRevertSubmission(request, env, id) {
       ).bind(ranking_id, lang));
       rankingKeysTouched.add(`${ranking_id}:${lang}`);
     } else if (imp.destination_type === 'ranking_card') {
-      const [ranking_id, broker_slug, lang] = imp.destination_ref.split(':');
-      // Unconditional live-slot clear per SPEC §4. Draft preserved.
+      const [ranking_id, broker_slug] = imp.destination_ref.split(':');
+      // Unconditional live-slot clear per SPEC §4 + §10. Draft preserved.
+      // ranking_overrides.(ranking_id, broker_slug) is the PK, so lang is not
+      // a row-identity column — omitting it makes revert clear regardless of
+      // whether a later submission republished in a different lang.
       statements.push(env.DB.prepare(
         `UPDATE ranking_overrides SET
            description_md = NULL, description_published_at = NULL, updated_at = ?
-         WHERE ranking_id = ? AND broker_slug = ? AND description_lang = ?`
-      ).bind(now, ranking_id, broker_slug, lang));
+         WHERE ranking_id = ? AND broker_slug = ?`
+      ).bind(now, ranking_id, broker_slug));
     }
   }
 
