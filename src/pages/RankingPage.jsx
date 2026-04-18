@@ -427,12 +427,18 @@ export default function RankingPage() {
   const [contentOverride, setContentOverride] = useState(null);
   useEffect(() => {
     if (!ranking) return;
+    // Reset on ranking change — otherwise navigating from a page with a
+    // live override to one without leaves stale content showing.
+    setContentOverride(null);
     let alive = true;
     const apiBase = import.meta.env.VITE_API_URL || "";
     if (!apiBase) return;
     fetch(`${apiBase}/api/rankings/${ranking.id}/content?lang=${currentLang}`)
       .then(r => r.ok ? r.json() : null)
-      .then(data => { if (alive && data && data.available) setContentOverride(data); })
+      .then(data => {
+        if (!alive) return;
+        setContentOverride(data && data.available ? data : null);
+      })
       .catch(() => {});
     return () => { alive = false; };
   }, [ranking?.id, currentLang]);
@@ -474,7 +480,9 @@ export default function RankingPage() {
       if (metaDesc && seo.metaDesc) metaDesc.setAttribute("content", seo.metaDesc);
 
       const a = getAuthorForRanking(ranking.category);
-      const brokersForSchema = getBrokersForRanking(ranking.id);
+      // Apply admin overrides (hidden brokers, featured labels, manual order)
+      // so ItemList schema.org reflects the UI, not the pre-override baseline.
+      const brokersForSchema = applyOverrides(getBrokersForRanking(ranking.id), overrides);
       const topName = brokersForSchema[0]?.B?.name || "IC Markets";
       const fv = (t) => t.replace(/\{year\}/g, YEAR).replace(/\{topBroker\}/g, topName).replace(/\{count\}/g, String(brokersForSchema.length));
       const jsonLd = [
@@ -579,9 +587,10 @@ export default function RankingPage() {
       const el = document.querySelector('script[data-jsonld="ranking"]');
       if (el) el.remove();
     };
-    // Depend on seoContent too — when the async /content override lands,
-    // re-emit JSON-LD + title + meta so schema.org reflects live fields.
-  }, [ranking, seoContent]);
+    // Depends on ranking, seoContent (content override), and overrides
+    // (per-card featured_label / hidden / description_md) — all async
+    // sources whose changes must re-emit JSON-LD + title + meta.
+  }, [ranking, seoContent, overrides]);
 
   // Fetch admin overrides (per-broker featured_label, card descriptions).
   // Scoped by lang so card descriptions only surface for the current locale.

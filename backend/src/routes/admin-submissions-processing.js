@@ -429,10 +429,12 @@ export async function handlePublishSubmission(request, env, id) {
     } else if (imp.destination_type === 'ranking_content') {
       const [ranking_id, lang, field] = imp.destination_ref.split(':');
       if (!RANKING_FIELDS.has(field)) { missing.push(imp.destination_ref + ' (bad field)'); continue; }
+      // Must have the specific draft field populated, not just any row.
       const row = await env.DB.prepare(
-        `SELECT 1 FROM ranking_content WHERE ranking_id = ? AND lang = ? LIMIT 1`
+        `SELECT 1 FROM ranking_content
+         WHERE ranking_id = ? AND lang = ? AND ${field}_draft IS NOT NULL LIMIT 1`
       ).bind(ranking_id, lang).first();
-      if (!row) missing.push(imp.destination_ref);
+      if (!row) missing.push(imp.destination_ref + ' (draft field empty)');
     } else if (imp.destination_type === 'ranking_card') {
       const [ranking_id, broker_slug] = imp.destination_ref.split(':');
       const row = await env.DB.prepare(
@@ -559,17 +561,27 @@ export async function handleRevertSubmission(request, env, id) {
     } else if (imp.destination_type === 'ranking_content') {
       const [ranking_id, lang, field] = imp.destination_ref.split(':');
       if (!RANKING_FIELDS.has(field)) continue;
+      // Provenance-safe: only clear the live field if it STILL matches the
+      // draft we published. If a newer submission has republished this field
+      // with different content, leave the newer content alone.
       statements.push(env.DB.prepare(
         `UPDATE ranking_content SET ${field} = NULL
-         WHERE ranking_id = ? AND lang = ?`
+         WHERE ranking_id = ? AND lang = ?
+           AND ${field} IS NOT NULL
+           AND ${field} = ${field}_draft`
       ).bind(ranking_id, lang));
       rankingKeysTouched.add(`${ranking_id}:${lang}`);
     } else if (imp.destination_type === 'ranking_card') {
       const [ranking_id, broker_slug, lang] = imp.destination_ref.split(':');
+      // Provenance-safe: only clear live description when it still matches
+      // this submission's draft. If another submission later republished
+      // a different description, don't clobber the newer content.
       statements.push(env.DB.prepare(
         `UPDATE ranking_overrides SET
            description_md = NULL, description_published_at = NULL, updated_at = ?
-         WHERE ranking_id = ? AND broker_slug = ? AND description_lang = ?`
+         WHERE ranking_id = ? AND broker_slug = ? AND description_lang = ?
+           AND description_md IS NOT NULL
+           AND description_md = description_md_draft`
       ).bind(now, ranking_id, broker_slug, lang));
     }
   }
