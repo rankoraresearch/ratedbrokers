@@ -154,7 +154,12 @@ Commit: `16cfac1 feat(submissions): S1+S2 — author submissions spec + D1 migra
 ### Deliverable
 Админ создаёт автора через `POST /api/admin/authors/invite` → получает invite_url → автор открывает `/author?token=...` → token проверяется через `/api/author/me` → сохраняется в localStorage → редирект на `/author/portal` → видит «Hi, <name>» и scope summary. Backend deployed, frontend build clean.
 
-### Codex review — Sprint 3 (запуск сейчас)
+### Codex review — Sprint 3
+- Round 1: 6.9/10 NEEDS_CHANGES — 1 HIGH (expires_days NaN crash) + 3 MEDIUM (guard not wired / URL token leak / canonical path drift) + 2 LOW (scope validation incomplete / CAS limitation)
+- Round 2: 8.9/10 APPROVED_WITH_NITS — все Round-1 кроме LOW-6 (CAS — MVP accepted) и LOW-5 partial (LANG_RE `/i` flag pass-through)
+- Round 3 FINAL: **10.0/10 APPROVED** ✅ (no findings, все 5 измерений по 2.0/2.0)
+- Путь: 6.9 → 8.9 → 10.0 за 3 раунда, 2 итерации правок
+- Commits: `93a00e5` (base), `3d00a4b` (round-1 fixes), `8991991` (round-2 nit)
 
 ---
 
@@ -163,24 +168,24 @@ Commit: `16cfac1 feat(submissions): S1+S2 — author submissions spec + D1 migra
 Цель: все CRUD эндпоинты для авторов, со строгой проверкой «это твоё».
 
 ### Подспринты
-- **4.1** `backend/src/routes/author-submissions.js` — новый модуль
-- **4.2** `GET /api/author/me` — профиль из токена
-- **4.3** `GET /api/author/targets` — дёргает scopes, раскрывает wildcards (например, `ranking_seo:*` → все ранкинги из `src/data/rankings.js` bundled), возвращает `{reviews: [{slug, name}], rankings: [{id, title}], sections: ['overview','costs',...]}`
-- **4.4** `POST /api/author/submissions` — создать draft. Body: `{target_type, target_slug, target_section?, target_ranking_broker?, lang, title, body_md}`. Для `target_type='card'` поле `target_ranking_broker` **обязательно** (400 если NULL). Валидация scope — см. SPEC §5 enforcement rules.
-- **4.5** `PATCH /api/author/submissions/:id` — апдейт своего draft. Если `{action: "submit"}` → status = submitted
-- **4.6** `GET /api/author/submissions?status=&target_type=` — список своих
-- **4.7** `GET /api/author/submissions/:id` — детали + история статусов из submission_events
-- **4.8** `DELETE /api/author/submissions/:id` — только draft
-- **4.9** Валидации: `body_md ≤ 100KB`, `title ≤ 200`, MIME strict JSON. Rate-limits — см. SPEC §8 (canonical): invite **10/hr/admin**, submission create **30/day/author**, submit **10/hr/author**, login page **20/min/IP**
-- **4.10** Markdown sanitization: используем **canonical allowlist из SPEC §8** — tags `<p>,<strong>,<em>,<ul>,<ol>,<li>,<a href(https)>,<h2>,<h3>,<h4>,<code>,<pre>,<blockquote>,<table>,<thead>,<tbody>,<tr>,<th>,<td>`. Без raw HTML (`<script>`, event-handlers, `<iframe>`, `<object>`) — экранируется.
-- **4.11** Роут-роутинг в `backend/src/index.js`
-- **4.12** Manual curl test: создать draft, обновить, submit, прочитать
+- **4.1** ✅ Write `backend/src/routes/author-submissions.js` — 6 handlers (targets, create, list, get, patch, delete)
+- **4.2** ✅ `GET /api/author/me` — уже в Sprint 3
+- **4.3** ✅ `GET /api/author/targets` — раскрывает `scopes.reviews` в список brokers из D1. Rankings/cards возвращаются как scope entries (frontend hydrates из bundled rankings.js)
+- **4.4** ✅ `POST /api/author/submissions` — валидация shape + body + scope. Sanitizes body через `sanitizeMarkdownBody` перед INSERT. Word count computed
+- **4.5** ✅ `PATCH /api/author/submissions/:id` — edit allowed в `draft` или `needs_changes`. `action='submit'` → status=submitted + submitted_at. CAS guard в UPDATE (WHERE id=? AND author_id=? AND status IN (allowed))
+- **4.6** ✅ `GET /api/author/submissions?status=&type=` — фильтры, сортировка updated_at DESC, limit 200
+- **4.7** ✅ `GET /api/author/submissions/:id` — detail + events timeline из submission_events
+- **4.8** ✅ `DELETE /api/author/submissions/:id` — CAS-safe DELETE WHERE id=? AND author_id=? AND status='draft'. Structured 409 если статус не draft
+- **4.9** ✅ Валидации: `body_md ≤ 100KB byte length` (TextEncoder), `title ≤ 200`, MIME strict. Rate limits: create 30/day/author, submit 10/hr/author через COUNT queries
+- **4.10** ✅ Write `backend/src/utils/mdSanitize.js` — canonical allowlist SPEC §8. Strips `<script>`, `<iframe>`, `<style>`, event-handlers. Preserves MD syntax. Also adds `rel="nofollow noopener"` на `<a href>` автоматически
+- **4.11** ✅ Edit `backend/src/index.js` — 6 новых роутов: GET /targets, POST /submissions, GET /submissions, :id GET/PATCH/DELETE
+- **4.12** ✅ End-to-end smoke test — 13 сценариев все зелёные: targets, CRUD, submit, scope (review+card), ownership isolation (Bob can't see Jane's), status-lock, `<script>` sanitization, word count. Backend deployed version `a53468e6`
 
 ### Deliverable
-API работает, scoped, валидирован.
+7-endpoint REST API работает. Все тесты зелёные (создание, апдейт, сабмит, удаление, списки, detail, scope, sanitization, ownership isolation, rate limits). Backend deployed на `api.ratedbrokers.com`.
 
-### Codex review
-`— ждёт выполнения —`
+### Codex review Sprint 4
+**(запуск сейчас)**
 
 ---
 

@@ -12,6 +12,14 @@ import { handleReviewsDashboard, handleReviewContent, handleReviewContentUpdate,
 import { handleExpertDashboard, handleExpertReviewContent, handleExpertReviewUpdate, handleExpertReviewDelete } from './routes/expert.js';
 import { handleAuthorInvite, handleAuthorList, handleAuthorPatch, handleAuthorRotate } from './routes/admin-author-mgmt.js';
 import { handleAuthorMe } from './routes/author-me.js';
+import {
+  handleAuthorTargets,
+  handleSubmissionCreate,
+  handleSubmissionList,
+  handleSubmissionGet,
+  handleSubmissionPatch,
+  handleSubmissionDelete,
+} from './routes/author-submissions.js';
 import { handleOptions } from './utils/cors.js';
 
 export default {
@@ -279,6 +287,25 @@ export default {
     // ─── Author Submissions — author self-service (token auth) ───
     if (path === '/api/author/me' && request.method === 'GET') {
       return handleAuthorMe(request, env);
+    }
+    if (path === '/api/author/targets' && request.method === 'GET') {
+      return handleAuthorTargets(request, env);
+    }
+    if (path === '/api/author/submissions' && request.method === 'POST') {
+      return handleSubmissionCreate(request, env);
+    }
+    if (path === '/api/author/submissions' && request.method === 'GET') {
+      return handleSubmissionList(request, env);
+    }
+    const authorSubMatch = path.match(/^\/api\/author\/submissions\/(\d+)$/);
+    if (authorSubMatch && request.method === 'GET') {
+      return handleSubmissionGet(request, env, authorSubMatch[1]);
+    }
+    if (authorSubMatch && request.method === 'PATCH') {
+      return handleSubmissionPatch(request, env, authorSubMatch[1]);
+    }
+    if (authorSubMatch && request.method === 'DELETE') {
+      return handleSubmissionDelete(request, env, authorSubMatch[1]);
     }
 
     // ─── Donors (outreach) ───
