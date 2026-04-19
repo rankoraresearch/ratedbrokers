@@ -235,7 +235,10 @@ export default function RegulatorPage() {
                   </div>
                   <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
                     <div style={{
-                      background: "#fff", border: "1.5px solid #059669", borderRadius: 8,
+                      background: "#fff",
+                      border: "1.5px solid #e2e8f0",
+                      borderLeft: "3px solid #059669",
+                      borderRadius: 8,
                       padding: "4px 10px", fontFamily: "'JetBrains Mono',monospace",
                       fontSize: 16, fontWeight: 800, color: "#047857",
                     }}>{b.B.score}</div>
