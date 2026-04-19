@@ -186,7 +186,7 @@ export default function RegulatorPage() {
           <div style={{
             padding: "20px 24px", borderRadius: 12,
             background: "#fff",
-            border: "1px solid #e8ecf1",
+            border: "1.5px solid #e2e8f0",
             borderLeft: `4px solid ${tierRail}`,
             boxShadow: "0 2px 8px rgba(15,23,42,0.04)",
             marginBottom: 16,
