@@ -292,14 +292,16 @@ export default function ForexBrokersPage() {
             transition: "all 0.25s cubic-bezier(0.4, 0, 0.2, 1)",
           }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = "#cbd5e1";
-              e.currentTarget.style.borderLeftColor = "#047857";
+              e.currentTarget.style.borderTopColor = "#cbd5e1";
+              e.currentTarget.style.borderRightColor = "#cbd5e1";
+              e.currentTarget.style.borderBottomColor = "#cbd5e1";
               e.currentTarget.style.boxShadow = "0 8px 24px rgba(15,23,42,0.12)";
               e.currentTarget.style.transform = "translateY(-1px)";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = "#e2e8f0";
-              e.currentTarget.style.borderLeftColor = "#059669";
+              e.currentTarget.style.borderTopColor = "#e2e8f0";
+              e.currentTarget.style.borderRightColor = "#e2e8f0";
+              e.currentTarget.style.borderBottomColor = "#e2e8f0";
               e.currentTarget.style.boxShadow = "0 2px 8px rgba(15,23,42,0.06)";
               e.currentTarget.style.transform = "translateY(0)";
             }}
@@ -509,7 +511,8 @@ export default function ForexBrokersPage() {
                 }}>{reg.name}</div>
                 <span style={{
                   padding: "2px 8px", borderRadius: 10, fontSize: 11, fontWeight: 700,
-                  background: "#f8fafc", border: "1px solid #e2e8f0", color: "#047857",
+                  background: "#f8fafc", border: "1px solid #e2e8f0",
+                  color: reg.tier === 1 ? "#047857" : "#374151",
                 }}>Tier {reg.tier}</span>
               </div>
               <div style={{ fontSize: 14, fontWeight: 600, color: "#111827", marginBottom: 2 }}>{reg.fullName}</div>

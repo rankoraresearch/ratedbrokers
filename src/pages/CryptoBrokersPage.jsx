@@ -333,19 +333,19 @@ export default function CryptoBrokersPage() {
                     <td style={{ padding: "12px 14px" }}>
                       <span style={{
                         fontFamily: "'JetBrains Mono'", fontWeight: isBestScore ? 800 : 700,
-                        color: isBestScore ? "#059669" : "#111827",
+                        color: isBestScore ? "#047857" : "#111827",
                       }}>{b.B.score}</span>
                     </td>
                     <td style={{ padding: "12px 14px" }}>
                       <span style={{
                         fontFamily: "'JetBrains Mono'", fontWeight: isBestSpread ? 800 : 700,
-                        color: isBestSpread ? "#059669" : "#111827",
+                        color: isBestSpread ? "#047857" : "#111827",
                       }}>{b.B.spread} pips</span>
                     </td>
                     <td style={{ padding: "12px 14px", fontFamily: "'JetBrains Mono'" }}>
                       <span style={{
                         fontWeight: isBestDep ? 800 : 700,
-                        color: isBestDep ? "#059669" : "#111827",
+                        color: isBestDep ? "#047857" : "#111827",
                       }}>{b.B.minDep === 0 ? "$0" : `$${b.B.minDep}`}</span>
                     </td>
                     <td style={{ padding: "12px 14px", fontFamily: "'JetBrains Mono'", fontWeight: 700 }}>{b.B.leverage}</td>
@@ -406,14 +406,16 @@ export default function CryptoBrokersPage() {
                 transition: "all 0.25s cubic-bezier(0.4, 0, 0.2, 1)",
               }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = "#cbd5e1";
-                  e.currentTarget.style.borderLeftColor = "#047857";
+                  e.currentTarget.style.borderTopColor = "#cbd5e1";
+                  e.currentTarget.style.borderRightColor = "#cbd5e1";
+                  e.currentTarget.style.borderBottomColor = "#cbd5e1";
                   e.currentTarget.style.boxShadow = "0 8px 24px rgba(15,23,42,0.12)";
                   e.currentTarget.style.transform = "translateY(-1px)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = "#e2e8f0";
-                  e.currentTarget.style.borderLeftColor = "#059669";
+                  e.currentTarget.style.borderTopColor = "#e2e8f0";
+                  e.currentTarget.style.borderRightColor = "#e2e8f0";
+                  e.currentTarget.style.borderBottomColor = "#e2e8f0";
                   e.currentTarget.style.boxShadow = "0 2px 8px rgba(15,23,42,0.06)";
                   e.currentTarget.style.transform = "translateY(0)";
                 }}

@@ -306,14 +306,16 @@ export default function RegulatorPage() {
                   transition: "all 0.25s cubic-bezier(0.4, 0, 0.2, 1)",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = "#cbd5e1";
-                  e.currentTarget.style.borderLeftColor = "#047857";
+                  e.currentTarget.style.borderTopColor = "#cbd5e1";
+                  e.currentTarget.style.borderRightColor = "#cbd5e1";
+                  e.currentTarget.style.borderBottomColor = "#cbd5e1";
                   e.currentTarget.style.boxShadow = "0 8px 24px rgba(15,23,42,0.12)";
                   e.currentTarget.style.transform = "translateY(-1px)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = "#e2e8f0";
-                  e.currentTarget.style.borderLeftColor = "#059669";
+                  e.currentTarget.style.borderTopColor = "#e2e8f0";
+                  e.currentTarget.style.borderRightColor = "#e2e8f0";
+                  e.currentTarget.style.borderBottomColor = "#e2e8f0";
                   e.currentTarget.style.boxShadow = "0 2px 8px rgba(15,23,42,0.06)";
                   e.currentTarget.style.transform = "translateY(0)";
                 }}
