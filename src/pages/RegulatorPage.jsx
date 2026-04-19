@@ -22,15 +22,17 @@ function useMedia() {
 }
 
 function TierBadge({ tier, onDark = false }) {
+  // On-dark: Premium Dark palette (mint/amber/red) — оставляем как есть
+  // On-light: Plate B neutral (slate bg + tier-coloured text) — без салатового
   const color = onDark
     ? (tier === 1 ? "#6ee7b7" : tier === 2 ? "#fbbf24" : "#fca5a5")
-    : (tier === 1 ? "#059669" : tier === 2 ? "#d97706" : "#dc2626");
+    : (tier === 1 ? "#047857" : tier === 2 ? "#b45309" : "#b91c1c");
   const bg = onDark
     ? (tier === 1 ? "rgba(52,211,153,0.15)" : tier === 2 ? "rgba(217,119,6,0.15)" : "rgba(220,38,38,0.15)")
-    : (tier === 1 ? "#ecfdf5" : tier === 2 ? "#fffbeb" : "#fef2f2");
+    : "#f8fafc";
   const border = onDark
     ? (tier === 1 ? "rgba(110,231,183,0.3)" : tier === 2 ? "rgba(251,191,36,0.3)" : "rgba(252,165,165,0.3)")
-    : (tier === 1 ? "#a7f3d0" : tier === 2 ? "#fde68a" : "#fecaca");
+    : "#e2e8f0";
   return (
     <span style={{
       display: "inline-block", padding: "3px 10px", borderRadius: 6,
@@ -94,9 +96,9 @@ export default function RegulatorPage() {
     b.B.regs.some(r => r.name.toLowerCase() === reg.name.toLowerCase())
   );
 
-  const tierColor = reg.tier === 1 ? "#059669" : reg.tier === 2 ? "#d97706" : "#dc2626";
-  const tierBg = reg.tier === 1 ? "#ecfdf5" : reg.tier === 2 ? "#fffbeb" : "#fef2f2";
-  const tierBorder = reg.tier === 1 ? "#a7f3d0" : reg.tier === 2 ? "#fde68a" : "#fecaca";
+  // Tier-coloured rail accent (Plate B style — neutral surface + coloured text/rail)
+  const tierColor = reg.tier === 1 ? "#047857" : reg.tier === 2 ? "#b45309" : "#b91c1c";
+  const tierRail = reg.tier === 1 ? "#059669" : reg.tier === 2 ? "#d97706" : "#dc2626";
 
   return (
     <div style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb", color: "#111827", minHeight: "100vh" }}>
@@ -183,7 +185,10 @@ export default function RegulatorPage() {
           </h2>
           <div style={{
             padding: "20px 24px", borderRadius: 12,
-            background: tierBg, border: `2px solid ${tierBorder}`,
+            background: "#fff",
+            border: "1px solid #e8ecf1",
+            borderLeft: `4px solid ${tierRail}`,
+            boxShadow: "0 2px 8px rgba(15,23,42,0.04)",
             marginBottom: 16,
           }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8 }}>
@@ -230,9 +235,9 @@ export default function RegulatorPage() {
                   </div>
                   <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
                     <div style={{
-                      background: "#ecfdf5", border: "2px solid #059669", borderRadius: 8,
+                      background: "#fff", border: "1.5px solid #059669", borderRadius: 8,
                       padding: "4px 10px", fontFamily: "'JetBrains Mono',monospace",
-                      fontSize: 16, fontWeight: 800, color: "#059669",
+                      fontSize: 16, fontWeight: 800, color: "#047857",
                     }}>{b.B.score}</div>
                     <Link to={lp(`/reviews/${b.slug}`)} style={{
                       fontSize: 13, color: "#1e3a5f", fontWeight: 600, textDecoration: "none",
@@ -287,10 +292,29 @@ export default function RegulatorPage() {
                 ))}
                 <a href={reg.licenseCheck} target="_blank" rel="noopener noreferrer" style={{
                   display: "block", textAlign: "center", marginTop: 14,
-                  padding: "10px", borderRadius: 8, fontSize: 14, fontWeight: 600,
-                  background: "#f0fdf4", color: "#059669", textDecoration: "none",
-                  border: "1px solid #a7f3d0",
-                }}><span style={{ display: "inline-flex", alignItems: "center", gap: 4 }}>Verify License <ExternalLink size={13} /></span></a>
+                  padding: "10px 14px", borderRadius: 10,
+                  fontFamily: "'Outfit', sans-serif", fontSize: 14, fontWeight: 700, letterSpacing: "-0.01em",
+                  background: "#fff",
+                  color: "#047857",
+                  textDecoration: "none",
+                  border: "1.5px solid #e2e8f0",
+                  borderLeft: "3px solid #059669",
+                  boxShadow: "0 2px 8px rgba(15,23,42,0.06)",
+                  transition: "all 0.25s cubic-bezier(0.4, 0, 0.2, 1)",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = "#cbd5e1";
+                  e.currentTarget.style.borderLeftColor = "#047857";
+                  e.currentTarget.style.boxShadow = "0 8px 24px rgba(15,23,42,0.12)";
+                  e.currentTarget.style.transform = "translateY(-1px)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = "#e2e8f0";
+                  e.currentTarget.style.borderLeftColor = "#059669";
+                  e.currentTarget.style.boxShadow = "0 2px 8px rgba(15,23,42,0.06)";
+                  e.currentTarget.style.transform = "translateY(0)";
+                }}
+                ><span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>Verify License <ExternalLink size={13} /></span></a>
               </Card>
 
               {/* Other regulators */}
