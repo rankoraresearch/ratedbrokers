@@ -1099,11 +1099,12 @@ export default function RankingPage() {
                       </div>
                       <div style={{
                         width: 52, height: 52, borderRadius: 12,
-                        background: b.B.score >= 9.0 ? "#ecfdf5" : "#f1f5f9",
-                        border: `2px solid ${b.B.score >= 9.0 ? "#059669" : "#cbd5e1"}`,
+                        background: "#fff",
+                        border: "1.5px solid #e2e8f0",
+                        borderLeft: `3px solid ${b.B.score >= 9.0 ? "#059669" : "#94a3b8"}`,
                         display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
                       }}>
-                        <span style={{ fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 18, lineHeight: 1, color: b.B.score >= 9.0 ? "#059669" : "#64748b" }}>{b.B.score}</span>
+                        <span style={{ fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 18, lineHeight: 1, color: b.B.score >= 9.0 ? "#047857" : "#64748b" }}>{b.B.score}</span>
                         <span style={{ fontSize: 8, fontWeight: 700, color: "#1f2937", textTransform: "uppercase" }}>{b.B.score >= 9.5 ? "Excellent" : b.B.score >= 9.0 ? "Great" : b.B.score >= 8.5 ? "Very Good" : "Good"}</span>
                       </div>
                     </div>
@@ -1113,8 +1114,8 @@ export default function RankingPage() {
                       ))}
                     </div>
                     <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "1fr 1fr", gap: mob ? 12 : 16, marginBottom: 16 }}>
-                      <div style={{ padding: mob ? 14 : 16, borderRadius: 12, background: "#f0fdf4", border: "1px solid #bbf7d0" }}>
-                        <div style={{ fontWeight: 700, fontSize: 15, color: "#059669", marginBottom: 8 }}>Pros for {countryData.name} Traders</div>
+                      <div style={{ padding: mob ? 14 : 16, borderRadius: 12, background: "#fff", border: "1.5px solid #e2e8f0", borderLeft: "3px solid #059669", boxShadow: "0 2px 8px rgba(15,23,42,0.04)" }}>
+                        <div style={{ fontWeight: 700, fontSize: 15, color: "#047857", marginBottom: 8 }}>Pros for {countryData.name} Traders</div>
                         {review.pros.map((pro, pi) => (
                           <div key={pi} style={{ display: "flex", alignItems: "flex-start", gap: 8, marginBottom: 5 }}>
                             <Check size={14} color="#059669" style={{ flexShrink: 0, marginTop: 3 }} />
@@ -1194,12 +1195,31 @@ export default function RankingPage() {
         <Link to={lp("/find-your-broker")} style={{
           display: "flex", alignItems: "center", justifyContent: "space-between",
           padding: mob ? "16px 20px" : "20px 28px", borderRadius: 12,
-          background: "linear-gradient(135deg, #ecfdf5, #d1fae5)",
-          border: "1px solid #a7f3d0", textDecoration: "none", transition: "all 0.2s",
-        }}>
+          background: "#fff",
+          border: "1.5px solid #e2e8f0",
+          borderLeft: "4px solid #059669",
+          boxShadow: "0 2px 8px rgba(15,23,42,0.06)",
+          textDecoration: "none",
+          transition: "all 0.25s cubic-bezier(0.4, 0, 0.2, 1)",
+        }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.borderTopColor = "#cbd5e1";
+            e.currentTarget.style.borderRightColor = "#cbd5e1";
+            e.currentTarget.style.borderBottomColor = "#cbd5e1";
+            e.currentTarget.style.boxShadow = "0 8px 24px rgba(15,23,42,0.12)";
+            e.currentTarget.style.transform = "translateY(-1px)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.borderTopColor = "#e2e8f0";
+            e.currentTarget.style.borderRightColor = "#e2e8f0";
+            e.currentTarget.style.borderBottomColor = "#e2e8f0";
+            e.currentTarget.style.boxShadow = "0 2px 8px rgba(15,23,42,0.06)";
+            e.currentTarget.style.transform = "translateY(0)";
+          }}
+        >
           <div>
             <div style={{ fontSize: mob ? 15 : 17, fontWeight: 700, color: "#047857" }}>Not sure which broker is right for you?</div>
-            <div style={{ fontSize: 13, color: "#059669", marginTop: 2 }}>Take our free 60-second quiz for a personalized recommendation →</div>
+            <div style={{ fontSize: 13, color: "#1f2937", marginTop: 2 }}>Take our free 60-second quiz for a personalized recommendation →</div>
           </div>
         </Link>
       </section>

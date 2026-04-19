@@ -175,7 +175,8 @@ export default function AllGuidesPage() {
             >
               <span style={{
                 width: 44, height: 44, borderRadius: 10,
-                background: "#f0fdf4",
+                background: "#f8fafc",
+                border: "1px solid #e2e8f0",
                 display: "flex", alignItems: "center", justifyContent: "center",
                 fontSize: 22,
               }}>

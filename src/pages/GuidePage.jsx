@@ -132,7 +132,9 @@ export default function GuidePage() {
         <div style={{ display: "flex", gap: 8, marginBottom: 12, flexWrap: "wrap", alignItems: "center" }}>
           <span style={{
             display: "inline-block", padding: "4px 10px", borderRadius: 6,
-            background: guide.hero.badgeColor || "#ecfdf5", color: guide.hero.badgeTextColor || "#059669",
+            background: guide.hero.badgeColor || "#f8fafc",
+            border: "1px solid #e2e8f0",
+            color: guide.hero.badgeTextColor || "#047857",
             fontSize: 12, fontWeight: 700, letterSpacing: 0.5, textTransform: "uppercase",
           }}>{guide.hero.badge || "GUIDE"}</span>
           <span style={{ fontSize: 13, color: "#1f2937" }}>{guide.readTime}</span>
@@ -226,13 +228,15 @@ export default function GuidePage() {
 
             {section.tip && (
               <div style={{
-                background: "#f0fdf4", border: "1px solid #bbf7d0", borderRadius: 12,
+                background: "#fffaf0",
+                borderLeft: "3px solid #f59e0b",
+                borderRadius: "0 8px 8px 0",
                 padding: mob ? "14px 16px" : "16px 20px", margin: "16px 0",
               }}>
-                <div style={{ fontWeight: 700, fontSize: 15, color: "#059669", marginBottom: 4, display: "flex", alignItems: "center", gap: 6 }}>
+                <div style={{ fontWeight: 700, fontSize: 15, color: "#b45309", marginBottom: 4, display: "flex", alignItems: "center", gap: 6 }}>
                   {section.tip.icon || <Icon name="lightbulb" size={16} color="#f59e0b" />} {section.tip.title || "Pro Tip"}
                 </div>
-                <p style={{ fontSize: 15, lineHeight: 1.7, color: "#166534", margin: 0 }}>{section.tip.text}</p>
+                <p style={{ fontSize: 15, lineHeight: 1.7, color: "#1f2937", margin: 0 }}>{section.tip.text}</p>
               </div>
             )}
 

@@ -213,13 +213,15 @@ export default function PlatformPage() {
 
               {section.tip && (
                 <div style={{
-                  background: "#f0fdf4", border: "1px solid #bbf7d0", borderRadius: 12,
+                  background: "#fffaf0",
+                  borderLeft: "3px solid #f59e0b",
+                  borderRadius: "0 8px 8px 0",
                   padding: mob ? "14px 16px" : "16px 20px", margin: "16px 0",
                 }}>
-                  <div style={{ fontWeight: 700, fontSize: 15, color: "#059669", marginBottom: 4, display: "flex", alignItems: "center", gap: 6 }}>
+                  <div style={{ fontWeight: 700, fontSize: 15, color: "#b45309", marginBottom: 4, display: "flex", alignItems: "center", gap: 6 }}>
                     <Lightbulb size={16} /> {section.tip.title || "Pro Tip"}
                   </div>
-                  <p style={{ fontSize: 15, lineHeight: 1.7, color: "#166534", margin: 0 }}>{section.tip.text}</p>
+                  <p style={{ fontSize: 15, lineHeight: 1.7, color: "#1f2937", margin: 0 }}>{section.tip.text}</p>
                 </div>
               )}
 
@@ -283,15 +285,15 @@ export default function PlatformPage() {
               margin: "0 0 16px", lineHeight: 1.25,
             }}>Pros & Cons</h2>
             <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "1fr 1fr", gap: 14 }}>
-              <div style={{ background: "#f0fdf4", border: "1px solid #bbf7d0", borderRadius: 12, padding: "20px" }}>
-                <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 15, color: "#059669", marginBottom: 12 }}>Pros</div>
+              <div style={{ background: "#fff", border: "1.5px solid #e2e8f0", borderLeft: "3px solid #059669", boxShadow: "0 2px 8px rgba(15,23,42,0.04)", borderRadius: 12, padding: "20px" }}>
+                <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 15, color: "#047857", marginBottom: 12 }}>Pros</div>
                 {platform.pros.map((p, i) => (
                   <div key={i} style={{ fontSize: 14, color: "#111827", marginBottom: 8, paddingLeft: 16, position: "relative", lineHeight: 1.5 }}>
                     <span style={{ position: "absolute", left: 0, color: "#059669" }}><Check size={14} /></span>{p}
                   </div>
                 ))}
               </div>
-              <div style={{ background: "#fef2f2", border: "1px solid #fecaca", borderRadius: 12, padding: "20px" }}>
+              <div style={{ background: "#fff", border: "1.5px solid #e2e8f0", borderLeft: "3px solid #dc2626", boxShadow: "0 2px 8px rgba(15,23,42,0.04)", borderRadius: 12, padding: "20px" }}>
                 <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 15, color: "#dc2626", marginBottom: 12 }}>Cons</div>
                 {platform.cons.map((c, i) => (
                   <div key={i} style={{ fontSize: 14, color: "#111827", marginBottom: 8, paddingLeft: 16, position: "relative", lineHeight: 1.5 }}>
@@ -442,7 +444,7 @@ export default function PlatformPage() {
                       fontSize: 14, fontWeight: 500, color: "#2563eb",
                       textDecoration: "none", transition: "background 0.15s",
                     }}
-                      onMouseEnter={(e) => { e.currentTarget.style.background = "#f0fdf4"; }}
+                      onMouseEnter={(e) => { e.currentTarget.style.background = "#f8fafc"; }}
                       onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; }}
                     ><span style={{ display: "inline-flex", alignItems: "center", gap: 4 }}>{r.label} <ArrowRight size={14} /></span></Link>
                   ))}

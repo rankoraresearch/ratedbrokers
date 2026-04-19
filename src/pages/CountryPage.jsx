@@ -39,14 +39,14 @@ function Stars({ r, size = 14 }) {
 }
 
 function ScoreBadge({ score, size = "md" }) {
-  const color = score >= 9.0 ? "#059669" : score >= 8.0 ? "#2563eb" : "#d97706";
-  const bg = score >= 9.0 ? "#ecfdf5" : score >= 8.0 ? "#eff6ff" : "#fffbeb";
+  // Plate B style: white surface, neutral border, score-coloured text only (no pale fill)
+  const color = score >= 9.0 ? "#047857" : score >= 8.0 ? "#1d4ed8" : "#b45309";
   const label = score >= 9.5 ? "Excellent" : score >= 9.0 ? "Great" : score >= 8.5 ? "Very Good" : "Good";
   const s = size === "lg" ? 52 : 40;
   const fs = size === "lg" ? 18 : 14;
   return (
     <div style={{ textAlign: "center" }}>
-      <div style={{ width: s, height: s, borderRadius: 10, background: bg, border: `2px solid ${color}`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 2 }}>
+      <div style={{ width: s, height: s, borderRadius: 10, background: "#fff", border: "1.5px solid #e2e8f0", borderLeft: `3px solid ${color}`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 2 }}>
         <span style={{ fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: fs, color }}>{score}</span>
       </div>
       <span style={{ fontSize: size === "lg" ? 12 : 10, color, fontWeight: 600 }}>{label}</span>
@@ -264,12 +264,15 @@ export default function CountryPage() {
         {/* Key finding */}
         <div style={{
           marginTop: 20, padding: mob ? "12px 14px" : "14px 20px", borderRadius: 12,
-          background: "linear-gradient(135deg,#ecfdf5,#d1fae5)", border: "1px solid #a7f3d0",
+          background: "#fff",
+          border: "1.5px solid #e2e8f0",
+          borderLeft: "4px solid #059669",
+          boxShadow: "0 2px 8px rgba(15,23,42,0.04)",
           display: "flex", alignItems: "flex-start", gap: 10,
         }}>
           <span style={{ fontSize: 18 }}>{"\uD83D\uDD11"}</span>
           <div>
-            <span style={{ fontWeight: 700, fontSize: 14, color: "#059669", letterSpacing: 0.5 }}>{t("country.keyFinding").toUpperCase()}</span>
+            <span style={{ fontWeight: 700, fontSize: 14, color: "#047857", letterSpacing: 0.5 }}>{t("country.keyFinding").toUpperCase()}</span>
             <p style={{ fontSize: 15, lineHeight: 1.6, color: "#111827", margin: "4px 0 0" }}>{COUNTRY.keyFinding}</p>
           </div>
         </div>
@@ -642,8 +645,8 @@ export default function CountryPage() {
                     gap: mob ? 12 : 16,
                     marginBottom: 16,
                   }}>
-                    <div style={{ padding: mob ? 14 : 16, borderRadius: 12, background: "#f0fdf4", border: "1px solid #bbf7d0" }}>
-                      <div style={{ fontWeight: 700, fontSize: 15, color: "#059669", marginBottom: 8 }}>Pros for {COUNTRY.name} Traders</div>
+                    <div style={{ padding: mob ? 14 : 16, borderRadius: 12, background: "#fff", border: "1.5px solid #e2e8f0", borderLeft: "3px solid #059669", boxShadow: "0 2px 8px rgba(15,23,42,0.04)" }}>
+                      <div style={{ fontWeight: 700, fontSize: 15, color: "#047857", marginBottom: 8 }}>Pros for {COUNTRY.name} Traders</div>
                       {b.countryReview.pros.map((pro, i) => (
                         <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 8, marginBottom: 5 }}>
                           <Check size={14} color="#059669" style={{ flexShrink: 0, marginTop: 3 }} />
@@ -651,8 +654,8 @@ export default function CountryPage() {
                         </div>
                       ))}
                     </div>
-                    <div style={{ padding: mob ? 14 : 16, borderRadius: 12, background: "#fef2f2", border: "1px solid #fecaca" }}>
-                      <div style={{ fontWeight: 700, fontSize: 15, color: "#dc2626", marginBottom: 8 }}>Cons for {COUNTRY.name} Traders</div>
+                    <div style={{ padding: mob ? 14 : 16, borderRadius: 12, background: "#fff", border: "1.5px solid #e2e8f0", borderLeft: "3px solid #dc2626", boxShadow: "0 2px 8px rgba(15,23,42,0.04)" }}>
+                      <div style={{ fontWeight: 700, fontSize: 15, color: "#b91c1c", marginBottom: 8 }}>Cons for {COUNTRY.name} Traders</div>
                       {b.countryReview.cons.map((con, i) => (
                         <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 8, marginBottom: 5 }}>
                           <XIcon size={14} color="#dc2626" style={{ flexShrink: 0, marginTop: 3 }} />
