@@ -369,8 +369,9 @@ export default function CryptoBrokersPage() {
                         {b.B.regs.slice(0, 2).map((r) => (
                           <span key={r.name} style={{
                             padding: "2px 6px", borderRadius: 4, fontSize: 11, fontWeight: 700,
-                            background: r.tier === 1 ? "#ecfdf5" : "#f1f5f9",
-                            color: r.tier === 1 ? "#059669" : "#374151",
+                            background: "#f8fafc",
+                            border: "1px solid #e2e8f0",
+                            color: r.tier === 1 ? "#047857" : "#374151",
                           }}>{r.name}</span>
                         ))}
                       </div>
@@ -395,10 +396,28 @@ export default function CryptoBrokersPage() {
               </div>
               <p style={{ fontSize: 14, lineHeight: 1.7, color: "#1f2937", marginBottom: 14 }}>{coin.desc}</p>
               <Link to={lp(coin.path)} style={{
-                display: "inline-block", padding: "8px 16px", borderRadius: 8,
-                background: "#f0fdf4", color: "#059669", fontWeight: 700, fontSize: 14,
-                textDecoration: "none", border: "1px solid #a7f3d0",
-              }}>View Best {coin.coin.split(" ")[0]} Brokers →</Link>
+                display: "inline-block", padding: "8px 16px", borderRadius: 10,
+                background: "#fff", color: "#047857",
+                fontFamily: "'Outfit', sans-serif", fontWeight: 700, fontSize: 14, letterSpacing: "-0.01em",
+                textDecoration: "none",
+                border: "1.5px solid #e2e8f0",
+                borderLeft: "3px solid #059669",
+                boxShadow: "0 2px 8px rgba(15,23,42,0.06)",
+                transition: "all 0.25s cubic-bezier(0.4, 0, 0.2, 1)",
+              }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = "#cbd5e1";
+                  e.currentTarget.style.borderLeftColor = "#047857";
+                  e.currentTarget.style.boxShadow = "0 8px 24px rgba(15,23,42,0.12)";
+                  e.currentTarget.style.transform = "translateY(-1px)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = "#e2e8f0";
+                  e.currentTarget.style.borderLeftColor = "#059669";
+                  e.currentTarget.style.boxShadow = "0 2px 8px rgba(15,23,42,0.06)";
+                  e.currentTarget.style.transform = "translateY(0)";
+                }}
+              >View Best {coin.coin.split(" ")[0]} Brokers →</Link>
             </div>
           ))}
         </div>
@@ -424,7 +443,7 @@ export default function CryptoBrokersPage() {
                     fontSize: 14, fontWeight: 500, color: "#1f2937", textDecoration: "none",
                     transition: "all 0.15s",
                   }}
-                    onMouseEnter={(e) => { e.currentTarget.style.background = "#f0fdf4"; e.currentTarget.style.color = "#059669"; }}
+                    onMouseEnter={(e) => { e.currentTarget.style.background = "#f8fafc"; e.currentTarget.style.color = "#047857"; }}
                     onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#1f2937"; }}
                   >{item.label}</Link>
                 ))}
