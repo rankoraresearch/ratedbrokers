@@ -1097,16 +1097,21 @@ export default function RankingPage() {
                           </div>
                         )}
                       </div>
-                      <div style={{
-                        width: 52, height: 52, borderRadius: 12,
-                        background: "#fff",
-                        border: "1.5px solid #e2e8f0",
-                        borderLeft: `3px solid ${b.B.score >= 9.0 ? "#059669" : "#94a3b8"}`,
-                        display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
-                      }}>
-                        <span style={{ fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 18, lineHeight: 1, color: b.B.score >= 9.0 ? "#047857" : "#64748b" }}>{b.B.score}</span>
-                        <span style={{ fontSize: 8, fontWeight: 700, color: "#1f2937", textTransform: "uppercase" }}>{b.B.score >= 9.5 ? "Excellent" : b.B.score >= 9.0 ? "Great" : b.B.score >= 8.5 ? "Very Good" : "Good"}</span>
-                      </div>
+                      {(() => {
+                        const scoreColor = b.B.score >= 9.0 ? "#047857" : b.B.score >= 8.0 ? "#1d4ed8" : "#b45309";
+                        return (
+                          <div style={{
+                            width: 52, height: 52, borderRadius: 12,
+                            background: "#fff",
+                            border: "1.5px solid #e2e8f0",
+                            borderLeft: `3px solid ${scoreColor}`,
+                            display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
+                          }}>
+                            <span style={{ fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 18, lineHeight: 1, color: scoreColor }}>{b.B.score}</span>
+                            <span style={{ fontSize: 8, fontWeight: 700, color: "#1f2937", textTransform: "uppercase" }}>{b.B.score >= 9.5 ? "Excellent" : b.B.score >= 9.0 ? "Great" : b.B.score >= 8.5 ? "Very Good" : "Good"}</span>
+                          </div>
+                        );
+                      })()}
                     </div>
                     <div style={{ marginBottom: 16 }}>
                       {review.paragraphs.map((p, pi) => (
@@ -1123,8 +1128,8 @@ export default function RankingPage() {
                           </div>
                         ))}
                       </div>
-                      <div style={{ padding: mob ? 14 : 16, borderRadius: 12, background: "#fef2f2", border: "1px solid #fecaca" }}>
-                        <div style={{ fontWeight: 700, fontSize: 15, color: "#dc2626", marginBottom: 8 }}>Cons for {countryData.name} Traders</div>
+                      <div style={{ padding: mob ? 14 : 16, borderRadius: 12, background: "#fff", border: "1.5px solid #e2e8f0", borderLeft: "3px solid #dc2626", boxShadow: "0 2px 8px rgba(15,23,42,0.04)" }}>
+                        <div style={{ fontWeight: 700, fontSize: 15, color: "#b91c1c", marginBottom: 8 }}>Cons for {countryData.name} Traders</div>
                         {review.cons.map((con, ci) => (
                           <div key={ci} style={{ display: "flex", alignItems: "flex-start", gap: 8, marginBottom: 5 }}>
                             <XIcon size={14} color="#dc2626" style={{ flexShrink: 0, marginTop: 3 }} />
