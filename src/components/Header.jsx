@@ -28,35 +28,38 @@ const TOTAL_VERTICALS = Object.keys(VERTICAL_META).length;
    MENU DATA
    ═══════════════════════════════════════════════════════ */
 
+/* Labels выровнены по primary keyword URL-страниц — каждая ссылка
+   содержит Brokers/Platforms/Apps чтобы link equity распределялся
+   чисто на money pages без размытия. */
 const BROKERS_BY_ASSET = [
-  { label: "Forex Brokers",    path: "/best-forex-brokers",          count: 48 },
-  { label: "CFD Brokers",      path: "/best-cfd-brokers",            count: 46 },
-  { label: "Stock Brokers",    path: "/best-stock-brokers",          count: 13 },
-  { label: "Options Brokers",  path: "/best-options-brokers",        count: 9  },
-  { label: "Futures Brokers",  path: "/best-futures-brokers",        count: 10 },
-  { label: "Crypto Brokers",   path: "/best-crypto-brokers",         count: 28 },
-  { label: "Copy Trading",     path: "/best-copy-trading-platforms", count: 18 },
-  { label: "Spread Betting",   path: "/best-spread-betting-brokers", count: 10 },
+  { label: "Forex Brokers",           path: "/best-forex-brokers",          count: 48 },
+  { label: "CFD Brokers",             path: "/best-cfd-brokers",            count: 46 },
+  { label: "Stock Brokers",           path: "/best-stock-brokers",          count: 13 },
+  { label: "Options Brokers",         path: "/best-options-brokers",        count: 9  },
+  { label: "Futures Brokers",         path: "/best-futures-brokers",        count: 10 },
+  { label: "Crypto Brokers",          path: "/best-crypto-brokers",         count: 28 },
+  { label: "Copy Trading Platforms",  path: "/best-copy-trading-platforms", count: 18 },
+  { label: "Spread Betting Brokers",  path: "/best-spread-betting-brokers", count: 10 },
 ];
 
 const BROKERS_BY_STYLE = [
-  { label: "For Beginners",     path: "/best-forex-brokers-for-beginners" },
-  { label: "Lowest Spreads",    path: "/lowest-spread-forex-brokers" },
-  { label: "ECN Brokers",       path: "/best-ecn-forex-brokers" },
-  { label: "For Scalping",      path: "/best-forex-brokers-for-scalping" },
-  { label: "Social Trading",    path: "/best-social-trading-platforms" },
-  { label: "No Min. Deposit",   path: "/no-minimum-deposit-forex-brokers" },
-  { label: "For Professionals", path: "/best-forex-brokers-for-professionals" },
-  { label: "Islamic Accounts",  path: "/best-islamic-forex-brokers" },
+  { label: "Forex Brokers for Beginners",   path: "/best-forex-brokers-for-beginners" },
+  { label: "Lowest Spread Forex Brokers",   path: "/lowest-spread-forex-brokers" },
+  { label: "ECN Forex Brokers",             path: "/best-ecn-forex-brokers" },
+  { label: "Forex Brokers for Scalping",    path: "/best-forex-brokers-for-scalping" },
+  { label: "Social Trading Platforms",      path: "/best-social-trading-platforms" },
+  { label: "No Minimum Deposit Forex Brokers", path: "/no-minimum-deposit-forex-brokers" },
+  { label: "Forex Brokers for Professionals", path: "/best-forex-brokers-for-professionals" },
+  { label: "Islamic Forex Brokers",         path: "/best-islamic-forex-brokers" },
 ];
 
 const BROKERS_BY_PLATFORM = [
-  { label: "MetaTrader 4", path: "/best-metatrader-4-brokers" },
-  { label: "MetaTrader 5", path: "/best-metatrader-5-brokers" },
-  { label: "cTrader",      path: "/best-ctrader-brokers" },
-  { label: "TradingView",  path: "/best-tradingview-brokers" },
-  { label: "Trading Apps", path: "/best-forex-trading-apps" },
-  { label: "Crypto Apps",  path: "/best-crypto-trading-apps" },
+  { label: "MT4 Brokers",          path: "/best-metatrader-4-brokers" },
+  { label: "MT5 Brokers",          path: "/best-metatrader-5-brokers" },
+  { label: "cTrader Brokers",      path: "/best-ctrader-brokers" },
+  { label: "TradingView Brokers",  path: "/best-tradingview-brokers" },
+  { label: "Forex Trading Apps",   path: "/best-forex-trading-apps" },
+  { label: "Crypto Trading Apps",  path: "/best-crypto-trading-apps" },
 ];
 
 const TOP_REVIEWS = [
@@ -403,10 +406,10 @@ export default function Header() {
                 <NavBtn id="brokers" label={t("nav.brokers")} href="/rankings" />
                 {activeDropdown === "brokers" && (
                   <div
-                    style={{ ...ddBase, left: "50%", transform: "translateX(-50%)", width: 680 }}
+                    style={{ ...ddBase, left: "50%", transform: "translateX(-50%)", width: 760 }}
                     onMouseEnter={() => enter("brokers")} onMouseLeave={leave}
                   >
-                    <div style={{ display: "grid", gridTemplateColumns: "1.1fr 1fr 1fr", gap: 20 }}>
+                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1.1fr 1fr", gap: 20 }}>
                       <div>
                         <div style={secHead}>By Asset Class</div>
                         {BROKERS_BY_ASSET.map((item) => (
