@@ -729,7 +729,7 @@ export default function RankingPage() {
             display: "inline-flex", alignItems: "center", gap: 10,
             padding: mob ? "6px 12px 6px 6px" : "6px 14px 6px 6px",
             borderRadius: 999,
-            background: "rgba(15,23,42,0.45)",
+            background: "#0f172a",
             border: "1px solid rgba(251,191,36,0.28)",
             marginBottom: mob ? 12 : 14,
           }}>
@@ -769,7 +769,7 @@ export default function RankingPage() {
             color: "#fff",
             textTransform: "uppercase", letterSpacing: "0.08em",
           }}>
-            <span><span style={{ color: "#fbbf24", fontWeight: 800, background: "rgba(15,23,42,0.45)", padding: "2px 8px", borderRadius: 6, marginRight: 4 }}>{brokers.length}</span> Brokers Tested</span>
+            <span><span style={{ color: "#fbbf24", fontWeight: 800, background: "#0f172a", padding: "2px 8px", borderRadius: 6, marginRight: 4 }}>{brokers.length}</span> Brokers Tested</span>
             <span style={{ color: "rgba(255,255,255,0.4)" }}>·</span>
             <span>130+ Data Points</span>
           </div>
