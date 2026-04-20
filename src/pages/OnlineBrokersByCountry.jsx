@@ -16,17 +16,19 @@ import {
 
 const REGION_ORDER = ["Europe", "Asia-Pacific", "Middle East & Africa", "Americas", "Eastern Europe"];
 
-function VerticalChips({ verticals, country, lp, compact = false }) {
+function VerticalChips({ verticals, country, lp }) {
   return (
     <div style={{
-      display: "flex", flexWrap: "wrap", gap: compact ? 4 : 6, alignItems: "center",
+      display: "flex", flexWrap: "wrap", gap: 6, alignItems: "center",
       width: "100%",
     }}>
       {verticals.map((v) => {
         const meta = VERTICAL_META[v.key];
         if (!meta) return null;
-        // SEO anchor text: full keyword (e.g. "Forex Brokers UK", "Crypto Platforms USA").
+        // SEO anchor text: full keyword (e.g. "Forex Brokers UK", "Crypto Brokers USA").
         // Mirrors the Home.jsx pattern so link equity points consistently at money pages.
+        // Dot colour стандартный green (CSS .rb-dot), без per-vertical окраски —
+        // визуальный стандарт совпадает с Home "Regulated Brokers by Country".
         const anchor = `${meta.label} ${meta.word} ${country.geo}`;
         return (
           <Link
@@ -34,9 +36,9 @@ function VerticalChips({ verticals, country, lp, compact = false }) {
             to={lp(v.path)}
             className="rb-link-rail"
             title={`${meta.label} ${meta.word} in ${country.name}`}
-            style={{ fontSize: compact ? 12 : 13 }}
+            style={{ fontSize: 13 }}
           >
-            <span className="rb-dot" style={{ background: meta.color }} />
+            <span className="rb-dot" />
             {anchor}
           </Link>
         );
@@ -50,7 +52,7 @@ function FeaturedCard({ country, lp, mob }) {
     <div
       style={{
         display: "flex", flexDirection: "column",
-        minHeight: mob ? "auto" : 180,
+        minHeight: mob ? "auto" : 140,
         borderRadius: 14, overflow: "hidden",
         background: "#fff", border: "1px solid #e8ecf1",
         boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.02), 0 4px 16px rgba(0,0,0,0.04)",
@@ -66,18 +68,19 @@ function FeaturedCard({ country, lp, mob }) {
         e.currentTarget.style.boxShadow = "inset 0 0 0 1px rgba(0,0,0,0.02), 0 4px 16px rgba(0,0,0,0.04)";
       }}
     >
-      {/* Top: flag + country name + regulator (NOT a link — SEO equity flows via chips) */}
+      {/* Top: flag + country name + regulator (NOT a link — SEO equity flows via chips).
+          Пропорции и метрики зеркалят Home.jsx "Regulated Brokers by Country" card. */}
       <div style={{
         display: "flex", alignItems: "center", gap: 12,
         padding: mob ? "16px 16px 0" : "18px 18px 0",
       }}>
-        <CountryFlag code={country.code} size={mob ? 32 : 40} />
+        <CountryFlag code={country.code} size={mob ? 32 : 36} />
         <div style={{ flex: 1, minWidth: 0 }}>
           <div style={{
             fontFamily: "'Outfit',sans-serif", fontWeight: 700,
-            fontSize: mob ? 16 : 18, color: "#0f172a", lineHeight: 1.2,
+            fontSize: mob ? 15 : 16, color: "#0f172a", lineHeight: 1.2,
           }}>{country.name}</div>
-          <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 6, flexWrap: "wrap" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 3 }}>
             <span style={{
               display: "inline-block",
               padding: "2px 8px", borderRadius: 6,
@@ -85,17 +88,18 @@ function FeaturedCard({ country, lp, mob }) {
               fontFamily: "'JetBrains Mono',monospace",
               fontSize: 11, fontWeight: 700, whiteSpace: "nowrap",
             }}>{country.regulator}</span>
-            <span style={{ fontSize: 11.5, color: "#94a3b8", fontWeight: 600 }}>
+            <span style={{ fontSize: 11, color: "#94a3b8", fontWeight: 600 }}>
               {country.verticals.length} {country.verticals.length === 1 ? "ranking" : "rankings"}
             </span>
           </div>
         </div>
+        <ArrowRight size={16} color="#cbd5e1" style={{ flexShrink: 0, transition: "color 0.2s" }} />
       </div>
 
-      <div style={{ height: 1, background: "#f0f4f8", margin: mob ? "12px 16px 0" : "14px 18px 0" }} />
+      <div style={{ height: 1, background: "#f0f4f8", margin: mob ? "10px 16px 0" : "12px 18px 0" }} />
 
       <div style={{
-        padding: mob ? "12px 14px 16px" : "12px 16px 16px",
+        padding: mob ? "10px 12px 14px" : "10px 14px 14px",
         marginTop: "auto",
       }}>
         <VerticalChips verticals={country.verticals} country={country} lp={lp} />
@@ -104,44 +108,6 @@ function FeaturedCard({ country, lp, mob }) {
   );
 }
 
-function RegionRow({ country, lp }) {
-  return (
-    <div
-      style={{
-        display: "flex", alignItems: "center", gap: 12,
-        padding: "12px 14px", borderRadius: 10,
-        background: "#fff", border: "1px solid #e8ecf1",
-        transition: "border-color 0.2s, box-shadow 0.2s",
-      }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.borderColor = "#cbd5e1";
-        e.currentTarget.style.boxShadow = "0 4px 14px rgba(0,0,0,0.05)";
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.borderColor = "#e8ecf1";
-        e.currentTarget.style.boxShadow = "none";
-      }}
-    >
-      <CountryFlag code={country.code} size={24} />
-      <div style={{
-        fontFamily: "'Outfit',sans-serif", fontWeight: 700,
-        fontSize: 14, color: "#0f172a",
-        flexShrink: 0, minWidth: 120,
-      }}>
-        {country.name}
-      </div>
-      <span style={{
-        fontFamily: "'JetBrains Mono',monospace", fontSize: 10.5, fontWeight: 700,
-        color: "#64748b", whiteSpace: "nowrap",
-      }}>
-        {country.regulator}
-      </span>
-      <div style={{ flex: 1, minWidth: 0, display: "flex", justifyContent: "flex-end" }}>
-        <VerticalChips verticals={country.verticals} country={country} lp={lp} compact />
-      </div>
-    </div>
-  );
-}
 
 export default function OnlineBrokersByCountry() {
   const { mob, tab } = useMedia();
@@ -275,26 +241,28 @@ export default function OnlineBrokersByCountry() {
           ))}
         </div>
 
-        {/* By region */}
+        {/* By region — тот же Plate-B стандарт, что и Featured. Featured-страны
+            исключены из regions чтобы не дублироваться между hero и regional grids. */}
         {regions.map((region) => {
-          const countries = getCountriesByRegion(region);
+          const countries = getCountriesByRegion(region).filter((c) => !c.featured);
           if (countries.length === 0) return null;
           return (
-            <div key={region} style={{ marginBottom: mob ? 28 : 36 }}>
+            <div key={region} style={{ marginBottom: mob ? 32 : 48 }}>
               <h2 style={{
                 fontFamily: "'Outfit',sans-serif", fontWeight: 800,
-                fontSize: mob ? 18 : 22, color: "#0f172a",
-                margin: "0 0 12px",
+                fontSize: mob ? 20 : 24, color: "#0f172a",
+                letterSpacing: "-0.02em",
+                margin: "0 0 16px",
               }}>
                 {region}
               </h2>
               <div style={{
                 display: "grid",
-                gridTemplateColumns: mob ? "1fr" : tab ? "1fr" : "1fr 1fr",
-                gap: 8,
+                gridTemplateColumns: mob ? "1fr" : tab ? "1fr 1fr" : "repeat(4, 1fr)",
+                gap: mob ? 12 : 14,
               }}>
                 {countries.map((c) => (
-                  <RegionRow key={c.slug} country={c} lp={lp} />
+                  <FeaturedCard key={c.slug} country={c} lp={lp} mob={mob} />
                 ))}
               </div>
             </div>
