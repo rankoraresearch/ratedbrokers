@@ -66,6 +66,7 @@ const LinkSystemProto = import.meta.env.DEV ? lazy(() => import("./pages/LinkSys
 const AuthorProto = import.meta.env.DEV ? lazy(() => import("./pages/AuthorProto")) : null;
 const FlagsProto = import.meta.env.DEV ? lazy(() => import("./pages/FlagsProto")) : null;
 const MenuProtoV2 = import.meta.env.DEV ? lazy(() => import("./pages/MenuProtoV2")) : null;
+const MenuCountriesProto = import.meta.env.DEV ? lazy(() => import("./pages/MenuCountriesProto")) : null;
 
 function PageLoader() {
   return (
@@ -121,6 +122,7 @@ function AppRoutes() {
         <Route path="proto/author" element={<Layout />}><Route index element={<AuthorProto />} /></Route>
         <Route path="proto/flags" element={<Layout />}><Route index element={<FlagsProto />} /></Route>
         <Route path="proto/menu-v2" element={<Suspense fallback={<PageLoader />}><MenuProtoV2 /></Suspense>} />
+        <Route path="proto/menu-countries" element={<Suspense fallback={<PageLoader />}><MenuCountriesProto /></Suspense>} />
       </>}
       <Route element={<Layout />}>
         <Route index element={<Home />} />
