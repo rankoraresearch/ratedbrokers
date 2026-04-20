@@ -10,7 +10,7 @@ import Accordion from "../components/Accordion";
 import AuthorCredits from "../components/AuthorCredits";
 import AuthorBioCard from "../components/AuthorBioCard";
 import Breadcrumb, { breadcrumbSchema } from "../components/Breadcrumb";
-import Icon, { ArrowRight, Check, X as XIcon, ExternalLink } from "../components/Icon";
+import { ArrowRight, Check, X as XIcon, ExternalLink } from "../components/Icon";
 import PlatformLogo from "../components/PlatformLogo";
 import HeroBand from "../components/HeroBand";
 import { Lightbulb, AlertTriangle } from "lucide-react";
@@ -113,7 +113,7 @@ export default function PlatformPage() {
       <div style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb", minHeight: "100vh", padding: "80px 20px", textAlign: "center" }}>
         <h1 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 28, marginBottom: 12 }}>Platform Not Found</h1>
         <p style={{ color: "#1f2937", marginBottom: 24 }}>The trading platform you're looking for doesn't exist in our database.</p>
-        <Link to={lp("/")} style={{ color: "#2563eb", fontWeight: 600, textDecoration: "none" }}>Back to Home</Link>
+        <Link to={lp("/")} className="link-green">Back to Home</Link>
       </div>
     );
   }
@@ -213,13 +213,15 @@ export default function PlatformPage() {
 
               {section.tip && (
                 <div style={{
-                  background: "#f0fdf4", border: "1px solid #bbf7d0", borderRadius: 12,
+                  background: "#fffaf0",
+                  borderLeft: "3px solid #f59e0b",
+                  borderRadius: "0 8px 8px 0",
                   padding: mob ? "14px 16px" : "16px 20px", margin: "16px 0",
                 }}>
-                  <div style={{ fontWeight: 700, fontSize: 15, color: "#059669", marginBottom: 4, display: "flex", alignItems: "center", gap: 6 }}>
+                  <div style={{ fontWeight: 700, fontSize: 15, color: "#b45309", marginBottom: 4, display: "flex", alignItems: "center", gap: 6 }}>
                     <Lightbulb size={16} /> {section.tip.title || "Pro Tip"}
                   </div>
-                  <p style={{ fontSize: 15, lineHeight: 1.7, color: "#166534", margin: 0 }}>{section.tip.text}</p>
+                  <p style={{ fontSize: 15, lineHeight: 1.7, color: "#1f2937", margin: 0 }}>{section.tip.text}</p>
                 </div>
               )}
 
@@ -283,16 +285,16 @@ export default function PlatformPage() {
               margin: "0 0 16px", lineHeight: 1.25,
             }}>Pros & Cons</h2>
             <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "1fr 1fr", gap: 14 }}>
-              <div style={{ background: "#f0fdf4", border: "1px solid #bbf7d0", borderRadius: 12, padding: "20px" }}>
-                <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 15, color: "#059669", marginBottom: 12 }}>Pros</div>
+              <div style={{ background: "#fff", border: "1.5px solid #e2e8f0", borderLeft: "3px solid #059669", boxShadow: "0 2px 8px rgba(15,23,42,0.04)", borderRadius: 12, padding: "20px" }}>
+                <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 15, color: "#047857", marginBottom: 12 }}>Pros</div>
                 {platform.pros.map((p, i) => (
                   <div key={i} style={{ fontSize: 14, color: "#111827", marginBottom: 8, paddingLeft: 16, position: "relative", lineHeight: 1.5 }}>
                     <span style={{ position: "absolute", left: 0, color: "#059669" }}><Check size={14} /></span>{p}
                   </div>
                 ))}
               </div>
-              <div style={{ background: "#fef2f2", border: "1px solid #fecaca", borderRadius: 12, padding: "20px" }}>
-                <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 15, color: "#dc2626", marginBottom: 12 }}>Cons</div>
+              <div style={{ background: "#fff", border: "1.5px solid #e2e8f0", borderLeft: "3px solid #dc2626", boxShadow: "0 2px 8px rgba(15,23,42,0.04)", borderRadius: 12, padding: "20px" }}>
+                <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 15, color: "#b91c1c", marginBottom: 12 }}>Cons</div>
                 {platform.cons.map((c, i) => (
                   <div key={i} style={{ fontSize: 14, color: "#111827", marginBottom: 8, paddingLeft: 16, position: "relative", lineHeight: 1.5 }}>
                     <span style={{ position: "absolute", left: 0, color: "#dc2626" }}><XIcon size={14} /></span>{c}
@@ -424,11 +426,11 @@ export default function PlatformPage() {
                     <span style={{ fontSize: 14, color: "#111827", fontWeight: 600, textAlign: "right", maxWidth: "55%" }}>{x.v}</span>
                   </div>
                 ))}
-                <a href={platform.quickFacts.website} target="_blank" rel="noopener noreferrer" style={{
+                <a href={platform.quickFacts.website} target="_blank" rel="noopener noreferrer" className="cta-secondary" style={{
                   display: "block", textAlign: "center", marginTop: 14,
                   padding: "10px", borderRadius: 8, fontSize: 14, fontWeight: 600,
-                  background: "#eff6ff", color: "#2563eb", textDecoration: "none",
-                  border: "1px solid #bfdbfe",
+                  background: "#fff", color: "#059669", textDecoration: "none",
+                  border: "2px solid #059669",
                 }}>Official Website <ExternalLink size={13} style={{ display: "inline", verticalAlign: "middle" }} /></a>
               </Card>
 
@@ -437,14 +439,14 @@ export default function PlatformPage() {
                 <Card style={{ padding: "16px" }}>
                   <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 13, marginBottom: 10, color: "#0f172a" }}>Related Rankings</div>
                   {platform.relatedRankings.map((r, i) => (
-                    <Link key={i} to={lp(r.path)} style={{
+                    <Link key={i} to={lp(r.path)} className="link-green" style={{
                       display: "block", padding: "7px 8px", borderRadius: 6,
-                      fontSize: 14, fontWeight: 500, color: "#2563eb",
-                      textDecoration: "none", transition: "background 0.15s",
+                      fontSize: 14,
+                      transition: "background 0.15s",
                     }}
-                      onMouseEnter={(e) => { e.currentTarget.style.background = "#f0fdf4"; }}
+                      onMouseEnter={(e) => { e.currentTarget.style.background = "#f8fafc"; }}
                       onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; }}
-                    ><span style={{ display: "inline-flex", alignItems: "center", gap: 4 }}>{r.label} <ArrowRight size={14} /></span></Link>
+                    ><span style={{ display: "inline-flex", alignItems: "center", gap: 4 }}>{r.label} <ArrowRight size={14} className="link-arrow" /></span></Link>
                   ))}
                 </Card>
               )}

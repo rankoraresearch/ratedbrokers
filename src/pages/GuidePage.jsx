@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useMedia } from "../hooks/useMedia";
 import { useLocalePath } from "../i18n/useLocalePath";
-import { useTranslation } from "../i18n/LanguageContext";
 import { getGuideBySlug, getAllGuides } from "../data/guides/index";
 import { AUTHORS, getFactChecker, getReviewerForAuthor, getEditor } from "../data/authors";
 import Accordion from "../components/Accordion";
@@ -11,13 +10,12 @@ import AuthorBioCard from "../components/AuthorBioCard";
 import Breadcrumb, { breadcrumbSchema } from "../components/Breadcrumb";
 import renderLinkedText from "../utils/renderLinkedText";
 import Icon from "../components/Icon";
-import { ChevronRight, CircleCheck, CircleX } from "lucide-react";
+import { CircleCheck, CircleX } from "lucide-react";
 
 export default function GuidePage() {
   const { slug } = useParams();
   const { mob, tab } = useMedia();
   const lp = useLocalePath();
-  const { t } = useTranslation();
   const [openFaq, setOpenFaq] = useState(null);
 
   const guide = getGuideBySlug(slug);
@@ -132,7 +130,9 @@ export default function GuidePage() {
         <div style={{ display: "flex", gap: 8, marginBottom: 12, flexWrap: "wrap", alignItems: "center" }}>
           <span style={{
             display: "inline-block", padding: "4px 10px", borderRadius: 6,
-            background: guide.hero.badgeColor || "#ecfdf5", color: guide.hero.badgeTextColor || "#059669",
+            background: guide.hero.badgeColor || "#f8fafc",
+            border: "1px solid #e2e8f0",
+            color: guide.hero.badgeTextColor || "#047857",
             fontSize: 12, fontWeight: 700, letterSpacing: 0.5, textTransform: "uppercase",
           }}>{guide.hero.badge || "GUIDE"}</span>
           <span style={{ fontSize: 13, color: "#1f2937" }}>{guide.readTime}</span>
@@ -226,13 +226,15 @@ export default function GuidePage() {
 
             {section.tip && (
               <div style={{
-                background: "#f0fdf4", border: "1px solid #bbf7d0", borderRadius: 12,
+                background: "#fffaf0",
+                borderLeft: "3px solid #f59e0b",
+                borderRadius: "0 8px 8px 0",
                 padding: mob ? "14px 16px" : "16px 20px", margin: "16px 0",
               }}>
-                <div style={{ fontWeight: 700, fontSize: 15, color: "#059669", marginBottom: 4, display: "flex", alignItems: "center", gap: 6 }}>
+                <div style={{ fontWeight: 700, fontSize: 15, color: "#b45309", marginBottom: 4, display: "flex", alignItems: "center", gap: 6 }}>
                   {section.tip.icon || <Icon name="lightbulb" size={16} color="#f59e0b" />} {section.tip.title || "Pro Tip"}
                 </div>
-                <p style={{ fontSize: 15, lineHeight: 1.7, color: "#166534", margin: 0 }}>{section.tip.text}</p>
+                <p style={{ fontSize: 15, lineHeight: 1.7, color: "#1f2937", margin: 0 }}>{section.tip.text}</p>
               </div>
             )}
 
@@ -285,28 +287,39 @@ export default function GuidePage() {
                 gridTemplateColumns: mob ? "1fr" : "1fr 1fr",
                 gap: 16, margin: "16px 0",
               }}>
-                {section.comparisonCards.map((card, ci) => (
-                  <div key={ci} style={{
-                    background: "#fff", border: "1px solid #e2e8f0", borderRadius: 14, padding: mob ? 16 : 20,
-                  }}>
-                    <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 17, color: "#0f172a", marginBottom: 10 }}>
-                      {card.title}
+                {section.comparisonCards.map((card, ci) => {
+                  const hasPros = !!card.pros;
+                  const hasCons = !!card.cons;
+                  // Plate B rail: green if Pros only, red if Cons only, neutral if both/neither
+                  const railColor = hasPros && !hasCons ? "#059669" : !hasPros && hasCons ? "#dc2626" : "#cbd5e1";
+                  return (
+                    <div key={ci} style={{
+                      background: "#fff",
+                      border: "1.5px solid #e2e8f0",
+                      borderLeft: `3px solid ${railColor}`,
+                      borderRadius: 14,
+                      padding: mob ? 16 : 20,
+                      boxShadow: "0 2px 8px rgba(15,23,42,0.04)",
+                    }}>
+                      <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 17, color: "#0f172a", marginBottom: 10 }}>
+                        {card.title}
+                      </div>
+                      {card.description && <p style={{ fontSize: 15, color: "#1f2937", lineHeight: 1.7, marginBottom: 10 }}>{card.description}</p>}
+                      {card.pros && (
+                        <div style={{ marginBottom: 8 }}>
+                          <div style={{ fontSize: 13, fontWeight: 700, color: "#047857", marginBottom: 4 }}>PROS</div>
+                          {card.pros.map((p, pi) => <div key={pi} style={{ fontSize: 14, color: "#1f2937", padding: "2px 0", display: "flex", alignItems: "center", gap: 6 }}><CircleCheck size={14} color="#059669" style={{ flexShrink: 0 }} /> {p}</div>)}
+                        </div>
+                      )}
+                      {card.cons && (
+                        <div>
+                          <div style={{ fontSize: 13, fontWeight: 700, color: "#b91c1c", marginBottom: 4 }}>CONS</div>
+                          {card.cons.map((c, ci2) => <div key={ci2} style={{ fontSize: 14, color: "#1f2937", padding: "2px 0", display: "flex", alignItems: "center", gap: 6 }}><CircleX size={14} color="#dc2626" style={{ flexShrink: 0 }} /> {c}</div>)}
+                        </div>
+                      )}
                     </div>
-                    {card.description && <p style={{ fontSize: 15, color: "#1f2937", lineHeight: 1.7, marginBottom: 10 }}>{card.description}</p>}
-                    {card.pros && (
-                      <div style={{ marginBottom: 8 }}>
-                        <div style={{ fontSize: 13, fontWeight: 700, color: "#059669", marginBottom: 4 }}>PROS</div>
-                        {card.pros.map((p, pi) => <div key={pi} style={{ fontSize: 14, color: "#1f2937", padding: "2px 0", display: "flex", alignItems: "center", gap: 6 }}><CircleCheck size={14} color="#059669" style={{ flexShrink: 0 }} /> {p}</div>)}
-                      </div>
-                    )}
-                    {card.cons && (
-                      <div>
-                        <div style={{ fontSize: 13, fontWeight: 700, color: "#dc2626", marginBottom: 4 }}>CONS</div>
-                        {card.cons.map((c, ci2) => <div key={ci2} style={{ fontSize: 14, color: "#1f2937", padding: "2px 0", display: "flex", alignItems: "center", gap: 6 }}><CircleX size={14} color="#dc2626" style={{ flexShrink: 0 }} /> {c}</div>)}
-                      </div>
-                    )}
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             )}
           </section>

@@ -54,7 +54,8 @@ export default function NotFoundPage() {
             >
               <div style={{
                 width: 40, height: 40, borderRadius: 10,
-                background: "#ecfdf5", display: "flex",
+                background: "#f8fafc", border: "1px solid #e2e8f0",
+                display: "flex",
                 alignItems: "center", justifyContent: "center", flexShrink: 0,
               }}>
                 <Icon size={20} color="#059669" />

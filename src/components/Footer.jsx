@@ -98,13 +98,13 @@ const FOOTER_COMPANY = [
 /* ── Styles ── */
 
 const sectionHeadingStyle = {
-  fontFamily: "Inter, sans-serif",
+  fontFamily: "'JetBrains Mono', ui-monospace, SFMono-Regular, monospace",
   fontWeight: 700,
-  fontSize: 13,
-  color: "#e2e8f0",
-  marginBottom: 12,
+  fontSize: 11,
+  color: "#fbbf24",
+  marginBottom: 14,
   textTransform: "uppercase",
-  letterSpacing: 1,
+  letterSpacing: "0.18em",
 };
 
 /* ── Footer link wrapper — always rb-link-rail--dark + accent passthrough ──
@@ -161,16 +161,20 @@ export default function Footer() {
               {t("footer.desc")}
             </p>
 
-            {/* Trust stats */}
+            {/* Trust stats — JetBrains Mono для числовых токенов, word order preserved */}
             <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginBottom: 12 }}>
               {[
-                { Icon: Shield, text: `${BROKER_COUNT} Brokers Tested` },
-                { Icon: FlaskConical, text: "500+ Real Trades" },
-                { Icon: CalendarCheck, text: `Updated ${CURRENT_QUARTER}` },
-              ].map(({ Icon, text }) => (
-                <div key={text} style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                  <Icon size={14} color="#34d399" />
-                  <span style={{ fontSize: 13, color: "#cbd5e1" }}>{text}</span>
+                { Icon: Shield, prefix: "", num: `${BROKER_COUNT}`, suffix: "Brokers Tested" },
+                { Icon: FlaskConical, prefix: "", num: "500+", suffix: "Real Trades" },
+                { Icon: CalendarCheck, prefix: "Updated", num: CURRENT_QUARTER, suffix: "" },
+              ].map(({ Icon, prefix, num, suffix }) => (
+                <div key={`${prefix}-${num}-${suffix}`} style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                  <Icon size={14} color="#34d399" strokeWidth={2} />
+                  <span style={{ fontSize: 13, color: "#cbd5e1", display: "inline-flex", alignItems: "baseline", gap: 4 }}>
+                    {prefix && <span>{prefix}</span>}
+                    <span style={{ fontFamily: "'JetBrains Mono', ui-monospace, monospace", fontWeight: 700, color: "#f1f5f9" }}>{num}</span>
+                    {suffix && <span>{suffix}</span>}
+                  </span>
                 </div>
               ))}
             </div>
@@ -258,7 +262,7 @@ export default function Footer() {
             gap: isMobile ? 8 : 4,
           }}
         >
-          <span style={{ fontSize: 13, fontWeight: 700, color: "#e2e8f0", textTransform: "uppercase", letterSpacing: 1, marginRight: 8 }}>
+          <span style={{ fontFamily: "'JetBrains Mono', ui-monospace, monospace", fontSize: 11, fontWeight: 700, color: "#fbbf24", textTransform: "uppercase", letterSpacing: "0.18em", marginRight: 8 }}>
             {t("footer.platforms")}:
           </span>
           {FOOTER_PLATFORMS.map(({ label, path }, i) => (
@@ -292,8 +296,8 @@ export default function Footer() {
             }}
           >
             <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
-              <AlertTriangle size={14} color="#f59e0b" />
-              <span style={{ fontSize: 13, fontWeight: 700, color: "#f59e0b", textTransform: "uppercase", letterSpacing: 0.5 }}>
+              <AlertTriangle size={14} color="#f59e0b" strokeWidth={2} />
+              <span style={{ fontFamily: "'JetBrains Mono', ui-monospace, monospace", fontSize: 11, fontWeight: 700, color: "#f59e0b", textTransform: "uppercase", letterSpacing: "0.18em" }}>
                 {t("footer.riskTitle")}
               </span>
             </div>
@@ -304,18 +308,18 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Affiliate Disclosure */}
+          {/* Affiliate Disclosure — neutral muted (дифференциация от amber Risk) */}
           <div
             style={{
-              borderLeft: "3px solid #f59e0b",
-              background: "rgba(245,158,11,0.04)",
+              borderLeft: "3px solid #64748b",
+              background: "rgba(100,116,139,0.06)",
               padding: "16px 20px",
               borderRadius: "0 8px 8px 0",
             }}
           >
             <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
-              <Info size={14} color="#f59e0b" />
-              <span style={{ fontSize: 13, fontWeight: 700, color: "#f59e0b", textTransform: "uppercase", letterSpacing: 0.5 }}>
+              <Info size={14} color="#94a3b8" strokeWidth={2} />
+              <span style={{ fontFamily: "'JetBrains Mono', ui-monospace, monospace", fontSize: 11, fontWeight: 700, color: "#cbd5e1", textTransform: "uppercase", letterSpacing: "0.18em" }}>
                 {t("footer.affTitle")}
               </span>
             </div>
@@ -339,8 +343,9 @@ export default function Footer() {
           <span style={{ fontSize: 13, color: "#94a3b8" }}>
             {t("footer.copy")}
           </span>
-          <span style={{ fontSize: 13, color: "#94a3b8" }}>
-            {BROKER_COUNT} brokers independently researched and expert-scored
+          <span style={{ fontSize: 13, color: "#94a3b8", display: "inline-flex", alignItems: "baseline", gap: 6 }}>
+            <span style={{ fontFamily: "'JetBrains Mono', ui-monospace, monospace", fontWeight: 700, color: "#fbbf24" }}>{BROKER_COUNT}</span>
+            brokers independently researched and expert-scored
           </span>
         </div>
       </div>

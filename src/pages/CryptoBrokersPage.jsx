@@ -333,19 +333,19 @@ export default function CryptoBrokersPage() {
                     <td style={{ padding: "12px 14px" }}>
                       <span style={{
                         fontFamily: "'JetBrains Mono'", fontWeight: isBestScore ? 800 : 700,
-                        color: isBestScore ? "#059669" : "#111827",
+                        color: isBestScore ? "#047857" : "#111827",
                       }}>{b.B.score}</span>
                     </td>
                     <td style={{ padding: "12px 14px" }}>
                       <span style={{
                         fontFamily: "'JetBrains Mono'", fontWeight: isBestSpread ? 800 : 700,
-                        color: isBestSpread ? "#059669" : "#111827",
+                        color: isBestSpread ? "#047857" : "#111827",
                       }}>{b.B.spread} pips</span>
                     </td>
                     <td style={{ padding: "12px 14px", fontFamily: "'JetBrains Mono'" }}>
                       <span style={{
                         fontWeight: isBestDep ? 800 : 700,
-                        color: isBestDep ? "#059669" : "#111827",
+                        color: isBestDep ? "#047857" : "#111827",
                       }}>{b.B.minDep === 0 ? "$0" : `$${b.B.minDep}`}</span>
                     </td>
                     <td style={{ padding: "12px 14px", fontFamily: "'JetBrains Mono'", fontWeight: 700 }}>{b.B.leverage}</td>
@@ -369,8 +369,9 @@ export default function CryptoBrokersPage() {
                         {b.B.regs.slice(0, 2).map((r) => (
                           <span key={r.name} style={{
                             padding: "2px 6px", borderRadius: 4, fontSize: 11, fontWeight: 700,
-                            background: r.tier === 1 ? "#ecfdf5" : "#f1f5f9",
-                            color: r.tier === 1 ? "#059669" : "#374151",
+                            background: "#f8fafc",
+                            border: "1px solid #e2e8f0",
+                            color: r.tier === 1 ? "#047857" : "#374151",
                           }}>{r.name}</span>
                         ))}
                       </div>
@@ -394,10 +395,12 @@ export default function CryptoBrokersPage() {
                 <h3 style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 18, margin: 0 }}>{coin.coin}</h3>
               </div>
               <p style={{ fontSize: 14, lineHeight: 1.7, color: "#1f2937", marginBottom: 14 }}>{coin.desc}</p>
-              <Link to={lp(coin.path)} style={{
+              <Link to={lp(coin.path)} className="cta-secondary" style={{
                 display: "inline-block", padding: "8px 16px", borderRadius: 8,
-                background: "#f0fdf4", color: "#059669", fontWeight: 700, fontSize: 14,
-                textDecoration: "none", border: "1px solid #a7f3d0",
+                background: "#fff", color: "#059669",
+                fontWeight: 700, fontSize: 14,
+                textDecoration: "none",
+                border: "2px solid #059669",
               }}>View Best {coin.coin.split(" ")[0]} Brokers →</Link>
             </div>
           ))}
@@ -424,7 +427,7 @@ export default function CryptoBrokersPage() {
                     fontSize: 14, fontWeight: 500, color: "#1f2937", textDecoration: "none",
                     transition: "all 0.15s",
                   }}
-                    onMouseEnter={(e) => { e.currentTarget.style.background = "#f0fdf4"; e.currentTarget.style.color = "#059669"; }}
+                    onMouseEnter={(e) => { e.currentTarget.style.background = "#f8fafc"; e.currentTarget.style.color = "#047857"; }}
                     onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#1f2937"; }}
                   >{item.label}</Link>
                 ))}

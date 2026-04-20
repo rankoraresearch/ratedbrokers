@@ -1,6 +1,79 @@
 # Status — текущее состояние проекта
 
-Last updated: 2026-04-18 (S11 Expert Shortlist + admin Top Picks tab)
+Last updated: 2026-04-20 (Design Audit sprint — 21 коммитов на `design-audit-2026-04-20`, все 8 спринтов Codex 10/10, merge pending approve)
+
+---
+
+## АКТИВНОЕ (2026-04-20) — Design Audit
+
+**Branch:** `design-audit-2026-04-20` (origin)
+**Safepoint:** `safepoint-design-audit-2026-04-20-0243` (origin)
+**Preview URL:** `https://design-audit-2026-04-20.ratedbrokers.pages.dev`
+
+### Completed sprints (все Codex 10/10 APPROVED)
+
+| # | Спринт | Коммиты | Итог |
+|---|--------|---------|------|
+| S1 | RegulatorPage pale-green → Plate B | f629e84, a345e31, 143964f | Verify License + Tier callouts + Score badge все на Plate B (white + 1.5px #e2e8f0 + 3px green rail) |
+| S2 | Forex + Crypto landing | 14795d7, bd1f55b | 15 экз. pale-green убраны; best-cell highlights text-only; immutable left rail pattern зафиксирован sitewide |
+| S3 | Country/Ranking/Platform/Guide/AllGuides | 3463866, b72fecc, 4d07831, 0c41275, d518a97 | ~14 экз. cleanup + Pros/Cons symmetry (green/red rails) + Pro-Tip amber rail + 3-tier score colors + dead imports |
+| S4 | Compare/Quiz/Warning/NotFound | e09d3d0, 9f14f13, af05e17 | Quiz Top 3 полностью унифицированы (no #1 differentiation, D2k rule); QuickCompareTable_REMOVED block (127 строк) удалён |
+| S5 | Ranking Hero Premium Green | 6606ff2, 71fcecf, 72e5e60 | HeroBand новый `variant="green"` prop (non-regression default); compact 40/48px padding, amber eyebrow в opaque navy capsule AAA, meta row JetBrains Mono, amber-tinted diagonal texture |
+| S6 | Footer editorial refresh | 7d13302, ff248b1 | Section headings JetBrains Mono 11px amber sitewide editorial-почерк; Affiliate Disclosure дифференцирован от Risk (slate rail vs amber rail) |
+| S7 | Regulator icons polish | a4ac676 | Все 19 SVG получили tier-coded dot (green/amber/red) + gloss overlay; original design preserved |
+| S8 | Sitewide consistency | 6a8c400, e6d3a08 | Home VERTICAL_MAP 8 цветов → 1 (`#059669` unified — "детская палитра" antipattern устранён); AuthorPortal/AuthorsResearch cleanup |
+
+### Ключевые паттерны, зафиксированные в S1-S8
+
+1. **Plate B unified (sitewide standard)**: `bg #fff + border 1.5px #e2e8f0 + border-left 3px [coloured] + box-shadow 0 2px 8px rgba(15,23,42,0.04)`
+2. **Plate B CTA hover (immutable rail)**: изменяются только top/right/bottom borders + shadow lift + translateY(-1px). Left rail остаётся константным.
+3. **Pro-Tip = amber rail**: `bg #fffaf0 + border-left 3px #f59e0b + title #b45309`
+4. **Cons card = red rail**: `border-left 3px #dc2626 + heading #b91c1c`
+5. **Editorial-почерк (JetBrains Mono 11px amber #fbbf24 letterSpacing 0.18em)** для eyebrow sitewide (Footer, Ranking Hero, How We Rate)
+6. **Score badges 3-tier**: `#047857 (≥9.0) / #1d4ed8 (≥8.0) / #b45309 (ниже)`
+7. **AAA на dark**: amber текст требует opaque #0f172a capsule (не translucent rgba)
+8. **Лидер #1 не выделяется** (D2k rule): все top-3 идентичны
+
+### S9 pending
+- merge в main ждёт approve Егора после preview review
+
+### Rollback (гарантировано)
+```bash
+# Ветка ещё не смержена — удалить:
+git branch -D design-audit-2026-04-20
+git push origin --delete design-audit-2026-04-20
+
+# Или после merge — откат на safepoint:
+git reset --hard safepoint-design-audit-2026-04-20-0243
+git push --force-with-lease origin main
+```
+
+---
+
+## ПРЕДЫДУЩЕЕ (2026-04-19)
+
+---
+
+## АКТИВНОЕ (2026-04-19)
+
+**Menu Redesign** — [[menu-redesign]]
+- Глубокий аудит `src/components/Header.jsx` (1055 строк): 9 концептуальных проблем + 9 мелких багов
+- Главная находка: 6 из 8 вертикалей (CFD/Stocks/Options/Futures/Copy/Spread) спрятаны из nav — меню живёт в Forex-эпохе, не синхронизовано с M4 Online Brokers umbrella
+- **Прототип:** `src/pages/MenuProtoV2.jsx` (~650 строк, dev-only) — **одобрен Егором**
+- **Live:** http://localhost:5173/proto/menu-v2
+- **Branch:** `design-audit-round-2`, не коммичено
+
+### Pending: prod перенос в Header.jsx
+1. Forex + Crypto nav → единый **Brokers ▾** mega (4 кол, 8 вертикалей с counts)
+2. Reviews → настоящие wide-лого + fix bottom CTA (`/best-forex-brokers` → `/reviews`)
+3. Compare + Methodology возврат на desktop
+4. Countries → per-vertical CFD/BTC чипы
+5. EN ▾ → disabled state пока i18n не готов
+6. Удалить dead code (icon/color fields, GUIDE_ITEMS, renderCatItems/renderMobCatItems) ~40 строк
+
+Ожидаемый diff: Header.jsx 1055 → ~850 строк.
+
+---
 
 ---
 

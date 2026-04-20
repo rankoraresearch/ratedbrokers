@@ -67,9 +67,6 @@ function WideLogo({ slug, name, w = 140, h = 44 }) {
   );
 }
 
-/* ── Match label for top-3 ── */
-const MATCH_LABELS = { 1: "Best Match", 2: "Runner-Up", 3: "Runner-Up" };
-
 /* ═══════════════════════════════════════════════════════════
    MAIN QUIZ PAGE COMPONENT — v2 Premium
    ═══════════════════════════════════════════════════════════ */
@@ -318,17 +315,17 @@ export default function FindYourBrokerPage() {
                 display: "flex", alignItems: "center", gap: 10, padding: "14px 12px",
                 textDecoration: "none", marginBottom: i < 2 ? 6 : 0,
                 borderRadius: 12,
-                background: i === 0 ? "rgba(236,253,245,0.4)" : "transparent",
+                background: "transparent",
               }}
             >
-              <div style={{ width: 28, height: 28, borderRadius: 8, background: i === 0 ? "linear-gradient(135deg, #059669, #047857)" : "#f1f5f9", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 12, fontWeight: 800, color: i === 0 ? "#fff" : "#64748b", flexShrink: 0 }}>{i + 1}</div>
+              <div style={{ width: 28, height: 28, borderRadius: 8, background: "#f1f5f9", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 12, fontWeight: 800, color: "#64748b", flexShrink: 0 }}>{i + 1}</div>
               <BrokerLogo slug={r.slug} name={B.name} size={52} shape="icon" />
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div style={{ fontSize: 17, fontWeight: 600, color: "#0f172a", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{B.name}</div>
                 {rw && <div className="d2k-risk" style={{ fontSize: 10, lineHeight: 1.3, color: "#6b7280", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{rw}</div>}
               </div>
               <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 13, fontWeight: 800, color: r.matchPct >= 80 ? "#059669" : "#64748b" }}>{r.matchPct}%</span>
-              <ArrowUpRight size={18} className="d2k-arrow" color={i === 0 ? "#059669" : "#94a3b8"} style={{ flexShrink: 0 }} />
+              <ArrowUpRight size={18} className="d2k-arrow" color="#94a3b8" style={{ flexShrink: 0 }} />
             </a>
           );
         })}
@@ -465,7 +462,7 @@ export default function FindYourBrokerPage() {
                     display: "flex", alignItems: "center", gap: 14,
                     padding: mob ? "14px 16px" : "16px 20px", borderRadius: 12,
                     border: "none",
-                    background: selected ? "#ecfdf5" : "#fff",
+                    background: selected ? "#f8fafc" : "#fff",
                     boxShadow: selected
                       ? "inset 0 0 0 2px #059669, 0 2px 8px rgba(5,150,105,0.1)"
                       : "inset 0 0 0 1px rgba(0,0,0,0.08)",
@@ -505,7 +502,7 @@ export default function FindYourBrokerPage() {
                     display: "flex", alignItems: "center", gap: 12,
                     padding: mob ? "14px 14px" : "14px 18px", borderRadius: 12,
                     border: "none",
-                    background: selected ? "#ecfdf5" : "#fff",
+                    background: selected ? "#f8fafc" : "#fff",
                     boxShadow: selected
                       ? "inset 0 0 0 2px #059669, 0 2px 8px rgba(5,150,105,0.1)"
                       : "inset 0 0 0 1px rgba(0,0,0,0.08)",
@@ -580,13 +577,13 @@ export default function FindYourBrokerPage() {
         display: "flex", alignItems: "center", gap: 10,
         padding: "10px 14px", borderRadius: 10,
         border: selected ? "2px solid #059669" : "1px solid #e2e8f0",
-        background: selected ? "#ecfdf5" : "#fff",
+        background: selected ? "#f8fafc" : "#fff",
         cursor: "pointer", fontFamily: "inherit",
         fontSize: 15, fontWeight: selected ? 700 : 500,
         color: selected ? "#047857" : "#1f2937",
         transition: "all 0.15s", textAlign: "left",
       }}
-      onMouseEnter={(e) => { if (!selected) e.currentTarget.style.background = "#f0fdf4"; }}
+      onMouseEnter={(e) => { if (!selected) e.currentTarget.style.background = "#f8fafc"; }}
       onMouseLeave={(e) => { if (!selected) e.currentTarget.style.background = "#fff"; }}
     >
       {opt.flag && <CountryFlag code={opt.flag} size={20} />}
@@ -650,17 +647,17 @@ export default function FindYourBrokerPage() {
                   display: "flex", alignItems: "center", gap: 10, padding: "12px 10px",
                   textDecoration: "none", marginBottom: i < 4 ? 5 : 0,
                   borderRadius: 12,
-                  background: i === 0 ? "rgba(236,253,245,0.4)" : "transparent",
+                  background: "transparent",
                 }}
               >
-                <div style={{ width: 28, height: 28, borderRadius: 8, background: i === 0 ? "linear-gradient(135deg, #059669, #047857)" : (i < 3 ? "#e2e8f0" : "#f1f5f9"), display: "flex", alignItems: "center", justifyContent: "center", fontSize: 12, fontWeight: 800, color: i === 0 ? "#fff" : "#64748b", flexShrink: 0 }}>{i + 1}</div>
+                <div style={{ width: 28, height: 28, borderRadius: 8, background: i < 3 ? "#e2e8f0" : "#f1f5f9", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 12, fontWeight: 800, color: "#64748b", flexShrink: 0 }}>{i + 1}</div>
                 <BrokerLogo slug={r.slug} name={B.name} size={48} shape="icon" />
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <div style={{ fontSize: 16, fontWeight: 600, color: "#0f172a", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{B.name}</div>
                   {rw && <div className="d2k-risk" style={{ fontSize: 10, lineHeight: 1.3, color: "#6b7280", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{rw}</div>}
                 </div>
                 <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 13, fontWeight: 800, color: r.matchPct >= 80 ? "#059669" : "#64748b" }}>{r.matchPct}%</span>
-                <ArrowUpRight size={18} className="d2k-arrow" color={i === 0 ? "#059669" : "#94a3b8"} style={{ flexShrink: 0 }} />
+                <ArrowUpRight size={18} className="d2k-arrow" color="#94a3b8" style={{ flexShrink: 0 }} />
               </a>
             );
           })}
@@ -714,131 +711,6 @@ export default function FindYourBrokerPage() {
       </div>
     );
   };
-
-  /* ═══ Quick Compare — REMOVED (replaced by D2k unified rows) ═══ */
-  /* const QuickCompareTable_REMOVED = () => {
-    const top3 = topResults.slice(0, 3);
-    if (top3.length < 3) return null;
-
-    // Mobile: card layout
-    if (mob) return (
-      <div style={{ ...cardStyle, marginBottom: 20, padding: "16px" }}>
-        <h2 style={{ fontFamily: "'Outfit',sans-serif", fontSize: 18, fontWeight: 800, color: "#0f172a", margin: "0 0 12px" }}>
-          Quick Compare — Your Top 3
-        </h2>
-        <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-          {top3.map((r, i) => {
-            const B = r.broker.B;
-            return (
-              <div key={r.slug} style={{
-                padding: 14, borderRadius: 12,
-                background: i === 0 ? "linear-gradient(135deg, rgba(236,253,245,0.5), rgba(209,250,229,0.3))" : "#f8fafc",
-                border: i === 0 ? "1px solid #a7f3d0" : "1px solid #e2e8f0",
-              }}>
-                <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 10 }}>
-                  <BrokerLogo slug={r.slug} name={B.name} size={48} shape="icon" />
-                  <div style={{ flex: 1 }}>
-                    <div style={{ fontWeight: 700, fontSize: 15 }}>{B.name}</div>
-                    <div style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 12, fontWeight: 800, color: "#059669" }}>{r.matchPct}% match</div>
-                  </div>
-                  <div style={{
-                    fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 18,
-                    color: B.score >= 9.0 ? "#059669" : "#2563eb",
-                  }}>{B.score}</div>
-                </div>
-                <div style={{ display: "flex", gap: 12, fontSize: 12, color: "#64748b", marginBottom: 10 }}>
-                  <span>Spread: <strong style={{ color: "#111827" }}>{B.spread} pips</strong></span>
-                  <span>Min: <strong style={{ color: "#111827" }}>{B.minDep === 0 ? "$0" : `$${B.minDep}`}</strong></span>
-                  <span>TP: <strong style={{ color: "#111827" }}>{B.tp > 0 ? `${B.tp}/5` : "—"}</strong></span>
-                </div>
-                <div style={{ display: "flex", gap: 8 }}>
-                  <a href={getVisitUrl(r.slug, B.url)} target="_blank" rel="noopener nofollow sponsored" className="cta-primary"
-                    style={{
-                      flex: 1, padding: "10px 0", borderRadius: 8, textAlign: "center",
-                      background: "linear-gradient(135deg, #f59e0b, #fbbf24)",
-                      color: "#0f172a", fontWeight: 700, fontSize: 13, textDecoration: "none",
-                    }}
-                  >Visit {B.name}</a>
-                  <Link to={lp(`/reviews/${r.slug}`)} style={{
-                    flex: 1, padding: "10px 0", borderRadius: 8, textAlign: "center",
-                    border: "2px solid #059669", color: "#059669", fontWeight: 700, fontSize: 13,
-                    textDecoration: "none",
-                  }}>Read Review</Link>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    );
-
-    // Desktop: table layout
-    return (
-      <div style={{ ...cardStyle, marginBottom: 20, overflow: "hidden" }}>
-        <div style={{ padding: "20px 28px 12px", borderBottom: "1px solid #f1f5f9" }}>
-          <h2 style={{ fontFamily: "'Outfit',sans-serif", fontSize: 22, fontWeight: 800, color: "#0f172a", margin: 0 }}>
-            Quick Compare — Your Top 3
-          </h2>
-        </div>
-        <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 14 }}>
-          <thead>
-            <tr style={{ background: "#f8fafc" }}>
-              {["", "Score", "Spread", "Min Dep", "Trustpilot", "", "Review"].map((h, i) => (
-                <th key={i} style={{
-                  padding: "10px 14px", fontSize: 11, fontWeight: 700, color: "#64748b",
-                  textTransform: "uppercase", letterSpacing: 0.5, textAlign: i === 0 ? "left" : "center",
-                  borderBottom: "1px solid #e2e8f0",
-                }}>{h}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {top3.map((r, i) => {
-              const B = r.broker.B;
-              return (
-                <tr key={r.slug} style={{ borderBottom: i < 2 ? "1px solid #f1f5f9" : "none" }}>
-                  <td style={{ padding: "12px 14px" }}>
-                    <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                      <BrokerLogo slug={r.slug} name={B.name} size={32} shape="icon" />
-                      <div>
-                        <div style={{ fontWeight: 700, fontSize: 14 }}>{B.name}</div>
-                        <div style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 11, fontWeight: 800, color: "#059669" }}>{r.matchPct}% match</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td style={{ textAlign: "center", padding: "12px 8px" }}>
-                    <span style={{ fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 16, color: B.score >= 9.0 ? "#059669" : "#2563eb" }}>{B.score}</span>
-                  </td>
-                  <td style={{ textAlign: "center", fontFamily: "'JetBrains Mono',monospace", fontWeight: 700, fontSize: 14 }}>{B.spread} pips</td>
-                  <td style={{ textAlign: "center", fontFamily: "'JetBrains Mono',monospace", fontWeight: 700, fontSize: 14 }}>{B.minDep === 0 ? "$0" : `$${B.minDep}`}</td>
-                  <td style={{ textAlign: "center", padding: "12px 8px" }}>
-                    {B.tp > 0 ? (
-                      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 4 }}>
-                        <TpStars rating={B.tp} size={12} />
-                        <span style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 12, fontWeight: 700 }}>{B.tp}</span>
-                      </div>
-                    ) : <span style={{ color: "#94a3b8" }}>—</span>}
-                  </td>
-                  <td style={{ textAlign: "center", padding: "12px 14px" }}>
-                    <a href={getVisitUrl(r.slug, B.url)} target="_blank" rel="noopener nofollow sponsored" className="cta-primary"
-                      style={{
-                        display: "inline-block", padding: "7px 14px", borderRadius: 8,
-                        background: "linear-gradient(135deg, #f59e0b, #fbbf24)",
-                        color: "#0f172a", fontWeight: 700, fontSize: 12, textDecoration: "none", whiteSpace: "nowrap",
-                      }}
-                    >Visit {B.name} →</a>
-                  </td>
-                  <td style={{ textAlign: "center", padding: "12px 8px" }}>
-                    <Link to={lp(`/reviews/${r.slug}`)} style={{ fontSize: 12, fontWeight: 600, color: "#059669", textDecoration: "none" }}>Review</Link>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
-    );
-  }; */
 
   /* ═══ Results Page — D2k Border Only style ═══ */
   const ResultsPage = () => (
@@ -923,14 +795,14 @@ export default function FindYourBrokerPage() {
                   padding: mob ? "14px 12px" : "10px 12px",
                   textDecoration: "none", marginBottom: i < 9 ? (mob ? 5 : 3) : 0,
                   borderRadius: mob ? 12 : 10,
-                  background: i === 0 ? "rgba(236,253,245,0.4)" : "transparent",
+                  background: "transparent",
                 }}
               >
                 <div style={{
                   width: 28, height: 28, borderRadius: 8, flexShrink: 0,
-                  background: i === 0 ? "linear-gradient(135deg, #059669, #047857)" : (i < 3 ? "#e2e8f0" : "#f1f5f9"),
+                  background: i < 3 ? "#e2e8f0" : "#f1f5f9",
                   display: "flex", alignItems: "center", justifyContent: "center",
-                  fontSize: mob ? 13 : 12, fontWeight: 800, color: i === 0 ? "#fff" : "#64748b",
+                  fontSize: mob ? 13 : 12, fontWeight: 800, color: "#64748b",
                 }}>{i + 1}</div>
                 <BrokerLogo slug={r.slug} name={B.name} size={mob ? 52 : 48} shape="icon" />
                 <div style={{ flex: 1, minWidth: 0 }}>
@@ -939,11 +811,6 @@ export default function FindYourBrokerPage() {
                     whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis",
                   }}>
                     {B.name}
-                    {i === 0 && <span style={{
-                      marginLeft: 6, fontSize: 9, fontWeight: 800, color: "#047857",
-                      background: "#d1fae5", padding: "1px 6px",
-                      borderRadius: 4, verticalAlign: "middle", textTransform: "uppercase",
-                    }}>Best Match</span>}
                   </div>
                   {rw && <div className="d2k-risk" style={{ fontSize: mob ? 10 : 9, lineHeight: 1.3, color: "#6b7280", marginTop: 1, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{rw}</div>}
                 </div>
@@ -952,7 +819,7 @@ export default function FindYourBrokerPage() {
                   fontSize: mob ? 13 : 12, fontWeight: 800, flexShrink: 0,
                   color: r.matchPct >= 80 ? "#059669" : r.matchPct >= 60 ? "#2563eb" : "#d97706",
                 }}>{r.matchPct}%</span>
-                <ArrowUpRight size={mob ? 18 : 16} className="d2k-arrow" color={i === 0 ? "#059669" : "#94a3b8"} style={{ flexShrink: 0 }} />
+                <ArrowUpRight size={mob ? 18 : 16} className="d2k-arrow" color="#94a3b8" style={{ flexShrink: 0 }} />
               </a>
             );
           })}

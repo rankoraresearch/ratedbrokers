@@ -431,8 +431,8 @@ export default function ComparePage() {
                           fontSize: 14, fontWeight: 600,
                           transition: "all 0.2s",
                         }}
-                          onMouseEnter={e => { e.currentTarget.style.borderColor = "#059669"; e.currentTarget.style.background = "#f0fdf4"; }}
-                          onMouseLeave={e => { e.currentTarget.style.borderColor = "#e2e8f0"; e.currentTarget.style.background = "#f8f9fb"; }}
+                          onMouseEnter={e => { e.currentTarget.style.borderColor = "#cbd5e1"; e.currentTarget.style.background = "#f8fafc"; e.currentTarget.style.boxShadow = "0 4px 12px rgba(15,23,42,0.08)"; }}
+                          onMouseLeave={e => { e.currentTarget.style.borderColor = "#e2e8f0"; e.currentTarget.style.background = "#f8f9fb"; e.currentTarget.style.boxShadow = "none"; }}
                         >
                           <span style={{ color: "#6b7280", fontSize: 12 }}>vs</span>
                           {od.B.name}

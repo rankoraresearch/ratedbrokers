@@ -15,7 +15,7 @@
 import { useState, useEffect, useRef, useMemo } from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeSanitize from "rehype-sanitize";
-import { Link, useParams, Navigate } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useMedia } from "../hooks/useMedia";
 import { useSEO } from "../hooks/useSEO";
 import NotFoundPage from "./NotFoundPage";
@@ -26,7 +26,6 @@ import RankingSubNav from "../components/RankingSubNav";
 import SEO_CONTENT from "../data/rankingSeoContent";
 import { getThematicData, getBrokerBlurb, getComparisonCols, getEducation } from "../data/rankingThematic";
 import BrokerRankCard from "../components/BrokerRankCard";
-import ScoreBadge from "../components/ScoreBadge";
 import Accordion from "../components/Accordion";
 import AffiliateDisclosureBanner from "../components/AffiliateDisclosureBanner";
 import { getAuthorForRanking, getFactChecker, getReviewerForAuthor, getEditor } from "../data/authors";
@@ -36,7 +35,6 @@ import Breadcrumb, { breadcrumbSchema } from "../components/Breadcrumb";
 import HUBS from "../data/categoryHubs";
 import Icon, { ArrowRight, CircleCheck, Check, X as XIcon } from "../components/Icon";
 import BrokerLogo from "../components/BrokerLogo";
-import RegBadge from "../components/RegBadge";
 import HeroBand from "../components/HeroBand";
 import { getCountryData } from "../data/countries/index";
 import { canonicalPair } from "../data/comparisons";
@@ -723,25 +721,59 @@ export default function RankingPage() {
         } />
       </div>
 
-      {/* HERO */}
-      <HeroBand mob={mob} tab={tab}>
+      {/* HERO — Premium Green (compact) */}
+      <HeroBand mob={mob} tab={tab} compact variant="green">
         <header ref={heroRef} style={{ textAlign: "center" }}>
-          <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: mob ? 56 : 72, height: mob ? 56 : 72, borderRadius: 16, background: "rgba(255,255,255,0.1)", marginBottom: 14 }}>
-            <Icon name={ranking.icon} size={mob ? 28 : 36} color="#34d399" />
-          </span>
+          {/* Eyebrow — amber on dark capsule (AA contrast guaranteed) */}
+          <div style={{
+            display: "inline-flex", alignItems: "center", gap: 10,
+            padding: mob ? "6px 12px 6px 6px" : "6px 14px 6px 6px",
+            borderRadius: 999,
+            background: "#0f172a",
+            border: "1px solid rgba(251,191,36,0.28)",
+            marginBottom: mob ? 12 : 14,
+          }}>
+            <span style={{
+              display: "inline-flex", alignItems: "center", justifyContent: "center",
+              width: mob ? 24 : 28, height: mob ? 24 : 28, borderRadius: 999,
+              background: "rgba(251,191,36,0.18)",
+            }}>
+              <Icon name={ranking.icon} size={mob ? 14 : 16} color="#fbbf24" strokeWidth={2} />
+            </span>
+            <span style={{
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: mob ? 10 : 11, fontWeight: 700,
+              color: "#fbbf24",
+              textTransform: "uppercase", letterSpacing: "0.18em",
+            }}>
+              Independent Ranking · {YEAR}
+            </span>
+          </div>
+
           <h1 style={{
-            fontFamily: "Outfit", fontWeight: 900,
-            fontSize: mob ? 26 : tab ? 34 : 42,
-            lineHeight: 1.1, color: "#fff", marginBottom: 8,
+            fontFamily: "Outfit", fontWeight: 800,
+            fontSize: mob ? 24 : tab ? 30 : 36,
+            lineHeight: 1.15, letterSpacing: "-0.02em",
+            color: "#fff", margin: "0 0 10px",
           }}>
             {ranking.title} {YEAR}
           </h1>
-          <p style={{
-            fontSize: mob ? 14 : 15, color: "rgba(255,255,255,0.75)",
-            maxWidth: 540, margin: "0 auto 10px", lineHeight: 1.5,
+
+          {/* Meta row — white text on green gradient (AA), amber accent kept on counts only inside dark chip */}
+          <div style={{
+            display: "inline-flex", alignItems: "center", gap: mob ? 8 : 12,
+            flexWrap: "wrap", justifyContent: "center",
+            marginBottom: mob ? 10 : 12,
+            fontFamily: "'JetBrains Mono', monospace",
+            fontSize: mob ? 11 : 12, fontWeight: 600,
+            color: "#fff",
+            textTransform: "uppercase", letterSpacing: "0.08em",
           }}>
-            {brokers.length} brokers independently tested across 130+ data points
-          </p>
+            <span><span style={{ color: "#fbbf24", fontWeight: 800, background: "#0f172a", padding: "2px 8px", borderRadius: 6, marginRight: 4 }}>{brokers.length}</span> Brokers Tested</span>
+            <span style={{ color: "rgba(255,255,255,0.4)" }}>·</span>
+            <span>130+ Data Points</span>
+          </div>
+
           <div style={{ display: "flex", justifyContent: "center" }}>
             <AuthorCredits author={author} editor={editor} reviewer={reviewer} factChecker={factChecker} updatedDate={`March ${YEAR}`} variant="centered" onDark />
           </div>
@@ -1097,15 +1129,21 @@ export default function RankingPage() {
                           </div>
                         )}
                       </div>
-                      <div style={{
-                        width: 52, height: 52, borderRadius: 12,
-                        background: b.B.score >= 9.0 ? "#ecfdf5" : "#f1f5f9",
-                        border: `2px solid ${b.B.score >= 9.0 ? "#059669" : "#cbd5e1"}`,
-                        display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
-                      }}>
-                        <span style={{ fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 18, lineHeight: 1, color: b.B.score >= 9.0 ? "#059669" : "#64748b" }}>{b.B.score}</span>
-                        <span style={{ fontSize: 8, fontWeight: 700, color: "#1f2937", textTransform: "uppercase" }}>{b.B.score >= 9.5 ? "Excellent" : b.B.score >= 9.0 ? "Great" : b.B.score >= 8.5 ? "Very Good" : "Good"}</span>
-                      </div>
+                      {(() => {
+                        const scoreColor = b.B.score >= 9.0 ? "#047857" : b.B.score >= 8.0 ? "#1d4ed8" : "#b45309";
+                        return (
+                          <div style={{
+                            width: 52, height: 52, borderRadius: 12,
+                            background: "#fff",
+                            border: "1.5px solid #e2e8f0",
+                            borderLeft: `3px solid ${scoreColor}`,
+                            display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
+                          }}>
+                            <span style={{ fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 18, lineHeight: 1, color: scoreColor }}>{b.B.score}</span>
+                            <span style={{ fontSize: 8, fontWeight: 700, color: "#1f2937", textTransform: "uppercase" }}>{b.B.score >= 9.5 ? "Excellent" : b.B.score >= 9.0 ? "Great" : b.B.score >= 8.5 ? "Very Good" : "Good"}</span>
+                          </div>
+                        );
+                      })()}
                     </div>
                     <div style={{ marginBottom: 16 }}>
                       {review.paragraphs.map((p, pi) => (
@@ -1113,8 +1151,8 @@ export default function RankingPage() {
                       ))}
                     </div>
                     <div style={{ display: "grid", gridTemplateColumns: mob ? "1fr" : "1fr 1fr", gap: mob ? 12 : 16, marginBottom: 16 }}>
-                      <div style={{ padding: mob ? 14 : 16, borderRadius: 12, background: "#f0fdf4", border: "1px solid #bbf7d0" }}>
-                        <div style={{ fontWeight: 700, fontSize: 15, color: "#059669", marginBottom: 8 }}>Pros for {countryData.name} Traders</div>
+                      <div style={{ padding: mob ? 14 : 16, borderRadius: 12, background: "#fff", border: "1.5px solid #e2e8f0", borderLeft: "3px solid #059669", boxShadow: "0 2px 8px rgba(15,23,42,0.04)" }}>
+                        <div style={{ fontWeight: 700, fontSize: 15, color: "#047857", marginBottom: 8 }}>Pros for {countryData.name} Traders</div>
                         {review.pros.map((pro, pi) => (
                           <div key={pi} style={{ display: "flex", alignItems: "flex-start", gap: 8, marginBottom: 5 }}>
                             <Check size={14} color="#059669" style={{ flexShrink: 0, marginTop: 3 }} />
@@ -1122,8 +1160,8 @@ export default function RankingPage() {
                           </div>
                         ))}
                       </div>
-                      <div style={{ padding: mob ? 14 : 16, borderRadius: 12, background: "#fef2f2", border: "1px solid #fecaca" }}>
-                        <div style={{ fontWeight: 700, fontSize: 15, color: "#dc2626", marginBottom: 8 }}>Cons for {countryData.name} Traders</div>
+                      <div style={{ padding: mob ? 14 : 16, borderRadius: 12, background: "#fff", border: "1.5px solid #e2e8f0", borderLeft: "3px solid #dc2626", boxShadow: "0 2px 8px rgba(15,23,42,0.04)" }}>
+                        <div style={{ fontWeight: 700, fontSize: 15, color: "#b91c1c", marginBottom: 8 }}>Cons for {countryData.name} Traders</div>
                         {review.cons.map((con, ci) => (
                           <div key={ci} style={{ display: "flex", alignItems: "flex-start", gap: 8, marginBottom: 5 }}>
                             <XIcon size={14} color="#dc2626" style={{ flexShrink: 0, marginTop: 3 }} />
@@ -1189,17 +1227,21 @@ export default function RankingPage() {
         </section>
       )}
 
-      {/* Quiz CTA */}
+      {/* Quiz CTA — same hover pattern as Related Rankings cards below */}
       <section style={{ ...cn, paddingBottom: 20 }}>
         <Link to={lp("/find-your-broker")} style={{
+          ...T.cardBg,
           display: "flex", alignItems: "center", justifyContent: "space-between",
-          padding: mob ? "16px 20px" : "20px 28px", borderRadius: 12,
-          background: "linear-gradient(135deg, #ecfdf5, #d1fae5)",
-          border: "1px solid #a7f3d0", textDecoration: "none", transition: "all 0.2s",
-        }}>
+          padding: mob ? "16px 20px" : "20px 28px",
+          textDecoration: "none", color: "#111827",
+          transition: "all 0.2s",
+        }}
+          onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#059669"; e.currentTarget.style.boxShadow = "0 4px 12px rgba(5,150,105,0.08)"; }}
+          onMouseLeave={(e) => { e.currentTarget.style.borderColor = "#e2e8f0"; e.currentTarget.style.boxShadow = "none"; }}
+        >
           <div>
             <div style={{ fontSize: mob ? 15 : 17, fontWeight: 700, color: "#047857" }}>Not sure which broker is right for you?</div>
-            <div style={{ fontSize: 13, color: "#059669", marginTop: 2 }}>Take our free 60-second quiz for a personalized recommendation →</div>
+            <div style={{ fontSize: 13, color: "#1f2937", marginTop: 2 }}>Take our free 60-second quiz for a personalized recommendation →</div>
           </div>
         </Link>
       </section>
