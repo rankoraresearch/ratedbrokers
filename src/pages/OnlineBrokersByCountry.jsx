@@ -25,6 +25,9 @@ function VerticalChips({ verticals, country, lp, compact = false }) {
       {verticals.map((v) => {
         const meta = VERTICAL_META[v.key];
         if (!meta) return null;
+        // SEO anchor text: full keyword (e.g. "Forex Brokers UK", "Crypto Platforms USA").
+        // Mirrors the Home.jsx pattern so link equity points consistently at money pages.
+        const anchor = `${meta.label} ${meta.word} ${country.geo}`;
         return (
           <Link
             key={v.key}
@@ -34,7 +37,7 @@ function VerticalChips({ verticals, country, lp, compact = false }) {
             style={{ fontSize: compact ? 12 : 13 }}
           >
             <span className="rb-dot" style={{ background: meta.color }} />
-            {meta.label}
+            {anchor}
           </Link>
         );
       })}
@@ -43,7 +46,6 @@ function VerticalChips({ verticals, country, lp, compact = false }) {
 }
 
 function FeaturedCard({ country, lp, mob }) {
-  const primaryPath = country.verticals[0]?.path;
   return (
     <div
       style={{
@@ -52,7 +54,7 @@ function FeaturedCard({ country, lp, mob }) {
         borderRadius: 14, overflow: "hidden",
         background: "#fff", border: "1px solid #e8ecf1",
         boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.02), 0 4px 16px rgba(0,0,0,0.04)",
-        transition: "border-color 0.2s, box-shadow 0.2s, transform 0.2s",
+        transition: "border-color 0.2s, box-shadow 0.2s",
         position: "relative",
       }}
       onMouseEnter={(e) => {
@@ -64,22 +66,18 @@ function FeaturedCard({ country, lp, mob }) {
         e.currentTarget.style.boxShadow = "inset 0 0 0 1px rgba(0,0,0,0.02), 0 4px 16px rgba(0,0,0,0.04)";
       }}
     >
-      {/* Top: flag + name + regulator */}
-      <Link
-        to={primaryPath ? lp(primaryPath) : "#"}
-        style={{
-          display: "flex", alignItems: "center", gap: 12,
-          padding: mob ? "16px 16px 0" : "18px 18px 0",
-          textDecoration: "none", color: "inherit",
-        }}
-      >
+      {/* Top: flag + country name + regulator (NOT a link — SEO equity flows via chips) */}
+      <div style={{
+        display: "flex", alignItems: "center", gap: 12,
+        padding: mob ? "16px 16px 0" : "18px 18px 0",
+      }}>
         <CountryFlag code={country.code} size={mob ? 32 : 40} />
         <div style={{ flex: 1, minWidth: 0 }}>
           <div style={{
             fontFamily: "'Outfit',sans-serif", fontWeight: 700,
             fontSize: mob ? 16 : 18, color: "#0f172a", lineHeight: 1.2,
           }}>{country.name}</div>
-          <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 6 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 6, flexWrap: "wrap" }}>
             <span style={{
               display: "inline-block",
               padding: "2px 8px", borderRadius: 6,
@@ -88,12 +86,11 @@ function FeaturedCard({ country, lp, mob }) {
               fontSize: 11, fontWeight: 700, whiteSpace: "nowrap",
             }}>{country.regulator}</span>
             <span style={{ fontSize: 11.5, color: "#94a3b8", fontWeight: 600 }}>
-              {country.verticals.length} {country.verticals.length === 1 ? "vertical" : "verticals"}
+              {country.verticals.length} {country.verticals.length === 1 ? "ranking" : "rankings"}
             </span>
           </div>
         </div>
-        <ArrowRight size={16} color="#cbd5e1" style={{ flexShrink: 0 }} />
-      </Link>
+      </div>
 
       <div style={{ height: 1, background: "#f0f4f8", margin: mob ? "12px 16px 0" : "14px 18px 0" }} />
 
@@ -108,7 +105,6 @@ function FeaturedCard({ country, lp, mob }) {
 }
 
 function RegionRow({ country, lp }) {
-  const primaryPath = country.verticals[0]?.path;
   return (
     <div
       style={{
@@ -127,16 +123,13 @@ function RegionRow({ country, lp }) {
       }}
     >
       <CountryFlag code={country.code} size={24} />
-      <Link
-        to={primaryPath ? lp(primaryPath) : "#"}
-        style={{
-          fontFamily: "'Outfit',sans-serif", fontWeight: 700,
-          fontSize: 14, color: "#0f172a",
-          textDecoration: "none", flexShrink: 0, minWidth: 120,
-        }}
-      >
+      <div style={{
+        fontFamily: "'Outfit',sans-serif", fontWeight: 700,
+        fontSize: 14, color: "#0f172a",
+        flexShrink: 0, minWidth: 120,
+      }}>
         {country.name}
-      </Link>
+      </div>
       <span style={{
         fontFamily: "'JetBrains Mono',monospace", fontSize: 10.5, fontWeight: 700,
         color: "#64748b", whiteSpace: "nowrap",

@@ -11,19 +11,24 @@
  * Fields:
  *   code            — ISO-2 (для <CountryFlag />)
  *   slug            — url-slug страны (совпадает с src/data/countries/<slug>.js)
- *   name            — отображаемое имя
- *   regulator       — основной регулятор (с колонкой reg)
- *   region          — для группировки (Featured / Europe / Asia-Pacific / MEA / Americas)
+ *   name            — полное имя ("United Kingdom")
+ *   geo             — короткое имя для anchor text ("UK", "USA") — SEO-keyword:
+ *                     Home.jsx рендерит "Forex Brokers UK" как полный анкор;
+ *                     мы дублируем этот паттерн sitewide.
+ *   regulator       — основной регулятор
+ *   region          — для группировки (Europe / Asia-Pacific / MEA / Americas / EE)
  *   featured        — показывать в hero-гриде
- *   verticals[]     — массив { key, label, path }, только существующие
+ *   verticals[]     — массив { key, label, path }, только существующие URL
  *
  * Vertical keys: forex, cfd, crypto, stocks, options, futures, copyTrading, spreadBetting
  */
 
+// Labels выровнены по primary-keyword url-страниц (см. rankings.js).
+// "Stock Brokers" (singular) совпадает с /best-stock-brokers-{country} и title.
 export const VERTICAL_META = {
   forex:         { label: "Forex",         word: "Brokers",   color: "#059669" },
   cfd:           { label: "CFD",           word: "Brokers",   color: "#2563eb" },
-  stocks:        { label: "Stocks",        word: "Brokers",   color: "#0ea5e9" },
+  stocks:        { label: "Stock",         word: "Brokers",   color: "#0ea5e9" },
   options:       { label: "Options",       word: "Brokers",   color: "#7c3aed" },
   futures:       { label: "Futures",       word: "Brokers",   color: "#ea580c" },
   crypto:        { label: "Crypto",        word: "Brokers",   color: "#d97706" },
@@ -34,7 +39,7 @@ export const VERTICAL_META = {
 export const COUNTRY_VERTICALS = [
   // ── Featured (full multi-asset) ──
   {
-    code: "GB", slug: "uk", name: "United Kingdom", regulator: "FCA", region: "Europe", featured: true,
+    code: "GB", slug: "uk", name: "United Kingdom", geo: "UK", regulator: "FCA", region: "Europe", featured: true,
     verticals: [
       { key: "forex",         path: "/best-forex-brokers-uk" },
       { key: "cfd",           path: "/best-cfd-brokers-uk" },
@@ -45,7 +50,7 @@ export const COUNTRY_VERTICALS = [
     ],
   },
   {
-    code: "US", slug: "usa", name: "United States", regulator: "SEC / NFA", region: "Americas", featured: true,
+    code: "US", slug: "usa", name: "United States", geo: "USA", regulator: "SEC / NFA", region: "Americas", featured: true,
     verticals: [
       { key: "stocks",      path: "/best-stock-brokers-usa" },
       { key: "options",     path: "/best-options-brokers-usa" },
@@ -56,7 +61,7 @@ export const COUNTRY_VERTICALS = [
     ],
   },
   {
-    code: "AU", slug: "australia", name: "Australia", regulator: "ASIC", region: "Asia-Pacific", featured: true,
+    code: "AU", slug: "australia", name: "Australia", geo: "Australia", regulator: "ASIC", region: "Asia-Pacific", featured: true,
     verticals: [
       { key: "forex",  path: "/best-forex-brokers-australia" },
       { key: "cfd",    path: "/best-cfd-brokers-australia" },
@@ -64,35 +69,35 @@ export const COUNTRY_VERTICALS = [
     ],
   },
   {
-    code: "DE", slug: "germany", name: "Germany", regulator: "BaFin", region: "Europe", featured: true,
+    code: "DE", slug: "germany", name: "Germany", geo: "Germany", regulator: "BaFin", region: "Europe", featured: true,
     verticals: [
       { key: "forex",  path: "/best-forex-brokers-germany" },
       { key: "crypto", path: "/best-crypto-brokers-germany" },
     ],
   },
   {
-    code: "AE", slug: "uae", name: "UAE", regulator: "DFSA / VARA", region: "Middle East & Africa", featured: true,
+    code: "AE", slug: "uae", name: "UAE", geo: "UAE", regulator: "DFSA / VARA", region: "Middle East & Africa", featured: true,
     verticals: [
       { key: "forex",  path: "/best-forex-brokers-uae" },
       { key: "crypto", path: "/best-crypto-brokers-uae" },
     ],
   },
   {
-    code: "SG", slug: "singapore", name: "Singapore", regulator: "MAS", region: "Asia-Pacific", featured: true,
+    code: "SG", slug: "singapore", name: "Singapore", geo: "Singapore", regulator: "MAS", region: "Asia-Pacific", featured: true,
     verticals: [
       { key: "forex",  path: "/best-forex-brokers-singapore" },
       { key: "crypto", path: "/best-crypto-brokers-singapore" },
     ],
   },
   {
-    code: "CA", slug: "canada", name: "Canada", regulator: "CIRO / CSA", region: "Americas", featured: true,
+    code: "CA", slug: "canada", name: "Canada", geo: "Canada", regulator: "CIRO / CSA", region: "Americas", featured: true,
     verticals: [
       { key: "forex",  path: "/best-forex-brokers-canada" },
       { key: "crypto", path: "/best-crypto-brokers-canada" },
     ],
   },
   {
-    code: "ZA", slug: "south-africa", name: "South Africa", regulator: "FSCA", region: "Middle East & Africa", featured: true,
+    code: "ZA", slug: "south-africa", name: "South Africa", geo: "South Africa", regulator: "FSCA", region: "Middle East & Africa", featured: true,
     verticals: [
       { key: "forex",  path: "/best-forex-brokers-south-africa" },
       { key: "crypto", path: "/best-crypto-brokers-south-africa" },
@@ -101,14 +106,14 @@ export const COUNTRY_VERTICALS = [
 
   // ── Additional multi-asset (crypto + forex) ──
   {
-    code: "IN", slug: "india", name: "India", regulator: "SEBI / RBI", region: "Asia-Pacific",
+    code: "IN", slug: "india", name: "India", geo: "India", regulator: "SEBI / RBI", region: "Asia-Pacific",
     verticals: [
       { key: "forex",  path: "/best-forex-brokers-india" },
       { key: "crypto", path: "/best-crypto-brokers-india" },
     ],
   },
   {
-    code: "NZ", slug: "new-zealand", name: "New Zealand", regulator: "FMA", region: "Asia-Pacific",
+    code: "NZ", slug: "new-zealand", name: "New Zealand", geo: "New Zealand", regulator: "FMA", region: "Asia-Pacific",
     verticals: [
       { key: "forex",  path: "/best-forex-brokers-new-zealand" },
       { key: "crypto", path: "/best-crypto-brokers-new-zealand" },
@@ -116,43 +121,43 @@ export const COUNTRY_VERTICALS = [
   },
 
   // ── Forex-only (rich Europe & Asia-Pacific) ──
-  { code: "FR", slug: "france",         name: "France",         regulator: "AMF",    region: "Europe",          verticals: [{ key: "forex", path: "/best-forex-brokers-france" }] },
-  { code: "NL", slug: "netherlands",    name: "Netherlands",    regulator: "AFM",    region: "Europe",          verticals: [{ key: "forex", path: "/best-forex-brokers-netherlands" }] },
-  { code: "IT", slug: "italy",          name: "Italy",          regulator: "CONSOB", region: "Europe",          verticals: [{ key: "forex", path: "/best-forex-brokers-italy" }] },
-  { code: "ES", slug: "spain",          name: "Spain",          regulator: "CNMV",   region: "Europe",          verticals: [{ key: "forex", path: "/best-forex-brokers-spain" }] },
-  { code: "CH", slug: "switzerland",    name: "Switzerland",    regulator: "FINMA",  region: "Europe",          verticals: [{ key: "forex", path: "/best-forex-brokers-switzerland" }] },
-  { code: "SE", slug: "sweden",         name: "Sweden",         regulator: "FI",     region: "Europe",          verticals: [{ key: "forex", path: "/best-forex-brokers-sweden" }] },
-  { code: "PL", slug: "poland",         name: "Poland",         regulator: "KNF",    region: "Europe",          verticals: [{ key: "forex", path: "/best-forex-brokers-poland" }] },
-  { code: "CY", slug: "cyprus",         name: "Cyprus",         regulator: "CySEC",  region: "Europe",          verticals: [{ key: "forex", path: "/best-forex-brokers-cyprus" }] },
-  { code: "IE", slug: "ireland",        name: "Ireland",        regulator: "CBI",    region: "Europe",          verticals: [{ key: "forex", path: "/best-forex-brokers-ireland" }] },
-  { code: "AT", slug: "austria",        name: "Austria",        regulator: "FMA-AT", region: "Europe",          verticals: [{ key: "forex", path: "/best-forex-brokers-austria" }] },
-  { code: "GR", slug: "greece",         name: "Greece",         regulator: "HCMC",   region: "Europe",          verticals: [{ key: "forex", path: "/best-forex-brokers-greece" }] },
-  { code: "RO", slug: "romania",        name: "Romania",        regulator: "ASF",    region: "Europe",          verticals: [{ key: "forex", path: "/best-forex-brokers-romania" }] },
-  { code: "CZ", slug: "czech-republic", name: "Czech Republic", regulator: "CNB",    region: "Europe",          verticals: [{ key: "forex", path: "/best-forex-brokers-czech-republic" }] },
+  { code: "FR", slug: "france",         name: "France",         geo: "France",         regulator: "AMF",    region: "Europe",          verticals: [{ key: "forex", path: "/best-forex-brokers-france" }] },
+  { code: "NL", slug: "netherlands",    name: "Netherlands",    geo: "Netherlands",    regulator: "AFM",    region: "Europe",          verticals: [{ key: "forex", path: "/best-forex-brokers-netherlands" }] },
+  { code: "IT", slug: "italy",          name: "Italy",          geo: "Italy",          regulator: "CONSOB", region: "Europe",          verticals: [{ key: "forex", path: "/best-forex-brokers-italy" }] },
+  { code: "ES", slug: "spain",          name: "Spain",          geo: "Spain",          regulator: "CNMV",   region: "Europe",          verticals: [{ key: "forex", path: "/best-forex-brokers-spain" }] },
+  { code: "CH", slug: "switzerland",    name: "Switzerland",    geo: "Switzerland",    regulator: "FINMA",  region: "Europe",          verticals: [{ key: "forex", path: "/best-forex-brokers-switzerland" }] },
+  { code: "SE", slug: "sweden",         name: "Sweden",         geo: "Sweden",         regulator: "FI",     region: "Europe",          verticals: [{ key: "forex", path: "/best-forex-brokers-sweden" }] },
+  { code: "PL", slug: "poland",         name: "Poland",         geo: "Poland",         regulator: "KNF",    region: "Europe",          verticals: [{ key: "forex", path: "/best-forex-brokers-poland" }] },
+  { code: "CY", slug: "cyprus",         name: "Cyprus",         geo: "Cyprus",         regulator: "CySEC",  region: "Europe",          verticals: [{ key: "forex", path: "/best-forex-brokers-cyprus" }] },
+  { code: "IE", slug: "ireland",        name: "Ireland",        geo: "Ireland",        regulator: "CBI",    region: "Europe",          verticals: [{ key: "forex", path: "/best-forex-brokers-ireland" }] },
+  { code: "AT", slug: "austria",        name: "Austria",        geo: "Austria",        regulator: "FMA-AT", region: "Europe",          verticals: [{ key: "forex", path: "/best-forex-brokers-austria" }] },
+  { code: "GR", slug: "greece",         name: "Greece",         geo: "Greece",         regulator: "HCMC",   region: "Europe",          verticals: [{ key: "forex", path: "/best-forex-brokers-greece" }] },
+  { code: "RO", slug: "romania",        name: "Romania",        geo: "Romania",        regulator: "ASF",    region: "Europe",          verticals: [{ key: "forex", path: "/best-forex-brokers-romania" }] },
+  { code: "CZ", slug: "czech-republic", name: "Czech Republic", geo: "Czech Republic", regulator: "CNB",    region: "Europe",          verticals: [{ key: "forex", path: "/best-forex-brokers-czech-republic" }] },
 
-  { code: "JP", slug: "japan",       name: "Japan",       regulator: "FSA",      region: "Asia-Pacific", verticals: [{ key: "forex", path: "/best-forex-brokers-japan" }] },
-  { code: "HK", slug: "hong-kong",   name: "Hong Kong",   regulator: "SFC",      region: "Asia-Pacific", verticals: [{ key: "forex", path: "/best-forex-brokers-hong-kong" }] },
-  { code: "ID", slug: "indonesia",   name: "Indonesia",   regulator: "Bappebti", region: "Asia-Pacific", verticals: [{ key: "forex", path: "/best-forex-brokers-indonesia" }] },
-  { code: "MY", slug: "malaysia",    name: "Malaysia",    regulator: "SC",       region: "Asia-Pacific", verticals: [{ key: "forex", path: "/best-forex-brokers-malaysia" }] },
-  { code: "TH", slug: "thailand",    name: "Thailand",    regulator: "SEC-TH",   region: "Asia-Pacific", verticals: [{ key: "forex", path: "/best-forex-brokers-thailand" }] },
-  { code: "PH", slug: "philippines", name: "Philippines", regulator: "BSP",      region: "Asia-Pacific", verticals: [{ key: "forex", path: "/best-forex-brokers-philippines" }] },
+  { code: "JP", slug: "japan",       name: "Japan",       geo: "Japan",       regulator: "FSA",      region: "Asia-Pacific", verticals: [{ key: "forex", path: "/best-forex-brokers-japan" }] },
+  { code: "HK", slug: "hong-kong",   name: "Hong Kong",   geo: "Hong Kong",   regulator: "SFC",      region: "Asia-Pacific", verticals: [{ key: "forex", path: "/best-forex-brokers-hong-kong" }] },
+  { code: "ID", slug: "indonesia",   name: "Indonesia",   geo: "Indonesia",   regulator: "Bappebti", region: "Asia-Pacific", verticals: [{ key: "forex", path: "/best-forex-brokers-indonesia" }] },
+  { code: "MY", slug: "malaysia",    name: "Malaysia",    geo: "Malaysia",    regulator: "SC",       region: "Asia-Pacific", verticals: [{ key: "forex", path: "/best-forex-brokers-malaysia" }] },
+  { code: "TH", slug: "thailand",    name: "Thailand",    geo: "Thailand",    regulator: "SEC-TH",   region: "Asia-Pacific", verticals: [{ key: "forex", path: "/best-forex-brokers-thailand" }] },
+  { code: "PH", slug: "philippines", name: "Philippines", geo: "Philippines", regulator: "BSP",      region: "Asia-Pacific", verticals: [{ key: "forex", path: "/best-forex-brokers-philippines" }] },
 
-  { code: "SA", slug: "saudi-arabia", name: "Saudi Arabia", regulator: "CMA",  region: "Middle East & Africa", verticals: [{ key: "forex", path: "/best-forex-brokers-saudi-arabia" }] },
-  { code: "BH", slug: "bahrain",      name: "Bahrain",      regulator: "CBB",  region: "Middle East & Africa", verticals: [{ key: "forex", path: "/best-forex-brokers-bahrain" }] },
-  { code: "IL", slug: "israel",       name: "Israel",       regulator: "ISA",  region: "Middle East & Africa", verticals: [{ key: "forex", path: "/best-forex-brokers-israel" }] },
-  { code: "KE", slug: "kenya",        name: "Kenya",        regulator: "CMA",  region: "Middle East & Africa", verticals: [{ key: "forex", path: "/best-forex-brokers-kenya" }] },
-  { code: "NG", slug: "nigeria",      name: "Nigeria",      regulator: "SEC",  region: "Middle East & Africa", verticals: [{ key: "forex", path: "/best-forex-brokers-nigeria" }] },
-  { code: "GH", slug: "ghana",        name: "Ghana",        regulator: "SEC",  region: "Middle East & Africa", verticals: [{ key: "forex", path: "/best-forex-brokers-ghana" }] },
+  { code: "SA", slug: "saudi-arabia", name: "Saudi Arabia", geo: "Saudi Arabia", regulator: "CMA",  region: "Middle East & Africa", verticals: [{ key: "forex", path: "/best-forex-brokers-saudi-arabia" }] },
+  { code: "BH", slug: "bahrain",      name: "Bahrain",      geo: "Bahrain",      regulator: "CBB",  region: "Middle East & Africa", verticals: [{ key: "forex", path: "/best-forex-brokers-bahrain" }] },
+  { code: "IL", slug: "israel",       name: "Israel",       geo: "Israel",       regulator: "ISA",  region: "Middle East & Africa", verticals: [{ key: "forex", path: "/best-forex-brokers-israel" }] },
+  { code: "KE", slug: "kenya",        name: "Kenya",        geo: "Kenya",        regulator: "CMA",  region: "Middle East & Africa", verticals: [{ key: "forex", path: "/best-forex-brokers-kenya" }] },
+  { code: "NG", slug: "nigeria",      name: "Nigeria",      geo: "Nigeria",      regulator: "SEC",  region: "Middle East & Africa", verticals: [{ key: "forex", path: "/best-forex-brokers-nigeria" }] },
+  { code: "GH", slug: "ghana",        name: "Ghana",        geo: "Ghana",        regulator: "SEC",  region: "Middle East & Africa", verticals: [{ key: "forex", path: "/best-forex-brokers-ghana" }] },
 
-  { code: "BR", slug: "brazil",    name: "Brazil",    regulator: "CVM",     region: "Americas", verticals: [{ key: "forex", path: "/best-forex-brokers-brazil" }] },
-  { code: "MX", slug: "mexico",    name: "Mexico",    regulator: "CNBV",    region: "Americas", verticals: [{ key: "forex", path: "/best-forex-brokers-mexico" }] },
-  { code: "AR", slug: "argentina", name: "Argentina", regulator: "CNV",     region: "Americas", verticals: [{ key: "forex", path: "/best-forex-brokers-argentina" }] },
-  { code: "CO", slug: "colombia",  name: "Colombia",  regulator: "SFC",     region: "Americas", verticals: [{ key: "forex", path: "/best-forex-brokers-colombia" }] },
-  { code: "CL", slug: "chile",     name: "Chile",     regulator: "CMF",     region: "Americas", verticals: [{ key: "forex", path: "/best-forex-brokers-chile" }] },
+  { code: "BR", slug: "brazil",    name: "Brazil",    geo: "Brazil",    regulator: "CVM",     region: "Americas", verticals: [{ key: "forex", path: "/best-forex-brokers-brazil" }] },
+  { code: "MX", slug: "mexico",    name: "Mexico",    geo: "Mexico",    regulator: "CNBV",    region: "Americas", verticals: [{ key: "forex", path: "/best-forex-brokers-mexico" }] },
+  { code: "AR", slug: "argentina", name: "Argentina", geo: "Argentina", regulator: "CNV",     region: "Americas", verticals: [{ key: "forex", path: "/best-forex-brokers-argentina" }] },
+  { code: "CO", slug: "colombia",  name: "Colombia",  geo: "Colombia",  regulator: "SFC",     region: "Americas", verticals: [{ key: "forex", path: "/best-forex-brokers-colombia" }] },
+  { code: "CL", slug: "chile",     name: "Chile",     geo: "Chile",     regulator: "CMF",     region: "Americas", verticals: [{ key: "forex", path: "/best-forex-brokers-chile" }] },
 
-  { code: "TR", slug: "turkey",  name: "Turkey",  regulator: "CMB", region: "Eastern Europe", verticals: [{ key: "forex", path: "/best-forex-brokers-turkey" }] },
-  { code: "RU", slug: "russia",  name: "Russia",  regulator: "CBR", region: "Eastern Europe", verticals: [{ key: "forex", path: "/best-forex-brokers-russia" }] },
-  { code: "UA", slug: "ukraine", name: "Ukraine", regulator: "NSSMC", region: "Eastern Europe", verticals: [{ key: "forex", path: "/best-forex-brokers-ukraine" }] },
+  { code: "TR", slug: "turkey",  name: "Turkey",  geo: "Turkey",  regulator: "CMB", region: "Eastern Europe", verticals: [{ key: "forex", path: "/best-forex-brokers-turkey" }] },
+  { code: "RU", slug: "russia",  name: "Russia",  geo: "Russia",  regulator: "CBR", region: "Eastern Europe", verticals: [{ key: "forex", path: "/best-forex-brokers-russia" }] },
+  { code: "UA", slug: "ukraine", name: "Ukraine", geo: "Ukraine", regulator: "NSSMC", region: "Eastern Europe", verticals: [{ key: "forex", path: "/best-forex-brokers-ukraine" }] },
 ];
 
 /** Возвращает вертикали для страны по slug (или пустой массив). */
