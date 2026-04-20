@@ -8,7 +8,7 @@ import CountryFlag from "../components/CountryFlag";
 
    Ключевые изменения vs live Header.jsx:
    1. «Forex Brokers ▾» + «Crypto Brokers ▾» → один «Brokers ▾»
-      с 4 колонками (By Asset × 8 / By Style / By Platform / Top Rated)
+      с 3 колонками (By Asset × 8 / By Trading Style × 8 / By Platform × 6)
    2. «Reviews ▾» — настоящие wide-лого вместо монограмм,
       линк на /reviews (фикс: раньше вёл на /best-forex-brokers)
    3. Compare + Methodology возвращены на desktop
@@ -287,10 +287,10 @@ export default function MenuProtoV2() {
                 <NavBtn id="brokers" label="Brokers" href="/rankings" />
                 {activeDropdown === "brokers" && (
                   <div
-                    style={{ ...ddBase, left: "50%", transform: "translateX(-50%)", width: 860, padding: "22px 24px" }}
+                    style={{ ...ddBase, left: "50%", transform: "translateX(-50%)", width: 680, padding: "22px 24px" }}
                     onMouseEnter={() => enter("brokers")} onMouseLeave={leave}
                   >
-                    <div style={{ display: "grid", gridTemplateColumns: "1.1fr 1fr 1fr 1.2fr", gap: 20 }}>
+                    <div style={{ display: "grid", gridTemplateColumns: "1.1fr 1fr 1fr", gap: 20 }}>
                       <div>
                         <div style={secHead}>By Asset Class</div>
                         {BROKERS_BY_ASSET.map((item) => (
@@ -329,39 +329,6 @@ export default function MenuProtoV2() {
                             {item.label}
                           </Link>
                         ))}
-                      </div>
-
-                      <div>
-                        <div style={secHead}>Top Rated 2026</div>
-                        <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
-                          {TOP_REVIEWS.map((b, i) => (
-                            <Link key={b.slug} to={`/reviews/${b.slug}`}
-                              style={{
-                                display: "flex", alignItems: "center", gap: 10,
-                                padding: "6px 8px", borderRadius: 6, textDecoration: "none",
-                                transition: "background 0.15s",
-                              }}
-                              onMouseEnter={(e) => { e.currentTarget.style.background = "#f1f5f9"; }}
-                              onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; }}
-                            >
-                              <span style={{
-                                width: 18, height: 18, borderRadius: 4,
-                                background: i < 3 ? "linear-gradient(135deg,#059669,#047857)" : "#e2e8f0",
-                                color: i < 3 ? "#fff" : "#475569",
-                                fontFamily: "'JetBrains Mono',monospace", fontSize: 10, fontWeight: 800,
-                                display: "flex", alignItems: "center", justifyContent: "center",
-                                flexShrink: 0,
-                              }}>{i + 1}</span>
-                              <MenuLogo slug={b.slug} name={b.name} w={92} h={26} />
-                              <span style={{
-                                marginLeft: "auto",
-                                fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 12,
-                                color: "#0f172a", background: "#f1f5f9",
-                                padding: "2px 6px", borderRadius: 4,
-                              }}>{b.score}</span>
-                            </Link>
-                          ))}
-                        </div>
                       </div>
                     </div>
 
