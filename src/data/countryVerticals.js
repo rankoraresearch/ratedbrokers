@@ -1,12 +1,12 @@
 /**
  * Country × Vertical matrix — single source of truth for the
- * /brokers-by-country umbrella hub and the Menu Countries dropdown.
+ * /best-brokers-by-country umbrella hub and the Menu Countries dropdown.
  *
  * Каждая запись страны перечисляет ТОЛЬКО те вертикали, для которых
  * ranking-страница реально существует в src/data/rankings.js.
  *
  * Ребрендинг: основной forex-by-country хаб (/best-forex-brokers-by-country)
- * остаётся для SEO. Новый multi-asset хаб — /brokers-by-country.
+ * остаётся для SEO. Новый multi-asset хаб — /best-brokers-by-country.
  *
  * Fields:
  *   code            — ISO-2 (для <CountryFlag />)

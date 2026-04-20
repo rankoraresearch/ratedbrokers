@@ -12,6 +12,9 @@
 # Review URL migration: /review/ → /reviews/
 /review/*  /reviews/:splat  301
 
+# Countries hub rebrand: /brokers-by-country → /best-brokers-by-country (S9)
+/brokers-by-country  /best-brokers-by-country  301
+
 # Existing rules
 /favicon-preview.html  /favicon-preview.html  200
 /*    /index.html   200

@@ -115,11 +115,11 @@ export default function OnlineBrokersByCountry() {
   const lp = useLocalePath();
 
   useSEO({
-    title: "Online Brokers by Country — 2026 Rankings",
+    title: "Best Brokers by Country — 2026 Rankings",
     description:
-      "Find regulated brokers licensed by your country's financial authority. " +
+      "Find the best regulated brokers licensed by your country's financial authority. " +
       "Covers forex, CFD, stocks, options, futures, crypto, copy trading, and spread betting across 40+ countries.",
-    path: "/brokers-by-country",
+    path: "/best-brokers-by-country",
   });
 
   const featured = getFeaturedCountries();
@@ -141,7 +141,7 @@ export default function OnlineBrokersByCountry() {
         breadcrumbSchema([
           { label: "RatedBrokers", path: "/" },
           { label: "Brokers", path: "/rankings" },
-          { label: "By Country", path: "/brokers-by-country" },
+          { label: "Best by Country", path: "/best-brokers-by-country" },
         ])
       ) }} />
 
@@ -150,7 +150,7 @@ export default function OnlineBrokersByCountry() {
         <Breadcrumb items={[
           { label: "RatedBrokers", path: "/" },
           { label: "Brokers", path: "/rankings" },
-          { label: "By Country" },
+          { label: "Best by Country" },
         ]} />
       </div>
 
@@ -180,16 +180,16 @@ export default function OnlineBrokersByCountry() {
             color: "#fff", margin: 0, lineHeight: 1.1, letterSpacing: "-0.02em",
             maxWidth: 820,
           }}>
-            Online Brokers by Country — 2026 Rankings
+            Best Brokers by Country — 2026 Rankings
           </h1>
           <p style={{
             fontSize: mob ? 15 : 17, lineHeight: 1.55,
             color: "rgba(255,255,255,0.8)", maxWidth: 720,
             margin: mob ? "12px 0 0" : "16px 0 0",
           }}>
-            Find brokers licensed by your country's regulator. We track rankings across eight
-            verticals: forex, CFD, stocks, options, futures, crypto, copy trading, and spread betting —
-            only showing the verticals that actually have broker coverage in each market.
+            Find the best regulated brokers licensed by your country's regulator. We track rankings
+            across eight verticals: forex, CFD, stocks, options, futures, crypto, copy trading, and
+            spread betting — only showing the verticals that actually have broker coverage in each market.
           </p>
           <div style={{
             display: "flex", gap: mob ? 16 : 32, flexWrap: "wrap",

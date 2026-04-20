@@ -465,7 +465,7 @@ export default function MenuProtoV2() {
               {/* 5. Countries ▾ */}
               <div style={{ position: "relative" }}
                 onMouseEnter={() => enter("countries")} onMouseLeave={leave}>
-                <NavBtn id="countries" label="Countries" href="/brokers-by-country" />
+                <NavBtn id="countries" label="Countries" href="/best-brokers-by-country" />
                 {activeDropdown === "countries" && (
                   <div style={{ ...ddBase, right: 0, width: 620 }}
                     onMouseEnter={() => enter("countries")} onMouseLeave={leave}
@@ -477,7 +477,7 @@ export default function MenuProtoV2() {
                       gap: 4, rowGap: 2,
                     }}>
                       {MENU_COUNTRIES.map((c) => {
-                        const primaryPath = c.verticals[0]?.path || "/brokers-by-country";
+                        const primaryPath = c.verticals[0]?.path || "/best-brokers-by-country";
                         return (
                           <div key={c.slug} style={{
                             display: "flex", alignItems: "center", gap: 8,
@@ -536,7 +536,7 @@ export default function MenuProtoV2() {
                         );
                       })}
                     </div>
-                    <Link to="/brokers-by-country" style={bottomCta}
+                    <Link to="/best-brokers-by-country" style={bottomCta}
                       onMouseEnter={(e) => { e.currentTarget.style.background = "#f1f5f9"; }}
                       onMouseLeave={(e) => { e.currentTarget.style.background = "#f8fafc"; }}
                     >
@@ -692,7 +692,7 @@ export default function MenuProtoV2() {
               {mobileExpanded === "countries" && (
                 <div style={{ padding: "6px 0 10px 12px" }}>
                   {MENU_COUNTRIES.map((c) => {
-                    const primaryPath = c.verticals[0]?.path || "/brokers-by-country";
+                    const primaryPath = c.verticals[0]?.path || "/best-brokers-by-country";
                     return (
                       <div key={c.slug} style={{
                         display: "flex", alignItems: "center", gap: 8,
@@ -726,7 +726,7 @@ export default function MenuProtoV2() {
                       </div>
                     );
                   })}
-                  <Link to="/brokers-by-country" style={{ display: "block", marginTop: 10, padding: "8px 0", fontSize: 14, fontWeight: 700, color: "#059669", textDecoration: "none" }}>
+                  <Link to="/best-brokers-by-country" style={{ display: "block", marginTop: 10, padding: "8px 0", fontSize: 14, fontWeight: 700, color: "#059669", textDecoration: "none" }}>
                     All {COUNTRY_VERTICALS.length} countries <ArrowRight size={14} style={{ verticalAlign: "middle" }} />
                   </Link>
                 </div>

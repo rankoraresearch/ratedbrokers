@@ -183,7 +183,7 @@ function VariantA() {
           );
         })}
       </div>
-      <Link to="/brokers-by-country" style={BOTTOM_CTA}>
+      <Link to="/best-brokers-by-country" style={BOTTOM_CTA}>
         <span>{TOTAL_COVERAGE_LABEL}</span>
         <ArrowRight size={14} />
       </Link>
@@ -259,7 +259,7 @@ function VariantB() {
           </div>
         </div>
       </div>
-      <Link to="/brokers-by-country" style={BOTTOM_CTA}>
+      <Link to="/best-brokers-by-country" style={BOTTOM_CTA}>
         <span>{TOTAL_COVERAGE_LABEL}</span>
         <ArrowRight size={14} />
       </Link>
@@ -383,7 +383,7 @@ function VariantC() {
           </div>
         </div>
       </div>
-      <Link to="/brokers-by-country" style={BOTTOM_CTA}>
+      <Link to="/best-brokers-by-country" style={BOTTOM_CTA}>
         <span>{TOTAL_COVERAGE_LABEL}</span>
         <ArrowRight size={14} />
       </Link>

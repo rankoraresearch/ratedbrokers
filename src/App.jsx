@@ -128,7 +128,9 @@ function AppRoutes() {
         <Route index element={<Home />} />
         <Route path="uk" element={<Navigate to="/best-forex-brokers-uk" replace />} />
         <Route path="best-forex-brokers-by-country" element={<CountryHubPage />} />
-        <Route path="brokers-by-country" element={<OnlineBrokersByCountry />} />
+        <Route path="best-brokers-by-country" element={<OnlineBrokersByCountry />} />
+        {/* S9 rebrand: redirect old URL (в dev без CF _redirects) */}
+        <Route path="brokers-by-country" element={<Navigate to="/best-brokers-by-country" replace />} />
         <Route path="best-forex-brokers-:countrySlug" element={<CountryPage />} />
         <Route path="reviews/:slug" element={<BrokerReview />} />
         <Route path="reviews/:slug/:tab" element={<BrokerSubPage />} />

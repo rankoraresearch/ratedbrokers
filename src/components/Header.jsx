@@ -584,7 +584,7 @@ export default function Header() {
 
               {/* 5. Countries ▾ — Variant B (Split by Vertical) */}
               <div style={{ position: "relative" }} onMouseEnter={() => enter("countries")} onMouseLeave={leave} onFocus={() => enter("countries")} onBlur={leave}>
-                <NavBtn id="countries" label={t("nav.countries")} href="/brokers-by-country" />
+                <NavBtn id="countries" label={t("nav.countries")} href="/best-brokers-by-country" />
                 {activeDropdown === "countries" && (
                   <div style={{ ...ddBase, right: 0, width: 780 }}
                     onMouseEnter={() => enter("countries")} onMouseLeave={leave}
@@ -669,7 +669,7 @@ export default function Header() {
                         </div>
                       </div>
                     </div>
-                    <Link to={lp("/brokers-by-country")} style={bottomCta}
+                    <Link to={lp("/best-brokers-by-country")} style={bottomCta}
                       onMouseEnter={(e) => { e.currentTarget.style.background = "#f1f5f9"; }}
                       onMouseLeave={(e) => { e.currentTarget.style.background = "#f8fafc"; }}
                     >
@@ -859,7 +859,7 @@ export default function Header() {
                   </div>
                 </div>
               ))}
-              <Link to={lp("/brokers-by-country")} style={{ display: "block", marginTop: 10, padding: "8px 0", fontSize: 14, fontWeight: 700, color: "#059669", textDecoration: "none" }}>
+              <Link to={lp("/best-brokers-by-country")} style={{ display: "block", marginTop: 10, padding: "8px 0", fontSize: 14, fontWeight: 700, color: "#059669", textDecoration: "none" }}>
                 All {TOTAL_COUNTRIES} countries across {TOTAL_VERTICALS} verticals <ArrowRight size={14} style={{ verticalAlign: "middle" }} />
               </Link>
             </div>
