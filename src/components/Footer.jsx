@@ -161,18 +161,19 @@ export default function Footer() {
               {t("footer.desc")}
             </p>
 
-            {/* Trust stats — JetBrains Mono для числовых токенов */}
+            {/* Trust stats — JetBrains Mono для числовых токенов, word order preserved */}
             <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginBottom: 12 }}>
               {[
-                { Icon: Shield, num: `${BROKER_COUNT}`, label: "Brokers Tested" },
-                { Icon: FlaskConical, num: "500+", label: "Real Trades" },
-                { Icon: CalendarCheck, num: CURRENT_QUARTER, label: "Updated" },
-              ].map(({ Icon, num, label }) => (
-                <div key={label} style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                { Icon: Shield, prefix: "", num: `${BROKER_COUNT}`, suffix: "Brokers Tested" },
+                { Icon: FlaskConical, prefix: "", num: "500+", suffix: "Real Trades" },
+                { Icon: CalendarCheck, prefix: "Updated", num: CURRENT_QUARTER, suffix: "" },
+              ].map(({ Icon, prefix, num, suffix }) => (
+                <div key={`${prefix}-${num}-${suffix}`} style={{ display: "flex", alignItems: "center", gap: 6 }}>
                   <Icon size={14} color="#34d399" strokeWidth={2} />
                   <span style={{ fontSize: 13, color: "#cbd5e1", display: "inline-flex", alignItems: "baseline", gap: 4 }}>
+                    {prefix && <span>{prefix}</span>}
                     <span style={{ fontFamily: "'JetBrains Mono', ui-monospace, monospace", fontWeight: 700, color: "#f1f5f9" }}>{num}</span>
-                    <span>{label}</span>
+                    {suffix && <span>{suffix}</span>}
                   </span>
                 </div>
               ))}
