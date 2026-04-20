@@ -28,8 +28,8 @@ const STATUS_META = {
   draft:         { label: "Draft",         color: "#64748b", bg: "#f1f5f9",  icon: FileText },
   submitted:     { label: "Submitted",     color: "#2563eb", bg: "#dbeafe",  icon: Clock },
   needs_changes: { label: "Needs changes", color: "#d97706", bg: "#fef3c7",  icon: AlertCircle },
-  accepted:      { label: "Accepted",      color: "#047857", bg: "#f8fafc",  icon: CheckCircle },
-  processed:     { label: "Processed",     color: "#065f46", bg: "#f1f5f9",  icon: CheckCircle },
+  accepted:      { label: "Accepted",      color: "#047857", bg: "#f8fafc", border: "#e2e8f0", icon: CheckCircle },
+  processed:     { label: "Processed",     color: "#065f46", bg: "#f1f5f9", border: "#e2e8f0", icon: CheckCircle },
   published:     { label: "Published",     color: "#065f46", bg: "#34d399",  icon: CheckCircle },
   rejected:      { label: "Rejected",      color: "#dc2626", bg: "#fee2e2",  icon: XCircle },
   reverted:      { label: "Reverted",      color: "#7c3aed", bg: "#ede9fe",  icon: RefreshCw },
@@ -125,6 +125,7 @@ function StatusBadge({ status }) {
       display: "inline-flex", alignItems: "center", gap: 4,
       padding: "4px 10px", borderRadius: 8,
       background: meta.bg, color: meta.color,
+      border: meta.border ? `1px solid ${meta.border}` : "none",
       fontSize: 12, fontWeight: 700,
     }}>
       <Icon size={12} /> {meta.label}
