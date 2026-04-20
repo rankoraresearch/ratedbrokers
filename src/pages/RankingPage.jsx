@@ -724,18 +724,21 @@ export default function RankingPage() {
       {/* HERO — Premium Green (compact) */}
       <HeroBand mob={mob} tab={tab} compact variant="green">
         <header ref={heroRef} style={{ textAlign: "center" }}>
-          {/* Eyebrow — JetBrains Mono uppercase amber */}
+          {/* Eyebrow — amber on dark capsule (AA contrast guaranteed) */}
           <div style={{
             display: "inline-flex", alignItems: "center", gap: 10,
-            marginBottom: mob ? 10 : 12,
+            padding: mob ? "6px 12px 6px 6px" : "6px 14px 6px 6px",
+            borderRadius: 999,
+            background: "rgba(15,23,42,0.45)",
+            border: "1px solid rgba(251,191,36,0.28)",
+            marginBottom: mob ? 12 : 14,
           }}>
             <span style={{
               display: "inline-flex", alignItems: "center", justifyContent: "center",
-              width: mob ? 28 : 32, height: mob ? 28 : 32, borderRadius: 8,
-              background: "rgba(251,191,36,0.14)",
-              border: "1px solid rgba(251,191,36,0.32)",
+              width: mob ? 24 : 28, height: mob ? 24 : 28, borderRadius: 999,
+              background: "rgba(251,191,36,0.18)",
             }}>
-              <Icon name={ranking.icon} size={mob ? 16 : 18} color="#fbbf24" strokeWidth={2} />
+              <Icon name={ranking.icon} size={mob ? 14 : 16} color="#fbbf24" strokeWidth={2} />
             </span>
             <span style={{
               fontFamily: "'JetBrains Mono', monospace",
@@ -756,21 +759,19 @@ export default function RankingPage() {
             {ranking.title} {YEAR}
           </h1>
 
-          {/* Meta row — JetBrains Mono with amber separator dots */}
+          {/* Meta row — white text on green gradient (AA), amber accent kept on counts only inside dark chip */}
           <div style={{
             display: "inline-flex", alignItems: "center", gap: mob ? 8 : 12,
             flexWrap: "wrap", justifyContent: "center",
             marginBottom: mob ? 10 : 12,
             fontFamily: "'JetBrains Mono', monospace",
             fontSize: mob ? 11 : 12, fontWeight: 600,
-            color: "rgba(255,255,255,0.78)",
+            color: "#fff",
             textTransform: "uppercase", letterSpacing: "0.08em",
           }}>
-            <span><span style={{ color: "#fbbf24", fontWeight: 800 }}>{brokers.length}</span> Brokers Tested</span>
-            <span style={{ color: "rgba(251,191,36,0.55)" }}>·</span>
+            <span><span style={{ color: "#fbbf24", fontWeight: 800, background: "rgba(15,23,42,0.45)", padding: "2px 8px", borderRadius: 6, marginRight: 4 }}>{brokers.length}</span> Brokers Tested</span>
+            <span style={{ color: "rgba(255,255,255,0.4)" }}>·</span>
             <span>130+ Data Points</span>
-            <span style={{ color: "rgba(251,191,36,0.55)" }}>·</span>
-            <span>Updated Q2 {YEAR}</span>
           </div>
 
           <div style={{ display: "flex", justifyContent: "center" }}>
