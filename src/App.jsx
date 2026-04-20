@@ -64,6 +64,7 @@ const HowWeRateDarkProto = import.meta.env.DEV ? lazy(() => import("./pages/HowW
 const LinkSystemProto = import.meta.env.DEV ? lazy(() => import("./pages/LinkSystemProto")) : null;
 const AuthorProto = import.meta.env.DEV ? lazy(() => import("./pages/AuthorProto")) : null;
 const FlagsProto = import.meta.env.DEV ? lazy(() => import("./pages/FlagsProto")) : null;
+const MenuProtoV2 = import.meta.env.DEV ? lazy(() => import("./pages/MenuProtoV2")) : null;
 
 function PageLoader() {
   return (
@@ -118,6 +119,7 @@ function AppRoutes() {
         <Route path="proto/link-system" element={<Layout />}><Route index element={<LinkSystemProto />} /></Route>
         <Route path="proto/author" element={<Layout />}><Route index element={<AuthorProto />} /></Route>
         <Route path="proto/flags" element={<Layout />}><Route index element={<FlagsProto />} /></Route>
+        <Route path="proto/menu-v2" element={<Suspense fallback={<PageLoader />}><MenuProtoV2 /></Suspense>} />
       </>}
       <Route element={<Layout />}>
         <Route index element={<Home />} />
