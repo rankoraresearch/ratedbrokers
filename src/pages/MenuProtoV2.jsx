@@ -2,6 +2,17 @@ import { useState, useRef, useCallback, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, ArrowRight, Search as SearchIcon, Menu as MenuIcon, X as XIcon } from "lucide-react";
 import CountryFlag from "../components/CountryFlag";
+import { COUNTRY_VERTICALS, VERTICAL_META } from "../data/countryVerticals";
+
+/* Короткие чипы для Countries dropdown — узкая подборка 12 стран,
+   где реально есть multi-asset покрытие или важный регулятор. */
+const MENU_COUNTRY_SLUGS = [
+  "uk", "usa", "australia", "germany", "singapore", "uae",
+  "canada", "south-africa", "india", "france", "japan", "switzerland",
+];
+const MENU_COUNTRIES = MENU_COUNTRY_SLUGS
+  .map((slug) => COUNTRY_VERTICALS.find((c) => c.slug === slug))
+  .filter(Boolean);
 
 /* ──────────────────────────────────────────────────────────────
    MenuProtoV2 — целевой концепт главного меню (/proto/menu-v2)
@@ -87,24 +98,6 @@ const GUIDE_CONCEPTS = [
   { label: "Regulation Guide",     path: "/guide/forex-regulation-guide" },
   { label: "What is Leverage",     path: "/guide/what-is-leverage" },
   { label: "Technical Analysis",   path: "/guide/technical-analysis-guide" },
-];
-
-const COUNTRIES = [
-  { code: "GB", name: "United Kingdom", forex: "/best-forex-brokers-uk",           crypto: "/best-crypto-brokers-uk",         cfd: "/best-cfd-brokers-uk" },
-  { code: "US", name: "United States",  forex: "/best-forex-brokers-usa",          crypto: "/best-crypto-brokers-usa" },
-  { code: "AU", name: "Australia",      forex: "/best-forex-brokers-australia",    crypto: "/best-crypto-brokers-australia",  cfd: "/best-cfd-brokers-australia" },
-  { code: "DE", name: "Germany",        forex: "/best-forex-brokers-germany" },
-  { code: "FR", name: "France",         forex: "/best-forex-brokers-france" },
-  { code: "CH", name: "Switzerland",    forex: "/best-forex-brokers-switzerland" },
-  { code: "CY", name: "Cyprus",         forex: "/best-forex-brokers-cyprus" },
-  { code: "SG", name: "Singapore",      forex: "/best-forex-brokers-singapore",    crypto: "/best-crypto-brokers-singapore" },
-  { code: "AE", name: "UAE",            forex: "/best-forex-brokers-uae",          crypto: "/best-crypto-brokers-uae" },
-  { code: "JP", name: "Japan",          forex: "/best-forex-brokers-japan" },
-  { code: "HK", name: "Hong Kong",      forex: "/best-forex-brokers-hong-kong" },
-  { code: "IN", name: "India",          forex: "/best-forex-brokers-india",        crypto: "/best-crypto-brokers-india" },
-  { code: "CA", name: "Canada",         forex: "/best-forex-brokers-canada" },
-  { code: "ZA", name: "South Africa",   forex: "/best-forex-brokers-south-africa", crypto: "/best-crypto-brokers-south-africa" },
-  { code: "TR", name: "Turkey",         forex: "/best-forex-brokers-turkey" },
 ];
 
 /* Square logo chip для Reviews dropdown — 32×32 из public/logos/{slug}.png.
@@ -472,60 +465,82 @@ export default function MenuProtoV2() {
               {/* 5. Countries ▾ */}
               <div style={{ position: "relative" }}
                 onMouseEnter={() => enter("countries")} onMouseLeave={leave}>
-                <NavBtn id="countries" label="Countries" href="/best-forex-brokers-by-country" />
+                <NavBtn id="countries" label="Countries" href="/brokers-by-country" />
                 {activeDropdown === "countries" && (
-                  <div style={{ ...ddBase, right: 0, width: 580 }}
+                  <div style={{ ...ddBase, right: 0, width: 620 }}
                     onMouseEnter={() => enter("countries")} onMouseLeave={leave}
                   >
                     <div style={secHead}>Regulated brokers by country</div>
                     <div style={{
                       display: "grid",
-                      gridTemplateColumns: "1fr 1fr 1fr",
+                      gridTemplateColumns: "1fr 1fr",
                       gap: 4, rowGap: 2,
                     }}>
-                      {COUNTRIES.map((c) => (
-                        <div key={c.code} style={{
-                          display: "flex", alignItems: "center", gap: 8,
-                          padding: "6px 8px", borderRadius: 6,
-                        }}>
-                          <CountryFlag code={c.code} size={14} />
-                          <Link to={c.forex} style={{
-                            fontSize: 13.5, fontWeight: 600, color: "#0f172a",
-                            textDecoration: "none", flex: 1,
-                          }}
-                            onMouseEnter={(e) => { e.currentTarget.style.color = "#047857"; }}
-                            onMouseLeave={(e) => { e.currentTarget.style.color = "#0f172a"; }}
-                          >{c.name}</Link>
-                          <span style={{ display: "flex", gap: 4 }}>
-                            {c.cfd && (
-                              <Link to={c.cfd} title={`CFD brokers ${c.name}`} style={{
-                                fontSize: 10, fontWeight: 700, color: "#64748b",
-                                background: "#f1f5f9", padding: "1px 5px", borderRadius: 3,
-                                textDecoration: "none", letterSpacing: 0.3,
-                              }}
-                                onMouseEnter={(e) => { e.currentTarget.style.background = "#059669"; e.currentTarget.style.color = "#fff"; }}
-                                onMouseLeave={(e) => { e.currentTarget.style.background = "#f1f5f9"; e.currentTarget.style.color = "#64748b"; }}
-                              >CFD</Link>
-                            )}
-                            {c.crypto && (
-                              <Link to={c.crypto} title={`Crypto brokers ${c.name}`} style={{
-                                fontSize: 10, fontWeight: 700, color: "#64748b",
-                                background: "#f1f5f9", padding: "1px 5px", borderRadius: 3,
-                                textDecoration: "none", letterSpacing: 0.3,
-                              }}
-                                onMouseEnter={(e) => { e.currentTarget.style.background = "#f59e0b"; e.currentTarget.style.color = "#0f172a"; }}
-                                onMouseLeave={(e) => { e.currentTarget.style.background = "#f1f5f9"; e.currentTarget.style.color = "#64748b"; }}
-                              >BTC</Link>
-                            )}
-                          </span>
-                        </div>
-                      ))}
+                      {MENU_COUNTRIES.map((c) => {
+                        const primaryPath = c.verticals[0]?.path || "/brokers-by-country";
+                        return (
+                          <div key={c.slug} style={{
+                            display: "flex", alignItems: "center", gap: 8,
+                            padding: "6px 8px", borderRadius: 6,
+                          }}>
+                            <CountryFlag code={c.code} size={16} />
+                            <Link to={primaryPath} style={{
+                              fontSize: 13.5, fontWeight: 600, color: "#0f172a",
+                              textDecoration: "none", flexShrink: 0,
+                            }}
+                              onMouseEnter={(e) => { e.currentTarget.style.color = "#047857"; }}
+                              onMouseLeave={(e) => { e.currentTarget.style.color = "#0f172a"; }}
+                            >{c.name}</Link>
+                            <span style={{
+                              display: "flex", gap: 4, flexWrap: "wrap",
+                              marginLeft: "auto", justifyContent: "flex-end",
+                            }}>
+                              {c.verticals.slice(0, 4).map((v) => {
+                                const meta = VERTICAL_META[v.key];
+                                if (!meta) return null;
+                                const short = meta.label === "Copy Trading" ? "Copy"
+                                  : meta.label === "Spread Betting" ? "SB"
+                                  : meta.label;
+                                return (
+                                  <Link
+                                    key={v.key}
+                                    to={v.path}
+                                    title={`${meta.label} ${meta.word} in ${c.name}`}
+                                    style={{
+                                      fontSize: 10, fontWeight: 700,
+                                      color: "#475569", background: "#f1f5f9",
+                                      padding: "2px 6px", borderRadius: 4,
+                                      textDecoration: "none", letterSpacing: 0.3,
+                                      display: "inline-flex", alignItems: "center", gap: 4,
+                                      transition: "background 0.15s, color 0.15s",
+                                    }}
+                                    onMouseEnter={(e) => {
+                                      e.currentTarget.style.background = meta.color;
+                                      e.currentTarget.style.color = "#fff";
+                                    }}
+                                    onMouseLeave={(e) => {
+                                      e.currentTarget.style.background = "#f1f5f9";
+                                      e.currentTarget.style.color = "#475569";
+                                    }}
+                                  >
+                                    <span style={{
+                                      width: 5, height: 5, borderRadius: "50%",
+                                      background: meta.color,
+                                    }} />
+                                    {short}
+                                  </Link>
+                                );
+                              })}
+                            </span>
+                          </div>
+                        );
+                      })}
                     </div>
-                    <Link to="/best-forex-brokers-by-country" style={bottomCta}
+                    <Link to="/brokers-by-country" style={bottomCta}
                       onMouseEnter={(e) => { e.currentTarget.style.background = "#f1f5f9"; }}
                       onMouseLeave={(e) => { e.currentTarget.style.background = "#f8fafc"; }}
                     >
-                      <span>All 38 country rankings</span>
+                      <span>All {COUNTRY_VERTICALS.length} countries across 8 verticals</span>
                       <ArrowRight size={14} />
                     </Link>
                   </div>
@@ -676,14 +691,44 @@ export default function MenuProtoV2() {
               <MobToggle id="countries" label="Countries" />
               {mobileExpanded === "countries" && (
                 <div style={{ padding: "6px 0 10px 12px" }}>
-                  {COUNTRIES.map((c) => (
-                    <div key={c.code} style={{ display: "flex", alignItems: "center", gap: 8, padding: "8px 0", borderBottom: "1px solid #f8fafc" }}>
-                      <CountryFlag code={c.code} size={14} />
-                      <Link to={c.forex} style={{ flex: 1, fontSize: 14, color: "#0f172a", textDecoration: "none" }}>{c.name}</Link>
-                      {c.cfd && <Link to={c.cfd} style={{ fontSize: 10, fontWeight: 700, color: "#64748b", background: "#f1f5f9", padding: "2px 6px", borderRadius: 3, textDecoration: "none" }}>CFD</Link>}
-                      {c.crypto && <Link to={c.crypto} style={{ fontSize: 10, fontWeight: 700, color: "#64748b", background: "#f1f5f9", padding: "2px 6px", borderRadius: 3, textDecoration: "none" }}>BTC</Link>}
-                    </div>
-                  ))}
+                  {MENU_COUNTRIES.map((c) => {
+                    const primaryPath = c.verticals[0]?.path || "/brokers-by-country";
+                    return (
+                      <div key={c.slug} style={{
+                        display: "flex", alignItems: "center", gap: 8,
+                        padding: "8px 0", borderBottom: "1px solid #f8fafc", flexWrap: "wrap",
+                      }}>
+                        <CountryFlag code={c.code} size={16} />
+                        <Link to={primaryPath} style={{ flexShrink: 0, fontSize: 14, color: "#0f172a", textDecoration: "none", fontWeight: 600 }}>{c.name}</Link>
+                        <span style={{
+                          display: "flex", gap: 4, marginLeft: "auto", flexWrap: "wrap",
+                          justifyContent: "flex-end",
+                        }}>
+                          {c.verticals.slice(0, 4).map((v) => {
+                            const meta = VERTICAL_META[v.key];
+                            if (!meta) return null;
+                            const short = meta.label === "Copy Trading" ? "Copy"
+                              : meta.label === "Spread Betting" ? "SB"
+                              : meta.label;
+                            return (
+                              <Link key={v.key} to={v.path} style={{
+                                fontSize: 10, fontWeight: 700, color: "#475569",
+                                background: "#f1f5f9", padding: "2px 6px", borderRadius: 3,
+                                textDecoration: "none", letterSpacing: 0.3,
+                                display: "inline-flex", alignItems: "center", gap: 3,
+                              }}>
+                                <span style={{ width: 5, height: 5, borderRadius: "50%", background: meta.color }} />
+                                {short}
+                              </Link>
+                            );
+                          })}
+                        </span>
+                      </div>
+                    );
+                  })}
+                  <Link to="/brokers-by-country" style={{ display: "block", marginTop: 10, padding: "8px 0", fontSize: 14, fontWeight: 700, color: "#059669", textDecoration: "none" }}>
+                    All {COUNTRY_VERTICALS.length} countries <ArrowRight size={14} style={{ verticalAlign: "middle" }} />
+                  </Link>
                 </div>
               )}
             </div>
