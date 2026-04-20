@@ -79,6 +79,22 @@ export const AUTHORS = {
     specialty: "Broker Licensing, Regulatory Compliance",
     reviews: 45,
   },
+  "neha-gupta": {
+    id: "neha-gupta",
+    name: "Neha Gupta",
+    role: "Markets & Hedge Fund Analyst",
+    initials: "NG",
+    exp: "17 years",
+    linkedin: "https://www.linkedin.com/in/nehaguptacfa1983/",
+    image: "/authors/neha-gupta.webp",
+    location: "Winnipeg, Canada",
+    credentials: ["CFA", "PGDBA"],
+    verified: true,
+    bio: "Neha is a CFA charterholder (Level III, CFA Institute USA) with 17+ years analysing equity markets, hedge funds, and crypto. She holds a PGDBA from Symbiosis Centre of Distance Learning (2008) and additional Capital and Derivative Module certifications. She has authored more than 35,000 financial articles for Seeking Alpha, Insider Monkey, MarketWatch, TipRanks, Market Realist, and FXEmpire — including 1,500+ company deep-dives at Market Realist and 285+ hedge-fund pieces at Insider Monkey. In 2015 she founded ResearchCows, a research outfit producing equity, commodity, currency, and crypto reports for institutional clients. At RatedBrokers she evaluates how brokers deliver on research tools, asset breadth, and institutional-grade execution for active traders.",
+    shortBio: "CFA charterholder with 17+ years in equity, hedge fund, and crypto markets. 35,000+ articles across Seeking Alpha, Insider Monkey, MarketWatch, and TipRanks. Founder of ResearchCows.",
+    specialty: "Equity Research, Hedge Funds, Crypto Markets",
+    reviews: 0,
+  },
 };
 
 // Фиксированная команда для всего контента

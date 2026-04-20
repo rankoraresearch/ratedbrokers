@@ -23,6 +23,7 @@ const TEAM = [
   AUTHORS["sarah-williams"],
   AUTHORS["elena-petrova"],
   AUTHORS["david-kowalski"],
+  AUTHORS["neha-gupta"],
 ];
 
 const PILLARS = [

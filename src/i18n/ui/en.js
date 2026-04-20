@@ -1,6 +1,7 @@
 const en = {
   // ===== NAV =====
   "nav.home": "Home",
+  "nav.brokers": "Brokers",
   "nav.forexBrokers": "Forex Brokers",
   "nav.cryptoBrokers": "Crypto Brokers",
   "nav.reviews": "Reviews",

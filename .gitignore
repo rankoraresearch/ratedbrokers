@@ -50,6 +50,12 @@ uk-snapshot.md
 
 # Keyword research data (may be regenerated)
 data/
+# …but editorial data inside src/data/ (countries, rankings, countryVerticals, etc.) stays tracked.
+# The `data/` rule above matches any directory named "data", including src/data — re-include it here.
+!src/data/
+!src/data/**
+# Keep the auto-generated broker JSON out regardless
+src/data/brokers/
 
 # S7 LinkedIn session (login state, never commit)
 scripts/.li-session/

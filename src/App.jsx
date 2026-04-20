@@ -8,6 +8,7 @@ import { LanguageProvider } from "./i18n/LanguageContext";
 const Home = lazy(() => import("./pages/Home"));
 const CountryPage = lazy(() => import("./pages/CountryPage"));
 const CountryHubPage = lazy(() => import("./pages/CountryHubPage"));
+const OnlineBrokersByCountry = lazy(() => import("./pages/OnlineBrokersByCountry"));
 const BrokerReview = lazy(() => import("./pages/BrokerReview"));
 const BrokerComparison = lazy(() => import("./pages/BrokerComparison"));
 const ComparePage = lazy(() => import("./pages/ComparePage"));
@@ -64,6 +65,8 @@ const HowWeRateDarkProto = import.meta.env.DEV ? lazy(() => import("./pages/HowW
 const LinkSystemProto = import.meta.env.DEV ? lazy(() => import("./pages/LinkSystemProto")) : null;
 const AuthorProto = import.meta.env.DEV ? lazy(() => import("./pages/AuthorProto")) : null;
 const FlagsProto = import.meta.env.DEV ? lazy(() => import("./pages/FlagsProto")) : null;
+const MenuProtoV2 = import.meta.env.DEV ? lazy(() => import("./pages/MenuProtoV2")) : null;
+const MenuCountriesProto = import.meta.env.DEV ? lazy(() => import("./pages/MenuCountriesProto")) : null;
 
 function PageLoader() {
   return (
@@ -118,11 +121,16 @@ function AppRoutes() {
         <Route path="proto/link-system" element={<Layout />}><Route index element={<LinkSystemProto />} /></Route>
         <Route path="proto/author" element={<Layout />}><Route index element={<AuthorProto />} /></Route>
         <Route path="proto/flags" element={<Layout />}><Route index element={<FlagsProto />} /></Route>
+        <Route path="proto/menu-v2" element={<Suspense fallback={<PageLoader />}><MenuProtoV2 /></Suspense>} />
+        <Route path="proto/menu-countries" element={<Suspense fallback={<PageLoader />}><MenuCountriesProto /></Suspense>} />
       </>}
       <Route element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="uk" element={<Navigate to="/best-forex-brokers-uk" replace />} />
         <Route path="best-forex-brokers-by-country" element={<CountryHubPage />} />
+        <Route path="best-brokers-by-country" element={<OnlineBrokersByCountry />} />
+        {/* S9 rebrand: redirect old URL (в dev без CF _redirects) */}
+        <Route path="brokers-by-country" element={<Navigate to="/best-brokers-by-country" replace />} />
         <Route path="best-forex-brokers-:countrySlug" element={<CountryPage />} />
         <Route path="reviews/:slug" element={<BrokerReview />} />
         <Route path="reviews/:slug/:tab" element={<BrokerSubPage />} />
