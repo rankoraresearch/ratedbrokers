@@ -35,7 +35,6 @@ import Breadcrumb, { breadcrumbSchema } from "../components/Breadcrumb";
 import HUBS from "../data/categoryHubs";
 import Icon, { ArrowRight, CircleCheck, Check, X as XIcon } from "../components/Icon";
 import BrokerLogo from "../components/BrokerLogo";
-import RegBadge from "../components/RegBadge";
 import HeroBand from "../components/HeroBand";
 import { getCountryData } from "../data/countries/index";
 import { canonicalPair } from "../data/comparisons";

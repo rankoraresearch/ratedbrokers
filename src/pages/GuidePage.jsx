@@ -287,28 +287,39 @@ export default function GuidePage() {
                 gridTemplateColumns: mob ? "1fr" : "1fr 1fr",
                 gap: 16, margin: "16px 0",
               }}>
-                {section.comparisonCards.map((card, ci) => (
-                  <div key={ci} style={{
-                    background: "#fff", border: "1px solid #e2e8f0", borderRadius: 14, padding: mob ? 16 : 20,
-                  }}>
-                    <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 17, color: "#0f172a", marginBottom: 10 }}>
-                      {card.title}
+                {section.comparisonCards.map((card, ci) => {
+                  const hasPros = !!card.pros;
+                  const hasCons = !!card.cons;
+                  // Plate B rail: green if Pros only, red if Cons only, neutral if both/neither
+                  const railColor = hasPros && !hasCons ? "#059669" : !hasPros && hasCons ? "#dc2626" : "#cbd5e1";
+                  return (
+                    <div key={ci} style={{
+                      background: "#fff",
+                      border: "1.5px solid #e2e8f0",
+                      borderLeft: `3px solid ${railColor}`,
+                      borderRadius: 14,
+                      padding: mob ? 16 : 20,
+                      boxShadow: "0 2px 8px rgba(15,23,42,0.04)",
+                    }}>
+                      <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 17, color: "#0f172a", marginBottom: 10 }}>
+                        {card.title}
+                      </div>
+                      {card.description && <p style={{ fontSize: 15, color: "#1f2937", lineHeight: 1.7, marginBottom: 10 }}>{card.description}</p>}
+                      {card.pros && (
+                        <div style={{ marginBottom: 8 }}>
+                          <div style={{ fontSize: 13, fontWeight: 700, color: "#047857", marginBottom: 4 }}>PROS</div>
+                          {card.pros.map((p, pi) => <div key={pi} style={{ fontSize: 14, color: "#1f2937", padding: "2px 0", display: "flex", alignItems: "center", gap: 6 }}><CircleCheck size={14} color="#059669" style={{ flexShrink: 0 }} /> {p}</div>)}
+                        </div>
+                      )}
+                      {card.cons && (
+                        <div>
+                          <div style={{ fontSize: 13, fontWeight: 700, color: "#b91c1c", marginBottom: 4 }}>CONS</div>
+                          {card.cons.map((c, ci2) => <div key={ci2} style={{ fontSize: 14, color: "#1f2937", padding: "2px 0", display: "flex", alignItems: "center", gap: 6 }}><CircleX size={14} color="#dc2626" style={{ flexShrink: 0 }} /> {c}</div>)}
+                        </div>
+                      )}
                     </div>
-                    {card.description && <p style={{ fontSize: 15, color: "#1f2937", lineHeight: 1.7, marginBottom: 10 }}>{card.description}</p>}
-                    {card.pros && (
-                      <div style={{ marginBottom: 8 }}>
-                        <div style={{ fontSize: 13, fontWeight: 700, color: "#059669", marginBottom: 4 }}>PROS</div>
-                        {card.pros.map((p, pi) => <div key={pi} style={{ fontSize: 14, color: "#1f2937", padding: "2px 0", display: "flex", alignItems: "center", gap: 6 }}><CircleCheck size={14} color="#059669" style={{ flexShrink: 0 }} /> {p}</div>)}
-                      </div>
-                    )}
-                    {card.cons && (
-                      <div>
-                        <div style={{ fontSize: 13, fontWeight: 700, color: "#dc2626", marginBottom: 4 }}>CONS</div>
-                        {card.cons.map((c, ci2) => <div key={ci2} style={{ fontSize: 14, color: "#1f2937", padding: "2px 0", display: "flex", alignItems: "center", gap: 6 }}><CircleX size={14} color="#dc2626" style={{ flexShrink: 0 }} /> {c}</div>)}
-                      </div>
-                    )}
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             )}
           </section>
