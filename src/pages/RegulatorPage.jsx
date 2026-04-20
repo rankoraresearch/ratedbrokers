@@ -12,6 +12,7 @@ import CountryFlag from "../components/CountryFlag";
 import RegulatorLogo from "../components/RegulatorLogo";
 import HeroBand from "../components/HeroBand";
 import AuthorCredits from "../components/AuthorCredits";
+import ScoreBadge from "../components/ScoreBadge";
 import { TEAM } from "../data/authors";
 import { getVisitUrl } from "../utils/visitUrl";
 
@@ -234,14 +235,7 @@ export default function RegulatorPage() {
                     </div>
                   </div>
                   <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                    <div style={{
-                      background: "#fff",
-                      border: "1.5px solid #e2e8f0",
-                      borderLeft: "3px solid #059669",
-                      borderRadius: 8,
-                      padding: "4px 10px", fontFamily: "'JetBrains Mono',monospace",
-                      fontSize: 16, fontWeight: 800, color: "#047857",
-                    }}>{b.B.score}</div>
+                    <ScoreBadge score={b.B.score} />
                     <Link to={lp(`/reviews/${b.slug}`)} style={{
                       fontSize: 13, color: "#1e3a5f", fontWeight: 600, textDecoration: "none",
                       padding: "6px 14px", border: "1px solid #cbd5e1", borderRadius: 6,
@@ -293,33 +287,14 @@ export default function RegulatorPage() {
                     <span style={{ fontSize: 14, color: "#111827", fontWeight: 600, textAlign: "right", maxWidth: "60%" }}>{x.v}</span>
                   </div>
                 ))}
-                <a href={reg.licenseCheck} target="_blank" rel="noopener noreferrer" style={{
+                <a href={reg.licenseCheck} target="_blank" rel="noopener noreferrer" className="cta-secondary" style={{
                   display: "block", textAlign: "center", marginTop: 14,
-                  padding: "10px 14px", borderRadius: 10,
-                  fontFamily: "'Outfit', sans-serif", fontSize: 14, fontWeight: 700, letterSpacing: "-0.01em",
-                  background: "#fff",
-                  color: "#047857",
+                  padding: "10px 14px", borderRadius: 8,
+                  fontSize: 14, fontWeight: 600,
+                  background: "#fff", color: "#059669",
                   textDecoration: "none",
-                  border: "1.5px solid #e2e8f0",
-                  borderLeft: "3px solid #059669",
-                  boxShadow: "0 2px 8px rgba(15,23,42,0.06)",
-                  transition: "all 0.25s cubic-bezier(0.4, 0, 0.2, 1)",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderTopColor = "#cbd5e1";
-                  e.currentTarget.style.borderRightColor = "#cbd5e1";
-                  e.currentTarget.style.borderBottomColor = "#cbd5e1";
-                  e.currentTarget.style.boxShadow = "0 8px 24px rgba(15,23,42,0.12)";
-                  e.currentTarget.style.transform = "translateY(-1px)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderTopColor = "#e2e8f0";
-                  e.currentTarget.style.borderRightColor = "#e2e8f0";
-                  e.currentTarget.style.borderBottomColor = "#e2e8f0";
-                  e.currentTarget.style.boxShadow = "0 2px 8px rgba(15,23,42,0.06)";
-                  e.currentTarget.style.transform = "translateY(0)";
-                }}
-                ><span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>Verify License <ExternalLink size={13} /></span></a>
+                  border: "2px solid #059669",
+                }}><span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>Verify License <ExternalLink size={13} /></span></a>
               </Card>
 
               {/* Other regulators */}

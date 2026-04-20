@@ -1227,32 +1227,17 @@ export default function RankingPage() {
         </section>
       )}
 
-      {/* Quiz CTA */}
+      {/* Quiz CTA — same hover pattern as Related Rankings cards below */}
       <section style={{ ...cn, paddingBottom: 20 }}>
         <Link to={lp("/find-your-broker")} style={{
+          ...T.cardBg,
           display: "flex", alignItems: "center", justifyContent: "space-between",
-          padding: mob ? "16px 20px" : "20px 28px", borderRadius: 12,
-          background: "#fff",
-          border: "1.5px solid #e2e8f0",
-          borderLeft: "4px solid #059669",
-          boxShadow: "0 2px 8px rgba(15,23,42,0.06)",
-          textDecoration: "none",
-          transition: "all 0.25s cubic-bezier(0.4, 0, 0.2, 1)",
+          padding: mob ? "16px 20px" : "20px 28px",
+          textDecoration: "none", color: "#111827",
+          transition: "all 0.2s",
         }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.borderTopColor = "#cbd5e1";
-            e.currentTarget.style.borderRightColor = "#cbd5e1";
-            e.currentTarget.style.borderBottomColor = "#cbd5e1";
-            e.currentTarget.style.boxShadow = "0 8px 24px rgba(15,23,42,0.12)";
-            e.currentTarget.style.transform = "translateY(-1px)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.borderTopColor = "#e2e8f0";
-            e.currentTarget.style.borderRightColor = "#e2e8f0";
-            e.currentTarget.style.borderBottomColor = "#e2e8f0";
-            e.currentTarget.style.boxShadow = "0 2px 8px rgba(15,23,42,0.06)";
-            e.currentTarget.style.transform = "translateY(0)";
-          }}
+          onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#059669"; e.currentTarget.style.boxShadow = "0 4px 12px rgba(5,150,105,0.08)"; }}
+          onMouseLeave={(e) => { e.currentTarget.style.borderColor = "#e2e8f0"; e.currentTarget.style.boxShadow = "none"; }}
         >
           <div>
             <div style={{ fontSize: mob ? 15 : 17, fontWeight: 700, color: "#047857" }}>Not sure which broker is right for you?</div>

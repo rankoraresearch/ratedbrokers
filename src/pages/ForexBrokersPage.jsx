@@ -281,31 +281,13 @@ export default function ForexBrokersPage() {
           ))}
         </div>
         <div style={{ textAlign: "center", marginTop: 16 }}>
-          <Link to={lp("/methodology")} style={{
-            display: "inline-block", padding: "10px 24px", borderRadius: 10,
-            background: "#fff", color: "#047857",
-            fontFamily: "'Outfit', sans-serif", fontWeight: 700, fontSize: 15, letterSpacing: "-0.01em",
+          <Link to={lp("/methodology")} className="cta-secondary" style={{
+            display: "inline-block", padding: "10px 24px", borderRadius: 8,
+            background: "#fff", color: "#059669",
+            fontWeight: 700, fontSize: 15,
             textDecoration: "none",
-            border: "1.5px solid #e2e8f0",
-            borderLeft: "3px solid #059669",
-            boxShadow: "0 2px 8px rgba(15,23,42,0.06)",
-            transition: "all 0.25s cubic-bezier(0.4, 0, 0.2, 1)",
-          }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderTopColor = "#cbd5e1";
-              e.currentTarget.style.borderRightColor = "#cbd5e1";
-              e.currentTarget.style.borderBottomColor = "#cbd5e1";
-              e.currentTarget.style.boxShadow = "0 8px 24px rgba(15,23,42,0.12)";
-              e.currentTarget.style.transform = "translateY(-1px)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderTopColor = "#e2e8f0";
-              e.currentTarget.style.borderRightColor = "#e2e8f0";
-              e.currentTarget.style.borderBottomColor = "#e2e8f0";
-              e.currentTarget.style.boxShadow = "0 2px 8px rgba(15,23,42,0.06)";
-              e.currentTarget.style.transform = "translateY(0)";
-            }}
-          ><span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>Read Full Methodology <ArrowRight size={14} /></span></Link>
+            border: "2px solid #059669",
+          }}><span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>Read Full Methodology <ArrowRight size={14} /></span></Link>
         </div>
       </section>
 

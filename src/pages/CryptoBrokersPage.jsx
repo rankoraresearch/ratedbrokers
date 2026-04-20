@@ -395,31 +395,13 @@ export default function CryptoBrokersPage() {
                 <h3 style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 18, margin: 0 }}>{coin.coin}</h3>
               </div>
               <p style={{ fontSize: 14, lineHeight: 1.7, color: "#1f2937", marginBottom: 14 }}>{coin.desc}</p>
-              <Link to={lp(coin.path)} style={{
-                display: "inline-block", padding: "8px 16px", borderRadius: 10,
-                background: "#fff", color: "#047857",
-                fontFamily: "'Outfit', sans-serif", fontWeight: 700, fontSize: 14, letterSpacing: "-0.01em",
+              <Link to={lp(coin.path)} className="cta-secondary" style={{
+                display: "inline-block", padding: "8px 16px", borderRadius: 8,
+                background: "#fff", color: "#059669",
+                fontWeight: 700, fontSize: 14,
                 textDecoration: "none",
-                border: "1.5px solid #e2e8f0",
-                borderLeft: "3px solid #059669",
-                boxShadow: "0 2px 8px rgba(15,23,42,0.06)",
-                transition: "all 0.25s cubic-bezier(0.4, 0, 0.2, 1)",
-              }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderTopColor = "#cbd5e1";
-                  e.currentTarget.style.borderRightColor = "#cbd5e1";
-                  e.currentTarget.style.borderBottomColor = "#cbd5e1";
-                  e.currentTarget.style.boxShadow = "0 8px 24px rgba(15,23,42,0.12)";
-                  e.currentTarget.style.transform = "translateY(-1px)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderTopColor = "#e2e8f0";
-                  e.currentTarget.style.borderRightColor = "#e2e8f0";
-                  e.currentTarget.style.borderBottomColor = "#e2e8f0";
-                  e.currentTarget.style.boxShadow = "0 2px 8px rgba(15,23,42,0.06)";
-                  e.currentTarget.style.transform = "translateY(0)";
-                }}
-              >View Best {coin.coin.split(" ")[0]} Brokers →</Link>
+                border: "2px solid #059669",
+              }}>View Best {coin.coin.split(" ")[0]} Brokers →</Link>
             </div>
           ))}
         </div>

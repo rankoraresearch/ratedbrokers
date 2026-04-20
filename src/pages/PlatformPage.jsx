@@ -113,7 +113,7 @@ export default function PlatformPage() {
       <div style={{ fontFamily: "'DM Sans',system-ui,sans-serif", background: "#f8f9fb", minHeight: "100vh", padding: "80px 20px", textAlign: "center" }}>
         <h1 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: 28, marginBottom: 12 }}>Platform Not Found</h1>
         <p style={{ color: "#1f2937", marginBottom: 24 }}>The trading platform you're looking for doesn't exist in our database.</p>
-        <Link to={lp("/")} style={{ color: "#2563eb", fontWeight: 600, textDecoration: "none" }}>Back to Home</Link>
+        <Link to={lp("/")} className="link-green">Back to Home</Link>
       </div>
     );
   }
@@ -426,11 +426,11 @@ export default function PlatformPage() {
                     <span style={{ fontSize: 14, color: "#111827", fontWeight: 600, textAlign: "right", maxWidth: "55%" }}>{x.v}</span>
                   </div>
                 ))}
-                <a href={platform.quickFacts.website} target="_blank" rel="noopener noreferrer" style={{
+                <a href={platform.quickFacts.website} target="_blank" rel="noopener noreferrer" className="cta-secondary" style={{
                   display: "block", textAlign: "center", marginTop: 14,
                   padding: "10px", borderRadius: 8, fontSize: 14, fontWeight: 600,
-                  background: "#eff6ff", color: "#2563eb", textDecoration: "none",
-                  border: "1px solid #bfdbfe",
+                  background: "#fff", color: "#059669", textDecoration: "none",
+                  border: "2px solid #059669",
                 }}>Official Website <ExternalLink size={13} style={{ display: "inline", verticalAlign: "middle" }} /></a>
               </Card>
 
@@ -439,14 +439,14 @@ export default function PlatformPage() {
                 <Card style={{ padding: "16px" }}>
                   <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 13, marginBottom: 10, color: "#0f172a" }}>Related Rankings</div>
                   {platform.relatedRankings.map((r, i) => (
-                    <Link key={i} to={lp(r.path)} style={{
+                    <Link key={i} to={lp(r.path)} className="link-green" style={{
                       display: "block", padding: "7px 8px", borderRadius: 6,
-                      fontSize: 14, fontWeight: 500, color: "#2563eb",
-                      textDecoration: "none", transition: "background 0.15s",
+                      fontSize: 14,
+                      transition: "background 0.15s",
                     }}
                       onMouseEnter={(e) => { e.currentTarget.style.background = "#f8fafc"; }}
                       onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; }}
-                    ><span style={{ display: "inline-flex", alignItems: "center", gap: 4 }}>{r.label} <ArrowRight size={14} /></span></Link>
+                    ><span style={{ display: "inline-flex", alignItems: "center", gap: 4 }}>{r.label} <ArrowRight size={14} className="link-arrow" /></span></Link>
                   ))}
                 </Card>
               )}
