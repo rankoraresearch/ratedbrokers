@@ -11,7 +11,7 @@ import { getCountryData } from "../data/countries/index";
 import { getBrokerData } from "../data/brokers/index";
 import Breadcrumb from "../components/Breadcrumb";
 import Icon from "../components/Icon";
-import { Check, X as XIcon, ArrowRight, ChevronRight, ChevronUp, ChevronDown, HelpCircle, ExternalLink } from "lucide-react";
+import { Check, X as XIcon, ArrowRight, ChevronUp, ChevronDown, HelpCircle, ExternalLink } from "lucide-react";
 import CountryFlag from "../components/CountryFlag";
 import AuthorCredits from "../components/AuthorCredits";
 import { TEAM } from "../data/authors";

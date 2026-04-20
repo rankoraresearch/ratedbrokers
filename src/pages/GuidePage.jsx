@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useMedia } from "../hooks/useMedia";
 import { useLocalePath } from "../i18n/useLocalePath";
-import { useTranslation } from "../i18n/LanguageContext";
 import { getGuideBySlug, getAllGuides } from "../data/guides/index";
 import { AUTHORS, getFactChecker, getReviewerForAuthor, getEditor } from "../data/authors";
 import Accordion from "../components/Accordion";
@@ -11,13 +10,12 @@ import AuthorBioCard from "../components/AuthorBioCard";
 import Breadcrumb, { breadcrumbSchema } from "../components/Breadcrumb";
 import renderLinkedText from "../utils/renderLinkedText";
 import Icon from "../components/Icon";
-import { ChevronRight, CircleCheck, CircleX } from "lucide-react";
+import { CircleCheck, CircleX } from "lucide-react";
 
 export default function GuidePage() {
   const { slug } = useParams();
   const { mob, tab } = useMedia();
   const lp = useLocalePath();
-  const { t } = useTranslation();
   const [openFaq, setOpenFaq] = useState(null);
 
   const guide = getGuideBySlug(slug);

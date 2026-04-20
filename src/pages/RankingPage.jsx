@@ -15,7 +15,7 @@
 import { useState, useEffect, useRef, useMemo } from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeSanitize from "rehype-sanitize";
-import { Link, useParams, Navigate } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useMedia } from "../hooks/useMedia";
 import { useSEO } from "../hooks/useSEO";
 import NotFoundPage from "./NotFoundPage";

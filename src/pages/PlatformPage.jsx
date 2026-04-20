@@ -10,7 +10,7 @@ import Accordion from "../components/Accordion";
 import AuthorCredits from "../components/AuthorCredits";
 import AuthorBioCard from "../components/AuthorBioCard";
 import Breadcrumb, { breadcrumbSchema } from "../components/Breadcrumb";
-import Icon, { ArrowRight, Check, X as XIcon, ExternalLink } from "../components/Icon";
+import { ArrowRight, Check, X as XIcon, ExternalLink } from "../components/Icon";
 import PlatformLogo from "../components/PlatformLogo";
 import HeroBand from "../components/HeroBand";
 import { Lightbulb, AlertTriangle } from "lucide-react";
