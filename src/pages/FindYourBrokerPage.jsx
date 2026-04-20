@@ -465,7 +465,7 @@ export default function FindYourBrokerPage() {
                     display: "flex", alignItems: "center", gap: 14,
                     padding: mob ? "14px 16px" : "16px 20px", borderRadius: 12,
                     border: "none",
-                    background: selected ? "#ecfdf5" : "#fff",
+                    background: selected ? "#f8fafc" : "#fff",
                     boxShadow: selected
                       ? "inset 0 0 0 2px #059669, 0 2px 8px rgba(5,150,105,0.1)"
                       : "inset 0 0 0 1px rgba(0,0,0,0.08)",
@@ -505,7 +505,7 @@ export default function FindYourBrokerPage() {
                     display: "flex", alignItems: "center", gap: 12,
                     padding: mob ? "14px 14px" : "14px 18px", borderRadius: 12,
                     border: "none",
-                    background: selected ? "#ecfdf5" : "#fff",
+                    background: selected ? "#f8fafc" : "#fff",
                     boxShadow: selected
                       ? "inset 0 0 0 2px #059669, 0 2px 8px rgba(5,150,105,0.1)"
                       : "inset 0 0 0 1px rgba(0,0,0,0.08)",
@@ -580,13 +580,13 @@ export default function FindYourBrokerPage() {
         display: "flex", alignItems: "center", gap: 10,
         padding: "10px 14px", borderRadius: 10,
         border: selected ? "2px solid #059669" : "1px solid #e2e8f0",
-        background: selected ? "#ecfdf5" : "#fff",
+        background: selected ? "#f8fafc" : "#fff",
         cursor: "pointer", fontFamily: "inherit",
         fontSize: 15, fontWeight: selected ? 700 : 500,
         color: selected ? "#047857" : "#1f2937",
         transition: "all 0.15s", textAlign: "left",
       }}
-      onMouseEnter={(e) => { if (!selected) e.currentTarget.style.background = "#f0fdf4"; }}
+      onMouseEnter={(e) => { if (!selected) e.currentTarget.style.background = "#f8fafc"; }}
       onMouseLeave={(e) => { if (!selected) e.currentTarget.style.background = "#fff"; }}
     >
       {opt.flag && <CountryFlag code={opt.flag} size={20} />}
@@ -732,8 +732,10 @@ export default function FindYourBrokerPage() {
             return (
               <div key={r.slug} style={{
                 padding: 14, borderRadius: 12,
-                background: i === 0 ? "linear-gradient(135deg, rgba(236,253,245,0.5), rgba(209,250,229,0.3))" : "#f8fafc",
-                border: i === 0 ? "1px solid #a7f3d0" : "1px solid #e2e8f0",
+                background: "#fff",
+                border: "1.5px solid #e2e8f0",
+                borderLeft: "3px solid #059669",
+                boxShadow: "0 2px 8px rgba(15,23,42,0.04)",
               }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 10 }}>
                   <BrokerLogo slug={r.slug} name={B.name} size={48} shape="icon" />
@@ -941,7 +943,8 @@ export default function FindYourBrokerPage() {
                     {B.name}
                     {i === 0 && <span style={{
                       marginLeft: 6, fontSize: 9, fontWeight: 800, color: "#047857",
-                      background: "#d1fae5", padding: "1px 6px",
+                      background: "#f8fafc", border: "1px solid #e2e8f0",
+                      padding: "1px 6px",
                       borderRadius: 4, verticalAlign: "middle", textTransform: "uppercase",
                     }}>Best Match</span>}
                   </div>

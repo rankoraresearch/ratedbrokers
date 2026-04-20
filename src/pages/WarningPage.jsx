@@ -22,7 +22,8 @@ const C = {
   dangerBg: "#fff5f7",
   dangerBorder: "#fecdd3",
   safe: "#047857",
-  safeLight: "#ecfdf5",
+  safeLight: "#f8fafc",
+  safeLightBorder: "#e2e8f0",
   orange: "#f59e0b",
   ctaGrad: "linear-gradient(135deg, #f59e0b, #fbbf24)",
   gray: "#374151",
@@ -407,7 +408,7 @@ function SafeAlternatives({ slugs, mob }) {
                   <span key={ri} style={{ fontSize: 10, color: C.grayMuted, background: "#f3f4f6", padding: "2px 6px", borderRadius: 3 }}>{r.name}</span>
                 ))}
                 {B.tp && <span style={{ fontSize: 10, color: C.grayLight, display: "inline-flex", alignItems: "center", gap: 2 }}><Star size={9} fill="#00B67A" color="#00B67A" />{B.tp}</span>}
-                {i === 0 && <span style={{ fontSize: 10, fontWeight: 600, color: C.safe, background: C.safeLight, padding: "2px 6px", borderRadius: 3 }}>TOP PICK</span>}
+                {i === 0 && <span style={{ fontSize: 10, fontWeight: 600, color: C.safe, background: C.safeLight, border: `1px solid ${C.safeLightBorder}`, padding: "2px 6px", borderRadius: 3 }}>TOP PICK</span>}
               </div>
               <a href={visitUrl} target="_blank" rel="noopener nofollow sponsored" className="cta-primary"
                 style={{
@@ -448,7 +449,8 @@ function SafeAlternatives({ slugs, mob }) {
               {i === 0 && (
                 <span style={{
                   fontSize: 10, fontWeight: 600, color: C.safe,
-                  background: C.safeLight, padding: "2px 8px", borderRadius: 3,
+                  background: C.safeLight, border: `1px solid ${C.safeLightBorder}`,
+                  padding: "2px 8px", borderRadius: 3,
                   textTransform: "uppercase",
                 }}>Top Pick</span>
               )}
