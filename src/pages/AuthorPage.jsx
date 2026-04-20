@@ -151,7 +151,7 @@ export default function AuthorPage() {
                 </a>
               )}
               <div style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 13, color: "rgba(255,255,255,0.6)", marginLeft: 6 }}>
-                <MapPin size={13} /> {author.isFounder ? "Global" : "London, UK"}
+                <MapPin size={13} /> {author.location || (author.isFounder ? "Global" : "London, UK")}
               </div>
             </div>
           </div>

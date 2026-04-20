@@ -87,6 +87,7 @@ export const MEDIA_MENTIONS = {
     },
   ],
   "yegor-barakovskiy": [],
+  "neha-gupta": [],
 };
 
 // ─── Activity feed (unified timeline per author, sorted DESC by acted_at) ──
@@ -130,6 +131,7 @@ export const ACTIVITY_FEED = {
     { date: "Mar 24", isoDate: "2026-03-24", role: "fact-checker", title: "Best CySEC-Regulated Brokers 2026", type: "Ranking", slug: "/best-cysec-regulated-brokers" },
   ],
   "yegor-barakovskiy": [],
+  "neha-gupta": [],
 };
 
 // ─── Platform milestones (founder only) ──
