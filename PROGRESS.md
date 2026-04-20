@@ -793,3 +793,46 @@ Codex-reviewed: каждый спринт 10/10 перед реализацие�
 - `EDITORIAL-ACTIVITY-LOG.md`, `AUTHOR-PAGE-BARBARA.md`, `AUTHOR-PAGE-BILL.md` — спеки
 - `src/App.jsx` — route `/proto/author`
 - `DECISIONS.md §25-26`, `memory/author-page.md` — документация
+
+### `05f3884` Design Audit 2026-04-20 — sitewide polish (merge 23 commits)
+
+**Задача:** Егор на `/regulator/cysec` увидел оставшуюся салатовую кнопку "Verify License". Запрос — sitewide аудит цветов/концепций/стандартов без изменения текстов/логики, с гарантированным откатом. Улучшить Regulator icons, полиш Footer, сделать compact Premium Green hero для тематических рейтингов.
+
+**Процесс:** ветка `design-audit-2026-04-20` с safepoint tags. 9 спринтов (S1–S9) + delayed S9.5. Каждый спринт проходил через `/codex-review` до получения 10/10 (в сумме ~20 проходов Codex). Merge в main только после визуального approve Егора на dev-server и повторных Codex passes.
+
+**Спринты:**
+
+| # | Скоуп | Файлы | Результат |
+|---|-------|-------|-----------|
+| S1 | RegulatorPage pale-green → Plate B | RegulatorPage.jsx | Verify License, Tier callouts, Score chips переведены |
+| S2 | Forex+Crypto landing | ForexBrokersPage, CryptoBrokersPage | 15 экз. pale-green, best-cell highlights → text-only, immutable rail hover pattern sitewide |
+| S3 | Country/Ranking/Platform/Guide/AllGuides | 5 файлов | ~14 экз., Pros/Cons symmetry (green/red rails), Pro-Tip amber rail, 3-tier score colors, dead imports |
+| S4 | Compare/Quiz/Warning/NotFound | 4 файла | Top-3 Quiz унифицированы без выделения #1 (D2k rule); dead 127-строчный `QuickCompareTable_REMOVED` удалён |
+| S5 | Ranking Hero Premium Green | HeroBand.jsx + RankingPage.jsx | Новый prop `variant="green"` (default сохранён); compact hero, amber eyebrow в opaque navy capsule AAA, amber-tinted diagonal texture |
+| S6 | Footer editorial refresh | Footer.jsx | Section headings JetBrains Mono 11px amber `#fbbf24` letterSpacing 0.18em sitewide; Affiliate Disclosure дифференцирован от Risk (slate vs amber rail) |
+| S7 | Regulator icons polish | 19 SVG в public/regulators/ | Tier-coded dots (green tier-1 / amber tier-2 / red tier-3) + gloss overlay для 3D depth; original design preserved |
+| S8 | Sitewide consistency | Home.jsx, AuthorPortal, AuthorsResearchPage | `VERTICAL_MAP` 8 цветов для dots → unified `#059669` (устранён антипаттерн «детская палитра»); admin/research pale-green cleanup |
+| S9.5 | Custom CTA → sitewide components | 5 файлов | После критики Егора «цель был полиш, не новые сущности» — 5 мои custom Plate B CTA заменены на `.cta-secondary`, custom Score chip → `<ScoreBadge>` component. -76 строк inline CSS |
+
+**Зафиксированные паттерны (memory/design.md):**
+1. **Plate B card**: `bg #fff + border 1.5px #e2e8f0 + border-left 3px [coloured] + box-shadow 0 2px 8px rgba(15,23,42,0.04)`
+2. **Plate B CTA hover immutable rail**: меняются только top/right/bottom borders + shadow lift + translateY(-1px). Left rail константен.
+3. **Pro-Tip = amber rail**: `bg #fffaf0 + border-left 3px #f59e0b + title #b45309`
+4. **Cons card = red rail**: `border-left 3px #dc2626 + heading #b91c1c`
+5. **Editorial-eyebrow**: JetBrains Mono 11px amber #fbbf24 letterSpacing 0.18em (Footer + Ranking Hero + How We Rate)
+6. **Score badges 3-tier**: `#047857 (≥9.0) / #1d4ed8 (≥8.0) / #b45309 (ниже)`
+7. **AAA на dark gradient**: amber text требует **opaque** `#0f172a` capsule (не translucent rgba)
+8. **Лидер #1 НЕ выделяется** (D2k rule, sitewide)
+9. **CTA не писать ad-hoc**: использовать `.cta-secondary` (green outline), `.cta-primary`/`.cta-orange` (primary amber), `.link-green` (text link). Custom Plate B CTA — anti-pattern
+
+**Анти-паттерны устранены:**
+- Pale-green fills (`#ecfdf5`, `#f0fdf4`, `#a7f3d0`, `#d1fae5`, `#bbf7d0`) на production user-facing страницах — 0
+- Радужные chips per category (8 разных hue для vertical dots) → unified green
+- Выделение лидера #1 цветом в Quiz Top-3
+- Синие template-style CTAs на PlatformPage (Official Website blue → green outline)
+
+**Safepoints (origin):**
+- `safepoint-design-audit-2026-04-20-0243` — до начала работы
+- `safepoint-pre-design-audit-merge-2026-04-20-1319` — прямо перед merge
+
+**Rollback:** `git reset --hard safepoint-pre-design-audit-merge-2026-04-20-1319 && git push --force-with-lease origin main`.

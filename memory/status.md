@@ -1,14 +1,16 @@
 # Status — текущее состояние проекта
 
-Last updated: 2026-04-20 (Design Audit sprint — 21 коммитов на `design-audit-2026-04-20`, все 8 спринтов Codex 10/10, merge pending approve)
+Last updated: 2026-04-20 (Design Audit завершён и смёрджен в main, прод обновлён)
 
 ---
 
-## АКТИВНОЕ (2026-04-20) — Design Audit
+## ✅ ЗАВЕРШЕНО (2026-04-20) — Design Audit
 
-**Branch:** `design-audit-2026-04-20` (origin)
-**Safepoint:** `safepoint-design-audit-2026-04-20-0243` (origin)
-**Preview URL:** `https://design-audit-2026-04-20.ratedbrokers.pages.dev`
+**Merge commit:** `05f3884` → `main` (push успешен, прод `ratedbrokers.com` задеплоен)
+**Ветка:** `design-audit-2026-04-20` (origin, сохранена для истории)
+**Safepoints (origin):**
+- `safepoint-design-audit-2026-04-20-0243` — до начала работы
+- `safepoint-pre-design-audit-merge-2026-04-20-1319` — прямо перед merge
 
 ### Completed sprints (все Codex 10/10 APPROVED)
 
@@ -34,17 +36,18 @@ Last updated: 2026-04-20 (Design Audit sprint — 21 коммитов на `desi
 7. **AAA на dark**: amber текст требует opaque #0f172a capsule (не translucent rgba)
 8. **Лидер #1 не выделяется** (D2k rule): все top-3 идентичны
 
-### S9 pending
-- merge в main ждёт approve Егора после preview review
+### S9 + S9.5 (merge + delayed final review)
+- `a3fc987` — Егор нашёл что мои custom Plate B CTA/Score были "новыми сущностями" (не полиш). Refactor: 5 custom CTA → sitewide `.cta-secondary`/`.link-green`, custom Score chip → `<ScoreBadge>` component. -76 строк inline CSS.
+- Codex re-review `a3fc987` → **10/10 APPROVED** с первого прохода (0 findings).
+- Merge `05f3884` в main (no-ff, 23 коммита), push, Cloudflare автодеплой. **Прод задеплоен.**
 
-### Rollback (гарантировано)
+### Rollback (если понадобится — safepoints на origin)
 ```bash
-# Ветка ещё не смержена — удалить:
-git branch -D design-audit-2026-04-20
-git push origin --delete design-audit-2026-04-20
+# Мягкий откат последнего merge:
+git revert -m 1 05f3884 && git push origin main
 
-# Или после merge — откат на safepoint:
-git reset --hard safepoint-design-audit-2026-04-20-0243
+# Жёсткий откат на pre-merge safepoint:
+git reset --hard safepoint-pre-design-audit-merge-2026-04-20-1319
 git push --force-with-lease origin main
 ```
 

@@ -1,5 +1,85 @@
 # Design — дизайн-решения RatedBrokers
 
+## Design Audit 2026-04-20 — sitewide polish patterns (merge `05f3884`)
+
+9 паттернов зафиксированы после 23-коммитной переработки (S1–S9 + S9.5), все Codex 10/10. Применимы ко всему новому коду.
+
+### 1. Plate B card (универсальная карточка на light фоне)
+```
+bg: #fff
+border: 1.5px solid #e2e8f0
+border-left: 3px solid <tier-colour>   // 3px для card, 4px для callout
+box-shadow: 0 2px 8px rgba(15,23,42,0.04)
+border-radius: 12
+```
+Применяется: Investor Protection callout, Key Finding, Pros/Cons cards, Pro-Tip boxes, Quiz результаты top-3. **НЕ применяется к interactive CTA** — там `.cta-secondary`.
+
+### 2. Plate B CTA hover (immutable left rail)
+На hover изменяются **только** top/right/bottom borders (→ `#cbd5e1`) + shadow lift (`0 8px 24px rgba(15,23,42,0.12)`) + `translateY(-1px)`. Левая rail остаётся константной. Причина: rail — это brand identity signal, не hover-state.
+
+### 3. Pro-Tip box = amber rail
+```
+bg: #fffaf0
+border-left: 3px solid #f59e0b
+padding: 14-16px / 16-20px
+title: #b45309 (700), icon: Lightbulb
+body: #1f2937
+```
+Применяется в: PlatformPage, GuidePage. Реализует sitewide "pro tip" паттерн — единый для контентных страниц.
+
+### 4. Cons card = red rail (Pros/Cons симметрия)
+```
+border-left: 3px solid #dc2626
+heading color: #b91c1c
+icon color: #dc2626
+```
+Парно с Pros card (green rail #059669 / heading #047857). Применяется в: CountryPage, RankingPage, PlatformPage, GuidePage comparisonCards.
+
+### 5. Editorial-eyebrow (JetBrains Mono sitewide)
+```
+fontFamily: 'JetBrains Mono', ui-monospace
+fontSize: 11
+fontWeight: 700
+color: #fbbf24 (amber accent)
+textTransform: uppercase
+letterSpacing: 0.18em
+```
+Применяется sitewide для section eyebrow: Footer (все 5 колонок + Platforms bar + Risk Warning), Ranking Hero, How We Rate. Dm Sans 13px uppercase letterSpacing 1 → deprecated для eyebrow.
+
+### 6. Score badges — 3-tier color mapping
+```
+score >= 9.0 → #047857 (green)
+score >= 8.0 → #1d4ed8 (blue)
+score < 8.0  → #b45309 (amber)
+```
+Применяется в CountryPage ScoreBadge + RankingPage inline ScoreBadge. Разные оттенки — но не «радуга»: зелёный/синий/amber — градиент quality.
+
+**Важно:** для inline score chips в карточках/списках использовать **sitewide `<ScoreBadge>` компонент** (`src/components/ScoreBadge.jsx`), НЕ писать custom вариант.
+
+### 7. AAA на dark gradient — opaque capsules required
+Amber text (`#fbbf24`) на green-доминирующем gradient (`#047857 → #065f46 → #0f2e24`) **не проходит AA** на светлом конце. Решение: wrap amber text в **opaque** `#0f172a` capsule (не translucent rgba). Amber на navy `#0f172a` → ~11:1 AAA. Применение: Ranking Hero eyebrow pill + bold count chip.
+
+### 8. Лидер #1 НЕ выделяется цветом (D2k rule sitewide)
+В любых top-N списках (D2k rows, Quiz results Top-3, rankings tables) все строки визуально идентичны. Рейтинг передаётся только через `#N` badge + позицию. **Запрещено**: gradient backgrounds, цветные borders, "Best Match"/"Top Pick" plates на лидере, зелёный tint, амбер ribbons.
+
+### 9. CTA не писать ad-hoc — использовать sitewide классы
+| CTA тип | Класс | Визуал |
+|---------|-------|--------|
+| Primary action (Visit, Apply) | `.cta-primary` или `.cta-orange` | orange gradient #f59e0b→#fbbf24, hover deeper + shadow |
+| Secondary (Read Methodology, Official Website, Verify License) | `.cta-secondary` | 2px solid #059669 outline, hover fill |
+| Text link (Back to Home, Related Rankings list) | `.link-green` | #059669, hover #f59e0b, arrow translate |
+| Inline link в параграфе | `.link-inline` | #059669 underlined on hover |
+
+Custom Plate B CTA (inline white + 1.5px + 3px rail + onMouseEnter handler) — **anti-pattern**. Не создавать новые вариации. Если нужен card-style CTA banner — использовать `T.cardBg` spread + hover паттерн как Related Rankings cards.
+
+### Анти-паттерны устранены sitewide (check перед любым редизайном)
+- **Pale-green fills** (`#ecfdf5`, `#f0fdf4`, `#a7f3d0`, `#d1fae5`, `#bbf7d0`, `#dcfce7`) на production light-mode — **0 экземпляров**. On-dark mint `#6ee7b7` / `#a7f3d0` legitimate (Premium Dark palette).
+- **Радужные category chips** (8 hue для Forex/CFD/Stocks/Crypto/Options/Futures/Copy/SB) → unified `#059669` в Home VERTICAL_MAP.
+- **Шаблонные badges** "Most Popular" / "Editor's Pick" / "Best Match" / "TOP PICK" на лидере.
+- **Синие template CTA** (`#eff6ff`/`#2563eb`/`#bfdbfe` blue outline) → `.cta-secondary` green.
+
+---
+
 ## Brand Button Invariants (Barbara round 4, 2026-04-16) — применимы ко всем кнопкам сайта
 
 7 инвариантов, выведенных из Primary Orange CTA + Secondary Green outline + `.link-green`:
