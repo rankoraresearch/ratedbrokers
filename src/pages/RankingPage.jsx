@@ -721,25 +721,58 @@ export default function RankingPage() {
         } />
       </div>
 
-      {/* HERO */}
-      <HeroBand mob={mob} tab={tab}>
+      {/* HERO — Premium Green (compact) */}
+      <HeroBand mob={mob} tab={tab} compact variant="green">
         <header ref={heroRef} style={{ textAlign: "center" }}>
-          <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: mob ? 56 : 72, height: mob ? 56 : 72, borderRadius: 16, background: "rgba(255,255,255,0.1)", marginBottom: 14 }}>
-            <Icon name={ranking.icon} size={mob ? 28 : 36} color="#34d399" />
-          </span>
+          {/* Eyebrow — JetBrains Mono uppercase amber */}
+          <div style={{
+            display: "inline-flex", alignItems: "center", gap: 10,
+            marginBottom: mob ? 10 : 12,
+          }}>
+            <span style={{
+              display: "inline-flex", alignItems: "center", justifyContent: "center",
+              width: mob ? 28 : 32, height: mob ? 28 : 32, borderRadius: 8,
+              background: "rgba(251,191,36,0.14)",
+              border: "1px solid rgba(251,191,36,0.32)",
+            }}>
+              <Icon name={ranking.icon} size={mob ? 16 : 18} color="#fbbf24" strokeWidth={2} />
+            </span>
+            <span style={{
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: mob ? 10 : 11, fontWeight: 700,
+              color: "#fbbf24",
+              textTransform: "uppercase", letterSpacing: "0.18em",
+            }}>
+              Independent Ranking · {YEAR}
+            </span>
+          </div>
+
           <h1 style={{
-            fontFamily: "Outfit", fontWeight: 900,
-            fontSize: mob ? 26 : tab ? 34 : 42,
-            lineHeight: 1.1, color: "#fff", marginBottom: 8,
+            fontFamily: "Outfit", fontWeight: 800,
+            fontSize: mob ? 24 : tab ? 30 : 36,
+            lineHeight: 1.15, letterSpacing: "-0.02em",
+            color: "#fff", margin: "0 0 10px",
           }}>
             {ranking.title} {YEAR}
           </h1>
-          <p style={{
-            fontSize: mob ? 14 : 15, color: "rgba(255,255,255,0.75)",
-            maxWidth: 540, margin: "0 auto 10px", lineHeight: 1.5,
+
+          {/* Meta row — JetBrains Mono with amber separator dots */}
+          <div style={{
+            display: "inline-flex", alignItems: "center", gap: mob ? 8 : 12,
+            flexWrap: "wrap", justifyContent: "center",
+            marginBottom: mob ? 10 : 12,
+            fontFamily: "'JetBrains Mono', monospace",
+            fontSize: mob ? 11 : 12, fontWeight: 600,
+            color: "rgba(255,255,255,0.78)",
+            textTransform: "uppercase", letterSpacing: "0.08em",
           }}>
-            {brokers.length} brokers independently tested across 130+ data points
-          </p>
+            <span><span style={{ color: "#fbbf24", fontWeight: 800 }}>{brokers.length}</span> Brokers Tested</span>
+            <span style={{ color: "rgba(251,191,36,0.55)" }}>·</span>
+            <span>130+ Data Points</span>
+            <span style={{ color: "rgba(251,191,36,0.55)" }}>·</span>
+            <span>Updated Q2 {YEAR}</span>
+          </div>
+
           <div style={{ display: "flex", justifyContent: "center" }}>
             <AuthorCredits author={author} editor={editor} reviewer={reviewer} factChecker={factChecker} updatedDate={`March ${YEAR}`} variant="centered" onDark />
           </div>
