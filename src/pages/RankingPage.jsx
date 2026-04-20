@@ -26,7 +26,6 @@ import RankingSubNav from "../components/RankingSubNav";
 import SEO_CONTENT from "../data/rankingSeoContent";
 import { getThematicData, getBrokerBlurb, getComparisonCols, getEducation } from "../data/rankingThematic";
 import BrokerRankCard from "../components/BrokerRankCard";
-import ScoreBadge from "../components/ScoreBadge";
 import Accordion from "../components/Accordion";
 import AffiliateDisclosureBanner from "../components/AffiliateDisclosureBanner";
 import { getAuthorForRanking, getFactChecker, getReviewerForAuthor, getEditor } from "../data/authors";

@@ -294,7 +294,7 @@ export default function PlatformPage() {
                 ))}
               </div>
               <div style={{ background: "#fff", border: "1.5px solid #e2e8f0", borderLeft: "3px solid #dc2626", boxShadow: "0 2px 8px rgba(15,23,42,0.04)", borderRadius: 12, padding: "20px" }}>
-                <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 15, color: "#dc2626", marginBottom: 12 }}>Cons</div>
+                <div style={{ fontFamily: "Outfit", fontWeight: 700, fontSize: 15, color: "#b91c1c", marginBottom: 12 }}>Cons</div>
                 {platform.cons.map((c, i) => (
                   <div key={i} style={{ fontSize: 14, color: "#111827", marginBottom: 8, paddingLeft: 16, position: "relative", lineHeight: 1.5 }}>
                     <span style={{ position: "absolute", left: 0, color: "#dc2626" }}><XIcon size={14} /></span>{c}
