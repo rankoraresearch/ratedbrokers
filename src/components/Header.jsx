@@ -28,38 +28,44 @@ const TOTAL_VERTICALS = Object.keys(VERTICAL_META).length;
    MENU DATA
    ═══════════════════════════════════════════════════════ */
 
-/* Labels выровнены по primary keyword URL-страниц — каждая ссылка
-   содержит Brokers/Platforms/Apps чтобы link equity распределялся
-   чисто на money pages без размытия. */
+/* Labels sitewide используют "Best {vertical} {Brokers|Platforms|Apps}" pattern.
+   Большинство destination URL /best-* и title тоже начинаются с "Best" (exact-match).
+   Для исключений (/lowest-spread-forex-brokers, /no-minimum-deposit-forex-brokers)
+   "Best" prefix работает как commercial modifier — ловит best-модифицированные queries
+   ("best lowest spread forex brokers") без потери keyword-match на core-phrase. */
 const BROKERS_BY_ASSET = [
-  { label: "Forex Brokers",           path: "/best-forex-brokers",          count: 48 },
-  { label: "CFD Brokers",             path: "/best-cfd-brokers",            count: 46 },
-  { label: "Stock Brokers",           path: "/best-stock-brokers",          count: 13 },
-  { label: "Options Brokers",         path: "/best-options-brokers",        count: 9  },
-  { label: "Futures Brokers",         path: "/best-futures-brokers",        count: 10 },
-  { label: "Crypto Brokers",          path: "/best-crypto-brokers",         count: 28 },
-  { label: "Copy Trading Platforms",  path: "/best-copy-trading-platforms", count: 18 },
-  { label: "Spread Betting Brokers",  path: "/best-spread-betting-brokers", count: 10 },
+  { label: "Best Forex Brokers",           path: "/best-forex-brokers",          count: 48 },
+  { label: "Best CFD Brokers",             path: "/best-cfd-brokers",            count: 46 },
+  { label: "Best Stock Brokers",           path: "/best-stock-brokers",          count: 13 },
+  { label: "Best Options Brokers",         path: "/best-options-brokers",        count: 9  },
+  { label: "Best Futures Brokers",         path: "/best-futures-brokers",        count: 10 },
+  { label: "Best Crypto Brokers",          path: "/best-crypto-brokers",         count: 28 },
+  { label: "Best Copy Trading Platforms",  path: "/best-copy-trading-platforms", count: 18 },
+  { label: "Best Spread Betting Brokers",  path: "/best-spread-betting-brokers", count: 10 },
 ];
 
 const BROKERS_BY_STYLE = [
-  { label: "Forex Brokers for Beginners",   path: "/best-forex-brokers-for-beginners" },
-  { label: "Lowest Spread Forex Brokers",   path: "/lowest-spread-forex-brokers" },
-  { label: "ECN Forex Brokers",             path: "/best-ecn-forex-brokers" },
-  { label: "Forex Brokers for Scalping",    path: "/best-forex-brokers-for-scalping" },
-  { label: "Social Trading Platforms",      path: "/best-social-trading-platforms" },
-  { label: "No Minimum Deposit Forex Brokers", path: "/no-minimum-deposit-forex-brokers" },
-  { label: "Forex Brokers for Professionals", path: "/best-forex-brokers-for-professionals" },
-  { label: "Islamic Forex Brokers",         path: "/best-islamic-forex-brokers" },
+  { label: "Best Forex Brokers for Beginners",    path: "/best-forex-brokers-for-beginners" },
+  // "Best" prepended to non-/best slug per sitewide pattern (user-requested).
+  // Acts as commercial modifier; title on destination is "Lowest Spread Forex Brokers".
+  { label: "Best Lowest Spread Forex Brokers",    path: "/lowest-spread-forex-brokers" },
+  { label: "Best ECN Forex Brokers",              path: "/best-ecn-forex-brokers" },
+  { label: "Best Forex Brokers for Scalping",     path: "/best-forex-brokers-for-scalping" },
+  { label: "Best Social Trading Platforms",       path: "/best-social-trading-platforms" },
+  // "Best" prepended to non-/best slug per sitewide pattern (user-requested).
+  // Acts as commercial modifier; title on destination is "No Minimum Deposit Forex Brokers".
+  { label: "Best No Minimum Deposit Forex Brokers", path: "/no-minimum-deposit-forex-brokers" },
+  { label: "Best Forex Brokers for Professionals", path: "/best-forex-brokers-for-professionals" },
+  { label: "Best Islamic Forex Brokers",          path: "/best-islamic-forex-brokers" },
 ];
 
 const BROKERS_BY_PLATFORM = [
-  { label: "MT4 Brokers",          path: "/best-metatrader-4-brokers" },
-  { label: "MT5 Brokers",          path: "/best-metatrader-5-brokers" },
-  { label: "cTrader Brokers",      path: "/best-ctrader-brokers" },
-  { label: "TradingView Brokers",  path: "/best-tradingview-brokers" },
-  { label: "Forex Trading Apps",   path: "/best-forex-trading-apps" },
-  { label: "Crypto Trading Apps",  path: "/best-crypto-trading-apps" },
+  { label: "Best MT4 Brokers",          path: "/best-metatrader-4-brokers" },
+  { label: "Best MT5 Brokers",          path: "/best-metatrader-5-brokers" },
+  { label: "Best cTrader Brokers",      path: "/best-ctrader-brokers" },
+  { label: "Best TradingView Brokers",  path: "/best-tradingview-brokers" },
+  { label: "Best Forex Trading Apps",   path: "/best-forex-trading-apps" },
+  { label: "Best Crypto Trading Apps",  path: "/best-crypto-trading-apps" },
 ];
 
 const TOP_REVIEWS = [
@@ -601,7 +607,7 @@ export default function Header() {
                               >
                                 <CountryFlag code={c.code} size={16} />
                                 <span style={{ flex: 1, minWidth: 0, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
-                                  Forex Brokers {c.geo}
+                                  Best Forex Brokers {c.geo}
                                 </span>
                                 <ArrowUpRight size={12} color="#cbd5e1" />
                               </Link>
@@ -626,7 +632,7 @@ export default function Header() {
                               >
                                 <CountryFlag code={c.code} size={16} />
                                 <span style={{ flex: 1, minWidth: 0, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
-                                  Crypto Brokers {c.geo}
+                                  Best Crypto Brokers {c.geo}
                                 </span>
                                 <ArrowUpRight size={12} color="#cbd5e1" />
                               </Link>
@@ -654,7 +660,7 @@ export default function Header() {
                               >
                                 <CountryFlag code={row.country.code} size={16} />
                                 <span style={{ flex: 1, minWidth: 0, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
-                                  {meta.label} {meta.word} {row.country.geo}
+                                  Best {meta.label} {meta.word} {row.country.geo}
                                 </span>
                                 <ArrowUpRight size={12} color="#cbd5e1" />
                               </Link>
@@ -845,7 +851,7 @@ export default function Header() {
                           textDecoration: "none",
                           fontSize: 13.5, fontWeight: 600, color: "#0f172a",
                         }}>
-                          {meta.label} {meta.word} {c.geo}
+                          Best {meta.label} {meta.word} {c.geo}
                           <ArrowUpRight size={12} color="#cbd5e1" style={{ marginLeft: "auto" }} />
                         </Link>
                       );

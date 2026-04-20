@@ -25,17 +25,18 @@ function VerticalChips({ verticals, country, lp }) {
       {verticals.map((v) => {
         const meta = VERTICAL_META[v.key];
         if (!meta) return null;
-        // SEO anchor text: full keyword (e.g. "Forex Brokers UK", "Crypto Brokers USA").
-        // Mirrors the Home.jsx pattern so link equity points consistently at money pages.
-        // Dot colour стандартный green (CSS .rb-dot), без per-vertical окраски —
-        // визуальный стандарт совпадает с Home "Regulated Brokers by Country".
-        const anchor = `${meta.label} ${meta.word} ${country.geo}`;
+        // SEO anchor text: "Best {vertical} {word} {geo}" — единый sitewide pattern.
+        // Country-specific destinations (все /best-*-{country}) дают exact-match
+        // с title ("Best Forex Brokers UK — 2026 Rankings"). Тот же шаблон применяется
+        // в Header Brokers/Countries dropdowns, где для 2 non-/best URL работает как
+        // commercial modifier (см. комментарий в src/components/Header.jsx).
+        const anchor = `Best ${meta.label} ${meta.word} ${country.geo}`;
         return (
           <Link
             key={v.key}
             to={lp(v.path)}
             className="rb-link-rail"
-            title={`${meta.label} ${meta.word} in ${country.name}`}
+            title={anchor}
             style={{ fontSize: 13 }}
           >
             <span className="rb-dot" />
