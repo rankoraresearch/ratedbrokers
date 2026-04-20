@@ -721,7 +721,7 @@ function AuthorCard({ author, mob }) {
       {(author.certifications?.length > 0 || author.education?.length > 0 || author.yearsInIndustry) && (
         <div style={{ display: "flex", gap: 4, flexWrap: "wrap", fontSize: 10, color: palette.text }}>
           {author.yearsInIndustry && (
-            <span style={{ padding: "2px 6px", background: "#ecfdf5", color: "#047857", borderRadius: 4, fontWeight: 700 }}>
+            <span style={{ padding: "2px 6px", background: "#f8fafc", border: "1px solid #e2e8f0", color: "#047857", borderRadius: 4, fontWeight: 700 }}>
               {author.yearsInIndustry} yrs
             </span>
           )}
@@ -729,9 +729,9 @@ function AuthorCard({ author, mob }) {
             <span key={i} title={`${c.name} · ${c.issuer}${c.verified ? " · verified" : " · not verified"}`}
               style={{
                 padding: "2px 6px", borderRadius: 4, fontWeight: 700,
-                background: c.verified ? "#d1fae5" : "#fef3c7",
+                background: "#f8fafc",
                 color: c.verified ? "#047857" : "#b45309",
-                border: `1px solid ${c.verified ? "#6ee7b7" : "#fcd34d"}`,
+                border: `1px solid ${c.verified ? "#e2e8f0" : "#fcd34d"}`,
               }}>
               🎖 {c.name}
             </span>
@@ -862,8 +862,8 @@ function SocialLink({ icon, url, label, strong }) {
         display: "inline-flex", alignItems: "center", gap: 4,
         fontSize: 11, fontWeight: 600,
         color: strong ? "#fff" : palette.link,
-        background: strong ? palette.link : "#ecfdf5",
-        border: `1px solid ${strong ? palette.link : "#a7f3d0"}`,
+        background: strong ? palette.link : "#f8fafc",
+        border: `1px solid ${strong ? palette.link : "#e2e8f0"}`,
         padding: "3px 7px", borderRadius: 6,
         textDecoration: "none",
       }}
@@ -1021,7 +1021,7 @@ function IconLink({ url, title, children }) {
       style={{
         display: "inline-flex", alignItems: "center", justifyContent: "center",
         width: 22, height: 22, color: palette.link,
-        background: "#ecfdf5", borderRadius: 4,
+        background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: 4,
       }}
     >{children}</a>
   );

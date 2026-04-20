@@ -92,15 +92,18 @@ import { getVisitUrl } from "../utils/visitUrl";
 // ══════════════════════════════════════════════════════
 // Top Rated Brokers — Power Cards
 // ══════════════════════════════════════════════════════
+// Unified vertical dot color — brand green #059669 sitewide
+// (было: 8 разных hue — anti-pattern "детская палитра" per DESIGN-ANTIPATTERNS)
+const VERTICAL_ACCENT = "#059669";
 const VERTICAL_MAP = {
-  forex: { label: "Forex", color: "#059669" },
-  cfd: { label: "CFD", color: "#2563eb" },
-  stocks: { label: "Stocks", color: "#0ea5e9" },
-  crypto: { label: "Crypto", color: "#f59e0b" },
-  options: { label: "Options", color: "#8b5cf6" },
-  futures: { label: "Futures", color: "#ea580c" },
-  "copy-trading": { label: "Copy", color: "#7c3aed" },
-  "spread-betting": { label: "SB", color: "#dc2626" },
+  forex: { label: "Forex", color: VERTICAL_ACCENT },
+  cfd: { label: "CFD", color: VERTICAL_ACCENT },
+  stocks: { label: "Stocks", color: VERTICAL_ACCENT },
+  crypto: { label: "Crypto", color: VERTICAL_ACCENT },
+  options: { label: "Options", color: VERTICAL_ACCENT },
+  futures: { label: "Futures", color: VERTICAL_ACCENT },
+  "copy-trading": { label: "Copy", color: VERTICAL_ACCENT },
+  "spread-betting": { label: "SB", color: VERTICAL_ACCENT },
 };
 
 function BrokerPowerCards({ mob, tab, lp, brokers }) {
