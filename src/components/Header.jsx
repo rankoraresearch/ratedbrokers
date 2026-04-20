@@ -656,10 +656,6 @@ export default function Header() {
                                 <span style={{ flex: 1, minWidth: 0, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
                                   {meta.label} {meta.word} {row.country.geo}
                                 </span>
-                                <span aria-hidden="true" style={{
-                                  width: 6, height: 6, borderRadius: "50%",
-                                  background: meta.color, flexShrink: 0,
-                                }} />
                                 <ArrowUpRight size={12} color="#cbd5e1" />
                               </Link>
                             );
@@ -849,10 +845,6 @@ export default function Header() {
                           textDecoration: "none",
                           fontSize: 13.5, fontWeight: 600, color: "#0f172a",
                         }}>
-                          <span aria-hidden="true" style={{
-                            width: 8, height: 8, borderRadius: "50%",
-                            background: meta.color, flexShrink: 0,
-                          }} />
                           {meta.label} {meta.word} {c.geo}
                           <ArrowUpRight size={12} color="#cbd5e1" style={{ marginLeft: "auto" }} />
                         </Link>
