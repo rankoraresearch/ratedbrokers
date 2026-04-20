@@ -9,8 +9,9 @@ import CountryFlag from "../components/CountryFlag";
    Ключевые изменения vs live Header.jsx:
    1. «Forex Brokers ▾» + «Crypto Brokers ▾» → один «Brokers ▾»
       с 3 колонками (By Asset × 8 / By Trading Style × 8 / By Platform × 6)
-   2. «Reviews ▾» — настоящие wide-лого вместо монограмм,
-      линк на /reviews (фикс: раньше вёл на /best-forex-brokers)
+   2. «Reviews ▾» — квадратные square-чипы 32×32 (public/logos/{slug}.png) +
+      broker name как текстовый label. Линк на /reviews
+      (фикс: раньше вёл на /best-forex-brokers)
    3. Compare + Methodology возвращены на desktop
    4. Countries — per-vertical чипы (клик на страну ведёт в forex-landing,
       рядом мини-ссылки CFD/Crypto для той же страны — все URL реальные)
@@ -106,35 +107,43 @@ const COUNTRIES = [
   { code: "TR", name: "Turkey",         forex: "/best-forex-brokers-turkey" },
 ];
 
-/* Wide logo из public/logos-wide/ с fallback на PNG и имя брокера */
-function MenuLogo({ slug, name, w = 96, h = 28 }) {
+/* Square logo chip для Reviews dropdown — 32×32 из public/logos/{slug}.png.
+   Broker name рендерится отдельным span рядом с chip, поэтому логотип
+   помечен aria-hidden (decorative) чтобы screen readers не дублировали имя. */
+function MenuSquareLogo({ slug, name, size = 32 }) {
   const [err, setErr] = useState(false);
-  const [ext, setExt] = useState("svg");
-  if (err && ext === "svg") {
+  if (err) {
     return (
-      <div style={{
-        width: w, height: h, borderRadius: 6, background: "#f1f5f9",
-        display: "flex", alignItems: "center", justifyContent: "center",
-        fontFamily: "Outfit, sans-serif", fontWeight: 800, fontSize: 11, color: "#0f172a",
-        letterSpacing: -0.2,
-      }}>{name}</div>
+      <div
+        role="img"
+        aria-hidden="true"
+        style={{
+          width: size, height: size, borderRadius: 6,
+          background: "#f1f5f9", border: "1px solid #e2e8f0",
+          display: "flex", alignItems: "center", justifyContent: "center",
+          fontFamily: "Outfit, sans-serif", fontWeight: 800, fontSize: 11,
+          color: "#0f172a", letterSpacing: -0.3, flexShrink: 0,
+        }}
+      >
+        {name.slice(0, 2).toUpperCase()}
+      </div>
     );
   }
   return (
     <div style={{
-      width: w, height: h, background: "#ffffff", borderRadius: 6,
-      border: "1px solid #e2e8f0",
+      width: size, height: size, borderRadius: 6,
+      background: "#ffffff", border: "1px solid #e2e8f0",
       display: "inline-flex", alignItems: "center", justifyContent: "center",
-      padding: "2px 6px", overflow: "hidden", flexShrink: 0,
+      overflow: "hidden", flexShrink: 0, padding: 3,
     }}>
       <img
-        src={`${import.meta.env.BASE_URL}logos-wide/${slug}.${ext}`}
-        alt={`${name} logo`}
-        style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }}
-        onError={() => {
-          if (ext === "svg") setExt("png");
-          else setErr(true);
-        }}
+        src={`${import.meta.env.BASE_URL}logos/${slug}.png`}
+        alt=""
+        aria-hidden="true"
+        width={size - 6}
+        height={size - 6}
+        style={{ width: "100%", height: "100%", objectFit: "contain", display: "block" }}
+        onError={() => setErr(true)}
       />
     </div>
   );
@@ -364,12 +373,17 @@ export default function MenuProtoV2() {
                               onMouseEnter={(e) => { e.currentTarget.style.background = "#f1f5f9"; }}
                               onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; }}
                             >
-                              <MenuLogo slug={b.slug} name={b.name} w={104} h={30} />
+                              <MenuSquareLogo slug={b.slug} name={b.name} size={32} />
+                              <span style={{
+                                fontSize: 14, fontWeight: 600, color: "#0f172a",
+                                whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis",
+                                minWidth: 0, flex: 1,
+                              }}>{b.name}</span>
                               <span style={{
                                 marginLeft: "auto",
                                 fontFamily: "'JetBrains Mono',monospace", fontWeight: 800, fontSize: 12,
                                 color: "#0f172a", background: "#f1f5f9",
-                                padding: "2px 6px", borderRadius: 4,
+                                padding: "2px 6px", borderRadius: 4, flexShrink: 0,
                               }}>{b.score}</span>
                             </Link>
                           ))}
@@ -387,10 +401,16 @@ export default function MenuProtoV2() {
                               onMouseEnter={(e) => { e.currentTarget.style.background = "#f1f5f9"; }}
                               onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; }}
                             >
-                              <MenuLogo slug={b.slug} name={b.name} w={104} h={30} />
+                              <MenuSquareLogo slug={b.slug} name={b.name} size={32} />
+                              <span style={{
+                                fontSize: 14, fontWeight: 600, color: "#0f172a",
+                                whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis",
+                                minWidth: 0, flex: 1,
+                              }}>{b.name}</span>
                               <span style={{
                                 marginLeft: "auto", fontSize: 10.5, fontWeight: 700,
                                 color: "#64748b", textTransform: "uppercase", letterSpacing: 0.4,
+                                flexShrink: 0,
                               }}>{b.tag}</span>
                             </Link>
                           ))}
@@ -712,7 +732,7 @@ export default function MenuProtoV2() {
             <h3 style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: 18, color: "#0f172a", margin: "0 0 14px" }}>Что изменилось vs live</h3>
             <ul style={{ margin: 0, paddingLeft: 20, fontSize: 14, color: "#334155", lineHeight: 1.7 }}>
               <li><b>«Brokers ▾»</b> заменил Forex + Crypto. Все 8 вертикалей — в одном месте.</li>
-              <li><b>Top Rated</b> с настоящими wide-лого вместо монограмм.</li>
+              <li><b>Reviews</b> — квадратные 32×32 чипы с текстовым именем брокера.</li>
               <li><b>Reviews → /reviews</b> (live ведёт на /best-forex-brokers — баг).</li>
               <li><b>Compare + Methodology</b> возвращены на desktop.</li>
               <li><b>Countries</b> — per-vertical чипы (CFD/BTC рядом с флагом).</li>
