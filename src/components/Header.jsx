@@ -272,7 +272,6 @@ export default function Header() {
     textDecoration: "none", color: "#0f172a",
     fontSize: 13, fontWeight: 600,
     transition: "background 0.15s, color 0.15s",
-    minWidth: 0,
   };
 
   /* ── Desktop nav button ── */
@@ -587,12 +586,12 @@ export default function Header() {
               <div style={{ position: "relative" }} onMouseEnter={() => enter("countries")} onMouseLeave={leave} onFocus={() => enter("countries")} onBlur={leave}>
                 <NavBtn id="countries" label={t("nav.countries")} href="/best-brokers-by-country" />
                 {activeDropdown === "countries" && (
-                  <div style={{ ...ddBase, right: 0, width: 900 }}
+                  <div style={{ ...ddBase, right: 0, width: 780 }}
                     onMouseEnter={() => enter("countries")} onMouseLeave={leave}
                   >
-                    <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr)", gap: 16 }}>
+                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 22 }}>
                       {/* Col 1: Forex */}
-                      <div style={{ minWidth: 0 }}>
+                      <div>
                         <div style={{ ...secHead, color: VERTICAL_META.forex.color, borderBottomColor: "#ecfdf5" }}>
                           Forex Brokers
                         </div>
@@ -617,7 +616,7 @@ export default function Header() {
                         </div>
                       </div>
                       {/* Col 2: Crypto */}
-                      <div style={{ minWidth: 0 }}>
+                      <div>
                         <div style={{ ...secHead, color: VERTICAL_META.crypto.color, borderBottomColor: "#fef3c7" }}>
                           Crypto Brokers
                         </div>
@@ -642,7 +641,7 @@ export default function Header() {
                         </div>
                       </div>
                       {/* Col 3: Other assets */}
-                      <div style={{ minWidth: 0 }}>
+                      <div>
                         <div style={{ ...secHead, color: "#0f172a", borderBottomColor: "#e2e8f0" }}>
                           Other Assets
                         </div>
