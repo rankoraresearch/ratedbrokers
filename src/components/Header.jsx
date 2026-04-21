@@ -586,7 +586,7 @@ export default function Header() {
               <div style={{ position: "relative" }} onMouseEnter={() => enter("countries")} onMouseLeave={leave} onFocus={() => enter("countries")} onBlur={leave}>
                 <NavBtn id="countries" label={t("nav.countries")} href="/best-brokers-by-country" />
                 {activeDropdown === "countries" && (
-                  <div style={{ ...ddBase, right: 0, width: 780 }}
+                  <div style={{ ...ddBase, right: 0, width: 840 }}
                     onMouseEnter={() => enter("countries")} onMouseLeave={leave}
                   >
                     <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 22 }}>
