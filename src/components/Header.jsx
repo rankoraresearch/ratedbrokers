@@ -660,7 +660,7 @@ export default function Header() {
                               >
                                 <CountryFlag code={row.country.code} size={16} />
                                 <span style={{ flex: 1, minWidth: 0, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
-                                  Best {meta.label} {meta.word} {row.country.geo}
+                                  Best {meta.label} {row.vertKey !== "spreadBetting" && `${meta.word} `}{row.country.geo}
                                 </span>
                                 <ArrowUpRight size={12} color="#cbd5e1" />
                               </Link>
@@ -851,7 +851,7 @@ export default function Header() {
                           textDecoration: "none",
                           fontSize: 13.5, fontWeight: 600, color: "#0f172a",
                         }}>
-                          Best {meta.label} {meta.word} {c.geo}
+                          Best {meta.label} {v.key !== "spreadBetting" && `${meta.word} `}{c.geo}
                           <ArrowUpRight size={12} color="#cbd5e1" style={{ marginLeft: "auto" }} />
                         </Link>
                       );
