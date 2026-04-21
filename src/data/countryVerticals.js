@@ -33,7 +33,7 @@ export const VERTICAL_META = {
   futures:       { label: "Futures",       word: "Brokers",   color: "#ea580c" },
   crypto:        { label: "Crypto",        word: "Brokers",   color: "#d97706" },
   copyTrading:   { label: "Copy Trading",  word: "Platforms", color: "#7c3aed" },
-  spreadBetting: { label: "Spread Betting", word: "Platforms", color: "#dc2626" },
+  spreadBetting: { label: "Spread Betting", word: "Firms",     color: "#dc2626" },
 };
 
 export const COUNTRY_VERTICALS = [
