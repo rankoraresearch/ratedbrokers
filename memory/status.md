@@ -1,6 +1,42 @@
 # Status — текущее состояние проекта
 
-Last updated: 2026-04-20 (Design Audit завершён и смёрджен в main, прод обновлён)
+Last updated: 2026-04-21 (Menu Sprint + Neha Gupta + Countries dropdown hotfixes задеплоены; HEAD: `a2f023d`)
+
+---
+
+## ✅ ЗАВЕРШЕНО (2026-04-21) — Menu Sprint S1-S9 + Neha Gupta + Stream A
+
+**Merge commit:** `0a97b1e` → `main` (13 коммитов), **HEAD:** `a2f023d` (после hotfixes)
+**Ветка:** `menu-sprint-2026-04-20` (origin, сохранена для истории)
+**Safepoint (origin):** `safepoint-pre-menu-sprint-merge-2026-04-21-0104`
+
+### Что задеплоено на `ratedbrokers.com`
+
+1. **Menu redesign S1-S9** — MenuProtoV2 → Header.jsx production:
+   - Единый **Brokers ▾** mega с 8 вертикалями (было Forex+Crypto, 6 спрятанных)
+   - **Reviews ▾** square logo chips, diversified Popular (Copy/CFD/Multi-asset/Stocks/Options), CTA → /reviews (fix bug)
+   - **Countries ▾** с per-vertical SEO-анкорами "Best {label} {word} {geo}"
+   - **Compare + Methodology** возвращены на desktop (E-E-A-T)
+   - Новый multi-asset umbrella хаб `/best-brokers-by-country` (S9: ребренд со старого `/brokers-by-country`, 301 redirect)
+2. **Neha Gupta (5-й член редакции)** — CFA + PGDBA, 17 лет equity/hedge-fund/crypto, 35K+ articles. AuthorPage fallback для `author.location`.
+3. **Countries dropdown hotfixes (post-deploy):**
+   - `f59081f` Platforms → Firms (VERTICAL_META) — не помог целостно
+   - `433fd10` conditional render в Header.jsx lines 663 + 854: для spreadBetting vertical слово `meta.word` пропускается только в dropdown (не в /best-brokers-by-country)
+   - `a2f023d` width 780 → 840 — стрелки ↗ в 3-й колонке отошли от правой стенки
+
+### Rollback (если понадобится)
+
+```bash
+# Мягко откатить merge:
+git revert -m 1 0a97b1e && git push origin main
+
+# Жёстко вернуть main на safepoint:
+git reset --hard safepoint-pre-menu-sprint-merge-2026-04-21-0104
+git push --force-with-lease origin main
+```
+
+### Детальный лог сессии
+`logs/2026-04.md` — "2026-04-21 | Сессия: Recovery после аварийного закрытия..."
 
 ---
 
@@ -57,24 +93,9 @@ git push --force-with-lease origin main
 
 ---
 
-## АКТИВНОЕ (2026-04-19)
+## ЗАКРЫТО (2026-04-21) — Menu Redesign
 
-**Menu Redesign** — [[menu-redesign]]
-- Глубокий аудит `src/components/Header.jsx` (1055 строк): 9 концептуальных проблем + 9 мелких багов
-- Главная находка: 6 из 8 вертикалей (CFD/Stocks/Options/Futures/Copy/Spread) спрятаны из nav — меню живёт в Forex-эпохе, не синхронизовано с M4 Online Brokers umbrella
-- **Прототип:** `src/pages/MenuProtoV2.jsx` (~650 строк, dev-only) — **одобрен Егором**
-- **Live:** http://localhost:5173/proto/menu-v2
-- **Branch:** `design-audit-round-2`, не коммичено
-
-### Pending: prod перенос в Header.jsx
-1. Forex + Crypto nav → единый **Brokers ▾** mega (4 кол, 8 вертикалей с counts)
-2. Reviews → настоящие wide-лого + fix bottom CTA (`/best-forex-brokers` → `/reviews`)
-3. Compare + Methodology возврат на desktop
-4. Countries → per-vertical CFD/BTC чипы
-5. EN ▾ → disabled state пока i18n не готов
-6. Удалить dead code (icon/color fields, GUIDE_ITEMS, renderCatItems/renderMobCatItems) ~40 строк
-
-Ожидаемый diff: Header.jsx 1055 → ~850 строк.
+Весь backlog из аудита 2026-04-19 реализован и задеплоен в main 2026-04-21 (см. секцию выше). Прототип `MenuProtoV2.jsx` → production `Header.jsx`, все 6 пунктов pending закрыты. Memory узел `[[menu-redesign]]` остаётся для истории.
 
 ---
 
