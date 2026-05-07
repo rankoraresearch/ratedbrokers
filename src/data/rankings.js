@@ -1,7 +1,7 @@
 /**
  * Master list of all thematic broker rankings for RatedBrokers.com
  * Each entry = one landing page targeting a specific search query cluster.
- * Total: 253 pages (200 original + 53 M4 umbrella expansion)
+ * Total: 283 pages (after NB-1 non-broker URL cleanup, 2026-05-07)
  *
  * Fields:
  *   id        — unique identifier
