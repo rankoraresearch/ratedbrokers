@@ -60,12 +60,30 @@ for (const m of rankingsSrc.matchAll(rankingRe)) {
   rankings.push({ id: m[1], slug: m[2] });
 }
 
-// Parse rankingFilters.js → Set of IDs with a filter
-const filterIds = new Set();
-const filterRe = /^\s*"([a-z0-9-]+)":/gm;
-for (const m of filtersSrc.matchAll(filterRe)) {
-  filterIds.add(m[1]);
+// Parse rankingFilters.js → Sets of IDs.
+// Three top-level objects exist: FILTERS (per-ranking), TYPE_FILTERS / GEO_FILTERS
+// (helper maps for combinatorial IDs). Runtime lookup is `FILTERS[id] || combi(id) || all`,
+// so a ranking ID is "covered" if it appears in EITHER FILTERS or TYPE_FILTERS.
+// Orphan-check uses FILTERS only — entries in the helper maps are intentionally
+// shared with combi pages and shouldn't be flagged.
+function extractObjectKeys(source, declToken) {
+  const start = source.indexOf(declToken);
+  if (start === -1) return new Set();
+  const end = source.indexOf("\n};", start);
+  const block = source.slice(start, end === -1 ? undefined : end);
+  const keys = new Set();
+  const re = /^\s*"([a-z0-9-]+)":/gm;
+  for (const m of block.matchAll(re)) keys.add(m[1]);
+  return keys;
 }
+
+const mainFilterIds = extractObjectKeys(filtersSrc, "const FILTERS = {");
+const typeFilterIds = extractObjectKeys(filtersSrc, "const TYPE_FILTERS = {");
+if (mainFilterIds.size === 0) {
+  console.error("Could not parse `const FILTERS = {` in rankingFilters.js");
+  process.exit(1);
+}
+const filterIds = new Set([...mainFilterIds, ...typeFilterIds]);
 
 const errors = [];
 const seenIds = new Set();
@@ -95,10 +113,12 @@ for (const { id, slug } of rankings) {
   }
 }
 
-// Orphan filter IDs (filter exists but no ranking uses it) — non-fatal warning
+// Orphan filter IDs (filter exists but no ranking uses it) — non-fatal warning.
+// Only check the main FILTERS object. TYPE_FILTERS / GEO_FILTERS keys are
+// intentionally reused by combi pages, so flagging them would be noise.
 const rankingIds = new Set(rankings.map((r) => r.id));
 const orphans = [];
-for (const id of filterIds) {
+for (const id of mainFilterIds) {
   if (!rankingIds.has(id) && !id.startsWith("combi-")) orphans.push(id);
 }
 
