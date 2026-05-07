@@ -136,18 +136,16 @@
   - `best-index-spread-betting`, `best-spread-betting-uk`
 - [ ] **2.4** Добавить секцию **Crypto расширение** (14 рейтингов):
   - `best-crypto-brokers-for-beginners`, `best-regulated-crypto-brokers`
-  - `best-cardano-brokers`, `best-usdt-trading-platforms`, `best-bitcoin-etf-brokers`
-  - `best-crypto-margin-trading`, `best-crypto-demo-accounts`
+  - `best-cardano-brokers`, `best-bitcoin-etf-brokers`
+  - `best-crypto-demo-accounts`
   - `best-crypto-brokers-uk`, `best-crypto-brokers-usa`, `best-crypto-brokers-australia`
   - `best-crypto-brokers-canada`, `best-crypto-brokers-germany`
-  - `best-crypto-exchanges`, `best-crypto-wallets`
 - [ ] **2.5** Добавить секцию **Forex gaps** (16 рейтингов):
   - Страны: `best-forex-brokers-portugal`, `-denmark`, `-norway`, `-finland`, `-greece`
   - Регуляторы: `fsa-regulated-forex-brokers`, `ifsc-regulated-forex-brokers`, `vfsc-regulated-forex-brokers`
   - Платформы: `best-forex-brokers-mac`
   - Пары: `best-usdcny-brokers`
   - Leverage: `1-50-leverage-forex-brokers`, `1-300-leverage-forex-brokers`
-  - Education: `best-forex-trading-courses`, `best-forex-chart-websites`
   - Payment: `forex-brokers-accepting-amex`, `forex-brokers-accepting-trustly`
 - [ ] **2.6** Для каждого рейтинга задать: `id`, `slug`, `name`, `category`, `sub`, `vertical`
 - [ ] **2.7** Проверить: нет конфликтов slug-ов с существующими 201 + 240
@@ -619,7 +617,7 @@ Sprint 2 ──┤→ Sprint 3 → Sprint 5 → Sprint 6 → Sprint 7 → Sprint
   - Cost: `best-commission-free-stock-brokers`, `best-low-fee-stock-brokers`
   - Country: `best-stock-brokers-usa`, `best-stock-brokers-uk`, `best-stock-brokers-europe`
   - Platform: `best-stock-trading-platforms`, `best-tradingview-stock-brokers`
-  - Account: `best-stock-brokers-isa`, `best-robo-advisors`
+  - Account: `best-stock-brokers-isa`
 - [ ] **P2.7.2** Фильтры в `rankingFilters.js` — `hasVertical("stocks")` + условия
 - [ ] **P2.7.3** SEO-контент (title/desc/intro) в `rankingSeoContent.js`
 

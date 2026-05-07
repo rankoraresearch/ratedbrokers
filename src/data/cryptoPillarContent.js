@@ -130,10 +130,8 @@ const CRYPTO_PILLAR = {
       { label: "Best Altcoin Brokers", path: "/best-altcoin-brokers" },
     ],
     byFeature: [
-      { label: "Best for Staking", path: "/best-crypto-staking-platforms" },
       { label: "High Leverage Crypto", path: "/best-high-leverage-crypto-brokers" },
       { label: "Low Spread Crypto", path: "/best-low-spread-crypto-brokers" },
-      { label: "Best Crypto Apps", path: "/best-crypto-trading-apps" },
       { label: "Exchanges vs CFD Brokers", path: "/crypto-exchanges-vs-cfd-brokers" },
     ],
   },

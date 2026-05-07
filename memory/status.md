@@ -1,10 +1,256 @@
 # Status — текущее состояние проекта
 
-Last updated: 2026-04-21 (Menu Sprint + Neha Gupta + Countries dropdown hotfixes задеплоены; HEAD: `a2f023d`)
+Last updated: 2026-05-07 (**Sprint NB-1 завершён на ветке `sprint/nb-1-cleanup`. 10 non-broker URL удалены под 0 + anti-recurrence guard. Codex 3 fixes applied. Ждём OK Егора на push.** Главный документ: `NON-BROKER-URLS-AUDIT.md`; HEAD ветки готов к merge)
+
+---
+
+## 🟢 ГОТОВО НА МЕРЖ (2026-05-07) — Sprint NB-1: Non-Broker URL Cleanup
+
+**Запрос Егора:** удалить 10 non-broker URL под 0 (без редиректов), вычистить все упоминания в коде/меню/документации, проверить Codex'ом.
+
+**Главный документ:** `NON-BROKER-URLS-AUDIT.md` + узел `memory/non-broker-urls-audit.md`.
+**Ветка:** `sprint/nb-1-cleanup` (от main `22222e6`).
+**Safepoint:** `safepoint-pre-nb1-cleanup-2026-05-07-1639` (origin).
+
+**Удалено (10 URL/ID):**
+- crypto-exchanges, crypto-wallets, crypto-staking, crypto-usdt, crypto-margin, crypto-apps
+- forex-courses, forex-charts, forex-signals, stocks-robo
+
+**Live count:** rankings.js 293 → 283.
+
+**Anti-recurrence:** `scripts/validate-rankings.mjs` — slug должен содержать `broker(s)` ИЛИ быть в SLUG_WHITELIST (31 legitimate non-broker term — copy/social trading, demo, spread betting, trading apps, ISA). Запускается из `npm run build` И `npm run dev`.
+
+**Codex review:** NEEDS_CHANGES (0 critical, 1 high, 1 med, 1 low) → все 3 fixes applied (validator tracked, counters synced, dev script gated).
+
+**Pending Егор:**
+- Подтвердить merge в main (push на ratedbrokers.com через CF Pages)
+
+---
+
+## 🔴 АКТИВНОЕ (2026-04-28) — Architecture Audit (research, decisions pending)
+
+**Запрос Егора:** глубокий аудит — критичные intent-mismatch URL, редиректы, хлебные крошки, общая архитектура. Не добавляем новые сущности. Цель — улучшить то что есть до открытия индексации.
+
+**Главный документ:** `ARCHITECTURE-AUDIT-2026-04-28.md` (корень) — 4 потока + severity matrix (11 findings) + 3 спринта.
+**Узел графа:** `memory/architecture-audit-2026-04-28.md`
+**Лог сессии:** `logs/2026-04.md` запись `## 2026-04-28 | Сессия: Architecture audit`
+
+**Critical findings (2 — блокируют открытие индексации):**
+- ~~**F1** — 8 non-broker URL по-прежнему в проде с 22.04 (предыдущий research лежит без действий).~~ **ЗАКРЫТО Sprint NB-1 (2026-05-07)** — удалено 10 URL под 0 + anti-recurrence guard.
+- **F2** — Country-хаб развилка `/best-forex-brokers-by-country` (legacy forex) и `/best-brokers-by-country` (M4 multi-asset) живут параллельно. Header → второй, Footer + Home → первый. Раскол навигации, каннибализация SEO.
+
+**Medium (5 — полезно сделать одним спринтом):**
+- F3 16 asset-рейтингов (gold/oil/indices) orphan от хабов
+- F4 211/293 рейтингов без `vertical` поля (72%)
+- F5 ComparePage + BrokerComparison без BreadcrumbList JSON-LD
+- F6 NotFoundPage без breadcrumb
+- F7 RankingPage breadcrumb logic дублируется (2 места)
+
+**Что подтвердилось ЗДОРОВЫМ:**
+- _redirects: 11 правил, 0 broken/chains/циклов
+- Internal nav: 0 ссылок на старые URL (миграции 09.04 + S9 чистые)
+- /review/→/reviews/ migration clean
+- getBrokerHub() coverage 8/8 verticals
+
+**3 спринта (рекомендация):**
+- **AC-1 (~6-9 ч + Codex)** — F1 + F2 (критичный путь)
+- **AC-2 (~5-7 ч)** — F3 + F4 + F5 (taxonomy gигиена)
+- **AC-3 (~2-4 ч, опц)** — F6+F7+F8+F9 (мелочи)
+
+**Pending — ждём от Егора:**
+1. Стартуем AC-1?
+2. F2 — какой вариант (A kill legacy / **B развести по контенту** / C синхр ссылки)?
+3. AC-2 сразу следом или отдельно?
+4. Anti-recurrence script `validate-rankings.mjs` — приоритет?
+
+**Кода НЕ трогал** — research-only.
+
+---
+
+## 🟡 АКТИВНОЕ ПЛАНИРОВАНИЕ (2026-04-22/23) — Broker Desk + Content Writing Pipeline
+
+**Контекст:** инфраструктура для написания 51 broker review силами Claude + ручной fact-check от Егора. Новый раздел админки "Broker Desk" (10-й) — единый hub: fresh data (Джон/Боб/Лео) + writer briefs + author assignment + publish.
+
+**3 codex rounds:**
+1. Content style audit (17 топ-URL, 5 паттернов ТОП-3) — 2 critical + 6 high fix'd
+2. 4 фокусных решения (word count / testing / rotation / agents) — MIXED verdict
+3. Sprint plan v1 — NEEDS_CHANGES (3 critical, 10 high) → **v2 rewrite после approvals**
+
+**PIVOT 2026-04-23:** Claude пишет ревью сам, Егор назначает fact-checker/reviewer руками. Один voice.
+
+**Артефакты (все в корне проекта):**
+- `SESSION-RESUME-BROKER-DESK.md` — полный entry point при resume
+- `SPRINT-BROKER-BRIEFS.md` — план v1 + codex round 3 findings
+- `CONTENT-STYLE-AUDIT.md` — editorial style guide (17 топ-URL research)
+
+**Ждёт 3 approval Егора:**
+1. Word count: `hash(slug) mod 2500 + 3500` → 3 500–6 000 band
+2. Risk warning plate above-the-fold (отдельно от того что под CTA)
+3. Affiliate disclosure текст (2 строки BrokerChooser style) → /how-we-make-money
+
+**После approvals:** Sprint v2 → Codex GATE A (pre-impl) → S0-S3 → S4-S7 → S8 pilot IC Markets → GATE B (pre-deploy) → S9 deploy. ~10-11 дней dev.
+
+---
+
+## ✅ ЗАВЕРШЕНО (2026-04-23) — Visual Mobile Audit (autonomous, no code changes)
+
+**Запуск:** Егор попросил визуальный аудит с annotated screenshots — подсветить проблемы прямо на скриншотах мобильной версии, создать спринты, проверить Codex'ом.
+
+### Артефакты (все в корне проекта)
+1. **`VISUAL-AUDIT-REPORT.md`** — финальный отчёт с 21 embedded annotated screenshot
+2. **`~/Desktop/RatedBrokers-Visual-Mobile-Audit-2026-04-23.pdf`** (1.7 MB) — для чтения с телефона
+3. `mobile-audit/visual/*.png` — 21 annotated screenshot
+4. `memory/visual_mobile_audit_2026_04_23.md` — узел графа
+
+### 10 спринтов (V1-V10)
+V1 (infra) → V2 (Home) → V3 (hubs) → V4 (rankings) → V5 (reviews) → V6 (compare) → V7 (editorial/deep) → V8 (forms/legal) → V9 (PDF) → V10 (Codex review)
+
+### Top visual evidence (с красными рамками в скриншотах)
+- `/rankings`, `/compare`, `/regulator/fca` — horizontal overflow с viewport-edge marker
+- BrokerReview.jsx — "H1 22px < H2 24px — inversion!" annotation на hero + content
+- Methodology — "H2 28 > H1 26" на заголовках
+- Contact/AuthorLogin — "Input 14/15px < 16 → iOS auto-zoom"
+- /privacy — "Draft в проде" красным на параграфе
+- /author/james-chen — "SOFT 404" banner (URL вернул Home)
+- Home country chips — 6 chips подряд с "P0 · 145×35" badges
+
+### Эталоны (зелёные рамки)
+`/about` (H1=32, H2=26), `/author/:valid` (H1=32), `/find-your-broker` (input 16px ✓), `/404` (action cards 328×80)
+
+### Рекомендованные fix-спринты FM1-FM5 (~15-18ч до 10/10)
+1. FM1 — P0 blockers (overflow, hierarchy, input fonts, soft-404, Draft)
+2. FM2 — Touch targets sitewide
+3. FM3 — Typography tokens
+4. FM4 — CLS + images
+5. FM5 — UX polish
+
+### Status
+⏸ Ждём команду Егора. Возможные steps:
+- `запускаем FM1` — P0 blockers (3-4ч)
+- `запускаем FM2` — touch targets (4-5ч)
+
+---
+
+## АКТИВНОЕ (2026-04-22) — Non-Broker URLs Audit (research-only)
+
+---
+
+## АКТИВНОЕ (2026-04-22) — Non-Broker URLs Audit (research-only)
+
+**Запрос Егора:** найти все рейтинги в `src/data/rankings.js`, где search intent ≠ брокеры (триггер: `/best-crypto-exchanges`, `/best-crypto-wallets`).
+
+**Главный документ:** `NON-BROKER-URLS-AUDIT.md` (корень) — полный отчёт + 3 стратегии + чек-лист фазы 1.
+**Узел графа:** `memory/non-broker-urls-audit.md`
+**Лог сессии:** `logs/2026-04.md` запись `## 2026-04-22 | Сессия: Аудит non-broker URL`
+
+**Findings (8 проблемных URL):**
+- 🔴 5 critical intent mismatch (~45K SV/мес): `/best-crypto-exchanges`, `/best-crypto-wallets`, `/best-robo-advisors`, `/best-forex-trading-courses`, `/best-forex-chart-websites`
+- 🟡 3 suspicious: `/best-crypto-staking-platforms`, `/best-usdt-trading-platforms`, `/best-forex-signal-providers`
+
+**Виновник:** коммит `d04440b` (01.04.2026, M4 Sprint 1+2). Предупреждения Билла "requires different content type" из `THEMATIC-RANKINGS-TREE.md:596,611-612` потерялись при переносе в `MILESTONES.md` Sprint 2.4 → URL добавили в общий `RANKINGS` массив с фильтром `isCrypto` (`rankingFilters.js:385-386`) → выводят CFD-брокеров вместо ожидаемых бирж/кошельков.
+
+**Стратегия (рекомендована Variant C — Hybrid):**
+- Фаза 1 (~2-3 ч, отдельный спринт + Codex-review): DELETE+301 для low-affiliate (courses, charts, signals, staking, usdt) + noindex placeholder для high-affiliate (exchanges, wallets, robo)
+- Фаза 2 (M5+): REPURPOSE 3 high-affiliate URL как отдельная вертикаль (новый template, новая data-модель, affiliate с Binance Partner / Ledger / Impact)
+
+**Pending:** ждём от Егора выбор варианта (A/B/C). Если C — запускаем фазу 1.
+**Кода НЕ трогал** — research-only сессия.
+
+---
+
+## ✅ ЗАВЕРШЕНО (2026-04-22, вечер) — Author Evaluation Scorecard на Donors Dashboard
+
+**Запуск:** Егор попросил добавить на `/api/admin/donors/dashboard` красивую памятку с критериями оценки людей (от слабых к сильным). Затем попросил усложнить до системы с коэффициентами и весами.
+
+### Результат
+Collapsible panel (`<details class="memo" open>`) между summary-grid и filters на Donors Dashboard. Weighted 0-100 scorecard.
+
+**Две итерации в одной сессии:**
+1. v1 — 5 tier-карточек (T0 red → T4 green) с качественными критериями
+2. v2 — добавлены веса: scoring buckets (30/25/20/15/10), пересортированные критерии от слабых → сильным, certification ladder (14 сертов + bar-chart), verifiability bonus stack (12 источников), 5 thresholds-pills, worked example Jagerson=94 pts + counter-example, 5 инсайтов в футере
+
+### Система весов (0-100 pts)
+- **Certifications (30):** CFA=20, CFP=14, CAIA/FRM=12, CMT=10, ChFC/Series 24=8, Series 7=7, Series 3=6 (⚑ forex/CFD), Series 4/65/66=5, Series 30/CAMS=4, Series 63=3
+- **Media citability (25):** Bloomberg/Reuters=25, WSJ/FT/Barron's=22, CNBC=18, Forbes staff=15, Seeking Alpha=8, Investopedia=6, Forbes contributor=3 ⚠ (post-2024 site-rep update)
+- **Experience (20):** Exchange exec/Regulator=18, HF PM/bulge-bracket=16, Prop-trader=12, Analyst=8
+- **Academic (15):** PhD=15, MBA top-10=12, MSc FE=10, MBA regular=8, BA=5
+- **Verifiability (+10 cap):** FINRA BC/SEC IAPD/NFA BASIC/FCA Register/Wikipedia/Google KP = +3 each; Muck Rack/Book/Adjunct = +2; sameAs/Speaker/Scholar = +1
+
+### Thresholds
+0-20 skip · 20-40 niche · 40-60 mid-tier · **60-80 sweet spot (reviews/rankings)** · 80-100 hero/priority
+
+### 5 ключевых инсайтов
+1. CFA (20) > 2× любого Series — Google ценит independent accreditation > госрегистраций
+2. Bloomberg columnist (+25) > любого сертификата — citability бьёт credentials в E-E-A-T
+3. Series 3 + NFA BASIC (+9 stack) — максимально релевантен forex/CFD даже без CFA
+4. Forbes contributor ≠ Forbes staff — post-2024 site-reputation update
+5. Sweet spot найма 65-80 pts — А-листеры дороги, T2 слабо двигают E-E-A-T
+
+### Deploy
+- Файл: `backend/src/routes/donors.js` (только бэкенд, Pages не трогали)
+- Command: `npx wrangler deploy` из `backend/`
+- Version: `39983c11` (предыдущая v1 = `15baad7b`)
+- Verify: все 6 секций через curl grep рендерятся
+
+### Артефакты
+- Auto-memory узел: `author_scorecard_memo.md` + линк в MEMORY.md
+- Log: `logs/2026-04.md` (сессия 2026-04-22 вечер)
+- URL: https://api.ratedbrokers.com/api/admin/donors/dashboard?key=...
+
+### Что не коммитили в git
+Backend-изменения деплоятся напрямую через wrangler, не через push в main. Файл donors.js на диске изменён — при следующем `git status` будет виден как modified. Можно коммитить "docs: author scorecard memo on donors dashboard" когда удобно (или оставить untracked — backend deploy уже в проде).
+
+---
+
+## ✅ ЗАВЕРШЕНО (2026-04-22) — Mobile Audit (autonomous, no code changes)
+
+**Запуск:** Егор сказал «провести глубокий аудит мобильной версии» с автономным режимом, Codex по каждой странице, без правок кода. Цель — 10/10 Google mobile-friendly.
+
+### Артефакты (все в корне проекта)
+1. `MOBILE-AUDIT-SPRINT.md` — оригинальный план аудита (24 шаблона, S0-S10)
+2. **`MOBILE-AUDIT-RESULTS.md`** — финальный отчёт (Executive Summary, Lighthouse snapshot, 45 findings P0-P3, 6 паттернов, 5 fix-спринтов M1-M5)
+3. **`RatedBrokers-Mobile-Audit-2026-04-22.pdf`** на `~/Desktop/` (761KB, ~25 стр) — для чтения с телефона
+4. `mobile-audit/findings/S1-S9.md` (9 файлов) — детальный по фазам
+5. `mobile-audit/lighthouse/home.json` — Lighthouse mobile (Perf 70, A11y 93, BP 100, SEO 69)
+6. `audit-*.json` (44 файла) — raw evaluate данные с каждой страницы
+7. `mobile-audit/screenshots/` через `.playwright-mcp/` — 44 jpeg скриншота
+
+### Покрытие
+44 URL из 24 production шаблонов на 360×740 + spot checks 320/375/414. Codex CLI отревьюил Header.jsx + BrokerReview.jsx с конкретными style-diffs.
+
+### Top-11 P0 блокеров (краткая выжимка, полная — в MOBILE-AUDIT-RESULTS.md)
+1. Horizontal overflow на `/rankings`, `/compare`, `/regulator/:slug`
+2. **H1<H2 на ВСЕХ 468 review+subpage** (H1=22 vs H2=24)
+3. Hierarchy: methodology/trust-score/how-we-make-money — H2 ≥ H1
+4. Inputs <16px (Contact 15, AuthorLogin 14) → iOS auto-zoom
+5. `/author/:invalidSlug` → редирект Home вместо 404
+6. Combi URLs 404 (`/best-ecn-forex-brokers-uk` not found)
+7. "Draft — pending legal review" в проде `/privacy`
+8. Нет `<main>` landmark на Home
+9. LCP 4.6s mobile (фонты Google blocking 1350ms)
+
+### Sitewide P1 паттерны
+Header top-bar (Hamburger 40×32, Search 36×28, EN 39×28), country-vertical chips 33-35px, mobile menu links 30-36px, filter pills `/reviews` 28×12px, regulator chips 24px, eyebrows 10-11px, 51/90 images без width/height на Home, LinkedIn icons 15×15.
+
+### Эталонные страницы (не трогать)
+BrokerReview hero, BrokerComparison VS, AboutPage, AuthorPage (H1=32), Quiz, 404.
+
+### Status
+⏸ Ждём команду от Егора. Возможные следующие шаги:
+- `запускаем Sprint M1` — fix P0 blockers (~3-4ч)
+- `запускаем Sprint M2` — touch targets sitewide (~4-5ч)
+- `запускаем Sprint M3` — typography tokens (~3-4ч)
+- `углубить аудит` — расширить scope (ещё URL / RU / Lighthouse на каждом template)
+
+См. также узел: `memory/mobile_audit_2026_04_22.md`
 
 ---
 
 ## ✅ ЗАВЕРШЕНО (2026-04-21) — Menu Sprint S1-S9 + Neha Gupta + Stream A
+
+---
+
+## ✅ ЗАВЕРШЕНО (2026-04-21) — Menu Sprint S1-S9 + Neha Gupta + Stream A (предыдущая сессия)
 
 **Merge commit:** `0a97b1e` → `main` (13 коммитов), **HEAD:** `a2f023d` (после hotfixes)
 **Ветка:** `menu-sprint-2026-04-20` (origin, сохранена для истории)
@@ -222,6 +468,31 @@ git push --force-with-lease origin main
 
 ---
 
+## Active Research (awaiting Егор's decisions)
+
+**Freshness Dashboard + Monetization** — research complete 2026-04-21, код не менялся.
+
+- Отчёт: `memory/freshness-dashboard-research.md` в корне
+- Resume entry point: `SESSION-RESUME-FRESHNESS.md` в корне
+- Auto-memory pointer: `freshness_monetization_research`
+
+**Pending decisions Егора (blocking для старта работы):**
+1. Runner model для агентов: A (GitHub Action) / B (human-in-loop MVP) / C (Claude API direct) — рекомендация B
+2. Approve monetization Model B (Sponsored slot выше Top-10, BrokerChooser-style)
+3. Bill consult на disclosure copy + `/how-we-make-money` page
+4. Sync весов формулы: Leo prompt `25/20/20/15/10/10` vs status.md `30/20/15/15/15/5`
+
+**Scope после approve (8-12 дней):**
+- S1 D1 schema `agent_runs` (0.5 дн)
+- S2 Расширить `broker_changes` на все MD fields (1 дн)
+- S3 Backend endpoints `/freshness` + `/agents/run` + `/agents/:id/approve` (1.5 дн)
+- S4 Admin UI Freshness раздел (2 дн)
+- S5 Runner integration (2-5 дн, зависит от выбора A/B/C)
+- S6 Auto-rerank после Leo approve (1 дн)
+- S7 Backfill seed из git blame (0.5 дн)
+
+---
+
 ## Memory pointers (прежние)
 
 - [[project]] — проект, стек, цели
@@ -231,11 +502,13 @@ git push --force-with-lease origin main
 - [[deploy]] — Cloudflare Pages, ratedbrokers.com
 - [[backend]] — CF Workers + D1
 - [[authors_sprint]] — overall Authors sprint state
+- [[freshness_monetization_research]] — Dashboard + Sponsored research (2026-04-21)
 
 ---
 
 ## Живые файлы-инструкции (корень проекта)
 
-- **SESSION-RESUME.md** — первым читать при старте сессии
+- **SESSION-RESUME.md** — первым читать при старте сессии (Authors outreach pipeline)
+- **SESSION-RESUME-FRESHNESS.md** — Freshness Dashboard + Monetization research entry point (2026-04-21)
 - AUTHORS-FIELD-MANUAL.md — operator cheatsheet для authors work
 - CLAUDE.md — project-wide instructions

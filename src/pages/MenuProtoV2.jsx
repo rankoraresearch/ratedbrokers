@@ -57,7 +57,6 @@ const BROKERS_BY_PLATFORM = [
   { label: "cTrader",       path: "/best-ctrader-brokers" },
   { label: "TradingView",   path: "/best-tradingview-brokers" },
   { label: "Trading Apps",  path: "/best-forex-trading-apps" },
-  { label: "Crypto Apps",   path: "/best-crypto-trading-apps" },
 ];
 
 const TOP_REVIEWS = [
@@ -338,7 +337,7 @@ export default function MenuProtoV2() {
                       onMouseEnter={(e) => { e.currentTarget.style.background = "#f1f5f9"; }}
                       onMouseLeave={(e) => { e.currentTarget.style.background = "#f8fafc"; }}
                     >
-                      <span>Browse all 293 rankings across 52 brokers</span>
+                      <span>Browse all 283 rankings across 52 brokers</span>
                       <ArrowRight size={14} />
                     </Link>
                   </div>
@@ -625,7 +624,7 @@ export default function MenuProtoV2() {
                     <Link key={i.path} to={i.path} style={{ display: "block", padding: "6px 0", fontSize: 14, color: "#0f172a", textDecoration: "none" }}>{i.label}</Link>
                   ))}
                   <Link to="/rankings" style={{ display: "block", marginTop: 10, padding: "8px 0", fontSize: 14, fontWeight: 700, color: "#059669", textDecoration: "none" }}>
-                    Browse all 293 rankings <ArrowRight size={14} style={{ verticalAlign: "middle" }} />
+                    Browse all 283 rankings <ArrowRight size={14} style={{ verticalAlign: "middle" }} />
                   </Link>
                 </div>
               )}

@@ -65,7 +65,6 @@ const BROKERS_BY_PLATFORM = [
   { label: "Best cTrader Brokers",      path: "/best-ctrader-brokers" },
   { label: "Best TradingView Brokers",  path: "/best-tradingview-brokers" },
   { label: "Best Forex Trading Apps",   path: "/best-forex-trading-apps" },
-  { label: "Best Crypto Trading Apps",  path: "/best-crypto-trading-apps" },
 ];
 
 const TOP_REVIEWS = [

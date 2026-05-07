@@ -1,8 +1,10 @@
 # RatedBrokers — Карта всех тематических рейтингов
 
-> **Дата:** 31 марта 2026
-> **Статус:** РЕАЛИЗОВАНО. 200 тематических + 240 комбинаторных = **440 рейтингов** (live)
+> **Дата:** 31 марта 2026 (план M2-роадмапа)
+> **Live count:** 283 рейтинга в `src/data/rankings.js` (после NB-1 cleanup 2026-05-07)
 > **Формат:** Группа → Рейтинг → Target Keyword → Приоритет
+>
+> **Note:** Числа `200 / 240 / 440 / 452` ниже — плановые цифры M2-роадмапа на момент составления документа. Источник правды по live count — `src/data/rankings.js`. Подробности по NB-1: `NON-BROKER-URLS-AUDIT.md`.
 
 ---
 
@@ -55,7 +57,6 @@
 | 12 | forex-hft | /best-high-frequency-trading-brokers | best high frequency trading brokers | 3 |
 | 13 | forex-copy-trading | /best-copy-trading-platforms | best copy trading platforms | 1 |
 | 14 | forex-social-trading | /best-social-trading-platforms | best social trading platforms | 2 |
-| 15 | forex-signals | /best-forex-signal-providers | best forex signal providers | 2 |
 | 16 | forex-ea | /best-forex-brokers-for-expert-advisors | best forex brokers for expert advisors | 3 |
 | 17 | forex-grid | /best-forex-brokers-for-grid-trading | best forex brokers for grid trading | 3 |
 | 18 | forex-carry | /best-forex-brokers-for-carry-trading | best forex brokers for carry trading | 3 |
@@ -176,7 +177,6 @@
 | 77 | trading-apps | /best-forex-trading-apps | best forex trading apps | 1 |
 | 78 | apps-iphone | /best-forex-apps-iphone | best forex apps iphone | 3 |
 | 79 | apps-android | /best-forex-apps-android | best forex apps android | 3 |
-| 80 | crypto-apps | /best-crypto-trading-apps | best crypto trading apps | 2 |
 | 81 | stock-apps | /best-stock-trading-apps | best stock trading apps | 3 |
 
 ---
@@ -218,7 +218,6 @@
 | 98 | crypto-solana | /best-solana-brokers | best solana trading platforms | 3 |
 | 99 | crypto-doge | /best-dogecoin-brokers | best dogecoin brokers | 3 |
 | 100 | crypto-altcoins | /best-altcoin-brokers | best altcoin trading platforms | 2 |
-| 101 | crypto-staking | /best-crypto-staking-platforms | best crypto staking platforms | 2 |
 | 102 | crypto-copy | /best-crypto-copy-trading | best crypto copy trading | 3 |
 | 103 | crypto-high-lev | /best-high-leverage-crypto-brokers | high leverage crypto brokers | 2 |
 | 104 | crypto-low-spread | /best-low-spread-crypto-brokers | low spread crypto brokers | 3 |

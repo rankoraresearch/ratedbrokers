@@ -14,7 +14,7 @@ function getCat(id) {
   if (id.startsWith("crypto")) return "crypto";
   if (id.startsWith("pay-")) return "payment";
   if (id.startsWith("reg-")) return "regulator";
-  if (id.startsWith("apps-") || id === "trading-apps" || id === "crypto-apps" || id === "stock-apps") return "mobile";
+  if (id.startsWith("apps-") || id === "trading-apps" || id === "stock-apps") return "mobile";
   if (["sp500","nasdaq","dow","ftse","dax","nikkei"].includes(id)) return "index";
   if (["eurusd","gbpusd","usdjpy","audusd","usdcad","eurgbp","usdchf","nzdusd","exotic","minor"].includes(id)) return "pairs";
   if (["cfd","stocks","gold","silver","oil","commodities","indices","options","futures","etf","spread-betting","bonds","natural-gas","real-stocks","multi-asset"].includes(id)) return "assets";
@@ -42,7 +42,7 @@ const LABELS = {
   "forex-day-trading": "Day Trading", "forex-swing-trading": "Swing Trading", "forex-position-trading": "Position Trading",
   "forex-hedging": "Hedging", "forex-news-trading": "News Trading", "forex-automated": "Automated Trading",
   "forex-algo": "Algorithmic Trading", "forex-hft": "High-Frequency Trading", "forex-copy-trading": "Copy Trading",
-  "forex-social-trading": "Social Trading", "forex-signals": "Forex Signals", "forex-ea": "Expert Advisor Trading",
+  "forex-social-trading": "Social Trading", "forex-ea": "Expert Advisor Trading",
   "forex-grid": "Grid Trading", "forex-carry": "Carry Trading",
   "low-spread": "Low Spreads", "zero-spread": "Zero Spreads", "low-commission": "Low Commissions",
   "low-cost": "Low-Cost Trading", "no-hidden-fees": "Transparent Pricing", "no-inactivity-fee": "No Inactivity Fees",
@@ -66,7 +66,7 @@ const LABELS = {
   "ninjatrader": "NinjaTrader", "zulutrade": "ZuluTrade", "prorealtime": "ProRealTime",
   "proprietary": "Proprietary Platforms", "trading-api": "Trading APIs", "free-vps": "Free VPS",
   "trading-apps": "Trading Apps", "apps-iphone": "iPhone Trading Apps", "apps-android": "Android Trading Apps",
-  "crypto-apps": "Crypto Trading Apps", "stock-apps": "Stock Trading Apps",
+  "stock-apps": "Stock Trading Apps",
   "safest": "Safe Brokers", "regulated": "Regulated Brokers", "negative-balance": "Negative Balance Protection",
   "guaranteed-stop-loss": "Guaranteed Stop-Loss", "segregated-accounts": "Segregated Accounts",
   "education": "Broker Education", "research": "Research Tools", "trading-central": "Trading Central",
@@ -74,7 +74,7 @@ const LABELS = {
   "24-7-support": "24/7 Support",
   "crypto-overall": "Crypto Trading", "crypto-bitcoin": "Bitcoin Trading", "crypto-ethereum": "Ethereum Trading",
   "crypto-xrp": "XRP Trading", "crypto-solana": "Solana Trading", "crypto-doge": "Dogecoin Trading",
-  "crypto-altcoins": "Altcoin Trading", "crypto-staking": "Crypto Staking", "crypto-copy": "Crypto Copy Trading",
+  "crypto-altcoins": "Altcoin Trading", "crypto-copy": "Crypto Copy Trading",
   "crypto-high-lev": "High-Leverage Crypto", "crypto-low-spread": "Low-Spread Crypto", "crypto-vs-cfd": "Crypto CFD Trading",
   "cfd": "CFD Trading", "stocks": "Stock Trading", "gold": "Gold Trading", "silver": "Silver Trading",
   "oil": "Oil Trading", "commodities": "Commodity Trading", "indices": "Index Trading",

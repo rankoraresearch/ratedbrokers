@@ -511,13 +511,6 @@ const CONFIGS = {
     compCols: ["Social Features", "Min Dep", "Regulation", "Score"],
     goodSpread: 1.5,
   },
-  "forex-signals": {
-    whyTemplate: "forex signal followers",
-    focus: ["platforms", "regulation", "spread", "deposit"],
-    prosOrder: ["platforms", "regulation", "spread", "deposit"],
-    compCols: ["Platforms", "Signals", "Spread", "Min Dep"],
-    goodSpread: 1.0,
-  },
   "forex-ea": {
     whyTemplate: "Expert Advisor (EA) trading",
     focus: ["platforms", "execution", "spread", "commission"],
@@ -990,13 +983,6 @@ const CONFIGS = {
     compCols: ["Android App", "Rating", "Spread", "Min Dep"],
     goodSpread: 1.0,
   },
-  "crypto-apps": {
-    whyTemplate: "crypto mobile trading",
-    focus: ["platforms", "regulation", "instruments", "deposit"],
-    prosOrder: ["platforms", "regulation", "instruments", "deposit"],
-    compCols: ["Crypto App", "Crypto Pairs", "Spread", "Min Dep"],
-    goodSpread: 1.0,
-  },
   "stock-apps": {
     whyTemplate: "stock mobile trading",
     focus: ["platforms", "instruments", "regulation", "deposit"],
@@ -1144,13 +1130,6 @@ const CONFIGS = {
     focus: ["instruments", "spread", "regulation", "platforms"],
     prosOrder: ["instruments", "spread", "regulation", "platforms"],
     compCols: ["Altcoins", "Spread", "Leverage", "Min Dep"],
-    goodSpread: 1.0,
-  },
-  "crypto-staking": {
-    whyTemplate: "crypto staking",
-    focus: ["instruments", "regulation", "deposit", "platforms"],
-    prosOrder: ["instruments", "regulation", "deposit", "platforms"],
-    compCols: ["Staking", "Crypto Pairs", "Regulation", "Min Dep"],
     goodSpread: 1.0,
   },
   "crypto-copy": {
@@ -1702,7 +1681,7 @@ function getCategoryForRanking(rankingId) {
   if (rankingId.startsWith("crypto")) return "crypto";
   if (rankingId.startsWith("pay-")) return "payment";
   if (rankingId.startsWith("reg-")) return "regulator";
-  if (rankingId.startsWith("apps-") || rankingId === "trading-apps" || rankingId === "crypto-apps" || rankingId === "stock-apps") return "mobile";
+  if (rankingId.startsWith("apps-") || rankingId === "trading-apps" || rankingId === "stock-apps") return "mobile";
   const cfg = CONFIGS[rankingId];
   if (!cfg) return "style";
   // Infer from focus

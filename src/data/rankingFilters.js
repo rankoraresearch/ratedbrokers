@@ -101,7 +101,6 @@ const FILTERS = {
   "forex-hft": (b) => isECN(b) && (hasPlatform("cTrader")(b) || hasPlatform("MetaTrader")(b)),
   "forex-copy-trading": hasCopyTrading,
   "forex-social-trading": hasSocialTrading,
-  "forex-signals": all,
   "forex-ea": (b) => hasPlatform("MetaTrader 4")(b) || hasPlatform("MetaTrader 5")(b),
   "forex-grid": (b) => hasPlatform("MetaTrader")(b) && (isECN(b) || isSTP(b)),
   "forex-carry": all,
@@ -184,7 +183,6 @@ const FILTERS = {
   "trading-apps": all, // legitimate: all brokers have apps
   "apps-iphone": all, // Sprint 10: mobile_apps field
   "apps-android": all, // Sprint 10: mobile_apps field
-  "crypto-apps": isCrypto, // was: all → showed non-crypto brokers
   "stock-apps": isStocks, // was: all → showed non-stock brokers
 
   // J. TRUST (5)
@@ -211,7 +209,6 @@ const FILTERS = {
   "crypto-solana": isCrypto,
   "crypto-doge": isCrypto,
   "crypto-altcoins": isCrypto,
-  "crypto-staking": isCrypto,
   "crypto-copy": and(isCrypto, hasCopyTrading),
   "crypto-high-lev": and(isCrypto, leverageAtLeast(100)),
   "crypto-low-spread": and(isCrypto, (b) => spreadUnder(0.5)(b) || isECN(b)),
@@ -368,9 +365,7 @@ const FILTERS = {
   "crypto-beginners":  and(isCrypto, scoreAbove(8.0)),
   "crypto-regulated":  and(isCrypto, hasTier1),
   "crypto-cardano":    isCrypto,
-  "crypto-usdt":       isCrypto,
   "crypto-btc-etf":    isCrypto,
-  "crypto-margin":     isCrypto,
   "crypto-demo":       isCrypto,
   "crypto-uk":         and(isCrypto, or(hasReg("FCA"), hasTier1)),
   "crypto-usa":        and(isCrypto, or(hasReg("NFA"), hasTier1)),
@@ -382,8 +377,6 @@ const FILTERS = {
   "crypto-india":        and(isCrypto, hasTier1),
   "crypto-south-africa": and(isCrypto, or(hasReg("FSCA"), hasTier1)),
   "crypto-new-zealand":  and(isCrypto, or(hasReg("FMA"), hasTier1)),
-  "crypto-exchanges":  isCrypto,
-  "crypto-wallets":    isCrypto,
 
   // ═══════════════════════════════════════════════════════════════
   // Y. FOREX GAPS (16) — M4 Umbrella
@@ -400,8 +393,6 @@ const FILTERS = {
   "pair-usdcny":       all, // legitimate: most forex brokers offer USD/CNY
   "leverage-50":       and(leverageAtLeast(50), (b) => leverageNum(b) <= 100),
   "leverage-300":      and(leverageAtLeast(300), (b) => leverageNum(b) <= 500),
-  "forex-courses":     scoreAbove(8.0),
-  "forex-charts":      or(hasPlatform("TradingView"), hasPlatform("cTrader")),
   "pay-amex":          hasPay("amex"),
   "pay-trustly":       hasPay("trustly"),
 
@@ -421,7 +412,6 @@ const FILTERS = {
   "stocks-europe":          and(isStocks, or(hasReg("BaFin"), hasReg("AFM"), hasReg("CySEC"))),
   "stocks-platforms":       isStocks,
   "stocks-isa":             and(isStocks, (b) => b.B.isaAvailable === true),
-  "stocks-robo":            isStocks,
   "stocks-tv":              and(isStocks, hasPlatform("TradingView")),
 
   // ═══════════════════════════════════════════════════════════════
