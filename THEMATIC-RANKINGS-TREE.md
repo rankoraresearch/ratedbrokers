@@ -130,7 +130,6 @@ FOREX BROKERS
 │   │   BB. Volume: 3K/мес
 │   ├── Best Forex Brokers for Expert Advisors (/best-forex-brokers-for-expert-advisors) [EXISTS]
 │   │   Volume: 3K/мес
-│   └── Best Forex Signal Providers (/best-forex-signal-providers) [EXISTS]
 │       FB. Volume: 8K/мес
 │
 ├── BY MOBILE
@@ -359,9 +358,7 @@ FOREX BROKERS
 │           Volume: 400/мес
 │
 └── GAPS — рейтинги у конкурентов, которых нет у нас:
-    ├── Best Forex Trading Courses (/best-forex-trading-courses) [NEW]
     │   FB. Volume: 5K/мес — educational, trust builder
-    ├── Best Forex Chart Websites (/best-forex-chart-websites) [NEW]
     │   FB. Volume: 2K/мес
     ├── Best Forex Brokers for Dollar-Cost Averaging (/best-forex-brokers-dca) [NEW]
     │   BC. Volume: 800/мес
@@ -566,13 +563,11 @@ CRYPTO BROKERS
 │   │   BB. Volume: 3K/мес
 │   ├── Best Cardano Brokers (/best-cardano-brokers) [NEW]
 │   │   BB. Volume: 1.5K/мес
-│   ├── Best USDT Trading Platforms (/best-usdt-trading-platforms) [NEW]
 │   │   BB. Volume: 2K/мес
 │   └── Best Bitcoin ETF Brokers (/best-bitcoin-etf-brokers) [NEW]
 │       FB. Volume: 4K/мес — HOT topic
 │
 ├── BY FEATURE
-│   ├── Best Crypto Staking Platforms (/best-crypto-staking-platforms) [EXISTS]
 │   │   Volume: 5K/мес
 │   ├── Best Crypto Copy Trading (/best-crypto-copy-trading) [EXISTS]
 │   │   BB. Volume: 4K/мес
@@ -580,7 +575,6 @@ CRYPTO BROKERS
 │   │   BB. Volume: 3K/мес
 │   ├── Best High Leverage Crypto Brokers (/best-high-leverage-crypto-brokers) [EXISTS]
 │   │   BB. Volume: 4K/мес
-│   └── Best Crypto Margin Trading (/best-crypto-margin-trading) [NEW]
 │       BB. Volume: 3K/мес
 │
 ├── BY AUDIENCE
@@ -590,9 +584,7 @@ CRYPTO BROKERS
 │       Volume: 3K/мес
 │
 ├── BY APP
-│   ├── Best Crypto Trading Apps (/best-crypto-trading-apps) [EXISTS]
 │   │   FB. Volume: 8K/мес
-│   └── Best Crypto Wallets (/best-crypto-wallets) [NEW]
 │       FB. Volume: 10K/мес — requires different content type
 │
 ├── BY COUNTRY
@@ -608,7 +600,6 @@ CRYPTO BROKERS
 │       Volume: 4K/мес
 │
 └── EXCHANGES (separate vertical, adjacent)
-    └── Best Crypto Exchanges (/best-crypto-exchanges) [NEW]
         FB. Volume: 20K/мес — VERY HIGH, но другой тип контента
 ```
 
@@ -670,7 +661,6 @@ STOCK BROKERS
 └── BY PLATFORM
     ├── Best Brokers for TradingView Stocks (/best-tradingview-stock-brokers) [FUTURE]
     │   Volume: 2K/мес
-    └── Best Robo-Advisors (/best-robo-advisors) [FUTURE]
         NW. Volume: 8K/мес — совсем другая вертикаль
 ```
 
@@ -855,7 +845,6 @@ PROP FIRMS
 4. `/best-crypto-brokers-usa` — 4K/мес
 5. `/best-spread-betting-uk` — 4K/мес
 6. `/best-copy-trading-for-beginners` — 3K/мес
-7. `/best-crypto-margin-trading` — 3K/мес
 8. `/best-regulated-crypto-brokers` — 3K/мес
 9. `/best-crypto-brokers-uk` — 3K/мес
 10. `/lowest-spread-cfd-brokers` — 3K/мес

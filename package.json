@@ -6,8 +6,9 @@
   "scripts": {
     "brokers:validate": "node scripts/validate-brokers.mjs",
     "brokers:build": "node scripts/validate-brokers.mjs && node scripts/build-brokers.mjs",
-    "dev": "npm run brokers:build && vite",
-    "build": "npm run brokers:build && vite build",
+    "rankings:validate": "node scripts/validate-rankings.mjs",
+    "dev": "npm run brokers:build && node scripts/validate-rankings.mjs && vite",
+    "build": "npm run brokers:build && node scripts/validate-rankings.mjs && vite build",
     "lint": "eslint .",
     "preview": "npm run build && wrangler dev",
     "deploy": "npm run build && wrangler deploy"

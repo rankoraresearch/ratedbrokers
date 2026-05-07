@@ -1,6 +1,8 @@
 # RANKING-TRACKER.md — Трекер 207 тематических рейтингов
 
 > Каждый рейтинг проходит 4 контрольные точки. Ни один не должен быть пропущен.
+>
+> **Note (2026-05-07, NB-1 cleanup):** 10 non-broker URL удалены из `src/data/rankings.js` (см. `NON-BROKER-URLS-AUDIT.md`). Числа ниже отражают изначальный план M2 — фактический live count берётся из `rankings.js` (283 после cleanup).
 
 ---
 
@@ -214,7 +216,6 @@
 | 1 | best-forex-trading-apps | Best Forex Trading Apps | ⬜ | ⬜ | ⬜ | ⬜ |
 | 2 | best-forex-trading-apps-iphone | Best Forex Trading Apps iPhone | ⬜ | ⬜ | ⬜ | ⬜ |
 | 3 | best-forex-trading-apps-android | Best Forex Trading Apps Android | ⬜ | ⬜ | ⬜ | ⬜ |
-| 4 | best-crypto-trading-apps | Best Crypto Trading Apps | ⬜ | ⬜ | ⬜ | ⬜ |
 | 5 | best-forex-brokers-mobile-trading | Best Forex Brokers Mobile Trading | ⬜ | ⬜ | ⬜ | ⬜ |
 
 ---
@@ -259,7 +260,6 @@
 | 2 | best-bitcoin-brokers | Best Bitcoin Brokers | ⬜ | ⬜ | ⬜ | ⬜ |
 | 3 | best-ethereum-brokers | Best Ethereum Brokers | ⬜ | ⬜ | ⬜ | ⬜ |
 | 4 | best-crypto-cfd-brokers | Best Crypto CFD Brokers | ⬜ | ⬜ | ⬜ | ⬜ |
-| 5 | best-crypto-margin-trading | Best Crypto Margin Trading | ⬜ | ⬜ | ⬜ | ⬜ |
 | 6 | best-crypto-brokers-low-fees | Best Crypto Brokers Low Fees | ⬜ | ⬜ | ⬜ | ⬜ |
 | 7 | best-crypto-copy-trading | Best Crypto Copy Trading | ⬜ | ⬜ | ⬜ | ⬜ |
 | 8 | best-crypto-staking-brokers | Best Crypto Staking Brokers | ⬜ | ⬜ | ⬜ | ⬜ |

@@ -32,7 +32,6 @@ const RANKINGS = [
   { id: "forex-hft",              slug: "/best-high-frequency-trading-brokers",       title: "Best High-Frequency Trading Brokers",             category: "forex", sub: "style",     priority: 3, icon: "zap" },
   { id: "forex-copy-trading",     slug: "/best-copy-trading-platforms",               title: "Best Copy Trading Platforms",                     category: "copy-trading", sub: "top",     priority: 1, icon: "copy", vertical: "copy-trading" },
   { id: "forex-social-trading",   slug: "/best-social-trading-platforms",             title: "Best Social Trading Platforms",                   category: "forex", sub: "style",     priority: 2, icon: "users" },
-  { id: "forex-signals",          slug: "/best-forex-signal-providers",               title: "Best Forex Signal Providers",                     category: "forex", sub: "style",     priority: 2, icon: "signal" },
   { id: "forex-ea",               slug: "/best-forex-brokers-for-expert-advisors",    title: "Best Forex Brokers for Expert Advisors (EA)",     category: "forex", sub: "style",     priority: 3, icon: "settings" },
   { id: "forex-grid",             slug: "/best-forex-brokers-for-grid-trading",       title: "Best Forex Brokers for Grid Trading",             category: "forex", sub: "style",     priority: 3, icon: "grid-3x3" },
   { id: "forex-carry",            slug: "/best-forex-brokers-for-carry-trading",      title: "Best Forex Brokers for Carry Trading",            category: "forex", sub: "style",     priority: 3, icon: "hand-coins" },
@@ -129,7 +128,6 @@ const RANKINGS = [
   { id: "trading-apps",     slug: "/best-forex-trading-apps",               title: "Best Forex Trading Apps",                   category: "forex", sub: "mobile",   priority: 1, icon: "smartphone" },
   { id: "apps-iphone",      slug: "/best-forex-apps-iphone",                title: "Best Forex Apps for iPhone",                category: "forex", sub: "mobile",   priority: 3, icon: "apple" },
   { id: "apps-android",     slug: "/best-forex-apps-android",               title: "Best Forex Apps for Android",               category: "forex", sub: "mobile",   priority: 3, icon: "bot" },
-  { id: "crypto-apps",      slug: "/best-crypto-trading-apps",              title: "Best Crypto Trading Apps",                  category: "crypto", sub: "mobile",  priority: 2, icon: "monitor-smartphone" },
   { id: "stock-apps",       slug: "/best-stock-trading-apps",               title: "Best Stock Trading Apps",                   category: "stocks", sub: "mobile",  priority: 3, icon: "smartphone" },
 
   // ═══════════════════════════════════════════════════════════════
@@ -162,7 +160,6 @@ const RANKINGS = [
   { id: "crypto-solana",      slug: "/best-solana-brokers",                    title: "Best Solana Trading Platforms",               category: "crypto", sub: "coins",   priority: 3, icon: "sun" },
   { id: "crypto-doge",        slug: "/best-dogecoin-brokers",                  title: "Best Dogecoin Brokers",                      category: "crypto", sub: "coins",   priority: 3, icon: "dog" },
   { id: "crypto-altcoins",    slug: "/best-altcoin-brokers",                   title: "Best Altcoin Trading Platforms",              category: "crypto", sub: "coins",   priority: 2, icon: "coins" },
-  { id: "crypto-staking",     slug: "/best-crypto-staking-platforms",          title: "Best Crypto Staking Platforms",               category: "crypto", sub: "feature", priority: 2, icon: "layers" },
   { id: "crypto-copy",        slug: "/best-crypto-copy-trading",              title: "Best Crypto Copy Trading Platforms",           category: "crypto", sub: "feature", priority: 3, icon: "copy" },
   { id: "crypto-high-lev",    slug: "/best-high-leverage-crypto-brokers",     title: "Best High Leverage Crypto Brokers",            category: "crypto", sub: "feature", priority: 2, icon: "trending-up" },
   { id: "crypto-low-spread",  slug: "/best-low-spread-crypto-brokers",        title: "Best Low Spread Crypto Brokers",               category: "crypto", sub: "feature", priority: 3, icon: "trending-down" },
@@ -336,9 +333,7 @@ const RANKINGS = [
   { id: "crypto-beginners",    slug: "/best-crypto-brokers-for-beginners",        title: "Best Crypto Brokers for Beginners",            category: "crypto", sub: "audience",  priority: 1, icon: "graduation-cap", vertical: "crypto" },
   { id: "crypto-regulated",    slug: "/best-regulated-crypto-brokers",            title: "Best Regulated Crypto Brokers",                category: "crypto", sub: "trust",     priority: 1, icon: "shield-check",   vertical: "crypto" },
   { id: "crypto-cardano",      slug: "/best-cardano-brokers",                     title: "Best Cardano (ADA) Brokers",                   category: "crypto", sub: "coins",     priority: 3, icon: "bitcoin",        vertical: "crypto" },
-  { id: "crypto-usdt",         slug: "/best-usdt-trading-platforms",              title: "Best USDT Trading Platforms",                  category: "crypto", sub: "coins",     priority: 2, icon: "bitcoin",        vertical: "crypto" },
   { id: "crypto-btc-etf",      slug: "/best-bitcoin-etf-brokers",                title: "Best Bitcoin ETF Brokers",                     category: "crypto", sub: "coins",     priority: 1, icon: "bitcoin",        vertical: "crypto" },
-  { id: "crypto-margin",       slug: "/best-crypto-margin-trading",              title: "Best Crypto Margin Trading Platforms",         category: "crypto", sub: "feature",   priority: 2, icon: "scale",          vertical: "crypto" },
   { id: "crypto-demo",         slug: "/best-crypto-demo-accounts",               title: "Best Crypto Demo Accounts",                    category: "crypto", sub: "feature",   priority: 3, icon: "test-tube",      vertical: "crypto" },
   { id: "crypto-uk",           slug: "/best-crypto-brokers-uk",                  title: "Best Crypto Brokers UK",                       category: "crypto", sub: "country",   priority: 1, icon: "globe",          vertical: "crypto", _countryName: "United Kingdom" },
   { id: "crypto-usa",          slug: "/best-crypto-brokers-usa",                 title: "Best Crypto Brokers USA",                      category: "crypto", sub: "country",   priority: 1, icon: "globe",          vertical: "crypto", _countryName: "United States" },
@@ -350,8 +345,6 @@ const RANKINGS = [
   { id: "crypto-india",       slug: "/best-crypto-brokers-india",               title: "Best Crypto Brokers India",                    category: "crypto", sub: "country",   priority: 2, icon: "globe",          vertical: "crypto", _countryName: "India" },
   { id: "crypto-south-africa",slug: "/best-crypto-brokers-south-africa",        title: "Best Crypto Brokers South Africa",             category: "crypto", sub: "country",   priority: 3, icon: "globe",          vertical: "crypto", _countryName: "South Africa" },
   { id: "crypto-new-zealand", slug: "/best-crypto-brokers-new-zealand",         title: "Best Crypto Brokers New Zealand",              category: "crypto", sub: "country",   priority: 3, icon: "globe",          vertical: "crypto", _countryName: "New Zealand" },
-  { id: "crypto-exchanges",    slug: "/best-crypto-exchanges",                   title: "Best Crypto Exchanges",                        category: "crypto", sub: "type",      priority: 1, icon: "repeat",         vertical: "crypto" },
-  { id: "crypto-wallets",      slug: "/best-crypto-wallets",                     title: "Best Crypto Wallets",                          category: "crypto", sub: "type",      priority: 2, icon: "wallet",         vertical: "crypto" },
 
   // ═══════════════════════════════════════════════════════════════
   // Y. FOREX GAPS (16) — M4 Umbrella
@@ -374,8 +367,6 @@ const RANKINGS = [
   { id: "leverage-50",         slug: "/1-50-leverage-forex-brokers",              title: "1:50 Leverage Forex Brokers",                  category: "forex", sub: "leverage", priority: 3, icon: "scale" },
   { id: "leverage-300",        slug: "/1-300-leverage-forex-brokers",             title: "1:300 Leverage Forex Brokers",                 category: "forex", sub: "leverage", priority: 3, icon: "scale" },
   // Education / Tools
-  { id: "forex-courses",       slug: "/best-forex-trading-courses",               title: "Best Forex Trading Courses",                   category: "forex", sub: "tools",    priority: 2, icon: "book-open" },
-  { id: "forex-charts",        slug: "/best-forex-chart-websites",                title: "Best Forex Chart Websites",                    category: "forex", sub: "tools",    priority: 3, icon: "bar-chart-3" },
   // Payment
   { id: "pay-amex",            slug: "/forex-brokers-accepting-amex",             title: "Forex Brokers Accepting Amex",                 category: "forex", sub: "payment",  priority: 3, icon: "credit-card" },
   { id: "pay-trustly",         slug: "/forex-brokers-accepting-trustly",          title: "Forex Brokers Accepting Trustly",              category: "forex", sub: "payment",  priority: 3, icon: "credit-card" },
@@ -396,7 +387,6 @@ const RANKINGS = [
   { id: "stocks-europe",          slug: "/best-stock-brokers-europe",             title: "Best Stock Brokers Europe",                   category: "stocks", sub: "country",    priority: 2, icon: "globe",          vertical: "stocks" },
   { id: "stocks-platforms",       slug: "/best-stock-trading-platforms",          title: "Best Stock Trading Platforms",                category: "stocks", sub: "platform",   priority: 1, icon: "monitor",        vertical: "stocks" },
   { id: "stocks-isa",             slug: "/best-stocks-and-shares-isa",            title: "Best Stocks and Shares ISA",                  category: "stocks", sub: "account",    priority: 2, icon: "shield",         vertical: "stocks" },
-  { id: "stocks-robo",            slug: "/best-robo-advisors",                    title: "Best Robo-Advisors",                          category: "stocks", sub: "account",    priority: 2, icon: "bot",            vertical: "stocks" },
   { id: "stocks-tv",              slug: "/best-tradingview-stock-brokers",        title: "Best TradingView Stock Brokers",              category: "stocks", sub: "platform",   priority: 3, icon: "bar-chart-3",    vertical: "stocks" },
 
   // ═══════════════════════════════════════════════════════════════
