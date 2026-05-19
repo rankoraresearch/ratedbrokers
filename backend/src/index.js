@@ -4,10 +4,12 @@ import { handleContact } from './routes/contact.js';
 import { handleAdminList, handleAdminUpdate, handleAdminCreate, handleAdminDelete, handleAdminDashboard } from './routes/admin.js';
 import { handleRankingsDashboard, handleRankingBrokers, handleRankingOrderUpdate, handleRankingOrderReset, handleRankingOrderPublic } from './routes/rankings.js';
 import { handlePublishDashboard, handlePublishPages, handlePublishUpdate, handlePublishBatch, handlePublishAutoSchedule, handlePublishTick, handlePublishActive, handleSitemapIndex, handleSitemapSection } from './routes/publish.js';
+import { handleWordCountDashboard } from './routes/wordcount.js';
 import { handleMessagesDashboard, handleMessageDelete } from './routes/messages.js';
 import { handleLinkHealthDashboard, handleLinkRecheck } from './routes/linkhealth.js';
 import { handleDonorsDashboard, handleDonorsList, handleDonorsBulk, handleDonorUpdate } from './routes/donors.js';
 import { handleAdminAuthorsDashboard } from './routes/admin-authors.js';
+import { handleWriterHuntDashboard, handleWriterHuntList, handleWriterHuntPatch, handleWriterHuntDelete } from './routes/writer-hunt.js';
 import { handleReviewsDashboard, handleReviewContent, handleReviewContentUpdate, handleReviewContentDelete, handleReviewOverridesPublic, handleReviewLog, handleTokensList, handleTokenCreate, handleTokenDelete, handleBrokerContent } from './routes/reviews.js';
 import { handleExpertDashboard, handleExpertReviewContent, handleExpertReviewUpdate, handleExpertReviewDelete } from './routes/expert.js';
 import { handleAuthorInvite, handleAuthorList, handleAuthorPatch, handleAuthorRotate } from './routes/admin-author-mgmt.js';
@@ -35,6 +37,21 @@ import {
   handleRevertSubmission,
   handleRankingContentPublic,
 } from './routes/admin-submissions-processing.js';
+import {
+  handleStartRefresh,
+  handleActiveRun,
+  handleRunsList,
+  handleRunDetail,
+  handleRunDiff,
+  handleApproveRun,
+  handleRejectRun,
+  handleRollbackRun,
+  handleSignalsList,
+  handleSignalResolve,
+  handleFreshnessDashboard,
+  handleApprovalUI,
+  handleTick,
+} from './routes/freshness.js';
 import { handleOptions } from './utils/cors.js';
 
 export default {
@@ -79,6 +96,30 @@ export default {
         }
       }
       console.log(`[CRON] link check complete — ${brokers.results.length} brokers checked`);
+    }
+
+    // 3. Freshness Pipeline recovery tick — drives any 'running' pipeline forward
+    //    if self-rescheduling stalled. Synthesises a fake Request so handleTick's
+    //    auth check and selfTickUrl construction still work.
+    try {
+      const stuck = await env.DB.prepare(
+        `SELECT 1 FROM pipeline_runs pr
+         WHERE pr.status = 'running'
+           AND EXISTS (SELECT 1 FROM agent_runs ar
+                       WHERE ar.pipeline_run_id = pr.id AND ar.status = 'queued')
+         LIMIT 1`
+      ).first();
+      if (stuck) {
+        const tickUrl = (env.FRONTEND_URL && env.FRONTEND_URL.replace('://', '://api.')) || 'https://api.ratedbrokers.com';
+        const tickRequest = new Request(`${tickUrl}/api/admin/refresh/tick`, {
+          method: 'POST',
+          headers: { 'Authorization': 'Bearer ' + env.API_KEY },
+        });
+        await handleTick(tickRequest, env, ctx);
+        console.log(`[CRON] freshness tick fired at ${nowStr}`);
+      }
+    } catch (err) {
+      console.error('[CRON] freshness tick error:', err?.message || err);
     }
   },
 
@@ -370,6 +411,21 @@ export default {
       return handleRankingContentPublic(request, env, rankingContentMatch[1]);
     }
 
+    // ─── Writer Hunt (CFA writer pool — отдельно от Authors/Donors) ───
+    if (path === '/api/admin/writer-hunt/dashboard' && request.method === 'GET') {
+      return handleWriterHuntDashboard(request, env);
+    }
+    if (path === '/api/admin/writer-hunt/list' && request.method === 'GET') {
+      return handleWriterHuntList(request, env);
+    }
+    const writerHuntIdMatch = path.match(/^\/api\/admin\/writer-hunt\/(\d+)$/);
+    if (writerHuntIdMatch && request.method === 'PATCH') {
+      return handleWriterHuntPatch(request, env, writerHuntIdMatch[1]);
+    }
+    if (writerHuntIdMatch && request.method === 'DELETE') {
+      return handleWriterHuntDelete(request, env, writerHuntIdMatch[1]);
+    }
+
     // ─── Donors (outreach) ───
     if (path === '/api/admin/donors/dashboard' && request.method === 'GET') {
       return handleDonorsDashboard(request, env);
@@ -421,6 +477,54 @@ export default {
     // GET /api/publish/active — PUBLIC: list of published slugs
     if (path === '/api/publish/active' && request.method === 'GET') {
       return handlePublishActive(request, env);
+    }
+
+    // ─── Word Count Audit ───
+
+    // GET /api/admin/wordcount/dashboard — embedded audit viewer
+    if (path === '/api/admin/wordcount/dashboard' && request.method === 'GET') {
+      return handleWordCountDashboard(request, env);
+    }
+
+    // ─── Freshness Pipeline (master broker refresh — Джон/Боб/Лео + watchdogs) ───
+    // Spec: FRESHNESS-PIPELINE-SPEC.md
+
+    if (path === '/api/admin/refresh/dashboard' && request.method === 'GET') {
+      return handleFreshnessDashboard(request, env);
+    }
+    if (path === '/api/admin/refresh/start' && request.method === 'POST') {
+      return handleStartRefresh(request, env, ctx);
+    }
+    if (path === '/api/admin/refresh/active' && request.method === 'GET') {
+      return handleActiveRun(request, env);
+    }
+    if (path === '/api/admin/refresh/runs' && request.method === 'GET') {
+      return handleRunsList(request, env);
+    }
+    // /tick is internal — orchestrator self-fetches with API_KEY auth.
+    if (path === '/api/admin/refresh/tick' && request.method === 'POST') {
+      return handleTick(request, env, ctx);
+    }
+
+    // /api/admin/refresh/:id/(approve|reject|rollback|diff|approve-ui)  + bare GET
+    const refreshActionMatch = path.match(/^\/api\/admin\/refresh\/(\d+)(?:\/(approve|reject|rollback|diff|approve-ui))?$/);
+    if (refreshActionMatch) {
+      const runIdRaw = refreshActionMatch[1];
+      const action   = refreshActionMatch[2];
+      if (!action && request.method === 'GET') return handleRunDetail(request, env, runIdRaw);
+      if (action === 'diff'        && request.method === 'GET')  return handleRunDiff(request, env, runIdRaw);
+      if (action === 'approve-ui'  && request.method === 'GET')  return handleApprovalUI(request, env, runIdRaw);
+      if (action === 'approve'     && request.method === 'POST') return handleApproveRun(request, env, runIdRaw);
+      if (action === 'reject'      && request.method === 'POST') return handleRejectRun(request, env, runIdRaw);
+      if (action === 'rollback'    && request.method === 'POST') return handleRollbackRun(request, env, runIdRaw);
+    }
+
+    if (path === '/api/admin/signals' && request.method === 'GET') {
+      return handleSignalsList(request, env);
+    }
+    const signalResolveMatch = path.match(/^\/api\/admin\/signals\/(\d+)\/resolve$/);
+    if (signalResolveMatch && request.method === 'POST') {
+      return handleSignalResolve(request, env, signalResolveMatch[1]);
     }
 
     // GET /api/sitemap.xml — sitemap index

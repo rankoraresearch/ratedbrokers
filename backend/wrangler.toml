@@ -1,7 +1,18 @@
 name = "ratedbrokers-api"
 main = "src/index.js"
-compatibility_date = "2024-01-01"
+compatibility_date = "2024-09-23"
+# nodejs_compat is needed by @anthropic-ai/sdk (Buffer, streams).
+# Bumping compat_date to 2024-09-23 (the date this flag became GA) is the
+# narrowest possible change — it does not alter any existing Worker behavior
+# we currently rely on (no cron semantics or fetch defaults are affected).
+compatibility_flags = ["nodejs_compat"]
 workers_dev = true
+
+# Allow .md text imports — used by Freshness Pipeline (S3) to load
+# agents/*.md prompts as bundled string assets at build time.
+rules = [
+  { type = "Text", globs = ["**/*.md"], fallthrough = true }
+]
 
 routes = [
   { pattern = "api.ratedbrokers.com/*", zone_name = "ratedbrokers.com" }
@@ -32,6 +43,7 @@ database_id = "0583b2f5-4bba-4d05-868a-1228a109668e"
 [env.staging]
 name = "ratedbrokers-api-staging"
 workers_dev = true
+compatibility_flags = ["nodejs_compat"]
 
 [env.staging.vars]
 FRONTEND_URL = "https://ratedbrokers.com"
