@@ -1,6 +1,6 @@
 # Status — текущее состояние проекта
 
-Last updated: 2026-05-07 (**Sprint NB-1 завершён на ветке `sprint/nb-1-cleanup`. 10 non-broker URL удалены под 0 + anti-recurrence guard. Codex 3 fixes applied. Ждём OK Егора на push.** Главный документ: `NON-BROKER-URLS-AUDIT.md`; HEAD ветки готов к merge)
+Last updated: 2026-05-19 (**Sprint F2 завершён на ветке `sprint/f2-country-unification`. Country-hub каннибализация устранена — legacy `/best-forex-brokers-by-country` удалён под 0 + explicit 404 route + D1 backfill. Ждём OK Егора на push.** Главный документ: `ARCHITECTURE-AUDIT-2026-04-28.md` (F2 закрыт))
 
 ---
 
@@ -27,6 +27,37 @@ Last updated: 2026-05-07 (**Sprint NB-1 завершён на ветке `sprint
 
 ---
 
+## 🟢 ГОТОВО НА МЕРЖ (2026-05-19) — Sprint F2: Country Hub Unification
+
+**Запрос Егора:** удалить legacy `/best-forex-brokers-by-country` под 0 (без 301 редиректов), заменить ВСЕ ссылки на multi-asset хаб `/best-brokers-by-country`. Глубоко и надёжно.
+
+**Ветка:** `sprint/f2-country-unification` (от main `2819acd`)
+**Safepoint:** `safepoint-pre-f2-2026-05-19-2232` (origin)
+
+**Удалено:**
+- `src/pages/CountryHubPage.jsx` (182 строки, файл целиком)
+- App.jsx: lazy import + Route legacy URL
+- D1 `page_publish` запись `best-forex-brokers-by-country` (verified)
+- FINAL-SITEMAP.md: 1 строка
+
+**Перенаправлены на новый URL:**
+- Footer.jsx
+- Home.jsx (2 ссылки + анкоры без слова "Forex")
+- homepageSeoContent.js
+- CountryPage.jsx breadcrumb (4 уровня → 3, унифицирован)
+- backend/src/routes/publish.js (2 места в seed)
+
+**Особые меры (по Codex):**
+- App.jsx: добавлен explicit `<Route path="best-forex-brokers-by-country" element={<NotFoundPage />}>` ПЕРЕД wildcard `best-forex-brokers-:countrySlug` — иначе wildcard ловил legacy URL как countrySlug="by-country" → soft-404 через CountryPage Navigate
+- D1: добавлена новая запись `best-brokers-by-country` со status='published' (ensureSeeded() only-seeds-empty не помог бы)
+
+**Codex review:** общая среда заблокирована (gpt-5.2-codex unavailable on ChatGPT auth). Использовали general-purpose agent для independent review. NEEDS_CHANGES (0 critical, 2 high, 2 med, 1 low). Все HIGH применены. MEDIUM (forex-themed CountryPage title) — by design (страница forex-leaf, title правильный). MEDIUM (breadcrumb label) — приемлемо.
+
+**Pending Егор:**
+- Подтвердить merge в main
+
+---
+
 ## 🔴 АКТИВНОЕ (2026-04-28) — Architecture Audit (research, decisions pending)
 
 **Запрос Егора:** глубокий аудит — критичные intent-mismatch URL, редиректы, хлебные крошки, общая архитектура. Не добавляем новые сущности. Цель — улучшить то что есть до открытия индексации.
@@ -37,7 +68,7 @@ Last updated: 2026-05-07 (**Sprint NB-1 завершён на ветке `sprint
 
 **Critical findings (2 — блокируют открытие индексации):**
 - ~~**F1** — 8 non-broker URL по-прежнему в проде с 22.04 (предыдущий research лежит без действий).~~ **ЗАКРЫТО Sprint NB-1 (2026-05-07)** — удалено 10 URL под 0 + anti-recurrence guard.
-- **F2** — Country-хаб развилка `/best-forex-brokers-by-country` (legacy forex) и `/best-brokers-by-country` (M4 multi-asset) живут параллельно. Header → второй, Footer + Home → первый. Раскол навигации, каннибализация SEO.
+- ~~**F2** — Country-хаб развилка `/best-forex-brokers-by-country` (legacy forex) и `/best-brokers-by-country` (M4 multi-asset).~~ **ЗАКРЫТО Sprint F2 (2026-05-19)** — legacy удалён под 0, всё унифицировано на multi-asset хаб.
 
 **Medium (5 — полезно сделать одним спринтом):**
 - F3 16 asset-рейтингов (gold/oil/indices) orphan от хабов

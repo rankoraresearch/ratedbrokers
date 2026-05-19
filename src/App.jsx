@@ -7,7 +7,6 @@ import { LanguageProvider } from "./i18n/LanguageContext";
 // ─── Production pages (lazy loaded) ───
 const Home = lazy(() => import("./pages/Home"));
 const CountryPage = lazy(() => import("./pages/CountryPage"));
-const CountryHubPage = lazy(() => import("./pages/CountryHubPage"));
 const OnlineBrokersByCountry = lazy(() => import("./pages/OnlineBrokersByCountry"));
 const BrokerReview = lazy(() => import("./pages/BrokerReview"));
 const BrokerComparison = lazy(() => import("./pages/BrokerComparison"));
@@ -127,10 +126,12 @@ function AppRoutes() {
       <Route element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="uk" element={<Navigate to="/best-forex-brokers-uk" replace />} />
-        <Route path="best-forex-brokers-by-country" element={<CountryHubPage />} />
         <Route path="best-brokers-by-country" element={<OnlineBrokersByCountry />} />
         {/* S9 rebrand: redirect old URL (в dev без CF _redirects) */}
         <Route path="brokers-by-country" element={<Navigate to="/best-brokers-by-country" replace />} />
+        {/* F2 explicit 404: Sprint F2 удалил legacy URL. Без этой строки wildcard ниже */}
+        {/* поймает его как countrySlug="by-country" → soft-404 через CountryPage Navigate. */}
+        <Route path="best-forex-brokers-by-country" element={<NotFoundPage />} />
         <Route path="best-forex-brokers-:countrySlug" element={<CountryPage />} />
         <Route path="reviews/:slug" element={<BrokerReview />} />
         <Route path="reviews/:slug/:tab" element={<BrokerSubPage />} />

@@ -80,7 +80,7 @@ const HOMEPAGE_SEO = {
       {
         subheading: "Start with regulation",
         text: `Your broker should be licensed by a reputable financial authority. Tier-1 regulators like the FCA (UK), ASIC (Australia), SEC/NFA (US), and CySEC (EU) enforce fund segregation, negative balance protection, and investor compensation schemes. A broker with only an offshore license offers fewer protections if something goes wrong.`,
-        link: { text: "Regulated brokers by country", path: "/best-forex-brokers-by-country" },
+        link: { text: "Regulated brokers by country", path: "/best-brokers-by-country" },
       },
       {
         subheading: "Compare total trading costs",

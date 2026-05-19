@@ -227,7 +227,7 @@ export default function Footer() {
                 <CountryFlag code={code} size={15} /><span style={{ marginLeft: 6 }}>{label}</span>
               </HoverLink>
             ))}
-            <HoverLink to={lp("/best-forex-brokers-by-country")} style={{ color: "#34d399", fontWeight: 600, marginTop: 4 }}>
+            <HoverLink to={lp("/best-brokers-by-country")} style={{ color: "#34d399", fontWeight: 600, marginTop: 4 }}>
               {t("footer.allCountries")} {arrowIcon}
             </HoverLink>
           </div>

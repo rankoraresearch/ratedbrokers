@@ -51,7 +51,6 @@
 | ratedbrokers.com/reviews | All Forex Broker Reviews | forex broker reviews |
 | ratedbrokers.com/guides | Forex Trading Guides | forex trading guides |
 | ratedbrokers.com/compare | Compare Forex Brokers Side by Side | compare forex brokers |
-| ratedbrokers.com/best-forex-brokers-by-country | Best Forex Brokers by Country | best forex brokers by country |
 | ratedbrokers.com/tools | Forex Trading Tools & Calculators | forex trading tools |
 | ratedbrokers.com/research | Forex Market Research & Analysis | forex broker research |
 | ratedbrokers.com/awards | Best Forex Broker Awards 2026 | best forex broker awards |

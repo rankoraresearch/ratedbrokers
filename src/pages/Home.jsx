@@ -566,8 +566,8 @@ export default function Home() {
           <h2 style={{ fontFamily: "'Outfit',sans-serif", fontWeight: 800, fontSize: mob ? 22 : 30, color: "#0f172a", letterSpacing: "-0.03em" }}>
             Regulated Brokers by Country
           </h2>
-          <Link to={lp("/best-forex-brokers-by-country")} className="link-green" style={{ display: "flex", alignItems: "center", gap: 4 }}>
-            All 45 Forex Countries <ArrowRight size={12} className="link-arrow" />
+          <Link to={lp("/best-brokers-by-country")} className="link-green" style={{ display: "flex", alignItems: "center", gap: 4 }}>
+            All 45 Countries <ArrowRight size={12} className="link-arrow" />
           </Link>
         </div>
         <p style={{ fontSize: 15, color: "#64748b", marginBottom: mob ? 20 : 28, maxWidth: 600 }}>
@@ -624,8 +624,8 @@ export default function Home() {
         </div>
         {mob && <div style={{ textAlign: "center", marginTop: 8, fontSize: 11, color: "#94a3b8", fontWeight: 600 }}>Swipe to see more countries →</div>}
         <div style={{ textAlign: "center", marginTop: 20 }}>
-          <Link to={lp("/best-forex-brokers-by-country")} className="link-green" style={{ display: "inline-flex", alignItems: "center", gap: 4 }}>
-            Browse All 45 Forex Countries <ArrowRight size={14} className="link-arrow" />
+          <Link to={lp("/best-brokers-by-country")} className="link-green" style={{ display: "inline-flex", alignItems: "center", gap: 4 }}>
+            Browse All 45 Countries <ArrowRight size={14} className="link-arrow" />
           </Link>
         </div>
       </section>

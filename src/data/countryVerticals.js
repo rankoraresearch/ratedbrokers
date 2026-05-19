@@ -5,8 +5,8 @@
  * Каждая запись страны перечисляет ТОЛЬКО те вертикали, для которых
  * ranking-страница реально существует в src/data/rankings.js.
  *
- * Ребрендинг: основной forex-by-country хаб (/best-forex-brokers-by-country)
- * остаётся для SEO. Новый multi-asset хаб — /best-brokers-by-country.
+ * Единственный country-хаб — /best-brokers-by-country (multi-asset).
+ * Legacy /best-forex-brokers-by-country удалён Sprint F2 (2026-05-19).
  *
  * Fields:
  *   code            — ISO-2 (для <CountryFlag />)

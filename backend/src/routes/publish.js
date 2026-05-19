@@ -83,7 +83,7 @@ function generateCombiSlugs() {
 
 const STATIC_PAGES = [
   'home','methodology','about','how-we-make-money','trust-score','contact',
-  'rankings','reviews','guides','compare','best-forex-brokers-by-country',
+  'rankings','reviews','guides','compare','best-brokers-by-country',
   'platform/metatrader-4','platform/metatrader-5','platform/ctrader','platform/tradingview',
   'regulator/fca','regulator/cysec','regulator/asic','regulator/nfa','regulator/bafin',
   'regulator/mas','regulator/dfsa','regulator/fsca','regulator/scb','regulator/finma',
@@ -227,7 +227,7 @@ function generateSchedule(startDate, pages) {
     assign(reviews[revIdx].slug, 7);
   }
   // trust-score, how-we-make-money, rankings, reviews, guides, compare
-  const day7Static = ['trust-score','how-we-make-money','rankings','reviews','guides','compare','best-forex-brokers-by-country'];
+  const day7Static = ['trust-score','how-we-make-money','rankings','reviews','guides','compare','best-brokers-by-country'];
   for (const s of day7Static) assign(s, 7);
 
   // Days 8-13: 5 top rankings
