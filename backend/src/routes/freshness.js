@@ -1238,9 +1238,10 @@ export async function handleFreshnessDashboard(request, env) {
   // bar + counts in place. On terminal status (awaiting_approval/published/
   // rejected/failed/rolled_back) we reload once to render the matching UI.
   let pollTimer = null;
-  // Codex S4 security note: JSON.stringify alone doesn't escape </script> in
-  // arbitrary strings. status is a fixed enum here so safe in practice; harden
-  // anyway by post-replacing `<` with the JSON-safe < form.
+  // Codex S4 security note: JSON.stringify alone doesn't escape less-than
+  // followed by /script in arbitrary strings. status is a fixed enum here so
+  // safe in practice; harden anyway by post-replacing less-than with its
+  // JSON-safe Unicode form (<).
   let lastPolledStatus = ${JSON.stringify((typeof active !== 'undefined' && active) ? active.status : null).replace(/</g, '\\u003c')};
 
   function maybeStartPolling() {
