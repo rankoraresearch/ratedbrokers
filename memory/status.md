@@ -1,6 +1,43 @@
 # Status — текущее состояние проекта
 
-Last updated: 2026-05-07 (**Sprint NB-1 завершён на ветке `sprint/nb-1-cleanup`. 10 non-broker URL удалены под 0 + anti-recurrence guard. Codex 3 fixes applied. Ждём OK Егора на push.** Главный документ: `NON-BROKER-URLS-AUDIT.md`; HEAD ветки готов к merge)
+Last updated: 2026-05-20 (**Freshness Pipeline S0-S8 завершён на ветке `freshness-pipeline-s0-s6` (origin). Все 8 спринтов прошли Codex 10/10. Production deploy не выполнен — ждёт команды Егора через `FRESHNESS-DEPLOY-RUNBOOK.md`.**)
+
+---
+
+## 🟢 ГОТОВО К PROD-DEPLOY (2026-05-20) — Freshness Pipeline S0-S8
+
+**Что:** автоматическая система обновления данных о брокерах через AI-агентов с manual approval gate. Раздел `/api/admin/refresh/dashboard` в админке (14-й NAV item «Freshness»).
+
+**5-stage pipeline:** COLLECT (Джон) → VERIFY (Боб) → SCORE (Лео) → RE-RANK (auto) → APPROVE (Yegor). До approve ничего на сайте не меняется. После approve: MD-файлы пишутся через GitHub Contents API → Cloudflare Pages auto-deploy.
+
+**Дополнительно:**
+- Daily watchdogs (regulator FCA + news Claude + link-health) → critical signals
+- Auto-archive закрытых брокеров (Tier-1 license revoked / shutdown)
+- Email-уведомления через MailChannels (run-complete digest + critical alerts)
+
+**Артефакты:**
+- `FRESHNESS-PIPELINE-SPEC.md` — архитектура (single source of truth)
+- `FRESHNESS-DEPLOY-RUNBOOK.md` — step-by-step production deploy
+- Ветка: `freshness-pipeline-s0-s6` (origin) — 3 коммита, ~4200 строк кода
+- D1 migration `004-freshness-pipeline.sql` — 6 таблиц (НЕ применена на remote)
+
+**Codex review history (gpt-5.4 independent reviewer):**
+- S2: 1C+3H+1M+1L → APPROVED (round 2)
+- S3: 3H+2M → APPROVED (round 2)
+- S6: 3H+2M, 1H+1M → APPROVED (round 3)
+- S5: 2H+2M → APPROVED (round 2)
+- S7+S8: 2H → APPROVED (round 2)
+- S4: 1H → APPROVED (round 2)
+
+**Pending Егора (production cutover):**
+1. Применить migration 004 на remote D1
+2. `wrangler secret put` для ANTHROPIC_API_KEY + GITHUB_TOKEN + GITHUB_REPO + GITHUB_BRANCH
+3. `wrangler deploy`
+4. Pilot run на Top-3 брокеров (commits в ветку `freshness-test`)
+5. После проверки → переключить GITHUB_BRANCH на main → полный run на 38 брокеров
+6. **REVOKE двух утёкших ключей:** старый Anthropic key + GitHub PAT, создать чистые замены
+
+Полный protocol: `FRESHNESS-DEPLOY-RUNBOOK.md`.
 
 ---
 

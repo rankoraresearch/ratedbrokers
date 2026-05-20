@@ -78,6 +78,8 @@ HH:MM — действие — результат
 | `EDITORIAL-ACTIVITY-LOG.md` | Спека гибридной архитектуры editorial-журнала (MD frontmatter bindings + D1 `editorial_actions` events). Питает Recent Activity блок на `/author/:slug` и byline на review/ranking страницах |
 | `backend/README.md` | API reference, D1 schema, все 40+ endpoints |
 | `DEPLOY-RUNBOOK.md` | **ОБЯЗАТЕЛЬНО** читать перед любым `git push origin main` — золотые правила, rollback по 3 уровням риска, известные режимы отказа (stale-tab, revert-of-merge, Vite overlay) |
+| `FRESHNESS-PIPELINE-SPEC.md` | Архитектура Freshness Pipeline (auto-refresh брокеров через AI-агентов Джон/Боб/Лео + watchdogs + auto-archive + email). Читать перед любым изменением `backend/src/agents/`, `backend/src/watchdogs/`, `backend/src/notifications/` или `backend/src/routes/freshness.js` |
+| `FRESHNESS-DEPLOY-RUNBOOK.md` | Step-by-step production deploy для Freshness Pipeline. Читать перед `wrangler deploy` если затронуты freshness-файлы |
 
 ## Стек и правила кода
 
@@ -98,6 +100,9 @@ API: `https://ratedbrokers-api.ratedbrokers.workers.dev` (Cloudflare Workers + D
 
 **Деплой автоматический:** push в `main` → Cloudflare Pages автобилд → live.
 Build command в Cloudflare Pages: `npm run build` (внутри вызывает `brokers:build`).
+
+**Freshness Pipeline** (auto-refresh брокеров через AI-агентов):
+Раздел `/api/admin/refresh/dashboard` в админке. Manual trigger ежемесячно. Внутри: Джон собирает данные → Боб верифицирует → Лео пересчитывает score → Yegor approve в UI → MD-файлы пишутся → git commit → Cloudflare Pages auto-deploy. Daily watchdogs (regulator + news + link-health) пишут signals в реальном времени. Auto-archive закрытых брокеров. Email-уведомления (digest + critical). **Spec:** `FRESHNESS-PIPELINE-SPEC.md`. **Deploy:** `FRESHNESS-DEPLOY-RUNBOOK.md`.
 
 **Deploy golden rules** (полностью в `DEPLOY-RUNBOOK.md`):
 1. **Никогда `git revert -m 1 <merge>` на main** если потом нужно ре-мерджить ту же работу. Revert оставляет merge в DAG → повторный merge вернёт «Already up-to-date» без контента. Использовать forward-fix commit или revert-the-revert.

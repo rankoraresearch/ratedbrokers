@@ -1096,6 +1096,18 @@ export async function handleFreshnessDashboard(request, env) {
   .signal-source { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
   .signal-msg { font-size: 13px; color: var(--text-primary); margin: 4px 0; }
   .signal-time { font-size: 11px; color: var(--text-muted); }
+
+  /* S4: mobile tweaks for dashboard */
+  @media (max-width: 768px) {
+    .hero-bar { flex-direction: column; align-items: flex-start; padding: 16px 18px; gap: 12px; }
+    .hero-bar h1 { font-size: 17px; }
+    .hero-bar .btn-primary { width: 100%; justify-content: center; }
+    .active-run { padding: 14px 16px; }
+    .ar-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .ar-header .btn-primary, .ar-header .btn-secondary { width: 100%; }
+    .premium-table th, .premium-table td { padding: 8px 6px; font-size: 11px; }
+    .premium-table th:nth-child(3), .premium-table td:nth-child(3) { display: none; } /* hide Started column on tight screens */
+  }
 </style>
 </head>
 <body>
@@ -1220,6 +1232,66 @@ export async function handleFreshnessDashboard(request, env) {
       btn.disabled = false; alert('Error: ' + err.message);
     }
   }
+
+  // ─── S4: live polling on active run ─────────────────────────────────────
+  // When an active run exists, poll /active every 3s to update the progress
+  // bar + counts in place. On terminal status (awaiting_approval/published/
+  // rejected/failed/rolled_back) we reload once to render the matching UI.
+  let pollTimer = null;
+  // Codex S4 security note: JSON.stringify alone doesn't escape </script> in
+  // arbitrary strings. status is a fixed enum here so safe in practice; harden
+  // anyway by post-replacing `<` with the JSON-safe < form.
+  let lastPolledStatus = ${JSON.stringify((typeof active !== 'undefined' && active) ? active.status : null).replace(/</g, '\\u003c')};
+
+  function maybeStartPolling() {
+    const bar = document.querySelector('.ar-progress-fill');
+    if (!bar) return;  // no active run on screen
+    if (pollTimer) return;
+    pollTimer = setInterval(pollActive, 3000);
+  }
+
+  async function pollActive() {
+    try {
+      const res = await fetch('/api/admin/refresh/active', {
+        headers: { 'Authorization': 'Bearer ' + KEY },
+      });
+      if (!res.ok) return;
+      const data = await res.json();
+      const a = data.active;
+      if (!a) {
+        clearInterval(pollTimer); pollTimer = null;
+        window.location.reload();
+        return;
+      }
+      // Update progress bar + stats inline.
+      const total = a.total_brokers || 0;
+      const done  = a.brokers_done || 0;
+      const pct   = total > 0 ? Math.min(100, (done / total) * 100) : 0;
+      const bar = document.querySelector('.ar-progress-fill');
+      if (bar) bar.style.width = pct + '%';
+      const stats = document.querySelector('.ar-stats');
+      if (stats) {
+        const stageName = ({1:'COLLECT',2:'VERIFY',3:'SCORE',4:'RE-RANK',5:'APPROVE'})[a.current_stage] || '—';
+        stats.innerHTML = (a.brokers_done || 0) + ' / ' + (a.total_brokers || 0) +
+          ' brokers · ' + (a.changes_count || 0) + ' changes · current stage: <strong>' + stageName + '</strong>';
+      }
+      // Reload when status transitions to a terminal-ish state.
+      if (a.status !== lastPolledStatus &&
+          (a.status === 'awaiting_approval' || a.status === 'failed' ||
+           a.status === 'published' || a.status === 'rolled_back' || a.status === 'rejected')) {
+        clearInterval(pollTimer); pollTimer = null;
+        window.location.reload();
+      }
+      lastPolledStatus = a.status;
+    } catch (err) {
+      // Silent: a transient blip should not break the page.
+      console.warn('[freshness] poll error:', err);
+    }
+  }
+
+  // Start polling immediately if there's an active run on first render.
+  if (document.readyState !== 'loading') maybeStartPolling();
+  else document.addEventListener('DOMContentLoaded', maybeStartPolling);
 </script>
 </body>
 </html>`;
@@ -1412,6 +1484,24 @@ export async function handleApprovalUI(request, env, runIdRaw) {
   .finding-source:hover { text-decoration: underline; }
 
   .empty-state { text-align: center; padding: 48px 24px; color: var(--text-muted); }
+
+  /* S4: hidden by filter */
+  .broker-card.is-hidden { display: none; }
+
+  /* S4: mobile tweaks */
+  @media (max-width: 768px) {
+    .approval-summary { padding: 12px 14px; gap: 8px; }
+    .approval-summary h1 { font-size: 16px; }
+    .approval-actions { margin-left: 0; width: 100%; }
+    .approval-actions .btn-primary,
+    .approval-actions .btn-secondary,
+    .approval-actions .btn-danger { flex: 1; padding: 8px 12px; font-size: 11px; }
+    .toolbar { padding: 10px 12px; gap: 6px; }
+    .toolbar input[type="search"] { width: 100% !important; }
+    .broker-card { padding: 12px 14px; }
+    .broker-header h3 { font-size: 14px; }
+    .score-values { font-size: 16px; }
+  }
 </style>
 </head>
 <body>
@@ -1441,13 +1531,20 @@ export async function handleApprovalUI(request, env, runIdRaw) {
     </div>
 
     ${run.status === 'awaiting_approval' ? `
-      <div class="toolbar">
+      <div class="toolbar" style="flex-wrap:wrap">
         <button class="btn-ghost" onclick="selectAll(true)">Select all</button>
         <button class="btn-ghost" onclick="selectAll(false)">Deselect all</button>
         <button class="btn-ghost" onclick="selectSafe()">Select only safe (Δ &lt; 0.3)</button>
-        <span style="color:var(--text-muted);font-size:11px;margin-left:auto">
-          Unchecked findings = skipped this run.
-        </span>
+        <span style="width:1px;height:20px;background:var(--border)"></span>
+        <input id="filterText" type="search" placeholder="Filter by broker slug…" oninput="applyFilters()"
+          style="padding:6px 10px;border-radius:6px;border:1px solid var(--border);background:rgba(255,255,255,0.04);color:var(--text-primary);font-size:12px;width:200px;outline:none">
+        <label style="font-size:11px;color:var(--text-secondary);display:flex;align-items:center;gap:4px;cursor:pointer">
+          <input type="checkbox" id="filterCritical" onchange="applyFilters()" style="cursor:pointer"> Critical only
+        </label>
+        <label style="font-size:11px;color:var(--text-secondary);display:flex;align-items:center;gap:4px;cursor:pointer">
+          <input type="checkbox" id="filterReview" onchange="applyFilters()" style="cursor:pointer"> Review only (Δ ≥ 0.3)
+        </label>
+        <span id="filterCount" style="color:var(--text-muted);font-size:11px;margin-left:auto"></span>
       </div>
     ` : ''}
 
@@ -1468,17 +1565,45 @@ export async function handleApprovalUI(request, env, runIdRaw) {
   const RUN_ID = ${runId};
 
   function selectAll(checked) {
-    document.querySelectorAll('.finding-row input[type="checkbox"]:not([disabled])').forEach(cb => cb.checked = checked);
+    document.querySelectorAll('.broker-card:not(.is-hidden) .finding-row input[type="checkbox"]:not([disabled])').forEach(cb => cb.checked = checked);
   }
+  // Codex S4 H: also scope selectSafe to visible cards for UI/state consistency.
   function selectSafe() {
-    document.querySelectorAll('.broker-card').forEach(card => {
+    document.querySelectorAll('.broker-card:not(.is-hidden)').forEach(card => {
       const safe = !card.classList.contains('needs-review') && !card.classList.contains('is-critical');
       card.querySelectorAll('input[type="checkbox"]:not([disabled])').forEach(cb => cb.checked = safe);
     });
   }
 
+  // S4 filters: text search + critical/review toggles, applied client-side.
+  function applyFilters() {
+    const textEl  = document.getElementById('filterText');
+    const critEl  = document.getElementById('filterCritical');
+    const revEl   = document.getElementById('filterReview');
+    const q       = textEl ? textEl.value.trim().toLowerCase() : '';
+    const onlyCrit = critEl && critEl.checked;
+    const onlyRev  = revEl && revEl.checked;
+    let visible = 0;
+    document.querySelectorAll('.broker-card').forEach(card => {
+      const slug = (card.dataset.slug || '').toLowerCase();
+      const isCrit = card.classList.contains('is-critical');
+      const needsRev = card.classList.contains('needs-review');
+      const matchText = !q || slug.indexOf(q) !== -1;
+      const matchCrit = !onlyCrit || isCrit;
+      const matchRev  = !onlyRev  || needsRev;
+      const show = matchText && matchCrit && matchRev;
+      card.classList.toggle('is-hidden', !show);
+      if (show) visible++;
+    });
+    const countEl = document.getElementById('filterCount');
+    if (countEl) countEl.textContent = visible + ' broker' + (visible === 1 ? '' : 's') + ' visible';
+  }
+
   async function approveRun() {
-    const ids = Array.from(document.querySelectorAll('.finding-row input[type="checkbox"]:checked'))
+    // Codex S4 H: scope to visible cards only. Without this, a finding could
+    // be checked, then hidden by a filter, then approved silently — the
+    // visible UI would no longer match the submitted payload.
+    const ids = Array.from(document.querySelectorAll('.broker-card:not(.is-hidden) .finding-row input[type="checkbox"]:checked'))
       .map(cb => parseInt(cb.dataset.fid, 10))
       .filter(n => Number.isInteger(n));
     if (!confirm('Approve ' + ids.length + ' findings and publish to MD + git?')) return;

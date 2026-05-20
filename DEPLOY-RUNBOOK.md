@@ -9,6 +9,7 @@
 3. **Preview deploy перед prod merge** для любых структурных изменений (новые файлы, удаление файлов, смена lucide иконок). Просто push ветку в origin — Cloudflare автоматически даст URL `<branch>.ratedbrokers.pages.dev`.
 4. **Safepoint tag перед каждым merge в main**: `git tag safepoint-YYYY-MM-DD-HHMM main` до push.
 5. **При удалении файла — сразу grep импортов**: `grep -rn "./pages/<name>" src/`. Prod tree-shake'ит через `import.meta.env.DEV`, dev ломается жёстко.
+6. **Freshness Pipeline коммитит сам.** Если видишь странные коммиты `refresh: monthly YYYY-MM (N brokers updated)` от `Джон/Боб/Лео <*@ratedbrokers.local>` — это автоматический pipeline. Не пытаться откатывать без понимания контекста — открой `https://api.ratedbrokers.com/api/admin/refresh/dashboard` чтобы увидеть pipeline_run, инициировавший коммит. Полный deploy-протокол: `FRESHNESS-DEPLOY-RUNBOOK.md`.
 
 ## Стандартный deploy (low-risk fix)
 
