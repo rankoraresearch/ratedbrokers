@@ -23,6 +23,8 @@ import { checkAuth, extractKey } from '../utils/auth.js';
 import { runJohn, runBob, runLeo, isTestMode, getDefaultModel } from '../agents/runner.js';
 import { applyAndCommit } from '../agents/md-writer.js';
 import { isGitDryRun } from '../agents/github-client.js';
+import { archiveBroker } from '../agents/archive.js';
+import { notifyRunComplete } from '../notifications/email.js';
 
 // ─── Constants ───────────────────────────────────────────────────────────
 const STAGE_NAMES   = { 1: 'COLLECT', 2: 'VERIFY', 3: 'SCORE', 4: 'RE-RANK', 5: 'APPROVE' };
@@ -229,11 +231,17 @@ async function processAgentRun(env, agentRun) {
 
     const out = await runJohn(env, broker);
     if (out.findings.length > 0) {
+      // (Codex S7+S8 H1) Do NOT propagate is_critical to every finding row.
+      // is_critical is a BROKER-level flag from John's output, not a per-field
+      // attribute — copying it onto every row meant approving an unrelated
+      // finding (e.g. spread) could trigger auto-archive even if the actual
+      // criticality reason (e.g. shutdown) was rejected. Persist it once in
+      // agent_runs.output_json instead; auto-archive query reads it from there.
       const stmts = out.findings.map(f =>
         env.DB.prepare(
           `INSERT INTO agent_findings (pipeline_run_id, broker_slug, field, old_value, new_value, source_url, is_critical)
-           VALUES (?, ?, ?, ?, ?, ?, ?)`
-        ).bind(agentRun.pipeline_run_id, broker.slug, f.field, f.old_value, f.new_value, f.source_url, out.is_critical ? 1 : 0)
+           VALUES (?, ?, ?, ?, ?, ?, 0)`
+        ).bind(agentRun.pipeline_run_id, broker.slug, f.field, f.old_value, f.new_value, f.source_url)
       );
       await env.DB.batch(stmts);
     }
@@ -340,7 +348,7 @@ async function advanceCompletedRuns(env) {
     ).bind(row.id).first();
 
     // Atomic transition: only if still 'running' (avoids racing /reject).
-    await env.DB.prepare(
+    const tx = await env.DB.prepare(
       `UPDATE pipeline_runs
          SET status = 'awaiting_approval', current_stage = 5,
              brokers_done = ?, brokers_failed = ?, changes_count = ?, finished_at = ?
@@ -352,6 +360,23 @@ async function advanceCompletedRuns(env) {
       nowIso(),
       row.id,
     ).run();
+
+    // S8: fire-and-forget run-complete email when the transition actually happened.
+    // Guarded so we never double-send (atomic UPDATE returns 0 changes if a
+    // racing /reject already moved the run).
+    if ((tx.meta?.changes ?? 0) > 0) {
+      try {
+        await notifyRunComplete(env, {
+          id: row.id,
+          total_brokers: stats?.total_brokers ?? 0,
+          brokers_done: stats?.total_brokers ?? 0,
+          brokers_failed: stats?.failed_brokers ?? 0,
+          changes_count: findings?.c ?? 0,
+        });
+      } catch (err) {
+        console.error(`[freshness run #${row.id}] email notify failed:`, err?.message || err);
+      }
+    }
   }
 }
 
@@ -776,9 +801,47 @@ export async function handleApproveRun(request, env, runIdRaw) {
     ).bind(runId, ...committed).run();
   }
 
+  // ─── S7: auto-archive brokers with approved findings whose John run flagged critical ─
+  // (Codex S7+S8 H1) John's is_critical is a BROKER-level flag stored in
+  // agent_runs.output_json (NOT propagated to individual findings — see fix
+  // in processAgentRun above). Archive only when:
+  //   1. broker is in `committed` (real git write happened),
+  //   2. at least one approved+verified finding exists for that broker
+  //      (otherwise there was no real publish reason to archive),
+  //   3. John's broker-level output marked is_critical=true.
+  // This means: if John flagged the broker as critical, we archive on publish.
+  // The operator can still un-archive manually if they disagree.
+  let archivedCount = 0;
+  if (committed.length > 0) {
+    const placeholders = committed.map(() => '?').join(',');
+    const critSlugs = await env.DB.prepare(
+      `SELECT DISTINCT ar.broker_slug FROM agent_runs ar
+       WHERE ar.pipeline_run_id = ?
+         AND ar.agent = 'john'
+         AND ar.status = 'done'
+         AND ar.broker_slug IN (${placeholders})
+         AND json_extract(ar.output_json, '$.is_critical') IN (1, true)
+         AND EXISTS (
+           SELECT 1 FROM agent_findings af
+           WHERE af.pipeline_run_id = ar.pipeline_run_id
+             AND af.broker_slug    = ar.broker_slug
+             AND af.approved = 1 AND af.verified = 1
+         )`
+    ).bind(runId, ...committed).all();
+    for (const r of critSlugs.results || []) {
+      try {
+        const res = await archiveBroker(env, r.broker_slug, 'critical_finding', `pipeline_run #${runId}`);
+        if (res.archived) archivedCount++;
+      } catch (err) {
+        console.error(`[freshness run #${runId}] archive failed for ${r.broker_slug}:`, err?.message || err);
+      }
+    }
+  }
+
   return jsonResponse({
     ok: true,
     approved_count: safeIds.length,
+    archived_brokers: archivedCount,
     git: {
       dry_run:         isDry,
       commit_sha:      commitResult?.commit_sha || null,

@@ -52,7 +52,12 @@ import {
   handleApprovalUI,
   handleTick,
 } from './routes/freshness.js';
+import { runAllWatchdogs } from './watchdogs/runner.js';
+import { runLinkHealthWatchdog } from './watchdogs/link-health.js';
+import { runNewsWatchdog } from './watchdogs/news.js';
+import { listArchivedBrokers, unarchiveBroker, archiveBroker } from './agents/archive.js';
 import { handleOptions } from './utils/cors.js';
+import { checkAuth } from './utils/auth.js';
 
 export default {
   // Cron Trigger — runs every hour
@@ -96,6 +101,25 @@ export default {
         }
       }
       console.log(`[CRON] link check complete — ${brokers.results.length} brokers checked`);
+
+      // 2b. Link Health watchdog — escalates consecutive failures into signals.
+      // Runs immediately after link_checks loop so the freshest data is used.
+      try {
+        const res = await runLinkHealthWatchdog(env);
+        console.log(`[CRON] link_health watchdog: ${res.created} created, ${res.resolved} resolved`);
+      } catch (err) {
+        console.error('[CRON] link_health watchdog error:', err?.message || err);
+      }
+    }
+
+    // 2c. News watchdog — once daily at 08:00 UTC. Uses Claude API (costs).
+    if (now.getUTCHours() === 8) {
+      try {
+        const res = await runNewsWatchdog(env);
+        console.log(`[CRON] news watchdog: scanned=${res.scanned}, findings=${res.findings}, signals=${res.signals_created}, errors=${res.errors}, stub=${res.skipped_stub}`);
+      } catch (err) {
+        console.error('[CRON] news watchdog error:', err?.message || err);
+      }
     }
 
     // 3. Freshness Pipeline recovery tick — drives any 'running' pipeline forward
@@ -525,6 +549,81 @@ export default {
     const signalResolveMatch = path.match(/^\/api\/admin\/signals\/(\d+)\/resolve$/);
     if (signalResolveMatch && request.method === 'POST') {
       return handleSignalResolve(request, env, signalResolveMatch[1]);
+    }
+
+    // ─── S7: broker_status admin endpoints ────────────────────────────────
+    // GET /api/admin/broker-status — list of archived brokers
+    if (path === '/api/admin/broker-status' && request.method === 'GET') {
+      if (!checkAuth(request, env)) {
+        return new Response(JSON.stringify({ error: 'Unauthorized' }), {
+          status: 401, headers: { 'Content-Type': 'application/json' },
+        });
+      }
+      const archived = await listArchivedBrokers(env);
+      return new Response(JSON.stringify({ archived }), {
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
+    // POST /api/admin/broker-status/:slug/archive — manual archive
+    // POST /api/admin/broker-status/:slug/unarchive — manual revert
+    const brokerStatusMatch = path.match(/^\/api\/admin\/broker-status\/([a-z0-9][a-z0-9-]{0,99})\/(archive|unarchive)$/);
+    if (brokerStatusMatch && request.method === 'POST') {
+      if (!checkAuth(request, env)) {
+        return new Response(JSON.stringify({ error: 'Unauthorized' }), {
+          status: 401, headers: { 'Content-Type': 'application/json' },
+        });
+      }
+      const slug = brokerStatusMatch[1];
+      const action = brokerStatusMatch[2];
+      try {
+        if (action === 'archive') {
+          const body = await request.json().catch(() => ({}));
+          const reason = body.reason || 'manual';
+          const detail = body.detail || null;
+          const res = await archiveBroker(env, slug, reason, detail);
+          return new Response(JSON.stringify({ ok: true, ...res }), { headers: { 'Content-Type': 'application/json' } });
+        } else {
+          const res = await unarchiveBroker(env, slug);
+          return new Response(JSON.stringify({ ok: true, ...res }), { headers: { 'Content-Type': 'application/json' } });
+        }
+      } catch (err) {
+        return new Response(JSON.stringify({ error: String(err?.message || err).slice(0, 300) }), {
+          status: 400, headers: { 'Content-Type': 'application/json' },
+        });
+      }
+    }
+
+    // GET /api/broker-status/archived — PUBLIC: slug list for frontend filter
+    if (path === '/api/broker-status/archived' && request.method === 'GET') {
+      const archived = await listArchivedBrokers(env);
+      const slugs = archived.map(r => r.broker_slug);
+      return new Response(JSON.stringify({ slugs }), {
+        headers: {
+          'Content-Type': 'application/json',
+          'Cache-Control': 'public, max-age=300',  // 5 min CDN cache; archive isn't ultra-fresh
+        },
+      });
+    }
+
+    // POST /api/admin/watchdogs/run-now — manual trigger for all watchdogs.
+    // Body: { link_health?: bool, news?: bool, regulator?: bool } — all default true.
+    if (path === '/api/admin/watchdogs/run-now' && request.method === 'POST') {
+      if (!checkAuth(request, env)) {
+        return new Response(JSON.stringify({ error: 'Unauthorized' }), {
+          status: 401, headers: { 'Content-Type': 'application/json' },
+        });
+      }
+      const body = await request.json().catch(() => ({}));
+      const flags = {
+        link_health: body.link_health !== false,
+        news:        body.news        !== false,
+        regulator:   body.regulator   !== false,
+      };
+      const result = await runAllWatchdogs(env, flags);
+      return new Response(JSON.stringify(result), {
+        headers: { 'Content-Type': 'application/json' },
+      });
     }
 
     // GET /api/sitemap.xml — sitemap index
