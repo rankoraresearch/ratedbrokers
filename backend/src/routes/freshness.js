@@ -471,6 +471,14 @@ export async function handleStartRefresh(request, env, ctx) {
   const body = await request.json().catch(() => ({}));
   const triggeredBy = (body.triggered_by || 'manual').slice(0, 50);
 
+  // PILOT MODE: ?limit=N restricts the run to the first N brokers (slice).
+  // Useful for cheap end-to-end smoke tests on prod (e.g. limit=3 ≈ $2-5 vs
+  // full ~$30 sweep). Strict positive-integer cap at 50; invalid values
+  // fall through to a full sweep.
+  const urlObj = new URL(request.url);
+  const limitRaw = parseInt(urlObj.searchParams.get('limit') || '', 10);
+  const pilotLimit = Number.isInteger(limitRaw) && limitRaw > 0 && limitRaw <= 50 ? limitRaw : null;
+
   // Atomic single-active-run guarantee: check + insert in one statement.
   // INSERT ... SELECT WHERE NOT EXISTS races safely against concurrent /start
   // calls — at most one of them produces a row.
@@ -501,6 +509,7 @@ export async function handleStartRefresh(request, env, ctx) {
   try {
     slugs = await listAllBrokerSlugs(env);
     if (slugs.length === 0) throw new Error('No brokers in DB to refresh');
+    if (pilotLimit) slugs = slugs.slice(0, pilotLimit);
     await fanOutAgentRuns(env, runId, slugs);
 
     // Atomic flip: pending → running. Only commits if still pending (no race with /reject).
@@ -530,6 +539,7 @@ export async function handleStartRefresh(request, env, ctx) {
     ok: true,
     run_id: runId,
     queued_agent_runs: slugs.length * 3,
+    pilot_limit: pilotLimit,
     test_mode: isTestMode(env),
     model: getDefaultModel(env),
   }, request);
